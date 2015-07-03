@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore"
+    nsPrefix="quiz-runtime">
+  <eClassifiers xsi:type="ecore:EClass" name="QuizTask">
+    <eOperations name="proposeAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eParameters name="qaNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getAcceptedAnswerCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proposals" upperBound="-1"
+        eType="#//QAProposal" containment="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Task">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptingAnswerState">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//TaskState">
+      <eTypeArguments eClassifier="#//QuizTask"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QAProposal">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qa" eType="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QA"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accepted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="answeredBy" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProposeAnswerAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qaNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//TaskAction">
+      <eTypeArguments eClassifier="#//QuizTask"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptAnswerAction" eSuperTypes="#//ProposeAnswerAction"/>
+</ecore:EPackage>

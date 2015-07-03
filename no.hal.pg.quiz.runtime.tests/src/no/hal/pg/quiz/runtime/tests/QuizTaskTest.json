@@ -1,0 +1,10 @@
+[
+{
+	"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef",
+	"quizParts": [{"$ref": "test:/QuizTaskTest.xquiz#1"}] 
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#//QuizTask",
+	"taskDef": {"$ref": "/0"}
+}
+]

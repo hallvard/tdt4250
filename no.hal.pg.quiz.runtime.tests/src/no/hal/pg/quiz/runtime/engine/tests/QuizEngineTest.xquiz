@@ -1,0 +1,11 @@
+quiz
+
+part task1 "Task 1"
+
+"Question 1" "Hallvard"
+"Question 2" /"Hal(l?)vard"/~
+
+part task2 "Task 2"
+
+"Question 3" 2.3
+"Question 4" yes

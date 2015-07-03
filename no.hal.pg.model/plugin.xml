@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated pg -->
+      <package
+            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
+            class="no.hal.pg.model.ModelPackage"
+            genModel="model/pg.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated pg -->
+      <parser
+            type="pg"
+            class="no.hal.pg.model.util.ModelResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

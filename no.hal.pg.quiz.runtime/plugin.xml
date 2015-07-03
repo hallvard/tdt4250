@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz-runtime -->
+      <package
+            uri="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore"
+            class="no.hal.pg.quiz.runtime.RuntimePackage"
+            genModel="model/quiz-runtime.genmodel"/>
+   </extension>
+
+</plugin>

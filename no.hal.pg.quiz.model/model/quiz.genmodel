@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.model/src" editDirectory="" editorDirectory=""
+    modelPluginID="no.hal.pg.quiz.model" modelName="Quiz" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>quiz.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="no.hal.pg.quiz" disposableProviderFactory="true"
+      ecorePackage="quiz.ecore#/">
+    <genClasses ecoreClass="quiz.ecore#//Quiz">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//Quiz/parts"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//QuizTaskDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizTaskDef/quiz"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//AbstractQuizPart"/>
+    <genClasses ecoreClass="quiz.ecore#//QuizPartRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizPartRef/partRef"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//QuizPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//QuizPart/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//QuizPart/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizPart/questions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//AbstractQA"/>
+    <genClasses ecoreClass="quiz.ecore#//QARef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QARef/qaRef"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//QA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//QA/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//QA/q"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//QA/a"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//Question"/>
+    <genClasses ecoreClass="quiz.ecore#//StringQuestion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringQuestion/question"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//XmlQuestion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlQuestion/xml"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//Answer">
+      <genOperations ecoreOperation="quiz.ecore#//Answer/accept">
+        <genParameters ecoreParameter="quiz.ecore#//Answer/accept/proposal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//OptionAnswer"/>
+    <genClasses image="false" ecoreClass="quiz.ecore#//SimpleAnswer">
+      <genTypeParameters ecoreTypeParameter="quiz.ecore#//SimpleAnswer/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//SimpleAnswer/value"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//StringAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/regexp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/ignoreCase"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//NumberAnswer"/>
+    <genClasses ecoreClass="quiz.ecore#//BooleanAnswer"/>
+    <genClasses ecoreClass="quiz.ecore#//XmlAnswer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlAnswer/xml"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//OptionsAnswer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//OptionsAnswer/options"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Option/correct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//Option/option"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//SingleOptionsAnswer"/>
+    <genClasses ecoreClass="quiz.ecore#//ManyOptionsAnswer"/>
+    <genClasses ecoreClass="quiz.ecore#//Xml">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//Xml/element"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//XmlContents">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlContents/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlContents/post"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//XmlElement"/>
+    <genClasses ecoreClass="quiz.ecore#//XmlPIAnswerElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlPIAnswerElement/answer"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//XmlTagElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlTagElement/startTag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlTagElement/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlTagElement/contents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlTagElement/endTag"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//XmlTag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlTag/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//XmlTag/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//XmlAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlAttribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//XmlAttribute/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
