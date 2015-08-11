@@ -1,2 +1,7 @@
+// output folders
 bin/
 target/
+
+// temporary generated files
+*.xtendbin
+*._trace
