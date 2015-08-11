@@ -1,0 +1,38 @@
+[
+{
+	"eClass": "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+	"ids": ["hal@idi.ntnu.no"]
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+	"ids": ["jon.espen.ingvaldsen@ntnu.no"]
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef",
+	"quizParts": [{"$ref": "test:/QuizTaskTest.xquiz#1"}] 
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Game",
+	"players": [
+		{
+			"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Player",
+			"person": {"$ref": "/0"}
+		},
+		{
+			"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Player",
+			"person": {"$ref": "/1"}
+		}
+	],
+	"tasks": [
+		{
+			"eClass": "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#//QuizTask",
+			"taskDef": {"$ref": "/2"},
+			"players": [{"$ref": "/3/@players.0"}]
+		}
+	]
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#//QuizTaskService",
+	"task": {"$ref": "/3/@tasks.0"}
+}
+]

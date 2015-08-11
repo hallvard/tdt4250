@@ -6,4 +6,7 @@ import no.hal.pg.runtime.Task;
 public interface ITaskEngine<T extends TaskDef> {
 	public Task<T> prepare();
 	public void perform();
+
+	public void addTaskEngineListener(ITaskEngineListener listener);
+	public void removeTaskEngineListener(ITaskEngineListener listener);
 }

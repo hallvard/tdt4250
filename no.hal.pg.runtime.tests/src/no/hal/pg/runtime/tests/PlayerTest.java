@@ -84,5 +84,5 @@ public class PlayerTest extends TestCase {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-
+	
 } //PlayerTest

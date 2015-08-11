@@ -49,22 +49,22 @@ public interface RuntimeFactory extends EFactory {
 	QAProposal createQAProposal();
 
 	/**
-	 * Returns a new object of class '<em>Propose Answer Action</em>'.
+	 * Returns a new object of class '<em>Quiz Task Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propose Answer Action</em>'.
+	 * @return a new object of class '<em>Quiz Task Service</em>'.
 	 * @generated
 	 */
-	ProposeAnswerAction createProposeAnswerAction();
+	QuizTaskService createQuizTaskService();
 
 	/**
-	 * Returns a new object of class '<em>Accept Answer Action</em>'.
+	 * Returns a new object of class '<em>QA Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Accept Answer Action</em>'.
+	 * @return a new object of class '<em>QA Ref</em>'.
 	 * @generated
 	 */
-	AcceptAnswerAction createAcceptAnswerAction();
+	QARef createQARef();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: no.hal.pg.quiz.xtext.tests
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Name: Quiz DSL tests
+Bundle-Vendor: no.hal
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: no.hal.pg.quiz.xtext.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: no.hal.pg.quiz.model;bundle-version="0.1.0",

@@ -2,24 +2,15 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.emfjson.jackson.resource.JsonResourceFactory;
-
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.QuizPart;
+import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
-import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.quiz.xtext.XQuizStandaloneSetup;
+import no.hal.pg.runtime.tests.TaskTest;
+import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,13 +19,13 @@ import no.hal.pg.quiz.xtext.XQuizStandaloneSetup;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(int, java.lang.String, boolean) <em>Propose Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean) <em>Propose Answer</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#getAcceptedAnswerCount() <em>Get Accepted Answer Count</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class QuizTaskTest extends TestCase {
+public class QuizTaskTest extends TaskTest {
 
 	/**
 	 * The fixture for this Quiz Task test case.
@@ -91,32 +82,11 @@ public class QuizTaskTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		QuizTask quizTask = createQuizTask("QuizTaskTest.json", this);
-		setFixture(quizTask);
+		XQuizStandaloneSetup.doSetup();
+		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
+		setFixture((QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask()));
 	}
 
-	public static EObject loadResourceObject(String modelPath, EClass eClass, Object context) {
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("json", new JsonResourceFactory());
-		// register quiz model
-		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
-		// register quiz runtime
-		EPackage.Registry.INSTANCE.put(RuntimePackage.eNS_URI, RuntimePackage.eINSTANCE);
-		// register xquiz DSL
-		XQuizStandaloneSetup.doSetup();
-		
-		URI modelUri = URI.createURI(context.getClass().getResource(modelPath).toString());
-		ResourceSet resSet = new ResourceSetImpl();
-		resSet.getURIConverter().getURIMap().put(URI.createURI("test:/"), modelUri.trimSegments(1).appendSegment(""));
-		Resource taskResource = resSet.getResource(modelUri, true);
-		return (EObject) EcoreUtil.getObjectByType(taskResource.getContents(), eClass);
-	}
-	
-	public static QuizTask createQuizTask(String modelPath, Object context) {
-		QuizTask quizTask = (QuizTask) loadResourceObject(modelPath, RuntimePackage.eINSTANCE.getQuizTask(), context);
-		quizTask.start();
-		return quizTask;
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,35 +98,47 @@ public class QuizTaskTest extends TestCase {
 		setFixture(null);
 	}
 
-	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(int, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(int, java.lang.String, boolean)
-	 * @generated NOT
-	 */
-	public void testProposeAnswer__int_String_boolean() {
+	@Override
+	public void testStart() {
 		QuizTask quizTask = getFixture();
 		assertTrue(quizTask.getTaskDef().getQuizParts().size() >= 1);
 		QuizPart part1 = (QuizPart) quizTask.getTaskDef().getQuizParts().get(0);
 		assertTrue(part1.getQuestions().size() >= 3);
-
-		quizTask.changeState(RuntimeFactory.eINSTANCE.createAcceptingAnswerState());
+		quizTask.start();
+		assertEquals(part1.getQuestions().size(), quizTask.getProposals().size());
 		assertTrue(quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
 		assertFalse(quizTask.isFinished());
-
-		checkProposeAnswer(0, "Hallvard", false, null, 0, false);
-		checkProposeAnswer(0, "Hallvard", true, true, 1, false);
-		checkProposeAnswer(1, "halvard", true, true, 2, false);
-		checkProposeAnswer(2, "1.0", true, false, 2, false);
-		checkProposeAnswer(2, "2.3", true, true, 3, false);
-		checkProposeAnswer(3, "false", true, false, 3, false);
-		checkProposeAnswer(3, "true", true, true, 4, true);
 	}
 
-	private void checkProposeAnswer(int qaNum, String proposal, boolean accept, Boolean result, int count, boolean isFinished) {
+	/**
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean)
+	 * @generated NOT
+	 */
+	public void testProposeAnswer__QA_String_boolean() {
 		QuizTask quizTask = getFixture();
-		assertEquals(result, quizTask.proposeAnswer(qaNum, proposal, accept));
+		quizTask.start();
+		
+		checkProposeAnswer(0, "Hallvard", false, null, 0, 0, false);
+		checkProposeAnswer(0, "Hallvard", true, true, 0, 1, false);
+		checkProposeAnswer(1, "halvard", true, true, 0, 2, false);
+		checkProposeAnswer(2, "1.0", true, false, 1, 2, false);
+		checkProposeAnswer(2, "2.3", true, true, 1, 3, false);
+		checkProposeAnswer(3, "false", true, false, 1, 3, false);
+		checkProposeAnswer(3, "true", true, true, 1, 4, true);
+	}
+
+	private void checkProposeAnswer(int qaNum, String proposal, boolean accept, Boolean result, int rejectCount, int count, boolean isFinished) {
+		QuizTask quizTask = getFixture();
+		QAProposal qaProposal = quizTask.getProposals().get(qaNum);
+		assertEquals(result, quizTask.proposeAnswer(qaProposal.getQa(), proposal, accept));
+		assertEquals(rejectCount, qaProposal.getRejectedCount());
+		checkProposeAnswer(quizTask, qaNum, accept, result, count, isFinished);
+	}
+
+	static void checkProposeAnswer(QuizTask quizTask, int qaNum, boolean accept, Boolean result, int count, boolean isFinished) {
 		assertEquals(count, quizTask.getAcceptedAnswerCount());
 		assertEquals(! isFinished, quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
 		assertEquals(isFinished, quizTask.isInState(no.hal.pg.runtime.RuntimePackage.eINSTANCE.getFinishedState()));
@@ -172,6 +154,7 @@ public class QuizTaskTest extends TestCase {
 	 */
 	public void testGetAcceptedAnswerCount() {
 		QuizTask quizTask = getFixture();
+		quizTask.start();
 		assertEquals(0, quizTask.getAcceptedAnswerCount());
 		quizTask.getProposals().get(1).setAccepted(true);
 		assertEquals(1, quizTask.getAcceptedAnswerCount());

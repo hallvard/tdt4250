@@ -86,6 +86,8 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateGame((Game)value, diagnostics, context);
 			case RuntimePackage.PLAYER:
 				return validatePlayer((Player)value, diagnostics, context);
+			case RuntimePackage.PLAYERS:
+				return validatePlayers((Players)value, diagnostics, context);
 			case RuntimePackage.TASK:
 				return validateTask((Task<?>)value, diagnostics, context);
 			case RuntimePackage.ITASK:
@@ -94,10 +96,20 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.FINISHED_STATE:
 				return validateFinishedState((FinishedState<?>)value, diagnostics, context);
-			case RuntimePackage.TASK_ACTION:
-				return validateTaskAction((TaskAction<?>)value, diagnostics, context);
-			case RuntimePackage.UO_D:
-				return validateUoD((UoD)value, diagnostics, context);
+			case RuntimePackage.SERVICE:
+				return validateService((Service)value, diagnostics, context);
+			case RuntimePackage.SERVICE_LISTENER:
+				return validateServiceListener((ServiceListener)value, diagnostics, context);
+			case RuntimePackage.SERVICE_INVOCATION:
+				return validateServiceInvocation((ServiceInvocation)value, diagnostics, context);
+			case RuntimePackage.REF:
+				return validateRef((Ref<?>)value, diagnostics, context);
+			case RuntimePackage.DIRECT_REF:
+				return validateDirectRef((DirectRef<?>)value, diagnostics, context);
+			case RuntimePackage.TASK_SERVICE:
+				return validateTaskService((TaskService<?>)value, diagnostics, context);
+			case RuntimePackage.PLAYER_REF:
+				return validatePlayerRef((PlayerRef)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
 				return validateTimestamp((Long)value, diagnostics, context);
 			default:
@@ -121,6 +133,15 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validatePlayer(Player player, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(player, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePlayers(Players players, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(players, diagnostics, context);
 	}
 
 	/**
@@ -198,42 +219,8 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTaskAction(TaskAction<?> taskAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(taskAction, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(taskAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTaskAction_PlayerIsContainedInGame(taskAction, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the PlayerIsContainedInGame constraint of '<em>Task Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean validateTaskAction_PlayerIsContainedInGame(TaskAction<?> taskAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (! taskAction.getTask().getPlayers().contains(taskAction.getPlayer())) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "PlayerIsContainedInGame", getObjectLabel(taskAction, context) },
-						 new Object[] { taskAction },
-						 context));
-			}
-			return false;
-		}
-		return true;
+	public boolean validateService(Service service, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(service, diagnostics, context);
 	}
 
 	/**
@@ -241,8 +228,53 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateUoD(UoD uoD, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(uoD, diagnostics, context);
+	public boolean validateServiceListener(ServiceListener serviceListener, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(serviceListener, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateServiceInvocation(ServiceInvocation serviceInvocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(serviceInvocation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTaskService(TaskService<?> taskService, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(taskService, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePlayerRef(PlayerRef playerRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(playerRef, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRef(Ref<?> ref, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(ref, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDirectRef(DirectRef<?> directRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(directRef, diagnostics, context);
 	}
 
 	/**

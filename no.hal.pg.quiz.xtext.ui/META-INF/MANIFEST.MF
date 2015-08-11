@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: no.hal.pg.quiz.xtext.ui
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: no.hal.pg.quiz.xtext.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: no.hal.pg.quiz.xtext;visibility:=reexport,
@@ -17,7 +17,7 @@ Require-Bundle: no.hal.pg.quiz.xtext;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.quiz.xtext.ui.quickfix,
  no.hal.pg.quiz.xtext.ui.contentassist,
  no.hal.pg.quiz.xtext.ui.internal,

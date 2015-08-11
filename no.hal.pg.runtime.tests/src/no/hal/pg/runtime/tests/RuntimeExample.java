@@ -9,6 +9,7 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 
+import no.hal.pg.runtime.util.RuntimeResourceFactoryImpl;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 
@@ -20,8 +21,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
-
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +45,7 @@ public class RuntimeExample {
 		//
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put
 			(Resource.Factory.Registry.DEFAULT_EXTENSION, 
-			 new XMIResourceFactoryImpl());
+			 new RuntimeResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		//
@@ -59,7 +58,7 @@ public class RuntimeExample {
 		if (args.length == 0) {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
-				Resource resource = resourceSet.createResource(URI.createURI("http:///My.runtime"));
+				Resource resource = resourceSet.createResource(URI.createURI("http:///My.pg-rt"));
 				Game root = RuntimeFactory.eINSTANCE.createGame();
 				resource.getContents().add(root);
 				resource.save(System.out, null);

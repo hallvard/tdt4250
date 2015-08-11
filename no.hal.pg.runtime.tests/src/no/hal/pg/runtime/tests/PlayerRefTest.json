@@ -1,0 +1,27 @@
+[
+{
+	"eClass": "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+	"ids": ["hal@idi.ntnu.no"]
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+	"ids": ["jon.espen.ingvaldsen@ntnu.no"]
+},
+{
+	"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Game",
+	"players": [
+		{
+			"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Player",
+			"person": {"$ref": "/0"}
+		},
+		{
+			"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Player",
+			"person": {"$ref": "/1"}
+		}
+	],
+	"tasks": {
+		"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Task",
+		"players": [{"$ref": "/2/@players.0"}]
+	}
+}
+]

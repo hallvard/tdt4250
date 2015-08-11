@@ -2,6 +2,7 @@
  */
 package no.hal.pg.quiz.runtime;
 
+import no.hal.pg.quiz.model.QA;
 import no.hal.pg.quiz.model.QuizTaskDef;
 import no.hal.pg.runtime.Task;
 import org.eclipse.emf.common.util.EList;
@@ -45,7 +46,7 @@ public interface QuizTask extends Task<QuizTaskDef> {
 	 * @model
 	 * @generated
 	 */
-	Boolean proposeAnswer(int qaNum, String proposal, boolean accept);
+	Boolean proposeAnswer(QA qa, String proposal, boolean accept);
 
 	/**
 	 * <!-- begin-user-doc -->

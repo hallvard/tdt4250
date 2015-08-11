@@ -95,15 +95,6 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK__PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK__PLAYERS;
 
 	/**
-	 * The feature id for the '<em><b>Actions</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK__ACTIONS = no.hal.pg.runtime.RuntimePackage.TASK__ACTIONS;
-
-	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,6 +167,15 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK___IS_IN_STATE__ECLASS = no.hal.pg.runtime.RuntimePackage.TASK___IS_IN_STATE__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Get Players</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK___GET_PLAYERS;
+
+	/**
 	 * The operation id for the '<em>Change State</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,7 +200,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK___PROPOSE_ANSWER__INT_STRING_BOOLEAN = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 0;
+	int QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Accepted Answer Count</em>' operation.
@@ -267,13 +267,22 @@ public interface RuntimePackage extends EPackage {
 	int ACCEPTING_ANSWER_STATE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_STATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Finish State</em>' operation.
+	 * The operation id for the '<em>Is Enabled</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCEPTING_ANSWER_STATE___IS_FINISH_STATE = no.hal.pg.runtime.RuntimePackage.TASK_STATE___IS_FINISH_STATE;
+	int ACCEPTING_ANSWER_STATE___IS_ENABLED = no.hal.pg.runtime.RuntimePackage.TASK_STATE___IS_ENABLED;
+
+	/**
+	 * The operation id for the '<em>Is Finished</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCEPTING_ANSWER_STATE___IS_FINISHED = no.hal.pg.runtime.RuntimePackage.TASK_STATE___IS_FINISHED;
 
 	/**
 	 * The number of operations of the '<em>Accepting Answer State</em>' class.
@@ -301,7 +310,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__QA = 0;
+	int QA_PROPOSAL__QA = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
@@ -310,7 +319,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__PROPOSAL = 1;
+	int QA_PROPOSAL__PROPOSAL = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Accepted</b></em>' attribute.
@@ -319,7 +328,34 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__ACCEPTED = 2;
+	int QA_PROPOSAL__ACCEPTED = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Rejected Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL__REJECTED_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Players</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL__PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Answered By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL__ANSWERED_BY = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>QA Proposal</em>' class.
@@ -328,7 +364,16 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL_FEATURE_COUNT = 3;
+	int QA_PROPOSAL_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Players</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS___GET_PLAYERS;
 
 	/**
 	 * The number of operations of the '<em>QA Proposal</em>' class.
@@ -337,35 +382,90 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL_OPERATION_COUNT = 0;
+	int QA_PROPOSAL_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.ProposeAnswerActionImpl <em>Propose Answer Action</em>}' class.
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.QuizTaskServiceImpl <em>Quiz Task Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.impl.ProposeAnswerActionImpl
-	 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getProposeAnswerAction()
+	 * @see no.hal.pg.quiz.runtime.impl.QuizTaskServiceImpl
+	 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQuizTaskService()
 	 * @generated
 	 */
-	int PROPOSE_ANSWER_ACTION = 3;
+	int QUIZ_TASK_SERVICE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Task</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPOSE_ANSWER_ACTION__TASK = no.hal.pg.runtime.RuntimePackage.TASK_ACTION__TASK;
-
-	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPOSE_ANSWER_ACTION__PLAYER = no.hal.pg.runtime.RuntimePackage.TASK_ACTION__PLAYER;
+	int QUIZ_TASK_SERVICE__SERVICE_LISTENERS = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE__TASK = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Quiz Task Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Invoke Service</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION;
+
+	/**
+	 * The operation id for the '<em>Propose Answer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Accept Answer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Quiz Task Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.impl.QARefImpl
+	 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQARef()
+	 * @generated
+	 */
+	int QA_REF = 4;
 
 	/**
 	 * The feature id for the '<em><b>Qa Num</b></em>' attribute.
@@ -374,135 +474,34 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPOSE_ANSWER_ACTION__QA_NUM = no.hal.pg.runtime.RuntimePackage.TASK_ACTION_FEATURE_COUNT + 0;
+	int QA_REF__QA_NUM = no.hal.pg.runtime.RuntimePackage.REF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
+	 * The number of structural features of the '<em>QA Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPOSE_ANSWER_ACTION__PROPOSAL = no.hal.pg.runtime.RuntimePackage.TASK_ACTION_FEATURE_COUNT + 1;
+	int QA_REF_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.REF_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Propose Answer Action</em>' class.
+	 * The operation id for the '<em>Get</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPOSE_ANSWER_ACTION_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_ACTION_FEATURE_COUNT + 2;
+	int QA_REF___GET__EOBJECT = no.hal.pg.runtime.RuntimePackage.REF___GET__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Prepare</em>' operation.
+	 * The number of operations of the '<em>QA Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPOSE_ANSWER_ACTION___PREPARE__TASK = no.hal.pg.runtime.RuntimePackage.TASK_ACTION___PREPARE__TASK;
-
-	/**
-	 * The operation id for the '<em>Perform</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPOSE_ANSWER_ACTION___PERFORM = no.hal.pg.runtime.RuntimePackage.TASK_ACTION___PERFORM;
-
-	/**
-	 * The number of operations of the '<em>Propose Answer Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPOSE_ANSWER_ACTION_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_ACTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.AcceptAnswerActionImpl <em>Accept Answer Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.impl.AcceptAnswerActionImpl
-	 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getAcceptAnswerAction()
-	 * @generated
-	 */
-	int ACCEPT_ANSWER_ACTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Task</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION__TASK = PROPOSE_ANSWER_ACTION__TASK;
-
-	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION__PLAYER = PROPOSE_ANSWER_ACTION__PLAYER;
-
-	/**
-	 * The feature id for the '<em><b>Qa Num</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION__QA_NUM = PROPOSE_ANSWER_ACTION__QA_NUM;
-
-	/**
-	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION__PROPOSAL = PROPOSE_ANSWER_ACTION__PROPOSAL;
-
-	/**
-	 * The number of structural features of the '<em>Accept Answer Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION_FEATURE_COUNT = PROPOSE_ANSWER_ACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Prepare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION___PREPARE__TASK = PROPOSE_ANSWER_ACTION___PREPARE__TASK;
-
-	/**
-	 * The operation id for the '<em>Perform</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION___PERFORM = PROPOSE_ANSWER_ACTION___PERFORM;
-
-	/**
-	 * The number of operations of the '<em>Accept Answer Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPT_ANSWER_ACTION_OPERATION_COUNT = PROPOSE_ANSWER_ACTION_OPERATION_COUNT + 0;
-
+	int QA_REF_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.REF_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QuizTask <em>Quiz Task</em>}'.
@@ -526,14 +525,14 @@ public interface RuntimePackage extends EPackage {
 	EReference getQuizTask_Proposals();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(int, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Propose Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(int, java.lang.String, boolean)
+	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean)
 	 * @generated
 	 */
-	EOperation getQuizTask__ProposeAnswer__int_String_boolean();
+	EOperation getQuizTask__ProposeAnswer__QA_String_boolean();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#getAcceptedAnswerCount() <em>Get Accepted Answer Count</em>}' operation.
@@ -599,46 +598,88 @@ public interface RuntimePackage extends EPackage {
 	EAttribute getQAProposal_Accepted();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.ProposeAnswerAction <em>Propose Answer Action</em>}'.
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QAProposal#getRejectedCount <em>Rejected Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propose Answer Action</em>'.
-	 * @see no.hal.pg.quiz.runtime.ProposeAnswerAction
+	 * @return the meta object for the attribute '<em>Rejected Count</em>'.
+	 * @see no.hal.pg.quiz.runtime.QAProposal#getRejectedCount()
+	 * @see #getQAProposal()
 	 * @generated
 	 */
-	EClass getProposeAnswerAction();
+	EAttribute getQAProposal_RejectedCount();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.ProposeAnswerAction#getQaNum <em>Qa Num</em>}'.
+	 * Returns the meta object for the reference list '{@link no.hal.pg.quiz.runtime.QAProposal#getPlayers <em>Players</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Players</em>'.
+	 * @see no.hal.pg.quiz.runtime.QAProposal#getPlayers()
+	 * @see #getQAProposal()
+	 * @generated
+	 */
+	EReference getQAProposal_Players();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.pg.quiz.runtime.QAProposal#getAnsweredBy <em>Answered By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Answered By</em>'.
+	 * @see no.hal.pg.quiz.runtime.QAProposal#getAnsweredBy()
+	 * @see #getQAProposal()
+	 * @generated
+	 */
+	EReference getQAProposal_AnsweredBy();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QuizTaskService <em>Quiz Task Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Quiz Task Service</em>'.
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService
+	 * @generated
+	 */
+	EClass getQuizTaskService();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Propose Answer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Propose Answer</em>' operation.
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @generated
+	 */
+	EOperation getQuizTaskService__ProposeAnswer__Ref_Ref_String();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Accept Answer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept Answer</em>' operation.
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @generated
+	 */
+	EOperation getQuizTaskService__AcceptAnswer__Ref_Ref_String();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QARef <em>QA Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>QA Ref</em>'.
+	 * @see no.hal.pg.quiz.runtime.QARef
+	 * @generated
+	 */
+	EClass getQARef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QARef#getQaNum <em>Qa Num</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Qa Num</em>'.
-	 * @see no.hal.pg.quiz.runtime.ProposeAnswerAction#getQaNum()
-	 * @see #getProposeAnswerAction()
+	 * @see no.hal.pg.quiz.runtime.QARef#getQaNum()
+	 * @see #getQARef()
 	 * @generated
 	 */
-	EAttribute getProposeAnswerAction_QaNum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.ProposeAnswerAction#getProposal <em>Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proposal</em>'.
-	 * @see no.hal.pg.quiz.runtime.ProposeAnswerAction#getProposal()
-	 * @see #getProposeAnswerAction()
-	 * @generated
-	 */
-	EAttribute getProposeAnswerAction_Proposal();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.AcceptAnswerAction <em>Accept Answer Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Accept Answer Action</em>'.
-	 * @see no.hal.pg.quiz.runtime.AcceptAnswerAction
-	 * @generated
-	 */
-	EClass getAcceptAnswerAction();
+	EAttribute getQARef_QaNum();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -687,7 +728,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK___PROPOSE_ANSWER__INT_STRING_BOOLEAN = eINSTANCE.getQuizTask__ProposeAnswer__int_String_boolean();
+		EOperation QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN = eINSTANCE.getQuizTask__ProposeAnswer__QA_String_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Accepted Answer Count</b></em>' operation.
@@ -742,14 +783,64 @@ public interface RuntimePackage extends EPackage {
 		EAttribute QA_PROPOSAL__ACCEPTED = eINSTANCE.getQAProposal_Accepted();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.ProposeAnswerActionImpl <em>Propose Answer Action</em>}' class.
+		 * The meta object literal for the '<em><b>Rejected Count</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.quiz.runtime.impl.ProposeAnswerActionImpl
-		 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getProposeAnswerAction()
 		 * @generated
 		 */
-		EClass PROPOSE_ANSWER_ACTION = eINSTANCE.getProposeAnswerAction();
+		EAttribute QA_PROPOSAL__REJECTED_COUNT = eINSTANCE.getQAProposal_RejectedCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Players</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QA_PROPOSAL__PLAYERS = eINSTANCE.getQAProposal_Players();
+
+		/**
+		 * The meta object literal for the '<em><b>Answered By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QA_PROPOSAL__ANSWERED_BY = eINSTANCE.getQAProposal_AnsweredBy();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.QuizTaskServiceImpl <em>Quiz Task Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.impl.QuizTaskServiceImpl
+		 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQuizTaskService()
+		 * @generated
+		 */
+		EClass QUIZ_TASK_SERVICE = eINSTANCE.getQuizTaskService();
+
+		/**
+		 * The meta object literal for the '<em><b>Propose Answer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING = eINSTANCE.getQuizTaskService__ProposeAnswer__Ref_Ref_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept Answer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__Ref_Ref_String();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.impl.QARefImpl
+		 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQARef()
+		 * @generated
+		 */
+		EClass QA_REF = eINSTANCE.getQARef();
 
 		/**
 		 * The meta object literal for the '<em><b>Qa Num</b></em>' attribute feature.
@@ -757,25 +848,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPOSE_ANSWER_ACTION__QA_NUM = eINSTANCE.getProposeAnswerAction_QaNum();
-
-		/**
-		 * The meta object literal for the '<em><b>Proposal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPOSE_ANSWER_ACTION__PROPOSAL = eINSTANCE.getProposeAnswerAction_Proposal();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.AcceptAnswerActionImpl <em>Accept Answer Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.quiz.runtime.impl.AcceptAnswerActionImpl
-		 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getAcceptAnswerAction()
-		 * @generated
-		 */
-		EClass ACCEPT_ANSWER_ACTION = eINSTANCE.getAcceptAnswerAction();
+		EAttribute QA_REF__QA_NUM = eINSTANCE.getQARef_QaNum();
 
 	}
 

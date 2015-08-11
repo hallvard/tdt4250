@@ -27,7 +27,6 @@ public class XQuizFormatter extends AbstractDeclarativeFormatter {
   @Extension
   private XQuizGrammarAccess _xQuizGrammarAccess;
   
-  @Override
   protected void configureFormatting(final FormattingConfig c) {
     List<Pair<Keyword, Keyword>> _findKeywordPairs = this._xQuizGrammarAccess.findKeywordPairs("{", "}");
     for (final Pair<Keyword, Keyword> pair : _findKeywordPairs) {

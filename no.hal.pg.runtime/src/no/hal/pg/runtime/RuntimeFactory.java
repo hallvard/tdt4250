@@ -69,13 +69,31 @@ public interface RuntimeFactory extends EFactory {
 	<T extends Task<?>> FinishedState<T> createFinishedState();
 
 	/**
-	 * Returns a new object of class '<em>Uo D</em>'.
+	 * Returns a new object of class '<em>Service Invocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Uo D</em>'.
+	 * @return a new object of class '<em>Service Invocation</em>'.
 	 * @generated
 	 */
-	UoD createUoD();
+	ServiceInvocation createServiceInvocation();
+
+	/**
+	 * Returns a new object of class '<em>Direct Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Direct Ref</em>'.
+	 * @generated
+	 */
+	<T> DirectRef<T> createDirectRef();
+
+	/**
+	 * Returns a new object of class '<em>Player Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Player Ref</em>'.
+	 * @generated
+	 */
+	PlayerRef createPlayerRef();
 
 	/**
 	 * Returns the package supported by this factory.

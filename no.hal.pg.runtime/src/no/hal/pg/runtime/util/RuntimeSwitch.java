@@ -70,6 +70,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 			case RuntimePackage.GAME: {
 				Game game = (Game)theEObject;
 				T1 result = caseGame(game);
+				if (result == null) result = casePlayers(game);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -79,10 +80,17 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RuntimePackage.PLAYERS: {
+				Players players = (Players)theEObject;
+				T1 result = casePlayers(players);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RuntimePackage.TASK: {
 				Task<?> task = (Task<?>)theEObject;
 				T1 result = caseTask(task);
 				if (result == null) result = caseITask(task);
+				if (result == null) result = casePlayers(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,15 +113,48 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.TASK_ACTION: {
-				TaskAction<?> taskAction = (TaskAction<?>)theEObject;
-				T1 result = caseTaskAction(taskAction);
+			case RuntimePackage.SERVICE: {
+				Service service = (Service)theEObject;
+				T1 result = caseService(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.UO_D: {
-				UoD uoD = (UoD)theEObject;
-				T1 result = caseUoD(uoD);
+			case RuntimePackage.SERVICE_LISTENER: {
+				ServiceListener serviceListener = (ServiceListener)theEObject;
+				T1 result = caseServiceListener(serviceListener);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.SERVICE_INVOCATION: {
+				ServiceInvocation serviceInvocation = (ServiceInvocation)theEObject;
+				T1 result = caseServiceInvocation(serviceInvocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.REF: {
+				Ref<?> ref = (Ref<?>)theEObject;
+				T1 result = caseRef(ref);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.DIRECT_REF: {
+				DirectRef<?> directRef = (DirectRef<?>)theEObject;
+				T1 result = caseDirectRef(directRef);
+				if (result == null) result = caseRef(directRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.TASK_SERVICE: {
+				TaskService<?> taskService = (TaskService<?>)theEObject;
+				T1 result = caseTaskService(taskService);
+				if (result == null) result = caseService(taskService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.PLAYER_REF: {
+				PlayerRef playerRef = (PlayerRef)theEObject;
+				T1 result = casePlayerRef(playerRef);
+				if (result == null) result = caseRef(playerRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +189,21 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePlayer(Player object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Players</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Players</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePlayers(Players object) {
 		return null;
 	}
 
@@ -212,32 +268,107 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Task<?>> T1 caseTaskAction(TaskAction<T> object) {
+	public T1 caseService(Service object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Uo D</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Listener</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Uo D</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Listener</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseUoD(UoD object) {
+	public T1 caseServiceListener(ServiceListener object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseServiceInvocation(ServiceInvocation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends Task<?>> T1 caseTaskService(TaskService<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Player Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Player Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePlayerRef(PlayerRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseRef(Ref<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Direct Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Direct Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseDirectRef(DirectRef<T> object) {
 		return null;
 	}
 

@@ -35,6 +35,8 @@ public class RuntimeTests extends TestSuite {
 		suite.addTestSuite(TaskTest.class);
 		suite.addTestSuite(TaskStateTest.class);
 		suite.addTestSuite(FinishedStateTest.class);
+		suite.addTestSuite(DirectRefTest.class);
+		suite.addTestSuite(PlayerRefTest.class);
 		return suite;
 	}
 

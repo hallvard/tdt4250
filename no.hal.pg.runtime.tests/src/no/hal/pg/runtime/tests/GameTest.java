@@ -5,11 +5,9 @@ package no.hal.pg.runtime.tests;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
@@ -26,15 +24,7 @@ import no.hal.pg.runtime.Task;
  * </p>
  * @generated
  */
-public class GameTest extends TestCase {
-
-	/**
-	 * The fixture for this Game test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Game fixture = null;
+public class GameTest extends PlayersTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -56,23 +46,14 @@ public class GameTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Game test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Game fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Game test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Game getFixture() {
-		return fixture;
+		return (Game)fixture;
 	}
 
 	/**
@@ -123,4 +104,13 @@ public class GameTest extends TestCase {
 		assertTrue(finishedTasks.contains(task3));
 	}
 
+	@Override
+	public void testGetPlayers() {
+		Game game = getFixture();
+		Player player = RuntimeFactory.eINSTANCE.createPlayer();
+		game.getPlayers().add(player);
+		assertEquals(1, game.getPlayers().size());
+		assertEquals(player, game.getPlayers().get(0));
+	}
+	
 } //GameTest

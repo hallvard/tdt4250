@@ -181,7 +181,16 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean isFinishState() {
+	public boolean isEnabled() {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isFinished() {
 		return false;
 	}
 
@@ -315,8 +324,10 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.TASK_STATE___IS_FINISH_STATE:
-				return isFinishState();
+			case RuntimePackage.TASK_STATE___IS_ENABLED:
+				return isEnabled();
+			case RuntimePackage.TASK_STATE___IS_FINISHED:
+				return isFinished();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

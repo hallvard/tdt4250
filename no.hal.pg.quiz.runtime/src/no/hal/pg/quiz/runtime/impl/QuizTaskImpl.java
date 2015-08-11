@@ -94,17 +94,32 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean proposeAnswer(int qaNum, String proposal, boolean accept) {
+	public Boolean proposeAnswer(QA qa, String proposal, boolean accept) {
 		if (! isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState())) {
 			return null;
 		}
-		QAProposal qaProposal = getProposals().get(qaNum);
-		Boolean accepted = (accept ? qaProposal.getQa().getA().accept(proposal) : null);
-		qaProposal.setAccepted(accepted);
+		QAProposal qaProposal = findQAProposal(qa);
+		Boolean accepted = null;
+		if (qaProposal != null) {
+			accepted = (accept ? qa.getA().accept(proposal) : null);
+			qaProposal.setAccepted(accepted);
+			if (Boolean.FALSE.equals(accepted)) {
+				qaProposal.setRejectedCount(qaProposal.getRejectedCount() + 1);
+			}
+		}
 		updateFinishedState();
 		return accepted;
 	}
 
+	private QAProposal findQAProposal(QA qa) {
+		for (QAProposal qaProposal : getProposals()) {
+			if (qaProposal.getQa() == qa) {
+				return qaProposal;
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,8 +225,8 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.QUIZ_TASK___PROPOSE_ANSWER__INT_STRING_BOOLEAN:
-				return proposeAnswer((Integer)arguments.get(0), (String)arguments.get(1), (Boolean)arguments.get(2));
+			case RuntimePackage.QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN:
+				return proposeAnswer((QA)arguments.get(0), (String)arguments.get(1), (Boolean)arguments.get(2));
 			case RuntimePackage.QUIZ_TASK___GET_ACCEPTED_ANSWER_COUNT:
 				return getAcceptedAnswerCount();
 		}

@@ -109,6 +109,14 @@ public interface TaskState<T extends Task<?>> extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	boolean isFinishState();
+	boolean isEnabled();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isFinished();
 
 } // TaskState

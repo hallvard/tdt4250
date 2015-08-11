@@ -77,6 +77,10 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createPlayerAdapter();
 			}
 			@Override
+			public Adapter casePlayers(Players object) {
+				return createPlayersAdapter();
+			}
+			@Override
 			public <T extends TaskDef> Adapter caseTask(Task<T> object) {
 				return createTaskAdapter();
 			}
@@ -93,12 +97,32 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createFinishedStateAdapter();
 			}
 			@Override
-			public <T extends Task<?>> Adapter caseTaskAction(TaskAction<T> object) {
-				return createTaskActionAdapter();
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
 			}
 			@Override
-			public Adapter caseUoD(UoD object) {
-				return createUoDAdapter();
+			public Adapter caseServiceListener(ServiceListener object) {
+				return createServiceListenerAdapter();
+			}
+			@Override
+			public Adapter caseServiceInvocation(ServiceInvocation object) {
+				return createServiceInvocationAdapter();
+			}
+			@Override
+			public <T> Adapter caseRef(Ref<T> object) {
+				return createRefAdapter();
+			}
+			@Override
+			public <T> Adapter caseDirectRef(DirectRef<T> object) {
+				return createDirectRefAdapter();
+			}
+			@Override
+			public <T extends Task<?>> Adapter caseTaskService(TaskService<T> object) {
+				return createTaskServiceAdapter();
+			}
+			@Override
+			public Adapter casePlayerRef(PlayerRef object) {
+				return createPlayerRefAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -145,6 +169,20 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Players <em>Players</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.Players
+	 * @generated
+	 */
+	public Adapter createPlayersAdapter() {
 		return null;
 	}
 
@@ -205,30 +243,100 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.TaskAction <em>Task Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Service <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.TaskAction
+	 * @see no.hal.pg.runtime.Service
 	 * @generated
 	 */
-	public Adapter createTaskActionAdapter() {
+	public Adapter createServiceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.UoD <em>Uo D</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceListener <em>Service Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.UoD
+	 * @see no.hal.pg.runtime.ServiceListener
 	 * @generated
 	 */
-	public Adapter createUoDAdapter() {
+	public Adapter createServiceListenerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceInvocation <em>Service Invocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.ServiceInvocation
+	 * @generated
+	 */
+	public Adapter createServiceInvocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.TaskService <em>Task Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.TaskService
+	 * @generated
+	 */
+	public Adapter createTaskServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.PlayerRef <em>Player Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.PlayerRef
+	 * @generated
+	 */
+	public Adapter createPlayerRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Ref <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.Ref
+	 * @generated
+	 */
+	public Adapter createRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.DirectRef <em>Direct Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.DirectRef
+	 * @generated
+	 */
+	public Adapter createDirectRefAdapter() {
 		return null;
 	}
 

@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore"
     nsPrefix="pg-runtime">
-  <eClassifiers xsi:type="ecore:EClass" name="Game">
+  <eClassifiers xsi:type="ecore:EClass" name="Game" eSuperTypes="#//Players">
     <eOperations name="getTasks" upperBound="-1">
       <eGenericType eClassifier="#//Task">
         <eTypeArguments/>
@@ -22,7 +22,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" eOpposite="#//Game/players"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="ecore:EClass ../../no.hal.pg.model/model/pg.ecore#//Person"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//ITask">
+  <eClassifiers xsi:type="ecore:EClass" name="Players" abstract="true">
+    <eOperations name="getPlayers" upperBound="-1" eType="#//Player"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//ITask #//Players">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="PlayerIsContainedInGame"/>
     </eAnnotations>
@@ -47,12 +50,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" eOpposite="#//Game/tasks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
         eType="#//Player"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" containment="true"
-        eOpposite="#//TaskAction/task">
-      <eGenericType eClassifier="#//TaskAction">
-        <eTypeArguments/>
-      </eGenericType>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         containment="true" eOpposite="#//TaskState/task">
       <eGenericType eClassifier="#//TaskState">
@@ -75,7 +72,8 @@
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
-    <eOperations name="isFinishState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isFinished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" eOpposite="#//Task/states">
       <eGenericType eClassifier="#//Task">
         <eTypeArguments/>
@@ -95,32 +93,55 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.lang.Long"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskAction" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="PlayerIsContainedInGame"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true">
+    <eOperations name="invokeService">
+      <eParameters name="invocation" eType="#//ServiceInvocation"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceListeners" upperBound="-1"
+        eType="#//ServiceListener" transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceListener" abstract="true" interface="true">
+    <eOperations name="serviceInvoked">
+      <eParameters name="invocation" eType="#//ServiceInvocation"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceInvocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="#//Timestamp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ref" abstract="true">
+    <eTypeParameters name="T"/>
+    <eOperations name="get">
+      <eGenericType eTypeParameter="#//Ref/T"/>
+      <eParameters name="context" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectRef">
+    <eTypeParameters name="T"/>
+    <eOperations name="get">
+      <eGenericType eTypeParameter="#//DirectRef/T"/>
+      <eParameters name="context" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref">
+      <eGenericType eTypeParameter="#//DirectRef/T"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Ref">
+      <eTypeArguments eTypeParameter="#//DirectRef/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskService" abstract="true" eSuperTypes="#//Service">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Task">
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
-    <eOperations name="prepare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="task">
-        <eGenericType eClassifier="#//Task">
-          <eTypeArguments/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
-    <eOperations name="perform" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" eOpposite="#//Task/actions">
-      <eGenericType eTypeParameter="#//TaskAction/T"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task">
+      <eGenericType eTypeParameter="#//TaskService/T"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="player" eType="#//Player"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UoD">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="persons" upperBound="-1"
-        eType="ecore:EClass ../../no.hal.pg.model/model/pg.ecore#//Person" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="games" upperBound="-1"
-        eType="#//Game" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="personId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//Ref">
+      <eTypeArguments eClassifier="#//Player"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

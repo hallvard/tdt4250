@@ -85,5 +85,5 @@ public class QAProposalTest extends TestCase {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-
+	
 } //QAProposalTest

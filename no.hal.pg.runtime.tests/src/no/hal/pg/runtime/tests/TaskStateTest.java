@@ -14,7 +14,8 @@ import no.hal.pg.runtime.TaskState;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.runtime.TaskState#isFinishState() <em>Is Finish State</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.TaskState#isEnabled() <em>Is Enabled</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.TaskState#isFinished() <em>Is Finished</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -91,16 +92,25 @@ public class TaskStateTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.runtime.TaskState#isFinishState() <em>Is Finish State</em>}' operation.
+	 * Tests the '{@link no.hal.pg.runtime.TaskState#isEnabled() <em>Is Enabled</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.TaskState#isFinishState()
-	 * @generated
+	 * @see no.hal.pg.runtime.TaskState#isEnabled()
+	 * @generated NOT
 	 */
-	public void testIsFinishState() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+	public void testIsEnabled() {
+		// undefined
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.TaskState#isFinished() <em>Is Finished</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.TaskState#isFinished()
+	 * @generated NOT
+	 */
+	public void testIsFinished() {
+		assertFalse(getFixture().isFinished());
 	}
 
 } //TaskStateTest

@@ -38,7 +38,7 @@ public class FinishedStateImpl<T extends Task<?>> extends TaskStateImpl<T> imple
 	//
 	
 	@Override
-	public boolean isFinishState() {
+	public boolean isFinished() {
 		return true;
 	}
 	

@@ -4,17 +4,22 @@ package no.hal.pg.runtime.impl;
 
 import no.hal.pg.model.ModelPackage;
 
+import no.hal.pg.runtime.DirectRef;
 import no.hal.pg.runtime.FinishedState;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.ITask;
 import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.PlayerRef;
+import no.hal.pg.runtime.Players;
+import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.ServiceInvocation;
+import no.hal.pg.runtime.ServiceListener;
 import no.hal.pg.runtime.Task;
-import no.hal.pg.runtime.TaskAction;
+import no.hal.pg.runtime.TaskService;
 import no.hal.pg.runtime.TaskState;
-import no.hal.pg.runtime.UoD;
-
 import no.hal.pg.runtime.util.RuntimeValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -55,6 +60,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass playersEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass taskEClass = null;
 
 	/**
@@ -83,14 +95,49 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass taskActionEClass = null;
+	private EClass serviceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uoDEClass = null;
+	private EClass serviceListenerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceInvocationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass playerRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass refEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass directRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,6 +287,24 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlayers() {
+		return playersEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlayers__GetPlayers() {
+		return playersEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTask() {
 		return taskEClass;
 	}
@@ -276,17 +341,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Actions() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getTask_States() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+		return (EReference)taskEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -402,8 +458,17 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTaskState__IsFinishState() {
+	public EOperation getTaskState__IsEnabled() {
 		return taskStateEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTaskState__IsFinished() {
+		return taskStateEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -420,8 +485,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTaskAction() {
-		return taskActionEClass;
+	public EClass getService() {
+		return serviceEClass;
 	}
 
 	/**
@@ -429,8 +494,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskAction_Task() {
-		return (EReference)taskActionEClass.getEStructuralFeatures().get(0);
+	public EReference getService_ServiceListeners() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -438,8 +503,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskAction_Player() {
-		return (EReference)taskActionEClass.getEStructuralFeatures().get(1);
+	public EOperation getService__InvokeService__ServiceInvocation() {
+		return serviceEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -447,8 +512,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTaskAction__Prepare__Task() {
-		return taskActionEClass.getEOperations().get(0);
+	public EClass getServiceListener() {
+		return serviceListenerEClass;
 	}
 
 	/**
@@ -456,8 +521,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTaskAction__Perform() {
-		return taskActionEClass.getEOperations().get(1);
+	public EOperation getServiceListener__ServiceInvoked__ServiceInvocation() {
+		return serviceListenerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -465,8 +530,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUoD() {
-		return uoDEClass;
+	public EClass getServiceInvocation() {
+		return serviceInvocationEClass;
 	}
 
 	/**
@@ -474,8 +539,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUoD_Persons() {
-		return (EReference)uoDEClass.getEStructuralFeatures().get(0);
+	public EAttribute getServiceInvocation_Timestamp() {
+		return (EAttribute)serviceInvocationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -483,8 +548,80 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUoD_Games() {
-		return (EReference)uoDEClass.getEStructuralFeatures().get(1);
+	public EClass getTaskService() {
+		return taskServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskService_Task() {
+		return (EReference)taskServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPlayerRef() {
+		return playerRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlayerRef_PersonId() {
+		return (EAttribute)playerRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRef() {
+		return refEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRef__Get__EObject() {
+		return refEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDirectRef() {
+		return directRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDirectRef_Ref() {
+		return (EReference)directRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDirectRef__Get__EObject() {
+		return directRefEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -533,11 +670,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEReference(playerEClass, PLAYER__GAME);
 		createEReference(playerEClass, PLAYER__PERSON);
 
+		playersEClass = createEClass(PLAYERS);
+		createEOperation(playersEClass, PLAYERS___GET_PLAYERS);
+
 		taskEClass = createEClass(TASK);
 		createEReference(taskEClass, TASK__TASK_DEF);
 		createEReference(taskEClass, TASK__GAME);
 		createEReference(taskEClass, TASK__PLAYERS);
-		createEReference(taskEClass, TASK__ACTIONS);
 		createEReference(taskEClass, TASK__STATES);
 		createEOperation(taskEClass, TASK___CHANGE_STATE__TASKSTATE);
 		createEOperation(taskEClass, TASK___GET_CURRENT_STATE);
@@ -553,19 +692,33 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEReference(taskStateEClass, TASK_STATE__TASK);
 		createEAttribute(taskStateEClass, TASK_STATE__ENTERED);
 		createEAttribute(taskStateEClass, TASK_STATE__EXITED);
-		createEOperation(taskStateEClass, TASK_STATE___IS_FINISH_STATE);
+		createEOperation(taskStateEClass, TASK_STATE___IS_ENABLED);
+		createEOperation(taskStateEClass, TASK_STATE___IS_FINISHED);
 
 		finishedStateEClass = createEClass(FINISHED_STATE);
 
-		taskActionEClass = createEClass(TASK_ACTION);
-		createEReference(taskActionEClass, TASK_ACTION__TASK);
-		createEReference(taskActionEClass, TASK_ACTION__PLAYER);
-		createEOperation(taskActionEClass, TASK_ACTION___PREPARE__TASK);
-		createEOperation(taskActionEClass, TASK_ACTION___PERFORM);
+		serviceEClass = createEClass(SERVICE);
+		createEReference(serviceEClass, SERVICE__SERVICE_LISTENERS);
+		createEOperation(serviceEClass, SERVICE___INVOKE_SERVICE__SERVICEINVOCATION);
 
-		uoDEClass = createEClass(UO_D);
-		createEReference(uoDEClass, UO_D__PERSONS);
-		createEReference(uoDEClass, UO_D__GAMES);
+		serviceListenerEClass = createEClass(SERVICE_LISTENER);
+		createEOperation(serviceListenerEClass, SERVICE_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION);
+
+		serviceInvocationEClass = createEClass(SERVICE_INVOCATION);
+		createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__TIMESTAMP);
+
+		refEClass = createEClass(REF);
+		createEOperation(refEClass, REF___GET__EOBJECT);
+
+		directRefEClass = createEClass(DIRECT_REF);
+		createEReference(directRefEClass, DIRECT_REF__REF);
+		createEOperation(directRefEClass, DIRECT_REF___GET__EOBJECT);
+
+		taskServiceEClass = createEClass(TASK_SERVICE);
+		createEReference(taskServiceEClass, TASK_SERVICE__TASK);
+
+		playerRefEClass = createEClass(PLAYER_REF);
+		createEAttribute(playerRefEClass, PLAYER_REF__PERSON_ID);
 
 		// Create data types
 		timestampEDataType = createEDataType(TIMESTAMP);
@@ -601,7 +754,9 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		ETypeParameter taskEClass_T = addETypeParameter(taskEClass, "T");
 		ETypeParameter taskStateEClass_T = addETypeParameter(taskStateEClass, "T");
 		ETypeParameter finishedStateEClass_T = addETypeParameter(finishedStateEClass, "T");
-		ETypeParameter taskActionEClass_T = addETypeParameter(taskActionEClass, "T");
+		ETypeParameter refEClass_T = addETypeParameter(refEClass, "T");
+		ETypeParameter directRefEClass_T = addETypeParameter(directRefEClass, "T");
+		ETypeParameter taskServiceEClass_T = addETypeParameter(taskServiceEClass, "T");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(theModelPackage.getTaskDef());
@@ -617,14 +772,25 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1 = createEGenericType(this.getTask());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		taskActionEClass_T.getEBounds().add(g1);
+		taskServiceEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		gameEClass.getESuperTypes().add(this.getPlayers());
 		taskEClass.getESuperTypes().add(this.getITask());
+		taskEClass.getESuperTypes().add(this.getPlayers());
 		g1 = createEGenericType(this.getTaskState());
 		g2 = createEGenericType(finishedStateEClass_T);
 		g1.getETypeArguments().add(g2);
 		finishedStateEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getRef());
+		g2 = createEGenericType(directRefEClass_T);
+		g1.getETypeArguments().add(g2);
+		directRefEClass.getEGenericSuperTypes().add(g1);
+		taskServiceEClass.getESuperTypes().add(this.getService());
+		g1 = createEGenericType(this.getRef());
+		g2 = createEGenericType(this.getPlayer());
+		g1.getETypeArguments().add(g2);
+		playerRefEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -645,15 +811,15 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEReference(getPlayer_Game(), this.getGame(), this.getGame_Players(), "game", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlayer_Person(), theModelPackage.getPerson(), null, "person", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(playersEClass, Players.class, "Players", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getPlayers__GetPlayers(), this.getPlayer(), "getPlayers", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(taskEClass_T);
 		initEReference(getTask_TaskDef(), g1, null, "taskDef", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Game(), this.getGame(), this.getGame_Tasks(), "game", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Players(), this.getPlayer(), null, "players", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getTaskAction());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getTask_Actions(), g1, this.getTaskAction_Task(), "actions", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getTaskState());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -692,26 +858,48 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEAttribute(getTaskState_Entered(), this.getTimestamp(), "entered", null, 0, 1, TaskState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskState_Exited(), this.getTimestamp(), "exited", null, 0, 1, TaskState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTaskState__IsFinishState(), ecorePackage.getEBoolean(), "isFinishState", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTaskState__IsEnabled(), ecorePackage.getEBoolean(), "isEnabled", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTaskState__IsFinished(), ecorePackage.getEBoolean(), "isFinished", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(finishedStateEClass, FinishedState.class, "FinishedState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(taskActionEClass, TaskAction.class, "TaskAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(taskActionEClass_T);
-		initEReference(getTaskAction_Task(), g1, this.getTask_Actions(), "task", null, 0, 1, TaskAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskAction_Player(), this.getPlayer(), null, "player", null, 0, 1, TaskAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getService_ServiceListeners(), this.getServiceListener(), null, "serviceListeners", null, 0, -1, Service.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getTaskAction__Prepare__Task(), ecorePackage.getEBoolean(), "prepare", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getTask());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "task", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getService__InvokeService__ServiceInvocation(), null, "invokeService", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getServiceInvocation(), "invocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTaskAction__Perform(), ecorePackage.getEBoolean(), "perform", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(serviceListenerEClass, ServiceListener.class, "ServiceListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(uoDEClass, UoD.class, "UoD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUoD_Persons(), theModelPackage.getPerson(), null, "persons", null, 0, -1, UoD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUoD_Games(), this.getGame(), null, "games", null, 0, -1, UoD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = initEOperation(getServiceListener__ServiceInvoked__ServiceInvocation(), null, "serviceInvoked", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getServiceInvocation(), "invocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(serviceInvocationEClass, ServiceInvocation.class, "ServiceInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServiceInvocation_Timestamp(), this.getTimestamp(), "timestamp", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(refEClass, Ref.class, "Ref", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getRef__Get__EObject(), null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(refEClass_T);
+		initEOperation(op, g1);
+
+		initEClass(directRefEClass, DirectRef.class, "DirectRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(directRefEClass_T);
+		initEReference(getDirectRef_Ref(), g1, null, "ref", null, 0, 1, DirectRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDirectRef__Get__EObject(), null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(directRefEClass_T);
+		initEOperation(op, g1);
+
+		initEClass(taskServiceEClass, TaskService.class, "TaskService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(taskServiceEClass_T);
+		initEReference(getTaskService_Task(), g1, null, "task", null, 0, 1, TaskService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(playerRefEClass, PlayerRef.class, "PlayerRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPlayerRef_PersonId(), ecorePackage.getEString(), "personId", null, 0, 1, PlayerRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(timestampEDataType, Long.class, "Timestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -734,12 +922,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";	
 		addAnnotation
 		  (taskEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "PlayerIsContainedInGame"
-		   });	
-		addAnnotation
-		  (taskActionEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "PlayerIsContainedInGame"

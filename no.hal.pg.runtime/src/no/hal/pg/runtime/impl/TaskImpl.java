@@ -22,7 +22,6 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
-import no.hal.pg.runtime.TaskAction;
 import no.hal.pg.runtime.TaskState;
 
 /**
@@ -36,7 +35,6 @@ import no.hal.pg.runtime.TaskState;
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getPlayers <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -61,15 +59,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected EList<Player> players;
-	/**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActions()
-	 * @generated
-	 * @ordered
-	 */
-	protected TaskAction<?> actions;
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -195,49 +184,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TaskAction<?> getActions() {
-		return actions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetActions(TaskAction<?> newActions, NotificationChain msgs) {
-		TaskAction<?> oldActions = actions;
-		actions = newActions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK__ACTIONS, oldActions, newActions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActions(TaskAction<?> newActions) {
-		if (newActions != actions) {
-			NotificationChain msgs = null;
-			if (actions != null)
-				msgs = ((InternalEObject)actions).eInverseRemove(this, RuntimePackage.TASK_ACTION__TASK, TaskAction.class, msgs);
-			if (newActions != null)
-				msgs = ((InternalEObject)newActions).eInverseAdd(this, RuntimePackage.TASK_ACTION__TASK, TaskAction.class, msgs);
-			msgs = basicSetActions(newActions, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK__ACTIONS, newActions, newActions));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<TaskState<?>> getStates() {
 		if (states == null) {
 			states = new EObjectContainmentWithInverseEList<TaskState<?>>(TaskState.class, this, RuntimePackage.TASK__STATES, RuntimePackage.TASK_STATE__TASK);
@@ -261,7 +207,7 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public boolean isEnabled() {
-		return true;
+		return (! isStarted()) || getCurrentState().isEnabled();
 	}
 
 	/**
@@ -279,7 +225,7 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public boolean isFinished() {
-		return isStarted() && getCurrentState().isFinishState();
+		return isStarted() && getCurrentState().isFinished();
 	}
 
 	/**
@@ -327,10 +273,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetGame((Game)otherEnd, msgs);
-			case RuntimePackage.TASK__ACTIONS:
-				if (actions != null)
-					msgs = ((InternalEObject)actions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RuntimePackage.TASK__ACTIONS, null, msgs);
-				return basicSetActions((TaskAction<?>)otherEnd, msgs);
 			case RuntimePackage.TASK__STATES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStates()).basicAdd(otherEnd, msgs);
 		}
@@ -347,8 +289,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case RuntimePackage.TASK__GAME:
 				return basicSetGame(null, msgs);
-			case RuntimePackage.TASK__ACTIONS:
-				return basicSetActions(null, msgs);
 			case RuntimePackage.TASK__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 		}
@@ -384,8 +324,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				return getGame();
 			case RuntimePackage.TASK__PLAYERS:
 				return getPlayers();
-			case RuntimePackage.TASK__ACTIONS:
-				return getActions();
 			case RuntimePackage.TASK__STATES:
 				return getStates();
 		}
@@ -410,9 +348,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 			case RuntimePackage.TASK__PLAYERS:
 				getPlayers().clear();
 				getPlayers().addAll((Collection<? extends Player>)newValue);
-				return;
-			case RuntimePackage.TASK__ACTIONS:
-				setActions((TaskAction<?>)newValue);
 				return;
 			case RuntimePackage.TASK__STATES:
 				getStates().clear();
@@ -439,9 +374,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 			case RuntimePackage.TASK__PLAYERS:
 				getPlayers().clear();
 				return;
-			case RuntimePackage.TASK__ACTIONS:
-				setActions((TaskAction<?>)null);
-				return;
 			case RuntimePackage.TASK__STATES:
 				getStates().clear();
 				return;
@@ -463,8 +395,6 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				return getGame() != null;
 			case RuntimePackage.TASK__PLAYERS:
 				return players != null && !players.isEmpty();
-			case RuntimePackage.TASK__ACTIONS:
-				return actions != null;
 			case RuntimePackage.TASK__STATES:
 				return states != null && !states.isEmpty();
 		}

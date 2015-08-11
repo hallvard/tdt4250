@@ -89,7 +89,8 @@ public class AcceptingAnswerStateTest extends TestCase {
 	//
 	
 	public void testIsFinishState() {
-		assertFalse(getFixture().isFinishState());
+		assertTrue(getFixture().isEnabled());
+		assertFalse(getFixture().isFinished());
 	}
 	
 } //AcceptingAnswerStateTest

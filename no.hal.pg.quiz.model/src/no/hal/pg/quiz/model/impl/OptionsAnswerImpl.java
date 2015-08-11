@@ -172,7 +172,7 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 		int[] optionNums = new int[Array.getLength(proposal)];
 		for (int i = 0; i < optionNums.length; i++) {
 			Object optionProposal = Array.get(proposal, i);
-			int num = (optionProposal instanceof Integer ? (int) optionProposal : findOptionNum(optionProposal));
+			int num = (optionProposal instanceof Integer ? (Integer) optionProposal : findOptionNum(optionProposal));
 			if (num < 0 && optionProposal instanceof String) {
 				try {
 					num = Integer.valueOf((String) optionProposal);

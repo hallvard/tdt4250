@@ -2,17 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: no.hal.pg.runtime.tests;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: no.hal.pg.runtime.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: no.hal.pg.runtime.tests,
+ no.hal.pg.runtime.tests.util
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.runtime;visibility:=reexport,
  no.hal.pg.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
  org.emfjson.core;bundle-version="0.10.0",
- org.emfjson.jackson;bundle-version="0.10.0"
+ org.emfjson.jackson;bundle-version="0.10.0",
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.5.0",
+ com.fasterxml.jackson.core.jackson-core;bundle-version="2.5.0",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="2.5.0"
 Bundle-ActivationPolicy: lazy

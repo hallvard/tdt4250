@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link no.hal.pg.runtime.Task#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getPlayers <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.Task#getActions <em>Actions</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -25,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PlayerIsContainedInGame'"
  * @generated
  */
-public interface Task<T extends TaskDef> extends ITask {
+public interface Task<T extends TaskDef> extends ITask, Players {
 	/**
 	 * Returns the value of the '<em><b>Task Def</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -95,34 +94,6 @@ public interface Task<T extends TaskDef> extends ITask {
 	 * @generated
 	 */
 	EList<Player> getPlayers();
-
-	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.TaskAction#getTask <em>Task</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actions</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference.
-	 * @see #setActions(TaskAction)
-	 * @see no.hal.pg.runtime.RuntimePackage#getTask_Actions()
-	 * @see no.hal.pg.runtime.TaskAction#getTask
-	 * @model opposite="task" containment="true"
-	 * @generated
-	 */
-	TaskAction<?> getActions();
-
-	/**
-	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getActions <em>Actions</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Actions</em>' containment reference.
-	 * @see #getActions()
-	 * @generated
-	 */
-	void setActions(TaskAction<?> value);
 
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.

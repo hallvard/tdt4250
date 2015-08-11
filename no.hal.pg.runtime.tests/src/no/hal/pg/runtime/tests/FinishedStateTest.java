@@ -66,5 +66,10 @@ public class FinishedStateTest extends TaskStateTest {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
+	
+	@Override
+	public void testIsFinished() {
+		assertTrue(getFixture().isFinished());
+	}
 
 } //FinishedStateTest
