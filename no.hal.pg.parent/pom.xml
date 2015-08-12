@@ -69,6 +69,7 @@
 	<module>../no.hal.pg.quiz.runtime</module>
 	<module>../no.hal.pg.runtime</module>
 	<module>../no.hal.pg.quiz.xtext</module>
+	<module>../no.hal.pg.quiz.web</module>
 	<module>../no.hal.pg.quiz.xtext.ui</module>
 	<module>../no.hal.pg.runtime.tests</module>
 	<module>../no.hal.pg.quiz.runtime.tests</module>
