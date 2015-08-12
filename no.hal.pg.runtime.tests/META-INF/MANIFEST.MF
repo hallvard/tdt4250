@@ -11,12 +11,6 @@ Export-Package: no.hal.pg.runtime.tests,
  no.hal.pg.runtime.tests.util
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.runtime;visibility:=reexport,
- no.hal.pg.model;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport,
- org.emfjson.core;bundle-version="0.10.0",
- org.emfjson.jackson;bundle-version="0.10.0",
- com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.5.0",
- com.fasterxml.jackson.core.jackson-core;bundle-version="2.5.0",
- com.fasterxml.jackson.core.jackson-databind;bundle-version="2.5.0"
+ org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Import-Package: org.emfjson.jackson.resource;version="0.12.0"
