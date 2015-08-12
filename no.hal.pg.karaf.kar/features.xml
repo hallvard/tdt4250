@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+   <feature name="no.hal.pg" version="0.1.0-SNAPSHOT">
+      <!-- EMF -->
+      <bundle>mvn:org.eclipse.emf/org.eclipse.emf.ecore/2.10.1</bundle>
+      <bundle>mvn:org.eclipse.emf/org.eclipse.emf.common/2.10.1</bundle>
+      <bundle>mvn:org.eclipse.emf/org.eclipse.emf.ecore.xmi/2.10.1</bundle>
+
+      <!-- Emfjson -->
+      <bundle>mvn:org.emfjson/emfjson-core/0.12.0</bundle>
+      <bundle>mvn:org.emfjson/emfjson-jackson/0.12.0</bundle>
+      <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.5.0</bundle>
+      <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.5.0</bundle>
+      <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.5.0</bundle>
+
+      <bundle>mvn:no.hal.pg/no.hal.pg.model/0.1.0-SNAPSHOT</bundle>
+      <bundle>mvn:no.hal.pg/no.hal.pg.runtime/0.1.0-SNAPSHOT</bundle>
+      <bundle>mvn:no.hal.pg/no.hal.pg.quiz.model/0.1.0-SNAPSHOT</bundle>
+      <bundle>mvn:no.hal.pg/no.hal.pg.quiz.runtime/0.1.0-SNAPSHOT</bundle>
+
+      <!-- Xtext -->
+      <bundle>mvn:org.eclipse.xtext/org.eclipse.xtext/2.8.3</bundle>
+      <bundle>mvn:org.eclipse.xtend/org.eclipse.xtend.lib/2.8.3</bundle>
+
+      <bundle>mvn:no.hal.pg/no.hal.pg.quiz.xtext/0.1.0-SNAPSHOT</bundle>
+  
+      <!-- Declarative services -->
+      <bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.scr/1.6.2</bundle>
+ 
+      <!-- HTTP service -->
+      <bundle>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.http.jetty/2.3.2</bundle>
+   </feature>
+</features>
