@@ -10,5 +10,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.quiz.model.tests
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.quiz.model;visibility:=reexport,
+ no.hal.pg.model;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -7,6 +7,10 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.TaskDef;
@@ -15,15 +19,21 @@ import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
 
+@Component(immediate=true)
 public class Engine {
 
 	private Collection<ITaskEngineProvider> taskEngineProviders = new ArrayList<ITaskEngineProvider>();
 	
-	public void addTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
+	@Reference(
+			cardinality=ReferenceCardinality.MULTIPLE,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="removeTaskEngineProvider"
+	)
+	public synchronized void addTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
 		taskEngineProviders.add(taskEngineProvider);
 	}
 	
-	public void removeTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
+	public synchronized void removeTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
 		taskEngineProviders.remove(taskEngineProvider);
 	}
 	

@@ -6,7 +6,7 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>pg.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="no.hal.pg" resource="Basic" disposableProviderFactory="true"
-      fileExtensions="pg" ecorePackage="pg.ecore#/">
+      generateExampleClass="false" fileExtensions="pg" ecorePackage="pg.ecore#/">
     <genClasses ecoreClass="pg.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pg.ecore#//Person/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pg.ecore#//Person/ids"/>

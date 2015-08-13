@@ -14,7 +14,7 @@ public abstract class AbstractTaskEngine<TD extends TaskDef, T extends Task<TD>>
 	public AbstractTaskEngine(TD taskDef) {
 		this.taskDef = taskDef;
 	}
-	
+
 	protected T prepare(T task) {
 		task.setTaskDef(taskDef);
 		this.task = task;

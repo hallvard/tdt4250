@@ -6,15 +6,15 @@
     usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model" operationReflection="true"
     importOrganizing="true">
   <foreignModel>quiz.ecore</foreignModel>
-  <genPackages prefix="Model" basePackage="no.hal.pg.quiz" disposableProviderFactory="true"
-      ecorePackage="quiz.ecore#/">
+  <genPackages prefix="Model" basePackage="no.hal.pg.quiz" resource="Basic" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="quiz.ecore#/">
     <genClasses ecoreClass="quiz.ecore#//Quiz">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//Quiz/parts"/>
     </genClasses>
     <genClasses ecoreClass="quiz.ecore#//QuizTaskDef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizTaskDef/quiz"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizTaskDef/quizParts"/>
     </genClasses>
     <genClasses image="false" ecoreClass="quiz.ecore#//AbstractQuizPart"/>
     <genClasses ecoreClass="quiz.ecore#//QuizPartRef">

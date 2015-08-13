@@ -59,6 +59,13 @@
       </eParameters>
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="getQAProposals" upperBound="-1" eType="#//QAProposal">
+      <eParameters name="playerRef">
+        <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Ref">
+          <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//TaskService">
       <eTypeArguments eClassifier="#//QuizTask"/>
     </eGenericSuperTypes>

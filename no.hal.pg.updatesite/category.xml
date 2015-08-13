@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.pg.feature_0.1.0.qualifier.jar" id="no.hal.pg.feature" version="0.1.0.qualifier">
+      <category name="no.hal.pg.category"/>
+   </feature>
+   <category-def name="no.hal.pg.category" label="Pg"/>
+</site>

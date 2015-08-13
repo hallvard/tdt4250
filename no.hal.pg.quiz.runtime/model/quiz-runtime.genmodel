@@ -6,23 +6,40 @@
     usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.pg.quiz.model/model/quiz.genmodel#//model"
     operationReflection="true" importOrganizing="true">
   <foreignModel>quiz-runtime.ecore</foreignModel>
-  <genPackages prefix="Runtime" basePackage="no.hal.pg.quiz" disposableProviderFactory="true"
-      ecorePackage="quiz-runtime.ecore#/">
+  <genPackages prefix="Runtime" basePackage="no.hal.pg.quiz" resource="Basic" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="quiz-runtime.ecore#/">
     <genClasses ecoreClass="quiz-runtime.ecore#//QuizTask">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz-runtime.ecore#//QuizTask/proposals"/>
-      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTask/acceptAnswer">
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTask/acceptAnswer/qaNum"/>
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTask/acceptAnswer/proposal"/>
+      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTask/proposeAnswer">
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTask/proposeAnswer/qa"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTask/proposeAnswer/proposal"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTask/proposeAnswer/accept"/>
       </genOperations>
+      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTask/getAcceptedAnswerCount"/>
     </genClasses>
+    <genClasses ecoreClass="quiz-runtime.ecore#//AcceptingAnswerState"/>
     <genClasses ecoreClass="quiz-runtime.ecore#//QAProposal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz-runtime.ecore#//QAProposal/qa"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//QAProposal/proposal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//QAProposal/accepted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//QAProposal/rejectedCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz-runtime.ecore#//QAProposal/players"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz-runtime.ecore#//QAProposal/answeredBy"/>
     </genClasses>
-    <genClasses ecoreClass="quiz-runtime.ecore#//AcceptAnswerAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//AcceptAnswerAction/qaNum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//AcceptAnswerAction/proposal"/>
+    <genClasses ecoreClass="quiz-runtime.ecore#//QuizTaskService">
+      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTaskService/proposeAnswer">
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/playerRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/qaRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTaskService/acceptAnswer">
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/playerRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/qaRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/proposal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="quiz-runtime.ecore#//QARef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-runtime.ecore#//QARef/qaNum"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

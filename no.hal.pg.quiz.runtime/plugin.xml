@@ -14,4 +14,11 @@
             genModel="model/quiz-runtime.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated quiz-runtime -->
+      <parser
+            type="runtime"
+            class="no.hal.pg.quiz.runtime.util.RuntimeResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

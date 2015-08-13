@@ -20,6 +20,8 @@
 
       <!-- Xtext -->
       <bundle>mvn:org.eclipse.xtext/org.eclipse.xtext/2.8.3</bundle>
+      <bundle>mvn:com.google.guava/guava-jdk5/17.0</bundle>
+      <bundle>mvn:org.eclipse.xtext/org.eclipse.xtext.xbase.lib/2.8.3</bundle>
       <bundle>mvn:org.eclipse.xtend/org.eclipse.xtend.lib/2.8.3</bundle>
 
       <bundle>mvn:no.hal.pg/no.hal.pg.quiz.xtext/0.1.0-SNAPSHOT</bundle>
