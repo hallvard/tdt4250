@@ -10,6 +10,7 @@ A description of how to check out this code and set up a development environment
 
 ##Source code documentation
 The source code in divided into project modules and is module is described individually. You find an overview and description of the modules in the parent module:
+https://github.com/hallvard/tdt4250/tree/master/no.hal.pg.parent
 
 
 
