@@ -1,6 +1,7 @@
 // output folders
 bin/
 target/
+.idea/
 
 // temporary generated files
 *.xtendbin
