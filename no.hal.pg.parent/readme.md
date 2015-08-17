@@ -29,3 +29,6 @@ This repository contains modules implementing the generic engine and an example 
 
 ##
 Wiki page: https://www.ntnu.no/wiki/display/tdt4250
+
+## Getting started
+A description of how to set up a development environment on your computer is found at: https://www.ntnu.no/wiki/display/tdt4250/Install+and+configure+the+development+and+runtime+environment
