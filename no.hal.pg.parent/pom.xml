@@ -75,8 +75,10 @@
 	<module>../no.hal.pg.quiz.runtime.tests</module>
 	<module>../no.hal.pg.quiz.xtext.tests</module>
 	<module>../no.hal.pg.quiz.model.tests</module>
-	<module>../no.hal.pg.karaf</module>
-	<module>../no.hal.pg.feature</module>
+	<module>../no.hal.pg.model.feature</module>
+	<module>../no.hal.pg.runtime.feature</module>
 	<module>../no.hal.pg.updatesite</module>
+	<module>../no.hal.pg.karaf</module>
+	<module>../no.hal.pg.model.tests</module>
 	</modules>
 </project>
