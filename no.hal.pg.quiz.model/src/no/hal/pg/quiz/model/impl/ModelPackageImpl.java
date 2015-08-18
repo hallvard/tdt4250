@@ -386,6 +386,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getQuizTaskDef_CorrectNeeded() {
+		return (EAttribute)quizTaskDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuizTaskDef_AttemptsAllowed() {
+		return (EAttribute)quizTaskDefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbstractQuizPart() {
 		return abstractQuizPartEClass;
 	}
@@ -631,6 +649,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EClass getNumberAnswer() {
 		return numberAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberAnswer_ErrorMargin() {
+		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -929,6 +956,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		quizTaskDefEClass = createEClass(QUIZ_TASK_DEF);
 		createEReference(quizTaskDefEClass, QUIZ_TASK_DEF__QUIZ_PARTS);
+		createEAttribute(quizTaskDefEClass, QUIZ_TASK_DEF__CORRECT_NEEDED);
+		createEAttribute(quizTaskDefEClass, QUIZ_TASK_DEF__ATTEMPTS_ALLOWED);
 
 		abstractQuizPartEClass = createEClass(ABSTRACT_QUIZ_PART);
 
@@ -971,6 +1000,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__IGNORE_CASE);
 
 		numberAnswerEClass = createEClass(NUMBER_ANSWER);
+		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__ERROR_MARGIN);
 
 		booleanAnswerEClass = createEClass(BOOLEAN_ANSWER);
 
@@ -1083,6 +1113,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(quizTaskDefEClass, QuizTaskDef.class, "QuizTaskDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuizTaskDef_QuizParts(), this.getAbstractQuizPart(), null, "quizParts", null, 0, -1, QuizTaskDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuizTaskDef_CorrectNeeded(), ecorePackage.getEDouble(), "correctNeeded", null, 0, 1, QuizTaskDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuizTaskDef_AttemptsAllowed(), ecorePackage.getEInt(), "attemptsAllowed", null, 0, 1, QuizTaskDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractQuizPartEClass, AbstractQuizPart.class, "AbstractQuizPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1128,6 +1160,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getStringAnswer_IgnoreCase(), ecorePackage.getEBoolean(), "ignoreCase", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberAnswerEClass, NumberAnswer.class, "NumberAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberAnswer_ErrorMargin(), ecorePackage.getEDouble(), "errorMargin", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanAnswerEClass, BooleanAnswer.class, "BooleanAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

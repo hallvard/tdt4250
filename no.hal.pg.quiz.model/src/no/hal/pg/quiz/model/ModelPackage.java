@@ -132,13 +132,31 @@ public interface ModelPackage extends EPackage {
 	int QUIZ_TASK_DEF__QUIZ_PARTS = no.hal.pg.model.ModelPackage.TASK_DEF_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Correct Needed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_DEF__CORRECT_NEEDED = no.hal.pg.model.ModelPackage.TASK_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Attempts Allowed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_DEF__ATTEMPTS_ALLOWED = no.hal.pg.model.ModelPackage.TASK_DEF_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Quiz Task Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_DEF_FEATURE_COUNT = no.hal.pg.model.ModelPackage.TASK_DEF_FEATURE_COUNT + 1;
+	int QUIZ_TASK_DEF_FEATURE_COUNT = no.hal.pg.model.ModelPackage.TASK_DEF_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Quiz Task Def</em>' class.
@@ -695,13 +713,22 @@ public interface ModelPackage extends EPackage {
 	int NUMBER_ANSWER__VALUE = SIMPLE_ANSWER__VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Error Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ANSWER__ERROR_MARGIN = SIMPLE_ANSWER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Number Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 0;
+	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -1367,6 +1394,28 @@ public interface ModelPackage extends EPackage {
 	EReference getQuizTaskDef_QuizParts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.model.QuizTaskDef#getCorrectNeeded <em>Correct Needed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Correct Needed</em>'.
+	 * @see no.hal.pg.quiz.model.QuizTaskDef#getCorrectNeeded()
+	 * @see #getQuizTaskDef()
+	 * @generated
+	 */
+	EAttribute getQuizTaskDef_CorrectNeeded();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.model.QuizTaskDef#getAttemptsAllowed <em>Attempts Allowed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attempts Allowed</em>'.
+	 * @see no.hal.pg.quiz.model.QuizTaskDef#getAttemptsAllowed()
+	 * @see #getQuizTaskDef()
+	 * @generated
+	 */
+	EAttribute getQuizTaskDef_AttemptsAllowed();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.model.AbstractQuizPart <em>Abstract Quiz Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1658,6 +1707,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNumberAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.model.NumberAnswer#getErrorMargin <em>Error Margin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Error Margin</em>'.
+	 * @see no.hal.pg.quiz.model.NumberAnswer#getErrorMargin()
+	 * @see #getNumberAnswer()
+	 * @generated
+	 */
+	EAttribute getNumberAnswer_ErrorMargin();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.model.BooleanAnswer <em>Boolean Answer</em>}'.
@@ -2041,6 +2101,22 @@ public interface ModelPackage extends EPackage {
 		EReference QUIZ_TASK_DEF__QUIZ_PARTS = eINSTANCE.getQuizTaskDef_QuizParts();
 
 		/**
+		 * The meta object literal for the '<em><b>Correct Needed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUIZ_TASK_DEF__CORRECT_NEEDED = eINSTANCE.getQuizTaskDef_CorrectNeeded();
+
+		/**
+		 * The meta object literal for the '<em><b>Attempts Allowed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUIZ_TASK_DEF__ATTEMPTS_ALLOWED = eINSTANCE.getQuizTaskDef_AttemptsAllowed();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.model.impl.AbstractQuizPartImpl <em>Abstract Quiz Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2291,6 +2367,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NUMBER_ANSWER = eINSTANCE.getNumberAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Margin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_ANSWER__ERROR_MARGIN = eINSTANCE.getNumberAnswer_ErrorMargin();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.model.impl.BooleanAnswerImpl <em>Boolean Answer</em>}' class.
