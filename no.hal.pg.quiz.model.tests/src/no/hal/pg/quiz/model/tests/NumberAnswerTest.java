@@ -83,6 +83,13 @@ public class NumberAnswerTest extends SimpleAnswerTest {
 		assertFalse(numberAnswer.accept(1));
 		assertFalse(numberAnswer.accept("1.0"));
 		assertFalse(numberAnswer.accept("1"));
+		
+		numberAnswer.setErrorMargin(0.5);
+		assertTrue(numberAnswer.accept(1.5d));
+		assertTrue(numberAnswer.accept(2.0d));
+		assertTrue(numberAnswer.accept(2.5d));
+		assertFalse(numberAnswer.accept(2.51d));
+		assertFalse(numberAnswer.accept(1.49d));
 	}
 
 } //NumberAnswerTest
