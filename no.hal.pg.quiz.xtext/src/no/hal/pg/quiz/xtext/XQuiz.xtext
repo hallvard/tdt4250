@@ -63,9 +63,9 @@ SimpleAnswer: StringAnswer | RegexAnswer | NumberAnswer | BooleanAnswer;
 StringAnswer: value = STRING (ignoreCase ?= '~')?;
 RegexAnswer returns StringAnswer: (regexp ?= '/') value = STRING '/' (ignoreCase ?= '~')?;
 
-NumberAnswer: value = EDoubleObject;
+NumberAnswer: value = EDoubleObject ('+-' errorMargin = EDoubleObject)?;
 
-EDoubleObject: INT ('.' INT)?;
+EDoubleObject returns ecore::EDouble: INT ('.' INT)?;
 
 BooleanAnswer: {BooleanAnswer} (value ?= ('yes' | 'true') | ('no' | 'false'));
 

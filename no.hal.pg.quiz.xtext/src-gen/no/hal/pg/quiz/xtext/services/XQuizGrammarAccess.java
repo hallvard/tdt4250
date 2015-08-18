@@ -496,18 +496,38 @@ public class XQuizGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class NumberAnswerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberAnswer");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueEDoubleObjectParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cValueEDoubleObjectParserRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cPlusSignHyphenMinusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cErrorMarginAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cErrorMarginEDoubleObjectParserRuleCall_1_1_0 = (RuleCall)cErrorMarginAssignment_1_1.eContents().get(0);
 		
 		//NumberAnswer:
-		//	value=EDoubleObject;
+		//	value=EDoubleObject ("+-" errorMargin=EDoubleObject)?;
 		@Override public ParserRule getRule() { return rule; }
 
+		//value=EDoubleObject ("+-" errorMargin=EDoubleObject)?
+		public Group getGroup() { return cGroup; }
+
 		//value=EDoubleObject
-		public Assignment getValueAssignment() { return cValueAssignment; }
+		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
 
 		//EDoubleObject
-		public RuleCall getValueEDoubleObjectParserRuleCall_0() { return cValueEDoubleObjectParserRuleCall_0; }
+		public RuleCall getValueEDoubleObjectParserRuleCall_0_0() { return cValueEDoubleObjectParserRuleCall_0_0; }
+
+		//("+-" errorMargin=EDoubleObject)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"+-"
+		public Keyword getPlusSignHyphenMinusKeyword_1_0() { return cPlusSignHyphenMinusKeyword_1_0; }
+
+		//errorMargin=EDoubleObject
+		public Assignment getErrorMarginAssignment_1_1() { return cErrorMarginAssignment_1_1; }
+
+		//EDoubleObject
+		public RuleCall getErrorMarginEDoubleObjectParserRuleCall_1_1_0() { return cErrorMarginEDoubleObjectParserRuleCall_1_1_0; }
 	}
 
 	public class EDoubleObjectElements extends AbstractParserRuleElementFinder {
@@ -518,7 +538,7 @@ public class XQuizGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//EDoubleObject:
+		//EDoubleObject returns ecore::EDouble:
 		//	INT ("." INT)?;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -1320,7 +1340,7 @@ public class XQuizGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NumberAnswer:
-	//	value=EDoubleObject;
+	//	value=EDoubleObject ("+-" errorMargin=EDoubleObject)?;
 	public NumberAnswerElements getNumberAnswerAccess() {
 		return pNumberAnswer;
 	}
@@ -1329,7 +1349,7 @@ public class XQuizGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberAnswerAccess().getRule();
 	}
 
-	//EDoubleObject:
+	//EDoubleObject returns ecore::EDouble:
 	//	INT ("." INT)?;
 	public EDoubleObjectElements getEDoubleObjectAccess() {
 		return pEDoubleObject;

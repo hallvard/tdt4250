@@ -195,17 +195,10 @@ public abstract class AbstractXQuizSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     value=EDoubleObject
+	 *     (value=EDoubleObject errorMargin=EDoubleObject?)
 	 */
 	protected void sequence_NumberAnswer(EObject context, NumberAnswer semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.SIMPLE_ANSWER__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.SIMPLE_ANSWER__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNumberAnswerAccess().getValueEDoubleObjectParserRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

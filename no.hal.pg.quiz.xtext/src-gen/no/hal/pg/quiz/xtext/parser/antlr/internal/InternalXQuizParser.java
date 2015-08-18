@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalXQuizParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_XML_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'quiz'", "'.'", "'part'", "'ref'", "'~'", "'/'", "'yes'", "'true'", "'no'", "'false'", "'('", "'x'", "')'", "'-'", "'v'", "'['", "']'", "'<<'", "'>>'", "'?'", "'='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_XML_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'quiz'", "'.'", "'part'", "'ref'", "'~'", "'/'", "'+-'", "'yes'", "'true'", "'no'", "'false'", "'('", "'x'", "')'", "'-'", "'v'", "'['", "']'", "'<<'", "'>>'", "'?'", "'='"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=9;
@@ -30,6 +30,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
+    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
@@ -188,16 +189,16 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     case RULE_STRING:
                     case RULE_INT:
                     case 17:
-                    case 18:
                     case 19:
                     case 20:
                     case 21:
                     case 22:
                     case 23:
-                    case 25:
+                    case 24:
                     case 26:
                     case 27:
-                    case 29:
+                    case 28:
+                    case 30:
                         {
                         alt4=2;
                         }
@@ -211,7 +212,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 29:
+                case 30:
                     {
                     alt4=2;
                     }
@@ -252,16 +253,16 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                 case RULE_STRING:
                 case RULE_INT:
                 case 17:
-                case 18:
                 case 19:
                 case 20:
                 case 21:
                 case 22:
                 case 23:
-                case 25:
+                case 24:
                 case 26:
                 case 27:
-                case 29:
+                case 28:
+                case 30:
                     {
                     alt4=2;
                     }
@@ -286,7 +287,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 15:
-            case 29:
+            case 30:
                 {
                 alt4=2;
                 }
@@ -869,7 +870,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)||LA7_0==15||LA7_0==29) ) {
+                if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)||LA7_0==15||LA7_0==30) ) {
                     alt7=1;
                 }
 
@@ -1111,7 +1112,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=RULE_STRING && LA8_0<=RULE_ID)||LA8_0==15||LA8_0==29) ) {
+                if ( ((LA8_0>=RULE_STRING && LA8_0<=RULE_ID)||LA8_0==15||LA8_0==30) ) {
                     alt8=1;
                 }
 
@@ -1230,7 +1231,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_ID)||LA9_0==29) ) {
+            if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_ID)||LA9_0==30) ) {
                 alt9=1;
             }
             else if ( (LA9_0==15) ) {
@@ -1637,7 +1638,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             if ( (LA11_0==RULE_STRING) ) {
                 alt11=1;
             }
-            else if ( (LA11_0==29) ) {
+            else if ( (LA11_0==30) ) {
                 alt11=2;
             }
             else {
@@ -1949,10 +1950,10 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_STRING||LA12_0==RULE_INT||(LA12_0>=17 && LA12_0<=21)||LA12_0==29) ) {
+            if ( (LA12_0==RULE_STRING||LA12_0==RULE_INT||LA12_0==17||(LA12_0>=19 && LA12_0<=22)||LA12_0==30) ) {
                 alt12=1;
             }
-            else if ( ((LA12_0>=22 && LA12_0<=23)||(LA12_0>=25 && LA12_0<=27)) ) {
+            else if ( ((LA12_0>=23 && LA12_0<=24)||(LA12_0>=26 && LA12_0<=28)) ) {
                 alt12=2;
             }
             else {
@@ -2074,10 +2075,10 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_STRING||LA13_0==RULE_INT||(LA13_0>=17 && LA13_0<=21)) ) {
+            if ( (LA13_0==RULE_STRING||LA13_0==RULE_INT||LA13_0==17||(LA13_0>=19 && LA13_0<=22)) ) {
                 alt13=1;
             }
-            else if ( (LA13_0==29) ) {
+            else if ( (LA13_0==30) ) {
                 alt13=2;
             }
             else {
@@ -2217,10 +2218,10 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                 alt14=3;
                 }
                 break;
-            case 18:
             case 19:
             case 20:
             case 21:
+            case 22:
                 {
                 alt14=4;
                 }
@@ -2654,29 +2655,35 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:969:1: ruleNumberAnswer returns [EObject current=null] : ( (lv_value_0_0= ruleEDoubleObject ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:969:1: ruleNumberAnswer returns [EObject current=null] : ( ( (lv_value_0_0= ruleEDoubleObject ) ) (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )? ) ;
     public final EObject ruleNumberAnswer() throws RecognitionException {
         EObject current = null;
 
+        Token otherlv_1=null;
         AntlrDatatypeRuleToken lv_value_0_0 = null;
+
+        AntlrDatatypeRuleToken lv_errorMargin_2_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:972:28: ( ( (lv_value_0_0= ruleEDoubleObject ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:1: ( (lv_value_0_0= ruleEDoubleObject ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:972:28: ( ( ( (lv_value_0_0= ruleEDoubleObject ) ) (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )? ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:1: ( ( (lv_value_0_0= ruleEDoubleObject ) ) (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )? )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:1: ( (lv_value_0_0= ruleEDoubleObject ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:1: ( ( (lv_value_0_0= ruleEDoubleObject ) ) (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )? )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:2: ( (lv_value_0_0= ruleEDoubleObject ) ) (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )?
+            {
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:973:2: ( (lv_value_0_0= ruleEDoubleObject ) )
             // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:974:1: (lv_value_0_0= ruleEDoubleObject )
             {
             // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:974:1: (lv_value_0_0= ruleEDoubleObject )
             // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:975:3: lv_value_0_0= ruleEDoubleObject
             {
              
-            	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getValueEDoubleObjectParserRuleCall_0()); 
+            	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getValueEDoubleObjectParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2306);
+            pushFollow(FollowSets000.FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2307);
             lv_value_0_0=ruleEDoubleObject();
 
             state._fsp--;
@@ -2692,6 +2699,61 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     		"EDoubleObject");
             	        afterParserOrEnumRuleCall();
             	    
+
+            }
+
+
+            }
+
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:991:2: (otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==18) ) {
+                alt17=1;
+            }
+            switch (alt17) {
+                case 1 :
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:991:4: otherlv_1= '+-' ( (lv_errorMargin_2_0= ruleEDoubleObject ) )
+                    {
+                    otherlv_1=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleNumberAnswer2320); 
+
+                        	newLeafNode(otherlv_1, grammarAccess.getNumberAnswerAccess().getPlusSignHyphenMinusKeyword_1_0());
+                        
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:995:1: ( (lv_errorMargin_2_0= ruleEDoubleObject ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:996:1: (lv_errorMargin_2_0= ruleEDoubleObject )
+                    {
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:996:1: (lv_errorMargin_2_0= ruleEDoubleObject )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:997:3: lv_errorMargin_2_0= ruleEDoubleObject
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getErrorMarginEDoubleObjectParserRuleCall_1_1_0()); 
+                    	    
+                    pushFollow(FollowSets000.FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2341);
+                    lv_errorMargin_2_0=ruleEDoubleObject();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getNumberAnswerRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"errorMargin",
+                            		lv_errorMargin_2_0, 
+                            		"EDoubleObject");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -2716,7 +2778,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEDoubleObject"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:999:1: entryRuleEDoubleObject returns [String current=null] : iv_ruleEDoubleObject= ruleEDoubleObject EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1021:1: entryRuleEDoubleObject returns [String current=null] : iv_ruleEDoubleObject= ruleEDoubleObject EOF ;
     public final String entryRuleEDoubleObject() throws RecognitionException {
         String current = null;
 
@@ -2724,17 +2786,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1000:2: (iv_ruleEDoubleObject= ruleEDoubleObject EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1001:2: iv_ruleEDoubleObject= ruleEDoubleObject EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1022:2: (iv_ruleEDoubleObject= ruleEDoubleObject EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1023:2: iv_ruleEDoubleObject= ruleEDoubleObject EOF
             {
              newCompositeNode(grammarAccess.getEDoubleObjectRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEDoubleObject_in_entryRuleEDoubleObject2342);
+            pushFollow(FollowSets000.FOLLOW_ruleEDoubleObject_in_entryRuleEDoubleObject2380);
             iv_ruleEDoubleObject=ruleEDoubleObject();
 
             state._fsp--;
 
              current =iv_ruleEDoubleObject.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEDoubleObject2353); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEDoubleObject2391); 
 
             }
 
@@ -2752,7 +2814,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEDoubleObject"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1008:1: ruleEDoubleObject returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1030:1: ruleEDoubleObject returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) ;
     public final AntlrDatatypeRuleToken ruleEDoubleObject() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2763,36 +2825,36 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1011:28: ( (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1012:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1033:28: ( (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1034:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1012:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1012:6: this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )?
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1034:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1034:6: this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )?
             {
-            this_INT_0=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDoubleObject2393); 
+            this_INT_0=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDoubleObject2431); 
 
             		current.merge(this_INT_0);
                 
              
                 newLeafNode(this_INT_0, grammarAccess.getEDoubleObjectAccess().getINTTerminalRuleCall_0()); 
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1019:1: (kw= '.' this_INT_2= RULE_INT )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1041:1: (kw= '.' this_INT_2= RULE_INT )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==13) ) {
-                alt17=1;
+            if ( (LA18_0==13) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1020:2: kw= '.' this_INT_2= RULE_INT
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1042:2: kw= '.' this_INT_2= RULE_INT
                     {
-                    kw=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleEDoubleObject2412); 
+                    kw=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleEDoubleObject2450); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getEDoubleObjectAccess().getFullStopKeyword_1_0()); 
                         
-                    this_INT_2=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDoubleObject2427); 
+                    this_INT_2=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDoubleObject2465); 
 
                     		current.merge(this_INT_2);
                         
@@ -2826,7 +2888,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1040:1: entryRuleBooleanAnswer returns [EObject current=null] : iv_ruleBooleanAnswer= ruleBooleanAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1062:1: entryRuleBooleanAnswer returns [EObject current=null] : iv_ruleBooleanAnswer= ruleBooleanAnswer EOF ;
     public final EObject entryRuleBooleanAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -2834,17 +2896,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1041:2: (iv_ruleBooleanAnswer= ruleBooleanAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1042:2: iv_ruleBooleanAnswer= ruleBooleanAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1063:2: (iv_ruleBooleanAnswer= ruleBooleanAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1064:2: iv_ruleBooleanAnswer= ruleBooleanAnswer EOF
             {
              newCompositeNode(grammarAccess.getBooleanAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleBooleanAnswer_in_entryRuleBooleanAnswer2474);
+            pushFollow(FollowSets000.FOLLOW_ruleBooleanAnswer_in_entryRuleBooleanAnswer2512);
             iv_ruleBooleanAnswer=ruleBooleanAnswer();
 
             state._fsp--;
 
              current =iv_ruleBooleanAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBooleanAnswer2484); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBooleanAnswer2522); 
 
             }
 
@@ -2862,7 +2924,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1049:1: ruleBooleanAnswer returns [EObject current=null] : ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1071:1: ruleBooleanAnswer returns [EObject current=null] : ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) ) ;
     public final EObject ruleBooleanAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -2874,14 +2936,14 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1052:28: ( ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1053:1: ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1074:28: ( ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1075:1: ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1053:1: ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1053:2: () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1075:1: ( () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1075:2: () ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1053:2: ()
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1054:5: 
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1075:2: ()
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1076:5: 
             {
 
                     current = forceCreateModelElement(
@@ -2891,53 +2953,53 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1059:2: ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) )
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1081:2: ( ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) ) | (otherlv_2= 'no' | otherlv_3= 'false' ) )
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( ((LA20_0>=18 && LA20_0<=19)) ) {
-                alt20=1;
+            if ( ((LA21_0>=19 && LA21_0<=20)) ) {
+                alt21=1;
             }
-            else if ( ((LA20_0>=20 && LA20_0<=21)) ) {
-                alt20=2;
+            else if ( ((LA21_0>=21 && LA21_0<=22)) ) {
+                alt21=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1059:3: ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1081:3: ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1059:3: ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1060:1: ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1081:3: ( ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1082:1: ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1060:1: ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1061:1: (lv_value_1_1= 'yes' | lv_value_1_2= 'true' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1082:1: ( (lv_value_1_1= 'yes' | lv_value_1_2= 'true' ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1083:1: (lv_value_1_1= 'yes' | lv_value_1_2= 'true' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1061:1: (lv_value_1_1= 'yes' | lv_value_1_2= 'true' )
-                    int alt18=2;
-                    int LA18_0 = input.LA(1);
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1083:1: (lv_value_1_1= 'yes' | lv_value_1_2= 'true' )
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
 
-                    if ( (LA18_0==18) ) {
-                        alt18=1;
+                    if ( (LA19_0==19) ) {
+                        alt19=1;
                     }
-                    else if ( (LA18_0==19) ) {
-                        alt18=2;
+                    else if ( (LA19_0==20) ) {
+                        alt19=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 18, 0, input);
+                            new NoViableAltException("", 19, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt18) {
+                    switch (alt19) {
                         case 1 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1062:3: lv_value_1_1= 'yes'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1084:3: lv_value_1_1= 'yes'
                             {
-                            lv_value_1_1=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleBooleanAnswer2539); 
+                            lv_value_1_1=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBooleanAnswer2577); 
 
                                     newLeafNode(lv_value_1_1, grammarAccess.getBooleanAnswerAccess().getValueYesKeyword_1_0_0_0());
                                 
@@ -2951,9 +3013,9 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1074:8: lv_value_1_2= 'true'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1096:8: lv_value_1_2= 'true'
                             {
-                            lv_value_1_2=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBooleanAnswer2568); 
+                            lv_value_1_2=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleBooleanAnswer2606); 
 
                                     newLeafNode(lv_value_1_2, grammarAccess.getBooleanAnswerAccess().getValueTrueKeyword_1_0_0_1());
                                 
@@ -2979,29 +3041,29 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1090:6: (otherlv_2= 'no' | otherlv_3= 'false' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1112:6: (otherlv_2= 'no' | otherlv_3= 'false' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1090:6: (otherlv_2= 'no' | otherlv_3= 'false' )
-                    int alt19=2;
-                    int LA19_0 = input.LA(1);
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1112:6: (otherlv_2= 'no' | otherlv_3= 'false' )
+                    int alt20=2;
+                    int LA20_0 = input.LA(1);
 
-                    if ( (LA19_0==20) ) {
-                        alt19=1;
+                    if ( (LA20_0==21) ) {
+                        alt20=1;
                     }
-                    else if ( (LA19_0==21) ) {
-                        alt19=2;
+                    else if ( (LA20_0==22) ) {
+                        alt20=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 19, 0, input);
+                            new NoViableAltException("", 20, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt19) {
+                    switch (alt20) {
                         case 1 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1090:8: otherlv_2= 'no'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1112:8: otherlv_2= 'no'
                             {
-                            otherlv_2=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleBooleanAnswer2603); 
+                            otherlv_2=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleBooleanAnswer2641); 
 
                                 	newLeafNode(otherlv_2, grammarAccess.getBooleanAnswerAccess().getNoKeyword_1_1_0());
                                 
@@ -3009,9 +3071,9 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1095:7: otherlv_3= 'false'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1117:7: otherlv_3= 'false'
                             {
-                            otherlv_3=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleBooleanAnswer2621); 
+                            otherlv_3=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleBooleanAnswer2659); 
 
                                 	newLeafNode(otherlv_3, grammarAccess.getBooleanAnswerAccess().getFalseKeyword_1_1_1());
                                 
@@ -3048,7 +3110,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1107:1: entryRuleXmlAnswer returns [EObject current=null] : iv_ruleXmlAnswer= ruleXmlAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1129:1: entryRuleXmlAnswer returns [EObject current=null] : iv_ruleXmlAnswer= ruleXmlAnswer EOF ;
     public final EObject entryRuleXmlAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3056,17 +3118,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1108:2: (iv_ruleXmlAnswer= ruleXmlAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1109:2: iv_ruleXmlAnswer= ruleXmlAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1130:2: (iv_ruleXmlAnswer= ruleXmlAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1131:2: iv_ruleXmlAnswer= ruleXmlAnswer EOF
             {
              newCompositeNode(grammarAccess.getXmlAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlAnswer_in_entryRuleXmlAnswer2659);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlAnswer_in_entryRuleXmlAnswer2697);
             iv_ruleXmlAnswer=ruleXmlAnswer();
 
             state._fsp--;
 
              current =iv_ruleXmlAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlAnswer2669); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlAnswer2707); 
 
             }
 
@@ -3084,7 +3146,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1116:1: ruleXmlAnswer returns [EObject current=null] : ( (lv_xml_0_0= ruleXml ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1138:1: ruleXmlAnswer returns [EObject current=null] : ( (lv_xml_0_0= ruleXml ) ) ;
     public final EObject ruleXmlAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3094,19 +3156,19 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1119:28: ( ( (lv_xml_0_0= ruleXml ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1120:1: ( (lv_xml_0_0= ruleXml ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1141:28: ( ( (lv_xml_0_0= ruleXml ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1142:1: ( (lv_xml_0_0= ruleXml ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1120:1: ( (lv_xml_0_0= ruleXml ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1121:1: (lv_xml_0_0= ruleXml )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1142:1: ( (lv_xml_0_0= ruleXml ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1143:1: (lv_xml_0_0= ruleXml )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1121:1: (lv_xml_0_0= ruleXml )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1122:3: lv_xml_0_0= ruleXml
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1143:1: (lv_xml_0_0= ruleXml )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1144:3: lv_xml_0_0= ruleXml
             {
              
             	        newCompositeNode(grammarAccess.getXmlAnswerAccess().getXmlXmlParserRuleCall_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleXml_in_ruleXmlAnswer2714);
+            pushFollow(FollowSets000.FOLLOW_ruleXml_in_ruleXmlAnswer2752);
             lv_xml_0_0=ruleXml();
 
             state._fsp--;
@@ -3146,7 +3208,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1146:1: entryRuleOptionsAnswer returns [EObject current=null] : iv_ruleOptionsAnswer= ruleOptionsAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1168:1: entryRuleOptionsAnswer returns [EObject current=null] : iv_ruleOptionsAnswer= ruleOptionsAnswer EOF ;
     public final EObject entryRuleOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3154,17 +3216,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1147:2: (iv_ruleOptionsAnswer= ruleOptionsAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1148:2: iv_ruleOptionsAnswer= ruleOptionsAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1169:2: (iv_ruleOptionsAnswer= ruleOptionsAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1170:2: iv_ruleOptionsAnswer= ruleOptionsAnswer EOF
             {
              newCompositeNode(grammarAccess.getOptionsAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOptionsAnswer_in_entryRuleOptionsAnswer2749);
+            pushFollow(FollowSets000.FOLLOW_ruleOptionsAnswer_in_entryRuleOptionsAnswer2787);
             iv_ruleOptionsAnswer=ruleOptionsAnswer();
 
             state._fsp--;
 
              current =iv_ruleOptionsAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOptionsAnswer2759); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOptionsAnswer2797); 
 
             }
 
@@ -3182,7 +3244,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1155:1: ruleOptionsAnswer returns [EObject current=null] : (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1177:1: ruleOptionsAnswer returns [EObject current=null] : (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer ) ;
     public final EObject ruleOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3194,33 +3256,33 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1158:28: ( (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1159:1: (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1180:28: ( (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1181:1: (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1159:1: (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer )
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1181:1: (this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer | this_ManyOptionsAnswer_1= ruleManyOptionsAnswer )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( ((LA21_0>=22 && LA21_0<=23)||(LA21_0>=25 && LA21_0<=26)) ) {
-                alt21=1;
+            if ( ((LA22_0>=23 && LA22_0<=24)||(LA22_0>=26 && LA22_0<=27)) ) {
+                alt22=1;
             }
-            else if ( (LA21_0==27) ) {
-                alt21=2;
+            else if ( (LA22_0==28) ) {
+                alt22=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1160:5: this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1182:5: this_SingleOptionsAnswer_0= ruleSingleOptionsAnswer
                     {
                      
                             newCompositeNode(grammarAccess.getOptionsAnswerAccess().getSingleOptionsAnswerParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleSingleOptionsAnswer_in_ruleOptionsAnswer2806);
+                    pushFollow(FollowSets000.FOLLOW_ruleSingleOptionsAnswer_in_ruleOptionsAnswer2844);
                     this_SingleOptionsAnswer_0=ruleSingleOptionsAnswer();
 
                     state._fsp--;
@@ -3233,12 +3295,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1170:5: this_ManyOptionsAnswer_1= ruleManyOptionsAnswer
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1192:5: this_ManyOptionsAnswer_1= ruleManyOptionsAnswer
                     {
                      
                             newCompositeNode(grammarAccess.getOptionsAnswerAccess().getManyOptionsAnswerParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleManyOptionsAnswer_in_ruleOptionsAnswer2833);
+                    pushFollow(FollowSets000.FOLLOW_ruleManyOptionsAnswer_in_ruleOptionsAnswer2871);
                     this_ManyOptionsAnswer_1=ruleManyOptionsAnswer();
 
                     state._fsp--;
@@ -3271,7 +3333,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1186:1: entryRuleSingleOptionsAnswer returns [EObject current=null] : iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1208:1: entryRuleSingleOptionsAnswer returns [EObject current=null] : iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF ;
     public final EObject entryRuleSingleOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3279,17 +3341,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1187:2: (iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1188:2: iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1209:2: (iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1210:2: iv_ruleSingleOptionsAnswer= ruleSingleOptionsAnswer EOF
             {
              newCompositeNode(grammarAccess.getSingleOptionsAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSingleOptionsAnswer_in_entryRuleSingleOptionsAnswer2868);
+            pushFollow(FollowSets000.FOLLOW_ruleSingleOptionsAnswer_in_entryRuleSingleOptionsAnswer2906);
             iv_ruleSingleOptionsAnswer=ruleSingleOptionsAnswer();
 
             state._fsp--;
 
              current =iv_ruleSingleOptionsAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleOptionsAnswer2878); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleOptionsAnswer2916); 
 
             }
 
@@ -3307,7 +3369,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1195:1: ruleSingleOptionsAnswer returns [EObject current=null] : (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1217:1: ruleSingleOptionsAnswer returns [EObject current=null] : (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer ) ;
     public final EObject ruleSingleOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3319,33 +3381,33 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1198:28: ( (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1199:1: (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1220:28: ( (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1221:1: (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1199:1: (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer )
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1221:1: (this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer | this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer )
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==22) ) {
-                alt22=1;
+            if ( (LA23_0==23) ) {
+                alt23=1;
             }
-            else if ( (LA22_0==23||(LA22_0>=25 && LA22_0<=26)) ) {
-                alt22=2;
+            else if ( (LA23_0==24||(LA23_0>=26 && LA23_0<=27)) ) {
+                alt23=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1200:5: this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1222:5: this_SingleBoxOptionsAnswer_0= ruleSingleBoxOptionsAnswer
                     {
                      
                             newCompositeNode(grammarAccess.getSingleOptionsAnswerAccess().getSingleBoxOptionsAnswerParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOptionsAnswer_in_ruleSingleOptionsAnswer2925);
+                    pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOptionsAnswer_in_ruleSingleOptionsAnswer2963);
                     this_SingleBoxOptionsAnswer_0=ruleSingleBoxOptionsAnswer();
 
                     state._fsp--;
@@ -3358,12 +3420,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1210:5: this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1232:5: this_SingleListOptionsAnswer_1= ruleSingleListOptionsAnswer
                     {
                      
                             newCompositeNode(grammarAccess.getSingleOptionsAnswerAccess().getSingleListOptionsAnswerParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleSingleListOptionsAnswer_in_ruleSingleOptionsAnswer2952);
+                    pushFollow(FollowSets000.FOLLOW_ruleSingleListOptionsAnswer_in_ruleSingleOptionsAnswer2990);
                     this_SingleListOptionsAnswer_1=ruleSingleListOptionsAnswer();
 
                     state._fsp--;
@@ -3396,7 +3458,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleBoxOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1226:1: entryRuleSingleBoxOptionsAnswer returns [EObject current=null] : iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1248:1: entryRuleSingleBoxOptionsAnswer returns [EObject current=null] : iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF ;
     public final EObject entryRuleSingleBoxOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3404,17 +3466,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1227:2: (iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1228:2: iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1249:2: (iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1250:2: iv_ruleSingleBoxOptionsAnswer= ruleSingleBoxOptionsAnswer EOF
             {
              newCompositeNode(grammarAccess.getSingleBoxOptionsAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOptionsAnswer_in_entryRuleSingleBoxOptionsAnswer2987);
+            pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOptionsAnswer_in_entryRuleSingleBoxOptionsAnswer3025);
             iv_ruleSingleBoxOptionsAnswer=ruleSingleBoxOptionsAnswer();
 
             state._fsp--;
 
              current =iv_ruleSingleBoxOptionsAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleBoxOptionsAnswer2997); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleBoxOptionsAnswer3035); 
 
             }
 
@@ -3432,7 +3494,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleBoxOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1235:1: ruleSingleBoxOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleSingleBoxOption ) )+ ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1257:1: ruleSingleBoxOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleSingleBoxOption ) )+ ;
     public final EObject ruleSingleBoxOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3442,32 +3504,32 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1238:28: ( ( (lv_options_0_0= ruleSingleBoxOption ) )+ )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1239:1: ( (lv_options_0_0= ruleSingleBoxOption ) )+
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1260:28: ( ( (lv_options_0_0= ruleSingleBoxOption ) )+ )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1261:1: ( (lv_options_0_0= ruleSingleBoxOption ) )+
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1239:1: ( (lv_options_0_0= ruleSingleBoxOption ) )+
-            int cnt23=0;
-            loop23:
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1261:1: ( (lv_options_0_0= ruleSingleBoxOption ) )+
+            int cnt24=0;
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA23_0==22) ) {
-                    alt23=1;
+                if ( (LA24_0==23) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1240:1: (lv_options_0_0= ruleSingleBoxOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1262:1: (lv_options_0_0= ruleSingleBoxOption )
             	    {
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1240:1: (lv_options_0_0= ruleSingleBoxOption )
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1241:3: lv_options_0_0= ruleSingleBoxOption
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1262:1: (lv_options_0_0= ruleSingleBoxOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1263:3: lv_options_0_0= ruleSingleBoxOption
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSingleBoxOptionsAnswerAccess().getOptionsSingleBoxOptionParserRuleCall_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOption_in_ruleSingleBoxOptionsAnswer3042);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOption_in_ruleSingleBoxOptionsAnswer3080);
             	    lv_options_0_0=ruleSingleBoxOption();
 
             	    state._fsp--;
@@ -3491,12 +3553,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt23 >= 1 ) break loop23;
+            	    if ( cnt24 >= 1 ) break loop24;
                         EarlyExitException eee =
-                            new EarlyExitException(23, input);
+                            new EarlyExitException(24, input);
                         throw eee;
                 }
-                cnt23++;
+                cnt24++;
             } while (true);
 
 
@@ -3517,7 +3579,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleBoxOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1265:1: entryRuleSingleBoxOption returns [EObject current=null] : iv_ruleSingleBoxOption= ruleSingleBoxOption EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1287:1: entryRuleSingleBoxOption returns [EObject current=null] : iv_ruleSingleBoxOption= ruleSingleBoxOption EOF ;
     public final EObject entryRuleSingleBoxOption() throws RecognitionException {
         EObject current = null;
 
@@ -3525,17 +3587,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1266:2: (iv_ruleSingleBoxOption= ruleSingleBoxOption EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1267:2: iv_ruleSingleBoxOption= ruleSingleBoxOption EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1288:2: (iv_ruleSingleBoxOption= ruleSingleBoxOption EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1289:2: iv_ruleSingleBoxOption= ruleSingleBoxOption EOF
             {
              newCompositeNode(grammarAccess.getSingleBoxOptionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOption_in_entryRuleSingleBoxOption3078);
+            pushFollow(FollowSets000.FOLLOW_ruleSingleBoxOption_in_entryRuleSingleBoxOption3116);
             iv_ruleSingleBoxOption=ruleSingleBoxOption();
 
             state._fsp--;
 
              current =iv_ruleSingleBoxOption; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleBoxOption3088); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleBoxOption3126); 
 
             }
 
@@ -3553,7 +3615,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleBoxOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1274:1: ruleSingleBoxOption returns [EObject current=null] : (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1296:1: ruleSingleBoxOption returns [EObject current=null] : (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
     public final EObject ruleSingleBoxOption() throws RecognitionException {
         EObject current = null;
 
@@ -3566,31 +3628,31 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1277:28: ( (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1278:1: (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1299:28: ( (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1300:1: (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1278:1: (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1278:3: otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1300:1: (otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1300:3: otherlv_0= '(' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ')' ( (lv_option_3_0= ruleOptionAnswer ) )
             {
-            otherlv_0=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleSingleBoxOption3125); 
+            otherlv_0=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSingleBoxOption3163); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSingleBoxOptionAccess().getLeftParenthesisKeyword_0());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1282:1: ( (lv_correct_1_0= 'x' ) )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1304:1: ( (lv_correct_1_0= 'x' ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA24_0==23) ) {
-                alt24=1;
+            if ( (LA25_0==24) ) {
+                alt25=1;
             }
-            switch (alt24) {
+            switch (alt25) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1283:1: (lv_correct_1_0= 'x' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1305:1: (lv_correct_1_0= 'x' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1283:1: (lv_correct_1_0= 'x' )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1284:3: lv_correct_1_0= 'x'
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1305:1: (lv_correct_1_0= 'x' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1306:3: lv_correct_1_0= 'x'
                     {
-                    lv_correct_1_0=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSingleBoxOption3143); 
+                    lv_correct_1_0=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSingleBoxOption3181); 
 
                             newLeafNode(lv_correct_1_0, grammarAccess.getSingleBoxOptionAccess().getCorrectXKeyword_1_0());
                         
@@ -3609,20 +3671,20 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSingleBoxOption3169); 
+            otherlv_2=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSingleBoxOption3207); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getSingleBoxOptionAccess().getRightParenthesisKeyword_2());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1301:1: ( (lv_option_3_0= ruleOptionAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1302:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1323:1: ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1324:1: (lv_option_3_0= ruleOptionAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1302:1: (lv_option_3_0= ruleOptionAnswer )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1303:3: lv_option_3_0= ruleOptionAnswer
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1324:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1325:3: lv_option_3_0= ruleOptionAnswer
             {
              
             	        newCompositeNode(grammarAccess.getSingleBoxOptionAccess().getOptionOptionAnswerParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleSingleBoxOption3190);
+            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleSingleBoxOption3228);
             lv_option_3_0=ruleOptionAnswer();
 
             state._fsp--;
@@ -3665,7 +3727,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleListOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1327:1: entryRuleSingleListOptionsAnswer returns [EObject current=null] : iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1349:1: entryRuleSingleListOptionsAnswer returns [EObject current=null] : iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF ;
     public final EObject entryRuleSingleListOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3673,17 +3735,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1328:2: (iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1329:2: iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1350:2: (iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1351:2: iv_ruleSingleListOptionsAnswer= ruleSingleListOptionsAnswer EOF
             {
              newCompositeNode(grammarAccess.getSingleListOptionsAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSingleListOptionsAnswer_in_entryRuleSingleListOptionsAnswer3226);
+            pushFollow(FollowSets000.FOLLOW_ruleSingleListOptionsAnswer_in_entryRuleSingleListOptionsAnswer3264);
             iv_ruleSingleListOptionsAnswer=ruleSingleListOptionsAnswer();
 
             state._fsp--;
 
              current =iv_ruleSingleListOptionsAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleListOptionsAnswer3236); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleListOptionsAnswer3274); 
 
             }
 
@@ -3701,7 +3763,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleListOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1336:1: ruleSingleListOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleSingleListOption ) )+ ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1358:1: ruleSingleListOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleSingleListOption ) )+ ;
     public final EObject ruleSingleListOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3711,32 +3773,32 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1339:28: ( ( (lv_options_0_0= ruleSingleListOption ) )+ )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1340:1: ( (lv_options_0_0= ruleSingleListOption ) )+
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1361:28: ( ( (lv_options_0_0= ruleSingleListOption ) )+ )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1362:1: ( (lv_options_0_0= ruleSingleListOption ) )+
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1340:1: ( (lv_options_0_0= ruleSingleListOption ) )+
-            int cnt25=0;
-            loop25:
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1362:1: ( (lv_options_0_0= ruleSingleListOption ) )+
+            int cnt26=0;
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA25_0==23||(LA25_0>=25 && LA25_0<=26)) ) {
-                    alt25=1;
+                if ( (LA26_0==24||(LA26_0>=26 && LA26_0<=27)) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1341:1: (lv_options_0_0= ruleSingleListOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1363:1: (lv_options_0_0= ruleSingleListOption )
             	    {
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1341:1: (lv_options_0_0= ruleSingleListOption )
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1342:3: lv_options_0_0= ruleSingleListOption
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1363:1: (lv_options_0_0= ruleSingleListOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1364:3: lv_options_0_0= ruleSingleListOption
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSingleListOptionsAnswerAccess().getOptionsSingleListOptionParserRuleCall_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSingleListOption_in_ruleSingleListOptionsAnswer3281);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSingleListOption_in_ruleSingleListOptionsAnswer3319);
             	    lv_options_0_0=ruleSingleListOption();
 
             	    state._fsp--;
@@ -3760,12 +3822,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt25 >= 1 ) break loop25;
+            	    if ( cnt26 >= 1 ) break loop26;
                         EarlyExitException eee =
-                            new EarlyExitException(25, input);
+                            new EarlyExitException(26, input);
                         throw eee;
                 }
-                cnt25++;
+                cnt26++;
             } while (true);
 
 
@@ -3786,7 +3848,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleListOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1366:1: entryRuleSingleListOption returns [EObject current=null] : iv_ruleSingleListOption= ruleSingleListOption EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1388:1: entryRuleSingleListOption returns [EObject current=null] : iv_ruleSingleListOption= ruleSingleListOption EOF ;
     public final EObject entryRuleSingleListOption() throws RecognitionException {
         EObject current = null;
 
@@ -3794,17 +3856,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1367:2: (iv_ruleSingleListOption= ruleSingleListOption EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1368:2: iv_ruleSingleListOption= ruleSingleListOption EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1389:2: (iv_ruleSingleListOption= ruleSingleListOption EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1390:2: iv_ruleSingleListOption= ruleSingleListOption EOF
             {
              newCompositeNode(grammarAccess.getSingleListOptionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSingleListOption_in_entryRuleSingleListOption3317);
+            pushFollow(FollowSets000.FOLLOW_ruleSingleListOption_in_entryRuleSingleListOption3355);
             iv_ruleSingleListOption=ruleSingleListOption();
 
             state._fsp--;
 
              current =iv_ruleSingleListOption; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleListOption3327); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSingleListOption3365); 
 
             }
 
@@ -3822,7 +3884,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleListOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1375:1: ruleSingleListOption returns [EObject current=null] : ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1397:1: ruleSingleListOption returns [EObject current=null] : ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
     public final EObject ruleSingleListOption() throws RecognitionException {
         EObject current = null;
 
@@ -3835,53 +3897,53 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1378:28: ( ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:1: ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1400:28: ( ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:1: ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:1: ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:2: ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:1: ( ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:2: ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) ) ( (lv_option_3_0= ruleOptionAnswer ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:2: ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) )
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:2: ( (otherlv_0= '-' | otherlv_1= 'x' ) | ( (lv_correct_2_0= 'v' ) ) )
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA27_0==23||LA27_0==25) ) {
-                alt27=1;
+            if ( (LA28_0==24||LA28_0==26) ) {
+                alt28=1;
             }
-            else if ( (LA27_0==26) ) {
-                alt27=2;
+            else if ( (LA28_0==27) ) {
+                alt28=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:3: (otherlv_0= '-' | otherlv_1= 'x' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:3: (otherlv_0= '-' | otherlv_1= 'x' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:3: (otherlv_0= '-' | otherlv_1= 'x' )
-                    int alt26=2;
-                    int LA26_0 = input.LA(1);
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:3: (otherlv_0= '-' | otherlv_1= 'x' )
+                    int alt27=2;
+                    int LA27_0 = input.LA(1);
 
-                    if ( (LA26_0==25) ) {
-                        alt26=1;
+                    if ( (LA27_0==26) ) {
+                        alt27=1;
                     }
-                    else if ( (LA26_0==23) ) {
-                        alt26=2;
+                    else if ( (LA27_0==24) ) {
+                        alt27=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 26, 0, input);
+                            new NoViableAltException("", 27, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt26) {
+                    switch (alt27) {
                         case 1 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1379:5: otherlv_0= '-'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1401:5: otherlv_0= '-'
                             {
-                            otherlv_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSingleListOption3366); 
+                            otherlv_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSingleListOption3404); 
 
                                 	newLeafNode(otherlv_0, grammarAccess.getSingleListOptionAccess().getHyphenMinusKeyword_0_0_0());
                                 
@@ -3889,9 +3951,9 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1384:7: otherlv_1= 'x'
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1406:7: otherlv_1= 'x'
                             {
-                            otherlv_1=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSingleListOption3384); 
+                            otherlv_1=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSingleListOption3422); 
 
                                 	newLeafNode(otherlv_1, grammarAccess.getSingleListOptionAccess().getXKeyword_0_0_1());
                                 
@@ -3905,15 +3967,15 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1389:6: ( (lv_correct_2_0= 'v' ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1411:6: ( (lv_correct_2_0= 'v' ) )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1389:6: ( (lv_correct_2_0= 'v' ) )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1390:1: (lv_correct_2_0= 'v' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1411:6: ( (lv_correct_2_0= 'v' ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1412:1: (lv_correct_2_0= 'v' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1390:1: (lv_correct_2_0= 'v' )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1391:3: lv_correct_2_0= 'v'
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1412:1: (lv_correct_2_0= 'v' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1413:3: lv_correct_2_0= 'v'
                     {
-                    lv_correct_2_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSingleListOption3409); 
+                    lv_correct_2_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSingleListOption3447); 
 
                             newLeafNode(lv_correct_2_0, grammarAccess.getSingleListOptionAccess().getCorrectVKeyword_0_1_0());
                         
@@ -3935,16 +3997,16 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1404:3: ( (lv_option_3_0= ruleOptionAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1405:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1426:3: ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1427:1: (lv_option_3_0= ruleOptionAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1405:1: (lv_option_3_0= ruleOptionAnswer )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1406:3: lv_option_3_0= ruleOptionAnswer
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1427:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1428:3: lv_option_3_0= ruleOptionAnswer
             {
              
             	        newCompositeNode(grammarAccess.getSingleListOptionAccess().getOptionOptionAnswerParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleSingleListOption3444);
+            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleSingleListOption3482);
             lv_option_3_0=ruleOptionAnswer();
 
             state._fsp--;
@@ -3987,7 +4049,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleManyOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1430:1: entryRuleManyOptionsAnswer returns [EObject current=null] : iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1452:1: entryRuleManyOptionsAnswer returns [EObject current=null] : iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF ;
     public final EObject entryRuleManyOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -3995,17 +4057,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1431:2: (iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1432:2: iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1453:2: (iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1454:2: iv_ruleManyOptionsAnswer= ruleManyOptionsAnswer EOF
             {
              newCompositeNode(grammarAccess.getManyOptionsAnswerRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleManyOptionsAnswer_in_entryRuleManyOptionsAnswer3480);
+            pushFollow(FollowSets000.FOLLOW_ruleManyOptionsAnswer_in_entryRuleManyOptionsAnswer3518);
             iv_ruleManyOptionsAnswer=ruleManyOptionsAnswer();
 
             state._fsp--;
 
              current =iv_ruleManyOptionsAnswer; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleManyOptionsAnswer3490); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleManyOptionsAnswer3528); 
 
             }
 
@@ -4023,7 +4085,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleManyOptionsAnswer"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1439:1: ruleManyOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleManyOption ) )+ ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1461:1: ruleManyOptionsAnswer returns [EObject current=null] : ( (lv_options_0_0= ruleManyOption ) )+ ;
     public final EObject ruleManyOptionsAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -4033,32 +4095,32 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1442:28: ( ( (lv_options_0_0= ruleManyOption ) )+ )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1443:1: ( (lv_options_0_0= ruleManyOption ) )+
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1464:28: ( ( (lv_options_0_0= ruleManyOption ) )+ )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1465:1: ( (lv_options_0_0= ruleManyOption ) )+
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1443:1: ( (lv_options_0_0= ruleManyOption ) )+
-            int cnt28=0;
-            loop28:
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1465:1: ( (lv_options_0_0= ruleManyOption ) )+
+            int cnt29=0;
+            loop29:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA28_0==27) ) {
-                    alt28=1;
+                if ( (LA29_0==28) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt29) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1444:1: (lv_options_0_0= ruleManyOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1466:1: (lv_options_0_0= ruleManyOption )
             	    {
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1444:1: (lv_options_0_0= ruleManyOption )
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1445:3: lv_options_0_0= ruleManyOption
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1466:1: (lv_options_0_0= ruleManyOption )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1467:3: lv_options_0_0= ruleManyOption
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getManyOptionsAnswerAccess().getOptionsManyOptionParserRuleCall_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleManyOption_in_ruleManyOptionsAnswer3535);
+            	    pushFollow(FollowSets000.FOLLOW_ruleManyOption_in_ruleManyOptionsAnswer3573);
             	    lv_options_0_0=ruleManyOption();
 
             	    state._fsp--;
@@ -4082,12 +4144,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt28 >= 1 ) break loop28;
+            	    if ( cnt29 >= 1 ) break loop29;
                         EarlyExitException eee =
-                            new EarlyExitException(28, input);
+                            new EarlyExitException(29, input);
                         throw eee;
                 }
-                cnt28++;
+                cnt29++;
             } while (true);
 
 
@@ -4108,7 +4170,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleManyOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1469:1: entryRuleManyOption returns [EObject current=null] : iv_ruleManyOption= ruleManyOption EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1491:1: entryRuleManyOption returns [EObject current=null] : iv_ruleManyOption= ruleManyOption EOF ;
     public final EObject entryRuleManyOption() throws RecognitionException {
         EObject current = null;
 
@@ -4116,17 +4178,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1470:2: (iv_ruleManyOption= ruleManyOption EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1471:2: iv_ruleManyOption= ruleManyOption EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1492:2: (iv_ruleManyOption= ruleManyOption EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1493:2: iv_ruleManyOption= ruleManyOption EOF
             {
              newCompositeNode(grammarAccess.getManyOptionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleManyOption_in_entryRuleManyOption3571);
+            pushFollow(FollowSets000.FOLLOW_ruleManyOption_in_entryRuleManyOption3609);
             iv_ruleManyOption=ruleManyOption();
 
             state._fsp--;
 
              current =iv_ruleManyOption; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleManyOption3581); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleManyOption3619); 
 
             }
 
@@ -4144,7 +4206,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleManyOption"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1478:1: ruleManyOption returns [EObject current=null] : (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1500:1: ruleManyOption returns [EObject current=null] : (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) ) ;
     public final EObject ruleManyOption() throws RecognitionException {
         EObject current = null;
 
@@ -4157,31 +4219,31 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1481:28: ( (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1482:1: (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1503:28: ( (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1504:1: (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1482:1: (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1482:3: otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1504:1: (otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1504:3: otherlv_0= '[' ( (lv_correct_1_0= 'x' ) )? otherlv_2= ']' ( (lv_option_3_0= ruleOptionAnswer ) )
             {
-            otherlv_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleManyOption3618); 
+            otherlv_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleManyOption3656); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getManyOptionAccess().getLeftSquareBracketKeyword_0());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1486:1: ( (lv_correct_1_0= 'x' ) )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1508:1: ( (lv_correct_1_0= 'x' ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==23) ) {
-                alt29=1;
+            if ( (LA30_0==24) ) {
+                alt30=1;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1487:1: (lv_correct_1_0= 'x' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1509:1: (lv_correct_1_0= 'x' )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1487:1: (lv_correct_1_0= 'x' )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1488:3: lv_correct_1_0= 'x'
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1509:1: (lv_correct_1_0= 'x' )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1510:3: lv_correct_1_0= 'x'
                     {
-                    lv_correct_1_0=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleManyOption3636); 
+                    lv_correct_1_0=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleManyOption3674); 
 
                             newLeafNode(lv_correct_1_0, grammarAccess.getManyOptionAccess().getCorrectXKeyword_1_0());
                         
@@ -4200,20 +4262,20 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleManyOption3662); 
+            otherlv_2=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleManyOption3700); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getManyOptionAccess().getRightSquareBracketKeyword_2());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1505:1: ( (lv_option_3_0= ruleOptionAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1506:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1527:1: ( (lv_option_3_0= ruleOptionAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1528:1: (lv_option_3_0= ruleOptionAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1506:1: (lv_option_3_0= ruleOptionAnswer )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1507:3: lv_option_3_0= ruleOptionAnswer
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1528:1: (lv_option_3_0= ruleOptionAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1529:3: lv_option_3_0= ruleOptionAnswer
             {
              
             	        newCompositeNode(grammarAccess.getManyOptionAccess().getOptionOptionAnswerParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleManyOption3683);
+            pushFollow(FollowSets000.FOLLOW_ruleOptionAnswer_in_ruleManyOption3721);
             lv_option_3_0=ruleOptionAnswer();
 
             state._fsp--;
@@ -4256,7 +4318,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXml"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1531:1: entryRuleXml returns [EObject current=null] : iv_ruleXml= ruleXml EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1553:1: entryRuleXml returns [EObject current=null] : iv_ruleXml= ruleXml EOF ;
     public final EObject entryRuleXml() throws RecognitionException {
         EObject current = null;
 
@@ -4264,17 +4326,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1532:2: (iv_ruleXml= ruleXml EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1533:2: iv_ruleXml= ruleXml EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1554:2: (iv_ruleXml= ruleXml EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1555:2: iv_ruleXml= ruleXml EOF
             {
              newCompositeNode(grammarAccess.getXmlRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXml_in_entryRuleXml3719);
+            pushFollow(FollowSets000.FOLLOW_ruleXml_in_entryRuleXml3757);
             iv_ruleXml=ruleXml();
 
             state._fsp--;
 
              current =iv_ruleXml; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXml3729); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXml3767); 
 
             }
 
@@ -4292,7 +4354,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXml"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1540:1: ruleXml returns [EObject current=null] : (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1562:1: ruleXml returns [EObject current=null] : (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' ) ;
     public final EObject ruleXml() throws RecognitionException {
         EObject current = null;
 
@@ -4304,26 +4366,26 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1543:28: ( (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1544:1: (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1565:28: ( (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1566:1: (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1544:1: (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1544:3: otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>'
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1566:1: (otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>' )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1566:3: otherlv_0= '<<' ( (lv_element_1_0= ruleXmlElement ) ) otherlv_2= '>>'
             {
-            otherlv_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleXml3766); 
+            otherlv_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleXml3804); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getXmlAccess().getLessThanSignLessThanSignKeyword_0());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1548:1: ( (lv_element_1_0= ruleXmlElement ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1549:1: (lv_element_1_0= ruleXmlElement )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1570:1: ( (lv_element_1_0= ruleXmlElement ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1571:1: (lv_element_1_0= ruleXmlElement )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1549:1: (lv_element_1_0= ruleXmlElement )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1550:3: lv_element_1_0= ruleXmlElement
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1571:1: (lv_element_1_0= ruleXmlElement )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1572:3: lv_element_1_0= ruleXmlElement
             {
              
             	        newCompositeNode(grammarAccess.getXmlAccess().getElementXmlElementParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_ruleXml3787);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_ruleXml3825);
             lv_element_1_0=ruleXmlElement();
 
             state._fsp--;
@@ -4345,7 +4407,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleXml3799); 
+            otherlv_2=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleXml3837); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getXmlAccess().getGreaterThanSignGreaterThanSignKeyword_2());
                 
@@ -4370,7 +4432,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlContents"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1578:1: entryRuleXmlContents returns [EObject current=null] : iv_ruleXmlContents= ruleXmlContents EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1600:1: entryRuleXmlContents returns [EObject current=null] : iv_ruleXmlContents= ruleXmlContents EOF ;
     public final EObject entryRuleXmlContents() throws RecognitionException {
         EObject current = null;
 
@@ -4378,17 +4440,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1579:2: (iv_ruleXmlContents= ruleXmlContents EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1580:2: iv_ruleXmlContents= ruleXmlContents EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1601:2: (iv_ruleXmlContents= ruleXmlContents EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1602:2: iv_ruleXmlContents= ruleXmlContents EOF
             {
              newCompositeNode(grammarAccess.getXmlContentsRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlContents_in_entryRuleXmlContents3835);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlContents_in_entryRuleXmlContents3873);
             iv_ruleXmlContents=ruleXmlContents();
 
             state._fsp--;
 
              current =iv_ruleXmlContents; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlContents3845); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlContents3883); 
 
             }
 
@@ -4406,7 +4468,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlContents"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1587:1: ruleXmlContents returns [EObject current=null] : ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1609:1: ruleXmlContents returns [EObject current=null] : ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) ) ;
     public final EObject ruleXmlContents() throws RecognitionException {
         EObject current = null;
 
@@ -4417,22 +4479,22 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1590:28: ( ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1591:1: ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1612:28: ( ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1613:1: ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1591:1: ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1591:2: ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1613:1: ( ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1613:2: ( (lv_element_0_0= ruleXmlElement ) ) ( (lv_post_1_0= RULE_XML_TEXT ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1591:2: ( (lv_element_0_0= ruleXmlElement ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1592:1: (lv_element_0_0= ruleXmlElement )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1613:2: ( (lv_element_0_0= ruleXmlElement ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1614:1: (lv_element_0_0= ruleXmlElement )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1592:1: (lv_element_0_0= ruleXmlElement )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1593:3: lv_element_0_0= ruleXmlElement
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1614:1: (lv_element_0_0= ruleXmlElement )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1615:3: lv_element_0_0= ruleXmlElement
             {
              
             	        newCompositeNode(grammarAccess.getXmlContentsAccess().getElementXmlElementParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_ruleXmlContents3891);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_ruleXmlContents3929);
             lv_element_0_0=ruleXmlElement();
 
             state._fsp--;
@@ -4454,13 +4516,13 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1609:2: ( (lv_post_1_0= RULE_XML_TEXT ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1610:1: (lv_post_1_0= RULE_XML_TEXT )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1631:2: ( (lv_post_1_0= RULE_XML_TEXT ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1632:1: (lv_post_1_0= RULE_XML_TEXT )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1610:1: (lv_post_1_0= RULE_XML_TEXT )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1611:3: lv_post_1_0= RULE_XML_TEXT
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1632:1: (lv_post_1_0= RULE_XML_TEXT )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1633:3: lv_post_1_0= RULE_XML_TEXT
             {
-            lv_post_1_0=(Token)match(input,RULE_XML_TEXT,FollowSets000.FOLLOW_RULE_XML_TEXT_in_ruleXmlContents3908); 
+            lv_post_1_0=(Token)match(input,RULE_XML_TEXT,FollowSets000.FOLLOW_RULE_XML_TEXT_in_ruleXmlContents3946); 
 
             			newLeafNode(lv_post_1_0, grammarAccess.getXmlContentsAccess().getPostXML_TEXTTerminalRuleCall_1_0()); 
             		
@@ -4501,7 +4563,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1635:1: entryRuleXmlElement returns [EObject current=null] : iv_ruleXmlElement= ruleXmlElement EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1657:1: entryRuleXmlElement returns [EObject current=null] : iv_ruleXmlElement= ruleXmlElement EOF ;
     public final EObject entryRuleXmlElement() throws RecognitionException {
         EObject current = null;
 
@@ -4509,17 +4571,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1636:2: (iv_ruleXmlElement= ruleXmlElement EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1637:2: iv_ruleXmlElement= ruleXmlElement EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1658:2: (iv_ruleXmlElement= ruleXmlElement EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1659:2: iv_ruleXmlElement= ruleXmlElement EOF
             {
              newCompositeNode(grammarAccess.getXmlElementRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_entryRuleXmlElement3949);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlElement_in_entryRuleXmlElement3987);
             iv_ruleXmlElement=ruleXmlElement();
 
             state._fsp--;
 
              current =iv_ruleXmlElement; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlElement3959); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlElement3997); 
 
             }
 
@@ -4537,7 +4599,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1644:1: ruleXmlElement returns [EObject current=null] : (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1666:1: ruleXmlElement returns [EObject current=null] : (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement ) ;
     public final EObject ruleXmlElement() throws RecognitionException {
         EObject current = null;
 
@@ -4549,33 +4611,33 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1647:28: ( (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1648:1: (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1669:28: ( (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1670:1: (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1648:1: (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement )
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1670:1: (this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement | this_XmlTagElement_1= ruleXmlTagElement )
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA30_0==31) ) {
-                alt30=1;
+            if ( (LA31_0==32) ) {
+                alt31=1;
             }
-            else if ( (LA30_0==RULE_ID) ) {
-                alt30=2;
+            else if ( (LA31_0==RULE_ID) ) {
+                alt31=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 31, 0, input);
 
                 throw nvae;
             }
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1649:5: this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1671:5: this_XmlPIAnswerElement_0= ruleXmlPIAnswerElement
                     {
                      
                             newCompositeNode(grammarAccess.getXmlElementAccess().getXmlPIAnswerElementParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleXmlPIAnswerElement_in_ruleXmlElement4006);
+                    pushFollow(FollowSets000.FOLLOW_ruleXmlPIAnswerElement_in_ruleXmlElement4044);
                     this_XmlPIAnswerElement_0=ruleXmlPIAnswerElement();
 
                     state._fsp--;
@@ -4588,12 +4650,12 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1659:5: this_XmlTagElement_1= ruleXmlTagElement
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1681:5: this_XmlTagElement_1= ruleXmlTagElement
                     {
                      
                             newCompositeNode(grammarAccess.getXmlElementAccess().getXmlTagElementParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleXmlTagElement_in_ruleXmlElement4033);
+                    pushFollow(FollowSets000.FOLLOW_ruleXmlTagElement_in_ruleXmlElement4071);
                     this_XmlTagElement_1=ruleXmlTagElement();
 
                     state._fsp--;
@@ -4626,7 +4688,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlPIAnswerElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1675:1: entryRuleXmlPIAnswerElement returns [EObject current=null] : iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1697:1: entryRuleXmlPIAnswerElement returns [EObject current=null] : iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF ;
     public final EObject entryRuleXmlPIAnswerElement() throws RecognitionException {
         EObject current = null;
 
@@ -4634,17 +4696,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1676:2: (iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1677:2: iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1698:2: (iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1699:2: iv_ruleXmlPIAnswerElement= ruleXmlPIAnswerElement EOF
             {
              newCompositeNode(grammarAccess.getXmlPIAnswerElementRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlPIAnswerElement_in_entryRuleXmlPIAnswerElement4068);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlPIAnswerElement_in_entryRuleXmlPIAnswerElement4106);
             iv_ruleXmlPIAnswerElement=ruleXmlPIAnswerElement();
 
             state._fsp--;
 
              current =iv_ruleXmlPIAnswerElement; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlPIAnswerElement4078); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlPIAnswerElement4116); 
 
             }
 
@@ -4662,7 +4724,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlPIAnswerElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1684:1: ruleXmlPIAnswerElement returns [EObject current=null] : (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1706:1: ruleXmlPIAnswerElement returns [EObject current=null] : (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' ) ;
     public final EObject ruleXmlPIAnswerElement() throws RecognitionException {
         EObject current = null;
 
@@ -4674,26 +4736,26 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1687:28: ( (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1688:1: (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1709:28: ( (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1710:1: (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1688:1: (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1688:3: otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?'
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1710:1: (otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?' )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1710:3: otherlv_0= '?' ( (lv_answer_1_0= ruleSimpleAnswer ) ) otherlv_2= '?'
             {
-            otherlv_0=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleXmlPIAnswerElement4115); 
+            otherlv_0=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleXmlPIAnswerElement4153); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getXmlPIAnswerElementAccess().getQuestionMarkKeyword_0());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1692:1: ( (lv_answer_1_0= ruleSimpleAnswer ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1693:1: (lv_answer_1_0= ruleSimpleAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1714:1: ( (lv_answer_1_0= ruleSimpleAnswer ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1715:1: (lv_answer_1_0= ruleSimpleAnswer )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1693:1: (lv_answer_1_0= ruleSimpleAnswer )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1694:3: lv_answer_1_0= ruleSimpleAnswer
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1715:1: (lv_answer_1_0= ruleSimpleAnswer )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1716:3: lv_answer_1_0= ruleSimpleAnswer
             {
              
             	        newCompositeNode(grammarAccess.getXmlPIAnswerElementAccess().getAnswerSimpleAnswerParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleSimpleAnswer_in_ruleXmlPIAnswerElement4136);
+            pushFollow(FollowSets000.FOLLOW_ruleSimpleAnswer_in_ruleXmlPIAnswerElement4174);
             lv_answer_1_0=ruleSimpleAnswer();
 
             state._fsp--;
@@ -4715,7 +4777,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleXmlPIAnswerElement4148); 
+            otherlv_2=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleXmlPIAnswerElement4186); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getXmlPIAnswerElementAccess().getQuestionMarkKeyword_2());
                 
@@ -4740,7 +4802,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlTagElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1722:1: entryRuleXmlTagElement returns [EObject current=null] : iv_ruleXmlTagElement= ruleXmlTagElement EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1744:1: entryRuleXmlTagElement returns [EObject current=null] : iv_ruleXmlTagElement= ruleXmlTagElement EOF ;
     public final EObject entryRuleXmlTagElement() throws RecognitionException {
         EObject current = null;
 
@@ -4748,17 +4810,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1723:2: (iv_ruleXmlTagElement= ruleXmlTagElement EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1724:2: iv_ruleXmlTagElement= ruleXmlTagElement EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1745:2: (iv_ruleXmlTagElement= ruleXmlTagElement EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1746:2: iv_ruleXmlTagElement= ruleXmlTagElement EOF
             {
              newCompositeNode(grammarAccess.getXmlTagElementRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlTagElement_in_entryRuleXmlTagElement4184);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlTagElement_in_entryRuleXmlTagElement4222);
             iv_ruleXmlTagElement=ruleXmlTagElement();
 
             state._fsp--;
 
              current =iv_ruleXmlTagElement; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlTagElement4194); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlTagElement4232); 
 
             }
 
@@ -4776,7 +4838,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlTagElement"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1731:1: ruleXmlTagElement returns [EObject current=null] : ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1753:1: ruleXmlTagElement returns [EObject current=null] : ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) ) ;
     public final EObject ruleXmlTagElement() throws RecognitionException {
         EObject current = null;
 
@@ -4792,22 +4854,22 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1734:28: ( ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1735:1: ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1756:28: ( ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1757:1: ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1735:1: ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1735:2: ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1757:1: ( ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1757:2: ( (lv_startTag_0_0= ruleXmlTag ) ) (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1735:2: ( (lv_startTag_0_0= ruleXmlTag ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1736:1: (lv_startTag_0_0= ruleXmlTag )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1757:2: ( (lv_startTag_0_0= ruleXmlTag ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:1: (lv_startTag_0_0= ruleXmlTag )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1736:1: (lv_startTag_0_0= ruleXmlTag )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1737:3: lv_startTag_0_0= ruleXmlTag
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:1: (lv_startTag_0_0= ruleXmlTag )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1759:3: lv_startTag_0_0= ruleXmlTag
             {
              
             	        newCompositeNode(grammarAccess.getXmlTagElementAccess().getStartTagXmlTagParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleXmlTag_in_ruleXmlTagElement4240);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlTag_in_ruleXmlTagElement4278);
             lv_startTag_0_0=ruleXmlTag();
 
             state._fsp--;
@@ -4829,27 +4891,27 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1753:2: (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) )
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1775:2: (otherlv_1= '/' | ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) ) )
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA33_0==17) ) {
-                alt33=1;
+            if ( (LA34_0==17) ) {
+                alt34=1;
             }
-            else if ( (LA33_0==RULE_XML_TEXT) ) {
-                alt33=2;
+            else if ( (LA34_0==RULE_XML_TEXT) ) {
+                alt34=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 33, 0, input);
+                    new NoViableAltException("", 34, 0, input);
 
                 throw nvae;
             }
-            switch (alt33) {
+            switch (alt34) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1753:4: otherlv_1= '/'
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1775:4: otherlv_1= '/'
                     {
-                    otherlv_1=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleXmlTagElement4253); 
+                    otherlv_1=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleXmlTagElement4291); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getXmlTagElementAccess().getSolidusKeyword_1_0());
                         
@@ -4857,18 +4919,18 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:6: ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1780:6: ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:6: ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:7: ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1780:6: ( ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1780:7: ( (lv_pre_2_0= RULE_XML_TEXT ) ) ( (lv_contents_3_0= ruleXmlContents ) )* (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1758:7: ( (lv_pre_2_0= RULE_XML_TEXT ) )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1759:1: (lv_pre_2_0= RULE_XML_TEXT )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1780:7: ( (lv_pre_2_0= RULE_XML_TEXT ) )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1781:1: (lv_pre_2_0= RULE_XML_TEXT )
                     {
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1759:1: (lv_pre_2_0= RULE_XML_TEXT )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1760:3: lv_pre_2_0= RULE_XML_TEXT
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1781:1: (lv_pre_2_0= RULE_XML_TEXT )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1782:3: lv_pre_2_0= RULE_XML_TEXT
                     {
-                    lv_pre_2_0=(Token)match(input,RULE_XML_TEXT,FollowSets000.FOLLOW_RULE_XML_TEXT_in_ruleXmlTagElement4277); 
+                    lv_pre_2_0=(Token)match(input,RULE_XML_TEXT,FollowSets000.FOLLOW_RULE_XML_TEXT_in_ruleXmlTagElement4315); 
 
                     			newLeafNode(lv_pre_2_0, grammarAccess.getXmlTagElementAccess().getPreXML_TEXTTerminalRuleCall_1_1_0_0()); 
                     		
@@ -4888,28 +4950,28 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1776:2: ( (lv_contents_3_0= ruleXmlContents ) )*
-                    loop31:
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1798:2: ( (lv_contents_3_0= ruleXmlContents ) )*
+                    loop32:
                     do {
-                        int alt31=2;
-                        int LA31_0 = input.LA(1);
+                        int alt32=2;
+                        int LA32_0 = input.LA(1);
 
-                        if ( (LA31_0==RULE_ID||LA31_0==31) ) {
-                            alt31=1;
+                        if ( (LA32_0==RULE_ID||LA32_0==32) ) {
+                            alt32=1;
                         }
 
 
-                        switch (alt31) {
+                        switch (alt32) {
                     	case 1 :
-                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1777:1: (lv_contents_3_0= ruleXmlContents )
+                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1799:1: (lv_contents_3_0= ruleXmlContents )
                     	    {
-                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1777:1: (lv_contents_3_0= ruleXmlContents )
-                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1778:3: lv_contents_3_0= ruleXmlContents
+                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1799:1: (lv_contents_3_0= ruleXmlContents )
+                    	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1800:3: lv_contents_3_0= ruleXmlContents
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getXmlTagElementAccess().getContentsXmlContentsParserRuleCall_1_1_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleXmlContents_in_ruleXmlTagElement4303);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleXmlContents_in_ruleXmlTagElement4341);
                     	    lv_contents_3_0=ruleXmlContents();
 
                     	    state._fsp--;
@@ -4933,32 +4995,32 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop31;
+                    	    break loop32;
                         }
                     } while (true);
 
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1794:3: (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? )
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1794:5: otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )?
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1816:3: (otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )? )
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1816:5: otherlv_4= '/' ( (lv_endTag_5_0= RULE_ID ) )?
                     {
-                    otherlv_4=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleXmlTagElement4317); 
+                    otherlv_4=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleXmlTagElement4355); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getXmlTagElementAccess().getSolidusKeyword_1_1_2_0());
                         
-                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1798:1: ( (lv_endTag_5_0= RULE_ID ) )?
-                    int alt32=2;
-                    int LA32_0 = input.LA(1);
+                    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1820:1: ( (lv_endTag_5_0= RULE_ID ) )?
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
 
-                    if ( (LA32_0==RULE_ID) ) {
-                        alt32=1;
+                    if ( (LA33_0==RULE_ID) ) {
+                        alt33=1;
                     }
-                    switch (alt32) {
+                    switch (alt33) {
                         case 1 :
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1799:1: (lv_endTag_5_0= RULE_ID )
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1821:1: (lv_endTag_5_0= RULE_ID )
                             {
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1799:1: (lv_endTag_5_0= RULE_ID )
-                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1800:3: lv_endTag_5_0= RULE_ID
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1821:1: (lv_endTag_5_0= RULE_ID )
+                            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1822:3: lv_endTag_5_0= RULE_ID
                             {
-                            lv_endTag_5_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlTagElement4334); 
+                            lv_endTag_5_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlTagElement4372); 
 
                             			newLeafNode(lv_endTag_5_0, grammarAccess.getXmlTagElementAccess().getEndTagIDTerminalRuleCall_1_1_2_1_0()); 
                             		
@@ -5014,7 +5076,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlTag"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1824:1: entryRuleXmlTag returns [EObject current=null] : iv_ruleXmlTag= ruleXmlTag EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1846:1: entryRuleXmlTag returns [EObject current=null] : iv_ruleXmlTag= ruleXmlTag EOF ;
     public final EObject entryRuleXmlTag() throws RecognitionException {
         EObject current = null;
 
@@ -5022,17 +5084,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1825:2: (iv_ruleXmlTag= ruleXmlTag EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1826:2: iv_ruleXmlTag= ruleXmlTag EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1847:2: (iv_ruleXmlTag= ruleXmlTag EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1848:2: iv_ruleXmlTag= ruleXmlTag EOF
             {
              newCompositeNode(grammarAccess.getXmlTagRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlTag_in_entryRuleXmlTag4379);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlTag_in_entryRuleXmlTag4417);
             iv_ruleXmlTag=ruleXmlTag();
 
             state._fsp--;
 
              current =iv_ruleXmlTag; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlTag4389); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlTag4427); 
 
             }
 
@@ -5050,7 +5112,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlTag"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1833:1: ruleXmlTag returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1855:1: ruleXmlTag returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* ) ;
     public final EObject ruleXmlTag() throws RecognitionException {
         EObject current = null;
 
@@ -5061,19 +5123,19 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1836:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1837:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1858:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1859:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1837:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1837:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )*
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1859:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )* )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1859:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_attributes_1_0= ruleXmlAttribute ) )*
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1837:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1838:1: (lv_name_0_0= RULE_ID )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1859:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1860:1: (lv_name_0_0= RULE_ID )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1838:1: (lv_name_0_0= RULE_ID )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1839:3: lv_name_0_0= RULE_ID
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1860:1: (lv_name_0_0= RULE_ID )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1861:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlTag4431); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlTag4469); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getXmlTagAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -5093,28 +5155,28 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1855:2: ( (lv_attributes_1_0= ruleXmlAttribute ) )*
-            loop34:
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1877:2: ( (lv_attributes_1_0= ruleXmlAttribute ) )*
+            loop35:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt35=2;
+                int LA35_0 = input.LA(1);
 
-                if ( (LA34_0==RULE_ID) ) {
-                    alt34=1;
+                if ( (LA35_0==RULE_ID) ) {
+                    alt35=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt35) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1856:1: (lv_attributes_1_0= ruleXmlAttribute )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1878:1: (lv_attributes_1_0= ruleXmlAttribute )
             	    {
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1856:1: (lv_attributes_1_0= ruleXmlAttribute )
-            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1857:3: lv_attributes_1_0= ruleXmlAttribute
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1878:1: (lv_attributes_1_0= ruleXmlAttribute )
+            	    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1879:3: lv_attributes_1_0= ruleXmlAttribute
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getXmlTagAccess().getAttributesXmlAttributeParserRuleCall_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleXmlAttribute_in_ruleXmlTag4457);
+            	    pushFollow(FollowSets000.FOLLOW_ruleXmlAttribute_in_ruleXmlTag4495);
             	    lv_attributes_1_0=ruleXmlAttribute();
 
             	    state._fsp--;
@@ -5138,7 +5200,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop35;
                 }
             } while (true);
 
@@ -5163,7 +5225,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlAttribute"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1881:1: entryRuleXmlAttribute returns [EObject current=null] : iv_ruleXmlAttribute= ruleXmlAttribute EOF ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1903:1: entryRuleXmlAttribute returns [EObject current=null] : iv_ruleXmlAttribute= ruleXmlAttribute EOF ;
     public final EObject entryRuleXmlAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -5171,17 +5233,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1882:2: (iv_ruleXmlAttribute= ruleXmlAttribute EOF )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1883:2: iv_ruleXmlAttribute= ruleXmlAttribute EOF
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1904:2: (iv_ruleXmlAttribute= ruleXmlAttribute EOF )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1905:2: iv_ruleXmlAttribute= ruleXmlAttribute EOF
             {
              newCompositeNode(grammarAccess.getXmlAttributeRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleXmlAttribute_in_entryRuleXmlAttribute4494);
+            pushFollow(FollowSets000.FOLLOW_ruleXmlAttribute_in_entryRuleXmlAttribute4532);
             iv_ruleXmlAttribute=ruleXmlAttribute();
 
             state._fsp--;
 
              current =iv_ruleXmlAttribute; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlAttribute4504); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleXmlAttribute4542); 
 
             }
 
@@ -5199,7 +5261,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlAttribute"
-    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1890:1: ruleXmlAttribute returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) ;
+    // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1912:1: ruleXmlAttribute returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) ;
     public final EObject ruleXmlAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -5210,19 +5272,19 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1893:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1894:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1915:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1916:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1894:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1894:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1916:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1916:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1894:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1895:1: (lv_name_0_0= RULE_ID )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1916:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1917:1: (lv_name_0_0= RULE_ID )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1895:1: (lv_name_0_0= RULE_ID )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1896:3: lv_name_0_0= RULE_ID
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1917:1: (lv_name_0_0= RULE_ID )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1918:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlAttribute4546); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleXmlAttribute4584); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getXmlAttributeAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -5242,17 +5304,17 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleXmlAttribute4563); 
+            otherlv_1=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleXmlAttribute4601); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getXmlAttributeAccess().getEqualsSignKeyword_1());
                 
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1916:1: ( (lv_value_2_0= RULE_STRING ) )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1917:1: (lv_value_2_0= RULE_STRING )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1938:1: ( (lv_value_2_0= RULE_STRING ) )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1939:1: (lv_value_2_0= RULE_STRING )
             {
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1917:1: (lv_value_2_0= RULE_STRING )
-            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1918:3: lv_value_2_0= RULE_STRING
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1939:1: (lv_value_2_0= RULE_STRING )
+            // ../no.hal.pg.quiz.xtext/src-gen/no/hal/pg/quiz/xtext/parser/antlr/internal/InternalXQuiz.g:1940:3: lv_value_2_0= RULE_STRING
             {
-            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleXmlAttribute4580); 
+            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleXmlAttribute4618); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getXmlAttributeAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             		
@@ -5300,7 +5362,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
     private static class FollowSets000 {
         public static final BitSet FOLLOW_ruleQuiz_in_entryRuleQuiz75 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleQuiz85 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_12_in_ruleQuiz131 = new BitSet(new long[]{0x000000002000C032L});
+        public static final BitSet FOLLOW_12_in_ruleQuiz131 = new BitSet(new long[]{0x000000004000C032L});
         public static final BitSet FOLLOW_ruleQName_in_ruleQuiz154 = new BitSet(new long[]{0x0000000000004012L});
         public static final BitSet FOLLOW_RULE_STRING_in_ruleQuiz172 = new BitSet(new long[]{0x0000000000004002L});
         public static final BitSet FOLLOW_ruleAbstractQuizPart_in_ruleQuiz199 = new BitSet(new long[]{0x0000000000004002L});
@@ -5318,8 +5380,8 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_EOF_in_entryRuleQuizPart527 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_14_in_ruleQuizPart564 = new BitSet(new long[]{0x0000000000000020L});
         public static final BitSet FOLLOW_RULE_ID_in_ruleQuizPart581 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleQuizPart603 = new BitSet(new long[]{0x0000000020008032L});
-        public static final BitSet FOLLOW_ruleAbstractQA_in_ruleQuizPart629 = new BitSet(new long[]{0x0000000020008032L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleQuizPart603 = new BitSet(new long[]{0x0000000040008032L});
+        public static final BitSet FOLLOW_ruleAbstractQA_in_ruleQuizPart629 = new BitSet(new long[]{0x0000000040008032L});
         public static final BitSet FOLLOW_ruleQuizPartRef_in_entryRuleQuizPartRef666 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleQuizPartRef676 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_14_in_ruleQuizPartRef713 = new BitSet(new long[]{0x0000000000008000L});
@@ -5327,7 +5389,7 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleQName_in_ruleQuizPartRef748 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAnonymousQuizPart_in_entryRuleAnonymousQuizPart784 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleAnonymousQuizPart794 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAbstractQA_in_ruleAnonymousQuizPart849 = new BitSet(new long[]{0x0000000020008032L});
+        public static final BitSet FOLLOW_ruleAbstractQA_in_ruleAnonymousQuizPart849 = new BitSet(new long[]{0x0000000040008032L});
         public static final BitSet FOLLOW_ruleAbstractQA_in_entryRuleAbstractQA886 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleAbstractQA896 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQA_in_ruleAbstractQA943 = new BitSet(new long[]{0x0000000000000002L});
@@ -5338,8 +5400,8 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleQName_in_ruleQARef1075 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQA_in_entryRuleQA1111 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleQA1121 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQA1163 = new BitSet(new long[]{0x0000000020000030L});
-        public static final BitSet FOLLOW_ruleQuestion_in_ruleQA1190 = new BitSet(new long[]{0x000000002EFE0070L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQA1163 = new BitSet(new long[]{0x0000000040000030L});
+        public static final BitSet FOLLOW_ruleQuestion_in_ruleQA1190 = new BitSet(new long[]{0x000000005DFA0070L});
         public static final BitSet FOLLOW_ruleAnswer_in_ruleQA1211 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQuestion_in_entryRuleQuestion1247 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleQuestion1257 = new BitSet(new long[]{0x0000000000000002L});
@@ -5377,91 +5439,93 @@ public class InternalXQuizParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_16_in_ruleRegexAnswer2201 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleNumberAnswer_in_entryRuleNumberAnswer2251 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleNumberAnswer2261 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2306 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEDoubleObject_in_entryRuleEDoubleObject2342 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEDoubleObject2353 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEDoubleObject2393 = new BitSet(new long[]{0x0000000000002002L});
-        public static final BitSet FOLLOW_13_in_ruleEDoubleObject2412 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEDoubleObject2427 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleBooleanAnswer_in_entryRuleBooleanAnswer2474 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleBooleanAnswer2484 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_18_in_ruleBooleanAnswer2539 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_19_in_ruleBooleanAnswer2568 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_20_in_ruleBooleanAnswer2603 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_21_in_ruleBooleanAnswer2621 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlAnswer_in_entryRuleXmlAnswer2659 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlAnswer2669 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXml_in_ruleXmlAnswer2714 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOptionsAnswer_in_entryRuleOptionsAnswer2749 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleOptionsAnswer2759 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleOptionsAnswer_in_ruleOptionsAnswer2806 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleManyOptionsAnswer_in_ruleOptionsAnswer2833 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleOptionsAnswer_in_entryRuleSingleOptionsAnswer2868 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSingleOptionsAnswer2878 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleBoxOptionsAnswer_in_ruleSingleOptionsAnswer2925 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleListOptionsAnswer_in_ruleSingleOptionsAnswer2952 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleBoxOptionsAnswer_in_entryRuleSingleBoxOptionsAnswer2987 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSingleBoxOptionsAnswer2997 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleBoxOption_in_ruleSingleBoxOptionsAnswer3042 = new BitSet(new long[]{0x0000000000400002L});
-        public static final BitSet FOLLOW_ruleSingleBoxOption_in_entryRuleSingleBoxOption3078 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSingleBoxOption3088 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_22_in_ruleSingleBoxOption3125 = new BitSet(new long[]{0x0000000001800000L});
-        public static final BitSet FOLLOW_23_in_ruleSingleBoxOption3143 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleSingleBoxOption3169 = new BitSet(new long[]{0x00000000203E0070L});
-        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleSingleBoxOption3190 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleListOptionsAnswer_in_entryRuleSingleListOptionsAnswer3226 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSingleListOptionsAnswer3236 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSingleListOption_in_ruleSingleListOptionsAnswer3281 = new BitSet(new long[]{0x0000000006C00002L});
-        public static final BitSet FOLLOW_ruleSingleListOption_in_entryRuleSingleListOption3317 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSingleListOption3327 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_25_in_ruleSingleListOption3366 = new BitSet(new long[]{0x00000000203E0070L});
-        public static final BitSet FOLLOW_23_in_ruleSingleListOption3384 = new BitSet(new long[]{0x00000000203E0070L});
-        public static final BitSet FOLLOW_26_in_ruleSingleListOption3409 = new BitSet(new long[]{0x00000000203E0070L});
-        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleSingleListOption3444 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleManyOptionsAnswer_in_entryRuleManyOptionsAnswer3480 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleManyOptionsAnswer3490 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleManyOption_in_ruleManyOptionsAnswer3535 = new BitSet(new long[]{0x000000002EFE0072L});
-        public static final BitSet FOLLOW_ruleManyOption_in_entryRuleManyOption3571 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleManyOption3581 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_27_in_ruleManyOption3618 = new BitSet(new long[]{0x0000000010800000L});
-        public static final BitSet FOLLOW_23_in_ruleManyOption3636 = new BitSet(new long[]{0x0000000010000000L});
-        public static final BitSet FOLLOW_28_in_ruleManyOption3662 = new BitSet(new long[]{0x00000000203E0070L});
-        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleManyOption3683 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXml_in_entryRuleXml3719 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXml3729 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_29_in_ruleXml3766 = new BitSet(new long[]{0x0000000080000020L});
-        public static final BitSet FOLLOW_ruleXmlElement_in_ruleXml3787 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_ruleXml3799 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlContents_in_entryRuleXmlContents3835 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlContents3845 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlElement_in_ruleXmlContents3891 = new BitSet(new long[]{0x0000000000000080L});
-        public static final BitSet FOLLOW_RULE_XML_TEXT_in_ruleXmlContents3908 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlElement_in_entryRuleXmlElement3949 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlElement3959 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlPIAnswerElement_in_ruleXmlElement4006 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlTagElement_in_ruleXmlElement4033 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlPIAnswerElement_in_entryRuleXmlPIAnswerElement4068 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlPIAnswerElement4078 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_ruleXmlPIAnswerElement4115 = new BitSet(new long[]{0x00000000003E0050L});
-        public static final BitSet FOLLOW_ruleSimpleAnswer_in_ruleXmlPIAnswerElement4136 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleXmlPIAnswerElement4148 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlTagElement_in_entryRuleXmlTagElement4184 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlTagElement4194 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlTag_in_ruleXmlTagElement4240 = new BitSet(new long[]{0x0000000000020080L});
-        public static final BitSet FOLLOW_17_in_ruleXmlTagElement4253 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_XML_TEXT_in_ruleXmlTagElement4277 = new BitSet(new long[]{0x0000000080020020L});
-        public static final BitSet FOLLOW_ruleXmlContents_in_ruleXmlTagElement4303 = new BitSet(new long[]{0x0000000080020020L});
-        public static final BitSet FOLLOW_17_in_ruleXmlTagElement4317 = new BitSet(new long[]{0x0000000000000022L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlTagElement4334 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXmlTag_in_entryRuleXmlTag4379 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlTag4389 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlTag4431 = new BitSet(new long[]{0x0000000000000022L});
-        public static final BitSet FOLLOW_ruleXmlAttribute_in_ruleXmlTag4457 = new BitSet(new long[]{0x0000000000000022L});
-        public static final BitSet FOLLOW_ruleXmlAttribute_in_entryRuleXmlAttribute4494 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleXmlAttribute4504 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlAttribute4546 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleXmlAttribute4563 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlAttribute4580 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2307 = new BitSet(new long[]{0x0000000000040002L});
+        public static final BitSet FOLLOW_18_in_ruleNumberAnswer2320 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_ruleEDoubleObject_in_ruleNumberAnswer2341 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEDoubleObject_in_entryRuleEDoubleObject2380 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEDoubleObject2391 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEDoubleObject2431 = new BitSet(new long[]{0x0000000000002002L});
+        public static final BitSet FOLLOW_13_in_ruleEDoubleObject2450 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEDoubleObject2465 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBooleanAnswer_in_entryRuleBooleanAnswer2512 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleBooleanAnswer2522 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_19_in_ruleBooleanAnswer2577 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_20_in_ruleBooleanAnswer2606 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_21_in_ruleBooleanAnswer2641 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_22_in_ruleBooleanAnswer2659 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlAnswer_in_entryRuleXmlAnswer2697 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlAnswer2707 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXml_in_ruleXmlAnswer2752 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOptionsAnswer_in_entryRuleOptionsAnswer2787 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOptionsAnswer2797 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleOptionsAnswer_in_ruleOptionsAnswer2844 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleManyOptionsAnswer_in_ruleOptionsAnswer2871 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleOptionsAnswer_in_entryRuleSingleOptionsAnswer2906 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSingleOptionsAnswer2916 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleBoxOptionsAnswer_in_ruleSingleOptionsAnswer2963 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleListOptionsAnswer_in_ruleSingleOptionsAnswer2990 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleBoxOptionsAnswer_in_entryRuleSingleBoxOptionsAnswer3025 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSingleBoxOptionsAnswer3035 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleBoxOption_in_ruleSingleBoxOptionsAnswer3080 = new BitSet(new long[]{0x0000000000800002L});
+        public static final BitSet FOLLOW_ruleSingleBoxOption_in_entryRuleSingleBoxOption3116 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSingleBoxOption3126 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_23_in_ruleSingleBoxOption3163 = new BitSet(new long[]{0x0000000003000000L});
+        public static final BitSet FOLLOW_24_in_ruleSingleBoxOption3181 = new BitSet(new long[]{0x0000000002000000L});
+        public static final BitSet FOLLOW_25_in_ruleSingleBoxOption3207 = new BitSet(new long[]{0x00000000407A0070L});
+        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleSingleBoxOption3228 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleListOptionsAnswer_in_entryRuleSingleListOptionsAnswer3264 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSingleListOptionsAnswer3274 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSingleListOption_in_ruleSingleListOptionsAnswer3319 = new BitSet(new long[]{0x000000000D800002L});
+        public static final BitSet FOLLOW_ruleSingleListOption_in_entryRuleSingleListOption3355 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSingleListOption3365 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_26_in_ruleSingleListOption3404 = new BitSet(new long[]{0x00000000407A0070L});
+        public static final BitSet FOLLOW_24_in_ruleSingleListOption3422 = new BitSet(new long[]{0x00000000407A0070L});
+        public static final BitSet FOLLOW_27_in_ruleSingleListOption3447 = new BitSet(new long[]{0x00000000407A0070L});
+        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleSingleListOption3482 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleManyOptionsAnswer_in_entryRuleManyOptionsAnswer3518 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleManyOptionsAnswer3528 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleManyOption_in_ruleManyOptionsAnswer3573 = new BitSet(new long[]{0x000000005DFA0072L});
+        public static final BitSet FOLLOW_ruleManyOption_in_entryRuleManyOption3609 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleManyOption3619 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_ruleManyOption3656 = new BitSet(new long[]{0x0000000021000000L});
+        public static final BitSet FOLLOW_24_in_ruleManyOption3674 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_29_in_ruleManyOption3700 = new BitSet(new long[]{0x00000000407A0070L});
+        public static final BitSet FOLLOW_ruleOptionAnswer_in_ruleManyOption3721 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXml_in_entryRuleXml3757 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXml3767 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_30_in_ruleXml3804 = new BitSet(new long[]{0x0000000100000020L});
+        public static final BitSet FOLLOW_ruleXmlElement_in_ruleXml3825 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleXml3837 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlContents_in_entryRuleXmlContents3873 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlContents3883 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlElement_in_ruleXmlContents3929 = new BitSet(new long[]{0x0000000000000080L});
+        public static final BitSet FOLLOW_RULE_XML_TEXT_in_ruleXmlContents3946 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlElement_in_entryRuleXmlElement3987 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlElement3997 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlPIAnswerElement_in_ruleXmlElement4044 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlTagElement_in_ruleXmlElement4071 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlPIAnswerElement_in_entryRuleXmlPIAnswerElement4106 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlPIAnswerElement4116 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_ruleXmlPIAnswerElement4153 = new BitSet(new long[]{0x00000000007A0050L});
+        public static final BitSet FOLLOW_ruleSimpleAnswer_in_ruleXmlPIAnswerElement4174 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleXmlPIAnswerElement4186 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlTagElement_in_entryRuleXmlTagElement4222 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlTagElement4232 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlTag_in_ruleXmlTagElement4278 = new BitSet(new long[]{0x0000000000020080L});
+        public static final BitSet FOLLOW_17_in_ruleXmlTagElement4291 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_XML_TEXT_in_ruleXmlTagElement4315 = new BitSet(new long[]{0x0000000100020020L});
+        public static final BitSet FOLLOW_ruleXmlContents_in_ruleXmlTagElement4341 = new BitSet(new long[]{0x0000000100020020L});
+        public static final BitSet FOLLOW_17_in_ruleXmlTagElement4355 = new BitSet(new long[]{0x0000000000000022L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlTagElement4372 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXmlTag_in_entryRuleXmlTag4417 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlTag4427 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlTag4469 = new BitSet(new long[]{0x0000000000000022L});
+        public static final BitSet FOLLOW_ruleXmlAttribute_in_ruleXmlTag4495 = new BitSet(new long[]{0x0000000000000022L});
+        public static final BitSet FOLLOW_ruleXmlAttribute_in_entryRuleXmlAttribute4532 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleXmlAttribute4542 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleXmlAttribute4584 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleXmlAttribute4601 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlAttribute4618 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

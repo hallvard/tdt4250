@@ -970,10 +970,10 @@ ruleNumberAnswer returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getValueEDoubleObjectParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getValueEDoubleObjectParserRuleCall_0_0()); 
 	    }
 		lv_value_0_0=ruleEDoubleObject		{
 	        if ($current==null) {
@@ -988,7 +988,29 @@ ruleNumberAnswer returns [EObject current=null]
 	    }
 
 )
+)(	otherlv_1='+-' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getNumberAnswerAccess().getPlusSignHyphenMinusKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getNumberAnswerAccess().getErrorMarginEDoubleObjectParserRuleCall_1_1_0()); 
+	    }
+		lv_errorMargin_2_0=ruleEDoubleObject		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getNumberAnswerRule());
+	        }
+       		set(
+       			$current, 
+       			"errorMargin",
+        		lv_errorMargin_2_0, 
+        		"EDoubleObject");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))?)
 ;
 
 
