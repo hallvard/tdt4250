@@ -64,6 +64,8 @@ public class XQuizParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQAAccess().getGroup(), "rule__QA__Group__0");
 					put(grammarAccess.getStringAnswerAccess().getGroup(), "rule__StringAnswer__Group__0");
 					put(grammarAccess.getRegexAnswerAccess().getGroup(), "rule__RegexAnswer__Group__0");
+					put(grammarAccess.getNumberAnswerAccess().getGroup(), "rule__NumberAnswer__Group__0");
+					put(grammarAccess.getNumberAnswerAccess().getGroup_1(), "rule__NumberAnswer__Group_1__0");
 					put(grammarAccess.getEDoubleObjectAccess().getGroup(), "rule__EDoubleObject__Group__0");
 					put(grammarAccess.getEDoubleObjectAccess().getGroup_1(), "rule__EDoubleObject__Group_1__0");
 					put(grammarAccess.getBooleanAnswerAccess().getGroup(), "rule__BooleanAnswer__Group__0");
@@ -98,7 +100,8 @@ public class XQuizParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRegexAnswerAccess().getRegexpAssignment_0(), "rule__RegexAnswer__RegexpAssignment_0");
 					put(grammarAccess.getRegexAnswerAccess().getValueAssignment_1(), "rule__RegexAnswer__ValueAssignment_1");
 					put(grammarAccess.getRegexAnswerAccess().getIgnoreCaseAssignment_3(), "rule__RegexAnswer__IgnoreCaseAssignment_3");
-					put(grammarAccess.getNumberAnswerAccess().getValueAssignment(), "rule__NumberAnswer__ValueAssignment");
+					put(grammarAccess.getNumberAnswerAccess().getValueAssignment_0(), "rule__NumberAnswer__ValueAssignment_0");
+					put(grammarAccess.getNumberAnswerAccess().getErrorMarginAssignment_1_1(), "rule__NumberAnswer__ErrorMarginAssignment_1_1");
 					put(grammarAccess.getBooleanAnswerAccess().getValueAssignment_1_0(), "rule__BooleanAnswer__ValueAssignment_1_0");
 					put(grammarAccess.getXmlAnswerAccess().getXmlAssignment(), "rule__XmlAnswer__XmlAssignment");
 					put(grammarAccess.getSingleBoxOptionsAnswerAccess().getOptionsAssignment(), "rule__SingleBoxOptionsAnswer__OptionsAssignment");

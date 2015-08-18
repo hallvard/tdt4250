@@ -19,6 +19,7 @@ public class InternalXQuizLexer extends Lexer {
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
+    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
@@ -288,10 +289,11 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:22:7: ( '(' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:22:9: '('
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:22:7: ( '+-' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:22:9: '+-'
             {
-            match('('); 
+            match("+-"); 
+
 
             }
 
@@ -308,10 +310,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:23:7: ( ')' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:23:9: ')'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:23:7: ( '(' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:23:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -328,10 +330,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:24:7: ( '[' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:24:9: '['
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:24:7: ( ')' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:24:9: ')'
             {
-            match('['); 
+            match(')'); 
 
             }
 
@@ -348,10 +350,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:25:7: ( ']' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:25:9: ']'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:25:7: ( '[' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:25:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -368,11 +370,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:26:7: ( '<<' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:26:9: '<<'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:26:7: ( ']' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:26:9: ']'
             {
-            match("<<"); 
-
+            match(']'); 
 
             }
 
@@ -389,10 +390,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:27:7: ( '>>' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:27:9: '>>'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:27:7: ( '<<' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:27:9: '<<'
             {
-            match(">>"); 
+            match("<<"); 
 
 
             }
@@ -410,10 +411,11 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:28:7: ( '?' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:28:9: '?'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:28:7: ( '>>' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:28:9: '>>'
             {
-            match('?'); 
+            match(">>"); 
+
 
             }
 
@@ -430,10 +432,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:29:7: ( '=' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:29:9: '='
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:29:7: ( '?' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:29:9: '?'
             {
-            match('='); 
+            match('?'); 
 
             }
 
@@ -450,10 +452,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:30:7: ( '~' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:30:9: '~'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:30:7: ( '=' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:30:9: '='
             {
-            match('~'); 
+            match('='); 
 
             }
 
@@ -470,10 +472,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:31:7: ( 'v' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:31:9: 'v'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:31:7: ( '~' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:31:9: '~'
             {
-            match('v'); 
+            match('~'); 
 
             }
 
@@ -485,16 +487,36 @@ public class InternalXQuizLexer extends Lexer {
     }
     // $ANTLR end "T__32"
 
+    // $ANTLR start "T__33"
+    public final void mT__33() throws RecognitionException {
+        try {
+            int _type = T__33;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:32:7: ( 'v' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:32:9: 'v'
+            {
+            match('v'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__33"
+
     // $ANTLR start "RULE_XML_TEXT"
     public final void mRULE_XML_TEXT() throws RecognitionException {
         try {
             int _type = RULE_XML_TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:15: ( '>' ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' ) )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:17: '>' ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:15: ( '>' ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' ) )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:17: '>' ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' )
             {
             match('>'); 
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:21: ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:21: ( '<' | ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -512,14 +534,14 @@ public class InternalXQuizLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:22: '<'
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:22: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:26: ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<'
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:26: ~ ( ( '<' | '>' ) ) (~ ( '<' ) )* '<'
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<=';')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -530,7 +552,7 @@ public class InternalXQuizLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:39: (~ ( '<' ) )*
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:39: (~ ( '<' ) )*
                     loop1:
                     do {
                         int alt1=2;
@@ -543,7 +565,7 @@ public class InternalXQuizLexer extends Lexer {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4251:39: ~ ( '<' )
+                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4390:39: ~ ( '<' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<=';')||(input.LA(1)>='=' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -586,10 +608,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4253:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4253:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4392:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4392:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4253:11: ( '^' )?
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4392:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -598,7 +620,7 @@ public class InternalXQuizLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4253:11: '^'
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4392:11: '^'
                     {
                     match('^'); 
 
@@ -616,7 +638,7 @@ public class InternalXQuizLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4253:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4392:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop4:
             do {
                 int alt4=2;
@@ -665,10 +687,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4255:10: ( ( '0' .. '9' )+ )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4255:12: ( '0' .. '9' )+
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4394:10: ( ( '0' .. '9' )+ )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4394:12: ( '0' .. '9' )+
             {
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4255:12: ( '0' .. '9' )+
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4394:12: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -682,7 +704,7 @@ public class InternalXQuizLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4255:13: '0' .. '9'
+            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4394:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -714,10 +736,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -735,10 +757,10 @@ public class InternalXQuizLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -754,7 +776,7 @@ public class InternalXQuizLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:21: '\\\\' .
+                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -762,7 +784,7 @@ public class InternalXQuizLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -787,10 +809,10 @@ public class InternalXQuizLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -806,7 +828,7 @@ public class InternalXQuizLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:54: '\\\\' .
+                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -814,7 +836,7 @@ public class InternalXQuizLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4257:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4396:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -857,12 +879,12 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4259:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4259:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4398:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4398:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4259:24: ( options {greedy=false; } : . )*
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4398:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -887,7 +909,7 @@ public class InternalXQuizLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4259:52: .
+            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4398:52: .
             	    {
             	    matchAny(); 
 
@@ -917,12 +939,12 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -935,7 +957,7 @@ public class InternalXQuizLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -955,7 +977,7 @@ public class InternalXQuizLexer extends Lexer {
                 }
             } while (true);
 
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:40: ( ( '\\r' )? '\\n' )?
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -964,9 +986,9 @@ public class InternalXQuizLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:41: ( '\\r' )? '\\n'
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:41: ( '\\r' )? '\\n'
                     {
-                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:41: ( '\\r' )?
+                    // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -975,7 +997,7 @@ public class InternalXQuizLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4261:41: '\\r'
+                            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4400:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1007,10 +1029,10 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4263:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4263:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4402:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4402:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4263:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4402:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -1064,8 +1086,8 @@ public class InternalXQuizLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4265:16: ( . )
-            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4265:18: .
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4404:16: ( . )
+            // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:4404:18: .
             {
             matchAny(); 
 
@@ -1080,8 +1102,8 @@ public class InternalXQuizLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | RULE_XML_TEXT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=29;
+        // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | RULE_XML_TEXT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=30;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -1232,56 +1254,63 @@ public class InternalXQuizLexer extends Lexer {
                 }
                 break;
             case 22 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:136: RULE_XML_TEXT
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:136: T__33
+                {
+                mT__33(); 
+
+                }
+                break;
+            case 23 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:142: RULE_XML_TEXT
                 {
                 mRULE_XML_TEXT(); 
 
                 }
                 break;
-            case 23 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:150: RULE_ID
+            case 24 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:156: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 24 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:158: RULE_INT
+            case 25 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:164: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 25 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:167: RULE_STRING
+            case 26 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:173: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 26 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:179: RULE_ML_COMMENT
+            case 27 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:185: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 27 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:195: RULE_SL_COMMENT
+            case 28 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:201: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 28 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:211: RULE_WS
+            case 29 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:217: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 29 :
-                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:219: RULE_ANY_OTHER
+            case 30 :
+                // ../no.hal.pg.quiz.xtext.ui/src-gen/no/hal/pg/quiz/xtext/ui/contentassist/antlr/internal/InternalXQuiz.g:1:225: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1295,90 +1324,92 @@ public class InternalXQuizLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\4\36\1\uffff\1\43\1\46\1\36\1\uffff\2\36\4\uffff\2\34\3\uffff\1\65\1\34\2\uffff\2\34\2\uffff\1\36\1\uffff\1\36\1\73\1\36\5\uffff\1\36\1\uffff\2\36\16\uffff\1\100\1\36\1\uffff\3\36\1\105\1\uffff\1\106\1\36\1\110\1\111\2\uffff\1\112\3\uffff";
+        "\1\uffff\4\37\1\uffff\1\44\1\47\1\37\1\uffff\2\37\1\35\4\uffff\2\35\3\uffff\1\67\1\35\2\uffff\2\35\2\uffff\1\37\1\uffff\1\37\1\75\1\37\5\uffff\1\37\1\uffff\2\37\17\uffff\1\102\1\37\1\uffff\3\37\1\107\1\uffff\1\110\1\37\1\112\1\113\2\uffff\1\114\3\uffff";
     static final String DFA14_eofS =
-        "\113\uffff";
+        "\115\uffff";
     static final String DFA14_minS =
-        "\1\0\1\145\1\162\1\157\1\141\1\uffff\1\60\1\52\1\165\1\uffff\1\141\1\145\4\uffff\1\74\1\0\3\uffff\1\60\1\101\2\uffff\2\0\2\uffff\1\163\1\uffff\1\165\1\60\1\154\5\uffff\1\151\1\uffff\1\162\1\146\16\uffff\1\60\1\145\1\uffff\1\163\1\172\1\164\1\60\1\uffff\1\60\1\145\2\60\2\uffff\1\60\3\uffff";
+        "\1\0\1\145\1\162\1\157\1\141\1\uffff\1\60\1\52\1\165\1\uffff\1\141\1\145\1\55\4\uffff\1\74\1\0\3\uffff\1\60\1\101\2\uffff\2\0\2\uffff\1\163\1\uffff\1\165\1\60\1\154\5\uffff\1\151\1\uffff\1\162\1\146\17\uffff\1\60\1\145\1\uffff\1\163\1\172\1\164\1\60\1\uffff\1\60\1\145\2\60\2\uffff\1\60\3\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\145\1\162\1\157\1\141\1\uffff\1\172\1\57\1\165\1\uffff\1\141\1\145\4\uffff\1\74\1\uffff\3\uffff\2\172\2\uffff\2\uffff\2\uffff\1\163\1\uffff\1\165\1\172\1\154\5\uffff\1\151\1\uffff\1\162\1\146\16\uffff\1\172\1\145\1\uffff\1\163\1\172\1\164\1\172\1\uffff\1\172\1\145\2\172\2\uffff\1\172\3\uffff";
+        "\1\uffff\1\145\1\162\1\157\1\141\1\uffff\1\172\1\57\1\165\1\uffff\1\141\1\145\1\55\4\uffff\1\74\1\uffff\3\uffff\2\172\2\uffff\2\uffff\2\uffff\1\163\1\uffff\1\165\1\172\1\154\5\uffff\1\151\1\uffff\1\162\1\146\17\uffff\1\172\1\145\1\uffff\1\163\1\172\1\164\1\172\1\uffff\1\172\1\145\2\172\2\uffff\1\172\3\uffff";
     static final String DFA14_acceptS =
-        "\5\uffff\1\5\3\uffff\1\11\2\uffff\1\14\1\15\1\16\1\17\2\uffff\1\22\1\23\1\24\2\uffff\1\27\1\30\2\uffff\1\34\1\35\1\uffff\1\27\3\uffff\1\5\1\6\1\32\1\33\1\7\1\uffff\1\11\2\uffff\1\14\1\15\1\16\1\17\1\20\1\21\1\26\1\22\1\23\1\24\1\25\1\30\1\31\1\34\2\uffff\1\3\4\uffff\1\1\4\uffff\1\13\1\2\1\uffff\1\10\1\12\1\4";
+        "\5\uffff\1\5\3\uffff\1\11\3\uffff\1\15\1\16\1\17\1\20\2\uffff\1\23\1\24\1\25\2\uffff\1\30\1\31\2\uffff\1\35\1\36\1\uffff\1\30\3\uffff\1\5\1\6\1\33\1\34\1\7\1\uffff\1\11\2\uffff\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\27\1\23\1\24\1\25\1\26\1\31\1\32\1\35\2\uffff\1\3\4\uffff\1\1\4\uffff\1\13\1\2\1\uffff\1\10\1\12\1\4";
     static final String DFA14_specialS =
-        "\1\0\20\uffff\1\2\7\uffff\1\1\1\3\60\uffff}>";
+        "\1\2\21\uffff\1\3\7\uffff\1\0\1\1\61\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\34\2\33\2\34\1\33\22\34\1\33\1\34\1\31\4\34\1\32\1\14\1\15\3\34\1\5\1\11\1\7\12\30\2\34\1\20\1\23\1\21\1\22\1\34\32\27\1\16\1\34\1\17\1\26\1\27\1\34\5\27\1\4\7\27\1\3\1\27\1\12\1\10\1\13\1\27\1\2\1\27\1\25\1\27\1\6\1\1\1\27\3\34\1\24\uff81\34",
-            "\1\35",
-            "\1\37",
+            "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\32\4\35\1\33\1\15\1\16\1\35\1\14\1\35\1\5\1\11\1\7\12\31\2\35\1\21\1\24\1\22\1\23\1\35\32\30\1\17\1\35\1\20\1\27\1\30\1\35\5\30\1\4\7\30\1\3\1\30\1\12\1\10\1\13\1\30\1\2\1\30\1\26\1\30\1\6\1\1\1\30\3\35\1\25\uff81\35",
+            "\1\36",
             "\1\40",
             "\1\41",
+            "\1\42",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\44\4\uffff\1\45",
-            "\1\47",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\45\4\uffff\1\46",
+            "\1\50",
             "",
-            "\1\51",
             "\1\52",
+            "\1\53",
+            "\1\54",
             "",
             "",
             "",
             "",
-            "\1\57",
-            "\76\61\1\60\uffc1\61",
+            "\1\61",
+            "\76\63\1\62\uffc1\63",
             "",
             "",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
             "",
-            "\0\67",
-            "\0\67",
+            "\0\71",
+            "\0\71",
             "",
             "",
-            "\1\71",
+            "\1\73",
             "",
-            "\1\72",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\74",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\75",
-            "",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\76",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\77",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\100",
             "\1\101",
             "",
-            "\1\102",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\103",
+            "",
             "\1\104",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\105",
+            "\1\106",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\107",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\111",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
             "",
             ""
@@ -1414,13 +1445,33 @@ public class InternalXQuizLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | RULE_XML_TEXT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | RULE_XML_TEXT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA14_26 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_26>='\u0000' && LA14_26<='\uFFFF')) ) {s = 57;}
+
+                        else s = 29;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA14_27 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_27>='\u0000' && LA14_27<='\uFFFF')) ) {s = 57;}
+
+                        else s = 29;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA14_0 = input.LA(1);
 
                         s = -1;
@@ -1446,71 +1497,53 @@ public class InternalXQuizLexer extends Lexer {
 
                         else if ( (LA14_0=='r') ) {s = 11;}
 
-                        else if ( (LA14_0=='(') ) {s = 12;}
+                        else if ( (LA14_0=='+') ) {s = 12;}
 
-                        else if ( (LA14_0==')') ) {s = 13;}
+                        else if ( (LA14_0=='(') ) {s = 13;}
 
-                        else if ( (LA14_0=='[') ) {s = 14;}
+                        else if ( (LA14_0==')') ) {s = 14;}
 
-                        else if ( (LA14_0==']') ) {s = 15;}
+                        else if ( (LA14_0=='[') ) {s = 15;}
 
-                        else if ( (LA14_0=='<') ) {s = 16;}
+                        else if ( (LA14_0==']') ) {s = 16;}
 
-                        else if ( (LA14_0=='>') ) {s = 17;}
+                        else if ( (LA14_0=='<') ) {s = 17;}
 
-                        else if ( (LA14_0=='?') ) {s = 18;}
+                        else if ( (LA14_0=='>') ) {s = 18;}
 
-                        else if ( (LA14_0=='=') ) {s = 19;}
+                        else if ( (LA14_0=='?') ) {s = 19;}
 
-                        else if ( (LA14_0=='~') ) {s = 20;}
+                        else if ( (LA14_0=='=') ) {s = 20;}
 
-                        else if ( (LA14_0=='v') ) {s = 21;}
+                        else if ( (LA14_0=='~') ) {s = 21;}
 
-                        else if ( (LA14_0=='^') ) {s = 22;}
+                        else if ( (LA14_0=='v') ) {s = 22;}
 
-                        else if ( ((LA14_0>='A' && LA14_0<='Z')||LA14_0=='_'||(LA14_0>='a' && LA14_0<='e')||(LA14_0>='g' && LA14_0<='m')||LA14_0=='o'||LA14_0=='s'||LA14_0=='u'||LA14_0=='w'||LA14_0=='z') ) {s = 23;}
+                        else if ( (LA14_0=='^') ) {s = 23;}
 
-                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 24;}
+                        else if ( ((LA14_0>='A' && LA14_0<='Z')||LA14_0=='_'||(LA14_0>='a' && LA14_0<='e')||(LA14_0>='g' && LA14_0<='m')||LA14_0=='o'||LA14_0=='s'||LA14_0=='u'||LA14_0=='w'||LA14_0=='z') ) {s = 24;}
 
-                        else if ( (LA14_0=='\"') ) {s = 25;}
+                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 25;}
 
-                        else if ( (LA14_0=='\'') ) {s = 26;}
+                        else if ( (LA14_0=='\"') ) {s = 26;}
 
-                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 27;}
+                        else if ( (LA14_0=='\'') ) {s = 27;}
 
-                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||(LA14_0>='*' && LA14_0<=',')||(LA14_0>=':' && LA14_0<=';')||LA14_0=='@'||LA14_0=='\\'||LA14_0=='`'||(LA14_0>='{' && LA14_0<='}')||(LA14_0>='\u007F' && LA14_0<='\uFFFF')) ) {s = 28;}
+                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 28;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA14_25 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_25>='\u0000' && LA14_25<='\uFFFF')) ) {s = 55;}
-
-                        else s = 28;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA14_17 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_17=='>') ) {s = 48;}
-
-                        else if ( ((LA14_17>='\u0000' && LA14_17<='=')||(LA14_17>='?' && LA14_17<='\uFFFF')) ) {s = 49;}
-
-                        else s = 28;
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||LA14_0=='*'||LA14_0==','||(LA14_0>=':' && LA14_0<=';')||LA14_0=='@'||LA14_0=='\\'||LA14_0=='`'||(LA14_0>='{' && LA14_0<='}')||(LA14_0>='\u007F' && LA14_0<='\uFFFF')) ) {s = 29;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA14_26 = input.LA(1);
+                        int LA14_18 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_26>='\u0000' && LA14_26<='\uFFFF')) ) {s = 55;}
+                        if ( (LA14_18=='>') ) {s = 50;}
 
-                        else s = 28;
+                        else if ( ((LA14_18>='\u0000' && LA14_18<='=')||(LA14_18>='?' && LA14_18<='\uFFFF')) ) {s = 51;}
+
+                        else s = 29;
 
                         if ( s>=0 ) return s;
                         break;

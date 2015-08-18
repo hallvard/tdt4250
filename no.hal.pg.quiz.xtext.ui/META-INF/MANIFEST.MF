@@ -18,8 +18,9 @@ Require-Bundle: no.hal.pg.quiz.xtext;visibility:=reexport,
  org.eclipse.compare
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: no.hal.pg.quiz.xtext.ui.quickfix,
+Export-Package: no.hal.pg.quiz.xtext.ui,
  no.hal.pg.quiz.xtext.ui.contentassist,
+ no.hal.pg.quiz.xtext.ui.contentassist.antlr,
  no.hal.pg.quiz.xtext.ui.internal,
- no.hal.pg.quiz.xtext.ui.contentassist.antlr
+ no.hal.pg.quiz.xtext.ui.quickfix
 Bundle-Activator: no.hal.pg.quiz.xtext.ui.internal.XQuizActivator
