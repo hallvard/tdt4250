@@ -9,6 +9,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="GameDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
         eType="#//TaskDef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskRefs" upperBound="-1"
+        eType="#//TaskDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allTasks" upperBound="-1"
+        eType="#//TaskDef" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskDef"/>
 </ecore:EPackage>

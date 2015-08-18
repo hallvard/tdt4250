@@ -9,7 +9,7 @@ import no.hal.pg.model.ModelPackage;
 import no.hal.pg.model.TaskDef;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -29,6 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getTaskRefs <em>Task Refs</em>}</li>
+ *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getAllTasks <em>All Tasks</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +46,16 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 	 * @ordered
 	 */
 	protected EList<TaskDef> tasks;
+
+	/**
+	 * The cached value of the '{@link #getTaskRefs() <em>Task Refs</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskRefs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskDef> taskRefs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,6 +93,30 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TaskDef> getTaskRefs() {
+		if (taskRefs == null) {
+			taskRefs = new EObjectResolvingEList<TaskDef>(TaskDef.class, this, ModelPackage.GAME_DEF__TASK_REFS);
+		}
+		return taskRefs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<TaskDef> getAllTasks() {
+		EList<TaskDef> result = new BasicEList<TaskDef>();
+		result.addAll(getTasks());
+		result.addAll(getTaskRefs());
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -99,6 +136,10 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 		switch (featureID) {
 			case ModelPackage.GAME_DEF__TASKS:
 				return getTasks();
+			case ModelPackage.GAME_DEF__TASK_REFS:
+				return getTaskRefs();
+			case ModelPackage.GAME_DEF__ALL_TASKS:
+				return getAllTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,6 +157,10 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends TaskDef>)newValue);
 				return;
+			case ModelPackage.GAME_DEF__TASK_REFS:
+				getTaskRefs().clear();
+				getTaskRefs().addAll((Collection<? extends TaskDef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,6 +176,9 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 			case ModelPackage.GAME_DEF__TASKS:
 				getTasks().clear();
 				return;
+			case ModelPackage.GAME_DEF__TASK_REFS:
+				getTaskRefs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,6 +193,10 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 		switch (featureID) {
 			case ModelPackage.GAME_DEF__TASKS:
 				return tasks != null && !tasks.isEmpty();
+			case ModelPackage.GAME_DEF__TASK_REFS:
+				return taskRefs != null && !taskRefs.isEmpty();
+			case ModelPackage.GAME_DEF__ALL_TASKS:
+				return !getAllTasks().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

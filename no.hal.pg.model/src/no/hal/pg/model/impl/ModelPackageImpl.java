@@ -154,6 +154,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGameDef_TaskRefs() {
+		return (EReference)gameDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGameDef_AllTasks() {
+		return (EReference)gameDefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTaskDef() {
 		return taskDefEClass;
 	}
@@ -192,6 +210,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		gameDefEClass = createEClass(GAME_DEF);
 		createEReference(gameDefEClass, GAME_DEF__TASKS);
+		createEReference(gameDefEClass, GAME_DEF__TASK_REFS);
+		createEReference(gameDefEClass, GAME_DEF__ALL_TASKS);
 
 		taskDefEClass = createEClass(TASK_DEF);
 	}
@@ -232,6 +252,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(gameDefEClass, GameDef.class, "GameDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGameDef_Tasks(), this.getTaskDef(), null, "tasks", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGameDef_TaskRefs(), this.getTaskDef(), null, "taskRefs", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGameDef_AllTasks(), this.getTaskDef(), null, "allTasks", null, 0, -1, GameDef.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDefEClass, TaskDef.class, "TaskDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -122,13 +122,31 @@ public interface ModelPackage extends EPackage {
 	int GAME_DEF__TASKS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Task Refs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_DEF__TASK_REFS = 1;
+
+	/**
+	 * The feature id for the '<em><b>All Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_DEF__ALL_TASKS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Game Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_DEF_FEATURE_COUNT = 1;
+	int GAME_DEF_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Game Def</em>' class.
@@ -222,6 +240,28 @@ public interface ModelPackage extends EPackage {
 	EReference getGameDef_Tasks();
 
 	/**
+	 * Returns the meta object for the reference list '{@link no.hal.pg.model.GameDef#getTaskRefs <em>Task Refs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Task Refs</em>'.
+	 * @see no.hal.pg.model.GameDef#getTaskRefs()
+	 * @see #getGameDef()
+	 * @generated
+	 */
+	EReference getGameDef_TaskRefs();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.hal.pg.model.GameDef#getAllTasks <em>All Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>All Tasks</em>'.
+	 * @see no.hal.pg.model.GameDef#getAllTasks()
+	 * @see #getGameDef()
+	 * @generated
+	 */
+	EReference getGameDef_AllTasks();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.pg.model.TaskDef <em>Task Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,6 +337,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GAME_DEF__TASKS = eINSTANCE.getGameDef_Tasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Task Refs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_DEF__TASK_REFS = eINSTANCE.getGameDef_TaskRefs();
+
+		/**
+		 * The meta object literal for the '<em><b>All Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_DEF__ALL_TASKS = eINSTANCE.getGameDef_AllTasks();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.model.impl.TaskDefImpl <em>Task Def</em>}' class.
