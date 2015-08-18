@@ -164,6 +164,16 @@ public class ParserTest {
   }
   
   @Test
+  public void parseDoubleWithMarginQuestion() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("2.3 +- 0.5");
+    final Answer a = this.parseAnswer(_builder.toString());
+    this.<Double>checkSimpleAnswer(a, Double.valueOf(2.3), Double.valueOf(1.8));
+    this.<Double>checkSimpleAnswer(a, Double.valueOf(2.3), Double.valueOf(2.3));
+    this.<Double>checkSimpleAnswer(a, Double.valueOf(2.3), Double.valueOf(2.8));
+  }
+  
+  @Test
   public void parseTrueQuestion() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("true");

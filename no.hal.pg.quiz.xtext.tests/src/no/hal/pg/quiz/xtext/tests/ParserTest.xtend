@@ -101,6 +101,14 @@ class ParserTest {
 		val a = parseAnswer('''2.3''')
 	   	checkSimpleAnswer(a, 2.3, null)
  	}
+
+	@Test
+	def void parseDoubleWithMarginQuestion() {
+		val a = parseAnswer('''2.3 +- 0.5''')
+	   	checkSimpleAnswer(a, 2.3, 1.8)
+	   	checkSimpleAnswer(a, 2.3, 2.3)
+	   	checkSimpleAnswer(a, 2.3, 2.8)
+ 	}
 	
 	@Test
 	def void parseTrueQuestion() {
