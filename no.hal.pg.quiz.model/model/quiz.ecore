@@ -11,6 +11,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="QuizTaskDef" eSuperTypes="../../no.hal.pg.model/model/pg.ecore#//TaskDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="quizParts" upperBound="-1"
         eType="#//AbstractQuizPart"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctNeeded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attemptsAllowed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractQuizPart" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuizPartRef" eSuperTypes="#//AbstractQuizPart">
@@ -59,6 +61,7 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMargin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eGenericSuperTypes>
