@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="no.hal.pg.feature"
-      label="Feature"
+      id="no.hal.pg.model.feature"
+      label="Model feature"
       version="0.1.0.qualifier">
 
    <description url="http://www.example.com/description">
@@ -31,21 +31,7 @@
          unpack="false"/>
 
    <plugin
-         id="no.hal.pg.quiz.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="no.hal.pg.quiz.xtext"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.pg.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"
