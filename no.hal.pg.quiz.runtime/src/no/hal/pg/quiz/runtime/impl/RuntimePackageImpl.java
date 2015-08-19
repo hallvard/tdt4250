@@ -278,6 +278,15 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getQuizTaskService__GetQAProposals__Ref() {
+		return quizTaskServiceEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQARef() {
 		return qaRefEClass;
 	}
@@ -337,6 +346,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		quizTaskServiceEClass = createEClass(QUIZ_TASK_SERVICE);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF);
 
 		qaRefEClass = createEClass(QA_REF);
 		createEAttribute(qaRefEClass, QA_REF__QA_NUM);
@@ -376,6 +386,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		// Add supertypes to classes
 		EGenericType g1 = createEGenericType(theRuntimePackage_1.getTask());
 		EGenericType g2 = createEGenericType(theModelPackage.getQuizTaskDef());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEBooleanObject());
 		g1.getETypeArguments().add(g2);
 		quizTaskEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theRuntimePackage_1.getTaskState());
@@ -436,6 +448,12 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "qaRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getQuizTaskService__GetQAProposals__Ref(), this.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theRuntimePackage_1.getRef());
+		g2 = createEGenericType(theRuntimePackage_1.getPlayer());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "playerRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qaRefEClass, QARef.class, "QARef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQARef_QaNum(), ecorePackage.getEInt(), "qaNum", null, 0, 1, QARef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

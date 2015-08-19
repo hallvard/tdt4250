@@ -3,9 +3,7 @@
 package no.hal.pg.quiz.runtime.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
 
@@ -85,5 +83,5 @@ public class QAProposalTest extends TestCase {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-	
+
 } //QAProposalTest

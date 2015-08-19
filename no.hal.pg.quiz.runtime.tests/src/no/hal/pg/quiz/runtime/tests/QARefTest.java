@@ -2,6 +2,7 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
+import junit.framework.TestCase;
 import org.eclipse.emf.ecore.EObject;
 
 import junit.textui.TestRunner;
@@ -20,7 +21,7 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * <!-- end-user-doc -->
  * @generated
  */
-public class QARefTest extends RefTest {
+public class QARefTest extends TestCase {
 
 	/**
 	 * The fixture for this QA Ref test case.
@@ -73,14 +74,14 @@ public class QARefTest extends RefTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RuntimeFactory.eINSTANCE.createQARef());
-		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
 		XQuizStandaloneSetup.doSetup();
+		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
 		quizTask = (QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask());
+		setFixture(RuntimeFactory.eINSTANCE.createQARef());
 	}
 
 	private QuizTask quizTask;
@@ -88,10 +89,9 @@ public class QARefTest extends RefTest {
 	private void checkQA(int num, EObject context, boolean exists) {
 		QARef qaRef = getFixture();
 		qaRef.setQaNum(num);
-		checkRef(qaRef, context, exists);
+		RefTest.checkRef(qaRef, context, exists);
 	}
 
-	@Override
 	public void testGet__EObject() {
 		checkQA(0, quizTask, true);
 		checkQA(1, quizTask, false);

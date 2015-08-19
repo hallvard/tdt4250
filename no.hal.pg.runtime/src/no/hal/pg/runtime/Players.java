@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see no.hal.pg.runtime.RuntimePackage#getPlayers()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface Players extends EObject {

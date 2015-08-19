@@ -168,7 +168,7 @@ public class PlayerRefImpl extends RefImpl<Player> implements PlayerRef {
 	@Override
 	public Player get(EObject context) {
 		if (context instanceof TaskService<?>) {
-			context = ((TaskService<?>) context).getTask();
+			context = ((TaskService<?>) context).getContext();
 		}
 		Collection<Player> players = null;
 		while (context != null) {

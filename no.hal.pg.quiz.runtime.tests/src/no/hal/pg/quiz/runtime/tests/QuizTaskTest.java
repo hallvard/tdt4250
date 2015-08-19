@@ -2,6 +2,7 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.QuizPart;
@@ -9,7 +10,6 @@ import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.quiz.xtext.XQuizStandaloneSetup;
-import no.hal.pg.runtime.tests.TaskTest;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
@@ -25,7 +25,7 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * </p>
  * @generated
  */
-public class QuizTaskTest extends TaskTest {
+public class QuizTaskTest extends TestCase {
 
 	/**
 	 * The fixture for this Quiz Task test case.
@@ -98,7 +98,6 @@ public class QuizTaskTest extends TaskTest {
 		setFixture(null);
 	}
 
-	@Override
 	public void testStart() {
 		QuizTask quizTask = getFixture();
 		assertTrue(quizTask.getTaskDef().getQuizParts().size() >= 1);
@@ -141,7 +140,6 @@ public class QuizTaskTest extends TaskTest {
 	static void checkProposeAnswer(QuizTask quizTask, int qaNum, boolean accept, Boolean result, int count, boolean isFinished) {
 		assertEquals(count, quizTask.getAcceptedAnswerCount());
 		assertEquals(! isFinished, quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
-		assertEquals(isFinished, quizTask.isInState(no.hal.pg.runtime.RuntimePackage.eINSTANCE.getFinishedState()));
 		assertEquals(isFinished, quizTask.isFinished());
 	}
 

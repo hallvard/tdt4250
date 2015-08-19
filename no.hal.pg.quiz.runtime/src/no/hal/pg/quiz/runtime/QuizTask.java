@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see no.hal.pg.quiz.runtime.RuntimePackage#getQuizTask()
- * @model
+ * @model superTypes="no.hal.pg.runtime.Task<no.hal.pg.quiz.model.QuizTaskDef, org.eclipse.emf.ecore.EBooleanObject>"
  * @generated
  */
-public interface QuizTask extends Task<QuizTaskDef> {
+public interface QuizTask extends Task<QuizTaskDef, Boolean> {
 	/**
 	 * Returns the value of the '<em><b>Proposals</b></em>' containment reference list.
 	 * The list contents are of type {@link no.hal.pg.quiz.runtime.QAProposal}.

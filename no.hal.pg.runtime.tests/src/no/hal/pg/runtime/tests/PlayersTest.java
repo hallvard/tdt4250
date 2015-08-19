@@ -2,9 +2,12 @@
  */
 package no.hal.pg.runtime.tests;
 
-import junit.framework.TestCase;
+import org.eclipse.emf.common.util.EList;
 
+import junit.framework.TestCase;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Players;
+import no.hal.pg.runtime.RuntimeFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,12 +66,17 @@ public abstract class PlayersTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.pg.runtime.Players#getPlayers()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGetPlayers() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
+	}
+
+	protected void testGetPlayers(EList<Player> players) {
+		Player player = RuntimeFactory.eINSTANCE.createPlayer();
+		players.add(player);
+		assertEquals(1, players.size());
+		assertEquals(player, players.get(0));
 	}
 
 } //PlayersTest

@@ -4,11 +4,10 @@ package no.hal.pg.quiz.runtime.util;
 
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
-
-import no.hal.pg.runtime.ITask;
 import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskService;
 import no.hal.pg.runtime.TaskState;
@@ -78,8 +77,8 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				QuizTask quizTask = (QuizTask)theEObject;
 				T1 result = caseQuizTask(quizTask);
 				if (result == null) result = caseTask(quizTask);
-				if (result == null) result = caseITask(quizTask);
 				if (result == null) result = casePlayers(quizTask);
+				if (result == null) result = caseServices(quizTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +86,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				AcceptingAnswerState acceptingAnswerState = (AcceptingAnswerState)theEObject;
 				T1 result = caseAcceptingAnswerState(acceptingAnswerState);
 				if (result == null) result = caseTaskState(acceptingAnswerState);
+				if (result == null) result = caseServices(acceptingAnswerState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -192,21 +192,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITask</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITask</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseITask(ITask object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Players</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -222,6 +207,21 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Services</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Services</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseServices(Services object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -232,7 +232,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends TaskDef> T1 caseTask(Task<T> object) {
+	public <T extends TaskDef, R> T1 caseTask(Task<T, R> object) {
 		return null;
 	}
 
@@ -247,7 +247,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Task<?>> T1 caseTaskState(TaskState<T> object) {
+	public <T extends Task<?, ?>> T1 caseTaskState(TaskState<T> object) {
 		return null;
 	}
 
@@ -262,7 +262,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseService(Service object) {
+	public <T> T1 caseService(Service<T> object) {
 		return null;
 	}
 
@@ -277,7 +277,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Task<?>> T1 caseTaskService(TaskService<T> object) {
+	public <T extends Task<?, ?>> T1 caseTaskService(TaskService<T> object) {
 		return null;
 	}
 

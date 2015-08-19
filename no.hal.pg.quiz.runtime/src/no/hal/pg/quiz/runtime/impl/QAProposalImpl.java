@@ -9,7 +9,6 @@ import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.impl.PlayersImpl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class QAProposalImpl extends PlayersImpl implements QAProposal {
+public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAProposal {
 	/**
 	 * The cached value of the '{@link #getQa() <em>Qa</em>}' reference.
 	 * <!-- begin-user-doc -->

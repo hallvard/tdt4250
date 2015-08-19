@@ -11,6 +11,8 @@ Export-Package: no.hal.pg.runtime.tests,
  no.hal.pg.runtime.tests.util
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.runtime;visibility:=reexport,
+ no.hal.pg.model;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Import-Package: org.emfjson.jackson.resource;version="0.12.0"

@@ -27,12 +27,13 @@ public class RuntimeTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Test suite() {
 		TestSuite suite = new RuntimeTests("runtime Tests");
 		suite.addTestSuite(QuizTaskTest.class);
-		suite.addTestSuite(AcceptingAnswerStateTest.class);
+//		suite.addTestSuite(AcceptingAnswerStateTest.class);
+//		suite.addTestSuite(QAProposalTest.class);
 		suite.addTestSuite(QuizTaskServiceTest.class);
 		suite.addTestSuite(QARefTest.class);
 		return suite;

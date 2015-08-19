@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -28,12 +29,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.impl.TaskServiceImpl#getServiceListeners <em>Service Listeners</em>}</li>
- *   <li>{@link no.hal.pg.runtime.impl.TaskServiceImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.impl.TaskServiceImpl#getContext <em>Context</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectImpl.Container implements TaskService<T> {
+public abstract class TaskServiceImpl<T extends Task<?, ?>> extends MinimalEObjectImpl.Container implements TaskService<T> {
 	/**
 	 * The cached value of the '{@link #getServiceListeners() <em>Service Listeners</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -44,15 +45,14 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 	 */
 	protected EList<ServiceListener> serviceListeners;
 	/**
-	 * The cached value of the '{@link #getTask() <em>Task</em>}' reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTask()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected T task;
-
+	protected T context;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,16 +90,16 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public T getTask() {
-		if (task != null && task.eIsProxy()) {
-			InternalEObject oldTask = (InternalEObject)task;
-			task = (T)eResolveProxy(oldTask);
-			if (task != oldTask) {
+	public T getContext() {
+		if (context != null && ((EObject)context).eIsProxy()) {
+			InternalEObject oldContext = (InternalEObject)context;
+			context = (T)eResolveProxy(oldContext);
+			if (context != oldContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuntimePackage.TASK_SERVICE__TASK, oldTask, task));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuntimePackage.TASK_SERVICE__CONTEXT, oldContext, context));
 			}
 		}
-		return task;
+		return context;
 	}
 
 	/**
@@ -107,8 +107,8 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public T basicGetTask() {
-		return task;
+	public T basicGetContext() {
+		return context;
 	}
 
 	/**
@@ -116,11 +116,11 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask(T newTask) {
-		T oldTask = task;
-		task = newTask;
+	public void setContext(T newContext) {
+		T oldContext = context;
+		context = newContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK_SERVICE__TASK, oldTask, task));
+			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK_SERVICE__CONTEXT, oldContext, context));
 	}
 
 	/**
@@ -144,9 +144,9 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 		switch (featureID) {
 			case RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS:
 				return getServiceListeners();
-			case RuntimePackage.TASK_SERVICE__TASK:
-				if (resolve) return getTask();
-				return basicGetTask();
+			case RuntimePackage.TASK_SERVICE__CONTEXT:
+				if (resolve) return getContext();
+				return basicGetContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,8 +164,8 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 				getServiceListeners().clear();
 				getServiceListeners().addAll((Collection<? extends ServiceListener>)newValue);
 				return;
-			case RuntimePackage.TASK_SERVICE__TASK:
-				setTask((T)newValue);
+			case RuntimePackage.TASK_SERVICE__CONTEXT:
+				setContext((T)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,8 +182,8 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 			case RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS:
 				getServiceListeners().clear();
 				return;
-			case RuntimePackage.TASK_SERVICE__TASK:
-				setTask((T)null);
+			case RuntimePackage.TASK_SERVICE__CONTEXT:
+				setContext((T)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -199,8 +199,8 @@ public abstract class TaskServiceImpl<T extends Task<?>> extends MinimalEObjectI
 		switch (featureID) {
 			case RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS:
 				return serviceListeners != null && !serviceListeners.isEmpty();
-			case RuntimePackage.TASK_SERVICE__TASK:
-				return task != null;
+			case RuntimePackage.TASK_SERVICE__CONTEXT:
+				return context != null;
 		}
 		return super.eIsSet(featureID);
 	}

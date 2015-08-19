@@ -33,6 +33,6 @@
 },
 {
 	"eClass": "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#//QuizTaskService",
-	"task": {"$ref": "/3/@tasks.0"}
+	"context": {"$ref": "/3/@tasks.0"}
 }
 ]

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -21,6 +22,8 @@ import no.hal.pg.model.TaskDef;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 
@@ -32,15 +35,26 @@ import no.hal.pg.runtime.TaskState;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getServices <em>Services</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getStates <em>States</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container implements Task<T> {
+public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container implements Task<T, R> {
+	/**
+	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServices()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Service<?>> services;
 	/**
 	 * The cached value of the '{@link #getTaskDef() <em>Task Def</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -69,6 +83,15 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 */
 	protected EList<TaskState<?>> states;
 	/**
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected R result;
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -85,6 +108,18 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	protected EClass eStaticClass() {
 		return RuntimePackage.Literals.TASK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Service<?>> getServices() {
+		if (services == null) {
+			services = new EObjectContainmentEList<Service<?>>(Service.class, this, RuntimePackage.TASK__SERVICES);
+		}
+		return services;
 	}
 
 	/**
@@ -194,9 +229,33 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public R getResult() {
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResult(R newResult) {
+		R oldResult = result;
+		result = newResult;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK__RESULT, oldResult, result));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public TaskState<?> getCurrentState() {
+		if (isFinished()) {
+			return null;
+		}
 		EList<TaskState<?>> states = getStates();
 		return states.size() > 0 ? states.get(states.size() - 1) : null;
 	}
@@ -206,17 +265,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean isEnabled() {
-		return (! isStarted()) || getCurrentState().isEnabled();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public boolean isStarted() {
-		return getCurrentState() != null;
+		return getStates().size() > 0;
 	}
 
 	/**
@@ -225,7 +275,7 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public boolean isFinished() {
-		return isStarted() && getCurrentState().isFinished();
+		return getResult() != null;
 	}
 
 	/**
@@ -247,8 +297,10 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 		if (oldCurrentState != null) {
 			oldCurrentState.setExited(System.currentTimeMillis());
 		}
-		state.setEntered(System.currentTimeMillis());
-		getStates().add(state);
+		if (state != null) {
+			state.setEntered(System.currentTimeMillis());
+			getStates().add(state);
+		}
 	}
 
 	/**
@@ -257,7 +309,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public boolean isInState(EClass stateClass) {
-		return stateClass.isInstance(getCurrentState());
+		TaskState<?> currentState = getCurrentState();
+		return currentState != null && stateClass.isInstance(currentState);
 	}
 
 	/**
@@ -287,6 +340,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RuntimePackage.TASK__SERVICES:
+				return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
 			case RuntimePackage.TASK__GAME:
 				return basicSetGame(null, msgs);
 			case RuntimePackage.TASK__STATES:
@@ -317,6 +372,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RuntimePackage.TASK__SERVICES:
+				return getServices();
 			case RuntimePackage.TASK__TASK_DEF:
 				if (resolve) return getTaskDef();
 				return basicGetTaskDef();
@@ -326,6 +383,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				return getPlayers();
 			case RuntimePackage.TASK__STATES:
 				return getStates();
+			case RuntimePackage.TASK__RESULT:
+				return getResult();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -339,6 +398,10 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RuntimePackage.TASK__SERVICES:
+				getServices().clear();
+				getServices().addAll((Collection<? extends Service<?>>)newValue);
+				return;
 			case RuntimePackage.TASK__TASK_DEF:
 				setTaskDef((T)newValue);
 				return;
@@ -353,6 +416,9 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				getStates().clear();
 				getStates().addAll((Collection<? extends TaskState<?>>)newValue);
 				return;
+			case RuntimePackage.TASK__RESULT:
+				setResult((R)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -365,6 +431,9 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RuntimePackage.TASK__SERVICES:
+				getServices().clear();
+				return;
 			case RuntimePackage.TASK__TASK_DEF:
 				setTaskDef((T)null);
 				return;
@@ -376,6 +445,9 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				return;
 			case RuntimePackage.TASK__STATES:
 				getStates().clear();
+				return;
+			case RuntimePackage.TASK__RESULT:
+				setResult((R)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -389,6 +461,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RuntimePackage.TASK__SERVICES:
+				return services != null && !services.isEmpty();
 			case RuntimePackage.TASK__TASK_DEF:
 				return taskDef != null;
 			case RuntimePackage.TASK__GAME:
@@ -397,6 +471,8 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 				return players != null && !players.isEmpty();
 			case RuntimePackage.TASK__STATES:
 				return states != null && !states.isEmpty();
+			case RuntimePackage.TASK__RESULT:
+				return result != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -407,15 +483,40 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Services.class) {
+			switch (derivedFeatureID) {
+				case RuntimePackage.TASK__SERVICES: return RuntimePackage.SERVICES__SERVICES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Services.class) {
+			switch (baseFeatureID) {
+				case RuntimePackage.SERVICES__SERVICES: return RuntimePackage.TASK__SERVICES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.TASK___CHANGE_STATE__TASKSTATE:
-				changeState((TaskState<?>)arguments.get(0));
-				return null;
-			case RuntimePackage.TASK___GET_CURRENT_STATE:
-				return getCurrentState();
-			case RuntimePackage.TASK___IS_ENABLED:
-				return isEnabled();
 			case RuntimePackage.TASK___IS_STARTED:
 				return isStarted();
 			case RuntimePackage.TASK___IS_FINISHED:
@@ -423,10 +524,31 @@ public class TaskImpl<T extends TaskDef> extends MinimalEObjectImpl.Container im
 			case RuntimePackage.TASK___START:
 				start();
 				return null;
+			case RuntimePackage.TASK___CHANGE_STATE__TASKSTATE:
+				changeState((TaskState<?>)arguments.get(0));
+				return null;
+			case RuntimePackage.TASK___GET_CURRENT_STATE:
+				return getCurrentState();
 			case RuntimePackage.TASK___IS_IN_STATE__ECLASS:
 				return isInState((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (result: ");
+		result.append(result);
+		result.append(')');
+		return result.toString();
 	}
 
 } //TaskImpl

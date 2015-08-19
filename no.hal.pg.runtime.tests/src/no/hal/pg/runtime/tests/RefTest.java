@@ -72,7 +72,7 @@ public abstract class RefTest extends TestCase {
 		fail();
 	}
 
-	protected <T> T checkRef(Ref<T> ref, EObject context, boolean exists) {
+	public static <T> T checkRef(Ref<T> ref, EObject context, boolean exists) {
 		try {
 			T t = ref.get(context);
 			if (! exists) {

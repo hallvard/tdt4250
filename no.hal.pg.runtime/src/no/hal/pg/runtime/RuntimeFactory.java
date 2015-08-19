@@ -42,13 +42,22 @@ public interface RuntimeFactory extends EFactory {
 	Player createPlayer();
 
 	/**
+	 * Returns a new object of class '<em>Services</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Services</em>'.
+	 * @generated
+	 */
+	Services createServices();
+
+	/**
 	 * Returns a new object of class '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return a new object of class '<em>Task</em>'.
 	 * @generated
 	 */
-	<T extends TaskDef> Task<T> createTask();
+	<T extends TaskDef, R> Task<T, R> createTask();
 
 	/**
 	 * Returns a new object of class '<em>Task State</em>'.
@@ -57,16 +66,7 @@ public interface RuntimeFactory extends EFactory {
 	 * @return a new object of class '<em>Task State</em>'.
 	 * @generated
 	 */
-	<T extends Task<?>> TaskState<T> createTaskState();
-
-	/**
-	 * Returns a new object of class '<em>Finished State</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Finished State</em>'.
-	 * @generated
-	 */
-	<T extends Task<?>> FinishedState<T> createFinishedState();
+	<T extends Task<?, ?>> TaskState<T> createTaskState();
 
 	/**
 	 * Returns a new object of class '<em>Service Invocation</em>'.

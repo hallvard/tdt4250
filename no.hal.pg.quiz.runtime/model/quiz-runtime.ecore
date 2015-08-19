@@ -13,6 +13,7 @@
         eType="#//QAProposal" containment="true"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Task">
       <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef"/>
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AcceptingAnswerState">

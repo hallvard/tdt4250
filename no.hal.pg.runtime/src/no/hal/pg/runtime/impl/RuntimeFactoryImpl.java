@@ -61,9 +61,9 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 		switch (eClass.getClassifierID()) {
 			case RuntimePackage.GAME: return createGame();
 			case RuntimePackage.PLAYER: return createPlayer();
+			case RuntimePackage.SERVICES: return createServices();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
-			case RuntimePackage.FINISHED_STATE: return createFinishedState();
 			case RuntimePackage.SERVICE_INVOCATION: return createServiceInvocation();
 			case RuntimePackage.DIRECT_REF: return createDirectRef();
 			case RuntimePackage.PLAYER_REF: return createPlayerRef();
@@ -127,8 +127,18 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends TaskDef> Task<T> createTask() {
-		TaskImpl<T> task = new TaskImpl<T>();
+	public Services createServices() {
+		ServicesImpl services = new ServicesImpl();
+		return services;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <T extends TaskDef, R> Task<T, R> createTask() {
+		TaskImpl<T, R> task = new TaskImpl<T, R>();
 		return task;
 	}
 
@@ -137,19 +147,9 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends Task<?>> TaskState<T> createTaskState() {
+	public <T extends Task<?, ?>> TaskState<T> createTaskState() {
 		TaskStateImpl<T> taskState = new TaskStateImpl<T>();
 		return taskState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T extends Task<?>> FinishedState<T> createFinishedState() {
-		FinishedStateImpl<T> finishedState = new FinishedStateImpl<T>();
-		return finishedState;
 	}
 
 	/**

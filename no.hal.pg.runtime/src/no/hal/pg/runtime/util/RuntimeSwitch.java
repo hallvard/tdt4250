@@ -71,6 +71,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				Game game = (Game)theEObject;
 				T1 result = caseGame(game);
 				if (result == null) result = casePlayers(game);
+				if (result == null) result = caseServices(game);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -86,35 +87,29 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.TASK: {
-				Task<?> task = (Task<?>)theEObject;
-				T1 result = caseTask(task);
-				if (result == null) result = caseITask(task);
-				if (result == null) result = casePlayers(task);
+			case RuntimePackage.SERVICES: {
+				Services services = (Services)theEObject;
+				T1 result = caseServices(services);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.ITASK: {
-				ITask iTask = (ITask)theEObject;
-				T1 result = caseITask(iTask);
+			case RuntimePackage.TASK: {
+				Task<?, ?> task = (Task<?, ?>)theEObject;
+				T1 result = caseTask(task);
+				if (result == null) result = casePlayers(task);
+				if (result == null) result = caseServices(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RuntimePackage.TASK_STATE: {
 				TaskState<?> taskState = (TaskState<?>)theEObject;
 				T1 result = caseTaskState(taskState);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RuntimePackage.FINISHED_STATE: {
-				FinishedState<?> finishedState = (FinishedState<?>)theEObject;
-				T1 result = caseFinishedState(finishedState);
-				if (result == null) result = caseTaskState(finishedState);
+				if (result == null) result = caseServices(taskState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RuntimePackage.SERVICE: {
-				Service service = (Service)theEObject;
+				Service<?> service = (Service<?>)theEObject;
 				T1 result = caseService(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -131,6 +126,13 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RuntimePackage.TASK_SERVICE: {
+				TaskService<?> taskService = (TaskService<?>)theEObject;
+				T1 result = caseTaskService(taskService);
+				if (result == null) result = caseService(taskService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RuntimePackage.REF: {
 				Ref<?> ref = (Ref<?>)theEObject;
 				T1 result = caseRef(ref);
@@ -141,13 +143,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				DirectRef<?> directRef = (DirectRef<?>)theEObject;
 				T1 result = caseDirectRef(directRef);
 				if (result == null) result = caseRef(directRef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RuntimePackage.TASK_SERVICE: {
-				TaskService<?> taskService = (TaskService<?>)theEObject;
-				T1 result = caseTaskService(taskService);
-				if (result == null) result = caseService(taskService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,6 +203,21 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Services</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Services</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseServices(Services object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -218,22 +228,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends TaskDef> T1 caseTask(Task<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITask</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITask</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseITask(ITask object) {
+	public <T extends TaskDef, R> T1 caseTask(Task<T, R> object) {
 		return null;
 	}
 
@@ -248,22 +243,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Task<?>> T1 caseTaskState(TaskState<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Finished State</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Finished State</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T extends Task<?>> T1 caseFinishedState(FinishedState<T> object) {
+	public <T extends Task<?, ?>> T1 caseTaskState(TaskState<T> object) {
 		return null;
 	}
 
@@ -278,7 +258,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseService(Service object) {
+	public <T> T1 caseService(Service<T> object) {
 		return null;
 	}
 
@@ -323,7 +303,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Task<?>> T1 caseTaskService(TaskService<T> object) {
+	public <T extends Task<?, ?>> T1 caseTaskService(TaskService<T> object) {
 		return null;
 	}
 

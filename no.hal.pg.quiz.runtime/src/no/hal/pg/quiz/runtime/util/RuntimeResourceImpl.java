@@ -3,7 +3,7 @@
 package no.hal.pg.quiz.runtime.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.emfjson.jackson.resource.JsonResource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.emfjson.jackson.resource.JsonResource;
  * @see no.hal.pg.quiz.runtime.util.RuntimeResourceFactoryImpl
  * @generated
  */
-public class RuntimeResourceImpl extends JsonResource {
+public class RuntimeResourceImpl extends ResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->

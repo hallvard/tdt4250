@@ -2,9 +2,8 @@ package no.hal.pg.runtime.engine;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.osgi.service.component.annotations.Component;
@@ -22,46 +21,31 @@ import no.hal.pg.runtime.Task;
 @Component(immediate=true)
 public class Engine {
 
-	private Collection<ITaskEngineProvider> taskEngineProviders = new ArrayList<ITaskEngineProvider>();
+	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
 	
 	@Reference(
 			cardinality=ReferenceCardinality.MULTIPLE,
 			policy=ReferencePolicy.DYNAMIC,
-			unbind="removeTaskEngineProvider"
+			unbind="removeTaskProvider"
 	)
-	public synchronized void addTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
-		taskEngineProviders.add(taskEngineProvider);
+	public synchronized void addTaskProvider(ITaskProvider taskProvider) {
+		taskProviders.add(taskProvider);
 	}
 	
-	public synchronized void removeTaskEngineProvider(ITaskEngineProvider taskEngineProvider) {
-		taskEngineProviders.remove(taskEngineProvider);
+	public synchronized void removeTaskProvider(ITaskProvider taskEngineProvider) {
+		taskProviders.remove(taskEngineProvider);
 	}
 	
 	private Game game;
 	
-	private ITaskEngine<?> getTaskEngine(TaskDef taskDef) {
-		for (ITaskEngineProvider taskEngineFactory : taskEngineProviders) {
-			if (taskEngineFactory.isProviderFor(taskDef)) {
-				return taskEngineFactory.getTaskEngine(taskDef);
-			}
-		}
-		return null;
-	}
-	
-	private Map<Task<?>, ITaskEngine<?>> taskEngines = new HashMap<Task<?>, ITaskEngine<?>>();
-	
-	private ITaskEngine<?> getTaskEngine(Task<?> task) {
-		return taskEngines.get(task);
-	}
-	
-	public void prepare(GameDef gameDef) {
+	public void init(GameDef gameDef) {
 		Game game = RuntimeFactory.eINSTANCE.createGame();
 		for (TaskDef taskDef : gameDef.getTasks()) {
-			ITaskEngine<?> taskEngine = getTaskEngine(taskDef);
-			if (taskEngine != null) {
-				Task<?> task = taskEngine.prepare();
-				taskEngines.put(task, taskEngine);
-				game.getTasks().add(task);
+			for (ITaskProvider taskProvider : taskProviders) {
+				Task<?, ?> task = taskProvider.getTask(taskDef);
+				if (task != null) {
+					game.getTasks().add(task);
+				}
 			}
 		}
 		this.game = game;
@@ -71,34 +55,32 @@ public class Engine {
 		return notification.getFeature() == RuntimePackage.eINSTANCE.getTask_States();
 	}
 
-	private AdapterImpl finishedListener = new AdapterImpl() {
+	private Adapter stateListener = new AdapterImpl() {
 		@Override
-		public void notifyChanged(Notification notification) {
-			if (notification.getNotifier() instanceof Task && isChangeStateNotification(notification)) {
-				Task<?> task = (Task<?>) notification.getNotifier();
-				if (task.isFinished()) {
-					task.eAdapters().remove(finishedListener);
-					performNextTask();
-				}
+		public void notifyChanged(Notification msg) {
+			if (msg.getNotifier() instanceof Task<?, ?>  && isChangeStateNotification(msg)) {
+				taskStateChanged((Task<?, ?>) msg.getNotifier());
 			}
 		}
 	};
 	
-	private void perform(final Task<?> task) {
-		ITaskEngine<?> taskEngine = getTaskEngine(task);
-		task.eAdapters().add(finishedListener);
-		taskEngine.perform();
-	}
-	
-	protected void performNextTask() {
-		for (Task<?> task : game.getTasks()) {
-			if (task.isEnabled() && (! task.isStarted()))
-			perform(task);
-			break;
+	protected void taskStateChanged(Task<?, ?> task) {
+		if (task.isFinished()) {
+			task.eAdapters().remove(stateListener);
+			startNextTask();
 		}
 	}
 
-	public void perform() {
-		performNextTask();
+	protected void startNextTask() {
+		for (Task<?, ?> task : game.getTasks()) {
+			if (! task.isStarted()) {
+				task.start();
+				break;
+			}
+		}
+	}
+
+	public void start() {
+		startNextTask();
 	}
 }

@@ -37,7 +37,7 @@ import no.hal.pg.runtime.impl.TaskImpl;
  *
  * @generated
  */
-public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
+public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements QuizTask {
 	/**
 	 * The cached value of the '{@link #getProposals() <em>Proposals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -80,6 +80,17 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setResult(Boolean newResult) {
+		super.setResult(newResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<QAProposal> getProposals() {
@@ -107,7 +118,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
 				qaProposal.setRejectedCount(qaProposal.getRejectedCount() + 1);
 			}
 		}
-		updateFinishedState();
+		updateResult();
 		return accepted;
 	}
 
@@ -135,10 +146,28 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef> implements QuizTask {
 		return count;
 	}
 
-	private boolean updateFinishedState() {
-		boolean result = getAcceptedAnswerCount() == getProposals().size();
-		if (result) {
-			changeState(no.hal.pg.runtime.RuntimeFactory.eINSTANCE.createFinishedState());
+	private boolean updateResult() {
+		int requiredCount = getProposals().size();
+		double correctNeeded = getTaskDef().getCorrectNeeded();
+		if (correctNeeded <= 0) {
+			requiredCount += correctNeeded;
+		} else if (correctNeeded <= 1) {
+			requiredCount *= correctNeeded;
+		} else {
+			requiredCount = (int) correctNeeded;			
+		}
+		if (getAcceptedAnswerCount() >= requiredCount) {
+			System.out.println("Finished after " + getAcceptedAnswerCount());
+			setResult(true);
+			changeState(null);
+		}
+		int attemptsAllowed = getTaskDef().getAttemptsAllowed();
+		for (QAProposal proposal : getProposals()) {
+			if (attemptsAllowed > 0 && proposal.getRejectedCount() >= attemptsAllowed) {
+				setResult(false);
+				changeState(null);
+				break;
+			}
 		}
 		return true;
 	}

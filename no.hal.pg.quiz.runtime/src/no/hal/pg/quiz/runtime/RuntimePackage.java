@@ -68,6 +68,15 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK = 0;
 
 	/**
+	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK__SERVICES = no.hal.pg.runtime.RuntimePackage.TASK__SERVICES;
+
+	/**
 	 * The feature id for the '<em><b>Task Def</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +113,15 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK__STATES = no.hal.pg.runtime.RuntimePackage.TASK__STATES;
 
 	/**
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK__RESULT = no.hal.pg.runtime.RuntimePackage.TASK__RESULT;
+
+	/**
 	 * The feature id for the '<em><b>Proposals</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,13 +140,13 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Enabled</em>' operation.
+	 * The operation id for the '<em>Get Players</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK___IS_ENABLED = no.hal.pg.runtime.RuntimePackage.TASK___IS_ENABLED;
+	int QUIZ_TASK___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK___GET_PLAYERS;
 
 	/**
 	 * The operation id for the '<em>Is Started</em>' operation.
@@ -158,24 +176,6 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK___START = no.hal.pg.runtime.RuntimePackage.TASK___START;
 
 	/**
-	 * The operation id for the '<em>Is In State</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK___IS_IN_STATE__ECLASS = no.hal.pg.runtime.RuntimePackage.TASK___IS_IN_STATE__ECLASS;
-
-	/**
-	 * The operation id for the '<em>Get Players</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK___GET_PLAYERS;
-
-	/**
 	 * The operation id for the '<em>Change State</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +192,15 @@ public interface RuntimePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUIZ_TASK___GET_CURRENT_STATE = no.hal.pg.runtime.RuntimePackage.TASK___GET_CURRENT_STATE;
+
+	/**
+	 * The operation id for the '<em>Is In State</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK___IS_IN_STATE__ECLASS = no.hal.pg.runtime.RuntimePackage.TASK___IS_IN_STATE__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.
@@ -231,6 +240,15 @@ public interface RuntimePackage extends EPackage {
 	int ACCEPTING_ANSWER_STATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCEPTING_ANSWER_STATE__SERVICES = no.hal.pg.runtime.RuntimePackage.TASK_STATE__SERVICES;
+
+	/**
 	 * The feature id for the '<em><b>Task</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,24 +283,6 @@ public interface RuntimePackage extends EPackage {
 	 * @ordered
 	 */
 	int ACCEPTING_ANSWER_STATE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_STATE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Enabled</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPTING_ANSWER_STATE___IS_ENABLED = no.hal.pg.runtime.RuntimePackage.TASK_STATE___IS_ENABLED;
-
-	/**
-	 * The operation id for the '<em>Is Finished</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPTING_ANSWER_STATE___IS_FINISHED = no.hal.pg.runtime.RuntimePackage.TASK_STATE___IS_FINISHED;
 
 	/**
 	 * The number of operations of the '<em>Accepting Answer State</em>' class.
@@ -404,13 +404,13 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK_SERVICE__SERVICE_LISTENERS = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS;
 
 	/**
-	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE__TASK = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__TASK;
+	int QUIZ_TASK_SERVICE__CONTEXT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__CONTEXT;
 
 	/**
 	 * The number of structural features of the '<em>Quiz Task Service</em>' class.
@@ -449,13 +449,22 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get QA Proposals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Quiz Task Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
+	int QUIZ_TASK_SERVICE_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.
@@ -661,6 +670,16 @@ public interface RuntimePackage extends EPackage {
 	EOperation getQuizTaskService__AcceptAnswer__Ref_Ref_String();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref) <em>Get QA Proposals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get QA Proposals</em>' operation.
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref)
+	 * @generated
+	 */
+	EOperation getQuizTaskService__GetQAProposals__Ref();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QARef <em>QA Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -831,6 +850,14 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__Ref_Ref_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get QA Proposals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF = eINSTANCE.getQuizTaskService__GetQAProposals__Ref();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.

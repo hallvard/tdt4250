@@ -2,17 +2,13 @@
  */
 package no.hal.pg.runtime.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
@@ -33,7 +29,7 @@ import no.hal.pg.runtime.TaskState;
  *
  * @generated
  */
-public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Container implements TaskState<T> {
+public class TaskStateImpl<T extends Task<?, ?>> extends ServicesImpl implements TaskState<T> {
 	/**
 	 * The default value of the '{@link #getEntered() <em>Entered</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,9 +94,9 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task<?> getTask() {
+	public Task<?, ?> getTask() {
 		if (eContainerFeatureID() != RuntimePackage.TASK_STATE__TASK) return null;
-		return (Task<?>)eInternalContainer();
+		return (Task<?, ?>)eInternalContainer();
 	}
 
 	/**
@@ -108,7 +104,7 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTask(Task<?> newTask, NotificationChain msgs) {
+	public NotificationChain basicSetTask(Task<?, ?> newTask, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newTask, RuntimePackage.TASK_STATE__TASK, msgs);
 		return msgs;
 	}
@@ -118,7 +114,7 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask(Task<?> newTask) {
+	public void setTask(Task<?, ?> newTask) {
 		if (newTask != eInternalContainer() || (eContainerFeatureID() != RuntimePackage.TASK_STATE__TASK && newTask != null)) {
 			if (EcoreUtil.isAncestor(this, newTask))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -205,7 +201,7 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 			case RuntimePackage.TASK_STATE__TASK:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetTask((Task<?>)otherEnd, msgs);
+				return basicSetTask((Task<?, ?>)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -265,7 +261,7 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RuntimePackage.TASK_STATE__TASK:
-				setTask((Task<?>)newValue);
+				setTask((Task<?, ?>)newValue);
 				return;
 			case RuntimePackage.TASK_STATE__ENTERED:
 				setEntered((Long)newValue);
@@ -286,7 +282,7 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RuntimePackage.TASK_STATE__TASK:
-				setTask((Task<?>)null);
+				setTask((Task<?, ?>)null);
 				return;
 			case RuntimePackage.TASK_STATE__ENTERED:
 				setEntered(ENTERED_EDEFAULT);
@@ -314,22 +310,6 @@ public class TaskStateImpl<T extends Task<?>> extends MinimalEObjectImpl.Contain
 				return EXITED_EDEFAULT == null ? exited != null : !EXITED_EDEFAULT.equals(exited);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case RuntimePackage.TASK_STATE___IS_ENABLED:
-				return isEnabled();
-			case RuntimePackage.TASK_STATE___IS_FINISHED:
-				return isFinished();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

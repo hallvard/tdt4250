@@ -5,9 +5,10 @@ package no.hal.pg.runtime.tests;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
+
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
@@ -24,7 +25,15 @@ import no.hal.pg.runtime.Task;
  * </p>
  * @generated
  */
-public class GameTest extends PlayersTest {
+public class GameTest extends TestCase {
+
+	/**
+	 * The fixture for this Game test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Game fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -46,14 +55,23 @@ public class GameTest extends PlayersTest {
 	}
 
 	/**
+	 * Sets the fixture for this Game test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Game fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Game test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Game getFixture() {
-		return (Game)fixture;
+		return fixture;
 	}
 
 	/**
@@ -87,30 +105,14 @@ public class GameTest extends PlayersTest {
 	 */
 	public void testGetTasks__EClass() {
 		Game game = getFixture();
-		Task<?> task1 = RuntimeFactory.eINSTANCE.createTask();
+		Task<?, ?> task1 = RuntimeFactory.eINSTANCE.createTask();
 		task1.changeState(RuntimeFactory.eINSTANCE.createTaskState());
-		Task<?> task2 = RuntimeFactory.eINSTANCE.createTask();
+		Task<?, ?> task2 = RuntimeFactory.eINSTANCE.createTask();
 		task2.changeState(RuntimeFactory.eINSTANCE.createTaskState());
-		Task<?> task3 = RuntimeFactory.eINSTANCE.createTask();
-		task3.changeState(RuntimeFactory.eINSTANCE.createFinishedState());
+		Task<?, ?> task3 = RuntimeFactory.eINSTANCE.createTask();
 		game.getTasks().addAll(Arrays.asList(task1, task2, task3));
-		EList<Task<?>> allTasks = game.getTasks(RuntimePackage.eINSTANCE.getTaskState());
-		assertEquals(3, allTasks.size());
-		assertTrue(allTasks.contains(task1));
-		assertTrue(allTasks.contains(task2));
-		assertTrue(allTasks.contains(task3));
-		EList<Task<?>> finishedTasks = game.getTasks(RuntimePackage.eINSTANCE.getFinishedState());
-		assertEquals(1, finishedTasks.size());
-		assertTrue(finishedTasks.contains(task3));
+		EList<Task<?, ?>> allTasks = game.getTasks(RuntimePackage.eINSTANCE.getTaskState());
+		assertEquals(2, allTasks.size());
+		assertTrue(allTasks.containsAll(Arrays.asList(task1, task2)));
 	}
-
-	@Override
-	public void testGetPlayers() {
-		Game game = getFixture();
-		Player player = RuntimeFactory.eINSTANCE.createPlayer();
-		game.getPlayers().add(player);
-		assertEquals(1, game.getPlayers().size());
-		assertEquals(player, game.getPlayers().get(0));
-	}
-	
 } //GameTest

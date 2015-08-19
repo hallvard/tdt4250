@@ -4,11 +4,10 @@ package no.hal.pg.quiz.runtime.util;
 
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
-
-import no.hal.pg.runtime.ITask;
 import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskService;
 import no.hal.pg.runtime.TaskState;
@@ -96,27 +95,27 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createQARefAdapter();
 			}
 			@Override
-			public Adapter caseITask(ITask object) {
-				return createITaskAdapter();
-			}
-			@Override
 			public Adapter casePlayers(Players object) {
 				return createPlayersAdapter();
 			}
 			@Override
-			public <T extends TaskDef> Adapter caseTask(Task<T> object) {
+			public Adapter caseServices(Services object) {
+				return createServicesAdapter();
+			}
+			@Override
+			public <T extends TaskDef, R> Adapter caseTask(Task<T, R> object) {
 				return createTaskAdapter();
 			}
 			@Override
-			public <T extends Task<?>> Adapter caseTaskState(TaskState<T> object) {
+			public <T extends Task<?, ?>> Adapter caseTaskState(TaskState<T> object) {
 				return createTaskStateAdapter();
 			}
 			@Override
-			public Adapter caseService(Service object) {
+			public <T> Adapter caseService(Service<T> object) {
 				return createServiceAdapter();
 			}
 			@Override
-			public <T extends Task<?>> Adapter caseTaskService(TaskService<T> object) {
+			public <T extends Task<?, ?>> Adapter caseTaskService(TaskService<T> object) {
 				return createTaskServiceAdapter();
 			}
 			@Override
@@ -214,20 +213,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ITask <em>ITask</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.ITask
-	 * @generated
-	 */
-	public Adapter createITaskAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Players <em>Players</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -238,6 +223,20 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlayersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Services <em>Services</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.Services
+	 * @generated
+	 */
+	public Adapter createServicesAdapter() {
 		return null;
 	}
 

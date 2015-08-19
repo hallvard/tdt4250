@@ -2,8 +2,6 @@
  */
 package no.hal.pg.runtime;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Task State</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TaskState<T extends Task<?>> extends EObject {
+public interface TaskState<T extends Task<?, ?>> extends Services {
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Task#getStates <em>States</em>}'.
@@ -39,7 +37,7 @@ public interface TaskState<T extends Task<?>> extends EObject {
 	 * @model opposite="states" transient="false"
 	 * @generated
 	 */
-	Task<?> getTask();
+	Task<?, ?> getTask();
 
 	/**
 	 * Sets the value of the '{@link no.hal.pg.runtime.TaskState#getTask <em>Task</em>}' container reference.
@@ -49,7 +47,7 @@ public interface TaskState<T extends Task<?>> extends EObject {
 	 * @see #getTask()
 	 * @generated
 	 */
-	void setTask(Task<?> value);
+	void setTask(Task<?, ?> value);
 
 	/**
 	 * Returns the value of the '<em><b>Entered</b></em>' attribute.
@@ -102,21 +100,5 @@ public interface TaskState<T extends Task<?>> extends EObject {
 	 * @generated
 	 */
 	void setExited(Long value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isEnabled();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isFinished();
 
 } // TaskState

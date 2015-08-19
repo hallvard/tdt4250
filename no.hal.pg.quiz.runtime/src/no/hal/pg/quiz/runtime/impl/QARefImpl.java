@@ -170,7 +170,7 @@ public class QARefImpl extends RefImpl<QA> implements QARef {
 	@Override
 	public QA get(EObject context) {
 		if (context instanceof QuizTaskService) {
-			context = ((QuizTaskService) context).getTask();
+			context = ((QuizTaskService) context).getContext();
 		}
 		if (context instanceof QuizTask) {
 			EList<QAProposal> proposals = ((QuizTask) context).getProposals();

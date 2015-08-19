@@ -4,6 +4,7 @@ package no.hal.pg.runtime;
 
 import no.hal.pg.model.TaskDef;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,13 +19,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link no.hal.pg.runtime.Task#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getStates <em>States</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @see no.hal.pg.runtime.RuntimePackage#getTask()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PlayerIsContainedInGame'"
  * @generated
  */
-public interface Task<T extends TaskDef> extends ITask, Players {
+public interface Task<T extends TaskDef, R> extends Players, Services {
 	/**
 	 * Returns the value of the '<em><b>Task Def</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -114,12 +116,70 @@ public interface Task<T extends TaskDef> extends ITask, Players {
 	EList<TaskState<?>> getStates();
 
 	/**
+	 * Returns the value of the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Result</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Result</em>' attribute.
+	 * @see #setResult(Object)
+	 * @see no.hal.pg.runtime.RuntimePackage#getTask_Result()
+	 * @model
+	 * @generated
+	 */
+	R getResult();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Result</em>' attribute.
+	 * @see #getResult()
+	 * @generated
+	 */
+	void setResult(R value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	TaskState<?> getCurrentState();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isInState(EClass stateClass);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isStarted();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isFinished();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void start();
 
 	/**
 	 * <!-- begin-user-doc -->

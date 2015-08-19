@@ -5,6 +5,7 @@ package no.hal.pg.quiz.runtime.util;
 import java.util.Map;
 
 import no.hal.pg.quiz.runtime.*;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.util.Util;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -165,7 +166,8 @@ public class RuntimeValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateQAProposal_AnsweredByPlayers(QAProposal qaProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (! Util.containsPlayer(qaProposal, qaProposal.getAnsweredBy(), true)) {
+		Player player = qaProposal.getAnsweredBy();
+		if (player != null && (! Util.containsPlayer(qaProposal, player, false))) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic

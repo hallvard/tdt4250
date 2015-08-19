@@ -79,7 +79,7 @@ public class PlayerRefTest extends RefTest {
 	
 	@Override
 	public void testGet__EObject() {
-		Task<?> task = game.getTasks().get(0);
+		Task<?, ?> task = game.getTasks().get(0);
 		checkPlayer("hal@idi.ntnu.no", game, true);
 		checkPlayer("hal@idi.ntnu.no", task, true);
 		checkPlayer("jon.espen.ingvaldsen@ntnu.no", game, true);

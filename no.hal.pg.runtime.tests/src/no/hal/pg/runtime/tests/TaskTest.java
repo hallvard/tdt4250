@@ -4,10 +4,10 @@ package no.hal.pg.runtime.tests;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
-import no.hal.pg.runtime.FinishedState;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.TaskState;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +16,12 @@ import no.hal.pg.runtime.Task;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.Task#isStarted() <em>Is Started</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#isFinished() <em>Is Finished</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#start() <em>Start</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getCurrentState() <em>Get Current State</em>}</li>
- *   <li>{@link no.hal.pg.runtime.ITask#isEnabled() <em>Is Enabled</em>}</li>
- *   <li>{@link no.hal.pg.runtime.ITask#isStarted() <em>Is Started</em>}</li>
- *   <li>{@link no.hal.pg.runtime.ITask#isFinished() <em>Is Finished</em>}</li>
- *   <li>{@link no.hal.pg.runtime.ITask#start() <em>Start</em>}</li>
- *   <li>{@link no.hal.pg.runtime.ITask#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -35,7 +34,7 @@ public class TaskTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Task<?> fixture = null;
+	protected Task<?, ?> fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +61,7 @@ public class TaskTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Task<?> fixture) {
+	protected void setFixture(Task<?, ?> fixture) {
 		this.fixture = fixture;
 	}
 
@@ -72,7 +71,7 @@ public class TaskTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Task<?> getFixture() {
+	protected Task<?, ?> getFixture() {
 		return fixture;
 	}
 
@@ -106,9 +105,9 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testChangeState__TaskState() {
-		Task<?> task = getFixture();
-		task.changeState(RuntimeFactory.eINSTANCE.createFinishedState());
-		assertTrue(task.getCurrentState() instanceof FinishedState);
+		Task<?, ?> task = getFixture();
+		task.changeState(RuntimeFactory.eINSTANCE.createTaskState());
+		assertTrue(task.getCurrentState() instanceof TaskState<?>);
 	}
 
 	/**
@@ -119,10 +118,10 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testIsInState__EClass() {
-		Task<?> task = getFixture();
-		assertTrue(! task.isInState(RuntimePackage.eINSTANCE.getFinishedState()));
-		task.changeState(RuntimeFactory.eINSTANCE.createFinishedState());
-		assertTrue(task.isInState(RuntimePackage.eINSTANCE.getFinishedState()));
+		Task<?, ?> task = getFixture();
+		assertTrue(! task.isInState(RuntimePackage.eINSTANCE.getTaskState()));
+		task.changeState(RuntimeFactory.eINSTANCE.createTaskState());
+		assertTrue(task.isInState(RuntimePackage.eINSTANCE.getTaskState()));
 	}
 
 	/**
@@ -133,22 +132,11 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetCurrentState() {
-		Task<?> task = getFixture();
+		Task<?, ?> task = getFixture();
 		assertNull(task.getCurrentState());
-		FinishedState<Task<?>> finishedState = RuntimeFactory.eINSTANCE.createFinishedState();
-		task.changeState(finishedState);
-		assertEquals(finishedState, task.getCurrentState());
-	}
-
-	/**
-	 * Tests the '{@link no.hal.pg.runtime.ITask#isEnabled() <em>Is Enabled</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.ITask#isEnabled()
-	 * @generated NOT
-	 */
-	public void testIsEnabled() {
-		assertTrue(getFixture().isEnabled());
+		TaskState<Task<?, ?>> state = RuntimeFactory.eINSTANCE.createTaskState();
+		task.changeState(state);
+		assertEquals(state, task.getCurrentState());
 	}
 
 	/**
@@ -159,9 +147,9 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testIsStarted() {
-		Task<?> task = getFixture();
+		Task<?, ?> task = getFixture();
 		assertFalse(task.isStarted());
-		task.changeState(RuntimeFactory.eINSTANCE.createFinishedState());
+		task.changeState(RuntimeFactory.eINSTANCE.createTaskState());
 		assertTrue(task.isStarted());
 	}
 
@@ -173,12 +161,7 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testIsFinished() {
-		Task<?> task = getFixture();
-		assertFalse(task.isFinished());
-		task.changeState(RuntimeFactory.eINSTANCE.createTaskState());
-		assertFalse(task.isFinished());
-		task.changeState(RuntimeFactory.eINSTANCE.createFinishedState());
-		assertTrue(task.isFinished());
+		assertFalse(getFixture().isFinished());
 	}
 
 	/**

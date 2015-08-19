@@ -4,6 +4,7 @@ package no.hal.pg.quiz.runtime.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -15,6 +16,7 @@ import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.impl.TaskServiceImpl;
+import no.hal.pg.runtime.util.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +52,8 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	 * @generated
 	 */
 	@Override
-	public void setTask(QuizTask newTask) {
-		super.setTask(newTask);
+	public void setContext(QuizTask newContext) {
+		super.setContext(newContext);
 	}
 
 	/**
@@ -65,7 +67,7 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
-		return getTask().proposeAnswer(qa, proposal, false);
+		return getContext().proposeAnswer(qa, proposal, false);
 	}
 
 	/**
@@ -74,12 +76,28 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	 * @generated NOT
 	 */
 	public Boolean acceptAnswer(Ref<Player> playerRef, Ref<QA> qaRef, String proposal) {
-		Player player = playerRef.get(getTask());
-		QA qa = qaRef.get(getTask());
+		Player player = playerRef.get(getContext());
+		QA qa = qaRef.get(getContext());
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
-		return getTask().proposeAnswer(qa, proposal, true);
+		return getContext().proposeAnswer(qa, proposal, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<QAProposal> getQAProposals(Ref<Player> playerRef) {
+		Player player = playerRef.get(this);
+		EList<QAProposal> proposals = new BasicEList<QAProposal>();
+		for (QAProposal proposal : getContext().getProposals()) {
+			if (Util.containsPlayer(proposal, player, false)) {
+				proposals.add(proposal);
+			}
+		}
+		return proposals;
 	}
 
 	/**
@@ -95,6 +113,8 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 				return proposeAnswer((Ref<Player>)arguments.get(0), (Ref<QA>)arguments.get(1), (String)arguments.get(2));
 			case RuntimePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING:
 				return acceptAnswer((Ref<Player>)arguments.get(0), (Ref<QA>)arguments.get(1), (String)arguments.get(2));
+			case RuntimePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF:
+				return getQAProposals((Ref<Player>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -102,19 +122,19 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	//
 	
 	private void checkAcceptingAnswerState() {
-		if (! getTask().isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState())) {
+		if (! getContext().isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState())) {
 			throw new IllegalStateException("Task must be in AcceptingAnswerState");
 		}
 	}
 	
 	private void checkPlayerInTaskPlayers(Player player) {
-		if (! getTask().getPlayers().contains(player)) {
+		if (! getContext().getPlayers().contains(player)) {
 			throw new IllegalStateException("Player " + player + " cannot perform this task");
 		}
 	}
 
 	private void checkQAInQAProposals(QA qa) {
-		for (QAProposal qaProposal : getTask().getProposals()) {
+		for (QAProposal qaProposal : getContext().getProposals()) {
 			if (qaProposal.getQa() == qa) {
 				return;
 			}

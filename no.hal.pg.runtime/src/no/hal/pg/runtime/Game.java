@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
  * @model
  * @generated
  */
-public interface Game extends Players {
+public interface Game extends Players, Services {
 	/**
 	 * Returns the value of the '<em><b>Players</b></em>' containment reference list.
 	 * The list contents are of type {@link no.hal.pg.runtime.Player}.
@@ -44,7 +44,7 @@ public interface Game extends Players {
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
-	 * The list contents are of type {@link no.hal.pg.runtime.Task}&lt;?>.
+	 * The list contents are of type {@link no.hal.pg.runtime.Task}&lt;?, ?>.
 	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Task#getGame <em>Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -58,7 +58,7 @@ public interface Game extends Players {
 	 * @model opposite="game" containment="true"
 	 * @generated
 	 */
-	EList<Task<?>> getTasks();
+	EList<Task<?, ?>> getTasks();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,6 +66,6 @@ public interface Game extends Players {
 	 * @model
 	 * @generated
 	 */
-	EList<Task<?>> getTasks(EClass stateClass);
+	EList<Task<?, ?>> getTasks(EClass stateClass);
 
 } // Game

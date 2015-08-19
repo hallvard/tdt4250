@@ -85,12 +85,5 @@ public class AcceptingAnswerStateTest extends TestCase {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-
-	//
-	
-	public void testIsFinishState() {
-		assertTrue(getFixture().isEnabled());
-		assertFalse(getFixture().isFinished());
-	}
 	
 } //AcceptingAnswerStateTest

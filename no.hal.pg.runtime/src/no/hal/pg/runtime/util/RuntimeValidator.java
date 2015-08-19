@@ -88,26 +88,24 @@ public class RuntimeValidator extends EObjectValidator {
 				return validatePlayer((Player)value, diagnostics, context);
 			case RuntimePackage.PLAYERS:
 				return validatePlayers((Players)value, diagnostics, context);
+			case RuntimePackage.SERVICES:
+				return validateServices((Services)value, diagnostics, context);
 			case RuntimePackage.TASK:
-				return validateTask((Task<?>)value, diagnostics, context);
-			case RuntimePackage.ITASK:
-				return validateITask((ITask)value, diagnostics, context);
+				return validateTask((Task<?, ?>)value, diagnostics, context);
 			case RuntimePackage.TASK_STATE:
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
-			case RuntimePackage.FINISHED_STATE:
-				return validateFinishedState((FinishedState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
-				return validateService((Service)value, diagnostics, context);
+				return validateService((Service<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE_LISTENER:
 				return validateServiceListener((ServiceListener)value, diagnostics, context);
 			case RuntimePackage.SERVICE_INVOCATION:
 				return validateServiceInvocation((ServiceInvocation)value, diagnostics, context);
+			case RuntimePackage.TASK_SERVICE:
+				return validateTaskService((TaskService<?>)value, diagnostics, context);
 			case RuntimePackage.REF:
 				return validateRef((Ref<?>)value, diagnostics, context);
 			case RuntimePackage.DIRECT_REF:
 				return validateDirectRef((DirectRef<?>)value, diagnostics, context);
-			case RuntimePackage.TASK_SERVICE:
-				return validateTaskService((TaskService<?>)value, diagnostics, context);
 			case RuntimePackage.PLAYER_REF:
 				return validatePlayerRef((PlayerRef)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
@@ -149,7 +147,16 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTask(Task<?> task, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateServices(Services services, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(services, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTask(Task<?, ?> task, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(task, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(task, diagnostics, context);
@@ -192,15 +199,6 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateITask(ITask iTask, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(iTask, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateTaskState(TaskState<?> taskState, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(taskState, diagnostics, context);
 	}
@@ -210,16 +208,7 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateFinishedState(FinishedState<?> finishedState, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(finishedState, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateService(Service service, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateService(Service<?> service, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(service, diagnostics, context);
 	}
 

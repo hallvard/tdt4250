@@ -26,7 +26,7 @@ public abstract class ServiceTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Service fixture = null;
+	protected Service<?> fixture = null;
 
 	/**
 	 * Constructs a new Service test case with the given name.
@@ -44,7 +44,7 @@ public abstract class ServiceTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Service fixture) {
+	protected void setFixture(Service<?> fixture) {
 		this.fixture = fixture;
 	}
 
@@ -54,7 +54,7 @@ public abstract class ServiceTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Service getFixture() {
+	protected Service<?> getFixture() {
 		return fixture;
 	}
 

@@ -2,18 +2,28 @@
  */
 package no.hal.pg.runtime.tests;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
-import no.hal.pg.runtime.FinishedState;
 import no.hal.pg.runtime.RuntimeFactory;
+import no.hal.pg.runtime.Services;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Finished State</b></em>'.
+ * A test case for the model object '<em><b>Services</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class FinishedStateTest extends TaskStateTest {
+public class ServicesTest extends TestCase {
+
+	/**
+	 * The fixture for this Services test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Services fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +31,37 @@ public class FinishedStateTest extends TaskStateTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(FinishedStateTest.class);
+		TestRunner.run(ServicesTest.class);
 	}
 
 	/**
-	 * Constructs a new Finished State test case with the given name.
+	 * Constructs a new Services test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FinishedStateTest(String name) {
+	public ServicesTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Finished State test case.
+	 * Sets the fixture for this Services test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected FinishedState<?> getFixture() {
-		return (FinishedState<?>)fixture;
+	protected void setFixture(Services fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * Returns the fixture for this Services test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Services getFixture() {
+		return fixture;
 	}
 
 	/**
@@ -53,7 +72,7 @@ public class FinishedStateTest extends TaskStateTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RuntimeFactory.eINSTANCE.createFinishedState());
+		setFixture(RuntimeFactory.eINSTANCE.createServices());
 	}
 
 	/**
@@ -66,10 +85,5 @@ public class FinishedStateTest extends TaskStateTest {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-	
-	@Override
-	public void testIsFinished() {
-		assertTrue(getFixture().isFinished());
-	}
 
-} //FinishedStateTest
+} //ServicesTest
