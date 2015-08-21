@@ -1,35 +1,52 @@
 package no.hal.pg.runtime.tests.util;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collection;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource.Factory.Registry;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emfjson.jackson.resource.JsonResourceFactory;
 
 import junit.framework.TestCase;
-import no.hal.pg.model.ModelPackage;
 
 public class TestHelper {
 	
 	private final TestCase testCase;
+	private Collection<EPackage> packages;
+	
+	public TestHelper(TestCase testCase) {
+		this.testCase = testCase;
+		registerResourceFactory("json", new JsonResourceFactory());
+	}
+
+	public void registerResourceFactory(String ext, Resource.Factory resourceFactory) {
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(ext, resourceFactory);
+	}
 
 	public TestHelper(TestCase testCase, EPackage... packages) {
-		this.testCase = testCase;
-		org.eclipse.emf.ecore.EPackage.Registry packageRegistry = EPackage.Registry.INSTANCE;		
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("json", new JsonResourceFactory());
+		this(testCase);
+		registerPackages(packages);
+	}
+
+	public void registerPackages(EPackage... packages) {
+		this.packages = Arrays.asList(packages);
 		// register packages
+		org.eclipse.emf.ecore.EPackage.Registry packageRegistry = EPackage.Registry.INSTANCE;		
 		for (EPackage ePackage : packages) {
 			packageRegistry.put(ePackage.getNsURI(), ePackage);
 		}
 	}
-
+	
+	public Collection<EPackage> getPackages() {
+		return packages;
+	}
+	
 	private URI createModelUri(String modelPath) {
 		URL resource = testCase.getClass().getResource(modelPath);
 		return URI.createURI(resource.toString());

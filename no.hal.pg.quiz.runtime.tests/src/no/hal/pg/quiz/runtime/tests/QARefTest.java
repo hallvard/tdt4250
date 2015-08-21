@@ -81,7 +81,7 @@ public class QARefTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
+		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
 		quizTask = (QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask());
 		setFixture(RuntimeFactory.eINSTANCE.createQARef());
 	}

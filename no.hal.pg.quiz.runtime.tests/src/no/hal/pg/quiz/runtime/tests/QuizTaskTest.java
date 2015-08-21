@@ -85,7 +85,7 @@ public class QuizTaskTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
+		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
 		setFixture((QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask()));
 	}
 
