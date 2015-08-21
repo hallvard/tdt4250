@@ -2,14 +2,16 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
+import org.eclipse.emf.ecore.resource.Resource;
+
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.QuizPart;
+import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
-import no.hal.pg.quiz.xtext.XQuizStandaloneSetup;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
@@ -82,8 +84,8 @@ public class QuizTaskTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		XQuizStandaloneSetup.doSetup();
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
 		setFixture((QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask()));
 	}
 

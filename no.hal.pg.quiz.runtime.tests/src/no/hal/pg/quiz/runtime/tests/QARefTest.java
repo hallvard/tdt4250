@@ -2,16 +2,18 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
-import junit.framework.TestCase;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.emfjson.jackson.resource.JsonResourceFactory;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;
+import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QARef;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
-import no.hal.pg.quiz.xtext.XQuizStandaloneSetup;
 import no.hal.pg.runtime.tests.RefTest;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
@@ -78,8 +80,8 @@ public class QARefTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		XQuizStandaloneSetup.doSetup();
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
 		quizTask = (QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask());
 		setFixture(RuntimeFactory.eINSTANCE.createQARef());
 	}

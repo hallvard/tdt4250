@@ -8,15 +8,12 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.quiz.runtime.tests
-Require-Bundle: org.eclipse.core.runtime,
- no.hal.pg.quiz.runtime;visibility:=reexport,
+Require-Bundle: no.hal.pg.quiz.runtime;visibility:=reexport,
  no.hal.pg.model;visibility:=reexport,
  no.hal.pg.runtime;visibility:=reexport,
  no.hal.pg.quiz.model;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
- no.hal.pg.quiz.xtext;bundle-version="0.1.0",
- no.hal.pg.quiz.xtext.ui;bundle-version="0.1.0",
- no.hal.pg.runtime.tests;bundle-version="0.1.0"
+ no.hal.pg.runtime.tests;bundle-version="0.1.0",
+ org.emfjson.jackson;bundle-version="0.12.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.emfjson.jackson.resource;version="0.12.0"

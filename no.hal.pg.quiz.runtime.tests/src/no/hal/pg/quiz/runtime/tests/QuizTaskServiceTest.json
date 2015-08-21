@@ -9,7 +9,7 @@
 },
 {
 	"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef",
-	"quizParts": [{"$ref": "test:/QuizTaskTest.xquiz#1"}] 
+	"quizParts": [{"$ref": "test:/QuizTaskTest.jquiz//@parts.0"}] 
 },
 {
 	"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//Game",
