@@ -5,7 +5,7 @@
 			"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizPart",
 			"questions": [
 				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
 					"q": {
 						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
 						"question": "Question 1"
@@ -16,7 +16,7 @@
 					}
 				},
 				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
 					"q": {
 						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
 						"question": "Question 2"
@@ -29,7 +29,7 @@
 					}
 				},
 				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
 					"q": {
 						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
 						"question": "Question 3"
@@ -40,7 +40,7 @@
 					}
 				},
 				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
 					"q": {
 						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
 						"question": "Question 4"

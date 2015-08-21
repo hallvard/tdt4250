@@ -1,56 +1,54 @@
 {
 	"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Quiz",
-	"parts": [
-		{
-			"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizPart",
-			"questions": [
-				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
-					"q": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
-						"question": "Question 1"
-					},
-					"a": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringAnswer",
-						"value": "Hallvard"
-					}
+	"parts": [ {
+		"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizPart",
+		"questions": [ {
+				"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
+				"q": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
+					"question": "Question 1"
 				},
-				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
-					"q": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
-						"question": "Question 2"
-					},
-					"a": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringAnswer",
-						"value": "Hal(l?)vard",
-						"regexp": true,
-						"ignoreCase": true
-					}
-				},
-				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
-					"q": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
-						"question": "Question 3"
-					},
-					"a": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//NumberAnswer",
-						"value": 2.3
-					}
-				},
-				{
-					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//Question",
-					"q": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
-						"question": "Question 4"
-					},
-					"a": {
-						"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//BooleanAnswer",
-						"value": true
-					}
+				"a": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringAnswer",
+					"value": "Hallvard"
 				}
-			]			
+			},
+			{
+				"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
+				"q": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
+					"question": "Question 2"
+				},
+				"a": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringAnswer",
+					"value": "Hal(l?)vard",
+					"regexp": true,
+					"ignoreCase": true
+				}
+			},
+			{
+				"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
+				"q": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
+					"question": "Question 3"
+				},
+				"a": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//NumberAnswer",
+					"value": 2.3
+				}
+			},
+			{
+				"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QA",
+				"q": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//StringQuestion",
+					"question": "Question 4"
+				},
+				"a": {
+					"eClass": "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//BooleanAnswer",
+					"value": true
+				}
+			}
+		]			
 		}
 	]
 }
