@@ -97,8 +97,8 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createServiceAdapter();
 			}
 			@Override
-			public Adapter caseServiceListener(ServiceListener object) {
-				return createServiceListenerAdapter();
+			public Adapter caseServiceInvokationListener(ServiceInvokationListener object) {
+				return createServiceInvokationListenerAdapter();
 			}
 			@Override
 			public Adapter caseServiceInvocation(ServiceInvocation object) {
@@ -119,6 +119,10 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePlayerRef(PlayerRef object) {
 				return createPlayerRefAdapter();
+			}
+			@Override
+			public Adapter caseGameService(GameService object) {
+				return createGameServiceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -239,16 +243,16 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceListener <em>Service Listener</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.ServiceListener
+	 * @see no.hal.pg.runtime.ServiceInvokationListener
 	 * @generated
 	 */
-	public Adapter createServiceListenerAdapter() {
+	public Adapter createServiceInvokationListenerAdapter() {
 		return null;
 	}
 
@@ -291,6 +295,20 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlayerRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.GameService <em>Game Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.GameService
+	 * @generated
+	 */
+	public Adapter createGameServiceAdapter() {
 		return null;
 	}
 

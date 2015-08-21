@@ -100,12 +100,13 @@
       <eParameters name="invocation" eType="#//ServiceInvocation"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceListeners" upperBound="-1"
-        eType="#//ServiceListener" transient="true"/>
+        eType="#//ServiceInvokationListener" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context">
       <eGenericType eTypeParameter="#//Service/T"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceListener" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceInvokationListener" abstract="true"
+      interface="true">
     <eOperations name="serviceInvoked">
       <eParameters name="invocation" eType="#//ServiceInvocation"/>
     </eOperations>
@@ -148,6 +149,31 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="personId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="#//Ref">
       <eTypeArguments eClassifier="#//Player"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameService">
+    <eOperations name="getTasks" upperBound="-1">
+      <eGenericType eClassifier="#//Task">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="player">
+        <eGenericType eClassifier="#//Ref">
+          <eTypeArguments eClassifier="#//Player"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="#//Player" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eGenericType eClassifier="#//Task">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Service">
+      <eTypeArguments eClassifier="#//Game"/>
     </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

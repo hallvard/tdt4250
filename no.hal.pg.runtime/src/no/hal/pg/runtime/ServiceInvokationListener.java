@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see no.hal.pg.runtime.RuntimePackage#getServiceListener()
+ * @see no.hal.pg.runtime.RuntimePackage#getServiceInvokationListener()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ServiceListener extends EObject {
+public interface ServiceInvokationListener extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

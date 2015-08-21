@@ -3,11 +3,12 @@
 package no.hal.pg.runtime.tests;
 
 import junit.framework.TestCase;
+
 import no.hal.pg.runtime.ServiceInvokationListener;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Service Listener</b></em>'.
+ * A test case for the model object '<em><b>Service Invokation Listener</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -17,10 +18,10 @@ import no.hal.pg.runtime.ServiceInvokationListener;
  * </p>
  * @generated
  */
-public abstract class ServiceListenerTest extends TestCase {
+public abstract class ServiceInvokationListenerTest extends TestCase {
 
 	/**
-	 * The fixture for this Service Listener test case.
+	 * The fixture for this Service Invokation Listener test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -28,17 +29,17 @@ public abstract class ServiceListenerTest extends TestCase {
 	protected ServiceInvokationListener fixture = null;
 
 	/**
-	 * Constructs a new Service Listener test case with the given name.
+	 * Constructs a new Service Invokation Listener test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceListenerTest(String name) {
+	public ServiceInvokationListenerTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Service Listener test case.
+	 * Sets the fixture for this Service Invokation Listener test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -48,7 +49,7 @@ public abstract class ServiceListenerTest extends TestCase {
 	}
 
 	/**
-	 * Returns the fixture for this Service Listener test case.
+	 * Returns the fixture for this Service Invokation Listener test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -70,4 +71,4 @@ public abstract class ServiceListenerTest extends TestCase {
 		fail();
 	}
 
-} //ServiceListenerTest
+} //ServiceInvokationListenerTest

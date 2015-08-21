@@ -114,9 +114,9 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.SERVICE_LISTENER: {
-				ServiceListener serviceListener = (ServiceListener)theEObject;
-				T1 result = caseServiceListener(serviceListener);
+			case RuntimePackage.SERVICE_INVOKATION_LISTENER: {
+				ServiceInvokationListener serviceInvokationListener = (ServiceInvokationListener)theEObject;
+				T1 result = caseServiceInvokationListener(serviceInvokationListener);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,6 +150,13 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				PlayerRef playerRef = (PlayerRef)theEObject;
 				T1 result = casePlayerRef(playerRef);
 				if (result == null) result = caseRef(playerRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RuntimePackage.GAME_SERVICE: {
+				GameService gameService = (GameService)theEObject;
+				T1 result = caseGameService(gameService);
+				if (result == null) result = caseService(gameService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,17 +270,17 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Listener</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Invokation Listener</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Listener</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Invokation Listener</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseServiceListener(ServiceListener object) {
+	public T1 caseServiceInvokationListener(ServiceInvokationListener object) {
 		return null;
 	}
 
@@ -319,6 +326,21 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePlayerRef(PlayerRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Game Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Game Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGameService(GameService object) {
 		return null;
 	}
 

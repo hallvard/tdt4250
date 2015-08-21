@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.ServiceInvocation;
-import no.hal.pg.runtime.ServiceListener;
+import no.hal.pg.runtime.ServiceInvokationListener;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ServiceListenerImpl extends MinimalEObjectImpl.Container implements ServiceListener {
+public class ServiceInvokationListenerImpl extends MinimalEObjectImpl.Container implements ServiceInvokationListener {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServiceListenerImpl() {
+	protected ServiceInvokationListenerImpl() {
 		super();
 	}
 
@@ -38,7 +38,7 @@ public class ServiceListenerImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RuntimePackage.Literals.SERVICE_LISTENER;
+		return RuntimePackage.Literals.SERVICE_INVOKATION_LISTENER;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class ServiceListenerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.SERVICE_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION:
+			case RuntimePackage.SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION:
 				serviceInvoked((ServiceInvocation)arguments.get(0));
 				return null;
 		}

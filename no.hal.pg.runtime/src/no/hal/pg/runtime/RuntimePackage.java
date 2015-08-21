@@ -516,23 +516,23 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.ServiceListener <em>Service Listener</em>}' class.
+	 * The meta object id for the '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.ServiceListener
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceListener()
+	 * @see no.hal.pg.runtime.ServiceInvokationListener
+	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvokationListener()
 	 * @generated
 	 */
-	int SERVICE_LISTENER = 7;
+	int SERVICE_INVOKATION_LISTENER = 7;
 
 	/**
-	 * The number of structural features of the '<em>Service Listener</em>' class.
+	 * The number of structural features of the '<em>Service Invokation Listener</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_LISTENER_FEATURE_COUNT = 0;
+	int SERVICE_INVOKATION_LISTENER_FEATURE_COUNT = 0;
 
 	/**
 	 * The operation id for the '<em>Service Invoked</em>' operation.
@@ -541,16 +541,16 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = 0;
+	int SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = 0;
 
 	/**
-	 * The number of operations of the '<em>Service Listener</em>' class.
+	 * The number of operations of the '<em>Service Invokation Listener</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_LISTENER_OPERATION_COUNT = 1;
+	int SERVICE_INVOKATION_LISTENER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
@@ -774,6 +774,88 @@ public interface RuntimePackage extends EPackage {
 	int PLAYER_REF_OPERATION_COUNT = REF_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.impl.GameServiceImpl
+	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
+	 * @generated
+	 */
+	int GAME_SERVICE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE__SERVICE_LISTENERS = SERVICE__SERVICE_LISTENERS;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE__CONTEXT = SERVICE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Players</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE__PLAYERS = SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE__TASKS = SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Game Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Invoke Service</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = SERVICE___INVOKE_SERVICE__SERVICEINVOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE___GET_TASKS__PERSON = SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Game Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,7 +863,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 13;
+	int TIMESTAMP = 14;
 
 
 	/**
@@ -1110,24 +1192,24 @@ public interface RuntimePackage extends EPackage {
 	EOperation getService__InvokeService__ServiceInvocation();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.ServiceListener <em>Service Listener</em>}'.
+	 * Returns the meta object for class '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Listener</em>'.
-	 * @see no.hal.pg.runtime.ServiceListener
+	 * @return the meta object for class '<em>Service Invokation Listener</em>'.
+	 * @see no.hal.pg.runtime.ServiceInvokationListener
 	 * @generated
 	 */
-	EClass getServiceListener();
+	EClass getServiceInvokationListener();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.ServiceListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation) <em>Service Invoked</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.runtime.ServiceInvokationListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation) <em>Service Invoked</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Service Invoked</em>' operation.
-	 * @see no.hal.pg.runtime.ServiceListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation)
+	 * @see no.hal.pg.runtime.ServiceInvokationListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation)
 	 * @generated
 	 */
-	EOperation getServiceListener__ServiceInvoked__ServiceInvocation();
+	EOperation getServiceInvokationListener__ServiceInvoked__ServiceInvocation();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.ServiceInvocation <em>Service Invocation</em>}'.
@@ -1180,6 +1262,48 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlayerRef_PersonId();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.runtime.GameService <em>Game Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Game Service</em>'.
+	 * @see no.hal.pg.runtime.GameService
+	 * @generated
+	 */
+	EClass getGameService();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.GameService#getPlayers <em>Players</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Players</em>'.
+	 * @see no.hal.pg.runtime.GameService#getPlayers()
+	 * @see #getGameService()
+	 * @generated
+	 */
+	EReference getGameService_Players();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.GameService#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tasks</em>'.
+	 * @see no.hal.pg.runtime.GameService#getTasks()
+	 * @see #getGameService()
+	 * @generated
+	 */
+	EReference getGameService_Tasks();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref) <em>Get Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tasks</em>' operation.
+	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref)
+	 * @generated
+	 */
+	EOperation getGameService__GetTasks__Person();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.Ref <em>Ref</em>}'.
@@ -1529,14 +1653,14 @@ public interface RuntimePackage extends EPackage {
 		EOperation SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = eINSTANCE.getService__InvokeService__ServiceInvocation();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.ServiceListener <em>Service Listener</em>}' class.
+		 * The meta object literal for the '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.ServiceListener
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceListener()
+		 * @see no.hal.pg.runtime.ServiceInvokationListener
+		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvokationListener()
 		 * @generated
 		 */
-		EClass SERVICE_LISTENER = eINSTANCE.getServiceListener();
+		EClass SERVICE_INVOKATION_LISTENER = eINSTANCE.getServiceInvokationListener();
 
 		/**
 		 * The meta object literal for the '<em><b>Service Invoked</b></em>' operation.
@@ -1544,7 +1668,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SERVICE_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = eINSTANCE.getServiceListener__ServiceInvoked__ServiceInvocation();
+		EOperation SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = eINSTANCE.getServiceInvokationListener__ServiceInvoked__ServiceInvocation();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
@@ -1591,6 +1715,40 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLAYER_REF__PERSON_ID = eINSTANCE.getPlayerRef_PersonId();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.runtime.impl.GameServiceImpl
+		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
+		 * @generated
+		 */
+		EClass GAME_SERVICE = eINSTANCE.getGameService();
+
+		/**
+		 * The meta object literal for the '<em><b>Players</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_SERVICE__PLAYERS = eINSTANCE.getGameService_Players();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_SERVICE__TASKS = eINSTANCE.getGameService_Tasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME_SERVICE___GET_TASKS__PERSON = eINSTANCE.getGameService__GetTasks__Person();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.RefImpl <em>Ref</em>}' class.

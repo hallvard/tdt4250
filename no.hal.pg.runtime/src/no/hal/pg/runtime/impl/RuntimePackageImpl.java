@@ -6,6 +6,7 @@ import no.hal.pg.model.ModelPackage;
 
 import no.hal.pg.runtime.DirectRef;
 import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.PlayerRef;
 import no.hal.pg.runtime.Players;
@@ -14,7 +15,7 @@ import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.ServiceInvocation;
-import no.hal.pg.runtime.ServiceListener;
+import no.hal.pg.runtime.ServiceInvokationListener;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskService;
@@ -94,7 +95,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass serviceListenerEClass = null;
+	private EClass serviceInvokationListenerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,6 +117,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass playerRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gameServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -495,8 +503,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getServiceListener() {
-		return serviceListenerEClass;
+	public EClass getServiceInvokationListener() {
+		return serviceInvokationListenerEClass;
 	}
 
 	/**
@@ -504,8 +512,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceListener__ServiceInvoked__ServiceInvocation() {
-		return serviceListenerEClass.getEOperations().get(0);
+	public EOperation getServiceInvokationListener__ServiceInvoked__ServiceInvocation() {
+		return serviceInvokationListenerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -551,6 +559,42 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 */
 	public EAttribute getPlayerRef_PersonId() {
 		return (EAttribute)playerRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGameService() {
+		return gameServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGameService_Players() {
+		return (EReference)gameServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGameService_Tasks() {
+		return (EReference)gameServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGameService__GetTasks__Person() {
+		return gameServiceEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -673,8 +717,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEReference(serviceEClass, SERVICE__CONTEXT);
 		createEOperation(serviceEClass, SERVICE___INVOKE_SERVICE__SERVICEINVOCATION);
 
-		serviceListenerEClass = createEClass(SERVICE_LISTENER);
-		createEOperation(serviceListenerEClass, SERVICE_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION);
+		serviceInvokationListenerEClass = createEClass(SERVICE_INVOKATION_LISTENER);
+		createEOperation(serviceInvokationListenerEClass, SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION);
 
 		serviceInvocationEClass = createEClass(SERVICE_INVOCATION);
 		createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__TIMESTAMP);
@@ -690,6 +734,11 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		playerRefEClass = createEClass(PLAYER_REF);
 		createEAttribute(playerRefEClass, PLAYER_REF__PERSON_ID);
+
+		gameServiceEClass = createEClass(GAME_SERVICE);
+		createEReference(gameServiceEClass, GAME_SERVICE__PLAYERS);
+		createEReference(gameServiceEClass, GAME_SERVICE__TASKS);
+		createEOperation(gameServiceEClass, GAME_SERVICE___GET_TASKS__PERSON);
 
 		// Create data types
 		timestampEDataType = createEDataType(TIMESTAMP);
@@ -764,6 +813,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g2 = createEGenericType(this.getPlayer());
 		g1.getETypeArguments().add(g2);
 		playerRefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getService());
+		g2 = createEGenericType(this.getGame());
+		g1.getETypeArguments().add(g2);
+		gameServiceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -842,16 +895,16 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEAttribute(getTaskState_Exited(), this.getTimestamp(), "exited", null, 0, 1, TaskState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getService_ServiceListeners(), this.getServiceListener(), null, "serviceListeners", null, 0, -1, Service.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_ServiceListeners(), this.getServiceInvokationListener(), null, "serviceListeners", null, 0, -1, Service.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(serviceEClass_T);
 		initEReference(getService_Context(), g1, null, "context", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getService__InvokeService__ServiceInvocation(), null, "invokeService", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getServiceInvocation(), "invocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(serviceListenerEClass, ServiceListener.class, "ServiceListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(serviceInvokationListenerEClass, ServiceInvokationListener.class, "ServiceInvokationListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getServiceListener__ServiceInvoked__ServiceInvocation(), null, "serviceInvoked", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getServiceInvokationListener__ServiceInvoked__ServiceInvocation(), null, "serviceInvoked", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getServiceInvocation(), "invocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(serviceInvocationEClass, ServiceInvocation.class, "ServiceInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -877,6 +930,27 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		initEClass(playerRefEClass, PlayerRef.class, "PlayerRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlayerRef_PersonId(), ecorePackage.getEString(), "personId", null, 0, 1, PlayerRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gameServiceEClass, GameService.class, "GameService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGameService_Players(), this.getPlayer(), null, "players", null, 0, -1, GameService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getTask());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getGameService_Tasks(), g1, null, "tasks", null, 0, -1, GameService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getGameService__GetTasks__Person(), null, "getTasks", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getRef());
+		g2 = createEGenericType(this.getPlayer());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getTask());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		// Initialize data types
 		initEDataType(timestampEDataType, Long.class, "Timestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

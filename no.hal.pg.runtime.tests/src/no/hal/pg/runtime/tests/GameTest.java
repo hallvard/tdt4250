@@ -110,9 +110,9 @@ public class GameTest extends TestCase {
 		Task<?, ?> task2 = RuntimeFactory.eINSTANCE.createTask();
 		task2.changeState(RuntimeFactory.eINSTANCE.createTaskState());
 		Task<?, ?> task3 = RuntimeFactory.eINSTANCE.createTask();
-		game.getTasks().addAll(Arrays.asList(task1, task2, task3));
+		game.getTasks().addAll(Arrays.<Task<?, ?>>asList(task1, task2, task3));
 		EList<Task<?, ?>> allTasks = game.getTasks(RuntimePackage.eINSTANCE.getTaskState());
 		assertEquals(2, allTasks.size());
-		assertTrue(allTasks.containsAll(Arrays.asList(task1, task2)));
+		assertTrue(allTasks.containsAll(Arrays.<Task<?, ?>>asList(task1, task2)));
 	}
 } //GameTest

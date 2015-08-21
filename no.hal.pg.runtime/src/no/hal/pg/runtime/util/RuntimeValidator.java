@@ -96,8 +96,8 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
 				return validateService((Service<?>)value, diagnostics, context);
-			case RuntimePackage.SERVICE_LISTENER:
-				return validateServiceListener((ServiceListener)value, diagnostics, context);
+			case RuntimePackage.SERVICE_INVOKATION_LISTENER:
+				return validateServiceInvokationListener((ServiceInvokationListener)value, diagnostics, context);
 			case RuntimePackage.SERVICE_INVOCATION:
 				return validateServiceInvocation((ServiceInvocation)value, diagnostics, context);
 			case RuntimePackage.TASK_SERVICE:
@@ -108,6 +108,8 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateDirectRef((DirectRef<?>)value, diagnostics, context);
 			case RuntimePackage.PLAYER_REF:
 				return validatePlayerRef((PlayerRef)value, diagnostics, context);
+			case RuntimePackage.GAME_SERVICE:
+				return validateGameService((GameService)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
 				return validateTimestamp((Long)value, diagnostics, context);
 			default:
@@ -176,7 +178,7 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateTask_PlayerIsContainedInGame(Task task, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTask_PlayerIsContainedInGame(Task<?, ?> task, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (! task.getGame().getPlayers().containsAll(task.getPlayers())) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -217,8 +219,8 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateServiceListener(ServiceListener serviceListener, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(serviceListener, diagnostics, context);
+	public boolean validateServiceInvokationListener(ServiceInvokationListener serviceInvokationListener, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(serviceInvokationListener, diagnostics, context);
 	}
 
 	/**
@@ -246,6 +248,15 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validatePlayerRef(PlayerRef playerRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(playerRef, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGameService(GameService gameService, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(gameService, diagnostics, context);
 	}
 
 	/**

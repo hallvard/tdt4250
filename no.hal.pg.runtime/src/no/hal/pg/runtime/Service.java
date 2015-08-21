@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Service<T> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Service Listeners</b></em>' reference list.
-	 * The list contents are of type {@link no.hal.pg.runtime.ServiceListener}.
+	 * The list contents are of type {@link no.hal.pg.runtime.ServiceInvokationListener}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service Listeners</em>' reference list isn't clear,
@@ -38,7 +38,7 @@ public interface Service<T> extends EObject {
 	 * @model transient="true"
 	 * @generated
 	 */
-	EList<ServiceListener> getServiceListeners();
+	EList<ServiceInvokationListener> getServiceListeners();
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' reference.
