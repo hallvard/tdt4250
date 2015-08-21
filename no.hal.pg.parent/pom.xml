@@ -24,6 +24,11 @@
 			<layout>p2</layout>
 			<url>http://ghillairet.github.com/p2</url>
 		</repository>
+		<repository>
+			<id>eclipticalsoftware</id>
+			<layout>p2</layout>
+			<url>http://download.eclipticalsoftware.com/updates/</url>
+		</repository>
 	</repositories>
 
 	<build>
@@ -80,5 +85,7 @@
 	<module>../no.hal.pg.updatesite</module>
 	<module>../no.hal.pg.karaf</module>
 	<module>../no.hal.pg.model.tests</module>
+	<module>../no.hal.graphql.emf</module>
+	<module>../no.hal.pg.runtime.http</module>
 	</modules>
 </project>
