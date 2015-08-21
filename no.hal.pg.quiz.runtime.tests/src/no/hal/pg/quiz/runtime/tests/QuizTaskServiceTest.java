@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.tests;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;

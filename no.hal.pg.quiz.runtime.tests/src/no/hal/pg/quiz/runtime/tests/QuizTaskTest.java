@@ -2,8 +2,6 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
-import org.eclipse.emf.ecore.resource.Resource;
-
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;

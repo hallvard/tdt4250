@@ -3,8 +3,6 @@
 package no.hal.pg.quiz.runtime.tests;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.emfjson.jackson.resource.JsonResourceFactory;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
