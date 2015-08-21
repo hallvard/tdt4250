@@ -89,6 +89,13 @@
 	          				<include>*.jar</include>
 	        			</includes>
 	        		  </resource>
+	                <resource>
+	                  <directory>.</directory>
+	                  <filtering>false</filtering>
+						<includes>
+	          				<include>*.features.xml</include>
+	        			</includes>
+	        		  </resource>
 	              </resources>              
 	            </configuration>            
 	          </execution>
