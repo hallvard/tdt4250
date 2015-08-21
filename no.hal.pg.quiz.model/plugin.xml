@@ -17,7 +17,7 @@
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <!-- @generated quiz -->
       <parser
-            type="model"
+            type="jquiz"
             class="no.hal.pg.quiz.model.util.ModelResourceFactoryImpl"/>
    </extension>
 

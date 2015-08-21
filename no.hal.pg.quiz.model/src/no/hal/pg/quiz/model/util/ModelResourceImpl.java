@@ -3,7 +3,7 @@
 package no.hal.pg.quiz.model.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.emfjson.jackson.resource.JsonResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  * @see no.hal.pg.quiz.model.util.ModelResourceFactoryImpl
  * @generated
  */
-public class ModelResourceImpl extends ResourceImpl {
+public class ModelResourceImpl extends JsonResource {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
