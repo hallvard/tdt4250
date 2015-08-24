@@ -53,7 +53,7 @@ public class TestHelper {
 	private URI createModelUri(String modelPath) {
 		URL resource = testCase.getClass().getResource(modelPath);
 		if (resource == null) {
-			System.err.println("No resource for " + modelPath);
+			throw new IllegalArgumentException("No resource for " + modelPath + " relative to " + testCase.getClass());
 		}
 		return URI.createURI(resource.toString());
 	}
