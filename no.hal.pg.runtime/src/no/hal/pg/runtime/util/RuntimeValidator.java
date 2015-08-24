@@ -96,10 +96,6 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
 				return validateService((Service<?>)value, diagnostics, context);
-			case RuntimePackage.SERVICE_INVOKATION_LISTENER:
-				return validateServiceInvokationListener((ServiceInvokationListener)value, diagnostics, context);
-			case RuntimePackage.SERVICE_INVOCATION:
-				return validateServiceInvocation((ServiceInvocation)value, diagnostics, context);
 			case RuntimePackage.TASK_SERVICE:
 				return validateTaskService((TaskService<?>)value, diagnostics, context);
 			case RuntimePackage.REF:
@@ -212,24 +208,6 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validateService(Service<?> service, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(service, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateServiceInvokationListener(ServiceInvokationListener serviceInvokationListener, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(serviceInvokationListener, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateServiceInvocation(ServiceInvocation serviceInvocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(serviceInvocation, diagnostics, context);
 	}
 
 	/**

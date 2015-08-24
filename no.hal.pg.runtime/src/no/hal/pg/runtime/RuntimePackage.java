@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see no.hal.pg.runtime.RuntimeFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore' pg-model='../../no.hal.pg.model/model/pg.ecore#/'"
  * @generated
  */
 public interface RuntimePackage extends EPackage {
@@ -307,7 +308,7 @@ public interface RuntimePackage extends EPackage {
 	int TASK__STATES = PLAYERS_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * The feature id for the '<em><b>Result</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -471,22 +472,13 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__SERVICE_LISTENERS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE__CONTEXT = 1;
+	int SERVICE__CONTEXT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Service</em>' class.
@@ -495,16 +487,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 2;
-
-	/**
-	 * The operation id for the '<em>Invoke Service</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = 0;
+	int SERVICE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -513,81 +496,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.ServiceInvokationListener
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvokationListener()
-	 * @generated
-	 */
-	int SERVICE_INVOKATION_LISTENER = 7;
-
-	/**
-	 * The number of structural features of the '<em>Service Invokation Listener</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOKATION_LISTENER_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Service Invoked</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = 0;
-
-	/**
-	 * The number of operations of the '<em>Service Invokation Listener</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOKATION_LISTENER_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.ServiceInvocationImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvocation()
-	 * @generated
-	 */
-	int SERVICE_INVOCATION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOCATION__TIMESTAMP = 0;
-
-	/**
-	 * The number of structural features of the '<em>Service Invocation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOCATION_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Service Invocation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_INVOCATION_OPERATION_COUNT = 0;
+	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.TaskServiceImpl <em>Task Service</em>}' class.
@@ -597,7 +506,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTaskService()
 	 * @generated
 	 */
-	int TASK_SERVICE = 9;
+	int TASK_SERVICE = 7;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.PlayerRefImpl <em>Player Ref</em>}' class.
@@ -607,7 +516,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getPlayerRef()
 	 * @generated
 	 */
-	int PLAYER_REF = 12;
+	int PLAYER_REF = 10;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.RefImpl <em>Ref</em>}' class.
@@ -617,7 +526,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getRef()
 	 * @generated
 	 */
-	int REF = 10;
+	int REF = 8;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.DirectRefImpl <em>Direct Ref</em>}' class.
@@ -627,16 +536,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getDirectRef()
 	 * @generated
 	 */
-	int DIRECT_REF = 11;
-
-	/**
-	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_SERVICE__SERVICE_LISTENERS = SERVICE__SERVICE_LISTENERS;
+	int DIRECT_REF = 9;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -655,15 +555,6 @@ public interface RuntimePackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Invoke Service</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = SERVICE___INVOKE_SERVICE__SERVICEINVOCATION;
 
 	/**
 	 * The number of operations of the '<em>Task Service</em>' class.
@@ -781,16 +672,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
 	 * @generated
 	 */
-	int GAME_SERVICE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE__SERVICE_LISTENERS = SERVICE__SERVICE_LISTENERS;
+	int GAME_SERVICE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -829,22 +711,13 @@ public interface RuntimePackage extends EPackage {
 	int GAME_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Invoke Service</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = SERVICE___INVOKE_SERVICE__SERVICEINVOCATION;
-
-	/**
 	 * The operation id for the '<em>Get Tasks</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_SERVICE___GET_TASKS__PERSON = SERVICE_OPERATION_COUNT + 0;
+	int GAME_SERVICE___GET_TASKS__REF = SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Game Service</em>' class.
@@ -863,7 +736,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 14;
+	int TIMESTAMP = 12;
 
 
 	/**
@@ -1036,15 +909,15 @@ public interface RuntimePackage extends EPackage {
 	EReference getTask_States();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}'.
+	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Result</em>'.
+	 * @return the meta object for the reference '<em>Result</em>'.
 	 * @see no.hal.pg.runtime.Task#getResult()
 	 * @see #getTask()
 	 * @generated
 	 */
-	EAttribute getTask_Result();
+	EReference getTask_Result();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}' operation.
@@ -1160,17 +1033,6 @@ public interface RuntimePackage extends EPackage {
 	EClass getService();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.Service#getServiceListeners <em>Service Listeners</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Service Listeners</em>'.
-	 * @see no.hal.pg.runtime.Service#getServiceListeners()
-	 * @see #getService()
-	 * @generated
-	 */
-	EReference getService_ServiceListeners();
-
-	/**
 	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.Service#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1180,57 +1042,6 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getService_Context();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation) <em>Invoke Service</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Invoke Service</em>' operation.
-	 * @see no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation)
-	 * @generated
-	 */
-	EOperation getService__InvokeService__ServiceInvocation();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Invokation Listener</em>'.
-	 * @see no.hal.pg.runtime.ServiceInvokationListener
-	 * @generated
-	 */
-	EClass getServiceInvokationListener();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.ServiceInvokationListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation) <em>Service Invoked</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Service Invoked</em>' operation.
-	 * @see no.hal.pg.runtime.ServiceInvokationListener#serviceInvoked(no.hal.pg.runtime.ServiceInvocation)
-	 * @generated
-	 */
-	EOperation getServiceInvokationListener__ServiceInvoked__ServiceInvocation();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.ServiceInvocation <em>Service Invocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Invocation</em>'.
-	 * @see no.hal.pg.runtime.ServiceInvocation
-	 * @generated
-	 */
-	EClass getServiceInvocation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.ServiceInvocation#getTimestamp <em>Timestamp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Timestamp</em>'.
-	 * @see no.hal.pg.runtime.ServiceInvocation#getTimestamp()
-	 * @see #getServiceInvocation()
-	 * @generated
-	 */
-	EAttribute getServiceInvocation_Timestamp();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.TaskService <em>Task Service</em>}'.
@@ -1303,7 +1114,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref)
 	 * @generated
 	 */
-	EOperation getGameService__GetTasks__Person();
+	EOperation getGameService__GetTasks__Ref();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.Ref <em>Ref</em>}'.
@@ -1529,12 +1340,12 @@ public interface RuntimePackage extends EPackage {
 		EReference TASK__STATES = eINSTANCE.getTask_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Result</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TASK__RESULT = eINSTANCE.getTask_Result();
+		EReference TASK__RESULT = eINSTANCE.getTask_Result();
 
 		/**
 		 * The meta object literal for the '<em><b>Change State</b></em>' operation.
@@ -1629,64 +1440,12 @@ public interface RuntimePackage extends EPackage {
 		EClass SERVICE = eINSTANCE.getService();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Listeners</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SERVICE__SERVICE_LISTENERS = eINSTANCE.getService_ServiceListeners();
-
-		/**
 		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SERVICE__CONTEXT = eINSTANCE.getService_Context();
-
-		/**
-		 * The meta object literal for the '<em><b>Invoke Service</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = eINSTANCE.getService__InvokeService__ServiceInvocation();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.ServiceInvokationListener
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvokationListener()
-		 * @generated
-		 */
-		EClass SERVICE_INVOKATION_LISTENER = eINSTANCE.getServiceInvokationListener();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Invoked</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SERVICE_INVOKATION_LISTENER___SERVICE_INVOKED__SERVICEINVOCATION = eINSTANCE.getServiceInvokationListener__ServiceInvoked__ServiceInvocation();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.ServiceInvocationImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServiceInvocation()
-		 * @generated
-		 */
-		EClass SERVICE_INVOCATION = eINSTANCE.getServiceInvocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE_INVOCATION__TIMESTAMP = eINSTANCE.getServiceInvocation_Timestamp();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.TaskServiceImpl <em>Task Service</em>}' class.
@@ -1748,7 +1507,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GAME_SERVICE___GET_TASKS__PERSON = eINSTANCE.getGameService__GetTasks__Person();
+		EOperation GAME_SERVICE___GET_TASKS__REF = eINSTANCE.getGameService__GetTasks__Ref();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.RefImpl <em>Ref</em>}' class.

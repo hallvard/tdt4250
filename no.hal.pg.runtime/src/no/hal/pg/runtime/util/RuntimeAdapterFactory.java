@@ -97,14 +97,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createServiceAdapter();
 			}
 			@Override
-			public Adapter caseServiceInvokationListener(ServiceInvokationListener object) {
-				return createServiceInvokationListenerAdapter();
-			}
-			@Override
-			public Adapter caseServiceInvocation(ServiceInvocation object) {
-				return createServiceInvocationAdapter();
-			}
-			@Override
 			public <T extends Task<?, ?>> Adapter caseTaskService(TaskService<T> object) {
 				return createTaskServiceAdapter();
 			}
@@ -239,34 +231,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceInvokationListener <em>Service Invokation Listener</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.ServiceInvokationListener
-	 * @generated
-	 */
-	public Adapter createServiceInvokationListenerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.ServiceInvocation <em>Service Invocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.ServiceInvocation
-	 * @generated
-	 */
-	public Adapter createServiceInvocationAdapter() {
 		return null;
 	}
 

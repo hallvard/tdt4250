@@ -2,8 +2,6 @@
  */
 package no.hal.pg.runtime;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.hal.pg.runtime.Service#getServiceListeners <em>Service Listeners</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Service#getContext <em>Context</em>}</li>
  * </ul>
  *
@@ -24,22 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Service<T> extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Service Listeners</b></em>' reference list.
-	 * The list contents are of type {@link no.hal.pg.runtime.ServiceInvokationListener}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Listeners</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Listeners</em>' reference list.
-	 * @see no.hal.pg.runtime.RuntimePackage#getService_ServiceListeners()
-	 * @model transient="true"
-	 * @generated
-	 */
-	EList<ServiceInvokationListener> getServiceListeners();
-
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -65,13 +46,5 @@ public interface Service<T> extends EObject {
 	 * @generated
 	 */
 	void setContext(T value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void invokeService(ServiceInvocation invocation);
 
 } // Service

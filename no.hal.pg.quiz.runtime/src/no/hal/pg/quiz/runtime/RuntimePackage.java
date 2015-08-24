@@ -113,7 +113,7 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK__STATES = no.hal.pg.runtime.RuntimePackage.TASK__STATES;
 
 	/**
-	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * The feature id for the '<em><b>Result</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -395,15 +395,6 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK_SERVICE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Service Listeners</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK_SERVICE__SERVICE_LISTENERS = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__SERVICE_LISTENERS;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -420,15 +411,6 @@ public interface RuntimePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUIZ_TASK_SERVICE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Invoke Service</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE___INVOKE_SERVICE__SERVICEINVOCATION;
 
 	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.

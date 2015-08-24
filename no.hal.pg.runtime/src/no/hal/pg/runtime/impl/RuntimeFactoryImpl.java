@@ -64,7 +64,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 			case RuntimePackage.SERVICES: return createServices();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
-			case RuntimePackage.SERVICE_INVOCATION: return createServiceInvocation();
 			case RuntimePackage.DIRECT_REF: return createDirectRef();
 			case RuntimePackage.PLAYER_REF: return createPlayerRef();
 			case RuntimePackage.GAME_SERVICE: return createGameService();
@@ -151,16 +150,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public <T extends Task<?, ?>> TaskState<T> createTaskState() {
 		TaskStateImpl<T> taskState = new TaskStateImpl<T>();
 		return taskState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ServiceInvocation createServiceInvocation() {
-		ServiceInvocationImpl serviceInvocation = new ServiceInvocationImpl();
-		return serviceInvocation;
 	}
 
 	/**

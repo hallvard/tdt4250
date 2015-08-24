@@ -69,15 +69,6 @@ public interface RuntimeFactory extends EFactory {
 	<T extends Task<?, ?>> TaskState<T> createTaskState();
 
 	/**
-	 * Returns a new object of class '<em>Service Invocation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service Invocation</em>'.
-	 * @generated
-	 */
-	ServiceInvocation createServiceInvocation();
-
-	/**
 	 * Returns a new object of class '<em>Direct Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

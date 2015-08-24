@@ -114,18 +114,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.SERVICE_INVOKATION_LISTENER: {
-				ServiceInvokationListener serviceInvokationListener = (ServiceInvokationListener)theEObject;
-				T1 result = caseServiceInvokationListener(serviceInvokationListener);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RuntimePackage.SERVICE_INVOCATION: {
-				ServiceInvocation serviceInvocation = (ServiceInvocation)theEObject;
-				T1 result = caseServiceInvocation(serviceInvocation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RuntimePackage.TASK_SERVICE: {
 				TaskService<?> taskService = (TaskService<?>)theEObject;
 				T1 result = caseTaskService(taskService);
@@ -266,36 +254,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseService(Service<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Invokation Listener</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Invokation Listener</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseServiceInvokationListener(ServiceInvokationListener object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseServiceInvocation(ServiceInvocation object) {
 		return null;
 	}
 

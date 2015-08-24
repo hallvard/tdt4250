@@ -29,7 +29,6 @@ import no.hal.pg.runtime.Task;
  * The following operations are tested:
  * <ul>
  *   <li>{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref) <em>Get Tasks</em>}</li>
- *   <li>{@link no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation) <em>Invoke Service</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -87,11 +86,17 @@ public class GameServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RuntimeFactory.eINSTANCE.createGameService());
+		GameService gameService = RuntimeFactory.eINSTANCE.createGameService();
+		Game game = RuntimeFactory.eINSTANCE.createGame();
+		game.getTasks().add(RuntimeFactory.eINSTANCE.createTask());
+		game.getPlayers().add(RuntimeFactory.eINSTANCE.createPlayer());
+		gameService.setContext(game);
+		game.getServices().add(gameService);
+		setFixture(gameService);
 	}
 
 	/**
@@ -164,12 +169,11 @@ public class GameServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testInvokeService__ServiceInvocation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //GameServiceTest

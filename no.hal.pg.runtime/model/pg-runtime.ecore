@@ -2,6 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore"
     nsPrefix="pg-runtime">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="pg-model" value="../../no.hal.pg.model/model/pg.ecore#/"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Game" eSuperTypes="#//Players #//Services">
     <eOperations name="getTasks" upperBound="-1">
       <eGenericType eClassifier="#//Task">
@@ -73,7 +77,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result">
       <eGenericType eTypeParameter="#//Task/R"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -96,23 +100,9 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.lang.Long"/>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true">
     <eTypeParameters name="T"/>
-    <eOperations name="invokeService">
-      <eParameters name="invocation" eType="#//ServiceInvocation"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceListeners" upperBound="-1"
-        eType="#//ServiceInvokationListener" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context">
       <eGenericType eTypeParameter="#//Service/T"/>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceInvokationListener" abstract="true"
-      interface="true">
-    <eOperations name="serviceInvoked">
-      <eParameters name="invocation" eType="#//ServiceInvocation"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceInvocation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="#//Timestamp"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskService" abstract="true">
     <eTypeParameters name="T">
