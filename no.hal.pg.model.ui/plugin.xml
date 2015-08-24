@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated pg -->
+      <factory
+            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
+            class="no.hal.pg.model.provider.ModelItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated pg -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.pg.model.presentation.ModelModelWizardID"
+            name="%_UI_ModelModelWizard_label"
+            class="no.hal.pg.model.presentation.ModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModelModelFile.gif">
+         <description>%_UI_ModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated pg -->
+      <editor
+            id="no.hal.pg.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="pg"
+            class="no.hal.pg.model.presentation.ModelEditor"
+            contributorClass="no.hal.pg.model.presentation.ModelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+
+      <view id="no.hal.pg.model.ui.EOperationInvocationView"
+            name="EMF Invoke EOperation View"
+            category="no.hal.pg.model.ui"
+            class="no.hal.pg.model.ui.EOperationInvocationView"
+            >
+      </view>
+   </extension>
+
+	<extension point="org.eclipse.ui.commands">
+      <command
+            id="no.hal.pg.model.ui.NudgeEObjectCommand"
+            name="Move EObject (up or down)">
+            <commandParameter
+                  id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta"
+                  name="movementDelta"
+                  optional="true">
+            </commandParameter>
+            <commandParameter
+                  id="no.hal.pg.model.ui.NudgeEObjectCommand.shouldCopy"
+                  name="shouldCopy"
+                  optional="true">
+            </commandParameter>
+      </command>
+   </extension>
+   
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.pg.model.ui.NudgeEObjectCommandHandler"
+            commandId="no.hal.pg.model.ui.NudgeEObjectCommand">
+      </handler>
+   </extension>
+   
+	<extension point="org.eclipse.ui.bindings">
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+PAGE_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="0x80000000"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+PAGE_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="0x80000000"/>
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+ARROW_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="-1"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+ARROW_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="-1"/>
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+ARROW_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="1"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+ARROW_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="1"/>
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+PAGE_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="0x7fffffff"/>
+      </key>
+      <key commandId="no.hal.pg.model.ui.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+PAGE_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.movementDelta" value="0x7fffffff"/>
+           <parameter id="no.hal.pg.model.ui.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+   </extension>
+   
+</plugin>
