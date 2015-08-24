@@ -157,7 +157,6 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 			requiredCount = (int) correctNeeded;			
 		}
 		if (getAcceptedAnswerCount() >= requiredCount) {
-			System.out.println("Finished after " + getAcceptedAnswerCount());
 			setResult(true);
 			changeState(null);
 		}

@@ -2,6 +2,7 @@ package no.hal.pg.no.hal.graphql.emf;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -17,6 +18,7 @@ import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
+import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.RuntimePackage;
@@ -34,11 +36,12 @@ public class GraphQLEmfTest extends TestCase {
 	protected void setUp() throws Exception {
 		testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
+		testHelper.addResource(URI.createURI("test:/GraphQLEmfTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
 		game = (Game) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getGame());
 		SchemaGenerator schemaGenerator = new SchemaGenerator(testHelper.getPackages());
 		schema = schemaGenerator.generate(RuntimePackage.eINSTANCE.getGameService());
 	}
-	
+
 	private Game game;
 	
     public void testSchemaGenerator() {

@@ -2,6 +2,7 @@
  */
 package no.hal.pg.quiz.runtime.tests;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 import junit.framework.TestCase;
@@ -80,6 +81,7 @@ public class QARefTest extends TestCase {
 	protected void setUp() throws Exception {
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
 		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
+		testHelper.addResource(URI.createURI("test:/QuizTaskTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
 		quizTask = (QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask());
 		setFixture(RuntimeFactory.eINSTANCE.createQARef());
 	}

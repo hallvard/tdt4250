@@ -113,7 +113,7 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK__STATES = no.hal.pg.runtime.RuntimePackage.TASK__STATES;
 
 	/**
-	 * The feature id for the '<em><b>Result</b></em>' reference.
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

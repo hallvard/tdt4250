@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -84,7 +83,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 */
 	protected EList<TaskState<?>> states;
 	/**
-	 * The cached value of the '{@link #getResult() <em>Result</em>}' reference.
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResult()
@@ -234,23 +233,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 */
 	@SuppressWarnings("unchecked")
 	public R getResult() {
-		if (result != null && ((EObject)result).eIsProxy()) {
-			InternalEObject oldResult = (InternalEObject)result;
-			result = (R)eResolveProxy(oldResult);
-			if (result != oldResult) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuntimePackage.TASK__RESULT, oldResult, result));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public R basicGetResult() {
 		return result;
 	}
 
@@ -403,8 +385,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 			case RuntimePackage.TASK__STATES:
 				return getStates();
 			case RuntimePackage.TASK__RESULT:
-				if (resolve) return getResult();
-				return basicGetResult();
+				return getResult();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -553,6 +534,22 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return isInState((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (result: ");
+		result.append(result);
+		result.append(')');
+		return result.toString();
 	}
 
 } //TaskImpl

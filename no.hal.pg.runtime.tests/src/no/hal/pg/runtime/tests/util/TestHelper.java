@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -19,10 +20,12 @@ public class TestHelper {
 	
 	private final TestCase testCase;
 	private Collection<EPackage> packages;
+	private ResourceSet resourceSet;
 	
 	public TestHelper(TestCase testCase) {
 		this.testCase = testCase;
 		registerResourceFactory("json", new JsonResourceFactory());
+		resourceSet = createResourceSet();
 	}
 
 	public void registerResourceFactory(String ext, Resource.Factory resourceFactory) {
@@ -49,6 +52,9 @@ public class TestHelper {
 	
 	private URI createModelUri(String modelPath) {
 		URL resource = testCase.getClass().getResource(modelPath);
+		if (resource == null) {
+			System.err.println("No resource for " + modelPath);
+		}
 		return URI.createURI(resource.toString());
 	}
 	
@@ -58,10 +64,18 @@ public class TestHelper {
 		resSet.getURIConverter().getURIMap().put(URI.createURI("test:/"), modelUri.trimSegments(1).appendSegment(""));
 		return resSet;
 	}
+
+	public void addResource(Resource resource) {
+		resourceSet.getResources().add(resource);
+	}
+
+	public void addResource(URI uri, EObject eObject) {
+		Resource resource = resourceSet.createResource(uri);
+		resource.getContents().add(eObject);
+	}
 	
 	public Resource loadResource(String modelPath) {
-		ResourceSet resSet = createResourceSet();
-		return resSet.getResource(createModelUri(modelPath), true);
+		return resourceSet.getResource(createModelUri(modelPath), true);
 	}
 	
 	private String getDefaultModelPath() {

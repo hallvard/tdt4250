@@ -308,7 +308,7 @@ public interface RuntimePackage extends EPackage {
 	int TASK__STATES = PLAYERS_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Result</b></em>' reference.
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -909,15 +909,15 @@ public interface RuntimePackage extends EPackage {
 	EReference getTask_States();
 
 	/**
-	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}'.
+	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Result</em>'.
+	 * @return the meta object for the attribute '<em>Result</em>'.
 	 * @see no.hal.pg.runtime.Task#getResult()
 	 * @see #getTask()
 	 * @generated
 	 */
-	EReference getTask_Result();
+	EAttribute getTask_Result();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}' operation.
@@ -1340,12 +1340,12 @@ public interface RuntimePackage extends EPackage {
 		EReference TASK__STATES = eINSTANCE.getTask_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Result</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK__RESULT = eINSTANCE.getTask_Result();
+		EAttribute TASK__RESULT = eINSTANCE.getTask_Result();
 
 		/**
 		 * The meta object literal for the '<em><b>Change State</b></em>' operation.

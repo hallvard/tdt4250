@@ -352,8 +352,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Result() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+	public EAttribute getTask_Result() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -629,7 +629,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEReference(taskEClass, TASK__GAME);
 		createEReference(taskEClass, TASK__PLAYERS);
 		createEReference(taskEClass, TASK__STATES);
-		createEReference(taskEClass, TASK__RESULT);
+		createEAttribute(taskEClass, TASK__RESULT);
 		createEOperation(taskEClass, TASK___IS_STARTED);
 		createEOperation(taskEClass, TASK___IS_FINISHED);
 		createEOperation(taskEClass, TASK___START);
@@ -783,7 +783,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getTask_States(), g1, this.getTaskState_Task(), "states", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(taskEClass_R);
-		initEReference(getTask_Result(), g1, null, "result", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Result(), g1, "result", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTask__IsStarted(), ecorePackage.getEBoolean(), "isStarted", 0, 1, IS_UNIQUE, IS_ORDERED);
 

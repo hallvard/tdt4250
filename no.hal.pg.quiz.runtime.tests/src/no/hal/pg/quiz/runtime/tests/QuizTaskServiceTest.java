@@ -5,6 +5,7 @@ package no.hal.pg.quiz.runtime.tests;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
@@ -93,6 +94,7 @@ public class QuizTaskServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
 		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
+		testHelper.addResource(URI.createURI("test:/QuizTaskTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
 		setFixture((QuizTaskService) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTaskService()));
 	}
 	

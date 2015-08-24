@@ -9,7 +9,7 @@
 	"proposals": [
 		{
 			"eClass": "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#//QAProposal",
-			"qa": {"$ref": "test:/QuizTaskTest.jquiz//@parts.0/@questions.0"}
+			"qa": {"$ref": "test:/QuizTaskTest.jquiz#//@parts.0/@questions.0"}
 		}
 	]
 }

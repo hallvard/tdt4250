@@ -116,26 +116,26 @@ public interface Task<T extends TaskDef, R> extends Players, Services {
 	EList<TaskState<?>> getStates();
 
 	/**
-	 * Returns the value of the '<em><b>Result</b></em>' reference.
+	 * Returns the value of the '<em><b>Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Result</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Result</em>' reference.
+	 * @return the value of the '<em>Result</em>' attribute.
 	 * @see #setResult(Object)
 	 * @see no.hal.pg.runtime.RuntimePackage#getTask_Result()
-	 * @model kind="reference"
+	 * @model
 	 * @generated
 	 */
 	R getResult();
 
 	/**
-	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}' reference.
+	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Result</em>' reference.
+	 * @param value the new value of the '<em>Result</em>' attribute.
 	 * @see #getResult()
 	 * @generated
 	 */

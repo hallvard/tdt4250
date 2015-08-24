@@ -80,6 +80,12 @@
 	    <version>0.1.0-SNAPSHOT</version>
 	    <scope>test</scope>
 	</dependency>
+	<dependency>
+	    <groupId>no.hal.pg</groupId>
+	    <artifactId>no.hal.pg.quiz.runtime.tests</artifactId>
+	    <version>0.1.0-SNAPSHOT</version>
+	    <scope>test</scope>
+	</dependency>
   </dependencies>
   
   <parent>
