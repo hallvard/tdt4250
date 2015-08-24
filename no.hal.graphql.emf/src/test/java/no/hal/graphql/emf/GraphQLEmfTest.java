@@ -1,4 +1,4 @@
-package no.hal.pg.no.hal.graphql.emf;
+package no.hal.graphql.emf;
 
 import java.util.Map;
 
@@ -17,6 +17,7 @@ import graphql.schema.GraphQLType;
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 import no.hal.pg.model.ModelPackage;
+import no.hal.pg.no.hal.graphql.emf.SchemaGenerator;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Game;
