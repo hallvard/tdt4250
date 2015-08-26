@@ -18,8 +18,10 @@ import no.hal.pg.quiz.model.AbstractQuizPart;
 import no.hal.pg.quiz.model.QA;
 import no.hal.pg.quiz.model.QuizPartRef;
 import no.hal.pg.quiz.model.QuizTaskDef;
+import no.hal.pg.quiz.runtime.AcceptingAnswerState;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
+import no.hal.pg.quiz.runtime.QuizTaskService;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.runtime.impl.TaskImpl;
@@ -112,6 +114,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 		QAProposal qaProposal = findQAProposal(qa);
 		Boolean accepted = null;
 		if (qaProposal != null) {
+			qaProposal.setProposal(proposal);
 			accepted = (accept ? qa.getA().accept(proposal) : null);
 			qaProposal.setAccepted(accepted);
 			if (Boolean.FALSE.equals(accepted)) {
@@ -279,7 +282,11 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 				}
 			}
 		}
-		changeState(RuntimeFactory.eINSTANCE.createAcceptingAnswerState());
+		QuizTaskService quizTaskService = RuntimeFactory.eINSTANCE.createQuizTaskService();
+		quizTaskService.setContext(this);
+		this.getServices().add(quizTaskService);
+		AcceptingAnswerState acceptingAnswerState = RuntimeFactory.eINSTANCE.createAcceptingAnswerState();
+		changeState(acceptingAnswerState);
 	}
 
 } //QuizTaskImpl

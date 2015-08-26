@@ -203,6 +203,15 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK___IS_IN_STATE__ECLASS = no.hal.pg.runtime.RuntimePackage.TASK___IS_IN_STATE__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Finish</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK___FINISH__OBJECT = no.hal.pg.runtime.RuntimePackage.TASK___FINISH__OBJECT;
+
+	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -419,7 +428,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 0;
+	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Accept Answer</em>' operation.
@@ -428,7 +437,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 1;
+	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get QA Proposals</em>' operation.
@@ -437,7 +446,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
+	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Quiz Task Service</em>' class.
@@ -632,34 +641,34 @@ public interface RuntimePackage extends EPackage {
 	EClass getQuizTaskService();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Propose Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Propose Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__ProposeAnswer__Ref_Ref_String();
+	EOperation getQuizTaskService__ProposeAnswer__Player_QA_String();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Accept Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Accept Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__AcceptAnswer__Ref_Ref_String();
+	EOperation getQuizTaskService__AcceptAnswer__Player_QA_String();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref) <em>Get QA Proposals</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get QA Proposals</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__GetQAProposals__Ref();
+	EOperation getQuizTaskService__GetQAProposals__QA();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QARef <em>QA Ref</em>}'.
@@ -823,7 +832,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING = eINSTANCE.getQuizTaskService__ProposeAnswer__Ref_Ref_String();
+		EOperation QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = eINSTANCE.getQuizTaskService__ProposeAnswer__Player_QA_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Accept Answer</b></em>' operation.
@@ -831,7 +840,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__Ref_Ref_String();
+		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__Player_QA_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get QA Proposals</b></em>' operation.
@@ -839,7 +848,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF = eINSTANCE.getQuizTaskService__GetQAProposals__Ref();
+		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA = eINSTANCE.getQuizTaskService__GetQAProposals__QA();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.

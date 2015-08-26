@@ -260,7 +260,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__ProposeAnswer__Ref_Ref_String() {
+	public EOperation getQuizTaskService__ProposeAnswer__Player_QA_String() {
 		return quizTaskServiceEClass.getEOperations().get(0);
 	}
 
@@ -269,7 +269,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__AcceptAnswer__Ref_Ref_String() {
+	public EOperation getQuizTaskService__AcceptAnswer__Player_QA_String() {
 		return quizTaskServiceEClass.getEOperations().get(1);
 	}
 
@@ -278,7 +278,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__GetQAProposals__Ref() {
+	public EOperation getQuizTaskService__GetQAProposals__QA() {
 		return quizTaskServiceEClass.getEOperations().get(2);
 	}
 
@@ -344,9 +344,9 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEReference(qaProposalEClass, QA_PROPOSAL__ANSWERED_BY);
 
 		quizTaskServiceEClass = createEClass(QUIZ_TASK_SERVICE);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA);
 
 		qaRefEClass = createEClass(QA_REF);
 		createEAttribute(qaRefEClass, QA_REF__QA_NUM);
@@ -427,33 +427,18 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		initEClass(quizTaskServiceEClass, QuizTaskService.class, "QuizTaskService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getQuizTaskService__ProposeAnswer__Ref_Ref_String(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theRuntimePackage_1.getPlayer());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "playerRef", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theModelPackage.getQA());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "qaRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getQuizTaskService__ProposeAnswer__Player_QA_String(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__AcceptAnswer__Ref_Ref_String(), ecorePackage.getEBooleanObject(), "acceptAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theRuntimePackage_1.getPlayer());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "playerRef", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theModelPackage.getQA());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "qaRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getQuizTaskService__AcceptAnswer__Player_QA_String(), ecorePackage.getEBooleanObject(), "acceptAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__GetQAProposals__Ref(), this.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theRuntimePackage_1.getPlayer());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "playerRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getQuizTaskService__GetQAProposals__QA(), this.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qaRefEClass, QARef.class, "QARef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQARef_QaNum(), ecorePackage.getEInt(), "qaNum", null, 0, 1, QARef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

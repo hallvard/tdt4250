@@ -14,7 +14,6 @@ import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.QuizTaskService;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.impl.TaskServiceImpl;
 import no.hal.pg.runtime.util.Util;
 
@@ -61,9 +60,7 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean proposeAnswer(Ref<Player> playerRef, Ref<QA> qaRef, String proposal) {
-		Player player = playerRef.get(this);
-		QA qa = qaRef.get(this);
+	public Boolean proposeAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -75,9 +72,7 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean acceptAnswer(Ref<Player> playerRef, Ref<QA> qaRef, String proposal) {
-		Player player = playerRef.get(getContext());
-		QA qa = qaRef.get(getContext());
+	public Boolean acceptAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -89,8 +84,7 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<QAProposal> getQAProposals(Ref<Player> playerRef) {
-		Player player = playerRef.get(this);
+	public EList<QAProposal> getQAProposals(Player player) {
 		EList<QAProposal> proposals = new BasicEList<QAProposal>();
 		for (QAProposal proposal : getContext().getProposals()) {
 			if (Util.containsPlayer(proposal, player, false)) {
@@ -109,12 +103,12 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.QUIZ_TASK_SERVICE___PROPOSE_ANSWER__REF_REF_STRING:
-				return proposeAnswer((Ref<Player>)arguments.get(0), (Ref<QA>)arguments.get(1), (String)arguments.get(2));
-			case RuntimePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__REF_REF_STRING:
-				return acceptAnswer((Ref<Player>)arguments.get(0), (Ref<QA>)arguments.get(1), (String)arguments.get(2));
-			case RuntimePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__REF:
-				return getQAProposals((Ref<Player>)arguments.get(0));
+			case RuntimePackage.QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING:
+				return proposeAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
+			case RuntimePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING:
+				return acceptAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
+			case RuntimePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA:
+				return getQAProposals((Player)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -128,7 +122,7 @@ public class QuizTaskServiceImpl extends TaskServiceImpl<QuizTask> implements Qu
 	}
 	
 	private void checkPlayerInTaskPlayers(Player player) {
-		if (! getContext().getPlayers().contains(player)) {
+		if (! Util.containsPlayer(getContext(), player, false)) {
 			throw new IllegalStateException("Player " + player + " cannot perform this task");
 		}
 	}

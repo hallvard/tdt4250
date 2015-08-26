@@ -4,7 +4,6 @@ package no.hal.pg.quiz.runtime;
 
 import no.hal.pg.quiz.model.QA;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.TaskService;
 import org.eclipse.emf.common.util.EList;
 
@@ -25,7 +24,7 @@ public interface QuizTaskService extends TaskService<QuizTask> {
 	 * @model
 	 * @generated
 	 */
-	Boolean proposeAnswer(Ref<Player> playerRef, Ref<QA> qaRef, String proposal);
+	Boolean proposeAnswer(Player player, QA qa, String proposal);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -33,7 +32,7 @@ public interface QuizTaskService extends TaskService<QuizTask> {
 	 * @model
 	 * @generated
 	 */
-	Boolean acceptAnswer(Ref<Player> playerRef, Ref<QA> qaRef, String proposal);
+	Boolean acceptAnswer(Player player, QA qa, String proposal);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,6 +40,6 @@ public interface QuizTaskService extends TaskService<QuizTask> {
 	 * @model
 	 * @generated
 	 */
-	EList<QAProposal> getQAProposals(Ref<Player> playerRef);
+	EList<QAProposal> getQAProposals(Player player);
 
 } // QuizTaskService

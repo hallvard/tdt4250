@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.runtime/src" editDirectory="" editorDirectory=""
-    modelPluginID="no.hal.pg.quiz.runtime" modelName="Quiz-runtime" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.runtime/src" editDirectory="/no.hal.pg.quiz.runtime.ui/src"
+    editorDirectory="" modelPluginID="no.hal.pg.quiz.runtime" modelName="Quiz-runtime"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="no.hal.pg.quiz.runtime.ui"
     usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.pg.quiz.model/model/quiz.genmodel#//model"
     operationReflection="true" importOrganizing="true">
   <foreignModel>quiz-runtime.ecore</foreignModel>
@@ -28,14 +29,17 @@
     </genClasses>
     <genClasses ecoreClass="quiz-runtime.ecore#//QuizTaskService">
       <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTaskService/proposeAnswer">
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/playerRef"/>
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/qaRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/player"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/qa"/>
         <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/proposeAnswer/proposal"/>
       </genOperations>
       <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTaskService/acceptAnswer">
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/playerRef"/>
-        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/qaRef"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/player"/>
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/qa"/>
         <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/acceptAnswer/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="quiz-runtime.ecore#//QuizTaskService/getQAProposals">
+        <genParameters ecoreParameter="quiz-runtime.ecore#//QuizTaskService/getQAProposals/player"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="quiz-runtime.ecore#//QARef">
