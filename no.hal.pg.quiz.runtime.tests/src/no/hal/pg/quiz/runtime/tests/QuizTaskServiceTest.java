@@ -12,12 +12,9 @@ import junit.textui.TestRunner;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;
-import no.hal.pg.quiz.runtime.QARef;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.QuizTaskService;
-import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
-import no.hal.pg.runtime.DirectRef;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
@@ -28,9 +25,9 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Propose Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Accept Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref) <em>Get QA Proposals</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -110,82 +107,70 @@ public class QuizTaskServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Propose Answer</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
-	public void testProposeAnswer__Ref_Ref_String() {
+	public void testProposeAnswer__Player_QA_String() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
-		DirectRef<Player> playerRef = no.hal.pg.runtime.RuntimeFactory.eINSTANCE.createDirectRef();
-		playerRef.setRef(quizTask.getPlayers().get(0));
-		QARef qaRef = RuntimeFactory.eINSTANCE.createQARef();
-
-		qaRef.setQaNum(0);
-		assertNull(service.proposeAnswer(playerRef, qaRef, "Hallvard"));
+		Player player = quizTask.getPlayers().get(0);
+		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, null, 0, false);
 		
-		qaRef.setQaNum(3);
-		assertNull(service.proposeAnswer(playerRef, qaRef, "true"));
+		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(3).getQa(), "true"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 3, true, null, 0, false);
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String) <em>Accept Answer</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Ref, no.hal.pg.runtime.Ref, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
-	public void testAcceptAnswer__Ref_Ref_String() {
+	public void testAcceptAnswer__Player_QA_String() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
-		DirectRef<Player> playerRef = no.hal.pg.runtime.RuntimeFactory.eINSTANCE.createDirectRef();
-		playerRef.setRef(quizTask.getPlayers().get(0));
-		QARef qaRef = RuntimeFactory.eINSTANCE.createQARef();
+		Player player = quizTask.getPlayers().get(0);
 
-		qaRef.setQaNum(0);
-		assertTrue(service.acceptAnswer(playerRef, qaRef, "Hallvard"));
+		assertTrue(service.acceptAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, true, 1, false);
 		
-		qaRef.setQaNum(3);
-		assertFalse(service.acceptAnswer(playerRef, qaRef, "false"));
+		assertFalse(service.acceptAnswer(player, quizTask.getProposals().get(3).getQa(), "false"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 3, true, false, 1, false);
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref) <em>Get QA Proposals</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Ref)
+	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
-	public void testGetQAProposals__Ref() {
+	public void testGetQAProposals__QA() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
 		EList<Player> players = quizTask.getGame().getPlayers();
-		DirectRef<Player> playerRef1 = no.hal.pg.runtime.RuntimeFactory.eINSTANCE.createDirectRef();
-		playerRef1.setRef(players.get(0));
-		DirectRef<Player> playerRef2 = no.hal.pg.runtime.RuntimeFactory.eINSTANCE.createDirectRef();
-		playerRef2.setRef(players.get(1));
+		Player player1 = players.get(0), player2 = players.get(1);
 
 		EList<QAProposal> proposals = quizTask.getProposals();
 		// the first proposal is for the second player, the rest for the first
 		proposals.get(0).getPlayers().add(players.get(1));
 		
-		EList<QAProposal> proposals1 = service.getQAProposals(playerRef1);
+		EList<QAProposal> proposals1 = service.getQAProposals(player1);
 		assertEquals(3, proposals1.size());
 		assertTrue(proposals1.containsAll(Arrays.asList(proposals.get(1), proposals.get(2), proposals.get(3))));
 		
-		EList<QAProposal> proposals2 = service.getQAProposals(playerRef2);
+		EList<QAProposal> proposals2 = service.getQAProposals(player2);
 		assertEquals(1, proposals2.size());
 		assertTrue(proposals2.containsAll(Arrays.asList(proposals.get(0))));
 	}
