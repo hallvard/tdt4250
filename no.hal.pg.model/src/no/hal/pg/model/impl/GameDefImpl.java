@@ -2,11 +2,14 @@
  */
 package no.hal.pg.model.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import no.hal.pg.model.GameDef;
+import no.hal.pg.model.Group;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.model.TaskDef;
+import no.hal.pg.model.util.Util;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -19,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getTaskRefs <em>Task Refs</em>}</li>
  *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getAllTasks <em>All Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.model.impl.GameDefImpl#getParticipants <em>Participants</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +61,16 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 	 * @ordered
 	 */
 	protected EList<TaskDef> taskRefs;
+
+	/**
+	 * The cached value of the '{@link #getParticipants() <em>Participants</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParticipants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Group> participants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,10 +121,19 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 	 * @generated NOT
 	 */
 	public EList<TaskDef> getAllTasks() {
-		EList<TaskDef> result = new BasicEList<TaskDef>();
-		result.addAll(getTasks());
-		result.addAll(getTaskRefs());
-		return result;
+		return Util.createUmodifiableList(this, ModelPackage.eINSTANCE.getGameDef_AllTasks(), getTasks(), getTaskRefs());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Group> getParticipants() {
+		if (participants == null) {
+			participants = new EObjectResolvingEList<Group>(Group.class, this, ModelPackage.GAME_DEF__PARTICIPANTS);
+		}
+		return participants;
 	}
 
 	/**
@@ -140,6 +164,8 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 				return getTaskRefs();
 			case ModelPackage.GAME_DEF__ALL_TASKS:
 				return getAllTasks();
+			case ModelPackage.GAME_DEF__PARTICIPANTS:
+				return getParticipants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +187,10 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 				getTaskRefs().clear();
 				getTaskRefs().addAll((Collection<? extends TaskDef>)newValue);
 				return;
+			case ModelPackage.GAME_DEF__PARTICIPANTS:
+				getParticipants().clear();
+				getParticipants().addAll((Collection<? extends Group>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -178,6 +208,9 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 				return;
 			case ModelPackage.GAME_DEF__TASK_REFS:
 				getTaskRefs().clear();
+				return;
+			case ModelPackage.GAME_DEF__PARTICIPANTS:
+				getParticipants().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,6 +230,8 @@ public class GameDefImpl extends MinimalEObjectImpl.Container implements GameDef
 				return taskRefs != null && !taskRefs.isEmpty();
 			case ModelPackage.GAME_DEF__ALL_TASKS:
 				return !getAllTasks().isEmpty();
+			case ModelPackage.GAME_DEF__PARTICIPANTS:
+				return participants != null && !participants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

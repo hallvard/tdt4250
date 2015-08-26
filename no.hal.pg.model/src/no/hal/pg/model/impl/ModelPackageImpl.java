@@ -3,11 +3,13 @@
 package no.hal.pg.model.impl;
 
 import no.hal.pg.model.GameDef;
+import no.hal.pg.model.Group;
 import no.hal.pg.model.ModelFactory;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.model.Person;
 import no.hal.pg.model.TaskDef;
 
+import no.hal.pg.model.UoD;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -22,6 +24,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass uoDEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass groupEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,6 +125,51 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUoD() {
+		return uoDEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUoD_People() {
+		return (EReference)uoDEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUoD_Games() {
+		return (EReference)uoDEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGroup() {
+		return groupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup_Persons() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPerson() {
 		return personEClass;
 	}
@@ -172,6 +233,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGameDef_Participants() {
+		return (EReference)gameDefEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTaskDef() {
 		return taskDefEClass;
 	}
@@ -204,6 +274,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		uoDEClass = createEClass(UO_D);
+		createEReference(uoDEClass, UO_D__PEOPLE);
+		createEReference(uoDEClass, UO_D__GAMES);
+
+		groupEClass = createEClass(GROUP);
+		createEReference(groupEClass, GROUP__PERSONS);
+
 		personEClass = createEClass(PERSON);
 		createEAttribute(personEClass, PERSON__NAME);
 		createEAttribute(personEClass, PERSON__IDS);
@@ -212,6 +289,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(gameDefEClass, GAME_DEF__TASKS);
 		createEReference(gameDefEClass, GAME_DEF__TASK_REFS);
 		createEReference(gameDefEClass, GAME_DEF__ALL_TASKS);
+		createEReference(gameDefEClass, GAME_DEF__PARTICIPANTS);
 
 		taskDefEClass = createEClass(TASK_DEF);
 	}
@@ -246,6 +324,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(uoDEClass, UoD.class, "UoD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUoD_People(), this.getGroup(), null, "people", null, 0, -1, UoD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUoD_Games(), this.getGameDef(), null, "games", null, 0, -1, UoD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGroup_Persons(), this.getPerson(), null, "persons", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPerson_Ids(), ecorePackage.getEString(), "ids", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -254,6 +339,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getGameDef_Tasks(), this.getTaskDef(), null, "tasks", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGameDef_TaskRefs(), this.getTaskDef(), null, "taskRefs", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGameDef_AllTasks(), this.getTaskDef(), null, "allTasks", null, 0, -1, GameDef.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGameDef_Participants(), this.getGroup(), null, "participants", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDefEClass, TaskDef.class, "TaskDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

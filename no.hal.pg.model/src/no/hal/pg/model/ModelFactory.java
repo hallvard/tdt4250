@@ -22,6 +22,24 @@ public interface ModelFactory extends EFactory {
 	ModelFactory eINSTANCE = no.hal.pg.model.impl.ModelFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Uo D</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Uo D</em>'.
+	 * @generated
+	 */
+	UoD createUoD();
+
+	/**
+	 * Returns a new object of class '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group</em>'.
+	 * @generated
+	 */
+	Group createGroup();
+
+	/**
 	 * Returns a new object of class '<em>Person</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

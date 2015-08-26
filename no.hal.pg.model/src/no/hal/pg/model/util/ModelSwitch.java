@@ -66,6 +66,18 @@ public class ModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ModelPackage.UO_D: {
+				UoD uoD = (UoD)theEObject;
+				T result = caseUoD(uoD);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.GROUP: {
+				Group group = (Group)theEObject;
+				T result = caseGroup(group);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.PERSON: {
 				Person person = (Person)theEObject;
 				T result = casePerson(person);
@@ -86,6 +98,36 @@ public class ModelSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Uo D</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Uo D</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUoD(UoD object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGroup(Group object) {
+		return null;
 	}
 
 	/**

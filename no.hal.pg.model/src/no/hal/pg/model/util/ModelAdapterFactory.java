@@ -68,6 +68,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	protected ModelSwitch<Adapter> modelSwitch =
 		new ModelSwitch<Adapter>() {
 			@Override
+			public Adapter caseUoD(UoD object) {
+				return createUoDAdapter();
+			}
+			@Override
+			public Adapter caseGroup(Group object) {
+				return createGroupAdapter();
+			}
+			@Override
 			public Adapter casePerson(Person object) {
 				return createPersonAdapter();
 			}
@@ -98,6 +106,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.model.UoD <em>Uo D</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.model.UoD
+	 * @generated
+	 */
+	public Adapter createUoDAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.model.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.model.Group
+	 * @generated
+	 */
+	public Adapter createGroupAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.pg.model.Person <em>Person</em>}'.

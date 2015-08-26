@@ -56,12 +56,34 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ModelPackage.UO_D: return createUoD();
+			case ModelPackage.GROUP: return createGroup();
 			case ModelPackage.PERSON: return createPerson();
 			case ModelPackage.GAME_DEF: return createGameDef();
 			case ModelPackage.TASK_DEF: return createTaskDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UoD createUoD() {
+		UoDImpl uoD = new UoDImpl();
+		return uoD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group createGroup() {
+		GroupImpl group = new GroupImpl();
+		return group;
 	}
 
 	/**
