@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated pg-runtime -->
+      <factory
+            uri="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore"
+            class="no.hal.pg.runtime.provider.RuntimeItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated NOT pg-runtime -->
+      <editor
+            id="no.hal.pg.runtime.presentation.RuntimeEditorID"
+            name="%_UI_RuntimeEditor_label"
+            icon="icons/full/obj16/RuntimeModelFile.gif"
+            extensions="pg-rt, pg"
+            class="no.hal.pg.runtime.presentation.RuntimeEditor"
+            contributorClass="no.hal.pg.runtime.presentation.RuntimeActionBarContributor">
+      </editor>
+   </extension>
+ 
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="no.hal.pg.runtime.ui.category"
+            class="no.hal.pg.runtime.ui.RuntimeView"
+            id="no.hal.pg.runtime.ui.RuntimeView"
+            name="Pg Runtime view"
+            restorable="true">
+      </view>
+      <category
+            id="no.hal.pg.runtime.ui.category"
+            name="Pg Runtime">
+      </category>
+   </extension>
+
+</plugin>
