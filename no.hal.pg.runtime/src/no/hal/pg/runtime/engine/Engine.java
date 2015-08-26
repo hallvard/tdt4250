@@ -1,6 +1,8 @@
 package no.hal.pg.runtime.engine;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,58 +10,45 @@ import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicy;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import no.hal.pg.model.GameDef;
+import no.hal.pg.model.Group;
+import no.hal.pg.model.Person;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.GameService;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 
-@Component(immediate=true)
 public class Engine {
 
 	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
 	
-	@Reference(
-			cardinality=ReferenceCardinality.MULTIPLE,
-			policy=ReferencePolicy.DYNAMIC,
-			unbind="removeTaskProvider"
-	)
-	public synchronized void addTaskProvider(ITaskProvider taskProvider) {
-		taskProviders.add(taskProvider);
-	}
-	
-	public synchronized void removeTaskProvider(ITaskProvider taskProvider) {
-		taskProviders.remove(taskProvider);
+	public Engine(ITaskProvider... taskProviders) {
+		this.taskProviders.addAll(Arrays.asList(taskProviders));
 	}
 	
 	private Collection<IServiceListener> serviceListeners = new ArrayList<IServiceListener>();
-	
-	@Reference(
-			cardinality=ReferenceCardinality.MULTIPLE,
-			policy=ReferencePolicy.DYNAMIC,
-			unbind="removeServiceListener"
-			)
-	public synchronized void addServiceListener(IServiceListener serviceListener) {
-		serviceListeners.add(serviceListener);
-	}
-	
-	public synchronized void removeServiceListener(IServiceListener serviceListener) {
-		serviceListeners.remove(serviceListener);
-	}
 	
 	private Game game;
 	
 	public void init(GameDef gameDef) {
 		Game game = RuntimeFactory.eINSTANCE.createGame();
+		for (Group group : gameDef.getParticipants()) {
+			for (Person person : group.getPersons()) {
+				Player player = RuntimeFactory.eINSTANCE.createPlayer();
+				player.setPerson(person);
+				game.getPlayers().add(player);
+			}
+		}
 		for (TaskDef taskDef : gameDef.getTasks()) {
 			for (ITaskProvider taskProvider : taskProviders) {
 				Task<?, ?> task = taskProvider.getTask(taskDef);
@@ -76,6 +65,23 @@ public class Engine {
 		GameService gameService = RuntimeFactory.eINSTANCE.createGameService();
 		gameService.setContext(game);
 		game.getServices().add(gameService);
+		Resource gameDefResource = gameDef.eResource();
+		URI gameUri = gameDefResource.getURI().trimFileExtension().appendFileExtension("pg-rt");
+		ResourceSet resourceSet = gameDefResource.getResourceSet();
+		if (resourceSet == null) {
+			resourceSet = new ResourceSetImpl();
+			resourceSet.getResources().add(gameDefResource);
+		}
+		Resource resource = resourceSet.createResource(gameUri);
+		resource.getContents().add(game);
+	}
+	
+	public void init(Game game) {
+		this.game = game;
+	}
+
+	public Game getGame() {
+		return game;
 	}
 
 	private boolean isChangeStateNotification(Notification notification) {

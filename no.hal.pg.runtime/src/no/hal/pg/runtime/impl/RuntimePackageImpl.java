@@ -388,6 +388,15 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTask__Finish__Object() {
+		return taskEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getTask__IsStarted() {
 		return taskEClass.getEOperations().get(0);
 	}
@@ -636,6 +645,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createEOperation(taskEClass, TASK___CHANGE_STATE__TASKSTATE);
 		createEOperation(taskEClass, TASK___GET_CURRENT_STATE);
 		createEOperation(taskEClass, TASK___IS_IN_STATE__ECLASS);
+		createEOperation(taskEClass, TASK___FINISH__OBJECT);
 
 		taskStateEClass = createEClass(TASK_STATE);
 		createEReference(taskStateEClass, TASK_STATE__TASK);
@@ -805,6 +815,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		op = initEOperation(getTask__IsInState__EClass(), ecorePackage.getEBoolean(), "isInState", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "stateClass", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTask__Finish__Object(), null, "finish", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(taskEClass_R);
+		addEParameter(op, g1, "result", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskStateEClass, TaskState.class, "TaskState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getTask());

@@ -317,6 +317,16 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void finish(R result) {
+		setResult(result);
+		changeState(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -532,6 +542,9 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return getCurrentState();
 			case RuntimePackage.TASK___IS_IN_STATE__ECLASS:
 				return isInState((EClass)arguments.get(0));
+			case RuntimePackage.TASK___FINISH__OBJECT:
+				finish((R)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

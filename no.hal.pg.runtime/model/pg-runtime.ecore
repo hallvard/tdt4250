@@ -65,6 +65,11 @@
     <eOperations name="isInState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="stateClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
+    <eOperations name="finish">
+      <eParameters name="result">
+        <eGenericType eTypeParameter="#//Task/R"/>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskDef">
       <eGenericType eTypeParameter="#//Task/T"/>
     </eStructuralFeatures>

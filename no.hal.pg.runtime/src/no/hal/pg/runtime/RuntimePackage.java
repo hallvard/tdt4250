@@ -389,13 +389,22 @@ public interface RuntimePackage extends EPackage {
 	int TASK___IS_IN_STATE__ECLASS = PLAYERS_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Finish</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___FINISH__OBJECT = PLAYERS_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = PLAYERS_OPERATION_COUNT + 6;
+	int TASK_OPERATION_COUNT = PLAYERS_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.TaskStateImpl <em>Task State</em>}' class.
@@ -950,6 +959,16 @@ public interface RuntimePackage extends EPackage {
 	EOperation getTask__IsInState__EClass();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#finish(java.lang.Object) <em>Finish</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Finish</em>' operation.
+	 * @see no.hal.pg.runtime.Task#finish(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getTask__Finish__Object();
+
+	/**
 	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#isStarted() <em>Is Started</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1370,6 +1389,14 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TASK___IS_IN_STATE__ECLASS = eINSTANCE.getTask__IsInState__EClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Finish</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___FINISH__OBJECT = eINSTANCE.getTask__Finish__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Started</b></em>' operation.
