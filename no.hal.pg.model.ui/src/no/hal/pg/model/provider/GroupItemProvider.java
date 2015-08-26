@@ -6,7 +6,7 @@ package no.hal.pg.model.provider;
 import java.util.Collection;
 import java.util.List;
 
-import no.hal.pg.model.GameDef;
+import no.hal.pg.model.Group;
 import no.hal.pg.model.ModelFactory;
 import no.hal.pg.model.ModelPackage;
 
@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.pg.model.GameDef} object.
+ * This is the item provider adapter for a {@link no.hal.pg.model.Group} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GameDefItemProvider 
+public class GroupItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +47,7 @@ public class GameDefItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameDefItemProvider(AdapterFactory adapterFactory) {
+	public GroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,77 +62,8 @@ public class GameDefItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTaskRefsPropertyDescriptor(object);
-			addAllTasksPropertyDescriptor(object);
-			addParticipantsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Task Refs feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTaskRefsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GameDef_taskRefs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GameDef_taskRefs_feature", "_UI_GameDef_type"),
-				 ModelPackage.Literals.GAME_DEF__TASK_REFS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the All Tasks feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAllTasksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GameDef_allTasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GameDef_allTasks_feature", "_UI_GameDef_type"),
-				 ModelPackage.Literals.GAME_DEF__ALL_TASKS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Participants feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParticipantsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GameDef_participants_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GameDef_participants_feature", "_UI_GameDef_type"),
-				 ModelPackage.Literals.GAME_DEF__PARTICIPANTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -148,7 +78,7 @@ public class GameDefItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.GAME_DEF__TASKS);
+			childrenFeatures.add(ModelPackage.Literals.GROUP__PERSONS);
 		}
 		return childrenFeatures;
 	}
@@ -167,14 +97,14 @@ public class GameDefItemProvider
 	}
 
 	/**
-	 * This returns GameDef.gif.
+	 * This returns Group.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GameDef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Group"));
 	}
 
 	/**
@@ -185,7 +115,7 @@ public class GameDefItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GameDef_type");
+		return getString("_UI_Group_type");
 	}
 	
 
@@ -200,8 +130,8 @@ public class GameDefItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GameDef.class)) {
-			case ModelPackage.GAME_DEF__TASKS:
+		switch (notification.getFeatureID(Group.class)) {
+			case ModelPackage.GROUP__PERSONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -221,8 +151,8 @@ public class GameDefItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.GAME_DEF__TASKS,
-				 ModelFactory.eINSTANCE.createTaskDef()));
+				(ModelPackage.Literals.GROUP__PERSONS,
+				 ModelFactory.eINSTANCE.createPerson()));
 	}
 
 	/**
