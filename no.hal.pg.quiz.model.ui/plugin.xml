@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated quiz -->
+      <factory
+            uri="platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore"
+            class="no.hal.pg.quiz.model.provider.ModelItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated quiz -->
+      <extender
+            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
+            class="no.hal.pg.quiz.model.provider.ModelItemProviderAdapterFactory$ModelChildCreationExtender"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated quiz -->
+      <editor
+            id="no.hal.pg.quiz.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="jquiz"
+            class="no.hal.pg.quiz.model.presentation.ModelEditor"
+            contributorClass="no.hal.pg.quiz.model.presentation.ModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

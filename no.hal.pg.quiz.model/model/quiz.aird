@@ -40,6 +40,14 @@
           <children xmi:type="notation:Node" xmi:id="_3Wuk80DREeWde4GecoaZvA" type="2003" element="_3VCi4EDREeWde4GecoaZvA">
             <children xmi:type="notation:Node" xmi:id="_3WvMAEDREeWde4GecoaZvA" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_3WvMAUDREeWde4GecoaZvA" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_PQyyIEZIEeWjtvKNU_D5PA" type="3010" element="_PQkvsEZIEeWjtvKNU_D5PA">
+                <styles xmi:type="notation:FontStyle" xmi:id="_PQyyIUZIEeWjtvKNU_D5PA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_PQyyIkZIEeWjtvKNU_D5PA"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_PQzZMEZIEeWjtvKNU_D5PA" type="3010" element="_PQlWwUZIEeWjtvKNU_D5PA">
+                <styles xmi:type="notation:FontStyle" xmi:id="_PQzZMUZIEeWjtvKNU_D5PA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_PQzZMkZIEeWjtvKNU_D5PA"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_3WvMAkDREeWde4GecoaZvA"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_3WvMA0DREeWde4GecoaZvA"/>
             </children>
@@ -209,6 +217,10 @@
           <children xmi:type="notation:Node" xmi:id="_3W15sEDREeWde4GecoaZvA" type="2003" element="_3VTooEDREeWde4GecoaZvA">
             <children xmi:type="notation:Node" xmi:id="_3W2gwEDREeWde4GecoaZvA" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_3W3H0EDREeWde4GecoaZvA" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_PQzZM0ZIEeWjtvKNU_D5PA" type="3010" element="_PQnL8EZIEeWjtvKNU_D5PA">
+                <styles xmi:type="notation:FontStyle" xmi:id="_PQzZNEZIEeWjtvKNU_D5PA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_PQzZNUZIEeWjtvKNU_D5PA"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_3W3H0UDREeWde4GecoaZvA"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_3W3H0kDREeWde4GecoaZvA"/>
             </children>
@@ -969,6 +981,22 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PQkvsEZIEeWjtvKNU_D5PA" name="correctNeeded : EDouble = 0.0" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="quiz.ecore#//QuizTaskDef/correctNeeded"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="quiz.ecore#//QuizTaskDef/correctNeeded"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PQlWwEZIEeWjtvKNU_D5PA" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PQlWwUZIEeWjtvKNU_D5PA" name="attemptsAllowed : EInt = " tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="quiz.ecore#//QuizTaskDef/attemptsAllowed"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="quiz.ecore#//QuizTaskDef/attemptsAllowed"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PQl90EZIEeWjtvKNU_D5PA" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_3VDxAEDREeWde4GecoaZvA" name="AbstractQuizPart" tooltipText="" incomingEdges="_3WLyYEDREeWde4GecoaZvA _3WQq4EDREeWde4GecoaZvA _3WcREEDREeWde4GecoaZvA _3Wc4I0DREeWde4GecoaZvA" width="12" height="10">
         <target xmi:type="ecore:EClass" href="quiz.ecore#//AbstractQuizPart"/>
@@ -1202,6 +1230,14 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PQnL8EZIEeWjtvKNU_D5PA" name="errorMargin : EDouble = 0.0" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="quiz.ecore#//NumberAnswer/errorMargin"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="quiz.ecore#//NumberAnswer/errorMargin"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PQnL8UZIEeWjtvKNU_D5PA" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_3VWE4EDREeWde4GecoaZvA" name="BooleanAnswer" tooltipText="" outgoingEdges="_3WhJk0DREeWde4GecoaZvA" width="12" height="10">
         <target xmi:type="ecore:EClass" href="quiz.ecore#//BooleanAnswer"/>

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.model/src" editDirectory="" editorDirectory=""
-    modelPluginID="no.hal.pg.quiz.model" modelName="Quiz" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.model/src" editDirectory="/no.hal.pg.quiz.model.ui/src"
+    editorDirectory="/no.hal.pg.quiz.model.ui/src" modelPluginID="no.hal.pg.quiz.model"
+    modelName="Quiz" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model" operationReflection="true"
-    importOrganizing="true">
+    editPluginID="no.hal.pg.quiz.model.ui" usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>quiz.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="no.hal.pg.quiz" resource="Basic" disposableProviderFactory="true"
-      generateExampleClass="false" fileExtensions="jquiz" ecorePackage="quiz.ecore#/">
+      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
+      childCreationExtenders="true" fileExtensions="jquiz" ecorePackage="quiz.ecore#/">
     <genClasses ecoreClass="quiz.ecore#//Quiz">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Quiz/title"/>
