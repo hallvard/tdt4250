@@ -35,7 +35,6 @@ public class RuntimeTests extends TestSuite {
 //		suite.addTestSuite(AcceptingAnswerStateTest.class);
 //		suite.addTestSuite(QAProposalTest.class);
 		suite.addTestSuite(QuizTaskServiceTest.class);
-		suite.addTestSuite(QARefTest.class);
 		return suite;
 	}
 

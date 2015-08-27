@@ -33,8 +33,6 @@ public class RuntimeTests extends TestSuite {
 		TestSuite suite = new RuntimeTests("runtime Tests");
 		suite.addTestSuite(GameTest.class);
 		suite.addTestSuite(TaskTest.class);
-		suite.addTestSuite(DirectRefTest.class);
-		suite.addTestSuite(PlayerRefTest.class);
 		suite.addTestSuite(GameServiceTest.class);
 		return suite;
 	}

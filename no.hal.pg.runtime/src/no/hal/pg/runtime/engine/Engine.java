@@ -1,7 +1,6 @@
 package no.hal.pg.runtime.engine;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +12,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.Group;
@@ -27,16 +31,26 @@ import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 
+@Component(factory=Engine.FACTORY_ID)
 public class Engine implements IEngine {
 
-	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
+	public final static String FACTORY_ID = "no.hal.pg.runtime.engine.Engine";
 	
-	public Engine(ITaskProvider... taskProviders) {
-		this.taskProviders.addAll(Arrays.asList(taskProviders));
+	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
+
+	@Reference(
+			cardinality=ReferenceCardinality.MULTIPLE,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="removeTaskProvider"
+	)
+	public synchronized void addTaskProvider(ITaskProvider taskProvider) {
+		taskProviders.add(taskProvider);
 	}
 	
-	private Collection<IServiceListener> serviceListeners = new ArrayList<IServiceListener>();
-	
+	public synchronized void removeTaskProvider(ITaskProvider taskProvider) {
+		taskProviders.remove(taskProvider);
+	}
+
 	private Game game;
 	
 	public void init(GameDef gameDef) {
@@ -56,11 +70,7 @@ public class Engine implements IEngine {
 				}
 			}
 		}
-		this.game = game;
-		this.game.eAdapters().add(serviceListener);
-		for (Task<?, ?> task : game.getTasks()) {
-			task.eAdapters().add(serviceListener);
-		}
+		setGame(game);
 		GameService gameService = RuntimeFactory.eINSTANCE.createGameService();
 		gameService.setContext(game);
 		game.getServices().add(gameService);
@@ -74,11 +84,20 @@ public class Engine implements IEngine {
 		Resource resource = resourceSet.createResource(gameUri);
 		resource.getContents().add(game);
 	}
+
+	private void setGame(Game game) {
+		this.game = game;
+		this.game.eAdapters().add(serviceListener);
+	}
 	
 	public void init(Game game) {
-		this.game = game;
+		setGame(game);
 	}
 
+	@Override
+	public String getKey() {
+		return getGame().eResource().getURI().path();
+	}	
 	public Game getGame() {
 		return game;
 	}
@@ -133,40 +152,59 @@ public class Engine implements IEngine {
 		return notification.getFeature() == RuntimePackage.eINSTANCE.getServices_Services();
 	}
 
-	private Adapter serviceListener = new AdapterImpl() {
+	private Adapter serviceListener = new EContentAdapter() {
 		@Override
 		public void notifyChanged(Notification msg) {
 			if (msg.getNotifier() instanceof Services && isServiceChangeNotification(msg)) {
-				serviceChanged(msg);
+				switch (msg.getEventType()) {
+				case Notification.ADD:
+				case Notification.ADD_MANY: {
+					fireServiceActivated(msg.getNewValue());
+					break;
+				}
+				case Notification.REMOVE:
+				case Notification.REMOVE_MANY:
+					fireServiceDeactivated(msg.getOldValue());
+					break;
+				}
 			}
 		}
 	};
 
-	private Map<Services, Collection<Service<?>>> lastServices = new HashMap<Services, Collection<Service<?>>>();
+	private Collection<IServiceListener> serviceListeners = new ArrayList<IServiceListener>();
+
+	@Reference(
+			cardinality=ReferenceCardinality.MULTIPLE,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="removeServiceListener"
+	)
+	public synchronized void addServiceListener(IServiceListener serviceListener) {
+		serviceListeners.add(serviceListener);
+	}
 	
-	protected void serviceChanged(Notification msg) {
-		Services services = (Services) msg.getNotifier();
-		fireServiceChanged(lastServices.get(services), services.getServices());
-		lastServices.put(services, new ArrayList<Service<?>>(services.getServices()));
+	public synchronized void removeServiceListener(IServiceListener serviceListener) {
+		serviceListeners.remove(serviceListener);
 	}
 
-	protected void fireServiceChanged(Collection<Service<?>> pre, Collection<Service<?>> post) {
-		if (pre != null) {
-			for (Service<?> service : pre) {
-				if (post == null || (! post.contains(service))) {
-					for (IServiceListener serviceListener : serviceListeners) {
-						serviceListener.serviceDeactivated(this, service);
-					}
-				}
+	protected void fireServiceActivated(Object o) {
+		if (o instanceof Service<?>) {
+			for (IServiceListener serviceListener : serviceListeners) {
+				serviceListener.serviceActivated(this, (Service<?>) o);
+			}
+		} else if (o instanceof Collection<?>) {
+			for (Object element : (Collection<?>) o) {
+				fireServiceActivated(element);
 			}
 		}
-		if (post != null) {
-			for (Service<?> service : post) {
-				if (pre == null || (! pre.contains(service))) {
-					for (IServiceListener serviceListener : serviceListeners) {
-						serviceListener.serviceActivated(this, service);
-					}
-				}
+	}
+	protected void fireServiceDeactivated(Object o) {
+		if (o instanceof Service<?>) {
+			for (IServiceListener serviceListener : serviceListeners) {
+				serviceListener.serviceDeactivated(this, (Service<?>) o);
+			}
+		} else if (o instanceof Collection<?>) {
+			for (Object element : (Collection<?>) o) {
+				fireServiceDeactivated(element);
 			}
 		}
 	}

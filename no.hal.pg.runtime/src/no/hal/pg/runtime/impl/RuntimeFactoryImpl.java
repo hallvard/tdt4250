@@ -64,8 +64,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 			case RuntimePackage.SERVICES: return createServices();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
-			case RuntimePackage.DIRECT_REF: return createDirectRef();
-			case RuntimePackage.PLAYER_REF: return createPlayerRef();
 			case RuntimePackage.GAME_SERVICE: return createGameService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -150,26 +148,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public <T extends Task<?, ?>> TaskState<T> createTaskState() {
 		TaskStateImpl<T> taskState = new TaskStateImpl<T>();
 		return taskState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T> DirectRef<T> createDirectRef() {
-		DirectRefImpl<T> directRef = new DirectRefImpl<T>();
-		return directRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PlayerRef createPlayerRef() {
-		PlayerRefImpl playerRef = new PlayerRefImpl();
-		return playerRef;
 	}
 
 	/**

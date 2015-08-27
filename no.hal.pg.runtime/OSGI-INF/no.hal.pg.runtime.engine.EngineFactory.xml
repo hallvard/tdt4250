@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="no.hal.pg.runtime.engine.EngineFactory">
-   <implementation class="no.hal.pg.runtime.engine.EngineFactory"/>
-   <service>
-      <provide interface="no.hal.pg.runtime.engine.IEngineFactory"/>
-   </service>
-   <reference bind="addTaskProvider" cardinality="0..n" interface="no.hal.pg.runtime.engine.ITaskProvider" name="TaskProvider" policy="dynamic" unbind="removeTaskProvider"/>
-</scr:component>

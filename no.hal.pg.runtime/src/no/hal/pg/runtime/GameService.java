@@ -60,6 +60,6 @@ public interface GameService extends Service<Game> {
 	 * @model
 	 * @generated
 	 */
-	EList<Task<?, ?>> getTasks(Ref<Player> player);
+	EList<Task<?, ?>> getTasks(Player player);
 
 } // GameService

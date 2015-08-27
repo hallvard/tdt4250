@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.util.Util;
@@ -125,11 +124,11 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Task<?, ?>> getTasks(Ref<Player> player) {
+	public EList<Task<?, ?>> getTasks(Player player) {
 		Game game = getContext();
 		EList<Task<?, ?>> playerTasks = new BasicEList<Task<?,?>>();
 		for (Task<?, ?> task : game.getTasks()) {
-			if (Util.containsPlayer(task, player.get(game), false)) {
+			if (Util.containsPlayer(task, player, false)) {
 				playerTasks.add(task);
 			}
 		}
@@ -214,7 +213,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case RuntimePackage.GAME_SERVICE___GET_TASKS__REF:
-				return getTasks((Ref<Player>)arguments.get(0));
+				return getTasks((Player)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

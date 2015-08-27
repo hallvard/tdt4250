@@ -105,8 +105,6 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateQAProposal((QAProposal)value, diagnostics, context);
 			case RuntimePackage.QUIZ_TASK_SERVICE:
 				return validateQuizTaskService((QuizTaskService)value, diagnostics, context);
-			case RuntimePackage.QA_REF:
-				return validateQARef((QARef)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -191,15 +189,6 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validateQuizTaskService(QuizTaskService quizTaskService, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(quizTaskService, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateQARef(QARef qaRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(qaRef, diagnostics, context);
 	}
 
 	/**

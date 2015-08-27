@@ -96,14 +96,6 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
 				return validateService((Service<?>)value, diagnostics, context);
-			case RuntimePackage.TASK_SERVICE:
-				return validateTaskService((TaskService<?>)value, diagnostics, context);
-			case RuntimePackage.REF:
-				return validateRef((Ref<?>)value, diagnostics, context);
-			case RuntimePackage.DIRECT_REF:
-				return validateDirectRef((DirectRef<?>)value, diagnostics, context);
-			case RuntimePackage.PLAYER_REF:
-				return validatePlayerRef((PlayerRef)value, diagnostics, context);
 			case RuntimePackage.GAME_SERVICE:
 				return validateGameService((GameService)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
@@ -215,44 +207,8 @@ public class RuntimeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTaskService(TaskService<?> taskService, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(taskService, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePlayerRef(PlayerRef playerRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(playerRef, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateGameService(GameService gameService, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(gameService, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRef(Ref<?> ref, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(ref, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDirectRef(DirectRef<?> directRef, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(directRef, diagnostics, context);
 	}
 
 	/**

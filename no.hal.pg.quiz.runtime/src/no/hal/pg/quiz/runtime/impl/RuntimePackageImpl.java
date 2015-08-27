@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.impl;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.runtime.AcceptingAnswerState;
 import no.hal.pg.quiz.runtime.QAProposal;
-import no.hal.pg.quiz.runtime.QARef;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.QuizTaskService;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
@@ -56,13 +55,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass quizTaskServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass qaRefEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -278,26 +270,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__GetQAProposals__QA() {
+	public EOperation getQuizTaskService__GetQAProposals__Player() {
 		return quizTaskServiceEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getQARef() {
-		return qaRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQARef_QaNum() {
-		return (EAttribute)qaRefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -346,10 +320,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		quizTaskServiceEClass = createEClass(QUIZ_TASK_SERVICE);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA);
-
-		qaRefEClass = createEClass(QA_REF);
-		createEAttribute(qaRefEClass, QA_REF__QA_NUM);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER);
 	}
 
 	/**
@@ -395,14 +366,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1.getETypeArguments().add(g2);
 		acceptingAnswerStateEClass.getEGenericSuperTypes().add(g1);
 		qaProposalEClass.getESuperTypes().add(theRuntimePackage_1.getPlayers());
-		g1 = createEGenericType(theRuntimePackage_1.getTaskService());
+		g1 = createEGenericType(theRuntimePackage_1.getService());
 		g2 = createEGenericType(this.getQuizTask());
 		g1.getETypeArguments().add(g2);
 		quizTaskServiceEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theRuntimePackage_1.getRef());
-		g2 = createEGenericType(theModelPackage.getQA());
-		g1.getETypeArguments().add(g2);
-		qaRefEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(quizTaskEClass, QuizTask.class, "QuizTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -437,11 +404,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		addEParameter(op, theModelPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__GetQAProposals__QA(), this.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getQuizTaskService__GetQAProposals__Player(), this.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(qaRefEClass, QARef.class, "QARef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getQARef_QaNum(), ecorePackage.getEInt(), "qaNum", null, 0, 1, QARef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

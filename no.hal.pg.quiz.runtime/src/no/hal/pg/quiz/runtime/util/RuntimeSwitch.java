@@ -5,11 +5,9 @@ package no.hal.pg.quiz.runtime.util;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
 import no.hal.pg.runtime.Players;
-import no.hal.pg.runtime.Ref;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
-import no.hal.pg.runtime.TaskService;
 import no.hal.pg.runtime.TaskState;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -100,15 +98,7 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 			case RuntimePackage.QUIZ_TASK_SERVICE: {
 				QuizTaskService quizTaskService = (QuizTaskService)theEObject;
 				T1 result = caseQuizTaskService(quizTaskService);
-				if (result == null) result = caseTaskService(quizTaskService);
 				if (result == null) result = caseService(quizTaskService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RuntimePackage.QA_REF: {
-				QARef qaRef = (QARef)theEObject;
-				T1 result = caseQARef(qaRef);
-				if (result == null) result = caseRef(qaRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -173,21 +163,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseQuizTaskService(QuizTaskService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>QA Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>QA Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseQARef(QARef object) {
 		return null;
 	}
 
@@ -263,36 +238,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseService(Service<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T extends Task<?, ?>> T1 caseTaskService(TaskService<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseRef(Ref<T> object) {
 		return null;
 	}
 

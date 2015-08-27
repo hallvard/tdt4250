@@ -47,14 +47,8 @@
     <eOperations name="getQAProposals" upperBound="-1" eType="#//QAProposal">
       <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
     </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//TaskService">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
       <eTypeArguments eClassifier="#//QuizTask"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QARef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qaNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Ref">
-      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QA"/>
     </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

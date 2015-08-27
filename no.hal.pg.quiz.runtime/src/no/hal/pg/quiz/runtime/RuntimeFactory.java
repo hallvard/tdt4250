@@ -58,15 +58,6 @@ public interface RuntimeFactory extends EFactory {
 	QuizTaskService createQuizTaskService();
 
 	/**
-	 * Returns a new object of class '<em>QA Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>QA Ref</em>'.
-	 * @generated
-	 */
-	QARef createQARef();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

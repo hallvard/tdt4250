@@ -154,7 +154,7 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
-	public void testGetQAProposals__QA() {
+	public void testGetQAProposals__Player() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();

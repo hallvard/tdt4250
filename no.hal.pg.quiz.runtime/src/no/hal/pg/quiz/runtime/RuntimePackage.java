@@ -410,7 +410,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE__CONTEXT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE__CONTEXT;
+	int QUIZ_TASK_SERVICE__CONTEXT = no.hal.pg.runtime.RuntimePackage.SERVICE__CONTEXT;
 
 	/**
 	 * The number of structural features of the '<em>Quiz Task Service</em>' class.
@@ -419,7 +419,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_FEATURE_COUNT + 0;
+	int QUIZ_TASK_SERVICE_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.
@@ -428,7 +428,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 0;
+	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Accept Answer</em>' operation.
@@ -437,7 +437,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 1;
+	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get QA Proposals</em>' operation.
@@ -446,7 +446,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 2;
+	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Quiz Task Service</em>' class.
@@ -455,53 +455,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_SERVICE_OPERATION_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.impl.QARefImpl
-	 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQARef()
-	 * @generated
-	 */
-	int QA_REF = 4;
-
-	/**
-	 * The feature id for the '<em><b>Qa Num</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QA_REF__QA_NUM = no.hal.pg.runtime.RuntimePackage.REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>QA Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QA_REF_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.REF_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QA_REF___GET__EOBJECT = no.hal.pg.runtime.RuntimePackage.REF___GET__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>QA Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QA_REF_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.REF_OPERATION_COUNT + 0;
+	int QUIZ_TASK_SERVICE_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 3;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QuizTask <em>Quiz Task</em>}'.
@@ -668,28 +622,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__GetQAProposals__QA();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.QARef <em>QA Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>QA Ref</em>'.
-	 * @see no.hal.pg.quiz.runtime.QARef
-	 * @generated
-	 */
-	EClass getQARef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QARef#getQaNum <em>Qa Num</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Qa Num</em>'.
-	 * @see no.hal.pg.quiz.runtime.QARef#getQaNum()
-	 * @see #getQARef()
-	 * @generated
-	 */
-	EAttribute getQARef_QaNum();
+	EOperation getQuizTaskService__GetQAProposals__Player();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -848,25 +781,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__QA = eINSTANCE.getQuizTaskService__GetQAProposals__QA();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.impl.QARefImpl <em>QA Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.quiz.runtime.impl.QARefImpl
-		 * @see no.hal.pg.quiz.runtime.impl.RuntimePackageImpl#getQARef()
-		 * @generated
-		 */
-		EClass QA_REF = eINSTANCE.getQARef();
-
-		/**
-		 * The meta object literal for the '<em><b>Qa Num</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QA_REF__QA_NUM = eINSTANCE.getQARef_QaNum();
+		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = eINSTANCE.getQuizTaskService__GetQAProposals__Player();
 
 	}
 

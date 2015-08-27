@@ -97,22 +97,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createServiceAdapter();
 			}
 			@Override
-			public <T extends Task<?, ?>> Adapter caseTaskService(TaskService<T> object) {
-				return createTaskServiceAdapter();
-			}
-			@Override
-			public <T> Adapter caseRef(Ref<T> object) {
-				return createRefAdapter();
-			}
-			@Override
-			public <T> Adapter caseDirectRef(DirectRef<T> object) {
-				return createDirectRefAdapter();
-			}
-			@Override
-			public Adapter casePlayerRef(PlayerRef object) {
-				return createPlayerRefAdapter();
-			}
-			@Override
 			public Adapter caseGameService(GameService object) {
 				return createGameServiceAdapter();
 			}
@@ -235,34 +219,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.TaskService <em>Task Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.TaskService
-	 * @generated
-	 */
-	public Adapter createTaskServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.PlayerRef <em>Player Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.PlayerRef
-	 * @generated
-	 */
-	public Adapter createPlayerRefAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.GameService <em>Game Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -273,34 +229,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGameServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Ref <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.Ref
-	 * @generated
-	 */
-	public Adapter createRefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.DirectRef <em>Direct Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.DirectRef
-	 * @generated
-	 */
-	public Adapter createDirectRefAdapter() {
 		return null;
 	}
 

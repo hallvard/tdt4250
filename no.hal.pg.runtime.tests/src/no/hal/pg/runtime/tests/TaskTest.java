@@ -22,6 +22,7 @@ import no.hal.pg.runtime.TaskState;
  *   <li>{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getCurrentState() <em>Get Current State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#finish(java.lang.Object) <em>Finish</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -122,6 +123,23 @@ public class TaskTest extends TestCase {
 		assertTrue(! task.isInState(RuntimePackage.eINSTANCE.getTaskState()));
 		task.changeState(RuntimeFactory.eINSTANCE.createTaskState());
 		assertTrue(task.isInState(RuntimePackage.eINSTANCE.getTaskState()));
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.Task#finish(java.lang.Object) <em>Finish</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.Task#finish(java.lang.Object)
+	 * @generated NOT
+	 */
+	public void testFinish__Object() {
+		Task<?, Object> task = (Task<?, Object>) getFixture();
+		assertFalse(task.isFinished());
+		assertEquals(null, task.getResult());
+		Object result = new Object();
+		task.finish(result);
+		assertTrue(task.isFinished());
+		assertEquals(result, task.getResult());
 	}
 
 	/**

@@ -187,52 +187,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.DirectRef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DirectRefItemProvider directRefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.pg.runtime.DirectRef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDirectRefAdapter() {
-		if (directRefItemProvider == null) {
-			directRefItemProvider = new DirectRefItemProvider(this);
-		}
-
-		return directRefItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.PlayerRef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlayerRefItemProvider playerRefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.pg.runtime.PlayerRef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPlayerRefAdapter() {
-		if (playerRefItemProvider == null) {
-			playerRefItemProvider = new PlayerRefItemProvider(this);
-		}
-
-		return playerRefItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.GameService} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,8 +313,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 		if (servicesItemProvider != null) servicesItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskStateItemProvider != null) taskStateItemProvider.dispose();
-		if (directRefItemProvider != null) directRefItemProvider.dispose();
-		if (playerRefItemProvider != null) playerRefItemProvider.dispose();
 		if (gameServiceItemProvider != null) gameServiceItemProvider.dispose();
 	}
 

@@ -2,17 +2,20 @@
  */
 package no.hal.pg.runtime.provider;
 
-import no.hal.pg.model.provider.PgEditPlugin;
-import no.hal.pg.runtime.engine.EngineFactory;
-import no.hal.pg.runtime.engine.IEngineFactory;
+import java.util.Collection;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
+import org.osgi.service.component.ComponentFactory;
+import org.osgi.service.component.ComponentInstance;
+
+import no.hal.pg.model.provider.PgEditPlugin;
+import no.hal.pg.runtime.engine.Engine;
+import no.hal.pg.runtime.engine.IEngine;
 
 /**
  * This is the central singleton for the Pg-runtime editor plugin.
@@ -93,12 +96,18 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			//
 			plugin = this;
 		}
-		
-		public IEngineFactory getEngineFactory() {
+
+		public IEngine createEngine() {
 			BundleContext bundleContext = plugin.getBundle().getBundleContext();
-			ServiceReference<?> serviceReference = bundleContext.getServiceReference(IEngineFactory.class);
-			if (serviceReference != null) {
-				return (IEngineFactory) bundleContext.getService(serviceReference);
+			Collection<ServiceReference<ComponentFactory>> serviceReferences = null;
+			try {
+				serviceReferences = bundleContext.getServiceReferences(ComponentFactory.class, "(component.factory=" + Engine.FACTORY_ID + ")");
+			} catch (InvalidSyntaxException e) {
+			}
+			if (serviceReferences != null && serviceReferences.size() > 0) {
+				ComponentFactory factory = bundleContext.getService(serviceReferences.iterator().next());
+				ComponentInstance instance = factory.newInstance(null);
+				return (IEngine) instance.getInstance();
 			}
 			return null;
 		}

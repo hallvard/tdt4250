@@ -160,8 +160,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 			requiredCount = (int) correctNeeded;			
 		}
 		if (getAcceptedAnswerCount() >= requiredCount) {
-			setResult(true);
-			changeState(null);
+			finish(true);
 		}
 		int attemptsAllowed = getTaskDef().getAttemptsAllowed();
 		for (QAProposal proposal : getProposals()) {

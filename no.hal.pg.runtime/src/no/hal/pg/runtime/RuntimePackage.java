@@ -508,172 +508,6 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.TaskServiceImpl <em>Task Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.TaskServiceImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTaskService()
-	 * @generated
-	 */
-	int TASK_SERVICE = 7;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.PlayerRefImpl <em>Player Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.PlayerRefImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getPlayerRef()
-	 * @generated
-	 */
-	int PLAYER_REF = 10;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.RefImpl <em>Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.RefImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getRef()
-	 * @generated
-	 */
-	int REF = 8;
-
-	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.DirectRefImpl <em>Direct Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.DirectRefImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getDirectRef()
-	 * @generated
-	 */
-	int DIRECT_REF = 9;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_SERVICE__CONTEXT = SERVICE__CONTEXT;
-
-	/**
-	 * The number of structural features of the '<em>Task Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Task Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF___GET__EOBJECT = 0;
-
-	/**
-	 * The number of operations of the '<em>Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_OPERATION_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRECT_REF__REF = REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Direct Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRECT_REF_FEATURE_COUNT = REF_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRECT_REF___GET__EOBJECT = REF_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Direct Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRECT_REF_OPERATION_COUNT = REF_OPERATION_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Person Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER_REF__PERSON_ID = REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Player Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER_REF_FEATURE_COUNT = REF_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER_REF___GET__EOBJECT = REF___GET__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Player Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER_REF_OPERATION_COUNT = REF_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -681,7 +515,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
 	 * @generated
 	 */
-	int GAME_SERVICE = 11;
+	int GAME_SERVICE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -745,7 +579,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 12;
+	int TIMESTAMP = 8;
 
 
 	/**
@@ -1063,37 +897,6 @@ public interface RuntimePackage extends EPackage {
 	EReference getService_Context();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.TaskService <em>Task Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Task Service</em>'.
-	 * @see no.hal.pg.runtime.TaskService
-	 * @generated
-	 */
-	EClass getTaskService();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.PlayerRef <em>Player Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Player Ref</em>'.
-	 * @see no.hal.pg.runtime.PlayerRef
-	 * @generated
-	 */
-	EClass getPlayerRef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.PlayerRef#getPersonId <em>Person Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Person Id</em>'.
-	 * @see no.hal.pg.runtime.PlayerRef#getPersonId()
-	 * @see #getPlayerRef()
-	 * @generated
-	 */
-	EAttribute getPlayerRef_PersonId();
-
-	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.GameService <em>Game Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1126,65 +929,14 @@ public interface RuntimePackage extends EPackage {
 	EReference getGameService_Tasks();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref) <em>Get Tasks</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Tasks</em>' operation.
-	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref)
+	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player)
 	 * @generated
 	 */
 	EOperation getGameService__GetTasks__Ref();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.Ref <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ref</em>'.
-	 * @see no.hal.pg.runtime.Ref
-	 * @generated
-	 */
-	EClass getRef();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.Ref#get(org.eclipse.emf.ecore.EObject) <em>Get</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get</em>' operation.
-	 * @see no.hal.pg.runtime.Ref#get(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getRef__Get__EObject();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.DirectRef <em>Direct Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Direct Ref</em>'.
-	 * @see no.hal.pg.runtime.DirectRef
-	 * @generated
-	 */
-	EClass getDirectRef();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.DirectRef#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Ref</em>'.
-	 * @see no.hal.pg.runtime.DirectRef#getRef()
-	 * @see #getDirectRef()
-	 * @generated
-	 */
-	EReference getDirectRef_Ref();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.DirectRef#get(org.eclipse.emf.ecore.EObject) <em>Get</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get</em>' operation.
-	 * @see no.hal.pg.runtime.DirectRef#get(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getDirectRef__Get__EObject();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Long <em>Timestamp</em>}'.
@@ -1475,34 +1227,6 @@ public interface RuntimePackage extends EPackage {
 		EReference SERVICE__CONTEXT = eINSTANCE.getService_Context();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.TaskServiceImpl <em>Task Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.TaskServiceImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTaskService()
-		 * @generated
-		 */
-		EClass TASK_SERVICE = eINSTANCE.getTaskService();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.PlayerRefImpl <em>Player Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.PlayerRefImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getPlayerRef()
-		 * @generated
-		 */
-		EClass PLAYER_REF = eINSTANCE.getPlayerRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Person Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLAYER_REF__PERSON_ID = eINSTANCE.getPlayerRef_PersonId();
-
-		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1535,50 +1259,6 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GAME_SERVICE___GET_TASKS__REF = eINSTANCE.getGameService__GetTasks__Ref();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.RefImpl <em>Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.RefImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getRef()
-		 * @generated
-		 */
-		EClass REF = eINSTANCE.getRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Get</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REF___GET__EOBJECT = eINSTANCE.getRef__Get__EObject();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.DirectRefImpl <em>Direct Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.DirectRefImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getDirectRef()
-		 * @generated
-		 */
-		EClass DIRECT_REF = eINSTANCE.getDirectRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DIRECT_REF__REF = eINSTANCE.getDirectRef_Ref();
-
-		/**
-		 * The meta object literal for the '<em><b>Get</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DIRECT_REF___GET__EOBJECT = eINSTANCE.getDirectRef__Get__EObject();
 
 		/**
 		 * The meta object literal for the '<em>Timestamp</em>' data type.

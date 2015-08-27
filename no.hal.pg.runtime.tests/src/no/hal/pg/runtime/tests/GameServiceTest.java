@@ -28,7 +28,7 @@ import no.hal.pg.runtime.Task;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref) <em>Get Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -141,17 +141,14 @@ public class GameServiceTest extends TestCase {
 	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref)
 	 * @generated NOT
 	 */
-	public void testGetTasks__Ref() {
+	public void testGetTasks__Player() {
 		GameService gameService = getFixture();
 		Player[] players = {RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer()};
 		Game game = gameService.getContext();
 		Task<?, ?> task = gameService.getContext().getTasks().get(0);
 		
 		game.getPlayers().addAll(Arrays.<Player>asList(players));
-		DirectRef<Player> player1 = RuntimeFactory.eINSTANCE.createDirectRef();
-		player1.setRef(players[0]);
-		DirectRef<Player> player2 = RuntimeFactory.eINSTANCE.createDirectRef();
-		player2.setRef(players[1]);
+		Player player1 = players[0], player2 = players[1];
 		
 		assertEquals(1, gameService.getTasks(player1).size());
 		assertEquals(task, gameService.getTasks(player1).get(0));
@@ -163,17 +160,4 @@ public class GameServiceTest extends TestCase {
 		assertEquals(1, gameService.getTasks(player2).size());
 		assertEquals(task, gameService.getTasks(player2).get(0));
 	}
-
-	/**
-	 * Tests the '{@link no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation) <em>Invoke Service</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.Service#invokeService(no.hal.pg.runtime.ServiceInvocation)
-	 * @generated NOT
-	 */
-	public void testInvokeService__ServiceInvocation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-	}
-
 } //GameServiceTest

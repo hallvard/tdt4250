@@ -4,7 +4,7 @@ package no.hal.pg.quiz.runtime;
 
 import no.hal.pg.quiz.model.QA;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.TaskService;
+import no.hal.pg.runtime.Service;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface QuizTaskService extends TaskService<QuizTask> {
+public interface QuizTaskService extends Service<QuizTask> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

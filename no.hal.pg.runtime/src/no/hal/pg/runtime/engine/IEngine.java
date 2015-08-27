@@ -10,5 +10,6 @@ public interface IEngine {
 
 	public void init(Game game);
 
+	public String getKey();
 	public Game getGame();
 }

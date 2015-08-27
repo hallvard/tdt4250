@@ -1,10 +1,11 @@
 package no.hal.pg.runtime.ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
@@ -38,15 +39,11 @@ import no.hal.pg.model.ModelPackage;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.engine.Engine;
 import no.hal.pg.runtime.engine.IEngine;
-import no.hal.pg.runtime.engine.IEngineFactory;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
 
 public class RuntimeView extends AbstractSelectionView {
 
-	private Map<URI, IEngine> engines = new HashMap<URI, IEngine>();
-	
 	private ComboViewer eOperationSelector;
 	private PropertySheetPage propertySheetPage;
 
@@ -68,13 +65,20 @@ public class RuntimeView extends AbstractSelectionView {
 		return null;
 	}
 
+	private Collection<IEngine> engines = new ArrayList<IEngine>();
+	
 	protected IEngine getEngine(EObject eObject) {
 		Game game = getGame(eObject);
-		if (game != null && game.eResource() != null) {
-			URI uri = game.eResource().getURI();
-			return engines.get(uri);
+		for (IEngine engine : engines) {
+			if (engine.getGame() == game) {
+				return engine;
+			}
 		}
 		return null;
+	}
+
+	protected void addEngine(IEngine engine) {
+		engines.add(engine);
 	}
 	
 	public void runGame(GameDef gameDef) {
@@ -90,18 +94,18 @@ public class RuntimeView extends AbstractSelectionView {
 		} catch (IOException e) {
 			System.err.println("Exception when saving game: " + e);
 		}
-		engines.put(resource.getURI(), engine);
+		addEngine(engine);
 
 		updateView();
 	}
 
 	private IEngine createEngine() {
-		IEngineFactory engineFactory = PgruntimeEditPlugin.getPlugin().getEngineFactory();
-		if (engineFactory == null) {
-			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "No EngineFactory");
+		IEngine engine = PgruntimeEditPlugin.getPlugin().createEngine();
+		if (engine == null) {
+			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "Couldn't create Engine");
 			return null;
 		}
-		return engineFactory.createEngine();
+		return engine;
 	}
 
 	public void resumeGame(Game game) {
@@ -111,16 +115,12 @@ public class RuntimeView extends AbstractSelectionView {
 			if (engine == null) {
 				return;
 			}
-			engines.put(game.eResource().getURI(), engine);
+			addEngine(engine);
 			engine.init(game);
 		}
 		updateView();
 	}
 
-	private IEngine getEngine(Game game) {
-		return engines.get(game.eResource().getURI());
-	}
-	
 	protected Game getGame(EObject eObject) {
 		return (Game) getContainer(eObject, RuntimePackage.eINSTANCE.getGame());
 	}
@@ -230,7 +230,7 @@ public class RuntimeView extends AbstractSelectionView {
 			engine = getEngine(game);
 		}
 		runGameAction.setEnabled(getGameDef(selection) != null || (game != null && engine == null));
-		engineLabel.setText(engine != null ? engine.getGame().eResource().getURI().toString() : noEngineLabel);
+		engineLabel.setText(engine != null ? engine.getKey() : noEngineLabel);
 		invokeButton.setEnabled(selection instanceof Service<?>);
 		if (selection instanceof Service<?>) {
 			if (currentInvocation == null || selection != currentInvocation.getOperationOwner()) {
