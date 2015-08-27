@@ -7,6 +7,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.http.HttpService;
 
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.engine.IEngine;
 import no.hal.pg.runtime.engine.IServiceListener;
 
 @Component
@@ -28,7 +29,7 @@ public class ServiceEndPointProvider implements IServiceListener {
 	}
 	
 	@Override
-	public void serviceActivated(Service<?> service) {
+	public void serviceActivated(IEngine engine, Service<?> service) {
 		try {
 			httpService.registerServlet(service.getClass().getName(), new ServiceEndPoint(service), null, null);
 		} catch (Exception e) {
@@ -37,7 +38,7 @@ public class ServiceEndPointProvider implements IServiceListener {
 	}
 
 	@Override
-	public void serviceDeactivated(Service<?> service) {
+	public void serviceDeactivated(IEngine engine, Service<?> service) {
 		try {
 			httpService.unregister(service.getClass().getName());
 		} catch (Exception e) {
