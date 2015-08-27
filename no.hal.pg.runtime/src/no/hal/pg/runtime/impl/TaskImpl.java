@@ -320,8 +320,8 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * @generated NOT
 	 */
 	public void finish(R result) {
-		setResult(result);
 		changeState(null);
+		setResult(result);
 	}
 
 	/**

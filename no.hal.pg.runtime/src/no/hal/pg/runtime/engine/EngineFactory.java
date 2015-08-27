@@ -26,7 +26,7 @@ public class EngineFactory implements IEngineFactory {
 		taskProviders.remove(taskProvider);
 	}
 
-	public Engine createEngine() {
+	public IEngine createEngine() {
 		return new Engine(taskProviders.toArray(new ITaskProvider[taskProviders.size()]));
 	}
 }

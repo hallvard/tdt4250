@@ -1,6 +1,5 @@
 package no.hal.pg.runtime.engine;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -28,7 +27,7 @@ import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 
-public class Engine {
+public class Engine implements IEngine {
 
 	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
 	
@@ -156,7 +155,7 @@ public class Engine {
 			for (Service<?> service : pre) {
 				if (post == null || (! post.contains(service))) {
 					for (IServiceListener serviceListener : serviceListeners) {
-						serviceListener.serviceDeactivated(service);
+						serviceListener.serviceDeactivated(this, service);
 					}
 				}
 			}
@@ -165,7 +164,7 @@ public class Engine {
 			for (Service<?> service : post) {
 				if (pre == null || (! pre.contains(service))) {
 					for (IServiceListener serviceListener : serviceListeners) {
-						serviceListener.serviceActivated(service);
+						serviceListener.serviceActivated(this, service);
 					}
 				}
 			}
