@@ -16,7 +16,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ComboViewer;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -40,12 +39,13 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.engine.Engine;
-import no.hal.pg.runtime.engine.EngineFactory;
+import no.hal.pg.runtime.engine.IEngine;
+import no.hal.pg.runtime.engine.IEngineFactory;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
 
 public class RuntimeView extends AbstractSelectionView {
 
-	private Map<URI, Engine> engines = new HashMap<URI, Engine>();
+	private Map<URI, IEngine> engines = new HashMap<URI, IEngine>();
 	
 	private ComboViewer eOperationSelector;
 	private PropertySheetPage propertySheetPage;
@@ -68,7 +68,7 @@ public class RuntimeView extends AbstractSelectionView {
 		return null;
 	}
 
-	protected Engine getEngine(EObject eObject) {
+	protected IEngine getEngine(EObject eObject) {
 		Game game = getGame(eObject);
 		if (game != null && game.eResource() != null) {
 			URI uri = game.eResource().getURI();
@@ -78,12 +78,10 @@ public class RuntimeView extends AbstractSelectionView {
 	}
 	
 	public void runGame(GameDef gameDef) {
-		EngineFactory engineFactory = PgruntimeEditPlugin.getPlugin().getEngineFactory();
-		if (engineFactory == null) {
-			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "No EngineFactory");
+		IEngine engine = createEngine();
+		if (engine == null) {
 			return;
 		}
-		Engine engine = engineFactory.createEngine();
 		engine.init(gameDef);
 		Resource resource = engine.getGame().eResource();
 		engine.start();
@@ -97,22 +95,29 @@ public class RuntimeView extends AbstractSelectionView {
 		updateView();
 	}
 
+	private IEngine createEngine() {
+		IEngineFactory engineFactory = PgruntimeEditPlugin.getPlugin().getEngineFactory();
+		if (engineFactory == null) {
+			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "No EngineFactory");
+			return null;
+		}
+		return engineFactory.createEngine();
+	}
+
 	public void resumeGame(Game game) {
-		Engine engine = getEngine(game);
+		IEngine engine = getEngine(game);
 		if (engine == null) {
-			EngineFactory engineFactory = PgruntimeEditPlugin.getPlugin().getEngineFactory();
-			if (engineFactory == null) {
-				MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "No EngineFactory");
+			engine = createEngine();
+			if (engine == null) {
 				return;
 			}
-			engine = engineFactory.createEngine();
 			engines.put(game.eResource().getURI(), engine);
 			engine.init(game);
 		}
 		updateView();
 	}
 
-	private Engine getEngine(Game game) {
+	private IEngine getEngine(Game game) {
 		return engines.get(game.eResource().getURI());
 	}
 	
@@ -219,7 +224,7 @@ public class RuntimeView extends AbstractSelectionView {
 	@Override
 	protected void updateView() {
 		EObject selection = getSelectedEObject();
-		Engine engine = null;
+		IEngine engine = null;
 		Game game = getGame(selection);
 		if (game != null) {
 			engine = getEngine(game);
@@ -228,13 +233,10 @@ public class RuntimeView extends AbstractSelectionView {
 		engineLabel.setText(engine != null ? engine.getGame().eResource().getURI().toString() : noEngineLabel);
 		invokeButton.setEnabled(selection instanceof Service<?>);
 		if (selection instanceof Service<?>) {
-			if (currentInvocation == null) {
+			if (currentInvocation == null || selection != currentInvocation.getOperationOwner()) {
 				currentInvocation = new EOperationInvocation(selection);
+				setInputAndSelectFirst(eOperationSelector, selection);
 			}
-			setInputAndSelectFirst(eOperationSelector, selection);
-		}
-		if (selection == null) {
-			currentInvocation = null;
 		}
 		super.updateView();
 	}
@@ -250,13 +252,19 @@ public class RuntimeView extends AbstractSelectionView {
 	
 	private EOperationEClassManager operationEClassManager = new EOperationEClassManager();
 	
+	private Map<EOperation, EObject> operationObjects = new HashMap<EOperation, EObject>();
+	
 	protected void operationSelected(EOperation operation) {
 		EObject operationArguments = null;
-		if (currentInvocation != null) {
-			if (operation != null) {
-				EObject operationObject = operationEClassManager.getEOperationObject(operation, getSelectedEObject());
-				operationArguments = operationEClassManager.getEOperationObjectArguments(operationObject);
+		if (currentInvocation != null && operation != null) {
+			EObject operationObject = operationObjects.get(operation);
+			if (operationObject == null) {
+				operationObject = operationEClassManager.getEOperationObject(operation, currentInvocation.getOperationOwner());
+				operationObjects.put(operation, operationObject);
+			} else {
+				operationEClassManager.setEOperationObjectEObject(operationObject, currentInvocation.getOperationOwner());
 			}
+			operationArguments = operationEClassManager.getEOperationObjectArguments(operationObject);
 			currentInvocation.setOperation(operation, operationArguments);
 		}
 		updatePropertySheet(operationArguments);

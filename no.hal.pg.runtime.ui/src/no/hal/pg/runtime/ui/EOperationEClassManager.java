@@ -30,7 +30,7 @@ public class EOperationEClassManager {
 		EClass argumentsClass = getEOperationArgumentsEClass(operation);
 		EClass operationClass = getEOperationEClass(operation, argumentsClass);
 		EObject operationObject = EcoreUtil.create(operationClass);
-		operationObject.eSet(operationClass.getEStructuralFeature(objectReferenceName), eObject);
+		setEOperationObjectEObject(operationObject, eObject);
 		operationObject.eSet(operationClass.getEStructuralFeature(argumentsReferenceName), EcoreUtil.create(argumentsClass));
 		return operationObject;
 	}
@@ -38,6 +38,10 @@ public class EOperationEClassManager {
 	public EObject getEOperationObjectEObject(EObject operationObject) {
 		return (EObject) operationObject.eGet(operationObject.eClass().getEStructuralFeature(objectReferenceName));		
 	}
+	public void setEOperationObjectEObject(EObject operationObject, EObject eObject) {
+		operationObject.eSet(operationObject.eClass().getEStructuralFeature(objectReferenceName), eObject);		
+	}
+
 	public EObject getEOperationObjectArguments(EObject operationObject) {
 		return (EObject) operationObject.eGet(operationObject.eClass().getEStructuralFeature(argumentsReferenceName));		
 	}

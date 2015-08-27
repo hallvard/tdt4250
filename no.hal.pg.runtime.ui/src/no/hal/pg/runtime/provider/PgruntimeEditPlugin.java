@@ -94,11 +94,11 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			plugin = this;
 		}
 		
-		public EngineFactory getEngineFactory() {
+		public IEngineFactory getEngineFactory() {
 			BundleContext bundleContext = plugin.getBundle().getBundleContext();
 			ServiceReference<?> serviceReference = bundleContext.getServiceReference(IEngineFactory.class);
 			if (serviceReference != null) {
-				return (EngineFactory) bundleContext.getService(serviceReference);
+				return (IEngineFactory) bundleContext.getService(serviceReference);
 			}
 			return null;
 		}

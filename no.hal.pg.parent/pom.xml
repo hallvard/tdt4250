@@ -87,5 +87,9 @@
 	<module>../no.hal.pg.model.tests</module>
 	<module>../no.hal.graphql.emf</module>
 	<module>../no.hal.pg.runtime.http</module>
+	<module>../no.hal.pg.model.ui</module>
+	<module>../no.hal.pg.quiz.model.ui</module>
+	<module>../no.hal.pg.quiz.runtime.ui</module>
+	<module>../no.hal.pg.runtime.ui</module>
 	</modules>
 </project>
