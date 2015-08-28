@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -12,27 +13,31 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import graphql.Scalars;
+import graphql.schema.GraphQLArgument;
 import graphql.schema.GraphQLEnumType;
 import graphql.schema.GraphQLFieldDefinition;
+import graphql.schema.GraphQLInputType;
 import graphql.schema.GraphQLInterfaceType;
 import graphql.schema.GraphQLList;
 import graphql.schema.GraphQLObjectType;
 import graphql.schema.GraphQLOutputType;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.GraphQLSchema.Builder;
+import graphql.schema.GraphQLType;
 import graphql.schema.GraphQLTypeReference;
 import graphql.schema.TypeResolver;
 
-/**
- * Hello world!
- *
- */
 public class SchemaGenerator {
 	
 	private final Collection<EPackage> packages;
@@ -87,7 +92,7 @@ public class SchemaGenerator {
 		}
 	};
 	
-	private Map<EClass, Collection<EStructuralFeature>> unresolvedFeatures = new HashMap<EClass, Collection<EStructuralFeature>>();
+	private Map<EClass, Collection<ETypedElement>> unresolvedElements = new HashMap<EClass, Collection<ETypedElement>>();
 	
 	private GraphQLInterfaceType getInterfaceType(EClass eClass) {
 		GraphQLInterfaceType interfaceType = interfaceTypes.get(eClass);
@@ -96,8 +101,8 @@ public class SchemaGenerator {
 			GraphQLInterfaceType.Builder typeBuilder = GraphQLInterfaceType.newInterface().name(name);
 			// add fields
 			Collection<GraphQLFieldDefinition> fields = new ArrayList<GraphQLFieldDefinition>();
-			generateFields(eClass, eClass.getEAllStructuralFeatures(), fields);
-			generateResolvedFields(eClass, fields);
+			addFields(eClass, fields);
+			addResolvedFields(eClass, fields);
 			for (GraphQLFieldDefinition field : fields) {
 				typeBuilder.field(field);
 			}
@@ -108,74 +113,98 @@ public class SchemaGenerator {
 		return interfaceType;
 	}
 
-	private void generateFields(EClass eClass, Iterable<EStructuralFeature> features, Collection<GraphQLFieldDefinition> fields) {
-		for (EStructuralFeature feature : features) {
-			EGenericType featureType = eClass.getFeatureType(feature);
-			if (shouldExclude(eClass, feature)) {
-				continue;
-			}
-			if (isGeneric(featureType)) {
-				Collection<EStructuralFeature> unresolved = unresolvedFeatures.get(eClass);
-				if (unresolved == null) {
-					unresolved = new ArrayList<EStructuralFeature>();
-					unresolvedFeatures.put(eClass, unresolved);
+	private void addFields(EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+		try {
+			// stay within domain
+			if (packages.contains(eClass.getEPackage())) {
+				addFields(eClass.getEAllStructuralFeatures(), eClass, fields);
+				for (EClass superClass : eClass.getEAllSuperTypes()) {
+					addFields(superClass.getEOperations(), eClass, fields);
 				}
-				unresolved.add(feature);
+			}
+		} catch (StackOverflowError e) {
+			System.err.println(eClass.getName() + ": " + e);
+		}
+	}
+
+	private void addFields(Iterable<? extends ETypedElement> typedElements, EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+		for (ETypedElement typedElement : typedElements) {
+			if (shouldExclude(eClass, typedElement)) {
 				continue;
 			}
-			GraphQLFieldDefinition field = generate(feature, featureType);
-			if (field == null) {
-				System.err.println("Couldn't create field " + feature.getName() + " of " + feature.getEContainingClass().getName());
-				System.err.println(isGeneric(featureType));
+			if (isUnresolved(typedElement, eClass)) {
+				Collection<ETypedElement> unresolved = unresolvedElements.get(eClass);
+				if (unresolved == null) {
+					unresolved = new ArrayList<ETypedElement>();
+					unresolvedElements.put(eClass, unresolved);
+				}
+				unresolved.add(typedElement);
 			} else {
-				fields.add(field);
+				addField(typedElement, eClass, fields);
 			}
 		}
 	}
 
-	private void generateResolvedFields(EClass eClass, Collection<GraphQLFieldDefinition> fields) {
-		// check if generic fields in superclasses, can be included
-		for (EClass superClass : eClass.getESuperTypes()) {
-			Collection<EStructuralFeature> unresolved = unresolvedFeatures.get(superClass);
+	private void addResolvedFields(EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+		// check if generic fields in superclasses can be included
+		for (EClass superClass : eClass.getEAllSuperTypes()) {
+			Collection<ETypedElement> unresolved = unresolvedElements.get(superClass);
 			if (unresolved != null) {
-				Collection<EStructuralFeature> stillUnresolved = null;
-				for (EStructuralFeature feature : unresolved) {
-					EGenericType featureType = eClass.getFeatureType(feature);
-					if (isGeneric(featureType)) {
-						if (stillUnresolved == null) {
-							stillUnresolved = new ArrayList<EStructuralFeature>();
-						}
-						stillUnresolved.add(feature);
-					} else {
-						GraphQLFieldDefinition field = generate(feature, featureType);
-						if (field == null) {
-							System.err.println("Couldn't create field " + feature.getName() + " of " + feature.getEContainingClass().getName());
-						} else {
-							fields.add(field);
-						}
+				Iterator<ETypedElement> it = unresolved.iterator();
+				while (it.hasNext()) {
+					ETypedElement typedElement = it.next();
+					if (! isUnresolved(typedElement, eClass)) {
+						it.remove();
+						addField(typedElement, eClass, fields);
 					}
 				}
-				if (stillUnresolved != null) {
-					unresolvedFeatures.put(eClass, stillUnresolved);
-				}
 			}
 		}
 	}
 
-	private boolean isGeneric(EGenericType type) {
-		if (type.getETypeParameter() != null) {
+	private void addField(ETypedElement typedElement, EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+		GraphQLFieldDefinition field = generate(typedElement, eClass, (typedElement instanceof EOperation ? ((EOperation) typedElement).getEParameters() : null));
+		if (field == null) {
+			System.err.println("Couldn't create field " + typedElement.getName() + " of " + ((ENamedElement) typedElement.eContainer()).getName());
+		} else {
+			fields.add(field);
+		}
+	}
+
+	private boolean isUnresolved(ETypedElement typedElement, EClass eClass) {
+		if (isUnresolved(typedElement.getEGenericType(), eClass)) {
+			return true;
+		}
+		if (typedElement instanceof EOperation) {
+			for (EParameter parameter : ((EOperation) typedElement).getEParameters()) {
+				if (isUnresolved(parameter.getEGenericType(), eClass)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean isUnresolved(EGenericType type, EClass eClass) {
+		EGenericType reifiedType = EcoreUtil.getReifiedType(eClass, type);
+		if (reifiedType.getETypeParameter() != null) {
 			return true;
 		}
 		for (EGenericType typeArgumemt : type.getETypeArguments()) {
-			if (isGeneric(typeArgumemt)) {
+			if (isUnresolved(typeArgumemt, eClass)) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	private boolean shouldExclude(EClass eClass, EStructuralFeature feature) {
-		if (feature instanceof EReference && ((EReference) feature).isContainer()) {
+	private boolean shouldExclude(EClass eClass, ETypedElement typedElement) {
+		// void operations are excluded
+		if (typedElement.getEGenericType() == null) {
+			return true;
+		}
+		// container references are excluded
+		if (typedElement instanceof EReference && ((EReference) typedElement).isContainer()) {
 			return true;
 		}
 		return false;
@@ -190,8 +219,8 @@ public class SchemaGenerator {
 			GraphQLObjectType.Builder typeBuilder = GraphQLObjectType.newObject().name(name);
 			// add fields
 			Collection<GraphQLFieldDefinition> fields = new ArrayList<GraphQLFieldDefinition>();
-			generateFields(eClass, eClass.getEAllStructuralFeatures(), fields);
-			generateResolvedFields(eClass, fields);
+			addFields(eClass, fields);
+			addResolvedFields(eClass, fields);
 			for (GraphQLFieldDefinition field : fields) {
 				typeBuilder.field(field);
 			}
@@ -209,19 +238,41 @@ public class SchemaGenerator {
 		return objectType;
 	}
 
-	protected GraphQLFieldDefinition generate(EStructuralFeature feature, EGenericType resolvedType) {
-		GraphQLFieldDefinition.Builder fieldBuilder = GraphQLFieldDefinition.newFieldDefinition().name(feature.getName());
-		GraphQLOutputType type = getGraphQLType(resolvedType.getEClassifier());
+	protected GraphQLFieldDefinition generate(ETypedElement element, EClass context, Collection<? extends ETypedElement> parameters) {
+		GraphQLFieldDefinition.Builder fieldBuilder = GraphQLFieldDefinition.newFieldDefinition().name(element.getName());
+		GraphQLType type = getGraphQLType(element, context, GraphQLOutputType.class);
 		if (type == null) {
 			return null;
 		}
-		if (feature.isMany()) {
-			type = new GraphQLList(type);
+		fieldBuilder.type((GraphQLOutputType) type);
+		if (parameters != null) {
+			for (ETypedElement param : parameters) {
+				GraphQLType paramType = getGraphQLType(param, context, GraphQLInputType.class);
+				if (paramType == null) {
+					return null;
+				}
+				GraphQLArgument arg = GraphQLArgument.newArgument()
+						.name(param.getName())
+						.type((GraphQLInputType) paramType)
+						.build();
+				fieldBuilder.argument(arg);
+			}
 		}
-		fieldBuilder.type(type);
 		return fieldBuilder.build();
 	}
 
+	private GraphQLType getGraphQLType(ETypedElement typedElement, EClass context, Class<? extends GraphQLType> typeClass) {
+		EClassifier eClassifier = EcoreUtil.getReifiedType(context, typedElement.getEGenericType()).getEClassifier();
+		GraphQLType type = getGraphQLType(eClassifier, typeClass);
+		if (! typeClass.isInstance(type)) {
+			return null;
+		}
+		if (typedElement.isMany()) {
+			type = new GraphQLList(type);
+		}
+		return type;
+	}
+	
 	private Map<EEnum, GraphQLEnumType> enumTypes = new HashMap<EEnum, GraphQLEnumType>();
 	
 	protected GraphQLEnumType getEnumType(EEnum eEnum) {
@@ -235,7 +286,7 @@ public class SchemaGenerator {
 		return enumType;
 	}
 
-	protected GraphQLOutputType getGraphQLType(EClassifier eClassifier) {
+	protected GraphQLType getGraphQLType(EClassifier eClassifier, Class<? extends GraphQLType> typeClass) {
 		if (eClassifier instanceof EEnum) {
 			return getEnumType((EEnum) eClassifier);
 		} else if (eClassifier instanceof EDataType) {
@@ -249,7 +300,7 @@ public class SchemaGenerator {
 			} else if (instanceClass == Boolean.TYPE || instanceClass == Boolean.class) {
 				return Scalars.GraphQLBoolean;
 			}
-		} else if (eClassifier instanceof EClass) {
+		} else if (eClassifier instanceof EClass && typeClass.isAssignableFrom(GraphQLOutputType.class)) {
 			String referenceName = references.get(eClassifier);
 			if (referenceName != null) {
 				return new GraphQLTypeReference(referenceName);

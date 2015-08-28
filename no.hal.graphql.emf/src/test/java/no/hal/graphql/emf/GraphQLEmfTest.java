@@ -21,8 +21,9 @@ import no.hal.pg.no.hal.graphql.emf.SchemaGenerator;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.ServicePackage;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
@@ -35,12 +36,12 @@ public class GraphQLEmfTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE);
+		testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, ServicePackage.eINSTANCE, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE, no.hal.pg.quiz.runtime.service.ServicePackage.eINSTANCE);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
 		testHelper.addResource(URI.createURI("test:/GraphQLEmfTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
 		game = (Game) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getGame());
 		SchemaGenerator schemaGenerator = new SchemaGenerator(testHelper.getPackages());
-		schema = schemaGenerator.generate(RuntimePackage.eINSTANCE.getGameService());
+		schema = schemaGenerator.generate(ServicePackage.eINSTANCE.getGameService());
 	}
 
 	private Game game;

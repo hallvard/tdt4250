@@ -24,7 +24,7 @@
 		"players": [{"$ref": "/3/@players.0"}]
 	} ],
 	"services": [ {
-		"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#//GameService",
+		"eClass": "platform:/plugin/no.hal.pg.runtime/model/pg-service.ecore#//GameService",
 		"context": {"$ref": "/3"}
 	} ]
 }, {
