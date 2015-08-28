@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypedElement;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import graphql.Scalars;
@@ -257,6 +257,11 @@ public class SchemaGenerator {
 						.build();
 				fieldBuilder.argument(arg);
 			}
+		}
+		if (element instanceof EStructuralFeature) {
+			fieldBuilder.dataFetcher(new EStructuralFeatureDataFetcher((EStructuralFeature) element));
+		} else if (element instanceof EOperation) {
+			fieldBuilder.dataFetcher(new EOperationDataFetcher((EOperation) element));
 		}
 		return fieldBuilder.build();
 	}
