@@ -6,7 +6,7 @@
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
     <details key="pg-model" value="../../no.hal.pg.model/model/pg.ecore#/"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Game" eSuperTypes="#//Players #//Services">
+  <eClassifiers xsi:type="ecore:EClass" name="Game" eSuperTypes="#//Players">
     <eOperations name="getTasks" upperBound="-1">
       <eGenericType eClassifier="#//Task">
         <eTypeArguments/>
@@ -31,15 +31,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Players" abstract="true" interface="true">
     <eOperations name="getPlayers" upperBound="-1" eType="#//Player"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Services">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        containment="true">
-      <eGenericType eClassifier="#//Service">
-        <eTypeArguments/>
-      </eGenericType>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Players #//Services">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Players">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="PlayerIsContainedInGame"/>
     </eAnnotations>
@@ -87,7 +79,7 @@
       <eGenericType eTypeParameter="#//Task/R"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskState" eSuperTypes="#//Services">
+  <eClassifiers xsi:type="ecore:EClass" name="TaskState">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Task">
         <eTypeArguments/>

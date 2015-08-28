@@ -77,7 +77,6 @@ public class GameItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RuntimePackage.Literals.SERVICES__SERVICES);
 			childrenFeatures.add(RuntimePackage.Literals.GAME__PLAYERS);
 			childrenFeatures.add(RuntimePackage.Literals.GAME__TASKS);
 		}
@@ -132,7 +131,6 @@ public class GameItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Game.class)) {
-			case RuntimePackage.GAME__SERVICES:
 			case RuntimePackage.GAME__PLAYERS:
 			case RuntimePackage.GAME__TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

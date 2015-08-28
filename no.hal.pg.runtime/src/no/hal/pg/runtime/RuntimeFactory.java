@@ -42,15 +42,6 @@ public interface RuntimeFactory extends EFactory {
 	Player createPlayer();
 
 	/**
-	 * Returns a new object of class '<em>Services</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Services</em>'.
-	 * @generated
-	 */
-	Services createServices();
-
-	/**
 	 * Returns a new object of class '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

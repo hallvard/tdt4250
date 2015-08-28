@@ -2,6 +2,7 @@
  */
 package no.hal.pg.runtime.tests;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.TaskState;
@@ -12,7 +13,15 @@ import no.hal.pg.runtime.TaskState;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskStateTest extends ServicesTest {
+public class TaskStateTest extends TestCase {
+
+	/**
+	 * The fixture for this Task State test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskState<?> fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -34,14 +43,23 @@ public class TaskStateTest extends ServicesTest {
 	}
 
 	/**
+	 * Sets the fixture for this Task State test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(TaskState<?> fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Task State test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected TaskState<?> getFixture() {
-		return (TaskState<?>)fixture;
+		return fixture;
 	}
 
 	/**

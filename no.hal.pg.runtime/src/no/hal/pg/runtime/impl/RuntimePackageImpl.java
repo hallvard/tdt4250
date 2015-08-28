@@ -9,7 +9,6 @@ import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 import no.hal.pg.runtime.util.RuntimeValidator;
@@ -53,13 +52,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass playersEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass servicesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,24 +233,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 */
 	public EOperation getPlayers__GetPlayers() {
 		return playersEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getServices() {
-		return servicesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getServices_Services() {
-		return (EReference)servicesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -481,9 +455,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		playersEClass = createEClass(PLAYERS);
 		createEOperation(playersEClass, PLAYERS___GET_PLAYERS);
 
-		servicesEClass = createEClass(SERVICES);
-		createEReference(servicesEClass, SERVICES__SERVICES);
-
 		taskEClass = createEClass(TASK);
 		createEReference(taskEClass, TASK__TASK_DEF);
 		createEReference(taskEClass, TASK__GAME);
@@ -554,10 +525,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		// Add supertypes to classes
 		gameEClass.getESuperTypes().add(this.getPlayers());
-		gameEClass.getESuperTypes().add(this.getServices());
 		taskEClass.getESuperTypes().add(this.getPlayers());
-		taskEClass.getESuperTypes().add(this.getServices());
-		taskStateEClass.getESuperTypes().add(this.getServices());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -585,12 +553,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(playersEClass, Players.class, "Players", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getPlayers__GetPlayers(), this.getPlayer(), "getPlayers", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(servicesEClass, Services.class, "Services", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getService());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getServices_Services(), g1, null, "services", null, 0, -1, Services.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(taskEClass_T);

@@ -11,14 +11,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
-import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Task;
 
@@ -30,7 +27,6 @@ import no.hal.pg.runtime.Task;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.hal.pg.runtime.impl.GameImpl#getServices <em>Services</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.GameImpl#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.GameImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
@@ -38,16 +34,6 @@ import no.hal.pg.runtime.Task;
  * @generated
  */
 public class GameImpl extends MinimalEObjectImpl.Container implements Game {
-	/**
-	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServices()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Service<?>> services;
-
 	/**
 	 * The cached value of the '{@link #getPlayers() <em>Players</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -85,18 +71,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	protected EClass eStaticClass() {
 		return RuntimePackage.Literals.GAME;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Service<?>> getServices() {
-		if (services == null) {
-			services = new EObjectContainmentEList<Service<?>>(Service.class, this, RuntimePackage.GAME__SERVICES);
-		}
-		return services;
 	}
 
 	/**
@@ -163,8 +137,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RuntimePackage.GAME__SERVICES:
-				return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
 			case RuntimePackage.GAME__PLAYERS:
 				return ((InternalEList<?>)getPlayers()).basicRemove(otherEnd, msgs);
 			case RuntimePackage.GAME__TASKS:
@@ -181,8 +153,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RuntimePackage.GAME__SERVICES:
-				return getServices();
 			case RuntimePackage.GAME__PLAYERS:
 				return getPlayers();
 			case RuntimePackage.GAME__TASKS:
@@ -200,10 +170,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RuntimePackage.GAME__SERVICES:
-				getServices().clear();
-				getServices().addAll((Collection<? extends Service<?>>)newValue);
-				return;
 			case RuntimePackage.GAME__PLAYERS:
 				getPlayers().clear();
 				getPlayers().addAll((Collection<? extends Player>)newValue);
@@ -224,9 +190,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.GAME__SERVICES:
-				getServices().clear();
-				return;
 			case RuntimePackage.GAME__PLAYERS:
 				getPlayers().clear();
 				return;
@@ -245,46 +208,12 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.GAME__SERVICES:
-				return services != null && !services.isEmpty();
 			case RuntimePackage.GAME__PLAYERS:
 				return players != null && !players.isEmpty();
 			case RuntimePackage.GAME__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Services.class) {
-			switch (derivedFeatureID) {
-				case RuntimePackage.GAME__SERVICES: return RuntimePackage.SERVICES__SERVICES;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Services.class) {
-			switch (baseFeatureID) {
-				case RuntimePackage.SERVICES__SERVICES: return RuntimePackage.GAME__SERVICES;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

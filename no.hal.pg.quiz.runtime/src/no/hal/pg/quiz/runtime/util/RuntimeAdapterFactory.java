@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.util;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
 import no.hal.pg.runtime.Players;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 import org.eclipse.emf.common.notify.Adapter;
@@ -88,10 +87,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createPlayersAdapter();
 			}
 			@Override
-			public Adapter caseServices(Services object) {
-				return createServicesAdapter();
-			}
-			@Override
 			public <T extends TaskDef, R> Adapter caseTask(Task<T, R> object) {
 				return createTaskAdapter();
 			}
@@ -172,20 +167,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlayersAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Services <em>Services</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.Services
-	 * @generated
-	 */
-	public Adapter createServicesAdapter() {
 		return null;
 	}
 

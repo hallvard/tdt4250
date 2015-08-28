@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EClass;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PlayerIsContainedInGame'"
  * @generated
  */
-public interface Task<T extends TaskDef, R> extends Players, Services {
+public interface Task<T extends TaskDef, R> extends Players {
 	/**
 	 * Returns the value of the '<em><b>Task Def</b></em>' reference.
 	 * <!-- begin-user-doc -->

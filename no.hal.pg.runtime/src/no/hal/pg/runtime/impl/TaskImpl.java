@@ -21,8 +21,6 @@ import no.hal.pg.model.TaskDef;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimePackage;
-import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 
@@ -34,7 +32,6 @@ import no.hal.pg.runtime.TaskState;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getServices <em>Services</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getPlayers <em>Players</em>}</li>
@@ -46,15 +43,6 @@ import no.hal.pg.runtime.TaskState;
  * @generated
  */
 public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container implements Task<T, R> {
-	/**
-	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServices()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Service<?>> services;
 	/**
 	 * The cached value of the '{@link #getTaskDef() <em>Task Def</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -117,18 +105,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	protected EClass eStaticClass() {
 		return RuntimePackage.Literals.TASK;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Service<?>> getServices() {
-		if (services == null) {
-			services = new EObjectContainmentEList<Service<?>>(Service.class, this, RuntimePackage.TASK__SERVICES);
-		}
-		return services;
 	}
 
 	/**
@@ -393,8 +369,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RuntimePackage.TASK__SERVICES:
-				return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
 			case RuntimePackage.TASK__GAME:
 				return basicSetGame(null, msgs);
 			case RuntimePackage.TASK__CURRENT_STATE:
@@ -427,8 +401,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RuntimePackage.TASK__SERVICES:
-				return getServices();
 			case RuntimePackage.TASK__TASK_DEF:
 				if (resolve) return getTaskDef();
 				return basicGetTaskDef();
@@ -455,10 +427,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RuntimePackage.TASK__SERVICES:
-				getServices().clear();
-				getServices().addAll((Collection<? extends Service<?>>)newValue);
-				return;
 			case RuntimePackage.TASK__TASK_DEF:
 				setTaskDef((T)newValue);
 				return;
@@ -491,9 +459,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.TASK__SERVICES:
-				getServices().clear();
-				return;
 			case RuntimePackage.TASK__TASK_DEF:
 				setTaskDef((T)null);
 				return;
@@ -524,8 +489,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.TASK__SERVICES:
-				return services != null && !services.isEmpty();
 			case RuntimePackage.TASK__TASK_DEF:
 				return taskDef != null;
 			case RuntimePackage.TASK__GAME:
@@ -540,38 +503,6 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return result != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Services.class) {
-			switch (derivedFeatureID) {
-				case RuntimePackage.TASK__SERVICES: return RuntimePackage.SERVICES__SERVICES;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Services.class) {
-			switch (baseFeatureID) {
-				case RuntimePackage.SERVICES__SERVICES: return RuntimePackage.TASK__SERVICES;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

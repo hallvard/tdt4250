@@ -71,7 +71,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				Game game = (Game)theEObject;
 				T1 result = caseGame(game);
 				if (result == null) result = casePlayers(game);
-				if (result == null) result = caseServices(game);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,24 +86,16 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.SERVICES: {
-				Services services = (Services)theEObject;
-				T1 result = caseServices(services);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RuntimePackage.TASK: {
 				Task<?, ?> task = (Task<?, ?>)theEObject;
 				T1 result = caseTask(task);
 				if (result == null) result = casePlayers(task);
-				if (result == null) result = caseServices(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RuntimePackage.TASK_STATE: {
 				TaskState<?> taskState = (TaskState<?>)theEObject;
 				T1 result = caseTaskState(taskState);
-				if (result == null) result = caseServices(taskState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -160,21 +151,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePlayers(Players object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Services</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Services</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseServices(Services object) {
 		return null;
 	}
 

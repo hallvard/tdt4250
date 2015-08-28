@@ -284,7 +284,6 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 		}
 		QuizTaskService quizTaskService = ServiceFactory.eINSTANCE.createQuizTaskService();
 		quizTaskService.setContext(this);
-		this.getServices().add(quizTaskService);
 		AcceptingAnswerState acceptingAnswerState = RuntimeFactory.eINSTANCE.createAcceptingAnswerState();
 		changeState(acceptingAnswerState);
 	}

@@ -148,7 +148,6 @@ public class TaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RuntimePackage.Literals.SERVICES__SERVICES);
 			childrenFeatures.add(RuntimePackage.Literals.TASK__CURRENT_STATE);
 			childrenFeatures.add(RuntimePackage.Literals.TASK__PAST_STATES);
 		}
@@ -207,7 +206,6 @@ public class TaskItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Task.class)) {
-			case RuntimePackage.TASK__SERVICES:
 			case RuntimePackage.TASK__CURRENT_STATE:
 			case RuntimePackage.TASK__PAST_STATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

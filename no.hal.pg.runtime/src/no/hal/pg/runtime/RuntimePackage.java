@@ -107,22 +107,13 @@ public interface RuntimePackage extends EPackage {
 	int GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME__SERVICES = PLAYERS_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Players</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__PLAYERS = PLAYERS_FEATURE_COUNT + 1;
+	int GAME__PLAYERS = PLAYERS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -131,7 +122,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__TASKS = PLAYERS_FEATURE_COUNT + 2;
+	int GAME__TASKS = PLAYERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Game</em>' class.
@@ -140,7 +131,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 3;
+	int GAME_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Players</em>' operation.
@@ -216,43 +207,6 @@ public interface RuntimePackage extends EPackage {
 	int PLAYER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.ServicesImpl <em>Services</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.ServicesImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServices()
-	 * @generated
-	 */
-	int SERVICES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICES__SERVICES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Services</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICES_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Services</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICES_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.TaskImpl <em>Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,16 +214,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 4;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__SERVICES = PLAYERS_FEATURE_COUNT + 0;
+	int TASK = 3;
 
 	/**
 	 * The feature id for the '<em><b>Task Def</b></em>' reference.
@@ -278,7 +223,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__TASK_DEF = PLAYERS_FEATURE_COUNT + 1;
+	int TASK__TASK_DEF = PLAYERS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Game</b></em>' container reference.
@@ -287,7 +232,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__GAME = PLAYERS_FEATURE_COUNT + 2;
+	int TASK__GAME = PLAYERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Players</b></em>' reference list.
@@ -296,7 +241,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__PLAYERS = PLAYERS_FEATURE_COUNT + 3;
+	int TASK__PLAYERS = PLAYERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Current State</b></em>' containment reference.
@@ -305,7 +250,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__CURRENT_STATE = PLAYERS_FEATURE_COUNT + 4;
+	int TASK__CURRENT_STATE = PLAYERS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Past States</b></em>' containment reference list.
@@ -314,7 +259,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__PAST_STATES = PLAYERS_FEATURE_COUNT + 5;
+	int TASK__PAST_STATES = PLAYERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -323,7 +268,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESULT = PLAYERS_FEATURE_COUNT + 6;
+	int TASK__RESULT = PLAYERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -332,7 +277,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 7;
+	int TASK_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Players</em>' operation.
@@ -414,16 +359,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTaskState()
 	 * @generated
 	 */
-	int TASK_STATE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_STATE__SERVICES = SERVICES__SERVICES;
+	int TASK_STATE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Task</b></em>' container reference.
@@ -432,7 +368,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_STATE__TASK = SERVICES_FEATURE_COUNT + 0;
+	int TASK_STATE__TASK = 0;
 
 	/**
 	 * The feature id for the '<em><b>Entered</b></em>' attribute.
@@ -441,7 +377,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_STATE__ENTERED = SERVICES_FEATURE_COUNT + 1;
+	int TASK_STATE__ENTERED = 1;
 
 	/**
 	 * The feature id for the '<em><b>Exited</b></em>' attribute.
@@ -450,7 +386,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_STATE__EXITED = SERVICES_FEATURE_COUNT + 2;
+	int TASK_STATE__EXITED = 2;
 
 	/**
 	 * The number of structural features of the '<em>Task State</em>' class.
@@ -459,7 +395,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_STATE_FEATURE_COUNT = SERVICES_FEATURE_COUNT + 3;
+	int TASK_STATE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Task State</em>' class.
@@ -468,7 +404,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_STATE_OPERATION_COUNT = SERVICES_OPERATION_COUNT + 0;
+	int TASK_STATE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.Service <em>Service</em>}' class.
@@ -478,7 +414,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getService()
 	 * @generated
 	 */
-	int SERVICE = 6;
+	int SERVICE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -515,7 +451,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 7;
+	int TIMESTAMP = 6;
 
 
 	/**
@@ -611,27 +547,6 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPlayers__GetPlayers();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.Services <em>Services</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Services</em>'.
-	 * @see no.hal.pg.runtime.Services
-	 * @generated
-	 */
-	EClass getServices();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link no.hal.pg.runtime.Services#getServices <em>Services</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Services</em>'.
-	 * @see no.hal.pg.runtime.Services#getServices()
-	 * @see #getServices()
-	 * @generated
-	 */
-	EReference getServices_Services();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.Task <em>Task</em>}'.
@@ -944,24 +859,6 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PLAYERS___GET_PLAYERS = eINSTANCE.getPlayers__GetPlayers();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.ServicesImpl <em>Services</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.ServicesImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getServices()
-		 * @generated
-		 */
-		EClass SERVICES = eINSTANCE.getServices();
-
-		/**
-		 * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SERVICES__SERVICES = eINSTANCE.getServices_Services();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.TaskImpl <em>Task</em>}' class.

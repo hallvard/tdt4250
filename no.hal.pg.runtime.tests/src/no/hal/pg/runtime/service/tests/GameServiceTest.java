@@ -95,7 +95,6 @@ public class GameServiceTest extends TestCase {
 		game.getTasks().add(RuntimeFactory.eINSTANCE.createTask());
 		game.getPlayers().add(RuntimeFactory.eINSTANCE.createPlayer());
 		gameService.setContext(game);
-		game.getServices().add(gameService);
 		setFixture(gameService);
 	}
 

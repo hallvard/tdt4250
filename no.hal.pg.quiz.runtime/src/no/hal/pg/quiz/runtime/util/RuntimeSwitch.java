@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.util;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
 import no.hal.pg.runtime.Players;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 import org.eclipse.emf.ecore.EObject;
@@ -75,7 +74,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				T1 result = caseQuizTask(quizTask);
 				if (result == null) result = caseTask(quizTask);
 				if (result == null) result = casePlayers(quizTask);
-				if (result == null) result = caseServices(quizTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -83,7 +81,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				AcceptingAnswerState acceptingAnswerState = (AcceptingAnswerState)theEObject;
 				T1 result = caseAcceptingAnswerState(acceptingAnswerState);
 				if (result == null) result = caseTaskState(acceptingAnswerState);
-				if (result == null) result = caseServices(acceptingAnswerState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,21 +152,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePlayers(Players object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Services</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Services</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseServices(Services object) {
 		return null;
 	}
 

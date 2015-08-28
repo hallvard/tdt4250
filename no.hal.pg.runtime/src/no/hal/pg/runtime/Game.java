@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
  * @model
  * @generated
  */
-public interface Game extends Players, Services {
+public interface Game extends Players {
 	/**
 	 * Returns the value of the '<em><b>Players</b></em>' containment reference list.
 	 * The list contents are of type {@link no.hal.pg.runtime.Player}.

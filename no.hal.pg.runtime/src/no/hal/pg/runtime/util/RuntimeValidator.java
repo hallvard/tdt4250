@@ -88,8 +88,6 @@ public class RuntimeValidator extends EObjectValidator {
 				return validatePlayer((Player)value, diagnostics, context);
 			case RuntimePackage.PLAYERS:
 				return validatePlayers((Players)value, diagnostics, context);
-			case RuntimePackage.SERVICES:
-				return validateServices((Services)value, diagnostics, context);
 			case RuntimePackage.TASK:
 				return validateTask((Task<?, ?>)value, diagnostics, context);
 			case RuntimePackage.TASK_STATE:
@@ -128,15 +126,6 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validatePlayers(Players players, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(players, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateServices(Services services, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(services, diagnostics, context);
 	}
 
 	/**

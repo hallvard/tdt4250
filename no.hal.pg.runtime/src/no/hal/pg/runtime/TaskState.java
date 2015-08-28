@@ -2,6 +2,8 @@
  */
 package no.hal.pg.runtime;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Task State</b></em>'.
@@ -20,7 +22,7 @@ package no.hal.pg.runtime;
  * @model
  * @generated
  */
-public interface TaskState<T extends Task<?, ?>> extends Services {
+public interface TaskState<T extends Task<?, ?>> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}'.

@@ -25,10 +25,7 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
-import no.hal.pg.runtime.service.GameService;
-import no.hal.pg.runtime.service.ServiceFactory;
 
 @Component(factory=Engine.FACTORY_ID)
 public class Engine implements IEngine {
@@ -70,9 +67,6 @@ public class Engine implements IEngine {
 			}
 		}
 		setGame(game);
-		GameService gameService = ServiceFactory.eINSTANCE.createGameService();
-		gameService.setContext(game);
-		game.getServices().add(gameService);
 		Resource gameDefResource = gameDef.eResource();
 		URI gameUri = gameDefResource.getURI().trimFileExtension().appendFileExtension("pg-rt");
 		ResourceSet resourceSet = gameDefResource.getResourceSet();
@@ -147,25 +141,19 @@ public class Engine implements IEngine {
 	
 	//
 	
-	private boolean isServiceChangeNotification(Notification notification) {
-		return notification.getFeature() == RuntimePackage.eINSTANCE.getServices_Services();
-	}
-
 	private Adapter serviceListener = new EContentAdapter() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.getNotifier() instanceof Services && isServiceChangeNotification(msg)) {
-				switch (msg.getEventType()) {
-				case Notification.ADD:
-				case Notification.ADD_MANY: {
-					fireServiceActivated(msg.getNewValue());
-					break;
-				}
-				case Notification.REMOVE:
-				case Notification.REMOVE_MANY:
-					fireServiceDeactivated(msg.getOldValue());
-					break;
-				}
+			switch (msg.getEventType()) {
+			case Notification.ADD:
+			case Notification.ADD_MANY: {
+				fireServiceActivated(msg.getNewValue());
+				break;
+			}
+			case Notification.REMOVE:
+			case Notification.REMOVE_MANY:
+				fireServiceDeactivated(msg.getOldValue());
+				break;
 			}
 		}
 	};

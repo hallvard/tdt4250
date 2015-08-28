@@ -68,15 +68,6 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK = 0;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUIZ_TASK__SERVICES = no.hal.pg.runtime.RuntimePackage.TASK__SERVICES;
-
-	/**
 	 * The feature id for the '<em><b>Task Def</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,15 +238,6 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	int ACCEPTING_ANSWER_STATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCEPTING_ANSWER_STATE__SERVICES = no.hal.pg.runtime.RuntimePackage.TASK_STATE__SERVICES;
 
 	/**
 	 * The feature id for the '<em><b>Task</b></em>' container reference.

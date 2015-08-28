@@ -23,6 +23,7 @@ import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.service.ServicePackage;
 import no.hal.pg.runtime.tests.util.TestHelper;
 
@@ -80,9 +81,8 @@ public class GraphQLEmfTest extends TestCase {
     
     public void testGameQuery() {
     	assertNotNull(game);
-    	assertFalse(game.getServices().isEmpty());
-    	assertTrue(game.getServices().get(0) instanceof GameService);
-    	GameService gameService = (GameService) game.getServices().get(0);
+    	GameService gameService = ServiceFactory.eINSTANCE.createGameService();
+    	gameService.setContext(game);
 		ExecutionResult result = new GraphQL(schema).execute("{"
     			+ "tasks { "
 					+ "players {"

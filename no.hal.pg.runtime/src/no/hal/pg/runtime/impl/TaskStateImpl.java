@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
@@ -29,7 +30,7 @@ import no.hal.pg.runtime.TaskState;
  *
  * @generated
  */
-public class TaskStateImpl<T extends Task<?, ?>> extends ServicesImpl implements TaskState<T> {
+public class TaskStateImpl<T extends Task<?, ?>> extends MinimalEObjectImpl.Container implements TaskState<T> {
 	/**
 	 * The default value of the '{@link #getEntered() <em>Entered</em>}' attribute.
 	 * <!-- begin-user-doc -->

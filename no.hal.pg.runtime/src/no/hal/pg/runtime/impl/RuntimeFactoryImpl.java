@@ -14,7 +14,6 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
-import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 
@@ -64,7 +63,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 		switch (eClass.getClassifierID()) {
 			case RuntimePackage.GAME: return createGame();
 			case RuntimePackage.PLAYER: return createPlayer();
-			case RuntimePackage.SERVICES: return createServices();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
 			default:
@@ -120,16 +118,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public Player createPlayer() {
 		PlayerImpl player = new PlayerImpl();
 		return player;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Services createServices() {
-		ServicesImpl services = new ServicesImpl();
-		return services;
 	}
 
 	/**
