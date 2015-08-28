@@ -149,7 +149,8 @@ public class TaskItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RuntimePackage.Literals.SERVICES__SERVICES);
-			childrenFeatures.add(RuntimePackage.Literals.TASK__STATES);
+			childrenFeatures.add(RuntimePackage.Literals.TASK__CURRENT_STATE);
+			childrenFeatures.add(RuntimePackage.Literals.TASK__PAST_STATES);
 		}
 		return childrenFeatures;
 	}
@@ -207,7 +208,8 @@ public class TaskItemProvider
 
 		switch (notification.getFeatureID(Task.class)) {
 			case RuntimePackage.TASK__SERVICES:
-			case RuntimePackage.TASK__STATES:
+			case RuntimePackage.TASK__CURRENT_STATE:
+			case RuntimePackage.TASK__PAST_STATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -227,13 +229,36 @@ public class TaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RuntimePackage.Literals.SERVICES__SERVICES,
-				 RuntimeFactory.eINSTANCE.createGameService()));
+				(RuntimePackage.Literals.TASK__CURRENT_STATE,
+				 RuntimeFactory.eINSTANCE.createTaskState()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RuntimePackage.Literals.TASK__STATES,
+				(RuntimePackage.Literals.TASK__PAST_STATES,
 				 RuntimeFactory.eINSTANCE.createTaskState()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == RuntimePackage.Literals.TASK__CURRENT_STATE ||
+			childFeature == RuntimePackage.Literals.TASK__PAST_STATES;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

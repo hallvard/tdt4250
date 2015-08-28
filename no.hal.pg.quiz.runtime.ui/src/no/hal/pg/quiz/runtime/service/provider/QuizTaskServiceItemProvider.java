@@ -1,6 +1,6 @@
 /**
  */
-package no.hal.pg.runtime.provider;
+package no.hal.pg.quiz.runtime.service.provider;
 
 
 import java.util.Collection;
@@ -23,12 +23,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link no.hal.pg.runtime.GameService} object.
+ * This is the item provider adapter for a {@link no.hal.pg.quiz.runtime.service.QuizTaskService} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GameServiceItemProvider 
+public class QuizTaskServiceItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class GameServiceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameServiceItemProvider(AdapterFactory adapterFactory) {
+	public QuizTaskServiceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,8 +58,6 @@ public class GameServiceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addContextPropertyDescriptor(object);
-			addPlayersPropertyDescriptor(object);
-			addTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,58 +85,14 @@ public class GameServiceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Players feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPlayersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GameService_players_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GameService_players_feature", "_UI_GameService_type"),
-				 RuntimePackage.Literals.GAME_SERVICE__PLAYERS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Tasks feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTasksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GameService_tasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GameService_tasks_feature", "_UI_GameService_type"),
-				 RuntimePackage.Literals.GAME_SERVICE__TASKS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns GameService.gif.
+	 * This returns QuizTaskService.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GameService"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/QuizTaskService"));
 	}
 
 	/**
@@ -149,7 +103,7 @@ public class GameServiceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GameService_type");
+		return getString("_UI_QuizTaskService_type");
 	}
 	
 
@@ -186,7 +140,7 @@ public class GameServiceItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PgruntimeEditPlugin.INSTANCE;
+		return QuizserviceEditPlugin.INSTANCE;
 	}
 
 }

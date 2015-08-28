@@ -23,7 +23,7 @@ package no.hal.pg.runtime;
 public interface TaskState<T extends Task<?, ?>> extends Services {
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Task#getStates <em>States</em>}'.
+	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task</em>' container reference isn't clear,
@@ -33,8 +33,8 @@ public interface TaskState<T extends Task<?, ?>> extends Services {
 	 * @return the value of the '<em>Task</em>' container reference.
 	 * @see #setTask(Task)
 	 * @see no.hal.pg.runtime.RuntimePackage#getTaskState_Task()
-	 * @see no.hal.pg.runtime.Task#getStates
-	 * @model opposite="states" transient="false"
+	 * @see no.hal.pg.runtime.Task#getCurrentState
+	 * @model opposite="currentState" transient="false"
 	 * @generated
 	 */
 	Task<?, ?> getTask();

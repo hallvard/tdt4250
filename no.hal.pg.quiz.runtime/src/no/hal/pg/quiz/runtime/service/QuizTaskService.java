@@ -1,10 +1,15 @@
 /**
  */
-package no.hal.pg.quiz.runtime;
+package no.hal.pg.quiz.runtime.service;
 
 import no.hal.pg.quiz.model.QA;
+
+import no.hal.pg.quiz.runtime.QAProposal;
+import no.hal.pg.quiz.runtime.QuizTask;
+
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Service;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  *
- * @see no.hal.pg.quiz.runtime.RuntimePackage#getQuizTaskService()
+ * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuizTaskService()
  * @model
  * @generated
  */

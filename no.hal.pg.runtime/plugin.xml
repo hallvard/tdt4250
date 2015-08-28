@@ -21,4 +21,12 @@
             class="no.hal.pg.runtime.util.RuntimeResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated pg-service -->
+      <package
+            uri="platform:/plugin/no.hal.pg.runtime/model/pg-service.ecore"
+            class="no.hal.pg.runtime.service.ServicePackage"
+            genModel="model/pg-service.genmodel"/>
+   </extension>
+
 </plugin>

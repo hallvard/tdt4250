@@ -154,11 +154,6 @@ public class GameItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RuntimePackage.Literals.SERVICES__SERVICES,
-				 RuntimeFactory.eINSTANCE.createGameService()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(RuntimePackage.Literals.GAME__PLAYERS,
 				 RuntimeFactory.eINSTANCE.createPlayer()));
 

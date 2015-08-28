@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link no.hal.pg.runtime.Task#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getGame <em>Game</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getPlayers <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.Task#getStates <em>States</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#getPastStates <em>Past States</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}</li>
  * </ul>
  *
@@ -98,24 +99,6 @@ public interface Task<T extends TaskDef, R> extends Players, Services {
 	EList<Player> getPlayers();
 
 	/**
-	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
-	 * The list contents are of type {@link no.hal.pg.runtime.TaskState}&lt;?>.
-	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.TaskState#getTask <em>Task</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>States</em>' containment reference list.
-	 * @see no.hal.pg.runtime.RuntimePackage#getTask_States()
-	 * @see no.hal.pg.runtime.TaskState#getTask
-	 * @model opposite="task" containment="true"
-	 * @generated
-	 */
-	EList<TaskState<?>> getStates();
-
-	/**
 	 * Returns the value of the '<em><b>Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -142,12 +125,44 @@ public interface Task<T extends TaskDef, R> extends Players, Services {
 	void setResult(R value);
 
 	/**
+	 * Returns the value of the '<em><b>Current State</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.TaskState#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Current State</em>' containment reference.
+	 * @see #setCurrentState(TaskState)
+	 * @see no.hal.pg.runtime.RuntimePackage#getTask_CurrentState()
+	 * @see no.hal.pg.runtime.TaskState#getTask
+	 * @model opposite="task" containment="true"
 	 * @generated
 	 */
 	TaskState<?> getCurrentState();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current State</em>' containment reference.
+	 * @see #getCurrentState()
+	 * @generated
+	 */
+	void setCurrentState(TaskState<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Past States</b></em>' containment reference list.
+	 * The list contents are of type {@link no.hal.pg.runtime.TaskState}&lt;?>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Past States</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Past States</em>' containment reference list.
+	 * @see no.hal.pg.runtime.RuntimePackage#getTask_PastStates()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TaskState<?>> getPastStates();
 
 	/**
 	 * <!-- begin-user-doc -->

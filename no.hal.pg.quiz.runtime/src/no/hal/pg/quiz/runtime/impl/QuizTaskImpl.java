@@ -21,9 +21,10 @@ import no.hal.pg.quiz.model.QuizTaskDef;
 import no.hal.pg.quiz.runtime.AcceptingAnswerState;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
-import no.hal.pg.quiz.runtime.QuizTaskService;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.service.QuizTaskService;
+import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.impl.TaskImpl;
 
 /**
@@ -281,7 +282,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 				}
 			}
 		}
-		QuizTaskService quizTaskService = RuntimeFactory.eINSTANCE.createQuizTaskService();
+		QuizTaskService quizTaskService = ServiceFactory.eINSTANCE.createQuizTaskService();
 		quizTaskService.setContext(this);
 		this.getServices().add(quizTaskService);
 		AcceptingAnswerState acceptingAnswerState = RuntimeFactory.eINSTANCE.createAcceptingAnswerState();

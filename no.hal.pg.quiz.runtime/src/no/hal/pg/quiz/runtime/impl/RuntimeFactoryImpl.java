@@ -59,7 +59,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 			case RuntimePackage.QUIZ_TASK: return createQuizTask();
 			case RuntimePackage.ACCEPTING_ANSWER_STATE: return createAcceptingAnswerState();
 			case RuntimePackage.QA_PROPOSAL: return createQAProposal();
-			case RuntimePackage.QUIZ_TASK_SERVICE: return createQuizTaskService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,16 +92,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public QAProposal createQAProposal() {
 		QAProposalImpl qaProposal = new QAProposalImpl();
 		return qaProposal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QuizTaskService createQuizTaskService() {
-		QuizTaskServiceImpl quizTaskService = new QuizTaskServiceImpl();
-		return quizTaskService;
 	}
 
 	/**

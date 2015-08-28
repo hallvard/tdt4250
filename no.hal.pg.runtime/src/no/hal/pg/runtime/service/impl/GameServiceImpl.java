@@ -1,22 +1,27 @@
 /**
  */
-package no.hal.pg.runtime.impl;
+package no.hal.pg.runtime.service.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
+import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.Task;
+
+import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.ServicePackage;
+import no.hal.pg.runtime.util.Util;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.GameService;
-import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.RuntimePackage;
-import no.hal.pg.runtime.Task;
-import no.hal.pg.runtime.util.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,9 +31,9 @@ import no.hal.pg.runtime.util.Util;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.hal.pg.runtime.impl.GameServiceImpl#getContext <em>Context</em>}</li>
- *   <li>{@link no.hal.pg.runtime.impl.GameServiceImpl#getPlayers <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.impl.GameServiceImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,7 +65,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RuntimePackage.Literals.GAME_SERVICE;
+		return ServicePackage.Literals.GAME_SERVICE;
 	}
 
 	/**
@@ -74,7 +79,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 			context = (Game)eResolveProxy(oldContext);
 			if (context != oldContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuntimePackage.GAME_SERVICE__CONTEXT, oldContext, context));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServicePackage.GAME_SERVICE__CONTEXT, oldContext, context));
 			}
 		}
 		return context;
@@ -98,7 +103,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 		Game oldContext = context;
 		context = newContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.GAME_SERVICE__CONTEXT, oldContext, context));
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicePackage.GAME_SERVICE__CONTEXT, oldContext, context));
 	}
 
 	/**
@@ -143,12 +148,12 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RuntimePackage.GAME_SERVICE__CONTEXT:
+			case ServicePackage.GAME_SERVICE__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
-			case RuntimePackage.GAME_SERVICE__PLAYERS:
+			case ServicePackage.GAME_SERVICE__PLAYERS:
 				return getPlayers();
-			case RuntimePackage.GAME_SERVICE__TASKS:
+			case ServicePackage.GAME_SERVICE__TASKS:
 				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -159,11 +164,10 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RuntimePackage.GAME_SERVICE__CONTEXT:
+			case ServicePackage.GAME_SERVICE__CONTEXT:
 				setContext((Game)newValue);
 				return;
 		}
@@ -178,7 +182,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.GAME_SERVICE__CONTEXT:
+			case ServicePackage.GAME_SERVICE__CONTEXT:
 				setContext((Game)null);
 				return;
 		}
@@ -193,11 +197,11 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.GAME_SERVICE__CONTEXT:
+			case ServicePackage.GAME_SERVICE__CONTEXT:
 				return context != null;
-			case RuntimePackage.GAME_SERVICE__PLAYERS:
+			case ServicePackage.GAME_SERVICE__PLAYERS:
 				return !getPlayers().isEmpty();
-			case RuntimePackage.GAME_SERVICE__TASKS:
+			case ServicePackage.GAME_SERVICE__TASKS:
 				return !getTasks().isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -209,10 +213,9 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.GAME_SERVICE___GET_TASKS__REF:
+			case ServicePackage.GAME_SERVICE___GET_TASKS__PLAYER:
 				return getTasks((Player)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

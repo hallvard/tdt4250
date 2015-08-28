@@ -8,7 +8,8 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.runtime.tests,
- no.hal.pg.runtime.tests.util
+ no.hal.pg.runtime.tests.util,
+ no.hal.pg.runtime.service.tests
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.runtime;visibility:=reexport,
  no.hal.pg.model;visibility:=reexport,

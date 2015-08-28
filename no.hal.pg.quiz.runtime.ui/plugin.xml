@@ -19,4 +19,44 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated quiz-service -->
+      <factory
+            uri="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore"
+            class="no.hal.pg.quiz.runtime.service.provider.ServiceItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated quiz-service -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.pg.quiz.runtime.service.presentation.ServiceModelWizardID"
+            name="%_UI_ServiceModelWizard_label"
+            class="no.hal.pg.quiz.runtime.service.presentation.ServiceModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ServiceModelFile.gif">
+         <description>%_UI_ServiceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated quiz-service -->
+      <editor
+            id="no.hal.pg.quiz.runtime.service.presentation.ServiceEditorID"
+            name="%_UI_ServiceEditor_label"
+            icon="icons/full/obj16/ServiceModelFile.gif"
+            extensions="service"
+            class="no.hal.pg.quiz.runtime.service.presentation.ServiceEditor"
+            contributorClass="no.hal.pg.quiz.runtime.service.presentation.ServiceActionBarContributor">
+      </editor>
+   </extension>
 </plugin>

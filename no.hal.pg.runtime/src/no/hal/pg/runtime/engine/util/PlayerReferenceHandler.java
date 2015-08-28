@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.osgi.service.component.annotations.Component;
 
 import no.hal.pg.model.Person;
 import no.hal.pg.runtime.Player;
@@ -11,6 +12,7 @@ import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.engine.IReferenceHandler;
 
+@Component
 public class PlayerReferenceHandler implements IReferenceHandler {
 
 	@Override

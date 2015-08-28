@@ -2,18 +2,21 @@
  */
 package no.hal.pg.runtime.impl;
 
-import no.hal.pg.model.TaskDef;
-
-import no.hal.pg.runtime.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import no.hal.pg.model.TaskDef;
+import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.RuntimeFactory;
+import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.Services;
+import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.TaskState;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +67,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 			case RuntimePackage.SERVICES: return createServices();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
-			case RuntimePackage.GAME_SERVICE: return createGameService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,16 +150,6 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public <T extends Task<?, ?>> TaskState<T> createTaskState() {
 		TaskStateImpl<T> taskState = new TaskStateImpl<T>();
 		return taskState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GameService createGameService() {
-		GameServiceImpl gameService = new GameServiceImpl();
-		return gameService;
 	}
 
 	/**

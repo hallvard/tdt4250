@@ -5,8 +5,6 @@ package no.hal.pg.runtime.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Services;
 
@@ -147,11 +145,6 @@ public class ServicesItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RuntimePackage.Literals.SERVICES__SERVICES,
-				 RuntimeFactory.eINSTANCE.createGameService()));
 	}
 
 	/**

@@ -21,4 +21,12 @@
             class="no.hal.pg.quiz.runtime.util.RuntimeResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz-service -->
+      <package
+            uri="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore"
+            class="no.hal.pg.quiz.runtime.service.ServicePackage"
+            genModel="model/quiz-service.genmodel"/>
+   </extension>
+
 </plugin>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.util.PlayerReferenceHandler">
+   <implementation class="no.hal.pg.runtime.engine.util.PlayerReferenceHandler"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.IReferenceHandler"/>
+   </service>
+</scr:component>

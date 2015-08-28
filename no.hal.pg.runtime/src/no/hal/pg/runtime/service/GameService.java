@@ -1,6 +1,11 @@
 /**
  */
-package no.hal.pg.runtime;
+package no.hal.pg.runtime.service;
+
+import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.Task;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,11 +18,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.hal.pg.runtime.GameService#getPlayers <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.GameService#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
- * @see no.hal.pg.runtime.RuntimePackage#getGameService()
+ * @see no.hal.pg.runtime.service.ServicePackage#getGameService()
  * @model
  * @generated
  */
@@ -32,7 +37,7 @@ public interface GameService extends Service<Game> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Players</em>' reference list.
-	 * @see no.hal.pg.runtime.RuntimePackage#getGameService_Players()
+	 * @see no.hal.pg.runtime.service.ServicePackage#getGameService_Players()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -48,7 +53,7 @@ public interface GameService extends Service<Game> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tasks</em>' reference list.
-	 * @see no.hal.pg.runtime.RuntimePackage#getGameService_Tasks()
+	 * @see no.hal.pg.runtime.service.ServicePackage#getGameService_Tasks()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */

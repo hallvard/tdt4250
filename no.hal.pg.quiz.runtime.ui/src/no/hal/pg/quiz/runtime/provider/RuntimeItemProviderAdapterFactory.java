@@ -141,29 +141,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.pg.quiz.runtime.QuizTaskService} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected QuizTaskServiceItemProvider quizTaskServiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.pg.quiz.runtime.QuizTaskService}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createQuizTaskServiceAdapter() {
-		if (quizTaskServiceItemProvider == null) {
-			quizTaskServiceItemProvider = new QuizTaskServiceItemProvider(this);
-		}
-
-		return quizTaskServiceItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,7 +242,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 		if (quizTaskItemProvider != null) quizTaskItemProvider.dispose();
 		if (acceptingAnswerStateItemProvider != null) acceptingAnswerStateItemProvider.dispose();
 		if (qaProposalItemProvider != null) qaProposalItemProvider.dispose();
-		if (quizTaskServiceItemProvider != null) quizTaskServiceItemProvider.dispose();
 	}
 
 }

@@ -1,18 +1,18 @@
 /**
  */
-package no.hal.pg.runtime.tests;
+package no.hal.pg.runtime.service.tests;
 
 import java.util.Arrays;
 
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
-import no.hal.pg.runtime.DirectRef;
 import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.ServiceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,14 +21,14 @@ import no.hal.pg.runtime.Task;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link no.hal.pg.runtime.GameService#getPlayers() <em>Players</em>}</li>
- *   <li>{@link no.hal.pg.runtime.GameService#getTasks() <em>Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getPlayers() <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getTasks() <em>Tasks</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -90,7 +90,7 @@ public class GameServiceTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		GameService gameService = RuntimeFactory.eINSTANCE.createGameService();
+		GameService gameService = ServiceFactory.eINSTANCE.createGameService();
 		Game game = RuntimeFactory.eINSTANCE.createGame();
 		game.getTasks().add(RuntimeFactory.eINSTANCE.createTask());
 		game.getPlayers().add(RuntimeFactory.eINSTANCE.createPlayer());
@@ -111,10 +111,10 @@ public class GameServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.runtime.GameService#getPlayers() <em>Players</em>}' feature getter.
+	 * Tests the '{@link no.hal.pg.runtime.service.GameService#getPlayers() <em>Players</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.GameService#getPlayers()
+	 * @see no.hal.pg.runtime.service.GameService#getPlayers()
 	 * @generated NOT
 	 */
 	public void testGetPlayers() {
@@ -123,10 +123,10 @@ public class GameServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.runtime.GameService#getTasks() <em>Tasks</em>}' feature getter.
+	 * Tests the '{@link no.hal.pg.runtime.service.GameService#getTasks() <em>Tasks</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.GameService#getTasks()
+	 * @see no.hal.pg.runtime.service.GameService#getTasks()
 	 * @generated NOT
 	 */
 	public void testGetTasks() {
@@ -135,10 +135,10 @@ public class GameServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref) <em>Get Tasks</em>}' operation.
+	 * Tests the '{@link no.hal.pg.runtime.service.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Ref)
+	 * @see no.hal.pg.runtime.service.GameService#getTasks(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
 	public void testGetTasks__Player() {
@@ -160,4 +160,5 @@ public class GameServiceTest extends TestCase {
 		assertEquals(1, gameService.getTasks(player2).size());
 		assertEquals(task, gameService.getTasks(player2).get(0));
 	}
+
 } //GameServiceTest

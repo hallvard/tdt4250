@@ -96,8 +96,6 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
 				return validateService((Service<?>)value, diagnostics, context);
-			case RuntimePackage.GAME_SERVICE:
-				return validateGameService((GameService)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
 				return validateTimestamp((Long)value, diagnostics, context);
 			default:
@@ -200,15 +198,6 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validateService(Service<?> service, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(service, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGameService(GameService gameService, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(gameService, diagnostics, context);
 	}
 
 	/**

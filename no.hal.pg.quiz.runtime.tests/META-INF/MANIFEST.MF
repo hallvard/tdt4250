@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: no.hal.pg.quiz.runtime.tests
+Export-Package: no.hal.pg.quiz.runtime.tests,
+ no.hal.pg.quiz.runtime.service.tests
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.quiz.runtime;visibility:=reexport,
  no.hal.pg.model;visibility:=reexport,

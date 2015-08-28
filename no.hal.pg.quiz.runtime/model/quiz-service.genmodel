@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/no.hal.pg.quiz.runtime/src" editDirectory="/no.hal.pg.quiz.runtime.ui/src"
+    editorDirectory="/no.hal.pg.quiz.runtime.ui/src" modelPluginID="no.hal.pg.quiz.runtime"
+    modelName="Quiz-service" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.pg.quiz.runtime.ui" editorPluginID="no.hal.pg.quiz.runtime.ui"
+    usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.pg.quiz.model/model/quiz.genmodel#//model quiz-runtime.genmodel#//runtime"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>quiz-service.ecore</foreignModel>
+  <genPackages prefix="Service" basePackage="no.hal.pg.quiz.runtime" disposableProviderFactory="true"
+      ecorePackage="quiz-service.ecore#/">
+    <genClasses ecoreClass="quiz-service.ecore#//QuizTaskService">
+      <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/proposeAnswer">
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/proposeAnswer/player"/>
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/proposeAnswer/qa"/>
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/proposeAnswer/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/acceptAnswer">
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAnswer/player"/>
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAnswer/qa"/>
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAnswer/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/getQAProposals">
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/getQAProposals/player"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

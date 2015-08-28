@@ -122,7 +122,7 @@ public class TaskStateImpl<T extends Task<?, ?>> extends ServicesImpl implements
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newTask != null)
-				msgs = ((InternalEObject)newTask).eInverseAdd(this, RuntimePackage.TASK__STATES, Task.class, msgs);
+				msgs = ((InternalEObject)newTask).eInverseAdd(this, RuntimePackage.TASK__CURRENT_STATE, Task.class, msgs);
 			msgs = basicSetTask(newTask, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -229,7 +229,7 @@ public class TaskStateImpl<T extends Task<?, ?>> extends ServicesImpl implements
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case RuntimePackage.TASK_STATE__TASK:
-				return eInternalContainer().eInverseRemove(this, RuntimePackage.TASK__STATES, Task.class, msgs);
+				return eInternalContainer().eInverseRemove(this, RuntimePackage.TASK__CURRENT_STATE, Task.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

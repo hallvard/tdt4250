@@ -20,7 +20,6 @@ import no.hal.pg.runtime.TaskState;
  *   <li>{@link no.hal.pg.runtime.Task#isFinished() <em>Is Finished</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#start() <em>Start</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}</li>
- *   <li>{@link no.hal.pg.runtime.Task#getCurrentState() <em>Get Current State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#finish(java.lang.Object) <em>Finish</em>}</li>
  * </ul>

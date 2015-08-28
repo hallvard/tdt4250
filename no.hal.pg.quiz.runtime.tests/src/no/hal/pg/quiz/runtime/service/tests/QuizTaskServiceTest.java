@@ -1,22 +1,19 @@
 /**
  */
-package no.hal.pg.quiz.runtime.tests;
+package no.hal.pg.quiz.runtime.service.tests;
 
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
-import no.hal.pg.quiz.model.ModelPackage;
-import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
-import no.hal.pg.quiz.runtime.QuizTaskService;
-import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.service.QuizTaskService;
+import no.hal.pg.quiz.runtime.service.ServiceFactory;
+import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,9 +22,9 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -85,16 +82,13 @@ public class QuizTaskServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
-		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
-		testHelper.addResource(URI.createURI("test:/QuizTaskTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
-		setFixture((QuizTaskService) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTaskService()));
+		setFixture(ServiceFactory.eINSTANCE.createQuizTaskService());
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,10 +101,10 @@ public class QuizTaskServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
 	public void testProposeAnswer__Player_QA_String() {
@@ -127,10 +121,10 @@ public class QuizTaskServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
 	public void testAcceptAnswer__Player_QA_String() {
@@ -148,10 +142,10 @@ public class QuizTaskServiceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
 	public void testGetQAProposals__Player() {

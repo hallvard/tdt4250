@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.util;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
 import no.hal.pg.runtime.Players;
-import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
@@ -95,13 +94,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RuntimePackage.QUIZ_TASK_SERVICE: {
-				QuizTaskService quizTaskService = (QuizTaskService)theEObject;
-				T1 result = caseQuizTaskService(quizTaskService);
-				if (result == null) result = caseService(quizTaskService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -148,21 +140,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseQAProposal(QAProposal object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Quiz Task Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Quiz Task Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseQuizTaskService(QuizTaskService object) {
 		return null;
 	}
 
@@ -223,21 +200,6 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T extends Task<?, ?>> T1 caseTaskState(TaskState<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseService(Service<T> object) {
 		return null;
 	}
 

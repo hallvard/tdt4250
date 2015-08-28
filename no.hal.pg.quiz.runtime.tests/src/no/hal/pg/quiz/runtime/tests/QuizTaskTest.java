@@ -183,7 +183,7 @@ public class QuizTaskTest extends TestCase {
 		checkProposeAnswer(quizTask, qaNum, accept, result, count, isFinished);
 	}
 
-	static void checkProposeAnswer(QuizTask quizTask, int qaNum, boolean accept, Boolean result, int count, boolean isFinished) {
+	public static void checkProposeAnswer(QuizTask quizTask, int qaNum, boolean accept, Boolean result, int count, boolean isFinished) {
 		assertEquals(count, quizTask.getAcceptedAnswerCount());
 		assertEquals(! isFinished, quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
 		assertEquals(isFinished, quizTask.isFinished());

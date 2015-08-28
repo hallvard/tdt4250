@@ -299,13 +299,22 @@ public interface RuntimePackage extends EPackage {
 	int TASK__PLAYERS = PLAYERS_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Current State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__STATES = PLAYERS_FEATURE_COUNT + 4;
+	int TASK__CURRENT_STATE = PLAYERS_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Past States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__PAST_STATES = PLAYERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -314,7 +323,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESULT = PLAYERS_FEATURE_COUNT + 5;
+	int TASK__RESULT = PLAYERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -323,7 +332,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 6;
+	int TASK_FEATURE_COUNT = PLAYERS_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Players</em>' operation.
@@ -371,22 +380,13 @@ public interface RuntimePackage extends EPackage {
 	int TASK___CHANGE_STATE__TASKSTATE = PLAYERS_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Current State</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK___GET_CURRENT_STATE = PLAYERS_OPERATION_COUNT + 4;
-
-	/**
 	 * The operation id for the '<em>Is In State</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___IS_IN_STATE__ECLASS = PLAYERS_OPERATION_COUNT + 5;
+	int TASK___IS_IN_STATE__ECLASS = PLAYERS_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Finish</em>' operation.
@@ -395,7 +395,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___FINISH__OBJECT = PLAYERS_OPERATION_COUNT + 6;
+	int TASK___FINISH__OBJECT = PLAYERS_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -404,7 +404,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = PLAYERS_OPERATION_COUNT + 7;
+	int TASK_OPERATION_COUNT = PLAYERS_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.TaskStateImpl <em>Task State</em>}' class.
@@ -508,70 +508,6 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.impl.GameServiceImpl
-	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
-	 * @generated
-	 */
-	int GAME_SERVICE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE__CONTEXT = SERVICE__CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Players</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE__PLAYERS = SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE__TASKS = SERVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Game Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Tasks</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE___GET_TASKS__REF = SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Game Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -579,7 +515,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 8;
+	int TIMESTAMP = 7;
 
 
 	/**
@@ -741,15 +677,26 @@ public interface RuntimePackage extends EPackage {
 	EReference getTask_Players();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.hal.pg.runtime.Task#getStates <em>States</em>}'.
+	 * Returns the meta object for the containment reference '{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see no.hal.pg.runtime.Task#getStates()
+	 * @return the meta object for the containment reference '<em>Current State</em>'.
+	 * @see no.hal.pg.runtime.Task#getCurrentState()
 	 * @see #getTask()
 	 * @generated
 	 */
-	EReference getTask_States();
+	EReference getTask_CurrentState();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.pg.runtime.Task#getPastStates <em>Past States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Past States</em>'.
+	 * @see no.hal.pg.runtime.Task#getPastStates()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_PastStates();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.Task#getResult <em>Result</em>}'.
@@ -771,16 +718,6 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTask__ChangeState__TaskState();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#getCurrentState() <em>Get Current State</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Current State</em>' operation.
-	 * @see no.hal.pg.runtime.Task#getCurrentState()
-	 * @generated
-	 */
-	EOperation getTask__GetCurrentState();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.runtime.Task#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}' operation.
@@ -895,48 +832,6 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getService_Context();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.pg.runtime.GameService <em>Game Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Game Service</em>'.
-	 * @see no.hal.pg.runtime.GameService
-	 * @generated
-	 */
-	EClass getGameService();
-
-	/**
-	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.GameService#getPlayers <em>Players</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Players</em>'.
-	 * @see no.hal.pg.runtime.GameService#getPlayers()
-	 * @see #getGameService()
-	 * @generated
-	 */
-	EReference getGameService_Players();
-
-	/**
-	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.GameService#getTasks <em>Tasks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tasks</em>'.
-	 * @see no.hal.pg.runtime.GameService#getTasks()
-	 * @see #getGameService()
-	 * @generated
-	 */
-	EReference getGameService_Tasks();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player) <em>Get Tasks</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Tasks</em>' operation.
-	 * @see no.hal.pg.runtime.GameService#getTasks(no.hal.pg.runtime.Player)
-	 * @generated
-	 */
-	EOperation getGameService__GetTasks__Ref();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Long <em>Timestamp</em>}'.
@@ -1103,12 +998,20 @@ public interface RuntimePackage extends EPackage {
 		EReference TASK__PLAYERS = eINSTANCE.getTask_Players();
 
 		/**
-		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Current State</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK__STATES = eINSTANCE.getTask_States();
+		EReference TASK__CURRENT_STATE = eINSTANCE.getTask_CurrentState();
+
+		/**
+		 * The meta object literal for the '<em><b>Past States</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__PAST_STATES = eINSTANCE.getTask_PastStates();
 
 		/**
 		 * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
@@ -1125,14 +1028,6 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TASK___CHANGE_STATE__TASKSTATE = eINSTANCE.getTask__ChangeState__TaskState();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Current State</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TASK___GET_CURRENT_STATE = eINSTANCE.getTask__GetCurrentState();
 
 		/**
 		 * The meta object literal for the '<em><b>Is In State</b></em>' operation.
@@ -1225,40 +1120,6 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__CONTEXT = eINSTANCE.getService_Context();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.GameServiceImpl <em>Game Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.runtime.impl.GameServiceImpl
-		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getGameService()
-		 * @generated
-		 */
-		EClass GAME_SERVICE = eINSTANCE.getGameService();
-
-		/**
-		 * The meta object literal for the '<em><b>Players</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GAME_SERVICE__PLAYERS = eINSTANCE.getGameService_Players();
-
-		/**
-		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GAME_SERVICE__TASKS = eINSTANCE.getGameService_Tasks();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Tasks</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GAME_SERVICE___GET_TASKS__REF = eINSTANCE.getGameService__GetTasks__Ref();
 
 		/**
 		 * The meta object literal for the '<em>Timestamp</em>' data type.

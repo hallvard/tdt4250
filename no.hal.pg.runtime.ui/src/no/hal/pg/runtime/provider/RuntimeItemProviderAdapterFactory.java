@@ -187,29 +187,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.GameService} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GameServiceItemProvider gameServiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.pg.runtime.GameService}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGameServiceAdapter() {
-		if (gameServiceItemProvider == null) {
-			gameServiceItemProvider = new GameServiceItemProvider(this);
-		}
-
-		return gameServiceItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,7 +290,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 		if (servicesItemProvider != null) servicesItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskStateItemProvider != null) taskStateItemProvider.dispose();
-		if (gameServiceItemProvider != null) gameServiceItemProvider.dispose();
 	}
 
 }

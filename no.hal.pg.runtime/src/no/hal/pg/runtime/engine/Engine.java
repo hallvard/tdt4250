@@ -2,8 +2,6 @@ package no.hal.pg.runtime.engine;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -23,13 +21,14 @@ import no.hal.pg.model.Group;
 import no.hal.pg.model.Person;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.GameService;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.ServiceFactory;
 
 @Component(factory=Engine.FACTORY_ID)
 public class Engine implements IEngine {
@@ -71,7 +70,7 @@ public class Engine implements IEngine {
 			}
 		}
 		setGame(game);
-		GameService gameService = RuntimeFactory.eINSTANCE.createGameService();
+		GameService gameService = ServiceFactory.eINSTANCE.createGameService();
 		gameService.setContext(game);
 		game.getServices().add(gameService);
 		Resource gameDefResource = gameDef.eResource();
@@ -103,7 +102,7 @@ public class Engine implements IEngine {
 	}
 
 	private boolean isChangeStateNotification(Notification notification) {
-		return notification.getFeature() == RuntimePackage.eINSTANCE.getTask_States();
+		return notification.getFeature() == RuntimePackage.eINSTANCE.getTask_CurrentState();
 	}
 
 	private Adapter stateListener = new AdapterImpl() {

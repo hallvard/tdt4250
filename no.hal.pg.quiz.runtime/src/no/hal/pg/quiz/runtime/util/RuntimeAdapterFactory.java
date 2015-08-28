@@ -5,7 +5,6 @@ package no.hal.pg.quiz.runtime.util;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.quiz.runtime.*;
 import no.hal.pg.runtime.Players;
-import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Services;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
@@ -85,10 +84,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createQAProposalAdapter();
 			}
 			@Override
-			public Adapter caseQuizTaskService(QuizTaskService object) {
-				return createQuizTaskServiceAdapter();
-			}
-			@Override
 			public Adapter casePlayers(Players object) {
 				return createPlayersAdapter();
 			}
@@ -103,10 +98,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <T extends Task<?, ?>> Adapter caseTaskState(TaskState<T> object) {
 				return createTaskStateAdapter();
-			}
-			@Override
-			public <T> Adapter caseService(Service<T> object) {
-				return createServiceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -171,20 +162,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.quiz.runtime.QuizTaskService <em>Quiz Task Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.quiz.runtime.QuizTaskService
-	 * @generated
-	 */
-	public Adapter createQuizTaskServiceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Players <em>Players</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -237,20 +214,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.Service <em>Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.runtime.Service
-	 * @generated
-	 */
-	public Adapter createServiceAdapter() {
 		return null;
 	}
 

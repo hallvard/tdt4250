@@ -7,10 +7,6 @@ import java.util.Collection;
 import java.util.List;
 
 import no.hal.pg.quiz.runtime.AcceptingAnswerState;
-import no.hal.pg.quiz.runtime.RuntimeFactory;
-
-import no.hal.pg.runtime.RuntimePackage;
-
 import no.hal.pg.runtime.provider.TaskStateItemProvider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -102,11 +98,6 @@ public class AcceptingAnswerStateItemProvider extends TaskStateItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RuntimePackage.Literals.SERVICES__SERVICES,
-				 RuntimeFactory.eINSTANCE.createQuizTaskService()));
 	}
 
 	/**
