@@ -70,26 +70,26 @@
 
 	<modules>
 	<module>../no.hal.pg.model</module>
-	<module>../no.hal.pg.quiz.model</module>
-	<module>../no.hal.pg.quiz.runtime</module>
+<!--	<module>../no.hal.pg.quiz.model</module>
+	<module>../no.hal.pg.quiz.runtime</module>-->
 	<module>../no.hal.pg.runtime</module>
-	<module>../no.hal.pg.quiz.xtext</module>
+<!--	<module>../no.hal.pg.quiz.xtext</module> -->
 <!--	<module>../no.hal.pg.quiz.web</module>-->
-	<module>../no.hal.pg.quiz.xtext.ui</module>
+<!--	<module>../no.hal.pg.quiz.xtext.ui</module> -->
 	<module>../no.hal.pg.runtime.tests</module>
-	<module>../no.hal.pg.quiz.runtime.tests</module>
+<!--	<module>../no.hal.pg.quiz.runtime.tests</module>
 	<module>../no.hal.pg.quiz.xtext.tests</module>
-	<module>../no.hal.pg.quiz.model.tests</module>
+	<module>../no.hal.pg.quiz.model.tests</module>-->
 	<module>../no.hal.pg.model.feature</module> 
 	<module>../no.hal.pg.runtime.feature</module>
-	<module>../no.hal.pg.updatesite</module>
+<!--	<module>../no.hal.pg.updatesite</module>-->
 	<module>../no.hal.pg.karaf</module>
 	<module>../no.hal.pg.model.tests</module>
 	<module>../no.hal.graphql.emf</module>
 	<module>../no.hal.pg.runtime.http</module>
 	<module>../no.hal.pg.model.ui</module>
-	<module>../no.hal.pg.quiz.model.ui</module>
-	<module>../no.hal.pg.quiz.runtime.ui</module>
+<!--	<module>../no.hal.pg.quiz.model.ui</module>
+	<module>../no.hal.pg.quiz.runtime.ui</module>-->
 	<module>../no.hal.pg.runtime.ui</module>
 	</modules>
 </project>
