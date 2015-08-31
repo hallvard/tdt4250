@@ -7,4 +7,6 @@ cache:
     - $HOME/.m2
 script:
   - cd no.hal.pg.parent
-  - mvn install
+  - mvn clean install
+  - cd ../no.hal.pg.quiz.parent
+  - mvn clean install
