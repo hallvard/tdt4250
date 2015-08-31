@@ -20,3 +20,5 @@ This repository contains modules implementing the generic engine and an example 
 - [no.hal.pg.model.feature - feature project for the authoring environment](../no.hal.pg.model.feature/)
 - [no.hal.pg.runtime.feature - feature project for the runtime environment](../no.hal.pg.runtime.feature/)
 - [no.hal.pg.updatesite - update site project](../no.hal.pg.updatesite/)
+
+Note that the generic part and the quiz task part have separate Maven parent projects, to make it easier to only depend on the generic part and leave out the Quiz task. 

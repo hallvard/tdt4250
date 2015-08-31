@@ -6,9 +6,9 @@
 	
 	<parent>
 		<groupId>no.hal.pg</groupId>
-		<artifactId>no.hal.pg.parent</artifactId>
+		<artifactId>no.hal.pg.quiz.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>../no.hal.pg.parent</relativePath>
+		<relativePath>../no.hal.pg.quiz.parent</relativePath>
 	</parent>
 
 	<build>
