@@ -96,10 +96,14 @@ public class QuizTaskTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
+		setFixture(createQuizTask());
+	}
+
+	protected QuizTask createQuizTask() throws Exception {
 		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE);
 		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
 		testHelper.addResource(URI.createURI("test:/QuizTaskTest.jquiz"), createSimpleTestQuiz());
-		setFixture((QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask()));
+		return (QuizTask) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getQuizTask());
 	}
 	
 	public static Quiz createSimpleTestQuiz() {

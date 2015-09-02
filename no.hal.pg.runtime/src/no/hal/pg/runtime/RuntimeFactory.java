@@ -60,6 +60,15 @@ public interface RuntimeFactory extends EFactory {
 	<T extends Task<?, ?>> TaskState<T> createTaskState();
 
 	/**
+	 * Returns a new object of class '<em>Self Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Self Service</em>'.
+	 * @generated
+	 */
+	SelfService createSelfService();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

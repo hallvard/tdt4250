@@ -444,6 +444,43 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.pg.runtime.impl.SelfServiceImpl <em>Self Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.impl.SelfServiceImpl
+	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getSelfService()
+	 * @generated
+	 */
+	int SELF_SERVICE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELF_SERVICE__CONTEXT = SERVICE__CONTEXT;
+
+	/**
+	 * The number of structural features of the '<em>Self Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELF_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Self Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELF_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -451,7 +488,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 6;
+	int TIMESTAMP = 7;
 
 
 	/**
@@ -749,6 +786,16 @@ public interface RuntimePackage extends EPackage {
 	EReference getService_Context();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.pg.runtime.SelfService <em>Self Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Self Service</em>'.
+	 * @see no.hal.pg.runtime.SelfService
+	 * @generated
+	 */
+	EClass getSelfService();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Long <em>Timestamp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1017,6 +1064,16 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__CONTEXT = eINSTANCE.getService_Context();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.SelfServiceImpl <em>Self Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.runtime.impl.SelfServiceImpl
+		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getSelfService()
+		 * @generated
+		 */
+		EClass SELF_SERVICE = eINSTANCE.getSelfService();
 
 		/**
 		 * The meta object literal for the '<em>Timestamp</em>' data type.

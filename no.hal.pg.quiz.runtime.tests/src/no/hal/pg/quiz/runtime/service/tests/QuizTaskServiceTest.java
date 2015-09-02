@@ -5,15 +5,24 @@ package no.hal.pg.quiz.runtime.service.tests;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
+import no.hal.pg.model.ModelPackage;
+import no.hal.pg.quiz.model.Quiz;
+import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
+import no.hal.pg.quiz.runtime.service.ServicePackage;
 import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
+import no.hal.pg.quiz.runtime.util.RuntimeResourceFactoryImpl;
 import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.tests.util.TestHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,11 +91,20 @@ public class QuizTaskServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ServiceFactory.eINSTANCE.createQuizTaskService());
+		setFixture(createQuizTaskService());
+	}
+
+	private QuizTaskService createQuizTaskService() {
+		TestHelper testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE);
+		testHelper.registerResourceFactory("jquiz", new RuntimeResourceFactoryImpl());
+
+		testHelper.registerResourceFactory("jquiz", new ModelResourceFactoryImpl());
+		testHelper.addResource(URI.createURI("test:/../../tests/QuizTaskTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
+		return (QuizTaskService) testHelper.loadTestResource(ServicePackage.eINSTANCE.getQuizTaskService());
 	}
 
 	/**
