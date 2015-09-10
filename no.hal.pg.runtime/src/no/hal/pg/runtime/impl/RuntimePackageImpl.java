@@ -685,6 +685,12 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	protected void createPgruntimeAnnotations() {
 		String source = "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore";	
 		addAnnotation
+		  (getService_Context(), 
+		   source, 
+		   new String[] {
+			 "SelfService", ""
+		   });	
+		addAnnotation
 		  (selfServiceEClass, 
 		   source, 
 		   new String[] {

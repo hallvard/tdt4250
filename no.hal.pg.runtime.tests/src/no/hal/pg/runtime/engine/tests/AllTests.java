@@ -25,7 +25,7 @@ public class AllTests extends TestSuite {
 
 	public static Test suite() {
 		TestSuite suite = new AllTests("Pg-runtime Engine Tests");
-		suite.addTest(new ServiceExecutorTest());
+		suite.addTestSuite(ServiceExecutorTest.class);
 		return suite;
 	}
 

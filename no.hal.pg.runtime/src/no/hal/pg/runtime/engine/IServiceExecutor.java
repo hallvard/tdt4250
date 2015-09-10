@@ -9,4 +9,7 @@ public interface IServiceExecutor {
 	public void execute(String serviceName, Map<String, Object> args);
 	public void select(int start, int end);
 	public Object[] getObjects();
+	
+	public String SERVICE_NAMES_WILDCARD = "*";
+	public Map<String, Object> executeFeatureServices(EObject eObject, String featureNames);
 }

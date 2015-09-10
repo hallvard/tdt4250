@@ -33,6 +33,7 @@ public interface Service<T> extends EObject {
 	 * @see #setContext(Object)
 	 * @see no.hal.pg.runtime.RuntimePackage#getService_Context()
 	 * @model kind="reference"
+	 *        annotation="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore SelfService=''"
 	 * @generated
 	 */
 	T getContext();

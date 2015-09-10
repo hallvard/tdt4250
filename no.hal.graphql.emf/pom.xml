@@ -3,116 +3,31 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>no.hal.graphql.emf</artifactId>
-  <packaging>jar</packaging>
+  <packaging>eclipse-plugin</packaging>
 
-  <repositories>
-	<repository>
-	    <snapshots>
-	        <enabled>false</enabled>
-	    </snapshots>
-	    <id>bintray-andimarek-graphql-java</id>
-	    <name>bintray</name>
-	    <url>http://dl.bintray.com/andimarek/graphql-java</url>
-	</repository>
-  </repositories>
-
-  <dependencies>
-	<dependency>
-	    <groupId>com.graphql-java</groupId>
-	    <artifactId>graphql-java</artifactId>
-	    <version>2015-08-12T20-53-11</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.eclipse.emf</groupId>
-	    <artifactId>org.eclipse.emf.ecore</artifactId>
-	    <version>2.10.1</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.eclipse.emf</groupId>
-	    <artifactId>org.eclipse.emf.common</artifactId>
-	    <version>2.10.1</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.emfjson</groupId>
-	    <artifactId>emfjson-core</artifactId>
-	    <version>0.12.0</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.emfjson</groupId>
-	    <artifactId>emfjson-jackson</artifactId>
-	    <version>0.12.0</version>
-	</dependency>
-	
-	<!-- for testing -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.model</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.runtime</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.runtime.tests</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.quiz.model</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.quiz.runtime</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	    <groupId>no.hal.pg</groupId>
-	    <artifactId>no.hal.pg.quiz.runtime.tests</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
-	    <scope>test</scope>
-	</dependency>
-  </dependencies>
-  
   <parent>
   	<groupId>no.hal.pg</groupId>
   	<artifactId>no.hal.pg.parent</artifactId>
   	<version>0.1.0-SNAPSHOT</version>
   	<relativePath>../no.hal.pg.parent</relativePath>
   </parent>
-
+  
   <build>
-  	<plugins>
-		<plugin>
-	    <groupId>org.apache.felix</groupId>
-	    <artifactId>maven-bundle-plugin</artifactId>
-  		<version>2.5.4</version>
-	    <extensions>true</extensions>
-	    <configuration>
-	      <instructions>
-	        <Export-Package>no.hal.graphql.emf</Export-Package>
-	        <Export-Package>graphql.*</Export-Package>
-	        <!-- 
-	        <Private-Package>org.foo.myproject.*</Private-Package>
-	        <Bundle-Activator>org.foo.myproject.impl1.Activator</Bundle-Activator>
-	         -->
-	      </instructions>
-	    </configuration>
-	  </plugin>
-	</plugins>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
+
 </project>

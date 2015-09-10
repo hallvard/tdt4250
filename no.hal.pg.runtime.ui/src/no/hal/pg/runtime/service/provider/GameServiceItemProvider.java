@@ -5,9 +5,7 @@ package no.hal.pg.runtime.service.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import no.hal.pg.runtime.RuntimePackage;
-
 import no.hal.pg.runtime.service.ServicePackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;

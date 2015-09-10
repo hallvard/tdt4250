@@ -10,7 +10,10 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.runtime.tests,
  no.hal.pg.runtime.tests.util,
  no.hal.pg.runtime.service.tests,
- no.hal.pg.runtime.engine.tests
+ no.hal.pg.runtime.engine.tests,
+ runtime,
+ runtime.util,
+ no.hal.pg.runtime.http.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  no.hal.pg.runtime;visibility:=reexport,

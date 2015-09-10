@@ -1,5 +1,6 @@
 package no.hal.pg.runtime.engine.tests;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import junit.framework.TestCase;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.engine.IServiceExecutor;
 import no.hal.pg.runtime.engine.IServiceProvider;
 import no.hal.pg.runtime.engine.ServiceExecutor;
 import no.hal.pg.runtime.tests.util.TestHelper;
@@ -76,9 +78,9 @@ public class ServiceExecutorTest extends TestCase {
 	}
 
 	private void testNonExistingService(EObject target, String serviceName, Map<String, Object> args) {
-		serviceExecutor.init(container);
+		serviceExecutor.init(target);
 		try {
-			serviceExecutor.execute("string1", args);
+			serviceExecutor.execute(serviceName, args);
 			fail();
 		} catch (Exception e) {
 		}
@@ -110,7 +112,7 @@ public class ServiceExecutorTest extends TestCase {
 		assertEquals(1, result.length);
 		assertEquals(container.getInt1(), result[0]);
 	}
-	
+
 	public void testDeriveSelfServiceAlternateAttribute() {
 		serviceExecutor.init(container.getSimple1().getSimples2().get(1));
 		serviceExecutor.execute("int1", null);
@@ -125,5 +127,21 @@ public class ServiceExecutorTest extends TestCase {
 		Object[] result = serviceExecutor.getObjects();
 		assertEquals(1, result.length);
 		assertEquals("Hallvard", result[0]);
+	}
+	
+	public void testContextReference() {
+		serviceExecutor.init(container.getSimple1());
+		testNonExistingService(container, "context", null);
+	}
+	
+	//
+	
+	public void testExecuteFeatureServices() {
+		Map<String, Object> result = serviceExecutor.executeFeatureServices(container, IServiceExecutor.SERVICE_NAMES_WILDCARD);
+		assertTrue(result.keySet().containsAll(Arrays.asList("simple1", "int1")));
+		result = serviceExecutor.executeFeatureServices(container.getSimple1(), IServiceExecutor.SERVICE_NAMES_WILDCARD);
+		assertTrue(result.keySet().containsAll(Arrays.asList("simples2", "string11")));
+		result = serviceExecutor.executeFeatureServices(container.getSimples2().get(0), IServiceExecutor.SERVICE_NAMES_WILDCARD);
+		assertTrue(result.keySet().containsAll(Arrays.asList("int1", "string21")));
 	}
 }

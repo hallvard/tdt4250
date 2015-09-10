@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GraphQL EMF integration
+Bundle-SymbolicName: no.hal.graphql.emf
+Bundle-Version: 0.1.0.qualifier
+Export-Package: graphql,
+ graphql.schema,
+ no.hal.graphql.emf
+Require-Bundle: org.emfjson.core;bundle-version="0.12.0",
+ org.emfjson.jackson;bundle-version="0.12.0",
+ org.eclipse.emf.common;bundle-version="2.11.0",
+ org.eclipse.emf.ecore;bundle-version="2.11.0",
+ no.hal.pg.runtime;bundle-version="0.1.0"
+Bundle-ClassPath: libs/graphql-java-1.2.jar,
+ .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

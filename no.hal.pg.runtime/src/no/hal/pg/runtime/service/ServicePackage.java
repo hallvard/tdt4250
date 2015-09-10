@@ -3,7 +3,6 @@
 package no.hal.pg.runtime.service;
 
 import no.hal.pg.runtime.RuntimePackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;

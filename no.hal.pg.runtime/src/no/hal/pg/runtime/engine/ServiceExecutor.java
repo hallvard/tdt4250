@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -83,66 +84,45 @@ public class ServiceExecutor implements IServiceExecutor {
 	
 	private List<Object> objects = new ArrayList<Object>();
 
+	@Override
 	public void init(EObject... eObject) {
 		setObjects((Object[]) eObject);
 	}
 	
 	public final static String SelfService_ANNOTATION_KEY = "SelfService";
 
+	@Override
 	public void execute(String serviceName, Map<String, Object> args) {
 		Collection<Object> results = new ArrayList<Object>();
 		for (Object object : objects) {
 			if (object instanceof EObject) {
-				EObject eObject = (EObject) object;
-				services: for (Service<?> service : getServices(eObject)) {
-					EObject target = service;
-					ETypedElement serviceElement = getServiceElement(target, serviceName, args);
-					if (serviceElement != null) {
-						String annotationValue = getSelfServiceAnnotationValue(serviceElement);
-						String alternateServiceName = null;
-						if ("*".equals(annotationValue)) {
-							alternateServiceName = serviceName;
-						} else if (annotationValue != null) {
-							alternateServiceName = annotationValue;
+				ServiceInvocation serviceInvocation = getServiceInvokation((EObject) object, serviceName, args);
+				if (serviceInvocation != null) {
+					try {
+						Object value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.serviceElement, serviceInvocation.args);
+						if (value instanceof Collection<?>) {
+							results.addAll((Collection<?>) value);
+						} else {
+							results.add(value);
 						}
-						if (alternateServiceName != null) {
-							target = eObject;
-							serviceElement = getServiceElement(target, alternateServiceName, args);							
-						}
-					} else {
-						String annotationValue = getSelfServiceAnnotationValue(service);
-						if (annotationValue != null && includesFeature(annotationValue, serviceName)) {
-							target = eObject;
-							serviceElement = getServiceElement(target, serviceName, args);
-						}
+					} catch (InvocationTargetException e) {
+						throwServiceInvocationException(e, object, serviceName, args);
 					}
-					if (serviceElement == null) {
-						throwNoSuchServiceException(eObject, serviceName, args);
-					}
-					if (serviceElement != null) {
-						try {
-							Object value = tryInvokeServiceElement(target, serviceElement, args);
-							if (value instanceof Collection<?>) {
-								results.addAll((Collection<?>) value);
-							} else {
-								results.add(value);
-							}
-							break services;
-						} catch (InvocationTargetException e) {
-							throwServiceInvocationException(e, eObject, serviceName, args);
-						}
-					}
+				} else {
+					throwNoSuchServiceException(object, serviceName, args);
 				}
+			} else {
+				throwNoSuchServiceException(object, serviceName, args);
 			}
 		}
 		setObjects(results);
 	}
 
-	protected Object throwNoSuchServiceException(EObject eObject, String serviceName, Map<String, Object> args) {
+	protected Object throwNoSuchServiceException(Object eObject, String serviceName, Map<String, Object> args) {
 		throw new UnsupportedOperationException(eObject + " does not support the " + serviceName + " service");
 	}
 
-	protected Object throwServiceInvocationException(Exception e, EObject eObject, String serviceName, Map<String, Object> args) {
+	protected Object throwServiceInvocationException(Exception e, Object eObject, String serviceName, Map<String, Object> args) {
 		throw new IllegalArgumentException("Exception when invoking " + serviceName + " on " + eObject + ": " + e, e);
 	}
 
@@ -154,9 +134,12 @@ public class ServiceExecutor implements IServiceExecutor {
 		return EcoreUtil.getAnnotation(modelElement, RuntimePackage.eNS_URI, SelfService_ANNOTATION_KEY);
 	}
 	
-	private boolean includesFeature(String featureNames, String featureName) {
-		if ("*".equals(featureNames)) {
+	private boolean includesName(String featureNames, String featureName) {
+		if (SERVICE_NAMES_WILDCARD.equals(featureNames)) {
 			return true;
+		}
+		if (featureNames == null) {
+			return false;
 		}
 		if (featureNames.equals(featureName) ||
 			featureNames.startsWith(featureName + " ") ||
@@ -167,6 +150,131 @@ public class ServiceExecutor implements IServiceExecutor {
 		return false;
 	}
 	
+	private static class ServiceInvocation {
+		@SuppressWarnings("unused") EObject eObject;
+		String serviceName;
+		EObject target;
+		ETypedElement serviceElement;
+		Map<String, Object> args;
+		
+		ServiceInvocation(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, Map<String, Object> args) {
+			set(eObject, serviceName, target, serviceElement, args);
+		}
+		void set(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, Map<String, Object> args) {
+			this.target = target;
+			this.serviceName = serviceName;
+			this.serviceElement = serviceElement;
+			this.args = args;
+		}
+	}
+	
+	protected ServiceInvocation getServiceInvokation(EObject eObject, String serviceName, Map<String, Object> args) {
+		for (Service<?> service : getServices(eObject)) {
+			EObject target = service;
+			ETypedElement serviceElement = getServiceElement(target, serviceName, args);
+			if (serviceElement != null) {
+				String annotationValue = getSelfServiceAnnotationValue(serviceElement);
+				String alternateServiceName = null;
+				if (SERVICE_NAMES_WILDCARD.equals(annotationValue)) {
+					alternateServiceName = serviceName;
+				} else if (annotationValue != null) {
+					alternateServiceName = annotationValue;
+				}
+				if (alternateServiceName != null) {
+					target = eObject;
+					serviceElement = getServiceElement(target, alternateServiceName, args);							
+				}
+			} else {
+				String annotationValue = getSelfServiceAnnotationValue(service);
+				if (annotationValue != null && includesName(annotationValue, serviceName)) {
+					target = eObject;
+					serviceElement = getServiceElement(target, serviceName, args);
+				}
+			}
+			if (serviceElement != null) {
+				return new ServiceInvocation(eObject, serviceElement.getName(), target, serviceElement, args);
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Map<String, Object> executeFeatureServices(EObject eObject, String featureNames) {
+		Map<String, Object> results = new HashMap<String, Object>();
+		Collection<ServiceInvocation> serviceInvokations = getServiceInvokations(eObject, featureNames, true);
+		for (ServiceInvocation serviceInvocation : serviceInvokations) {
+			Object value = null;
+			try {
+				value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.serviceElement, serviceInvocation.args);
+				if (value instanceof Collection<?>) {
+					value = ((Collection<?>) value).toArray();
+				} else {
+					value = new Object[]{value};
+				}
+			} catch (Exception e) {
+				System.out.println("Exception when invoking " + serviceInvocation.serviceElement + " on " + serviceInvocation.target + ": " + e);
+				value = e;
+			}
+			results.put(serviceInvocation.serviceName, value);
+		}
+		return results;
+	}
+
+	protected Collection<ServiceInvocation> getServiceInvokations(EObject eObject, String serviceNames, boolean onlyFeatures) {
+		Collection<ServiceInvocation> serviceInvocations = new ArrayList<ServiceExecutor.ServiceInvocation>();
+		for (Service<?> service : getServices(eObject)) {
+			EObject target = service;
+			Collection<ETypedElement> features = null;
+			String annotationValue = getSelfServiceAnnotationValue(service);
+			if (annotationValue != null) {
+				target = eObject;
+				features = getServiceElements(target, annotationValue, onlyFeatures);
+			} else {
+				features = getServiceElements(target, SERVICE_NAMES_WILDCARD, onlyFeatures);
+			}
+			for (ETypedElement serviceElement : features) {
+				EObject serviceTarget = target;
+				String serviceName = serviceElement.getName();
+				if (! includesName(serviceNames, serviceName)) {
+					continue;
+				}
+				annotationValue = getSelfServiceAnnotationValue(serviceElement);
+				String alternateServiceName = null;
+				if (SERVICE_NAMES_WILDCARD.equals(annotationValue)) {
+					alternateServiceName = serviceName;
+				} else if (annotationValue != null) {
+					alternateServiceName = annotationValue;
+				}
+				if (alternateServiceName != null) {
+					serviceTarget = eObject;
+					serviceElement = getServiceElement(serviceTarget, alternateServiceName, null);							
+				}
+				if (serviceElement != null) {
+					serviceInvocations.add(new ServiceInvocation(eObject, serviceName, serviceTarget, serviceElement, null));
+				}
+			}
+		}
+		return serviceInvocations;
+	}
+	
+	protected Collection<ETypedElement> getServiceElements(EObject target, String serviceNames, boolean onlyFeatures) {
+		Collection<ETypedElement> elements = new ArrayList<ETypedElement>();
+		elements.addAll(target.eClass().getEAllStructuralFeatures());
+		if (! onlyFeatures) {
+			elements.addAll(target.eClass().getEAllOperations());
+		}
+		if (! SERVICE_NAMES_WILDCARD.equals(serviceNames)) {
+			Iterator<ETypedElement> it = elements.iterator();
+			while (it.hasNext()) {
+				ETypedElement elt = it.next();
+				if (! includesName(serviceNames, elt.getName())) {
+					it.remove();
+				}
+			}
+		}
+		return elements;
+	}
+		
 	protected ETypedElement getServiceElement(EObject service, String serviceName, Map<String, Object> args) {
 		EList<EOperation> operations = service.eClass().getEOperations();
 		EOperation operation = getServiceOperation(serviceName, args, operations);
@@ -204,6 +312,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		setObjects(Arrays.asList(objects));
 	}
 	
+	@Override
 	public void select(int start, int end) {
 		if (start < 0) {
 			start = objects.size() + start;
@@ -215,6 +324,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		setObjects(selection);
 	}
 	
+	@Override
 	public Object[] getObjects() {
 		return objects.toArray();
 	}
