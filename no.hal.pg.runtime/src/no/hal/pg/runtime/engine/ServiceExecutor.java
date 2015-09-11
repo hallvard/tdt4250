@@ -99,7 +99,7 @@ public class ServiceExecutor implements IServiceExecutor {
 				ServiceInvocation serviceInvocation = getServiceInvokation((EObject) object, serviceName, args);
 				if (serviceInvocation != null) {
 					try {
-						Object value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.serviceElement, serviceInvocation.args);
+						Object value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
 						if (value instanceof Collection<?>) {
 							results.addAll((Collection<?>) value);
 						} else {
@@ -150,20 +150,22 @@ public class ServiceExecutor implements IServiceExecutor {
 		return false;
 	}
 	
-	private static class ServiceInvocation {
+	public static class ServiceInvocation {
 		@SuppressWarnings("unused") EObject eObject;
 		String serviceName;
 		EObject target;
-		ETypedElement serviceElement;
+		public ETypedElement serviceElement;
+		ETypedElement targetElement;
 		Map<String, Object> args;
 		
-		ServiceInvocation(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, Map<String, Object> args) {
-			set(eObject, serviceName, target, serviceElement, args);
+		ServiceInvocation(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, Object> args) {
+			set(eObject, serviceName, target, serviceElement, targetElement, args);
 		}
-		void set(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, Map<String, Object> args) {
+		void set(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, Object> args) {
 			this.target = target;
 			this.serviceName = serviceName;
 			this.serviceElement = serviceElement;
+			this.targetElement = targetElement;
 			this.args = args;
 		}
 	}
@@ -171,7 +173,7 @@ public class ServiceExecutor implements IServiceExecutor {
 	protected ServiceInvocation getServiceInvokation(EObject eObject, String serviceName, Map<String, Object> args) {
 		for (Service<?> service : getServices(eObject)) {
 			EObject target = service;
-			ETypedElement serviceElement = getServiceElement(target, serviceName, args);
+			ETypedElement serviceElement = getServiceElement(target, serviceName, args), targetElement = serviceElement;
 			if (serviceElement != null) {
 				String annotationValue = getSelfServiceAnnotationValue(serviceElement);
 				String alternateServiceName = null;
@@ -182,17 +184,23 @@ public class ServiceExecutor implements IServiceExecutor {
 				}
 				if (alternateServiceName != null) {
 					target = eObject;
-					serviceElement = getServiceElement(target, alternateServiceName, args);							
+					targetElement = getServiceElement(target, alternateServiceName, args);
+					if (targetElement == null) {
+						serviceElement = null;
+					}
 				}
 			} else {
 				String annotationValue = getSelfServiceAnnotationValue(service);
 				if (annotationValue != null && includesName(annotationValue, serviceName)) {
 					target = eObject;
-					serviceElement = getServiceElement(target, serviceName, args);
+					targetElement = getServiceElement(target, serviceName, args);
 				}
 			}
-			if (serviceElement != null) {
-				return new ServiceInvocation(eObject, serviceElement.getName(), target, serviceElement, args);
+			if (targetElement == null) {
+				targetElement = serviceElement;
+			}
+			if (targetElement != null) {
+				return new ServiceInvocation(eObject, targetElement.getName(), target, serviceElement, targetElement, args);
 			}
 		}
 		return null;
@@ -205,14 +213,14 @@ public class ServiceExecutor implements IServiceExecutor {
 		for (ServiceInvocation serviceInvocation : serviceInvokations) {
 			Object value = null;
 			try {
-				value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.serviceElement, serviceInvocation.args);
+				value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
 				if (value instanceof Collection<?>) {
 					value = ((Collection<?>) value).toArray();
 				} else {
 					value = new Object[]{value};
 				}
 			} catch (Exception e) {
-				System.out.println("Exception when invoking " + serviceInvocation.serviceElement + " on " + serviceInvocation.target + ": " + e);
+				System.out.println("Exception when invoking " + serviceInvocation.targetElement + " on " + serviceInvocation.target + ": " + e);
 				value = e;
 			}
 			results.put(serviceInvocation.serviceName, value);
@@ -220,7 +228,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		return results;
 	}
 
-	protected Collection<ServiceInvocation> getServiceInvokations(EObject eObject, String serviceNames, boolean onlyFeatures) {
+	public Collection<ServiceInvocation> getServiceInvokations(EObject eObject, String serviceNames, boolean onlyFeatures) {
 		Collection<ServiceInvocation> serviceInvocations = new ArrayList<ServiceExecutor.ServiceInvocation>();
 		for (Service<?> service : getServices(eObject)) {
 			EObject target = service;
@@ -233,6 +241,7 @@ public class ServiceExecutor implements IServiceExecutor {
 				features = getServiceElements(target, SERVICE_NAMES_WILDCARD, onlyFeatures);
 			}
 			for (ETypedElement serviceElement : features) {
+				ETypedElement targetElement = null;
 				EObject serviceTarget = target;
 				String serviceName = serviceElement.getName();
 				if (! includesName(serviceNames, serviceName)) {
@@ -247,10 +256,16 @@ public class ServiceExecutor implements IServiceExecutor {
 				}
 				if (alternateServiceName != null) {
 					serviceTarget = eObject;
-					serviceElement = getServiceElement(serviceTarget, alternateServiceName, null);							
+					targetElement = getServiceElement(serviceTarget, alternateServiceName, null);
+					if (targetElement == null) {
+						serviceElement = null; 
+					}
 				}
-				if (serviceElement != null) {
-					serviceInvocations.add(new ServiceInvocation(eObject, serviceName, serviceTarget, serviceElement, null));
+				if (targetElement == null) {
+					targetElement = serviceElement;
+				}
+				if (targetElement != null) {
+					serviceInvocations.add(new ServiceInvocation(eObject, serviceName, serviceTarget, serviceElement, targetElement, null));
 				}
 			}
 		}
@@ -280,7 +295,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		EOperation operation = getServiceOperation(serviceName, args, operations);
 		if (operation != null) {
 			return operation;
-		} else if (args == null) {
+		} else if (args == null || args.size() == 0) {
 			EStructuralFeature feature = service.eClass().getEStructuralFeature(serviceName);
 			return feature;
 		}

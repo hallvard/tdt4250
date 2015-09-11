@@ -1,5 +1,11 @@
 package no.hal.graphql.emf;
 
+import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -60,22 +66,31 @@ public class GraphQLEmfTest extends TestCase {
     	checkObjectType("GameServiceObject", "context");
     }
 
-    private void checkInterfaceType(String name, String... fieldNames) {
-    	GraphQLType type = schema.getType(name);
-    	assertTrue(type instanceof GraphQLInterfaceType);
-    	GraphQLInterfaceType interfaceType = (GraphQLInterfaceType) type;
+    public static void checkFieldContainerType(GraphQLSchema schema, String typeName, Class<? extends GraphQLType> typeClass, String... fieldNames) {
+    	GraphQLType type = schema.getType(typeName);
+    	assertNotNull("Type " + typeName + " is missing", type);
+    	checkFieldContainerType(type, typeClass, fieldNames);
+    }
+
+	public static void checkFieldContainerType(GraphQLType type, Class<? extends GraphQLType> typeClass, String... fieldNames) {
+    	assertTrue(type + " is not of type " + typeClass, typeClass.isInstance(type));
     	for (String fieldName : fieldNames) {
-    		assertNotNull(interfaceType.getFieldDefinition(fieldName));
+			try {
+				Method method = typeClass.getMethod("getFieldDefinition", new Class[]{String.class});
+				Object field = method.invoke(type, fieldName);
+				assertNotNull("Field " + fieldName + " is missing from " + type.getName(), field);
+			} catch (Exception e) {
+				fail(e.getMessage());
+			}
     	}
+    }
+    
+    private void checkInterfaceType(String name, String... fieldNames) {
+    	checkFieldContainerType(schema, name, GraphQLInterfaceType.class, fieldNames);
     }
 
     private void checkObjectType(String name, String... fieldNames) {
-    	GraphQLType type = schema.getType(name);
-    	assertTrue(type instanceof GraphQLObjectType);
-    	GraphQLObjectType objectType = (GraphQLObjectType) type;
-    	for (String fieldName : fieldNames) {
-    		assertNotNull(objectType.getFieldDefinition(fieldName));
-    	}
+    	checkFieldContainerType(schema, name, GraphQLObjectType.class, fieldNames);
     }
     
     public void testGameQuery() {
@@ -99,10 +114,36 @@ public class GraphQLEmfTest extends TestCase {
 			throw afe;
 		}
     	Map<String, Object> data = result.getData();
+    	printData(data, System.out);
+    }
+    
+    public static void printData(Map<String, Object> data, OutputStream out) {
     	try {
-    		new ObjectMapper().writer(new DefaultPrettyPrinter()).writeValue(System.out, data);
+    		new ObjectMapper().writer(new DefaultPrettyPrinter()).writeValue(out, data);
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+    }
+
+    public static void checkData(Map<String, Object> data, Object... path) {
+    	Object value = data;
+    	Iterator<Object> segments = Arrays.asList(path).iterator();
+    	while (segments.hasNext()) {
+    		Object segment = segments.next();
+    		if (value instanceof Map<?, ?>) {
+    			assertTrue(segments.hasNext());
+    			value = ((Map<?, ?>) value).get(segment);
+    		} else if (value instanceof List<?>) {
+    			assertTrue(segment instanceof Integer);
+    			if (segments.hasNext()) {
+    				value = ((List<?>) value).get((Integer) segment);
+    			} else {
+    				assertEquals(((Integer) segment).intValue(), ((List<?>) value).size());
+    			}
+    		} else {
+    			assertFalse(segments.hasNext());
+    			assertEquals(segment, value);
+    		}
+    	}
     }
 }

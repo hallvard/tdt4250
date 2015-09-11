@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import graphql.Scalars;
+import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLArgument;
 import graphql.schema.GraphQLEnumType;
 import graphql.schema.GraphQLFieldDefinition;
@@ -113,10 +114,14 @@ public class SchemaGenerator {
 		return interfaceType;
 	}
 
-	private void addFields(EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+	protected boolean includesPackage(EPackage pack) {
+		return packages.contains(pack);
+	}
+	
+	protected void addFields(EClass eClass, Collection<GraphQLFieldDefinition> fields) {
 		try {
 			// stay within domain
-			if (packages.contains(eClass.getEPackage())) {
+			if (includesPackage(eClass.getEPackage())) {
 				addFields(eClass.getEAllStructuralFeatures(), eClass, fields);
 				for (EClass superClass : eClass.getEAllSuperTypes()) {
 					addFields(superClass.getEOperations(), eClass, fields);
@@ -127,7 +132,7 @@ public class SchemaGenerator {
 		}
 	}
 
-	private void addFields(Iterable<? extends ETypedElement> typedElements, EClass eClass, Collection<GraphQLFieldDefinition> fields) {
+	protected void addFields(Iterable<? extends ETypedElement> typedElements, EClass eClass, Collection<GraphQLFieldDefinition> fields) {
 		for (ETypedElement typedElement : typedElements) {
 			if (shouldExclude(eClass, typedElement)) {
 				continue;
@@ -197,7 +202,7 @@ public class SchemaGenerator {
 		}
 		return false;
 	}
-	
+
 	private boolean shouldExclude(EClass eClass, ETypedElement typedElement) {
 		// void operations are excluded
 		if (typedElement.getEGenericType() == null) {
@@ -258,14 +263,19 @@ public class SchemaGenerator {
 				fieldBuilder.argument(arg);
 			}
 		}
-		if (element instanceof EStructuralFeature) {
-			fieldBuilder.dataFetcher(new EStructuralFeatureDataFetcher((EStructuralFeature) element));
-		} else if (element instanceof EOperation) {
-			fieldBuilder.dataFetcher(new EOperationDataFetcher((EOperation) element));
-		}
+		fieldBuilder.dataFetcher(getDataFetcher(element));
 		return fieldBuilder.build();
 	}
 
+	protected DataFetcher getDataFetcher(ETypedElement typedElement) {
+		if (typedElement instanceof EStructuralFeature) {
+			return new EStructuralFeatureDataFetcher((EStructuralFeature) typedElement);
+		} else if (typedElement instanceof EOperation) {
+			return new EOperationDataFetcher((EOperation) typedElement);
+		}
+		return null;
+	}
+	
 	private GraphQLType getGraphQLType(ETypedElement typedElement, EClass context, Class<? extends GraphQLType> typeClass) {
 		EClassifier eClassifier = EcoreUtil.getReifiedType(context, typedElement.getEGenericType()).getEClassifier();
 		GraphQLType type = getGraphQLType(eClassifier, typeClass);

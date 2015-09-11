@@ -16,29 +16,31 @@ import no.hal.pg.runtime.tests.util.TestHelper;
 
 public class ServiceExecutorTest extends TestCase {
 	
+	public static class ServiceExecutorTestServiceProvider implements IServiceProvider {
+		@Override
+		public Service<?> getService(EObject eObject) {
+			Service<?> service = null;
+			if (eObject instanceof Container) {
+				service = TestsFactory.eINSTANCE.createContainerService();
+			} else if (eObject instanceof Simple1) {
+				service = RuntimeFactory.eINSTANCE.createSelfService();
+			} else if (eObject instanceof Simple2) {
+				service = TestsFactory.eINSTANCE.createSimple2Service();
+			}
+			if (service != null) {
+				((Service<EObject>) service).setContext(eObject);
+			}
+			return service;
+		}
+	}
+
 	private ServiceExecutor serviceExecutor;
 	private Container container;
 	
 	@Override
 	protected void setUp() throws Exception {
 		serviceExecutor = new ServiceExecutor();
-		serviceExecutor.addServiceProvider(new IServiceProvider() {
-			@Override
-			public Service<?> getService(EObject eObject) {
-				Service<?> service = null;
-				if (eObject instanceof Container) {
-					service = TestsFactory.eINSTANCE.createContainerService();
-				} else if (eObject instanceof Simple1) {
-					service = RuntimeFactory.eINSTANCE.createSelfService();
-				} else if (eObject instanceof Simple2) {
-					service = TestsFactory.eINSTANCE.createSimple2Service();
-				}
-				if (service != null) {
-					((Service<EObject>) service).setContext(eObject);
-				}
-				return service;
-			}
-		});
+		serviceExecutor.addServiceProvider(new ServiceExecutorTestServiceProvider());
 		TestHelper testHelper = new TestHelper(this, TestsPackage.eINSTANCE);
 		container = (Container) testHelper.loadResource("Container1.xmi", TestsPackage.eINSTANCE.getContainer());
 	}

@@ -2,6 +2,7 @@
  */
 package no.hal.pg.runtime.engine.tests;
 
+import no.hal.pg.runtime.RuntimePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -42,7 +43,7 @@ public class TestsPackage extends EPackageImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String eNS_URI = "platform:/plugin/no.hal.graphql.emf.tests/src/no/hal/graphql/emf/tests/tests.ecore";
+	public static final String eNS_URI = "platform:/plugin/no.hal.pg.runtime.tests/src/no/hal/pg/runtime/engine/tests/tests.ecore";
 
 	/**
 	 * The package namespace name.
@@ -233,7 +234,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE__CONTEXT = runtime.RuntimePackage.SERVICE__CONTEXT;
+	public static final int CONTAINER_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Simple1</b></em>' reference.
@@ -242,7 +243,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE__SIMPLE1 = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+	public static final int CONTAINER_SERVICE__SIMPLE1 = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Int1</b></em>' attribute.
@@ -251,7 +252,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE__INT1 = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	public static final int CONTAINER_SERVICE__INT1 = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Container Service</em>' class.
@@ -260,7 +261,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE_FEATURE_COUNT = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	public static final int CONTAINER_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Simples2</em>' operation.
@@ -269,7 +270,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE___GET_SIMPLES2__STRING = runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 0;
+	public static final int CONTAINER_SERVICE___GET_SIMPLES2__STRING = RuntimePackage.SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Container Service</em>' class.
@@ -278,7 +279,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINER_SERVICE_OPERATION_COUNT = runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 1;
+	public static final int CONTAINER_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.engine.tests.Simple2Service <em>Simple2 Service</em>}' class.
@@ -297,7 +298,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE__CONTEXT = runtime.RuntimePackage.SERVICE__CONTEXT;
+	public static final int SIMPLE2_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Int1</b></em>' attribute.
@@ -306,7 +307,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE__INT1 = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+	public static final int SIMPLE2_SERVICE__INT1 = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>String21</b></em>' attribute.
@@ -315,7 +316,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE__STRING21 = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	public static final int SIMPLE2_SERVICE__STRING21 = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Simple2 Service</em>' class.
@@ -324,7 +325,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE_FEATURE_COUNT = runtime.RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	public static final int SIMPLE2_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add1</em>' operation.
@@ -333,7 +334,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE___ADD1 = runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 0;
+	public static final int SIMPLE2_SERVICE___ADD1 = RuntimePackage.SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -342,7 +343,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE___ADD__INT = runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 1;
+	public static final int SIMPLE2_SERVICE___ADD__INT = RuntimePackage.SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Simple2 Service</em>' class.
@@ -351,7 +352,7 @@ public class TestsPackage extends EPackageImpl {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIMPLE2_SERVICE_OPERATION_COUNT = runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 2;
+	public static final int SIMPLE2_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -434,16 +435,14 @@ public class TestsPackage extends EPackageImpl {
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		runtime.RuntimePackage theRuntimePackage = (runtime.RuntimePackage)(EPackage.Registry.INSTANCE.getEPackage(runtime.RuntimePackage.eNS_URI) instanceof runtime.RuntimePackage ? EPackage.Registry.INSTANCE.getEPackage(runtime.RuntimePackage.eNS_URI) : runtime.RuntimePackage.eINSTANCE);
+		// Initialize simple dependencies
+		RuntimePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theTestsPackage.createPackageContents();
-		theRuntimePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTestsPackage.initializePackageContents();
-		theRuntimePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTestsPackage.freeze();
@@ -807,7 +806,7 @@ public class TestsPackage extends EPackageImpl {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		runtime.RuntimePackage theRuntimePackage = (runtime.RuntimePackage)EPackage.Registry.INSTANCE.getEPackage(runtime.RuntimePackage.eNS_URI);
+		RuntimePackage theRuntimePackage = (RuntimePackage)EPackage.Registry.INSTANCE.getEPackage(RuntimePackage.eNS_URI);
 
 		// Create type parameters
 

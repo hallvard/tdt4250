@@ -5,6 +5,7 @@ package no.hal.pg.runtime.engine.tests;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import no.hal.pg.runtime.Service;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList.UnmodifiableEList;
 import org.eclipse.emf.common.util.EList;
@@ -33,7 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @model kind="class"
  * @generated
  */
-public class ContainerService extends MinimalEObjectImpl.Container implements runtime.Service<no.hal.pg.runtime.engine.tests.Container> {
+public class ContainerService extends MinimalEObjectImpl.Container implements Service<no.hal.pg.runtime.engine.tests.Container> {
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->

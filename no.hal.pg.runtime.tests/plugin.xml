@@ -9,8 +9,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated tests -->
       <package
-            uri="platform:/plugin/no.hal.pg.runtime.http.tests/src/no/hal/pg/runtime/http/tests/tests.ecore"
-            class="no.hal.pg.runtime.http.tests.TestsPackage"/>
+            uri="platform:/plugin/no.hal.pg.runtime.tests/src/no/hal/pg/runtime/engine/tests/tests.ecore"
+            class="no.hal.pg.runtime.engine.tests.TestsPackage"
+            genModel="src/no/hal/pg/runtime/engine/tests/tests.genmodel"/>
    </extension>
 
 </plugin>
