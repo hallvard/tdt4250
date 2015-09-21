@@ -8,6 +8,7 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.SelfService;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
@@ -73,6 +74,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass selfServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -411,6 +419,15 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSelfService() {
+		return selfServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getTimestamp() {
 		return timestampEDataType;
 	}
@@ -477,6 +494,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__CONTEXT);
 
+		selfServiceEClass = createEClass(SELF_SERVICE);
+
 		// Create data types
 		timestampEDataType = createEDataType(TIMESTAMP);
 	}
@@ -526,6 +545,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		// Add supertypes to classes
 		gameEClass.getESuperTypes().add(this.getPlayers());
 		taskEClass.getESuperTypes().add(this.getPlayers());
+		g1 = createEGenericType(this.getService());
+		g2 = createEGenericType(ecorePackage.getEObject());
+		g1.getETypeArguments().add(g2);
+		selfServiceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -603,6 +626,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1 = createEGenericType(serviceEClass_T);
 		initEReference(getService_Context(), g1, null, "context", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(selfServiceEClass, SelfService.class, "SelfService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize data types
 		initEDataType(timestampEDataType, Long.class, "Timestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -614,6 +639,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		createImportAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore
+		createPgruntimeAnnotations();
 	}
 
 	/**
@@ -646,6 +673,28 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		   source, 
 		   new String[] {
 			 "constraints", "PlayerIsContainedInGame"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPgruntimeAnnotations() {
+		String source = "platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore";	
+		addAnnotation
+		  (getService_Context(), 
+		   source, 
+		   new String[] {
+			 "SelfService", ""
+		   });	
+		addAnnotation
+		  (selfServiceEClass, 
+		   source, 
+		   new String[] {
+			 "SelfService", "*"
 		   });
 	}
 

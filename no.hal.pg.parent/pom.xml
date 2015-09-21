@@ -86,5 +86,7 @@
 	 -->
 	<module>../no.hal.pg.model.ui</module>
 	<module>../no.hal.pg.runtime.ui</module>
+	<module>../no.hal.graphql.emf.tests</module>
+	<module>../no.hal.pg.runtime.http.tests</module>
 	</modules>
 </project>

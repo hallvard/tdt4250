@@ -9,8 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.runtime.tests,
  no.hal.pg.runtime.tests.util,
- no.hal.pg.runtime.service.tests
+ no.hal.pg.runtime.service.tests,
+ no.hal.pg.runtime.engine.tests
 Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  no.hal.pg.runtime;visibility:=reexport,
  no.hal.pg.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

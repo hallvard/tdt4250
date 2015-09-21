@@ -3,7 +3,6 @@
 package no.hal.pg.runtime.service.util;
 
 import no.hal.pg.runtime.Service;
-
 import no.hal.pg.runtime.service.*;
 
 import org.eclipse.emf.common.notify.Adapter;

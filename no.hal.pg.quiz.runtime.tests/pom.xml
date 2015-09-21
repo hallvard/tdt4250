@@ -12,6 +12,15 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testResources>
+    	<testResource>
+    		<directory>src</directory>
+    		<includes>
+	    		<include>**/*.json</include>
+	    		<include>**/*.jquiz</include>
+    		</includes>
+    	</testResource>
+    </testResources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -21,7 +30,7 @@
 			<artifactId>tycho-surefire-plugin</artifactId>
 			<version>${tycho-version}</version>
 		    <configuration>
-				<testClass>no.hal.pg.quiz.runtime.tests.QuizruntimeAllTests</testClass>
+				<testClass>no.hal.pg.quiz.runtime.tests.AllTests</testClass>
 		    </configuration>
 		</plugin>
      </plugins>

@@ -94,6 +94,8 @@ public class RuntimeValidator extends EObjectValidator {
 				return validateTaskState((TaskState<?>)value, diagnostics, context);
 			case RuntimePackage.SERVICE:
 				return validateService((Service<?>)value, diagnostics, context);
+			case RuntimePackage.SELF_SERVICE:
+				return validateSelfService((SelfService)value, diagnostics, context);
 			case RuntimePackage.TIMESTAMP:
 				return validateTimestamp((Long)value, diagnostics, context);
 			default:
@@ -187,6 +189,15 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validateService(Service<?> service, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(service, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSelfService(SelfService selfService, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(selfService, diagnostics, context);
 	}
 
 	/**

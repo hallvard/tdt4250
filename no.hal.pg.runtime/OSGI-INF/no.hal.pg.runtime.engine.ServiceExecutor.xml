@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.ServiceExecutor">
+   <implementation class="no.hal.pg.runtime.engine.ServiceExecutor"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.IServiceExecutor"/>
+   </service>
+   <reference bind="addReferenceHandler" cardinality="0..n" interface="no.hal.pg.runtime.engine.IReferenceHandler" name="ReferenceHandler" policy="dynamic" unbind="removeReferenceHandler"/>
+   <reference bind="addServiceProvider" cardinality="0..n" interface="no.hal.pg.runtime.engine.IServiceProvider" name="ServiceProvider" policy="dynamic" unbind="removeServiceProvider"/>
+</scr:component>

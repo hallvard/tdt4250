@@ -99,7 +99,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true">
     <eTypeParameters name="T"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context">
+      <eAnnotations source="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore">
+        <details key="SelfService" value=""/>
+      </eAnnotations>
       <eGenericType eTypeParameter="#//Service/T"/>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfService">
+    <eAnnotations source="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore">
+      <details key="SelfService" value="*"/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//Service">
+      <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

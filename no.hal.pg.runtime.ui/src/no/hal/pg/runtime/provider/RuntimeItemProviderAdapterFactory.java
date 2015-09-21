@@ -164,6 +164,29 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.SelfService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SelfServiceItemProvider selfServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.runtime.SelfService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSelfServiceAdapter() {
+		if (selfServiceItemProvider == null) {
+			selfServiceItemProvider = new SelfServiceItemProvider(this);
+		}
+
+		return selfServiceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 		if (playerItemProvider != null) playerItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskStateItemProvider != null) taskStateItemProvider.dispose();
+		if (selfServiceItemProvider != null) selfServiceItemProvider.dispose();
 	}
 
 }

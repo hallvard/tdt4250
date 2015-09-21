@@ -80,7 +80,6 @@ public class Engine implements IEngine {
 
 	private void setGame(Game game) {
 		this.game = game;
-		this.game.eAdapters().add(serviceListener);
 	}
 	
 	public void init(Game game) {
@@ -117,7 +116,6 @@ public class Engine implements IEngine {
 
 	protected void taskFinished(Task<?, ?> task) {
 		task.eAdapters().remove(stateListener);
-		task.eAdapters().remove(serviceListener);
 	}
 
 	protected void startNextTask() {
@@ -132,67 +130,9 @@ public class Engine implements IEngine {
 
 	protected void taskStarting(Task<?, ?> task) {
 		task.eAdapters().add(stateListener);
-		task.eAdapters().add(serviceListener);
 	}
 
 	public void start() {
 		startNextTask();
-	}
-	
-	//
-	
-	private Adapter serviceListener = new EContentAdapter() {
-		@Override
-		public void notifyChanged(Notification msg) {
-			switch (msg.getEventType()) {
-			case Notification.ADD:
-			case Notification.ADD_MANY: {
-				fireServiceActivated(msg.getNewValue());
-				break;
-			}
-			case Notification.REMOVE:
-			case Notification.REMOVE_MANY:
-				fireServiceDeactivated(msg.getOldValue());
-				break;
-			}
-		}
-	};
-
-	private Collection<IServiceListener> serviceListeners = new ArrayList<IServiceListener>();
-
-	@Reference(
-			cardinality=ReferenceCardinality.MULTIPLE,
-			policy=ReferencePolicy.DYNAMIC,
-			unbind="removeServiceListener"
-	)
-	public synchronized void addServiceListener(IServiceListener serviceListener) {
-		serviceListeners.add(serviceListener);
-	}
-	
-	public synchronized void removeServiceListener(IServiceListener serviceListener) {
-		serviceListeners.remove(serviceListener);
-	}
-
-	protected void fireServiceActivated(Object o) {
-		if (o instanceof Service<?>) {
-			for (IServiceListener serviceListener : serviceListeners) {
-				serviceListener.serviceActivated(this, (Service<?>) o);
-			}
-		} else if (o instanceof Collection<?>) {
-			for (Object element : (Collection<?>) o) {
-				fireServiceActivated(element);
-			}
-		}
-	}
-	protected void fireServiceDeactivated(Object o) {
-		if (o instanceof Service<?>) {
-			for (IServiceListener serviceListener : serviceListeners) {
-				serviceListener.serviceDeactivated(this, (Service<?>) o);
-			}
-		} else if (o instanceof Collection<?>) {
-			for (Object element : (Collection<?>) o) {
-				fireServiceDeactivated(element);
-			}
-		}
 	}
 }

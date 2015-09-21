@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tests" nsURI="platform:/plugin/no.hal.pg.runtime.tests/src/no/hal/pg/runtime/engine/tests/tests.ecore"
+    nsPrefix="tests">
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple1" eType="#//Simple1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simples2" upperBound="-1"
+        eType="#//Simple2" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simples2" upperBound="-1"
+        eType="#//Simple2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string11" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int21" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string21" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerService">
+    <eOperations name="getSimples2" upperBound="-1" eType="#//Simple2">
+      <eParameters name="stringFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple1" eType="#//Simple1"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore">
+        <details key="SelfService" value="*"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../../../../../../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="#//Container"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple2Service">
+    <eOperations name="add1"/>
+    <eOperations name="add">
+      <eParameters name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true">
+      <eAnnotations source="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore">
+        <details key="SelfService" value="int21"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string21" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../../../../../../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="#//Simple2"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>
