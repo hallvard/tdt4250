@@ -397,11 +397,11 @@ public interface RuntimePackage extends EPackage {
 	EReference getQuizTask_Proposals();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.quiz.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Propose Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean)
+	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.quiz.QA, java.lang.String, boolean)
 	 * @generated
 	 */
 	EOperation getQuizTask__ProposeAnswer__QA_String_boolean();

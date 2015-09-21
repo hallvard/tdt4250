@@ -4,10 +4,9 @@ package no.hal.pg.quiz.model.impl;
 
 import java.util.Collection;
 import no.hal.pg.model.impl.TaskDefImpl;
-
-import no.hal.pg.quiz.model.AbstractQuizPart;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.QuizTaskDef;
+import no.hal.quiz.AbstractQuizPart;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;

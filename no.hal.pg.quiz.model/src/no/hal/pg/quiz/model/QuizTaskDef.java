@@ -3,6 +3,7 @@
 package no.hal.pg.quiz.model;
 
 import no.hal.pg.model.TaskDef;
+import no.hal.quiz.AbstractQuizPart;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -26,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 public interface QuizTaskDef extends TaskDef {
 	/**
 	 * Returns the value of the '<em><b>Quiz Parts</b></em>' reference list.
-	 * The list contents are of type {@link no.hal.pg.quiz.model.AbstractQuizPart}.
+	 * The list contents are of type {@link no.hal.quiz.AbstractQuizPart}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Quiz Parts</em>' reference list isn't clear,

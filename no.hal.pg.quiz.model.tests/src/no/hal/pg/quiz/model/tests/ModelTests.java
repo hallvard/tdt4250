@@ -27,17 +27,11 @@ public class ModelTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Test suite() {
 		TestSuite suite = new ModelTests("model Tests");
-		suite.addTestSuite(StringAnswerTest.class);
-		suite.addTestSuite(NumberAnswerTest.class);
-		suite.addTestSuite(BooleanAnswerTest.class);
-		suite.addTestSuite(XmlAnswerTest.class);
-		suite.addTestSuite(OptionsAnswerTest.class);
-		suite.addTestSuite(SingleOptionsAnswerTest.class);
-		suite.addTestSuite(ManyOptionsAnswerTest.class);
+		suite.addTestSuite(QuizTaskDefTest.class);
 		return suite;
 	}
 

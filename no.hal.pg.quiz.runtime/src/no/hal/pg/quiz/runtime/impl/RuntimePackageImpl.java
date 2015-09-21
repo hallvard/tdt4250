@@ -10,6 +10,7 @@ import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 
 import no.hal.pg.quiz.runtime.util.RuntimeValidator;
+import no.hal.quiz.QuizPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -300,6 +301,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		// Obtain other dependent packages
 		no.hal.pg.runtime.RuntimePackage theRuntimePackage_1 = (no.hal.pg.runtime.RuntimePackage)EPackage.Registry.INSTANCE.getEPackage(no.hal.pg.runtime.RuntimePackage.eNS_URI);
 		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+		QuizPackage theQuizPackage = (QuizPackage)EPackage.Registry.INSTANCE.getEPackage(QuizPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -323,7 +325,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEReference(getQuizTask_Proposals(), this.getQAProposal(), null, "proposals", null, 0, -1, QuizTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getQuizTask__ProposeAnswer__QA_String_boolean(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theModelPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theQuizPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -332,7 +334,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(acceptingAnswerStateEClass, AcceptingAnswerState.class, "AcceptingAnswerState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(qaProposalEClass, QAProposal.class, "QAProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQAProposal_Qa(), theModelPackage.getQA(), null, "qa", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQAProposal_Qa(), theQuizPackage.getQA(), null, "qa", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQAProposal_Proposal(), ecorePackage.getEString(), "proposal", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQAProposal_Accepted(), ecorePackage.getEBooleanObject(), "accepted", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQAProposal_RejectedCount(), ecorePackage.getEInt(), "rejectedCount", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

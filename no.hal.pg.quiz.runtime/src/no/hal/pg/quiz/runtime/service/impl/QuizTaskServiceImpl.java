@@ -4,27 +4,23 @@ package no.hal.pg.quiz.runtime.service.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
-import no.hal.pg.quiz.model.QA;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServicePackage;
-
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.util.Util;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import no.hal.quiz.QA;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,7 +108,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean proposeAnswer(Player player, QA qa, String proposal) {
+	public Boolean proposeAnswer(Player player, no.hal.quiz.QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -124,7 +120,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean acceptAnswer(Player player, QA qa, String proposal) {
+	public Boolean acceptAnswer(Player player, no.hal.quiz.QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -214,9 +210,9 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ServicePackage.QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING:
-				return proposeAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
+				return proposeAnswer((Player)arguments.get(0), (no.hal.quiz.QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING:
-				return acceptAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
+				return acceptAnswer((Player)arguments.get(0), (no.hal.quiz.QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER:
 				return getQAProposals((Player)arguments.get(0));
 		}

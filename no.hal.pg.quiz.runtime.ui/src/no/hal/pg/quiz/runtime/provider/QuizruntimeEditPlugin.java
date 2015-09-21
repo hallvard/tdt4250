@@ -10,10 +10,11 @@ import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
+import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the Quiz-runtime edit plugin.
+ * This is the central singleton for the Quiz-runtime editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -43,11 +44,12 @@ public final class QuizruntimeEditPlugin extends EMFPlugin {
 	 */
 	public QuizruntimeEditPlugin() {
 		super
-		  (new ResourceLocator [] {
-		     PgEditPlugin.INSTANCE,
-		     PgruntimeEditPlugin.INSTANCE,
-		     QuizEditPlugin.INSTANCE,
-		   });
+			(new ResourceLocator [] {
+				PgEditPlugin.INSTANCE,
+				PgruntimeEditPlugin.INSTANCE,
+				QuizEditPlugin.INSTANCE,
+				no.hal.quiz.provider.QuizEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -79,7 +81,7 @@ public final class QuizruntimeEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipsePlugin {
+	public static class Implementation extends EclipseUIPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
@@ -88,7 +90,7 @@ public final class QuizruntimeEditPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

@@ -2,7 +2,7 @@
  */
 package no.hal.pg.quiz.runtime;
 
-import no.hal.pg.quiz.model.QA;
+import no.hal.quiz.QA;
 
 import no.hal.pg.runtime.Ref;
 

@@ -2,10 +2,11 @@
  */
 package no.hal.pg.quiz.runtime;
 
-import no.hal.pg.quiz.model.QA;
+import org.eclipse.emf.common.util.EList;
+
 import no.hal.pg.quiz.model.QuizTaskDef;
 import no.hal.pg.runtime.Task;
-import org.eclipse.emf.common.util.EList;
+import no.hal.quiz.QA;
 
 /**
  * <!-- begin-user-doc -->

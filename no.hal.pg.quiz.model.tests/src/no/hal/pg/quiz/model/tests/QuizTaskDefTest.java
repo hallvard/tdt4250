@@ -75,6 +75,9 @@ public class QuizTaskDefTest extends TestCase {
 		setFixture(ModelFactory.eINSTANCE.createQuizTaskDef());
 	}
 
+	public void testIgnore() {
+	}
+ 	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -51,6 +51,7 @@ public final class QuizserviceEditPlugin extends EMFPlugin {
 				PgEditPlugin.INSTANCE,
 				PgruntimeEditPlugin.INSTANCE,
 				QuizEditPlugin.INSTANCE,
+				no.hal.quiz.provider.QuizEditPlugin.INSTANCE,
 				QuizruntimeEditPlugin.INSTANCE,
 			});
 	}

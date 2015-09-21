@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz -->
+      <package
+            uri="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            class="no.hal.quiz.QuizPackage"
+            genModel="model/quiz.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated quiz -->
+      <parser
+            type="quiz"
+            class="no.hal.quiz.util.QuizResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

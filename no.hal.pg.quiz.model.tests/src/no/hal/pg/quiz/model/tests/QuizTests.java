@@ -31,11 +31,6 @@ public class QuizTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new QuizTests("quiz Tests");
-		suite.addTestSuite(StringAnswerTest.class);
-		suite.addTestSuite(NumberAnswerTest.class);
-		suite.addTestSuite(BooleanAnswerTest.class);
-		suite.addTestSuite(XmlAnswerTest.class);
-		suite.addTestSuite(OptionsAnswerTest.class);
 		return suite;
 	}
 

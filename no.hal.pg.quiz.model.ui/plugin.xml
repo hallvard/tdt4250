@@ -19,11 +19,20 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+   <extension point="org.eclipse.ui.newWizards">
       <!-- @generated quiz -->
-      <extender
-            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
-            class="no.hal.pg.quiz.model.provider.ModelItemProviderAdapterFactory$ModelChildCreationExtender"/>
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.pg.quiz.model.presentation.ModelModelWizardID"
+            name="%_UI_ModelModelWizard_label"
+            class="no.hal.pg.quiz.model.presentation.ModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModelModelFile.gif">
+         <description>%_UI_ModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -32,7 +41,7 @@
             id="no.hal.pg.quiz.model.presentation.ModelEditorID"
             name="%_UI_ModelEditor_label"
             icon="icons/full/obj16/ModelModelFile.gif"
-            extensions="jquiz"
+            extensions="model"
             class="no.hal.pg.quiz.model.presentation.ModelEditor"
             contributorClass="no.hal.pg.quiz.model.presentation.ModelActionBarContributor">
       </editor>

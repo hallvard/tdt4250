@@ -73,11 +73,11 @@
 	<modules>
 	<module>../no.hal.pg.quiz.model</module>
 	<module>../no.hal.pg.quiz.runtime</module>
-	<module>../no.hal.pg.quiz.xtext</module>
-	<module>../no.hal.pg.quiz.xtext.tests</module>
+	
+	
 	<!--
 	-->
-	<module>../no.hal.pg.quiz.xtext.ui</module>
+	
 	<module>../no.hal.pg.quiz.runtime.tests</module>
 	<module>../no.hal.pg.quiz.model.tests</module>
 	<module>../no.hal.pg.quiz.model.ui</module>

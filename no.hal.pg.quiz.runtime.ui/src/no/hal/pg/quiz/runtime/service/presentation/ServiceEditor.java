@@ -162,6 +162,7 @@ import no.hal.pg.quiz.runtime.service.provider.QuizserviceEditPlugin;
 
 import no.hal.pg.runtime.provider.RuntimeItemProviderAdapterFactory;
 
+import no.hal.quiz.provider.QuizItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -711,6 +712,7 @@ public class ServiceEditor
 		adapterFactory.addAdapterFactory(new ModelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RuntimeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new no.hal.pg.quiz.model.provider.ModelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QuizItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new no.hal.pg.quiz.runtime.provider.RuntimeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

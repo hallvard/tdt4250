@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated quiz -->
+      <factory
+            uri="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            class="no.hal.quiz.provider.QuizItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated quiz -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.quiz.presentation.QuizModelWizardID"
+            name="%_UI_QuizModelWizard_label"
+            class="no.hal.quiz.presentation.QuizModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/QuizModelFile.gif">
+         <description>%_UI_QuizModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated quiz -->
+      <editor
+            id="no.hal.quiz.presentation.QuizEditorID"
+            name="%_UI_QuizEditor_label"
+            icon="icons/full/obj16/QuizModelFile.gif"
+            extensions="quiz"
+            class="no.hal.quiz.presentation.QuizEditor"
+            contributorClass="no.hal.quiz.presentation.QuizActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

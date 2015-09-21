@@ -3,12 +3,11 @@
 package no.hal.pg.quiz.runtime.impl;
 
 import java.util.Collection;
-import no.hal.pg.quiz.model.QA;
-
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 
 import no.hal.pg.runtime.Player;
+import no.hal.quiz.QA;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;

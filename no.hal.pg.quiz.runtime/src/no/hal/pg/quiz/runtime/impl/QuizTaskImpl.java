@@ -14,9 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import no.hal.pg.quiz.model.AbstractQuizPart;
-import no.hal.pg.quiz.model.QA;
-import no.hal.pg.quiz.model.QuizPartRef;
 import no.hal.pg.quiz.model.QuizTaskDef;
 import no.hal.pg.quiz.runtime.AcceptingAnswerState;
 import no.hal.pg.quiz.runtime.QAProposal;
@@ -26,6 +23,9 @@ import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.impl.TaskImpl;
+import no.hal.quiz.AbstractQuizPart;
+import no.hal.quiz.QA;
+import no.hal.quiz.QuizPartRef;
 
 /**
  * <!-- begin-user-doc -->

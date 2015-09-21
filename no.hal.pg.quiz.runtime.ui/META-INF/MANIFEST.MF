@@ -8,7 +8,8 @@ Bundle-Activator: no.hal.pg.quiz.runtime.provider.QuizruntimeEditPlugin$Implemen
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: no.hal.pg.quiz.runtime.provider,
+Export-Package: no.hal.pg.quiz.runtime.presentation,
+ no.hal.pg.quiz.runtime.provider,
  no.hal.pg.quiz.runtime.service.presentation,
  no.hal.pg.quiz.runtime.service.provider
 Require-Bundle: org.eclipse.core.runtime,
@@ -21,6 +22,9 @@ Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.runtime.ui;visibility:=reexport,
  no.hal.pg.quiz.model;visibility:=reexport,
  no.hal.pg.quiz.model.ui;visibility:=reexport,
+ no.hal.quiz.model;visibility:=reexport,
+ no.hal.quiz.model.ui;visibility:=reexport,
+ no.hal.pg.quiz.runtime.ui;visibility:=reexport,
  no.hal.pg.quiz.runtime.ui;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,

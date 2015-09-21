@@ -4,8 +4,7 @@
     editorDirectory="/no.hal.pg.quiz.runtime.ui/src" modelPluginID="no.hal.pg.quiz.runtime"
     modelName="Quiz-service" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    editPluginID="no.hal.pg.quiz.runtime.ui" editorPluginID="no.hal.pg.quiz.runtime.ui"
-    usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.pg.quiz.model/model/quiz.genmodel#//model quiz-runtime.genmodel#//runtime"
+    editPluginID="no.hal.pg.quiz.runtime.ui" usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.pg.quiz.model/model/quiz.genmodel#//model ../../no.hal.quiz.model/model/quiz.genmodel#//quiz quiz-runtime.genmodel#//runtime"
     operationReflection="true" importOrganizing="true">
   <foreignModel>quiz-service.ecore</foreignModel>
   <genPackages prefix="Service" basePackage="no.hal.pg.quiz.runtime" disposableProviderFactory="true"

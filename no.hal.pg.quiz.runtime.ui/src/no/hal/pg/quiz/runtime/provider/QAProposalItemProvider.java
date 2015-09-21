@@ -21,9 +21,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import no.hal.pg.model.util.Util;
-import no.hal.pg.quiz.model.QA;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.quiz.QA;
 
 /**
  * This is the item provider adapter for a {@link no.hal.pg.quiz.runtime.QAProposal} object.

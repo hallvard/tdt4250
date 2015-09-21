@@ -4,7 +4,7 @@
     nsPrefix="quiz-runtime">
   <eClassifiers xsi:type="ecore:EClass" name="QuizTask">
     <eOperations name="proposeAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
-      <eParameters name="qa" eType="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QA"/>
+      <eParameters name="qa" eType="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//QA"/>
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -25,7 +25,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="AnsweredByPlayers"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="qa" eType="ecore:EClass ../../no.hal.pg.quiz.model/model/quiz.ecore#//QA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qa" eType="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//QA"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accepted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rejectedCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

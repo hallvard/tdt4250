@@ -14,11 +14,4 @@
             genModel="model/quiz.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated quiz -->
-      <parser
-            type="jquiz"
-            class="no.hal.pg.quiz.model.util.ModelResourceFactoryImpl"/>
-   </extension>
-
 </plugin>

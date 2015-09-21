@@ -43,6 +43,7 @@ public final class QuizEditPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				PgEditPlugin.INSTANCE,
+				no.hal.quiz.provider.QuizEditPlugin.INSTANCE,
 			});
 	}
 
