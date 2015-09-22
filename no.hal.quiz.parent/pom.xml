@@ -77,5 +77,7 @@
 		<module>../no.hal.quiz.xtext.tests</module>
 		<module>../no.hal.quiz.xtext.ui</module>
 		<module>../no.hal.quiz.model.ui</module>
+		<module>../org.w3c.xhtml1</module>
+		<module>../no.hal.quiz.html</module>
 	</modules>
 </project>
