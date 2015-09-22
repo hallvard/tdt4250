@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
-import no.hal.pg.quiz.model.ModelFactory;
 import no.hal.pg.quiz.model.ModelPackage;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;

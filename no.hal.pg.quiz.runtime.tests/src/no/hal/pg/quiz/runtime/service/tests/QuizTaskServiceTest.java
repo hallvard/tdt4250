@@ -8,15 +8,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 import no.hal.pg.model.ModelPackage;
-import no.hal.pg.quiz.model.Quiz;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
-import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.quiz.runtime.service.ServicePackage;
 import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.quiz.runtime.util.RuntimeResourceFactoryImpl;
