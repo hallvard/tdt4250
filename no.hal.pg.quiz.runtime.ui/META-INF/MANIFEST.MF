@@ -28,5 +28,7 @@ Require-Bundle: org.eclipse.core.runtime,
  no.hal.pg.quiz.runtime.ui;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ no.hal.quiz.html;bundle-version="0.1.0",
+ org.eclipse.xtend.lib;bundle-version="2.8.3"
 Bundle-ActivationPolicy: lazy

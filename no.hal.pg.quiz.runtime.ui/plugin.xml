@@ -87,4 +87,23 @@
             contributorClass="no.hal.pg.quiz.runtime.service.presentation.ServiceActionBarContributor">
       </editor>
    </extension>
+
+   <extension
+         point="no.hal.pg.runtime.ui.htmlGenerator">
+      <htmlGenerator
+            eClasses="Quiz QuizPart"
+            ePackage="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            generatorClass="no.hal.pg.quiz.runtime.ui.HtmlGenerators$Quiz2TextGenerator">
+      </htmlGenerator>
+      <htmlGenerator
+            eClasses="QuizTaskDef"
+            ePackage="platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore"
+            generatorClass="no.hal.pg.quiz.runtime.ui.HtmlGenerators$Quiz2TextGenerator">
+      </htmlGenerator>
+      <htmlGenerator
+            eClasses="Quiz"
+            ePackage="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            generatorClass="no.hal.pg.quiz.runtime.ui.HtmlGenerators$Quiz2XhtmlGenerator">
+      </htmlGenerator>
+   </extension>
 </plugin>
