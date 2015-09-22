@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="htmlGenerator" name="htmlGenerator" schema="schema/htmlGenerator.exsd"/>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated pg-runtime -->
@@ -44,6 +45,17 @@
             id="no.hal.pg.runtime.ui.category"
             name="Pg Runtime">
       </category>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="no.hal.pg.runtime.ui.category"
+            class="no.hal.pg.runtime.ui.html.HtmlPreview"
+            id="no.hal.pg.runtime.ui.html.HtmlPreview"
+            name="Pg Html Preview"
+            restorable="true">
+      </view>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">

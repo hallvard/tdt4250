@@ -1,12 +1,21 @@
 package no.hal.pg.runtime.ui;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.text.DocumentEvent;
+import org.eclipse.jface.text.IDocumentListener;
+import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -22,6 +31,10 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.TextActionHandler;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.DirtyStateEditorSupport.IDirtyStateEditorSupportClient;
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 public abstract class AbstractSelectionView extends ViewPart {
 
@@ -70,6 +83,77 @@ public abstract class AbstractSelectionView extends ViewPart {
 		updateView();
 	}
 
+	private static class DocumentSelectionProvider implements IDocumentListener, ISelectionProvider {
+		@Override
+		public void documentChanged(DocumentEvent event) {
+			((IXtextDocument) event.getDocument()).readOnly(new IUnitOfWork<EObject, XtextResource>() {
+				@Override
+				public EObject exec(XtextResource state) throws Exception {
+					EObject eObject = null;
+					if (state.getContents().size() > 0) {
+						eObject = state.getContents().get(0);
+					}
+					setSelection(eObject);
+					return eObject;
+				}
+			});
+		}
+		@Override
+		public void documentAboutToBeChanged(DocumentEvent event) {
+		}
+
+		private ISelection selection = null;
+
+		@Override
+		public ISelection getSelection() {
+			return selection != null ? selection : StructuredSelection.EMPTY;
+		}
+
+		public void setSelection(Object selection) {
+			setSelection(selection != null ? new StructuredSelection(selection) : StructuredSelection.EMPTY);
+		}
+
+		@Override
+		public void setSelection(ISelection selection) {
+			this.selection = selection;
+			SelectionChangedEvent event = new SelectionChangedEvent(this, getSelection());
+			for (ISelectionChangedListener selectionListener : selectionListeners) {
+				selectionListener.selectionChanged(event);
+			}
+		}
+
+		private Collection<ISelectionChangedListener> selectionListeners = new ArrayList<ISelectionChangedListener>();
+		
+		@Override
+		public void addSelectionChangedListener(ISelectionChangedListener listener) {
+			selectionListeners.add(listener);
+		}
+		@Override
+		public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+			selectionListeners.remove(listener);
+		}
+	};
+
+	private IDirtyStateEditorSupportClient editorSupportClient;
+
+	private DocumentSelectionProvider documentSelectionProvider = new DocumentSelectionProvider();
+	
+	protected void setXtextDocumentProvider(IWorkbenchPart part) {
+		if (part instanceof IDirtyStateEditorSupportClient) {
+			setSelectionProvider(documentSelectionProvider);
+			if (this.editorSupportClient == part) {
+				return;
+			}
+			if (this.editorSupportClient != null) {
+				this.editorSupportClient.getDocument().removeDocumentListener(documentSelectionProvider);
+			}
+			this.editorSupportClient = (IDirtyStateEditorSupportClient) part;
+			this.editorSupportClient.getDocument().addDocumentListener(documentSelectionProvider);
+		} else {
+			this.editorSupportClient = null;
+		}
+	}
+	
 	protected void updateView() {
 	}
 	
@@ -82,8 +166,31 @@ public abstract class AbstractSelectionView extends ViewPart {
 		return t;
 	}
 
+	protected EObject getContainer(EObject eObject, EClass eClass) {
+		while (eObject != null) {
+			if (eClass.isInstance(eObject)) {
+				return eObject;
+			}
+			eObject = eObject.eContainer();
+		}
+		return null;
+	}
+
+	protected void setInputAndSelectFirst(ComboViewer comboViewer, Object input) {
+		comboViewer.setInput(input);
+		IStructuredContentProvider contentProvider = (IStructuredContentProvider) comboViewer.getContentProvider();
+		Object[] elements = contentProvider.getElements(input);
+		if (elements.length > 0) {
+			comboViewer.setSelection(new StructuredSelection(elements[0]));
+		}
+	}
+	
 	private void updateProviders(IWorkbenchPart part) {
+		if (part == this) {
+			return;
+		}
 		setSelectionProvider(getAdapter(part, ISelectionProvider.class));
+		setXtextDocumentProvider(part);
 		setEditingDomainProvider(getAdapter(part, IEditingDomainProvider.class));
 	}
 
@@ -126,7 +233,7 @@ public abstract class AbstractSelectionView extends ViewPart {
 	protected void selectionChanged(ISelection selection) {
 		Object oldSelection = getSelection();
 		this.selection = null;
-		if (selection.isEmpty()) {
+		if (selection == null || selection.isEmpty()) {
 		} else if (selection instanceof IStructuredSelection) {
 			Object o = ((IStructuredSelection)selection).getFirstElement();
 			if (isValidSelection(o)) {

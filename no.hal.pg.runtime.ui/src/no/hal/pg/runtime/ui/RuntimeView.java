@@ -55,16 +55,6 @@ public class RuntimeView extends AbstractSelectionView {
 		return false;
 	}
 
-	protected EObject getContainer(EObject eObject, EClass eClass) {
-		while (eObject != null) {
-			if (eClass.isInstance(eObject)) {
-				return eObject;
-			}
-			eObject = eObject.eContainer();
-		}
-		return null;
-	}
-
 	private Collection<IEngine> engines = new ArrayList<IEngine>();
 	
 	protected IEngine getEngine(EObject eObject) {
@@ -239,15 +229,6 @@ public class RuntimeView extends AbstractSelectionView {
 			}
 		}
 		super.updateView();
-	}
-
-	private void setInputAndSelectFirst(ComboViewer comboViewer, Object input) {
-		eOperationSelector.setInput(input);
-		IStructuredContentProvider contentProvider = (IStructuredContentProvider) eOperationSelector.getContentProvider();
-		Object[] elements = contentProvider.getElements(input);
-		if (elements.length > 0) {
-			eOperationSelector.setSelection(new StructuredSelection(elements[0]));
-		}
 	}
 	
 	private EOperationEClassManager operationEClassManager = new EOperationEClassManager();
