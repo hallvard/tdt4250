@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated xhtml1 -->
+      <package
+            uri="http://www.w3.org/1999/xhtml"
+            class="org.w3c.xhtml1.Xhtml1Package"
+            genModel="model/xhtml1.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated xhtml1 -->
+      <parser
+            type="xhtml1"
+            class="org.w3c.xhtml1.util.Xhtml1ResourceFactoryImpl"/>
+   </extension>
+</plugin>
