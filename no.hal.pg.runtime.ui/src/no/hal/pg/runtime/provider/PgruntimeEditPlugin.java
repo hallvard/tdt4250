@@ -138,7 +138,6 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			for (EClass eClass : eObject.eClass().getEAllSuperTypes()) {
 				addHtmlGenerators(eClass, result);
 			}
-			System.out.println("Generators for " + eObject + ": " + result);
 			return result;
 		}
 		
