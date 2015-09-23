@@ -8,5 +8,7 @@ cache:
 script:
   - cd no.hal.pg.parent
   - mvn clean install
+  - cd ../no.hal.quiz.parent
+  - mvn clean install
   - cd ../no.hal.pg.quiz.parent
   - mvn clean install
