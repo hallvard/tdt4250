@@ -2,7 +2,10 @@
 bin/
 target/
 .idea/
+.DS_Store
 
 // temporary generated files
 *.xtendbin
 *._trace
+
+node_modules

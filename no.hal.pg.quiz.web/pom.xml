@@ -28,7 +28,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
                 <executions>
-                    <execution>
+              <!--        <execution>
                         <id>gulp</id>
                         <phase>generate-resources</phase>
                         <goals>
@@ -42,7 +42,7 @@
                                 </exec>
                             </target>
                         </configuration>
-                    </execution>
+                    </execution>-->
                 </executions>
             </plugin>
             <plugin>
