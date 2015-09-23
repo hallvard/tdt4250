@@ -13,6 +13,7 @@ var generateXtendStub = true
 Workflow {
 	bean = StandaloneSetup {
 		scanClassPath  = true
+		platformUri = "${runtimeProject}/../../re"
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "no.hal.pg.quiz.model.ModelPackage"
 		registerGenModelFile = "platform:/resource/no.hal.pg.quiz.model/model/quiz.genmodel"

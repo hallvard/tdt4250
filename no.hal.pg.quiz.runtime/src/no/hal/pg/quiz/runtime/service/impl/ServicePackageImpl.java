@@ -6,15 +6,21 @@ import no.hal.pg.quiz.model.ModelPackage;
 
 import no.hal.pg.quiz.runtime.RuntimePackage;
 
+import no.hal.pg.quiz.runtime.service.Answer;
+import no.hal.pg.quiz.runtime.service.AnswerKind;
+import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.quiz.runtime.service.ServicePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -30,6 +36,25 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * @generated
 	 */
 	private EClass quizTaskServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass questionEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass answerEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum answerKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -136,6 +161,114 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getQuizTaskService__GetPlayerQuestions__Player() {
+		return quizTaskServiceEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQuestion() {
+		return questionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_Kind() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_Question() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_LastProposal() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuestion_Options() {
+		return (EReference)questionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_NumChoices() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_Qid() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnswer() {
+		return answerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnswer_Answer() {
+		return (EAttribute)answerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnswer_Selected() {
+		return (EAttribute)answerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAnswerKind() {
+		return answerKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ServiceFactory getServiceFactory() {
 		return (ServiceFactory)getEFactoryInstance();
 	}
@@ -163,6 +296,22 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER);
+
+		questionEClass = createEClass(QUESTION);
+		createEAttribute(questionEClass, QUESTION__KIND);
+		createEAttribute(questionEClass, QUESTION__QUESTION);
+		createEAttribute(questionEClass, QUESTION__LAST_PROPOSAL);
+		createEReference(questionEClass, QUESTION__OPTIONS);
+		createEAttribute(questionEClass, QUESTION__NUM_CHOICES);
+		createEAttribute(questionEClass, QUESTION__QID);
+
+		answerEClass = createEClass(ANSWER);
+		createEAttribute(answerEClass, ANSWER__ANSWER);
+		createEAttribute(answerEClass, ANSWER__SELECTED);
+
+		// Create enums
+		answerKindEEnum = createEEnum(ANSWER_KIND);
 	}
 
 	/**
@@ -218,6 +367,27 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		op = initEOperation(getQuizTaskService__GetQAProposals__Player(), theRuntimePackage.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getQuizTaskService__GetPlayerQuestions__Player(), this.getQuestion(), "getPlayerQuestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQuestion_Kind(), this.getAnswerKind(), "kind", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuestion_Question(), ecorePackage.getEString(), "question", null, 1, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuestion_LastProposal(), ecorePackage.getEString(), "lastProposal", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestion_Options(), this.getAnswer(), null, "options", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuestion_NumChoices(), ecorePackage.getEInt(), "numChoices", null, 1, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuestion_Qid(), ecorePackage.getEString(), "qid", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnswer_Answer(), ecorePackage.getEString(), "answer", null, 1, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswer_Selected(), ecorePackage.getEBoolean(), "selected", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(answerKindEEnum, AnswerKind.class, "AnswerKind");
+		addEEnumLiteral(answerKindEEnum, AnswerKind.STRING);
+		addEEnumLiteral(answerKindEEnum, AnswerKind.NUM);
+		addEEnumLiteral(answerKindEEnum, AnswerKind.YESNO);
 
 		// Create resource
 		createResource(eNS_URI);

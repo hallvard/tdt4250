@@ -2,14 +2,21 @@
  */
 package no.hal.pg.quiz.runtime.service.tests;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.emfjson.jackson.resource.JsonResource;
+
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
+import no.hal.pg.quiz.runtime.service.Answer;
+import no.hal.pg.quiz.runtime.service.AnswerKind;
+import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
@@ -25,6 +32,7 @@ import no.hal.pg.runtime.Player;
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Propose Answer</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String) <em>Accept Answer</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -167,6 +175,63 @@ public class QuizTaskServiceTest extends TestCase {
 		EList<QAProposal> proposals2 = service.getQAProposals(player2);
 		assertEquals(1, proposals2.size());
 		assertTrue(proposals2.containsAll(Arrays.asList(proposals.get(0))));
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player)
+	 * @generated NOT
+	 */
+	public void testGetPlayerQuestions__Player() {
+		Question q1 = ServiceFactory.eINSTANCE.createQuestion();
+		q1.setKind(AnswerKind.STRING);
+		q1.setNumChoices(1);
+		q1.setQuestion("I hvilken by ligger Stortinget?");
+		q1.setLastProposal("Fredrikstad");
+		
+
+		
+		Question q2 = ServiceFactory.eINSTANCE.createQuestion();
+		q2.setKind(AnswerKind.YESNO);
+		q2.setNumChoices(1);
+		q2.setQuestion("I hvilken by ligger Stortinget?");
+		Answer a1 = ServiceFactory.eINSTANCE.createAnswer();
+		a1.setAnswer("Trondheim");
+		a1.setSelected(true);
+		q2.getOptions().add(a1);
+		Answer a2 = ServiceFactory.eINSTANCE.createAnswer();
+		a2.setAnswer("Oslo");
+		q2.getOptions().add(a2);
+		Answer a3 = ServiceFactory.eINSTANCE.createAnswer();
+		a3.setAnswer("Fredrikstad");
+		q2.getOptions().add(a3);
+		
+		Question q3 = ServiceFactory.eINSTANCE.createQuestion();
+		q3.setKind(AnswerKind.NUM);
+		q3.setNumChoices(1);
+		q3.setQuestion("Hvor mange haler har ei ku?");
+		q3.setLastProposal("1.2");
+		
+		Question q4 = ServiceFactory.eINSTANCE.createQuestion();
+		q4.setKind(AnswerKind.YESNO);
+		q4.setNumChoices(1);
+		q4.setQuestion("Er tomaten en frukt?");
+		q4.setLastProposal("true");
+		
+		Resource res = new JsonResource();
+		res.getContents().addAll(Arrays.asList(q1, q2, q3));
+		
+		
+		
+		
+		try {
+			res.save(System.out, null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
 	}
 
 } //QuizTaskServiceTest

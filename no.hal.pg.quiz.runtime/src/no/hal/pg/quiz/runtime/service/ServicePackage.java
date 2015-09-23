@@ -4,9 +4,12 @@ package no.hal.pg.quiz.runtime.service;
 
 import no.hal.pg.runtime.RuntimePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,13 +116,161 @@ public interface ServicePackage extends EPackage {
 	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = RuntimePackage.SERVICE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Player Questions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER = RuntimePackage.SERVICE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Quiz Task Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 3;
+	int QUIZ_TASK_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 4;
+
+
+	/**
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl <em>Question</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.impl.QuestionImpl
+	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getQuestion()
+	 * @generated
+	 */
+	int QUESTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__KIND = 0;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__QUESTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Last Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__LAST_PROPOSAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__OPTIONS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Num Choices</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__NUM_CHOICES = 4;
+
+	/**
+	 * The feature id for the '<em><b>Qid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__QID = 5;
+
+	/**
+	 * The number of structural features of the '<em>Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.service.impl.AnswerImpl <em>Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.impl.AnswerImpl
+	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswer()
+	 * @generated
+	 */
+	int ANSWER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__ANSWER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__SELECTED = 1;
+
+	/**
+	 * The number of structural features of the '<em>Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.service.AnswerKind <em>Answer Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.AnswerKind
+	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswerKind()
+	 * @generated
+	 */
+	int ANSWER_KIND = 3;
 
 
 	/**
@@ -161,6 +312,134 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getQuizTaskService__GetQAProposals__Player();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Player Questions</em>' operation.
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player)
+	 * @generated
+	 */
+	EOperation getQuizTaskService__GetPlayerQuestions__Player();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.Question <em>Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Question</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question
+	 * @generated
+	 */
+	EClass getQuestion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getKind()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_Kind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getQuestion <em>Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Question</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getQuestion()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_Question();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Proposal</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getLastProposal()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_LastProposal();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.pg.quiz.runtime.service.Question#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Options</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getOptions()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EReference getQuestion_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getNumChoices <em>Num Choices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Num Choices</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getNumChoices()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_NumChoices();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getQid <em>Qid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qid</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getQid()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_Qid();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.Answer <em>Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Answer</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Answer
+	 * @generated
+	 */
+	EClass getAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Answer#getAnswer <em>Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Answer</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Answer#getAnswer()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Answer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Answer#isSelected <em>Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Answer#isSelected()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Selected();
+
+	/**
+	 * Returns the meta object for enum '{@link no.hal.pg.quiz.runtime.service.AnswerKind <em>Answer Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Answer Kind</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.AnswerKind
+	 * @generated
+	 */
+	EEnum getAnswerKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -218,6 +497,108 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = eINSTANCE.getQuizTaskService__GetQAProposals__Player();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Player Questions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER = eINSTANCE.getQuizTaskService__GetPlayerQuestions__Player();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl <em>Question</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.service.impl.QuestionImpl
+		 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getQuestion()
+		 * @generated
+		 */
+		EClass QUESTION = eINSTANCE.getQuestion();
+
+		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__KIND = eINSTANCE.getQuestion_Kind();
+
+		/**
+		 * The meta object literal for the '<em><b>Question</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__QUESTION = eINSTANCE.getQuestion_Question();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Proposal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__LAST_PROPOSAL = eINSTANCE.getQuestion_LastProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUESTION__OPTIONS = eINSTANCE.getQuestion_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Num Choices</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__NUM_CHOICES = eINSTANCE.getQuestion_NumChoices();
+
+		/**
+		 * The meta object literal for the '<em><b>Qid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__QID = eINSTANCE.getQuestion_Qid();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.AnswerImpl <em>Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.service.impl.AnswerImpl
+		 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswer()
+		 * @generated
+		 */
+		EClass ANSWER = eINSTANCE.getAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Answer</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__ANSWER = eINSTANCE.getAnswer_Answer();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__SELECTED = eINSTANCE.getAnswer_Selected();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.AnswerKind <em>Answer Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.service.AnswerKind
+		 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswerKind()
+		 * @generated
+		 */
+		EEnum ANSWER_KIND = eINSTANCE.getAnswerKind();
 
 	}
 

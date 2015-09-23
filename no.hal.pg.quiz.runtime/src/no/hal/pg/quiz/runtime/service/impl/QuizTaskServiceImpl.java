@@ -3,13 +3,16 @@
 package no.hal.pg.quiz.runtime.service.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 
 import no.hal.pg.quiz.model.QA;
 
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
+import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.pg.quiz.runtime.service.ServicePackage;
 
 import no.hal.pg.runtime.Player;
@@ -149,6 +152,25 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Question> getPlayerQuestions(Player player) {
+		
+		Collection<QAProposal> qaProposals = getQAProposals(player);
+		EList<Question> questions = new BasicEList<Question>();
+		for (QAProposal qaProp : qaProposals){
+			Question q = ServiceFactory.eINSTANCE.createQuestion();
+			q.setQuestion(qaProp.);
+			
+		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,6 +241,8 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 				return acceptAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER:
 				return getQAProposals((Player)arguments.get(0));
+			case ServicePackage.QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER:
+				return getPlayerQuestions((Player)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

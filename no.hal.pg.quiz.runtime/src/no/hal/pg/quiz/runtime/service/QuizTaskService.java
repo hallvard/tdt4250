@@ -47,4 +47,12 @@ public interface QuizTaskService extends Service<QuizTask> {
 	 */
 	EList<QAProposal> getQAProposals(Player player);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Question> getPlayerQuestions(Player player);
+
 } // QuizTaskService

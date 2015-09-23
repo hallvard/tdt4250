@@ -5,15 +5,16 @@ package no.hal.pg.quiz.model.util;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
+import org.emfjson.jackson.resource.JsonResourceFactory;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
  * @see no.hal.pg.quiz.model.util.ModelResourceImpl
- * @generated
+ * @generated NOT
  */
-public class ModelResourceFactoryImpl extends ResourceFactoryImpl {
+public class ModelResourceFactoryImpl extends JsonResourceFactory {
 	/**
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->
