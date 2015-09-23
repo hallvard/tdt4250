@@ -6,6 +6,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
+import no.hal.pg.quiz.runtime.service.tests.QuizserviceAllTests;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,11 +28,12 @@ public class QuizruntimeAllTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Test suite() {
 		TestSuite suite = new QuizruntimeAllTests("Quiz-runtime Tests");
 		suite.addTest(RuntimeTests.suite());
+		suite.addTest(QuizserviceAllTests.suite());
 		return suite;
 	}
 

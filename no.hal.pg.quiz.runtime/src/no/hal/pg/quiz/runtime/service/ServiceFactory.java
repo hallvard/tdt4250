@@ -31,6 +31,24 @@ public interface ServiceFactory extends EFactory {
 	QuizTaskService createQuizTaskService();
 
 	/**
+	 * Returns a new object of class '<em>Question</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Question</em>'.
+	 * @generated
+	 */
+	Question createQuestion();
+
+	/**
+	 * Returns a new object of class '<em>Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Answer</em>'.
+	 * @generated
+	 */
+	Answer createAnswer();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
