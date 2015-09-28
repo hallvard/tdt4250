@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import no.hal.pg.model.ModelPackage;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.StringAnswer;
 
