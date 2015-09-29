@@ -1,15 +1,11 @@
 package no.hal.graphql.emf;
 
 import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,8 +19,6 @@ import graphql.schema.GraphQLType;
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 import no.hal.pg.model.ModelPackage;
-import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
-import no.hal.pg.quiz.runtime.tests.QuizTaskTest;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.service.GameService;
@@ -42,9 +36,9 @@ public class GraphQLEmfTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, ServicePackage.eINSTANCE, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE, no.hal.pg.quiz.runtime.service.ServicePackage.eINSTANCE);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
-		testHelper.addResource(URI.createURI("test:/GraphQLEmfTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
+		testHelper = new TestHelper(this, ModelPackage.eINSTANCE, RuntimePackage.eINSTANCE, ServicePackage.eINSTANCE); //, no.hal.pg.quiz.model.ModelPackage.eINSTANCE, no.hal.pg.quiz.runtime.RuntimePackage.eINSTANCE, no.hal.pg.quiz.runtime.service.ServicePackage.eINSTANCE);
+//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jquiz", new ModelResourceFactoryImpl());
+//		testHelper.addResource(URI.createURI("test:/GraphQLEmfTest.jquiz"), QuizTaskTest.createSimpleTestQuiz());
 		game = (Game) testHelper.loadTestResource(RuntimePackage.eINSTANCE.getGame());
 		SchemaGenerator schemaGenerator = new SchemaGenerator(testHelper.getPackages());
 		schema = schemaGenerator.generate(ServicePackage.eINSTANCE.getGameService());
@@ -106,6 +100,7 @@ public class GraphQLEmfTest extends TestCase {
 				+ "players {"
 					+ "person { name, ids }"
 				+ "}"
+			+ "}"
     	, gameService);
     	try {
 			assertTrue(result.getErrors().isEmpty());
