@@ -1,5 +1,6 @@
 package no.hal.pg.runtime.engine;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.util.CompositeReferenceHandler;
 
 @Component
 public class ServiceExecutor implements IServiceExecutor {
@@ -40,7 +42,6 @@ public class ServiceExecutor implements IServiceExecutor {
 		serviceProviders.add(serviceProvider);
 		servicesMap.clear();
 	}
-	
 	public synchronized void removeServiceProvider(IServiceProvider serviceProvider) {
 		serviceProviders.remove(serviceProvider);
 		servicesMap.clear();
@@ -65,7 +66,7 @@ public class ServiceExecutor implements IServiceExecutor {
 
 	//
 	
-	private Collection<IReferenceHandler> referenceHandlers = new ArrayList<IReferenceHandler>();
+	private CompositeReferenceHandler referenceHandler = new CompositeReferenceHandler();
 	
 	@Reference(
 			cardinality=ReferenceCardinality.MULTIPLE,
@@ -73,13 +74,13 @@ public class ServiceExecutor implements IServiceExecutor {
 			unbind="removeReferenceHandler"
 			)
 	public synchronized void addReferenceHandler(IReferenceHandler referenceHandler) {
-		referenceHandlers.add(referenceHandler);
+		this.referenceHandler.addReferenceHandler(referenceHandler);
 	}
 	
 	public synchronized void removeReferenceHandler(IReferenceHandler referenceHandler) {
-		referenceHandlers.remove(referenceHandler);
+		this.referenceHandler.removeReferenceHandler(referenceHandler);
 	}
-	
+
 	//
 	
 	private List<Object> objects = new ArrayList<Object>();
@@ -92,7 +93,23 @@ public class ServiceExecutor implements IServiceExecutor {
 	public final static String SelfService_ANNOTATION_KEY = "SelfService";
 
 	@Override
-	public void execute(String serviceName, Map<String, Object> args) {
+	public EObject resolve(String reference, boolean use) {
+		for (Object object : objects) {
+			if (object instanceof EObject) {
+				EObject resolved = referenceHandler.resolveReference(reference, (EObject) object);
+				if (resolved != null) {
+					if (use) {
+						setObjects(resolved);
+					}
+					return resolved;
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void execute(String serviceName, Map<String, ? extends Object> args) {
 		Collection<Object> results = new ArrayList<Object>();
 		for (Object object : objects) {
 			if (object instanceof EObject) {
@@ -118,11 +135,11 @@ public class ServiceExecutor implements IServiceExecutor {
 		setObjects(results);
 	}
 
-	protected Object throwNoSuchServiceException(Object eObject, String serviceName, Map<String, Object> args) {
+	protected Object throwNoSuchServiceException(Object eObject, String serviceName, Map<String, ? extends Object> args) {
 		throw new UnsupportedOperationException(eObject + " does not support the " + serviceName + " service");
 	}
 
-	protected Object throwServiceInvocationException(Exception e, Object eObject, String serviceName, Map<String, Object> args) {
+	protected Object throwServiceInvocationException(Exception e, Object eObject, String serviceName, Map<String, ? extends Object> args) {
 		throw new IllegalArgumentException("Exception when invoking " + serviceName + " on " + eObject + ": " + e, e);
 	}
 
@@ -151,17 +168,17 @@ public class ServiceExecutor implements IServiceExecutor {
 	}
 	
 	public static class ServiceInvocation {
-		@SuppressWarnings("unused") EObject eObject;
+		EObject eObject;
 		String serviceName;
 		EObject target;
 		public ETypedElement serviceElement;
 		ETypedElement targetElement;
-		Map<String, Object> args;
+		Map<String, ? extends Object> args;
 		
-		ServiceInvocation(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, Object> args) {
+		ServiceInvocation(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, ? extends Object> args) {
 			set(eObject, serviceName, target, serviceElement, targetElement, args);
 		}
-		void set(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, Object> args) {
+		void set(EObject eObject, String serviceName, EObject target, ETypedElement serviceElement, ETypedElement targetElement, Map<String, ? extends Object> args) {
 			this.target = target;
 			this.serviceName = serviceName;
 			this.serviceElement = serviceElement;
@@ -170,7 +187,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		}
 	}
 	
-	protected ServiceInvocation getServiceInvokation(EObject eObject, String serviceName, Map<String, Object> args) {
+	protected ServiceInvocation getServiceInvokation(EObject eObject, String serviceName, Map<String, ? extends Object> args) {
 		for (Service<?> service : getServices(eObject)) {
 			EObject target = service;
 			ETypedElement serviceElement = getServiceElement(target, serviceName, args), targetElement = serviceElement;
@@ -216,8 +233,8 @@ public class ServiceExecutor implements IServiceExecutor {
 				value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
 				if (value instanceof Collection<?>) {
 					value = ((Collection<?>) value).toArray();
-				} else {
-					value = new Object[]{value};
+//				} else {
+//					value = new Object[]{value};
 				}
 			} catch (Exception e) {
 				System.out.println("Exception when invoking " + serviceInvocation.targetElement + " on " + serviceInvocation.target + ": " + e);
@@ -290,7 +307,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		return elements;
 	}
 		
-	protected ETypedElement getServiceElement(EObject service, String serviceName, Map<String, Object> args) {
+	protected ETypedElement getServiceElement(EObject service, String serviceName, Map<String, ? extends Object> args) {
 		EList<EOperation> operations = service.eClass().getEOperations();
 		EOperation operation = getServiceOperation(serviceName, args, operations);
 		if (operation != null) {
@@ -302,13 +319,14 @@ public class ServiceExecutor implements IServiceExecutor {
 		return null;
 	}
 
-	protected Object tryInvokeServiceElement(EObject service, ETypedElement serviceElement, Map<String, Object> args) throws InvocationTargetException {
+	protected Object tryInvokeServiceElement(EObject service, ETypedElement serviceElement, Map<String, ? extends Object> args) throws InvocationTargetException {
 		if (serviceElement instanceof EOperation) {
 			EOperation operation = (EOperation) serviceElement;
 			EList<Object> arguments = new BasicEList<Object>();
 			for (EParameter parameter : operation.getEParameters()) {
 				Object arg = args.get(parameter.getName());
-				arguments.add(arg);
+				Object realArg = ensureServiceArgument(service, parameter, arg);
+				arguments.add(realArg);
 			}
 			return service.eInvoke(operation, arguments);
 		} else if (serviceElement instanceof EStructuralFeature) {
@@ -318,6 +336,27 @@ public class ServiceExecutor implements IServiceExecutor {
 		return null;
 	}
 	
+	protected Object ensureServiceArgument(EObject service, EParameter parameter, Object arg) {
+		if (parameter.getEType().isInstance(arg)) {
+			return arg;
+		} else if (arg instanceof String) {
+			EObject resolved = referenceHandler.resolveReference(String.valueOf(arg), service);
+			if (resolved != null) {
+				Object realArg = ensureServiceArgument(service, parameter, resolved);
+				if (realArg != null) {
+					return realArg;
+				}
+			}
+		} else if (arg != null && arg.getClass().isArray()) {
+			for (int i = 0; i < Array.getLength(arg); i++) {
+				Object realArg = ensureServiceArgument(service, parameter, Array.get(arg, i));
+				if (realArg != null) {
+					return realArg;
+				}
+			}
+		}
+		return null;
+	}
 	protected void setObjects(Collection<Object> results) {
 		objects.clear();
 		objects.addAll(results);
@@ -344,9 +383,48 @@ public class ServiceExecutor implements IServiceExecutor {
 		return objects.toArray();
 	}
 
+	@Override
+	public Object[] getObjects(EObject referenceContext) {
+		Object[] result = getObjects();
+		replaceWithReferences(result, referenceContext);
+		for (int i = 0; i < result.length; i++) {
+			if (result[i] instanceof EObject) {
+				Map<String, Object> featureValues = executeFeatureServices((EObject) result[i], SERVICE_NAMES_WILDCARD);
+				replaceWithReferences(featureValues, referenceContext);
+				result[i] = featureValues;
+			}
+		}
+		return result;
+	}
+
+	private void replaceWithReferences(Map<String, Object> objects, EObject referenceContext) {
+		for (Map.Entry<String, Object> entry : objects.entrySet()) {
+			Object value = entry.getValue();
+			if (value instanceof Object[]) {
+				replaceWithReferences((Object[]) value, referenceContext);
+			} else if (value instanceof EObject) {
+				String ref = referenceHandler.getReference((EObject) value, referenceContext);
+				if (ref != null) {
+					entry.setValue(ref);
+				}
+			}
+		}
+	}
+
+	private void replaceWithReferences(Object[] objects, EObject referenceContext) {
+		for (int i = 0; i < objects.length; i++) {
+			if (objects[i] instanceof EObject) {
+				String ref = referenceHandler.getReference((EObject) objects[i], referenceContext);
+				if (ref != null) {
+					objects[i] = ref;
+				}
+			}
+		}
+	}
+	
 	//
 
-	protected EOperation getServiceOperation(String serviceName, Map<String, Object> args, Iterable<EOperation> operations) {
+	protected EOperation getServiceOperation(String serviceName, Map<String, ? extends Object> args, Iterable<EOperation> operations) {
 		outer: for (EOperation operation : operations) {
 			int argCount = (args != null ? args.size() : 0);
 			if (argCount == operation.getEParameters().size() && operation.getName().equals(serviceName)) {

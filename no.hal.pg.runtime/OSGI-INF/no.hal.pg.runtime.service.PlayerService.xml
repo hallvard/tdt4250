@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.util.PlayerServiceProvider">
+   <implementation class="no.hal.pg.runtime.engine.util.ServiceProviderComponent"/>
+   <property name="ServiceProviderComponent.eClass" type="String" value="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#Player"/>
+   <property name="ServiceProviderComponent.serviceClass" type="String" value="platform:/plugin/no.hal.pg.runtime/model/pg-service.ecore#PlayerService"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.IServiceProvider"/>
+   </service>
+</scr:component>

@@ -5,9 +5,12 @@ package no.hal.pg.runtime.service.impl;
 import no.hal.pg.runtime.RuntimePackage;
 
 import no.hal.pg.runtime.service.GameService;
+import no.hal.pg.runtime.service.PlayerService;
 import no.hal.pg.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.service.ServicePackage;
 
+import no.hal.pg.runtime.service.TaskService;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -28,6 +31,20 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * @generated
 	 */
 	private EClass gameServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass playerServiceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -134,6 +151,69 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTaskService() {
+		return taskServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskService_Players() {
+		return (EReference)taskServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskService_Started() {
+		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskService_Finished() {
+		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskService_Result() {
+		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPlayerService() {
+		return playerServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlayerService_Tasks() {
+		return (EReference)playerServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ServiceFactory getServiceFactory() {
 		return (ServiceFactory)getEFactoryInstance();
 	}
@@ -161,6 +241,15 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		createEReference(gameServiceEClass, GAME_SERVICE__PLAYERS);
 		createEReference(gameServiceEClass, GAME_SERVICE__TASKS);
 		createEOperation(gameServiceEClass, GAME_SERVICE___GET_TASKS__PLAYER);
+
+		taskServiceEClass = createEClass(TASK_SERVICE);
+		createEReference(taskServiceEClass, TASK_SERVICE__PLAYERS);
+		createEAttribute(taskServiceEClass, TASK_SERVICE__STARTED);
+		createEAttribute(taskServiceEClass, TASK_SERVICE__FINISHED);
+		createEAttribute(taskServiceEClass, TASK_SERVICE__RESULT);
+
+		playerServiceEClass = createEClass(PLAYER_SERVICE);
+		createEReference(playerServiceEClass, PLAYER_SERVICE__TASKS);
 	}
 
 	/**
@@ -198,6 +287,18 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		EGenericType g2 = createEGenericType(theRuntimePackage.getGame());
 		g1.getETypeArguments().add(g2);
 		gameServiceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theRuntimePackage.getService());
+		g2 = createEGenericType(theRuntimePackage.getTask());
+		g1.getETypeArguments().add(g2);
+		EGenericType g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		taskServiceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theRuntimePackage.getService());
+		g2 = createEGenericType(theRuntimePackage.getPlayer());
+		g1.getETypeArguments().add(g2);
+		playerServiceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameServiceEClass, GameService.class, "GameService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -217,6 +318,20 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
+
+		initEClass(taskServiceEClass, TaskService.class, "TaskService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTaskService_Players(), theRuntimePackage.getPlayer(), null, "players", null, 0, -1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskService_Started(), ecorePackage.getEBoolean(), "started", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskService_Finished(), ecorePackage.getEBoolean(), "finished", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskService_Result(), ecorePackage.getEJavaObject(), "result", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(playerServiceEClass, PlayerService.class, "PlayerService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theRuntimePackage.getTask());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getPlayerService_Tasks(), g1, null, "tasks", null, 0, -1, PlayerService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

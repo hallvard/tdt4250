@@ -39,6 +39,7 @@ public class PlayerReferenceHandler implements IReferenceHandler {
 				}
 				players = null;
 			}
+			context = context.eContainer();
 		}
 		if (players != null) {
 			for (Player player : players) {

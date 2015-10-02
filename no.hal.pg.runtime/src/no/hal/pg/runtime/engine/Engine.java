@@ -2,6 +2,7 @@ package no.hal.pg.runtime.engine;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Dictionary;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -10,8 +11,12 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
+import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
@@ -24,14 +29,48 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
-import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Task;
 
 @Component(factory=Engine.FACTORY_ID)
-public class Engine implements IEngine {
+public class Engine implements IEngine, ManagedService {
 
 	public final static String FACTORY_ID = "no.hal.pg.runtime.engine.Engine";
+
+	@Activate
+	public void activate(ComponentContext context) throws Exception {
+		configure(context.getProperties());
+	}
 	
+	private String key = String.valueOf(hashCode());
+	
+	@Override
+	public String getKey() {
+		return key;
+	}
+
+	protected boolean configure(Dictionary<String, ?> properties) {
+		try {
+			Object key = properties.get("IEngine.key");
+			if (key != null) {
+				this.key = String.valueOf(key);
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}		
+	}
+
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		configure(properties);
+	}
+
+	@Deactivate
+	public void deactivate(ComponentContext context) throws Exception {
+		key = null;
+	}
+
+	//
+
 	private Collection<ITaskProvider> taskProviders = new ArrayList<ITaskProvider>();
 
 	@Reference(
@@ -46,6 +85,27 @@ public class Engine implements IEngine {
 	public synchronized void removeTaskProvider(ITaskProvider taskProvider) {
 		taskProviders.remove(taskProvider);
 	}
+	
+	//
+
+	private IServiceExecutor serviceExecutor;
+	
+	@Reference(
+			cardinality=ReferenceCardinality.MANDATORY,
+			policy=ReferencePolicy.DYNAMIC
+			)
+	public synchronized void setServiceExecutor(IServiceExecutor serviceExecutor) {
+		this.serviceExecutor = serviceExecutor;
+	}
+	public synchronized void unsetServiceExecutor(IServiceExecutor serviceExecutor) {
+		this.serviceExecutor = null;
+	}
+
+	public IServiceExecutor getServiceExecutor() {
+		return serviceExecutor;
+	}
+
+	//
 
 	private Game game;
 	
@@ -86,10 +146,6 @@ public class Engine implements IEngine {
 		setGame(game);
 	}
 
-	@Override
-	public String getKey() {
-		return getGame().eResource().getURI().path();
-	}	
 	public Game getGame() {
 		return game;
 	}

@@ -26,6 +26,10 @@ Import-Package: org.emfjson.jackson.resource;version="0.12.0",
  org.osgi.service.component;version="1.2.2",
  org.osgi.service.component.annotations;version="1.2.0"
 Service-Component: OSGI-INF/no.hal.pg.runtime.engine.Engine.xml,
+ OSGI-INF/no.hal.pg.runtime.service.GameService.xml,
+ OSGI-INF/no.hal.pg.runtime.service.TaskService.xml,
+ OSGI-INF/no.hal.pg.runtime.service.PlayerService.xml,
+ OSGI-INF/no.hal.pg.runtime.engine.util.EObjectKeyReferenceHandler.xml,
  OSGI-INF/no.hal.pg.runtime.engine.util.PlayerReferenceHandler.xml,
  OSGI-INF/no.hal.pg.runtime.engine.ServiceExecutor.xml
 Bundle-ActivationPolicy: lazy

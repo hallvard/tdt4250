@@ -20,7 +20,7 @@ public abstract class AbstractServiceProvider implements IServiceProvider {
 	}
 	
 	public void setServiceClass(EClass serviceClass) {
-		if (RuntimePackage.eINSTANCE.getService().isSuperTypeOf(serviceClass)) {
+		if (serviceClass == null || RuntimePackage.eINSTANCE.getService().isSuperTypeOf(serviceClass)) {
 			this.serviceClass = serviceClass;
 		}
 	}

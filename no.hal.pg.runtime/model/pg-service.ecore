@@ -24,4 +24,33 @@
       <eTypeArguments eClassifier="ecore:EClass pg-runtime.ecore#//Game"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskService">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="ecore:EClass pg-runtime.ecore#//Player" changeable="false" volatile="true"
+        transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="ecore:EClass pg-runtime.ecore#//Task">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerService">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eGenericType eClassifier="ecore:EClass pg-runtime.ecore#//Task">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="ecore:EClass pg-runtime.ecore#//Player"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
 </ecore:EPackage>

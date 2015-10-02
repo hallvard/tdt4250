@@ -5,4 +5,5 @@
       <provide interface="no.hal.pg.runtime.engine.IEngine"/>
    </service>
    <reference bind="addTaskProvider" cardinality="0..n" interface="no.hal.pg.runtime.engine.ITaskProvider" name="TaskProvider" policy="dynamic" unbind="removeTaskProvider"/>
+   <reference bind="setServiceExecutor" cardinality="1..1" interface="no.hal.pg.runtime.engine.IServiceExecutor" name="ServiceExecutor" policy="dynamic" unbind="unsetServiceExecutor"/>
 </scr:component>

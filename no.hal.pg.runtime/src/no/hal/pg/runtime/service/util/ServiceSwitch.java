@@ -74,6 +74,20 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ServicePackage.TASK_SERVICE: {
+				TaskService taskService = (TaskService)theEObject;
+				T1 result = caseTaskService(taskService);
+				if (result == null) result = caseService(taskService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ServicePackage.PLAYER_SERVICE: {
+				PlayerService playerService = (PlayerService)theEObject;
+				T1 result = casePlayerService(playerService);
+				if (result == null) result = caseService(playerService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -90,6 +104,36 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseGameService(GameService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTaskService(TaskService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Player Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Player Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePlayerService(PlayerService object) {
 		return null;
 	}
 

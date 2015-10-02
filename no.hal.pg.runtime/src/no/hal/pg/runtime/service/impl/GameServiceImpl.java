@@ -130,9 +130,12 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * @generated NOT
 	 */
 	public EList<Task<?, ?>> getTasks(Player player) {
-		Game game = getContext();
+		return getPlayerTasks(player, getContext().getTasks());
+	}
+
+	static EList<Task<?, ?>> getPlayerTasks(Player player, Iterable<Task<?, ?>> tasks) {
 		EList<Task<?, ?>> playerTasks = new BasicEList<Task<?,?>>();
-		for (Task<?, ?> task : game.getTasks()) {
+		for (Task<?, ?> task : tasks) {
 			if (Util.containsPlayer(task, player, false)) {
 				playerTasks.add(task);
 			}

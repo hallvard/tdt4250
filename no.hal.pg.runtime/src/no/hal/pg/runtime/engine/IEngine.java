@@ -12,4 +12,5 @@ public interface IEngine {
 
 	public String getKey();
 	public Game getGame();
+	public IServiceExecutor getServiceExecutor();
 }

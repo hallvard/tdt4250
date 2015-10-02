@@ -31,6 +31,24 @@ public interface ServiceFactory extends EFactory {
 	GameService createGameService();
 
 	/**
+	 * Returns a new object of class '<em>Task Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Service</em>'.
+	 * @generated
+	 */
+	TaskService createTaskService();
+
+	/**
+	 * Returns a new object of class '<em>Player Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Player Service</em>'.
+	 * @generated
+	 */
+	PlayerService createPlayerService();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
