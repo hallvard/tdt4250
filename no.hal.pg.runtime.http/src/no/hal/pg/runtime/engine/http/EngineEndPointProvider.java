@@ -13,7 +13,7 @@ import no.hal.pg.runtime.engine.IEngine;
 
 @Component
 public class EngineEndPointProvider {
-	
+
 	private Collection<IEngine> engines = new ArrayList<IEngine>();
 	
 	@Reference(
@@ -30,7 +30,7 @@ public class EngineEndPointProvider {
 		if (registeredEngines.contains(engine)) {
 			unregisterEngineEndPoint(httpService, engine);
 		}
-		this.engines.remove(engine);		
+		this.engines.remove(engine);
 	}
 
 	private HttpService httpService;
@@ -55,22 +55,29 @@ public class EngineEndPointProvider {
 	
 	protected void registerEngineEndPoint(HttpService httpService, IEngine engine) {
 		if (httpService != null && (! registeredEngines.contains(engine))) {
+			String alias = getAlias(engine);
 			try {
-				httpService.registerServlet(getAlias(engine), new EngineEndPoint(engine), null, null);
+				httpService.registerServlet(alias, new EngineEndPoint(engine), null, null);
 				registeredEngines.add(engine);
 			} catch (Exception e) {
+				System.err.println("Couldn't register servlet @ " + alias);
 			}
 		}
 	}
 	
 	protected void unregisterEngineEndPoint(HttpService httpService, IEngine engine) {
 		if (httpService != null) {
-			httpService.unregister(getAlias(engine));
+			String alias = getAlias(engine);
+			try {
+				httpService.unregister(alias);
+			} catch (Exception e) {
+				System.err.println("Couldn't unregister servlet @ " + alias);
+			}
 			registeredEngines.remove(engine);
 		}
 	}
 
 	protected String getAlias(IEngine engine) {
-		return engine.getKey();
+		return "/" + engine.getKey() + "/data";
 	}
 }

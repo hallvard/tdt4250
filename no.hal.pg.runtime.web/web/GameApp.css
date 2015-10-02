@@ -1,0 +1,20 @@
+a:link {
+	text-decoration: none
+}
+
+.player {
+	font-size: 150%
+}
+
+.taskList {
+	font-size: 200%
+}
+.task {
+	background-color: lightgrey
+}
+.startedTask {
+	background-color: lightblue
+}
+.finishedTask {
+	background-color: lightgreen
+}
