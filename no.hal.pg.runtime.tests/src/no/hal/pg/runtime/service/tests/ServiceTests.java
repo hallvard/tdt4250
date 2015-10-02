@@ -32,6 +32,8 @@ public class ServiceTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ServiceTests("service Tests");
 		suite.addTestSuite(GameServiceTest.class);
+		suite.addTestSuite(TaskServiceTest.class);
+		suite.addTestSuite(PlayerServiceTest.class);
 		return suite;
 	}
 
