@@ -50,7 +50,7 @@ public class SchemaGenerator {
 	public SchemaGenerator(EPackage... packages) {
 		this(Arrays.asList(packages));
 	}
-	
+
 	private Builder schemaBuilder; 
 
 	public GraphQLSchema generate(EClass queryClass) {
