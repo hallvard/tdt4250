@@ -1,15 +1,17 @@
 package no.hal.pg.runtime.ui;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-public class EOperationContentProvider implements ITreeContentProvider {
+public class ServiceContentProvider implements ITreeContentProvider {
 	
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -19,16 +21,41 @@ public class EOperationContentProvider implements ITreeContentProvider {
 	public void dispose() {
 	}
 
+	private boolean includeOperations = true, includeFeatures = false;
+
+	public void setIncludeOperations(boolean includeOperations) {
+		this.includeOperations = includeOperations;
+	}
+	
+	public void setIncludeFeatures(boolean includeFeatures) {
+		this.includeFeatures = includeFeatures;
+	}
+
 	@Override
 	public Object[] getElements(Object inputElement) {
+		if (inputElement instanceof Collection<?>) {
+			return ((Collection<?>) inputElement).toArray();
+		}
 		EClass eClass = null;
 		if (inputElement instanceof EClass) {
 			eClass = (EClass) inputElement;
-		} else if (inputElement instanceof EObject) {
-			eClass = ((EObject) inputElement).eClass();
+//		} else if (inputElement instanceof Service<?>) {
+//			eClass = ((EObject) inputElement).eClass();
 		}
-		EList<EOperation> operations = (eClass != null ? eClass.getEAllOperations() : new BasicEList<EOperation>());
-		return operations.toArray();
+		Collection<EObject> elements = new ArrayList<EObject>();
+		if (eClass != null) {
+			if (includeFeatures) {
+				for (EStructuralFeature feature : eClass.getEAllStructuralFeatures()) {
+					if (feature.isDerived()) {
+						elements.add(feature);
+					}
+				}
+			}
+			if (includeOperations) {
+				elements.addAll(eClass.getEAllOperations());
+			}
+		}
+		return elements.toArray();
 	}
 
 	@Override
@@ -51,6 +78,8 @@ public class EOperationContentProvider implements ITreeContentProvider {
 	public boolean hasChildren(Object element) {
 		if (element instanceof EClass) {
 			return true;
+//		} else if (element instanceof Service<?>) {
+//			return true;
 		} else if (element instanceof EOperation) {
 			return true;
 		} else if (element instanceof EParameter) {

@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: no.hal.pg.runtime.provider.PgruntimeEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.runtime.presentation,
  no.hal.pg.runtime.provider,
  no.hal.pg.runtime.service.presentation,

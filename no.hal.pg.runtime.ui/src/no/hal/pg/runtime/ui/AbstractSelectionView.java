@@ -11,7 +11,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocumentListener;
-import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -176,15 +176,20 @@ public abstract class AbstractSelectionView extends ViewPart {
 		return null;
 	}
 
-	protected void setInputAndSelectFirst(ComboViewer comboViewer, Object input) {
-		comboViewer.setInput(input);
-		IStructuredContentProvider contentProvider = (IStructuredContentProvider) comboViewer.getContentProvider();
+	protected void setInputAndSelectFirst(ContentViewer contentViewer, Object input) {
+		setInputAndSelectFirst(contentViewer, input, null);
+	}
+	protected void setInputAndSelectFirst(ContentViewer contentViewer, Object input, Class<? extends EObject> selectionClass) {
+		contentViewer.setInput(input);
+		IStructuredContentProvider contentProvider = (IStructuredContentProvider) contentViewer.getContentProvider();
 		Object[] elements = contentProvider.getElements(input);
-		if (elements.length > 0) {
-			comboViewer.setSelection(new StructuredSelection(elements[0]));
+		for (int i = 0; i < elements.length; i++) {
+			if (selectionClass == null || selectionClass.isInstance(elements[i])) {
+				contentViewer.setSelection(new StructuredSelection(elements[i]));
+			}
 		}
 	}
-	
+
 	private void updateProviders(IWorkbenchPart part) {
 		if (part == this) {
 			return;

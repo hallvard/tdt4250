@@ -2,16 +2,13 @@
  */
 package no.hal.pg.runtime.provider;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -111,7 +108,7 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			plugin = this;
 		}
 
-		public IEngine createEngine() {
+		public IEngine createEngine(Dictionary<String, Object> engineConfig) {
 			BundleContext bundleContext = plugin.getBundle().getBundleContext();
 			Collection<ServiceReference<ComponentFactory>> serviceReferences = null;
 			try {
@@ -120,7 +117,7 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			}
 			if (serviceReferences != null && serviceReferences.size() > 0) {
 				ComponentFactory factory = bundleContext.getService(serviceReferences.iterator().next());
-				ComponentInstance instance = factory.newInstance(null);
+				ComponentInstance instance = factory.newInstance(engineConfig);
 				return (IEngine) instance.getInstance();
 			}
 			return null;

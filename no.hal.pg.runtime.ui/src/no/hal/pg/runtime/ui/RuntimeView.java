@@ -3,7 +3,9 @@ package no.hal.pg.runtime.ui;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -16,13 +18,12 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -33,18 +34,27 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.component.ComponentFactory;
+import org.osgi.service.component.ComponentInstance;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.engine.Engine;
 import no.hal.pg.runtime.engine.IEngine;
+import no.hal.pg.runtime.engine.IServiceProvider;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
+import no.hal.pg.runtime.provider.TaskServiceItemProvider;
 
 public class RuntimeView extends AbstractSelectionView {
 
-	private ComboViewer eOperationSelector;
+//	private ComboViewer eOperationSelector;
+	private TreeViewer serviceOperationsViewer;
 	private PropertySheetPage propertySheetPage;
 
 	@Override
@@ -72,7 +82,7 @@ public class RuntimeView extends AbstractSelectionView {
 	}
 	
 	public void runGame(GameDef gameDef) {
-		IEngine engine = createEngine();
+		IEngine engine = createEngine(gameDef.eResource().getURI().lastSegment());
 		if (engine == null) {
 			return;
 		}
@@ -89,8 +99,10 @@ public class RuntimeView extends AbstractSelectionView {
 		updateView();
 	}
 
-	private IEngine createEngine() {
-		IEngine engine = PgruntimeEditPlugin.getPlugin().createEngine();
+	private IEngine createEngine(String key) {
+		Dictionary<String, Object> engineConfig = new Hashtable<String, Object>();
+		engineConfig.put("IEngine.key", key);
+		IEngine engine = PgruntimeEditPlugin.getPlugin().createEngine(engineConfig);
 		if (engine == null) {
 			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "Couldn't create Engine");
 			return null;
@@ -101,7 +113,7 @@ public class RuntimeView extends AbstractSelectionView {
 	public void resumeGame(Game game) {
 		IEngine engine = getEngine(game);
 		if (engine == null) {
-			engine = createEngine();
+			engine = createEngine(game.eResource().getURI().lastSegment());
 			if (engine == null) {
 				return;
 			}
@@ -156,22 +168,16 @@ public class RuntimeView extends AbstractSelectionView {
 		engineLabel = new Label(parent, SWT.NONE);
 		engineLabel.setText(noEngineLabel);
 		engineLabel.setLayoutData(new GridData( SWT.FILL, SWT.CENTER, true, false, 2, 1));
-		eOperationSelector = new ComboViewer(parent, SWT.READ_ONLY | SWT.DROP_DOWN);
-		eOperationSelector.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		eOperationSelector.setLabelProvider(new EOperationLabelProvider());
-		eOperationSelector.setContentProvider(new EOperationContentProvider());
-		eOperationSelector.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				ISelection selection = event.getSelection();
-				if (selection instanceof IStructuredSelection) {
-					Object object = ((IStructuredSelection) selection).getFirstElement();
-					if (object instanceof EOperation) {
-						operationSelected((EOperation) object);
-					}
-				}				
-			}
-		});
+//		eOperationSelector = new ComboViewer(parent, SWT.READ_ONLY | SWT.DROP_DOWN);
+//		eOperationSelector.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+//		eOperationSelector.setLabelProvider(new EOperationLabelProvider());
+//		eOperationSelector.setContentProvider(new EOperationContentProvider());
+//		eOperationSelector.addSelectionChangedListener(operationSelectionListener);
+		serviceOperationsViewer = new TreeViewer(parent, SWT.NONE);
+		serviceOperationsViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		serviceOperationsViewer.setLabelProvider(new ServiceLabelProvider());
+		serviceOperationsViewer.setContentProvider(new ServiceContentProvider());
+		serviceOperationsViewer.addSelectionChangedListener(operationSelectionListener);
 
 		invokeButton = new Button(parent, SWT.PUSH);
 		invokeButton.setText("Invoke!");
@@ -194,13 +200,28 @@ public class RuntimeView extends AbstractSelectionView {
 		propertySheetPage.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 	}
 
+	private ISelectionChangedListener operationSelectionListener = new ISelectionChangedListener() {
+		@Override
+		public void selectionChanged(SelectionChangedEvent event) {
+			ISelection selection = event.getSelection();
+			if (selection instanceof IStructuredSelection) {
+				Object object = ((IStructuredSelection) selection).getFirstElement();
+				if (object instanceof EOperation) {
+					operationSelected((EOperation) object);
+				}
+			}				
+		}
+	};
+	
 	@Override
 	public void setFocus() {
-		eOperationSelector.getControl().setFocus();
+//		eOperationSelector.getControl().setFocus();
+		serviceOperationsViewer.getControl().setFocus();
 	}
 	
 	public void dispose() {
-		eOperationSelector.getControl().dispose();
+//		eOperationSelector.getControl().dispose();
+		serviceOperationsViewer.getControl().dispose();
 		propertySheetPage.dispose();
 		super.dispose();
 	}
@@ -209,6 +230,28 @@ public class RuntimeView extends AbstractSelectionView {
 
 	protected EObject getSelectedEObject() {
 		return (EObject) getSelection();
+	}
+
+	private Collection<Service<?>> getServices(EObject selection) {
+		BundleContext bundleContext = PgruntimeEditPlugin.getPlugin().getBundle().getBundleContext();
+		Collection<ServiceReference<IServiceProvider>> serviceReferences = null;
+		try {
+			serviceReferences = bundleContext.getServiceReferences(IServiceProvider.class, null);
+		} catch (InvalidSyntaxException e) {
+		}
+		Collection<Service<?>> services = new ArrayList<Service<?>>();
+		if (serviceReferences != null) {
+			for (ServiceReference<IServiceProvider> serviceReference : serviceReferences) {
+				IServiceProvider serviceProvider = bundleContext.getService(serviceReference);
+				if (serviceProvider != null) {
+					Service<?> service = serviceProvider.getService(selection);
+					if (service != null) {
+						services.add(service);
+					}
+				}
+			}
+		}
+		return services;
 	}
 
 	@Override
@@ -222,11 +265,15 @@ public class RuntimeView extends AbstractSelectionView {
 		runGameAction.setEnabled(getGameDef(selection) != null || (game != null && engine == null));
 		engineLabel.setText(engine != null ? engine.getKey() : noEngineLabel);
 		invokeButton.setEnabled(selection instanceof Service<?>);
-		if (selection instanceof Service<?>) {
-			if (currentInvocation == null || selection != currentInvocation.getOperationOwner()) {
-				currentInvocation = new EOperationInvocation(selection);
-				setInputAndSelectFirst(eOperationSelector, selection);
+		if (currentInvocation == null || selection != currentInvocation.getOperationOwner()) {
+			currentInvocation = new EOperationInvocation(selection);
+//				setInputAndSelectFirst(eOperationSelector, selection);
+			Collection<Service<?>> services = getServices(selection);
+			Collection<EClass> serviceClasses = new ArrayList<EClass>();
+			for (Service<?> service : services) {
+				serviceClasses.add(service.eClass());
 			}
+			setInputAndSelectFirst(serviceOperationsViewer, services, EOperation.class);
 		}
 		super.updateView();
 	}

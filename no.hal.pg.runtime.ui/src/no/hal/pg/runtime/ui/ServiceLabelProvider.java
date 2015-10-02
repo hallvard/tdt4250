@@ -1,15 +1,26 @@
 package no.hal.pg.runtime.ui;
 
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
+import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-public class EOperationLabelProvider extends LabelProvider {
+public class ServiceLabelProvider extends LabelProvider {
 
+	protected String toString(ENamedElement namedElement) {
+		return namedElement.getName();
+		
+	}
+	protected String toString(ETypedElement typedElement) {
+		String item = toString((ENamedElement) typedElement);
+		EClassifier type = typedElement.getEType();
+		return (type != null ? type.getName() : "void") + (typedElement.isMany() ? '*' : 0) + " " + item;
+	}
 	protected String toString(EOperation operation) {
-		String item = operation.getName() + "(";
+		String item = toString((ETypedElement) operation) + "(";
 		for (EParameter param : operation.getEParameters()) {
 			if (param != operation.getEParameters().get(0)) {
 				item += ",";
@@ -18,11 +29,6 @@ public class EOperationLabelProvider extends LabelProvider {
 		}
 		item += ")";
 		return item;
-	}
-
-	protected String toString(EParameter param) {
-		EClassifier type = param.getEType();
-		return type.getName() + (param.isMany() ? '*' : 0) + " " + param.getName();
 	}
 	
 	@Override

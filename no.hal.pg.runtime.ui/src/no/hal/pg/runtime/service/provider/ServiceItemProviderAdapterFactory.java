@@ -95,6 +95,52 @@ public class ServiceItemProviderAdapterFactory extends ServiceAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.service.TaskService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskServiceItemProvider taskServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.runtime.service.TaskService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskServiceAdapter() {
+		if (taskServiceItemProvider == null) {
+			taskServiceItemProvider = new TaskServiceItemProvider(this);
+		}
+
+		return taskServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.service.PlayerService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlayerServiceItemProvider playerServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.runtime.service.PlayerService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlayerServiceAdapter() {
+		if (playerServiceItemProvider == null) {
+			playerServiceItemProvider = new PlayerServiceItemProvider(this);
+		}
+
+		return playerServiceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +240,8 @@ public class ServiceItemProviderAdapterFactory extends ServiceAdapterFactory imp
 	 */
 	public void dispose() {
 		if (gameServiceItemProvider != null) gameServiceItemProvider.dispose();
+		if (taskServiceItemProvider != null) taskServiceItemProvider.dispose();
+		if (playerServiceItemProvider != null) playerServiceItemProvider.dispose();
 	}
 
 }
