@@ -90,5 +90,6 @@
 	<module>../no.hal.pg.runtime.http.tests</module>
 	<module>../no.hal.graphql.emf</module>
 	<module>../no.hal.pg.runtime.http</module>
+	<module>../no.hal.pg.runtime.web</module>
 	</modules>
 </project>
