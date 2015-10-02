@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.http.EngineEndPointProvider">
+   <implementation class="no.hal.pg.runtime.engine.http.EngineEndPointProvider"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.http.IEngineApp"/>
+   </service>
+   <property name="IEngineApp.name" type="String" value="game"/>
+   <property name="IEngineApp.displayName" type="String" value="Game appm:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#Game"/>
+</scr:component>

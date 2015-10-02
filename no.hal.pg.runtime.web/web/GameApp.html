@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Task list</title>
+</head>
+<body>
+
+<style>
+a:link { text-decoration: none }
+
+.player { font-size: 150% }
+
+.taskList { font-size: 200% }
+.task { background-color: lightgrey }
+.startedTask { background-color: lightblue }
+.finishedTask { background-color: lightgreen }
+
+.taskList { font-size: 200% }
+.task { background-color: lightgrey }
+.startedTask { background-color: lightblue }
+.finishedTask { background-color: lightgreen }
+</style>
+
+<h1>Player info</h1>
+<div id="player"></div>
+<p>
+<h1>Task list</h1>
+<div id="tasklist"></div>
+
+<script src="https://fb.me/react-0.13.3.js"></script>
+<script src="PlayerComponent.js"></script>
+<script src="TaskComponent.js"></script>
+<script src="TaskListComponent.js"></script>
+<script language="javascript">
+var player = {
+	name: "Hallvard Trætteberg",
+	ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
+};
+var tasks = [ {
+		num: 0, finished: true, started: true
+	}, {
+		num: 1, finished: false, started: true
+	}, {
+		num: 2, finished: false, started: false
+	},
+ ]; 
+ React.render(React.createElement(PlayerComponent, player), document.getElementById('player'));
+ React.render(React.createElement(TaskListComponent, { tasks: tasks }), document.getElementById('tasklist'));
+</script>
+</body>  
+</html>
