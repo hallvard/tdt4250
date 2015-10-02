@@ -15,7 +15,7 @@ public class QAProposalReferenceHandler implements IReferenceHandler {
 
 	@Override
 	public String getReference(EObject eObject, EObject context) {
-		return String.valueOf(Util.indexOf(eObject));
+		return (eObject instanceof QAProposal ? String.valueOf(Util.indexOf(eObject)) : null);
 	}
 
 	@Override

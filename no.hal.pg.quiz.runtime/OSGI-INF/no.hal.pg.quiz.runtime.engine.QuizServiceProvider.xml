@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.quiz.runtime.engine.QuizServiceProvider">
+   <implementation class="no.hal.pg.quiz.runtime.engine.QuizServiceProvider"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.IServiceProvider"/>
+   </service>
+</scr:component>
