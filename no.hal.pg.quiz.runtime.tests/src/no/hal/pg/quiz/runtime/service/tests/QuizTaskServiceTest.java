@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.emfjson.jackson.resource.JsonResource;
 
 import junit.framework.TestCase;
-
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.quiz.model.util.ModelResourceFactoryImpl;
