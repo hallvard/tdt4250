@@ -3,25 +3,18 @@ package no.hal.pg.runtime.engine.web;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.servlet.http.HttpServlet;
+import no.hal.pg.runtime.engine.http.EngineAppComponent;
 
-import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.engine.http.AbstractEngineAppComponent;
-
-public class GameApp extends AbstractEngineAppComponent<Game> {
+public class GameApp extends EngineAppComponent {
 	
 	@Override
 	public Collection<String> getResourceNames() {
 		return Arrays.asList(
+			"web/GameApp.html",
 			"web/GameApp.css",
-			"PlayerComponent.js",
-			"TaskComponent.js",
-			"TaskListComponent.js"
+			"web/PlayerComponent.js",
+			"web/TaskComponent.js",
+			"web/TaskListComponent.js"
 		);
-	}
-
-	@Override
-	public HttpServlet getServlet(Game game, String dataUrl) {
-		return null;
 	}
 }

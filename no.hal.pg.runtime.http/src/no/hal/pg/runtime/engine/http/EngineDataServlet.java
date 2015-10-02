@@ -36,11 +36,11 @@ import no.hal.pg.runtime.engine.IServiceExecutor;
 import no.hal.pg.runtime.engine.ServiceExecutor;
 
 @SuppressWarnings("serial")
-public class EngineEndPoint extends HttpServlet {
+public class EngineDataServlet extends HttpServlet {
 
 	private IEngine engine;
 	
-	public EngineEndPoint(IEngine engine) {
+	public EngineDataServlet(IEngine engine) {
 		this.engine = engine;
 	}
 

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.http.EngineEndPointProvider">
-   <implementation class="no.hal.pg.runtime.engine.http.EngineEndPointProvider"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.web.GameApp">
+   <implementation class="no.hal.pg.runtime.engine.http.EngineAppComponent"/>
    <service>
       <provide interface="no.hal.pg.runtime.engine.http.IEngineApp"/>
    </service>
    <property name="IEngineApp.name" type="String" value="game"/>
    <property name="IEngineApp.displayName" type="String" value="Game appm:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#Game"/>
+   <property name="IEngineApp.resourceNames" type="String">GameApp.html,GameApp.css,
+PlayerComponent.js,TaskComponent.js,TaskListComponent.js
+   </property>
+   <property name="EngineAppComponent.resourceFolder" type="String" value="/web"/>
+   <property name="IEngineAppComponent.refreshServiceUriPath" type="String" value="/"/>
 </scr:component>

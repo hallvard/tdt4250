@@ -107,9 +107,7 @@ public class TaskServiceTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetPlayers() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-//		fail();
+		assertEquals(getFixture().getContext().getPlayers(), getFixture().getPlayers());
 	}
 
 	/**
