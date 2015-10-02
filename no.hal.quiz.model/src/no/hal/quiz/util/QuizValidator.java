@@ -341,14 +341,10 @@ public class QuizValidator extends EObjectValidator {
 	 * Validates the SingleCorrectOption constraint of '<em>Single Options Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateSingleOptionsAnswer_SingleCorrectOption(SingleOptionsAnswer singleOptionsAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (countCorrectOptions(singleOptionsAnswer) != 1) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -398,14 +394,10 @@ public class QuizValidator extends EObjectValidator {
 	 * Validates the AtLeastOneCorrectOption constraint of '<em>Many Options Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateManyOptionsAnswer_AtLeastOneCorrectOption(ManyOptionsAnswer manyOptionsAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (countCorrectOptions(manyOptionsAnswer) < 1) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -481,14 +473,11 @@ public class QuizValidator extends EObjectValidator {
 	 * Validates the MatchingEndTag constraint of '<em>Xml Tag Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateXmlTagElement_MatchingEndTag(XmlTagElement xmlTagElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		String endTag = xmlTagElement.getEndTag();
+		if (endTag != null && (! xmlTagElement.getStartTag().getName().equals(endTag))) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
