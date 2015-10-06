@@ -10,7 +10,7 @@ import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.runtime.Player;
 import no.hal.quiz.QA;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -263,12 +263,10 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Player> getAllPlayers() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return ECollections.unmodifiableEList(getPlayers());
 	}
 
 	/**

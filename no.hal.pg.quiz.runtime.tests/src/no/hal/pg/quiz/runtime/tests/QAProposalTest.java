@@ -11,6 +11,12 @@ import no.hal.pg.quiz.runtime.RuntimeFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>QA Proposal</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class QAProposalTest extends TestCase {
@@ -82,6 +88,19 @@ public class QAProposalTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.Players#getAllPlayers()
+	 * @generated
+	 */
+	public void testGetAllPlayers() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //QAProposalTest

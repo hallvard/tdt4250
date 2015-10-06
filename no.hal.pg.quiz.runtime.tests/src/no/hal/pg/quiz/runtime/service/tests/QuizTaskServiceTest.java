@@ -135,7 +135,7 @@ public class QuizTaskServiceTest extends TestCase {
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
-		Player player = quizTask.getPlayers().get(0);
+		Player player = quizTask.getAllPlayers().get(0);
 		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, null, 0, false);
 		
@@ -155,7 +155,7 @@ public class QuizTaskServiceTest extends TestCase {
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
-		Player player = quizTask.getPlayers().get(0);
+		Player player = quizTask.getAllPlayers().get(0);
 
 		assertTrue(service.acceptAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, true, 1, false);
@@ -176,7 +176,7 @@ public class QuizTaskServiceTest extends TestCase {
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
-		EList<Player> players = quizTask.getGame().getPlayers();
+		EList<Player> players = quizTask.getGame().getAllPlayers();
 		Player player1 = players.get(0), player2 = players.get(1);
 
 		EList<QAProposal> proposals = quizTask.getProposals();
@@ -205,8 +205,6 @@ public class QuizTaskServiceTest extends TestCase {
 		q1.setNumChoices(1);
 		q1.setQuestion("I hvilken by ligger Stortinget?");
 		q1.setLastProposal("Fredrikstad");
-		
-
 		
 		Question q2 = ServiceFactory.eINSTANCE.createQuestion();
 		q2.setKind(AnswerKind.YESNO);
@@ -238,15 +236,11 @@ public class QuizTaskServiceTest extends TestCase {
 		Resource res = new JsonResource();
 		res.getContents().addAll(Arrays.asList(q1, q2, q3));
 		
-		
-		
-		
 		try {
 			res.save(System.out, null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
 	}
 
 } //QuizTaskServiceTest
