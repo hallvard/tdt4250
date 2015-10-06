@@ -25,6 +25,7 @@ import no.hal.pg.runtime.service.ServicePackage;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -41,6 +42,15 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 */
 	protected Player context;
 
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +113,15 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public String getName() {
+		return getContext().getPerson().getName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public EList<Task<?, ?>> getTasks() {
 		Game game = getContext().getGame();
 		return GameServiceImpl.getPlayerTasks(getContext(), game.getTasks());
@@ -119,6 +138,8 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 			case ServicePackage.PLAYER_SERVICE__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
+			case ServicePackage.PLAYER_SERVICE__NAME:
+				return getName();
 			case ServicePackage.PLAYER_SERVICE__TASKS:
 				return getTasks();
 		}
@@ -165,6 +186,8 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 		switch (featureID) {
 			case ServicePackage.PLAYER_SERVICE__CONTEXT:
 				return context != null;
+			case ServicePackage.PLAYER_SERVICE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case ServicePackage.PLAYER_SERVICE__TASKS:
 				return !getTasks().isEmpty();
 		}

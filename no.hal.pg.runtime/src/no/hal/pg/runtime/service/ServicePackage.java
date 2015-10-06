@@ -217,13 +217,22 @@ public interface ServicePackage extends EPackage {
 	int PLAYER_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_SERVICE__NAME = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+	int PLAYER_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Player Service</em>' class.
@@ -232,7 +241,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	int PLAYER_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Player Service</em>' class.
@@ -349,6 +358,17 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPlayerService();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.service.PlayerService#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.hal.pg.runtime.service.PlayerService#getName()
+	 * @see #getPlayerService()
+	 * @generated
+	 */
+	EAttribute getPlayerService_Name();
 
 	/**
 	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.service.PlayerService#getTasks <em>Tasks</em>}'.
@@ -469,6 +489,14 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PLAYER_SERVICE = eINSTANCE.getPlayerService();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER_SERVICE__NAME = eINSTANCE.getPlayerService_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.

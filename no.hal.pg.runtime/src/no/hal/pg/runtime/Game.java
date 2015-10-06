@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.Game#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Game#getTeams <em>Teams</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Game#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -27,7 +28,6 @@ public interface Game extends Players {
 	/**
 	 * Returns the value of the '<em><b>Players</b></em>' containment reference list.
 	 * The list contents are of type {@link no.hal.pg.runtime.Player}.
-	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Player#getGame <em>Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Players</em>' containment reference list isn't clear,
@@ -36,11 +36,28 @@ public interface Game extends Players {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Players</em>' containment reference list.
 	 * @see no.hal.pg.runtime.RuntimePackage#getGame_Players()
-	 * @see no.hal.pg.runtime.Player#getGame
-	 * @model opposite="game" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Player> getPlayers();
+
+	/**
+	 * Returns the value of the '<em><b>Teams</b></em>' containment reference list.
+	 * The list contents are of type {@link no.hal.pg.runtime.Team}.
+	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Team#getGame <em>Game</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Teams</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Teams</em>' containment reference list.
+	 * @see no.hal.pg.runtime.RuntimePackage#getGame_Teams()
+	 * @see no.hal.pg.runtime.Team#getGame
+	 * @model opposite="game" containment="true"
+	 * @generated
+	 */
+	EList<Team> getTeams();
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.

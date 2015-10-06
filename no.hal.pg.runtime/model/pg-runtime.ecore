@@ -15,7 +15,9 @@
       <eParameters name="stateClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
-        eType="#//Player" containment="true" eOpposite="#//Player/game"/>
+        eType="#//Player" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="-1"
+        eType="#//Team" containment="true" eOpposite="#//Team/game"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
         containment="true" eOpposite="#//Task/game">
       <eGenericType eClassifier="#//Task">
@@ -24,12 +26,18 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Team" eSuperTypes="#//Players">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" eOpposite="#//Game/teams"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="#//Player" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" eOpposite="#//Game/players"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" changeable="false"
+        volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="ecore:EClass ../../no.hal.pg.model/model/pg.ecore#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Players" abstract="true" interface="true">
-    <eOperations name="getPlayers" upperBound="-1" eType="#//Player"/>
+    <eOperations name="getAllPlayers" upperBound="-1" eType="#//Player"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Players">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -61,6 +69,7 @@
       <eGenericType eTypeParameter="#//Task/T"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="game" eType="#//Game" eOpposite="#//Game/tasks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="team" eType="#//Team"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
         eType="#//Player"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentState" containment="true"

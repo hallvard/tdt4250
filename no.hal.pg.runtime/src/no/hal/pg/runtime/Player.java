@@ -24,32 +24,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Player extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Game</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link no.hal.pg.runtime.Game#getPlayers <em>Players</em>}'.
+	 * Returns the value of the '<em><b>Game</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Game</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Game</em>' container reference.
-	 * @see #setGame(Game)
+	 * @return the value of the '<em>Game</em>' reference.
 	 * @see no.hal.pg.runtime.RuntimePackage#getPlayer_Game()
-	 * @see no.hal.pg.runtime.Game#getPlayers
-	 * @model opposite="players" transient="false"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Game getGame();
-
-	/**
-	 * Sets the value of the '{@link no.hal.pg.runtime.Player#getGame <em>Game</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Game</em>' container reference.
-	 * @see #getGame()
-	 * @generated
-	 */
-	void setGame(Game value);
 
 	/**
 	 * Returns the value of the '<em><b>Person</b></em>' reference.

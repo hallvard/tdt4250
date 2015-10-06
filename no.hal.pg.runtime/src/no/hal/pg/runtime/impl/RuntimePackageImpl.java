@@ -12,6 +12,7 @@ import no.hal.pg.runtime.SelfService;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
+import no.hal.pg.runtime.Team;
 import no.hal.pg.runtime.util.RuntimeValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -39,6 +40,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass gameEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass teamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,8 +193,17 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_Tasks() {
+	public EReference getGame_Teams() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGame_Tasks() {
+		return (EReference)gameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -196,6 +213,33 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 */
 	public EOperation getGame__GetTasks__EClass() {
 		return gameEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTeam() {
+		return teamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTeam_Game() {
+		return (EReference)teamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTeam_Players() {
+		return (EReference)teamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -239,7 +283,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlayers__GetPlayers() {
+	public EOperation getPlayers__GetAllPlayers() {
 		return playersEClass.getEOperations().get(0);
 	}
 
@@ -275,7 +319,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Players() {
+	public EReference getTask_Team() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -284,7 +328,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_CurrentState() {
+	public EReference getTask_Players() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -293,7 +337,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_PastStates() {
+	public EReference getTask_CurrentState() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -302,8 +346,17 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTask_PastStates() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTask_Result() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -462,19 +515,25 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		// Create classes and their features
 		gameEClass = createEClass(GAME);
 		createEReference(gameEClass, GAME__PLAYERS);
+		createEReference(gameEClass, GAME__TEAMS);
 		createEReference(gameEClass, GAME__TASKS);
 		createEOperation(gameEClass, GAME___GET_TASKS__ECLASS);
+
+		teamEClass = createEClass(TEAM);
+		createEReference(teamEClass, TEAM__GAME);
+		createEReference(teamEClass, TEAM__PLAYERS);
 
 		playerEClass = createEClass(PLAYER);
 		createEReference(playerEClass, PLAYER__GAME);
 		createEReference(playerEClass, PLAYER__PERSON);
 
 		playersEClass = createEClass(PLAYERS);
-		createEOperation(playersEClass, PLAYERS___GET_PLAYERS);
+		createEOperation(playersEClass, PLAYERS___GET_ALL_PLAYERS);
 
 		taskEClass = createEClass(TASK);
 		createEReference(taskEClass, TASK__TASK_DEF);
 		createEReference(taskEClass, TASK__GAME);
+		createEReference(taskEClass, TASK__TEAM);
 		createEReference(taskEClass, TASK__PLAYERS);
 		createEReference(taskEClass, TASK__CURRENT_STATE);
 		createEReference(taskEClass, TASK__PAST_STATES);
@@ -544,6 +603,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		// Add supertypes to classes
 		gameEClass.getESuperTypes().add(this.getPlayers());
+		teamEClass.getESuperTypes().add(this.getPlayers());
 		taskEClass.getESuperTypes().add(this.getPlayers());
 		g1 = createEGenericType(this.getService());
 		g2 = createEGenericType(ecorePackage.getEObject());
@@ -552,7 +612,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGame_Players(), this.getPlayer(), this.getPlayer_Game(), "players", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Players(), this.getPlayer(), null, "players", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Teams(), this.getTeam(), this.getTeam_Game(), "teams", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getTask());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -569,18 +630,23 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		initEClass(teamEClass, Team.class, "Team", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTeam_Game(), this.getGame(), this.getGame_Teams(), "game", null, 0, 1, Team.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTeam_Players(), this.getPlayer(), null, "players", null, 0, -1, Team.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(playerEClass, Player.class, "Player", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlayer_Game(), this.getGame(), this.getGame_Players(), "game", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlayer_Game(), this.getGame(), null, "game", null, 0, 1, Player.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPlayer_Person(), theModelPackage.getPerson(), null, "person", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(playersEClass, Players.class, "Players", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getPlayers__GetPlayers(), this.getPlayer(), "getPlayers", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPlayers__GetAllPlayers(), this.getPlayer(), "getAllPlayers", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(taskEClass_T);
 		initEReference(getTask_TaskDef(), g1, null, "taskDef", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Game(), this.getGame(), this.getGame_Tasks(), "game", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Team(), this.getTeam(), null, "team", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Players(), this.getPlayer(), null, "players", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getTaskState());
 		g2 = createEGenericType();

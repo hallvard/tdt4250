@@ -2,12 +2,20 @@
  */
 package no.hal.pg.runtime.tests;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
+
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
+import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
+import no.hal.pg.runtime.Team;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +30,7 @@ import no.hal.pg.runtime.TaskState;
  *   <li>{@link no.hal.pg.runtime.Task#changeState(no.hal.pg.runtime.TaskState) <em>Change State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#isInState(org.eclipse.emf.ecore.EClass) <em>Is In State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#finish(java.lang.Object) <em>Finish</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -139,6 +148,29 @@ public class TaskTest extends TestCase {
 		task.finish(result);
 		assertTrue(task.isFinished());
 		assertEquals(result, task.getResult());
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.Players#getAllPlayers()
+	 * @generated NOT
+	 */
+	public void testGetAllPlayers() {
+		Task<?, ?> task = (Task<?, ?>) getFixture();
+
+		List<Player> taskPlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
+		task.getPlayers().addAll(taskPlayers);
+		Team team = RuntimeFactory.eINSTANCE.createTeam();
+		List<Player> teamPlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
+		team.getPlayers().addAll(teamPlayers);
+		task.setTeam(team);
+		
+		EList<Player> allPlayers = task.getAllPlayers();
+		assertEquals(taskPlayers.size() + teamPlayers.size(), allPlayers.size());
+		allPlayers.containsAll(taskPlayers);
+		allPlayers.containsAll(teamPlayers);
 	}
 
 	/**

@@ -8,10 +8,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.osgi.service.component.annotations.Component;
 
-import no.hal.pg.runtime.engine.IReferenceHandler;
+import no.hal.pg.runtime.engine.IReferenceProvider;
+import no.hal.pg.runtime.engine.IReferenceResolver;
 
 @Component
-public class EObjectKeyReferenceHandler implements IReferenceHandler {
+public class EObjectKeyReferenceHandler implements IReferenceResolver, IReferenceProvider {
 
 	private String featureKeySeparator = ":";
 	private String keySeparator = ",";

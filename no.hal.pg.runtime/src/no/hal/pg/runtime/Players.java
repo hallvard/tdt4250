@@ -23,6 +23,6 @@ public interface Players extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Player> getPlayers();
+	EList<Player> getAllPlayers();
 
 } // Players

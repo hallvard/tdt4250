@@ -5,7 +5,10 @@ package no.hal.pg.runtime.service.tests;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
-
+import no.hal.pg.model.ModelFactory;
+import no.hal.pg.model.Person;
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.service.PlayerService;
 import no.hal.pg.runtime.service.ServiceFactory;
 
@@ -16,6 +19,7 @@ import no.hal.pg.runtime.service.ServiceFactory;
  * <p>
  * The following features are tested:
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.service.PlayerService#getName() <em>Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getTasks() <em>Tasks</em>}</li>
  * </ul>
  * </p>
@@ -78,7 +82,13 @@ public class PlayerServiceTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ServiceFactory.eINSTANCE.createPlayerService());
+		PlayerService playerService = ServiceFactory.eINSTANCE.createPlayerService();
+		Player player = RuntimeFactory.eINSTANCE.createPlayer();
+		Person person = ModelFactory.eINSTANCE.createPerson();
+		person.setName("Kim");
+		player.setPerson(person);
+		playerService.setContext(player);
+		setFixture(playerService);
 	}
 
 	/**
@@ -90,6 +100,17 @@ public class PlayerServiceTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.service.PlayerService#getName() <em>Name</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.service.PlayerService#getName()
+	 * @generated NOT
+	 */
+	public void testGetName() {
+		assertEquals(getFixture().getContext().getPerson().getName(), getFixture().getName());
 	}
 
 	/**

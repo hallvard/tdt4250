@@ -22,10 +22,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 
 import graphql.ExecutionResult;
 import graphql.GraphQL;
@@ -38,27 +35,21 @@ import no.hal.pg.runtime.engine.ServiceExecutor;
 @SuppressWarnings("serial")
 public class EngineDataServlet extends HttpServlet {
 
-	private IEngine engine;
+	private final IEngine engine;
+	private final ISerializer serializer;
 	
-	public EngineDataServlet(IEngine engine) {
+	public EngineDataServlet(IEngine engine, ISerializer serializer) {
 		this.engine = engine;
+		this.serializer = serializer;
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if (executeSegments(req)) {
-			Object[] result = engine.getServiceExecutor().getObjects(engine.getGame());
-			PrintWriter writer = resp.getWriter();
-//			writer.append("[\n");
-//			for (int i = 0; i < result.length; i++) {
-//				Object o = result[i];
-//				writer.write(String.valueOf(o));
-//			}
-//			writer.append("\n]");
-    		ObjectWriter objectWriter = new ObjectMapper().writer(new DefaultPrettyPrinter());
-    		objectWriter.writeValue(System.out, result);
-    		objectWriter.writeValue(writer, result);
-			writer.close();
+		synchronized (engine.getServiceExecutor()) {
+			if (executeSegments(req)) {
+				Object[] result = engine.getServiceExecutor().getObjects();
+				writeResult(resp, result);
+			}
 		}
 	}
 	
@@ -91,7 +82,7 @@ public class EngineDataServlet extends HttpServlet {
 				int num = Integer.valueOf(segment);
 				serviceExecutor.select(num, num + 1);
 			} catch (NumberFormatException e) {
-				if (serviceExecutor.resolve(segment, true) == null) {
+				if (! serviceExecutor.resolve(segment)) {
 					serviceExecutor.execute(segment, (i == end - 1 ? parameters : null));				
 				}
 			}
@@ -144,13 +135,13 @@ public class EngineDataServlet extends HttpServlet {
 		}
 		return schema;
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String query = getGraphQL(req);
 		if (executeSegments(req)) {
 			IServiceExecutor serviceExecutor = engine.getServiceExecutor();
-			Object[] result = serviceExecutor.getObjects(engine.getGame());
+			Object[] result = serviceExecutor.getObjects();
 			if (result.length > 0 && result[0] instanceof EObject) {
 				EObject root = (EObject) result[0];
 				GraphQLSchema schema = getGraphQLSchema(root);
@@ -178,10 +169,12 @@ public class EngineDataServlet extends HttpServlet {
 	}
 
 	private void writeResult(HttpServletResponse resp, Object result) throws IOException, JsonGenerationException, JsonMappingException {
-		ObjectWriter objectWriter = new ObjectMapper().writer(new DefaultPrettyPrinter());
-		objectWriter.writeValue(System.out, result);
 		PrintWriter writer = resp.getWriter();
-		objectWriter.writeValue(writer, result);
+		try {
+			serializer.serialize(result, writer);
+		} catch (Exception e) {
+			writer.println(e.getMessage());
+		}
 		writer.close();
 	}
 	

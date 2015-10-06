@@ -63,6 +63,7 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case RuntimePackage.GAME: return createGame();
+			case RuntimePackage.TEAM: return createTeam();
 			case RuntimePackage.PLAYER: return createPlayer();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
@@ -110,6 +111,16 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public Game createGame() {
 		GameImpl game = new GameImpl();
 		return game;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Team createTeam() {
+		TeamImpl team = new TeamImpl();
+		return team;
 	}
 
 	/**

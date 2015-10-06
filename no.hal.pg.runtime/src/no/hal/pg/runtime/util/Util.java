@@ -20,7 +20,7 @@ public class Util {
 		Collection<Player> result = new ArrayList<Player>();
 		while (eObject != null) {
 			if (eObject instanceof Players) {
-				EList<Player> players = ((Players) eObject).getPlayers();
+				EList<Player> players = ((Players) eObject).getAllPlayers();
 				if (players.size() > 0) {
 					result.addAll(players);
 					if (! includeContainers) {
@@ -36,7 +36,7 @@ public class Util {
 	public static boolean containsPlayer(EObject eObject, Player player, boolean includeContainers) {
 		while (eObject != null) {
 			if (eObject instanceof Players) {
-				EList<Player> players = ((Players) eObject).getPlayers();
+				EList<Player> players = ((Players) eObject).getAllPlayers();
 				if (players.size() > 0) {
 					if (players.contains(player)) {
 						return true;

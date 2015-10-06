@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.service.PlayerService#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -25,6 +26,21 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface PlayerService extends Service<Player> {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see no.hal.pg.runtime.service.ServicePackage#getPlayerService_Name()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getName();
+
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
 	 * The list contents are of type {@link no.hal.pg.runtime.Task}&lt;?, ?>.

@@ -33,6 +33,15 @@ public interface RuntimeFactory extends EFactory {
 	Game createGame();
 
 	/**
+	 * Returns a new object of class '<em>Team</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Team</em>'.
+	 * @generated
+	 */
+	Team createTeam();
+
+	/**
 	 * Returns a new object of class '<em>Player</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,21 +2,17 @@
  */
 package no.hal.pg.runtime.impl;
 
-import no.hal.pg.model.Person;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import no.hal.pg.model.Person;
 import no.hal.pg.runtime.Game;
-import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.Team;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,39 +64,22 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * @generated
 	 */
 	public Game getGame() {
-		if (eContainerFeatureID() != RuntimePackage.PLAYER__GAME) return null;
-		return (Game)eInternalContainer();
+		Game game = basicGetGame();
+		return game != null && game.eIsProxy() ? (Game)eResolveProxy((InternalEObject)game) : game;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public NotificationChain basicSetGame(Game newGame, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newGame, RuntimePackage.PLAYER__GAME, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGame(Game newGame) {
-		if (newGame != eInternalContainer() || (eContainerFeatureID() != RuntimePackage.PLAYER__GAME && newGame != null)) {
-			if (EcoreUtil.isAncestor(this, newGame))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newGame != null)
-				msgs = ((InternalEObject)newGame).eInverseAdd(this, RuntimePackage.GAME__PLAYERS, Game.class, msgs);
-			msgs = basicSetGame(newGame, msgs);
-			if (msgs != null) msgs.dispatch();
+	public Game basicGetGame() {
+		if (eContainer() instanceof Game) {
+			return (Game) eContainer();
+		} else if (eContainer() instanceof Team) {
+			return ((Team) eContainer).getGame();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.PLAYER__GAME, newGame, newGame));
+		return null;
 	}
 
 	/**
@@ -147,54 +126,11 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RuntimePackage.PLAYER__GAME:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetGame((Game)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RuntimePackage.PLAYER__GAME:
-				return basicSetGame(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case RuntimePackage.PLAYER__GAME:
-				return eInternalContainer().eInverseRemove(this, RuntimePackage.GAME__PLAYERS, Game.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RuntimePackage.PLAYER__GAME:
-				return getGame();
+				if (resolve) return getGame();
+				return basicGetGame();
 			case RuntimePackage.PLAYER__PERSON:
 				if (resolve) return getPerson();
 				return basicGetPerson();
@@ -210,9 +146,6 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RuntimePackage.PLAYER__GAME:
-				setGame((Game)newValue);
-				return;
 			case RuntimePackage.PLAYER__PERSON:
 				setPerson((Person)newValue);
 				return;
@@ -228,9 +161,6 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RuntimePackage.PLAYER__GAME:
-				setGame((Game)null);
-				return;
 			case RuntimePackage.PLAYER__PERSON:
 				setPerson((Person)null);
 				return;
@@ -247,7 +177,7 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RuntimePackage.PLAYER__GAME:
-				return getGame() != null;
+				return basicGetGame() != null;
 			case RuntimePackage.PLAYER__PERSON:
 				return person != null;
 		}

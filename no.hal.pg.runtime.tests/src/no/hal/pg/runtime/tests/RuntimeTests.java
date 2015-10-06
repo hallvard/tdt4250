@@ -32,6 +32,8 @@ public class RuntimeTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new RuntimeTests("runtime Tests");
 		suite.addTestSuite(GameTest.class);
+		suite.addTestSuite(TeamTest.class);
+		suite.addTestSuite(PlayerTest.class);
 		suite.addTestSuite(TaskTest.class);
 		return suite;
 	}

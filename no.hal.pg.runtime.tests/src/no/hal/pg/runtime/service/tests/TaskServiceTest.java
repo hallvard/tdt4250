@@ -5,8 +5,6 @@ package no.hal.pg.runtime.service.tests;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
-import no.hal.pg.runtime.RuntimeFactory;
-import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.service.TaskService;
 
@@ -82,10 +80,7 @@ public class TaskServiceTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		TaskService taskService = ServiceFactory.eINSTANCE.createTaskService();
-		Task<?, ?> task = RuntimeFactory.eINSTANCE.createTask();
-		taskService.setContext(task);
-		setFixture(taskService);
+		setFixture(ServiceFactory.eINSTANCE.createTaskService());
 	}
 
 	/**
@@ -107,7 +102,7 @@ public class TaskServiceTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetPlayers() {
-		assertEquals(getFixture().getContext().getPlayers(), getFixture().getPlayers());
+		assertEquals(getFixture().getContext().getAllPlayers(), getFixture().getPlayers());
 	}
 
 	/**

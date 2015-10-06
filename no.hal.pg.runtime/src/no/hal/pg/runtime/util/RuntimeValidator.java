@@ -84,6 +84,8 @@ public class RuntimeValidator extends EObjectValidator {
 		switch (classifierID) {
 			case RuntimePackage.GAME:
 				return validateGame((Game)value, diagnostics, context);
+			case RuntimePackage.TEAM:
+				return validateTeam((Team)value, diagnostics, context);
 			case RuntimePackage.PLAYER:
 				return validatePlayer((Player)value, diagnostics, context);
 			case RuntimePackage.PLAYERS:
@@ -110,6 +112,15 @@ public class RuntimeValidator extends EObjectValidator {
 	 */
 	public boolean validateGame(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(game, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTeam(Team team, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(team, diagnostics, context);
 	}
 
 	/**
@@ -156,7 +167,7 @@ public class RuntimeValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateTask_PlayerIsContainedInGame(Task<?, ?> task, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (! task.getGame().getPlayers().containsAll(task.getPlayers())) {
+		if (! task.getGame().getAllPlayers().containsAll(task.getAllPlayers())) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic

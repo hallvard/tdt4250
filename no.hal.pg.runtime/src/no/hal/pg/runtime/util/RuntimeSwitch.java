@@ -74,6 +74,13 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RuntimePackage.TEAM: {
+				Team team = (Team)theEObject;
+				T1 result = caseTeam(team);
+				if (result == null) result = casePlayers(team);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RuntimePackage.PLAYER: {
 				Player player = (Player)theEObject;
 				T1 result = casePlayer(player);
@@ -128,6 +135,21 @@ public class RuntimeSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseGame(Game object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Team</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Team</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTeam(Team object) {
 		return null;
 	}
 

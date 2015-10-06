@@ -39,12 +39,11 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 			policy=ReferencePolicy.DYNAMIC,
 			unbind="removeEngineApp"
 			)
-	protected synchronized void addEngineApp(IEngineApp engineApp) {
+	public synchronized void addEngineApp(IEngineApp engineApp) {
 		engineApps.add(engineApp);
 	}
-	
-	protected synchronized void removeEngine(IEngineApp engineApp) {
-		engineApps.add(engineApp);
+	public synchronized void removeEngineApp(IEngineApp engineApp) {
+		engineApps.remove(engineApp);
 	}
 	
 	@Override
@@ -54,7 +53,7 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 			HttpServlet servlet = engineApp.getAppServlet();
 			String appAlias = aliasPrefix + "/" + engineApp.getName();
 			if (servlet != null) {
-				getHttpService().registerServlet(appAlias, new EngineDataServlet(engine), null, null);
+				getHttpService().registerServlet(appAlias, servlet, null, null);
 			}
 			for (String resourceName : engineApp.getResourceNames()) {
 				getHttpService().registerResources(appAlias + resourceName, resourceName, null);

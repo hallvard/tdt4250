@@ -36,6 +36,10 @@ public class Engine implements IEngine, ManagedService {
 
 	public final static String FACTORY_ID = "no.hal.pg.runtime.engine.Engine";
 
+	public Engine() {
+		System.out.println("Engine created");
+	}
+	
 	@Activate
 	public void activate(ComponentContext context) throws Exception {
 		configure(context.getProperties());
@@ -95,6 +99,7 @@ public class Engine implements IEngine, ManagedService {
 			policy=ReferencePolicy.DYNAMIC
 			)
 	public synchronized void setServiceExecutor(IServiceExecutor serviceExecutor) {
+		System.out.println("Engine bound to ServiceExecutor");
 		this.serviceExecutor = serviceExecutor;
 	}
 	public synchronized void unsetServiceExecutor(IServiceExecutor serviceExecutor) {
@@ -115,7 +120,7 @@ public class Engine implements IEngine, ManagedService {
 			for (Person person : group.getPersons()) {
 				Player player = RuntimeFactory.eINSTANCE.createPlayer();
 				player.setPerson(person);
-				game.getPlayers().add(player);
+				game.getAllPlayers().add(player);
 			}
 		}
 		for (TaskDef taskDef : gameDef.getTasks()) {

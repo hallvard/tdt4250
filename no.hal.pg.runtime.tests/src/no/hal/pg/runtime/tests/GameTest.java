@@ -3,15 +3,18 @@
 package no.hal.pg.runtime.tests;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.runtime.Game;
+import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.Team;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +24,7 @@ import no.hal.pg.runtime.Task;
  * The following operations are tested:
  * <ul>
  *   <li>{@link no.hal.pg.runtime.Game#getTasks(org.eclipse.emf.ecore.EClass) <em>Get Tasks</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -114,5 +118,27 @@ public class GameTest extends TestCase {
 		EList<Task<?, ?>> allTasks = game.getTasks(RuntimePackage.eINSTANCE.getTaskState());
 		assertEquals(2, allTasks.size());
 		assertTrue(allTasks.containsAll(Arrays.<Task<?, ?>>asList(task1, task2)));
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.Players#getAllPlayers()
+	 * @generated NOT
+	 */
+	public void testGetAllPlayers() {
+		Game game = getFixture();
+		List<Player> gamePlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
+		game.getPlayers().addAll(gamePlayers);
+		Team team = RuntimeFactory.eINSTANCE.createTeam(); 
+		List<Player> teamPlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
+		team.getPlayers().addAll(teamPlayers);
+		game.getTeams().add(team);
+		
+		EList<Player> allPlayers = game.getAllPlayers();
+		assertEquals(gamePlayers.size() + teamPlayers.size(), allPlayers.size());
+		allPlayers.containsAll(gamePlayers);
+		allPlayers.containsAll(teamPlayers);
 	}
 } //GameTest

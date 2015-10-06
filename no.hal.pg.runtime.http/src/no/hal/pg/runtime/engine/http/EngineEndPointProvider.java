@@ -3,9 +3,6 @@ package no.hal.pg.runtime.engine.http;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.http.HttpService;
 
 import no.hal.pg.runtime.engine.IEngine;
@@ -32,16 +29,11 @@ public abstract class EngineEndPointProvider {
 		return httpService;
 	}
 
-	@Reference(
-			cardinality=ReferenceCardinality.MANDATORY,
-			policy=ReferencePolicy.DYNAMIC,
-			unbind="unsetHttpService"
-	)
-	public synchronized void setHttpService(HttpService httpService) {
+	protected synchronized void setHttpService(HttpService httpService) {
 		this.httpService = httpService;
 	}
 
-	public synchronized void unsetHttpService(HttpService httpService) {
+	protected synchronized void unsetHttpService(HttpService httpService) {
 		for (IEngine engine : registeredEngines) {
 			unregisterEngineEndPoint(httpService, engine);
 		}

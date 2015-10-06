@@ -3,10 +3,13 @@
 package no.hal.pg.runtime.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,6 +26,7 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
+import no.hal.pg.runtime.Team;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +38,7 @@ import no.hal.pg.runtime.TaskState;
  * <ul>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getGame <em>Game</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getCurrentState <em>Current State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.impl.TaskImpl#getPastStates <em>Past States</em>}</li>
@@ -52,6 +57,15 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected T taskDef;
+	/**
+	 * The cached value of the '{@link #getTeam() <em>Team</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTeam()
+	 * @generated
+	 * @ordered
+	 */
+	protected Team team;
 	/**
 	 * The cached value of the '{@link #getPlayers() <em>Players</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -192,11 +206,62 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Team getTeam() {
+		if (team != null && team.eIsProxy()) {
+			InternalEObject oldTeam = (InternalEObject)team;
+			team = (Team)eResolveProxy(oldTeam);
+			if (team != oldTeam) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuntimePackage.TASK__TEAM, oldTeam, team));
+			}
+		}
+		return team;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Team basicGetTeam() {
+		return team;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTeam(Team newTeam) {
+		Team oldTeam = team;
+		team = newTeam;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.TASK__TEAM, oldTeam, team));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Player> getPlayers() {
 		if (players == null) {
 			players = new EObjectResolvingEList<Player>(Player.class, this, RuntimePackage.TASK__PLAYERS);
 		}
 		return players;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Player> getAllPlayers() {
+		List<Player> allPlayers = new ArrayList<Player>(getPlayers());
+		if (getTeam() != null) {
+			allPlayers.addAll(getTeam().getAllPlayers());
+		}
+		return ECollections.unmodifiableEList(allPlayers);
 	}
 
 	/**
@@ -406,6 +471,9 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return basicGetTaskDef();
 			case RuntimePackage.TASK__GAME:
 				return getGame();
+			case RuntimePackage.TASK__TEAM:
+				if (resolve) return getTeam();
+				return basicGetTeam();
 			case RuntimePackage.TASK__PLAYERS:
 				return getPlayers();
 			case RuntimePackage.TASK__CURRENT_STATE:
@@ -432,6 +500,9 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return;
 			case RuntimePackage.TASK__GAME:
 				setGame((Game)newValue);
+				return;
+			case RuntimePackage.TASK__TEAM:
+				setTeam((Team)newValue);
 				return;
 			case RuntimePackage.TASK__PLAYERS:
 				getPlayers().clear();
@@ -465,6 +536,9 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 			case RuntimePackage.TASK__GAME:
 				setGame((Game)null);
 				return;
+			case RuntimePackage.TASK__TEAM:
+				setTeam((Team)null);
+				return;
 			case RuntimePackage.TASK__PLAYERS:
 				getPlayers().clear();
 				return;
@@ -493,6 +567,8 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 				return taskDef != null;
 			case RuntimePackage.TASK__GAME:
 				return getGame() != null;
+			case RuntimePackage.TASK__TEAM:
+				return team != null;
 			case RuntimePackage.TASK__PLAYERS:
 				return players != null && !players.isEmpty();
 			case RuntimePackage.TASK__CURRENT_STATE:
@@ -528,6 +604,8 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 			case RuntimePackage.TASK___FINISH__OBJECT:
 				finish((R)arguments.get(0));
 				return null;
+			case RuntimePackage.TASK___GET_ALL_PLAYERS:
+				return getAllPlayers();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

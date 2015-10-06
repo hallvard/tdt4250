@@ -112,7 +112,7 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * @generated NOT
 	 */
 	public EList<Player> getPlayers() {
-		return getContext().getPlayers();
+		return getContext().getAllPlayers();
 	}
 
 	/**

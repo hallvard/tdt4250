@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  * <ul>
  *   <li>{@link no.hal.pg.runtime.Task#getTaskDef <em>Task Def</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getGame <em>Game</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Task#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getCurrentState <em>Current State</em>}</li>
  *   <li>{@link no.hal.pg.runtime.Task#getPastStates <em>Past States</em>}</li>
@@ -81,6 +82,32 @@ public interface Task<T extends TaskDef, R> extends Players {
 	 * @generated
 	 */
 	void setGame(Game value);
+
+	/**
+	 * Returns the value of the '<em><b>Team</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Team</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Team</em>' reference.
+	 * @see #setTeam(Team)
+	 * @see no.hal.pg.runtime.RuntimePackage#getTask_Team()
+	 * @model
+	 * @generated
+	 */
+	Team getTeam();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.runtime.Task#getTeam <em>Team</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Team</em>' reference.
+	 * @see #getTeam()
+	 * @generated
+	 */
+	void setTeam(Team value);
 
 	/**
 	 * Returns the value of the '<em><b>Players</b></em>' reference list.

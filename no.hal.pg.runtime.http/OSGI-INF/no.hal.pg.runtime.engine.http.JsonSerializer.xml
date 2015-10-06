@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.http.JsonSerializer">
+   <implementation class="no.hal.pg.runtime.engine.http.JsonSerializer"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.http.ISerializer"/>
+   </service>
+   <reference bind="setServiceExecutor" cardinality="1..1" interface="no.hal.pg.runtime.engine.IServiceExecutor" name="ServiceExecutor" policy="dynamic" unbind="unsetServiceExecutor"/>
+   <reference bind="addReferenceProvider" cardinality="0..n" interface="no.hal.pg.runtime.engine.IReferenceProvider" name="ReferenceProvider" policy="dynamic" unbind="removeReferenceProvider"/>
+</scr:component>

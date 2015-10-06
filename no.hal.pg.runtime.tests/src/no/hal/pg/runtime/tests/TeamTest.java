@@ -2,6 +2,11 @@
  */
 package no.hal.pg.runtime.tests;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
+
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -12,25 +17,25 @@ import no.hal.pg.runtime.Team;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Player</b></em>'.
+ * A test case for the model object '<em><b>Team</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
+ * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.runtime.Player#getGame() <em>Game</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class PlayerTest extends TestCase {
+public class TeamTest extends TestCase {
 
 	/**
-	 * The fixture for this Player test case.
+	 * The fixture for this Team test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Player fixture = null;
+	protected Team fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -38,36 +43,36 @@ public class PlayerTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(PlayerTest.class);
+		TestRunner.run(TeamTest.class);
 	}
 
 	/**
-	 * Constructs a new Player test case with the given name.
+	 * Constructs a new Team test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlayerTest(String name) {
+	public TeamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Player test case.
+	 * Sets the fixture for this Team test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Player fixture) {
+	protected void setFixture(Team fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Player test case.
+	 * Returns the fixture for this Team test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Player getFixture() {
+	protected Team getFixture() {
 		return fixture;
 	}
 
@@ -79,7 +84,7 @@ public class PlayerTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RuntimeFactory.eINSTANCE.createPlayer());
+		setFixture(RuntimeFactory.eINSTANCE.createTeam());
 	}
 
 	/**
@@ -94,22 +99,20 @@ public class PlayerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.runtime.Player#getGame() <em>Game</em>}' feature getter.
+	 * Tests the '{@link no.hal.pg.runtime.Players#getAllPlayers() <em>Get All Players</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.runtime.Player#getGame()
+	 * @see no.hal.pg.runtime.Players#getAllPlayers()
 	 * @generated NOT
 	 */
-	public void testGetGame() {
-		Player player = getFixture();
-		Game game = RuntimeFactory.eINSTANCE.createGame();
-		game.getPlayers().add(player);
-		assertEquals(game, player.getGame());
+	public void testGetAllPlayers() {
+		Team team = getFixture();
+		List<Player> teamPlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
+		team.getPlayers().addAll(teamPlayers);
 		
-		Team team = RuntimeFactory.eINSTANCE.createTeam();
-		team.getPlayers().add(player);
-		game.getTeams().add(team);
-		assertEquals(game, player.getGame());
+		EList<Player> allPlayers = team.getAllPlayers();
+		assertEquals(teamPlayers.size(), allPlayers.size());
+		allPlayers.containsAll(teamPlayers);
 	}
-	
-} //PlayerTest
+
+} //TeamTest

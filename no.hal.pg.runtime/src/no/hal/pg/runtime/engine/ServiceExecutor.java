@@ -26,11 +26,15 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.util.CompositeReferenceHandler;
+import no.hal.pg.runtime.util.CompositeReferenceResolver;
 
 @Component
 public class ServiceExecutor implements IServiceExecutor {
 
+	public ServiceExecutor() {
+		System.out.println("ServiceExecutor created");
+	}
+	
 	private Collection<IServiceProvider> serviceProviders = new ArrayList<IServiceProvider>();
 
 	@Reference(
@@ -66,19 +70,18 @@ public class ServiceExecutor implements IServiceExecutor {
 
 	//
 	
-	private CompositeReferenceHandler referenceHandler = new CompositeReferenceHandler();
+	private CompositeReferenceResolver referenceResolver = new CompositeReferenceResolver();
 	
 	@Reference(
 			cardinality=ReferenceCardinality.MULTIPLE,
 			policy=ReferencePolicy.DYNAMIC,
 			unbind="removeReferenceHandler"
 			)
-	public synchronized void addReferenceHandler(IReferenceHandler referenceHandler) {
-		this.referenceHandler.addReferenceHandler(referenceHandler);
+	public synchronized void addReferenceResolver(IReferenceResolver referenceResolver) {
+		this.referenceResolver.addReferenceResolver(referenceResolver);
 	}
-	
-	public synchronized void removeReferenceHandler(IReferenceHandler referenceHandler) {
-		this.referenceHandler.removeReferenceHandler(referenceHandler);
+	public synchronized void removeReferenceResolver(IReferenceResolver referenceHandler) {
+		this.referenceResolver.removeReferenceResolver(referenceResolver);
 	}
 
 	//
@@ -93,19 +96,17 @@ public class ServiceExecutor implements IServiceExecutor {
 	public final static String SelfService_ANNOTATION_KEY = "SelfService";
 
 	@Override
-	public EObject resolve(String reference, boolean use) {
+	public boolean resolve(String reference) {
 		for (Object object : objects) {
 			if (object instanceof EObject) {
-				EObject resolved = referenceHandler.resolveReference(reference, (EObject) object);
+				EObject resolved = referenceResolver.resolveReference(reference, (EObject) object);
 				if (resolved != null) {
-					if (use) {
-						setObjects(resolved);
-					}
-					return resolved;
+					setObjects(resolved);
+					return true;
 				}
 			}
 		}
-		return null;
+		return false;
 	}
 
 	@Override
@@ -340,7 +341,7 @@ public class ServiceExecutor implements IServiceExecutor {
 		if (parameter.getEType().isInstance(arg)) {
 			return arg;
 		} else if (arg instanceof String) {
-			EObject resolved = referenceHandler.resolveReference(String.valueOf(arg), service);
+			EObject resolved = referenceResolver.resolveReference(String.valueOf(arg), service);
 			if (resolved != null) {
 				Object realArg = ensureServiceArgument(service, parameter, resolved);
 				if (realArg != null) {
@@ -383,44 +384,44 @@ public class ServiceExecutor implements IServiceExecutor {
 		return objects.toArray();
 	}
 
-	@Override
-	public Object[] getObjects(EObject referenceContext) {
-		Object[] result = getObjects();
-		replaceWithReferences(result, referenceContext);
-		for (int i = 0; i < result.length; i++) {
-			if (result[i] instanceof EObject) {
-				Map<String, Object> featureValues = executeFeatureServices((EObject) result[i], SERVICE_NAMES_WILDCARD);
-				replaceWithReferences(featureValues, referenceContext);
-				result[i] = featureValues;
-			}
-		}
-		return result;
-	}
+//	@Override
+//	public Object[] getObjects(EObject referenceContext) {
+//		Object[] result = getObjects();
+//		replaceWithReferences(result, referenceContext);
+//		for (int i = 0; i < result.length; i++) {
+//			if (result[i] instanceof EObject) {
+//				Map<String, Object> featureValues = executeFeatureServices((EObject) result[i], SERVICE_NAMES_WILDCARD);
+//				replaceWithReferences(featureValues, referenceContext);
+//				result[i] = featureValues;
+//			}
+//		}
+//		return result;
+//	}
 
-	private void replaceWithReferences(Map<String, Object> objects, EObject referenceContext) {
-		for (Map.Entry<String, Object> entry : objects.entrySet()) {
-			Object value = entry.getValue();
-			if (value instanceof Object[]) {
-				replaceWithReferences((Object[]) value, referenceContext);
-			} else if (value instanceof EObject) {
-				String ref = referenceHandler.getReference((EObject) value, referenceContext);
-				if (ref != null) {
-					entry.setValue(ref);
-				}
-			}
-		}
-	}
+//	private void replaceWithReferences(Map<String, Object> objects, EObject referenceContext) {
+//		for (Map.Entry<String, Object> entry : objects.entrySet()) {
+//			Object value = entry.getValue();
+//			if (value instanceof Object[]) {
+//				replaceWithReferences((Object[]) value, referenceContext);
+//			} else if (value instanceof EObject) {
+//				String ref = referenceHandler.getReference((EObject) value, referenceContext);
+//				if (ref != null) {
+//					entry.setValue(ref);
+//				}
+//			}
+//		}
+//	}
 
-	private void replaceWithReferences(Object[] objects, EObject referenceContext) {
-		for (int i = 0; i < objects.length; i++) {
-			if (objects[i] instanceof EObject) {
-				String ref = referenceHandler.getReference((EObject) objects[i], referenceContext);
-				if (ref != null) {
-					objects[i] = ref;
-				}
-			}
-		}
-	}
+//	private void replaceWithReferences(Object[] objects, EObject referenceContext) {
+//		for (int i = 0; i < objects.length; i++) {
+//			if (objects[i] instanceof EObject) {
+//				String ref = referenceHandler.getReference((EObject) objects[i], referenceContext);
+//				if (ref != null) {
+//					objects[i] = ref;
+//				}
+//			}
+//		}
+//	}
 	
 	//
 

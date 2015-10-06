@@ -10,10 +10,11 @@ import no.hal.pg.model.Person;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.engine.IReferenceHandler;
+import no.hal.pg.runtime.engine.IReferenceProvider;
+import no.hal.pg.runtime.engine.IReferenceResolver;
 
 @Component
-public class PlayerReferenceHandler implements IReferenceHandler {
+public class PlayerReferenceHandler implements IReferenceResolver, IReferenceProvider {
 
 	@Override
 	public String getReference(EObject eObject, EObject context) {
@@ -33,7 +34,7 @@ public class PlayerReferenceHandler implements IReferenceHandler {
 		Collection<Player> players = null;
 		while (context != null) {
 			if (context instanceof Players) {
-				players = ((Players) context).getPlayers();
+				players = ((Players) context).getAllPlayers();
 				if (players.size() > 0) {
 					break;
 				}

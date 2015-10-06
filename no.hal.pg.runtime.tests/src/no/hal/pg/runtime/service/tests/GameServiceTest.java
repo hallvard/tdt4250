@@ -118,7 +118,7 @@ public class GameServiceTest extends TestCase {
 	 */
 	public void testGetPlayers() {
 		GameService gameService = getFixture();
-		assertEquals(gameService.getContext().getPlayers(), gameService.getPlayers());
+		assertEquals(gameService.getContext().getAllPlayers(), gameService.getPlayers());
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class GameServiceTest extends TestCase {
 		Game game = gameService.getContext();
 		Task<?, ?> task = gameService.getContext().getTasks().get(0);
 		
-		game.getPlayers().addAll(Arrays.<Player>asList(players));
+		game.getPlayers().addAll(Arrays.asList(players));
 		Player player1 = players[0], player2 = players[1];
 		
 		assertEquals(1, gameService.getTasks(player1).size());

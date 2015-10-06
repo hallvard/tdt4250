@@ -27,10 +27,38 @@ public class EngineDataEndPointProvider extends EngineEndPointProvider {
 	public synchronized void removeEngine(IEngine engine) {
 		super.removeEngine(engine);
 	}
+
+	private ISerializer serializer;
 	
+	@Reference(
+			cardinality=ReferenceCardinality.MANDATORY,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetSerializer"
+			)
+	public synchronized void setSerializer(ISerializer serializer) {
+		this.serializer = serializer;
+	}
+	public synchronized void unsetSerializer(ISerializer serializer) {
+		this.serializer = null;
+	}
+
+	//
+
+	@Reference(
+			cardinality=ReferenceCardinality.MANDATORY,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetHttpService"
+	)
+	public synchronized void setHttpService(HttpService httpService) {
+		super.setHttpService(httpService);
+	}
+	public synchronized void unsetHttpService(HttpService httpService) {
+		super.unsetHttpService(httpService);
+	}
+
 	@Override
 	protected void registerEngineEndPoints(HttpService httpService, IEngine engine, String engineAlias) throws ServletException, NamespaceException {
-		getHttpService().registerServlet(engineAlias + "/data", new EngineDataServlet(engine), null, null);
+		getHttpService().registerServlet(engineAlias + "/data", new EngineDataServlet(engine, serializer), null, null);
 	}
 
 	@Override
