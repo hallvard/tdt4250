@@ -2,6 +2,7 @@
  */
 package no.hal.pg.quiz.runtime.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimePackage;
@@ -264,6 +265,17 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Player> getAllPlayers() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Player getAnsweredBy() {
 		if (answeredBy != null && answeredBy.eIsProxy()) {
 			InternalEObject oldAnsweredBy = (InternalEObject)answeredBy;
@@ -407,6 +419,20 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 				return answeredBy != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RuntimePackage.QA_PROPOSAL___GET_ALL_PLAYERS:
+				return getAllPlayers();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

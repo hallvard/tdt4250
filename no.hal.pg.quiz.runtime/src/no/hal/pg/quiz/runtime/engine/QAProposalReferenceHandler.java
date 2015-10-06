@@ -8,10 +8,11 @@ import no.hal.pg.model.util.Util;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
-import no.hal.pg.runtime.engine.IReferenceHandler;
+import no.hal.pg.runtime.engine.IReferenceProvider;
+import no.hal.pg.runtime.engine.IReferenceResolver;
 
 @Component
-public class QAProposalReferenceHandler implements IReferenceHandler {
+public class QAProposalReferenceHandler implements IReferenceResolver, IReferenceProvider {
 
 	@Override
 	public String getReference(EObject eObject, EObject context) {

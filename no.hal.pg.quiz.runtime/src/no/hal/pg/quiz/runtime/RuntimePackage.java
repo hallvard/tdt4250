@@ -86,6 +86,15 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK__GAME = no.hal.pg.runtime.RuntimePackage.TASK__GAME;
 
 	/**
+	 * The feature id for the '<em><b>Team</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK__TEAM = no.hal.pg.runtime.RuntimePackage.TASK__TEAM;
+
+	/**
 	 * The feature id for the '<em><b>Players</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,13 +149,13 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Players</em>' operation.
+	 * The operation id for the '<em>Get All Players</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK___GET_PLAYERS;
+	int QUIZ_TASK___GET_ALL_PLAYERS = no.hal.pg.runtime.RuntimePackage.TASK___GET_ALL_PLAYERS;
 
 	/**
 	 * The operation id for the '<em>Is Started</em>' operation.
@@ -358,13 +367,13 @@ public interface RuntimePackage extends EPackage {
 	int QA_PROPOSAL_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Get Players</em>' operation.
+	 * The operation id for the '<em>Get All Players</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL___GET_PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS___GET_PLAYERS;
+	int QA_PROPOSAL___GET_ALL_PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS___GET_ALL_PLAYERS;
 
 	/**
 	 * The number of operations of the '<em>QA Proposal</em>' class.
