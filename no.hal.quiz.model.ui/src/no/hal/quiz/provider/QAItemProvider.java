@@ -6,19 +6,18 @@ package no.hal.quiz.provider;
 import java.util.Collection;
 import java.util.List;
 
-import no.hal.quiz.QA;
-import no.hal.quiz.QuizFactory;
-import no.hal.quiz.QuizPackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import no.hal.quiz.QA;
+import no.hal.quiz.QuizFactory;
+import no.hal.quiz.QuizPackage;
 
 /**
  * This is the item provider adapter for a {@link no.hal.quiz.QA} object.
@@ -121,14 +120,15 @@ public class QAItemProvider extends AbstractQAItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((QA)object).getName();
-		return label == null || label.length() == 0 ?
+		QA qa = (QA)object;
+		String label = qa.getName();
+		return (label == null || label.length() == 0 ?
 			getString("_UI_QA_type") :
-			getString("_UI_QA_type") + " " + label;
+			getString("_UI_QA_type") + " " + label) + " #" + ((EList<?>) qa.eContainer().eGet(qa.eContainingFeature())).indexOf(qa);
 	}
 	
 
