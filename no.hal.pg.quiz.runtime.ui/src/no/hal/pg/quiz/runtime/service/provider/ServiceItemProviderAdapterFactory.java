@@ -95,6 +95,75 @@ public class ServiceItemProviderAdapterFactory extends ServiceAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.quiz.runtime.service.QAProposalService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QAProposalServiceItemProvider qaProposalServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.quiz.runtime.service.QAProposalService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQAProposalServiceAdapter() {
+		if (qaProposalServiceItemProvider == null) {
+			qaProposalServiceItemProvider = new QAProposalServiceItemProvider(this);
+		}
+
+		return qaProposalServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.quiz.runtime.service.Question} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuestionItemProvider questionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.quiz.runtime.service.Question}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuestionAdapter() {
+		if (questionItemProvider == null) {
+			questionItemProvider = new QuestionItemProvider(this);
+		}
+
+		return questionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.quiz.runtime.service.Answer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnswerItemProvider answerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.quiz.runtime.service.Answer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnswerAdapter() {
+		if (answerItemProvider == null) {
+			answerItemProvider = new AnswerItemProvider(this);
+		}
+
+		return answerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +263,9 @@ public class ServiceItemProviderAdapterFactory extends ServiceAdapterFactory imp
 	 */
 	public void dispose() {
 		if (quizTaskServiceItemProvider != null) quizTaskServiceItemProvider.dispose();
+		if (qaProposalServiceItemProvider != null) qaProposalServiceItemProvider.dispose();
+		if (questionItemProvider != null) questionItemProvider.dispose();
+		if (answerItemProvider != null) answerItemProvider.dispose();
 	}
 
 }
