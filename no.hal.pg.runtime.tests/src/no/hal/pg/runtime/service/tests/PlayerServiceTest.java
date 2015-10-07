@@ -78,17 +78,21 @@ public class PlayerServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
+		setFixture(createPlayerService());
+	}
+
+	private PlayerService createPlayerService() {
 		PlayerService playerService = ServiceFactory.eINSTANCE.createPlayerService();
 		Player player = RuntimeFactory.eINSTANCE.createPlayer();
 		Person person = ModelFactory.eINSTANCE.createPerson();
-		person.setName("Kim");
+		person.setName("hal");
 		player.setPerson(person);
 		playerService.setContext(player);
-		setFixture(playerService);
+		return playerService;
 	}
 
 	/**

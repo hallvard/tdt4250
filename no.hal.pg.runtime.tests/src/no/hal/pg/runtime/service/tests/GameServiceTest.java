@@ -11,6 +11,7 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.Team;
 import no.hal.pg.runtime.service.GameService;
 import no.hal.pg.runtime.service.ServiceFactory;
 
@@ -22,6 +23,7 @@ import no.hal.pg.runtime.service.ServiceFactory;
  * The following features are tested:
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.GameService#getPlayers() <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getTeams() <em>Teams</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.GameService#getTasks() <em>Tasks</em>}</li>
  * </ul>
  * </p>
@@ -94,6 +96,9 @@ public class GameServiceTest extends TestCase {
 		Game game = RuntimeFactory.eINSTANCE.createGame();
 		game.getTasks().add(RuntimeFactory.eINSTANCE.createTask());
 		game.getPlayers().add(RuntimeFactory.eINSTANCE.createPlayer());
+		Team team = RuntimeFactory.eINSTANCE.createTeam();
+		team.getPlayers().add(RuntimeFactory.eINSTANCE.createPlayer());
+		game.getTeams().add(team);
 		gameService.setContext(game);
 		setFixture(gameService);
 	}
@@ -119,6 +124,18 @@ public class GameServiceTest extends TestCase {
 	public void testGetPlayers() {
 		GameService gameService = getFixture();
 		assertEquals(gameService.getContext().getAllPlayers(), gameService.getPlayers());
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.service.GameService#getTeams() <em>Teams</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.service.GameService#getTeams()
+	 * @generated NOT
+	 */
+	public void testGetTeams() {
+		GameService gameService = getFixture();
+		assertEquals(gameService.getContext().getTeams(), gameService.getTeams());
 	}
 
 	/**

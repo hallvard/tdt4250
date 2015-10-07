@@ -5,6 +5,8 @@ package no.hal.pg.runtime.service.tests;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
+import no.hal.pg.runtime.RuntimeFactory;
+import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.service.ServiceFactory;
 import no.hal.pg.runtime.service.TaskService;
 
@@ -16,6 +18,7 @@ import no.hal.pg.runtime.service.TaskService;
  * The following features are tested:
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getPlayers() <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.TaskService#getTeam() <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isStarted() <em>Started</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isFinished() <em>Finished</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getResult() <em>Result</em>}</li>
@@ -76,11 +79,18 @@ public class TaskServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ServiceFactory.eINSTANCE.createTaskService());
+		setFixture(createTaskService());
+	}
+
+	protected TaskService createTaskService() {
+		TaskService taskService = ServiceFactory.eINSTANCE.createTaskService();
+		Task<?, ?> task = RuntimeFactory.eINSTANCE.createTask();
+		taskService.setContext(task);
+		return taskService;
 	}
 
 	/**
@@ -103,6 +113,17 @@ public class TaskServiceTest extends TestCase {
 	 */
 	public void testGetPlayers() {
 		assertEquals(getFixture().getContext().getAllPlayers(), getFixture().getPlayers());
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.service.TaskService#getTeam() <em>Team</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.service.TaskService#getTeam()
+	 * @generated NOT
+	 */
+	public void testGetTeam() {
+		assertEquals(getFixture().getContext().getTeam(), getFixture().getTeam());
 	}
 
 	/**
