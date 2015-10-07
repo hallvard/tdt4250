@@ -74,6 +74,10 @@ public class ServiceAdapterFactory extends AdapterFactoryImpl {
 				return createQuizTaskServiceAdapter();
 			}
 			@Override
+			public Adapter caseQAProposalService(QAProposalService object) {
+				return createQAProposalServiceAdapter();
+			}
+			@Override
 			public Adapter caseQuestion(Question object) {
 				return createQuestionAdapter();
 			}
@@ -116,6 +120,20 @@ public class ServiceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQuizTaskServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.quiz.runtime.service.QAProposalService <em>QA Proposal Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService
+	 * @generated
+	 */
+	public Adapter createQAProposalServiceAdapter() {
 		return null;
 	}
 

@@ -58,6 +58,7 @@ public class ServiceFactoryImpl extends EFactoryImpl implements ServiceFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ServicePackage.QUIZ_TASK_SERVICE: return createQuizTaskService();
+			case ServicePackage.QA_PROPOSAL_SERVICE: return createQAProposalService();
 			case ServicePackage.QUESTION: return createQuestion();
 			case ServicePackage.ANSWER: return createAnswer();
 			default:
@@ -103,6 +104,16 @@ public class ServiceFactoryImpl extends EFactoryImpl implements ServiceFactory {
 	public QuizTaskService createQuizTaskService() {
 		QuizTaskServiceImpl quizTaskService = new QuizTaskServiceImpl();
 		return quizTaskService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QAProposalService createQAProposalService() {
+		QAProposalServiceImpl qaProposalService = new QAProposalServiceImpl();
+		return qaProposalService;
 	}
 
 	/**

@@ -75,6 +75,13 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ServicePackage.QA_PROPOSAL_SERVICE: {
+				QAProposalService qaProposalService = (QAProposalService)theEObject;
+				T1 result = caseQAProposalService(qaProposalService);
+				if (result == null) result = caseService(qaProposalService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ServicePackage.QUESTION: {
 				Question question = (Question)theEObject;
 				T1 result = caseQuestion(question);
@@ -103,6 +110,21 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseQuizTaskService(QuizTaskService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>QA Proposal Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>QA Proposal Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseQAProposalService(QAProposalService object) {
 		return null;
 	}
 

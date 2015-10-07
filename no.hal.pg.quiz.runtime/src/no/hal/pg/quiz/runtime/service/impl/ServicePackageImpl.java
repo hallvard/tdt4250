@@ -6,6 +6,7 @@ import no.hal.pg.quiz.runtime.RuntimePackage;
 
 import no.hal.pg.quiz.runtime.service.Answer;
 import no.hal.pg.quiz.runtime.service.AnswerKind;
+import no.hal.pg.quiz.runtime.service.QAProposalService;
 import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
@@ -35,6 +36,13 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * @generated
 	 */
 	private EClass quizTaskServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass qaProposalServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +170,51 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 */
 	public EOperation getQuizTaskService__GetPlayerQuestions__Player() {
 		return quizTaskServiceEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQAProposalService() {
+		return qaProposalServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQAProposalService_Question() {
+		return (EAttribute)qaProposalServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQAProposalService_Proposal() {
+		return (EAttribute)qaProposalServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQAProposalService_Accepted() {
+		return (EAttribute)qaProposalServiceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQAProposalService_RejectedCount() {
+		return (EAttribute)qaProposalServiceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -297,6 +350,12 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER);
 
+		qaProposalServiceEClass = createEClass(QA_PROPOSAL_SERVICE);
+		createEAttribute(qaProposalServiceEClass, QA_PROPOSAL_SERVICE__QUESTION);
+		createEAttribute(qaProposalServiceEClass, QA_PROPOSAL_SERVICE__PROPOSAL);
+		createEAttribute(qaProposalServiceEClass, QA_PROPOSAL_SERVICE__ACCEPTED);
+		createEAttribute(qaProposalServiceEClass, QA_PROPOSAL_SERVICE__REJECTED_COUNT);
+
 		questionEClass = createEClass(QUESTION);
 		createEAttribute(questionEClass, QUESTION__KIND);
 		createEAttribute(questionEClass, QUESTION__QUESTION);
@@ -350,6 +409,10 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		EGenericType g2 = createEGenericType(theRuntimePackage.getQuizTask());
 		g1.getETypeArguments().add(g2);
 		quizTaskServiceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theRuntimePackage_1.getService());
+		g2 = createEGenericType(theRuntimePackage.getQAProposal());
+		g1.getETypeArguments().add(g2);
+		qaProposalServiceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(quizTaskServiceEClass, QuizTaskService.class, "QuizTaskService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -369,6 +432,12 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		op = initEOperation(getQuizTaskService__GetPlayerQuestions__Player(), this.getQuestion(), "getPlayerQuestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(qaProposalServiceEClass, QAProposalService.class, "QAProposalService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQAProposalService_Question(), ecorePackage.getEString(), "question", null, 0, 1, QAProposalService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQAProposalService_Proposal(), ecorePackage.getEString(), "proposal", null, 0, 1, QAProposalService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQAProposalService_Accepted(), ecorePackage.getEBooleanObject(), "accepted", null, 0, 1, QAProposalService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQAProposalService_RejectedCount(), ecorePackage.getEInt(), "rejectedCount", null, 0, 1, QAProposalService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestion_Kind(), this.getAnswerKind(), "kind", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -5,19 +5,6 @@ package no.hal.pg.quiz.runtime.service.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-
-import no.hal.pg.quiz.runtime.QAProposal;
-import no.hal.pg.quiz.runtime.QuizTask;
-import no.hal.pg.quiz.runtime.RuntimePackage;
-import no.hal.pg.quiz.runtime.service.Question;
-import no.hal.pg.quiz.runtime.service.QuizTaskService;
-import no.hal.pg.quiz.runtime.service.ServiceFactory;
-import no.hal.pg.quiz.runtime.service.ServicePackage;
-
-import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.util.Util;
-
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -28,11 +15,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import no.hal.pg.quiz.runtime.QAProposal;
+import no.hal.pg.quiz.runtime.QAProposal;
+import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
+import no.hal.pg.quiz.runtime.service.QuizTaskService;
+import no.hal.pg.quiz.runtime.service.ServiceFactory;
+import no.hal.pg.quiz.runtime.service.ServicePackage;
 import no.hal.pg.quiz.runtime.service.ServicePackage;
 import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.util.Util;
 import no.hal.pg.runtime.util.Util;
 import no.hal.quiz.QA;
 
@@ -122,7 +118,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean proposeAnswer(Player player, no.hal.quiz.QA qa, String proposal) {
+	public Boolean proposeAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -134,7 +130,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean acceptAnswer(Player player, no.hal.quiz.QA qa, String proposal) {
+	public Boolean acceptAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
 		checkQAInQAProposals(qa);
@@ -162,16 +158,13 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public EList<Question> getPlayerQuestions(Player player) {
-		
 		Collection<QAProposal> qaProposals = getQAProposals(player);
 		EList<Question> questions = new BasicEList<Question>();
 		for (QAProposal qaProp : qaProposals){
 			Question q = ServiceFactory.eINSTANCE.createQuestion();
 		//	q.setQuestion(qaProp.);
-			
 		}
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -243,9 +236,9 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ServicePackage.QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING:
-				return proposeAnswer((Player)arguments.get(0), (no.hal.quiz.QA)arguments.get(1), (String)arguments.get(2));
+				return proposeAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING:
-				return acceptAnswer((Player)arguments.get(0), (no.hal.quiz.QA)arguments.get(1), (String)arguments.get(2));
+				return acceptAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER:
 				return getQAProposals((Player)arguments.get(0));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER:

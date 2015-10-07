@@ -135,6 +135,79 @@ public interface ServicePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.service.impl.QAProposalServiceImpl <em>QA Proposal Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.impl.QAProposalServiceImpl
+	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getQAProposalService()
+	 * @generated
+	 */
+	int QA_PROPOSAL_SERVICE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE__QUESTION = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE__PROPOSAL = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Accepted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE__ACCEPTED = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Rejected Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE__REJECTED_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>QA Proposal Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>QA Proposal Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl <em>Question</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,7 +215,7 @@ public interface ServicePackage extends EPackage {
 	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 1;
+	int QUESTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -224,7 +297,7 @@ public interface ServicePackage extends EPackage {
 	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswer()
 	 * @generated
 	 */
-	int ANSWER = 2;
+	int ANSWER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Answer</b></em>' attribute.
@@ -270,7 +343,7 @@ public interface ServicePackage extends EPackage {
 	 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getAnswerKind()
 	 * @generated
 	 */
-	int ANSWER_KIND = 3;
+	int ANSWER_KIND = 4;
 
 
 	/**
@@ -322,6 +395,60 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getQuizTaskService__GetPlayerQuestions__Player();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.QAProposalService <em>QA Proposal Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>QA Proposal Service</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService
+	 * @generated
+	 */
+	EClass getQAProposalService();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.QAProposalService#getQuestion <em>Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Question</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService#getQuestion()
+	 * @see #getQAProposalService()
+	 * @generated
+	 */
+	EAttribute getQAProposalService_Question();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.QAProposalService#getProposal <em>Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proposal</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService#getProposal()
+	 * @see #getQAProposalService()
+	 * @generated
+	 */
+	EAttribute getQAProposalService_Proposal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.QAProposalService#getAccepted <em>Accepted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Accepted</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService#getAccepted()
+	 * @see #getQAProposalService()
+	 * @generated
+	 */
+	EAttribute getQAProposalService_Accepted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.QAProposalService#getRejectedCount <em>Rejected Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rejected Count</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.QAProposalService#getRejectedCount()
+	 * @see #getQAProposalService()
+	 * @generated
+	 */
+	EAttribute getQAProposalService_RejectedCount();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.Question <em>Question</em>}'.
@@ -505,6 +632,48 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER = eINSTANCE.getQuizTaskService__GetPlayerQuestions__Player();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.QAProposalServiceImpl <em>QA Proposal Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.quiz.runtime.service.impl.QAProposalServiceImpl
+		 * @see no.hal.pg.quiz.runtime.service.impl.ServicePackageImpl#getQAProposalService()
+		 * @generated
+		 */
+		EClass QA_PROPOSAL_SERVICE = eINSTANCE.getQAProposalService();
+
+		/**
+		 * The meta object literal for the '<em><b>Question</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QA_PROPOSAL_SERVICE__QUESTION = eINSTANCE.getQAProposalService_Question();
+
+		/**
+		 * The meta object literal for the '<em><b>Proposal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QA_PROPOSAL_SERVICE__PROPOSAL = eINSTANCE.getQAProposalService_Proposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Accepted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QA_PROPOSAL_SERVICE__ACCEPTED = eINSTANCE.getQAProposalService_Accepted();
+
+		/**
+		 * The meta object literal for the '<em><b>Rejected Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QA_PROPOSAL_SERVICE__REJECTED_COUNT = eINSTANCE.getQAProposalService_RejectedCount();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl <em>Question</em>}' class.
