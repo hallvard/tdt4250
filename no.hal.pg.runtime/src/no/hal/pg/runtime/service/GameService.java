@@ -7,6 +7,7 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Task;
 
+import no.hal.pg.runtime.Team;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.GameService#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.GameService#getTeams <em>Teams</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.GameService#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -42,6 +44,22 @@ public interface GameService extends Service<Game> {
 	 * @generated
 	 */
 	EList<Player> getPlayers();
+
+	/**
+	 * Returns the value of the '<em><b>Teams</b></em>' reference list.
+	 * The list contents are of type {@link no.hal.pg.runtime.Team}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Teams</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Teams</em>' reference list.
+	 * @see no.hal.pg.runtime.service.ServicePackage#getGameService_Teams()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<Team> getTeams();
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.

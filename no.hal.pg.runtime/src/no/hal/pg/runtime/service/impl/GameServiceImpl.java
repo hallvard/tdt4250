@@ -8,12 +8,14 @@ import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Task;
 
+import no.hal.pg.runtime.Team;
 import no.hal.pg.runtime.service.GameService;
 import no.hal.pg.runtime.service.ServicePackage;
 import no.hal.pg.runtime.util.Util;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getContext <em>Context</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getTeams <em>Teams</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.GameServiceImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -120,6 +123,15 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public EList<Team> getTeams() {
+		return ECollections.unmodifiableEList(getContext().getTeams());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public EList<Task<?, ?>> getTasks() {
 		return getContext().getTasks();
 	}
@@ -156,6 +168,8 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 				return basicGetContext();
 			case ServicePackage.GAME_SERVICE__PLAYERS:
 				return getPlayers();
+			case ServicePackage.GAME_SERVICE__TEAMS:
+				return getTeams();
 			case ServicePackage.GAME_SERVICE__TASKS:
 				return getTasks();
 		}
@@ -204,6 +218,8 @@ public class GameServiceImpl extends MinimalEObjectImpl.Container implements Gam
 				return context != null;
 			case ServicePackage.GAME_SERVICE__PLAYERS:
 				return !getPlayers().isEmpty();
+			case ServicePackage.GAME_SERVICE__TEAMS:
+				return !getTeams().isEmpty();
 			case ServicePackage.GAME_SERVICE__TASKS:
 				return !getTasks().isEmpty();
 		}

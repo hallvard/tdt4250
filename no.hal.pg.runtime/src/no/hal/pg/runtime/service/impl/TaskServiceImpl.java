@@ -5,6 +5,7 @@ package no.hal.pg.runtime.service.impl;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Task;
 
+import no.hal.pg.runtime.Team;
 import no.hal.pg.runtime.service.ServicePackage;
 import no.hal.pg.runtime.service.TaskService;
 import no.hal.pg.runtime.util.Util;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getContext <em>Context</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#isStarted <em>Started</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#isFinished <em>Finished</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getResult <em>Result</em>}</li>
@@ -149,6 +151,25 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Team getTeam() {
+		Team team = basicGetTeam();
+		return team != null && team.eIsProxy() ? (Team)eResolveProxy((InternalEObject)team) : team;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Team basicGetTeam() {
+		return getContext().getTeam();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isStarted() {
@@ -186,6 +207,9 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 				return basicGetContext();
 			case ServicePackage.TASK_SERVICE__PLAYERS:
 				return getPlayers();
+			case ServicePackage.TASK_SERVICE__TEAM:
+				if (resolve) return getTeam();
+				return basicGetTeam();
 			case ServicePackage.TASK_SERVICE__STARTED:
 				return isStarted();
 			case ServicePackage.TASK_SERVICE__FINISHED:
@@ -238,6 +262,8 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 				return context != null;
 			case ServicePackage.TASK_SERVICE__PLAYERS:
 				return !getPlayers().isEmpty();
+			case ServicePackage.TASK_SERVICE__TEAM:
+				return basicGetTeam() != null;
 			case ServicePackage.TASK_SERVICE__STARTED:
 				return isStarted() != STARTED_EDEFAULT;
 			case ServicePackage.TASK_SERVICE__FINISHED:

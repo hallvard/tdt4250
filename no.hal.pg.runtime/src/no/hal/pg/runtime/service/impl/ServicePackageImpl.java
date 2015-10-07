@@ -133,8 +133,17 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameService_Tasks() {
+	public EReference getGameService_Teams() {
 		return (EReference)gameServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGameService_Tasks() {
+		return (EReference)gameServiceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -169,8 +178,8 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTaskService_Started() {
-		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(1);
+	public EReference getTaskService_Team() {
+		return (EReference)taskServiceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -178,7 +187,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTaskService_Finished() {
+	public EAttribute getTaskService_Started() {
 		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -187,8 +196,17 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTaskService_Result() {
+	public EAttribute getTaskService_Finished() {
 		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskService_Result() {
+		return (EAttribute)taskServiceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -248,11 +266,13 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		// Create classes and their features
 		gameServiceEClass = createEClass(GAME_SERVICE);
 		createEReference(gameServiceEClass, GAME_SERVICE__PLAYERS);
+		createEReference(gameServiceEClass, GAME_SERVICE__TEAMS);
 		createEReference(gameServiceEClass, GAME_SERVICE__TASKS);
 		createEOperation(gameServiceEClass, GAME_SERVICE___GET_TASKS__PLAYER);
 
 		taskServiceEClass = createEClass(TASK_SERVICE);
 		createEReference(taskServiceEClass, TASK_SERVICE__PLAYERS);
+		createEReference(taskServiceEClass, TASK_SERVICE__TEAM);
 		createEAttribute(taskServiceEClass, TASK_SERVICE__STARTED);
 		createEAttribute(taskServiceEClass, TASK_SERVICE__FINISHED);
 		createEAttribute(taskServiceEClass, TASK_SERVICE__RESULT);
@@ -313,6 +333,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameServiceEClass, GameService.class, "GameService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGameService_Players(), theRuntimePackage.getPlayer(), null, "players", null, 0, -1, GameService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGameService_Teams(), theRuntimePackage.getTeam(), null, "teams", null, 0, -1, GameService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theRuntimePackage.getTask());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -331,6 +352,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		initEClass(taskServiceEClass, TaskService.class, "TaskService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTaskService_Players(), theRuntimePackage.getPlayer(), null, "players", null, 0, -1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskService_Team(), theRuntimePackage.getTeam(), null, "team", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskService_Started(), ecorePackage.getEBoolean(), "started", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskService_Finished(), ecorePackage.getEBoolean(), "finished", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskService_Result(), ecorePackage.getEJavaObject(), "result", null, 0, 1, TaskService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

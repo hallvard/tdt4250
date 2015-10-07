@@ -6,6 +6,7 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Service;
 import no.hal.pg.runtime.Task;
 
+import no.hal.pg.runtime.Team;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getPlayers <em>Players</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.TaskService#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isStarted <em>Started</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isFinished <em>Finished</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getResult <em>Result</em>}</li>
@@ -43,6 +45,21 @@ public interface TaskService extends Service<Task<?, ?>> {
 	 * @generated
 	 */
 	EList<Player> getPlayers();
+
+	/**
+	 * Returns the value of the '<em><b>Team</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Team</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Team</em>' reference.
+	 * @see no.hal.pg.runtime.service.ServicePackage#getTaskService_Team()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	Team getTeam();
 
 	/**
 	 * Returns the value of the '<em><b>Started</b></em>' attribute.

@@ -31,10 +31,6 @@ import no.hal.pg.runtime.util.CompositeReferenceResolver;
 @Component
 public class ServiceExecutor implements IServiceExecutor {
 
-	public ServiceExecutor() {
-		System.out.println("ServiceExecutor created");
-	}
-	
 	private Collection<IServiceProvider> serviceProviders = new ArrayList<IServiceProvider>();
 
 	@Reference(

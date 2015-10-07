@@ -33,6 +33,15 @@
         derived="true"/>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
+        name="teams"
+        upperBound="-1"
+        eType="ecore:EClass pg-runtime.ecore#//Team"
+        changeable="false"
+        volatile="true"
+        transient="true"
+        derived="true"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
         name="tasks"
         upperBound="-1"
         changeable="false"
@@ -59,6 +68,14 @@
         name="players"
         upperBound="-1"
         eType="ecore:EClass pg-runtime.ecore#//Player"
+        changeable="false"
+        volatile="true"
+        transient="true"
+        derived="true"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="team"
+        eType="ecore:EClass pg-runtime.ecore#//Team"
         changeable="false"
         volatile="true"
         transient="true"

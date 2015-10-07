@@ -87,13 +87,22 @@ public interface ServicePackage extends EPackage {
 	int GAME_SERVICE__PLAYERS = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Teams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_SERVICE__TEAMS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	int GAME_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Game Service</em>' class.
@@ -102,7 +111,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	int GAME_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Tasks</em>' operation.
@@ -152,13 +161,22 @@ public interface ServicePackage extends EPackage {
 	int TASK_SERVICE__PLAYERS = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Team</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_SERVICE__TEAM = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Started</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__STARTED = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	int TASK_SERVICE__STARTED = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -167,7 +185,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__FINISHED = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	int TASK_SERVICE__FINISHED = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -176,7 +194,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__RESULT = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
+	int TASK_SERVICE__RESULT = RuntimePackage.SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Task Service</em>' class.
@@ -185,7 +203,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 4;
+	int TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Task Service</em>' class.
@@ -275,6 +293,17 @@ public interface ServicePackage extends EPackage {
 	EReference getGameService_Players();
 
 	/**
+	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.service.GameService#getTeams <em>Teams</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Teams</em>'.
+	 * @see no.hal.pg.runtime.service.GameService#getTeams()
+	 * @see #getGameService()
+	 * @generated
+	 */
+	EReference getGameService_Teams();
+
+	/**
 	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.service.GameService#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,6 +344,17 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTaskService_Players();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.service.TaskService#getTeam <em>Team</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Team</em>'.
+	 * @see no.hal.pg.runtime.service.TaskService#getTeam()
+	 * @see #getTaskService()
+	 * @generated
+	 */
+	EReference getTaskService_Team();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.service.TaskService#isStarted <em>Started</em>}'.
@@ -423,6 +463,14 @@ public interface ServicePackage extends EPackage {
 		EReference GAME_SERVICE__PLAYERS = eINSTANCE.getGameService_Players();
 
 		/**
+		 * The meta object literal for the '<em><b>Teams</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_SERVICE__TEAMS = eINSTANCE.getGameService_Teams();
+
+		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -455,6 +503,14 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK_SERVICE__PLAYERS = eINSTANCE.getTaskService_Players();
+
+		/**
+		 * The meta object literal for the '<em><b>Team</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_SERVICE__TEAM = eINSTANCE.getTaskService_Team();
 
 		/**
 		 * The meta object literal for the '<em><b>Started</b></em>' attribute feature.
