@@ -23,26 +23,38 @@ public class EOperationEClassManager {
 		return operationArgumentsPackage;
 	}
 
-	private String objectReferenceName = "objectRef";
-	private String argumentsReferenceName = "argumentsRef";
+	private static String objectReferenceName = "_objectRef";
+	private static String eOperationReferenceName = "_eOperationRef";
+	private static String argumentsReferenceName = "_argumentsRef";
 
 	public EObject getEOperationObject(EOperation operation, EObject eObject) {
 		EClass argumentsClass = getEOperationArgumentsEClass(operation);
 		EClass operationClass = getEOperationEClass(operation, argumentsClass);
 		EObject operationObject = EcoreUtil.create(operationClass);
 		setEOperationObjectEObject(operationObject, eObject);
+		operationObject.eSet(operationClass.getEStructuralFeature(eOperationReferenceName), operation);
 		operationObject.eSet(operationClass.getEStructuralFeature(argumentsReferenceName), EcoreUtil.create(argumentsClass));
 		return operationObject;
 	}
 	
-	public EObject getEOperationObjectEObject(EObject operationObject) {
+	public static boolean isEOperationObject(EObject operationObject) {
+		EClass operationClass = operationObject.eClass();
+		return operationClass.getEStructuralFeature(objectReferenceName) != null &&
+				operationClass.getEStructuralFeature(eOperationReferenceName) != null &&
+				operationClass.getEStructuralFeature(argumentsReferenceName) != null;
+	}
+
+	public static EObject getEOperationObjectEObject(EObject operationObject) {
 		return (EObject) operationObject.eGet(operationObject.eClass().getEStructuralFeature(objectReferenceName));		
 	}
-	public void setEOperationObjectEObject(EObject operationObject, EObject eObject) {
+	public static EOperation getEOperationObjectEOperation(EObject operationObject) {
+		return (EOperation) operationObject.eGet(operationObject.eClass().getEStructuralFeature(eOperationReferenceName));
+	}
+	public static void setEOperationObjectEObject(EObject operationObject, EObject eObject) {
 		operationObject.eSet(operationObject.eClass().getEStructuralFeature(objectReferenceName), eObject);		
 	}
 
-	public EObject getEOperationObjectArguments(EObject operationObject) {
+	public static EObject getEOperationObjectArguments(EObject operationObject) {
 		return (EObject) operationObject.eGet(operationObject.eClass().getEStructuralFeature(argumentsReferenceName));		
 	}
 	
@@ -54,6 +66,7 @@ public class EOperationEClassManager {
 			eClass = EcoreFactory.eINSTANCE.createEClass();
 			eClass.setName(eClassName);
 			createEObjectEReference(eClass, operation.getEContainingClass(), objectReferenceName, false);
+			createEObjectEReference(eClass, operation.eClass(), eOperationReferenceName, false);
 			createEObjectEReference(eClass, argumentsClass, argumentsReferenceName, true);
 			ePackage.getEClassifiers().add(eClass);
 		}

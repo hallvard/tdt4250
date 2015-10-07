@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -25,8 +23,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -37,19 +37,15 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.component.ComponentFactory;
-import org.osgi.service.component.ComponentInstance;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.ModelPackage;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.engine.Engine;
 import no.hal.pg.runtime.engine.IEngine;
 import no.hal.pg.runtime.engine.IServiceProvider;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
-import no.hal.pg.runtime.provider.TaskServiceItemProvider;
 
 public class RuntimeView extends AbstractSelectionView {
 
@@ -89,8 +85,11 @@ public class RuntimeView extends AbstractSelectionView {
 		engine.init(gameDef);
 		Resource resource = engine.getGame().eResource();
 		engine.start();
+		boolean exists = resource.getResourceSet().getURIConverter().exists(resource.getURI(), null);
 		try {
-			resource.save(null);
+			if (! exists) {
+				resource.save(null);
+			}
 		} catch (IOException e) {
 			System.err.println("Exception when saving game: " + e);
 		}
@@ -131,7 +130,7 @@ public class RuntimeView extends AbstractSelectionView {
 		return (GameDef) getContainer(eObject, ModelPackage.eINSTANCE.getGameDef());
 	}
 
-	private static String noEngineLabel = "<No engine selected for current selection>";
+	private static String noEngineLabel = "<No engine for current selection>";
 	private Label engineLabel;
 
 	private IAction runGameAction;
@@ -162,43 +161,57 @@ public class RuntimeView extends AbstractSelectionView {
 	@Override
 	public void createPartControl(Composite parent) {
 		parentShell = parent.getShell();
+		parent.setLayout(new GridLayout(1, false));
 		super.createPartControl(parent);
-		parent.setLayout(new GridLayout(2, false));
 
 		engineLabel = new Label(parent, SWT.NONE);
 		engineLabel.setText(noEngineLabel);
-		engineLabel.setLayoutData(new GridData( SWT.FILL, SWT.CENTER, true, false, 2, 1));
-//		eOperationSelector = new ComboViewer(parent, SWT.READ_ONLY | SWT.DROP_DOWN);
-//		eOperationSelector.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-//		eOperationSelector.setLabelProvider(new EOperationLabelProvider());
-//		eOperationSelector.setContentProvider(new EOperationContentProvider());
-//		eOperationSelector.addSelectionChangedListener(operationSelectionListener);
-		serviceOperationsViewer = new TreeViewer(parent, SWT.NONE);
-		serviceOperationsViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		serviceOperationsViewer.setLabelProvider(new ServiceLabelProvider());
-		serviceOperationsViewer.setContentProvider(new ServiceContentProvider());
-		serviceOperationsViewer.addSelectionChangedListener(operationSelectionListener);
-
-		invokeButton = new Button(parent, SWT.PUSH);
-		invokeButton.setText("Invoke!");
-		invokeButton.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
-		invokeButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				EOperationInvocation invocation = currentInvocation;
-				currentInvocation = null;
-				if (invocation != null) {
-					invocation.execute(editingDomainProvider, parentShell);
-					if (invocation.getInvocationResult() instanceof Exception) {
-						//
+		engineLabel.setLayoutData(new GridData( SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		SashForm sashForm = new SashForm(parent, SWT.VERTICAL);
+		sashForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		{
+			Composite treeParent = new Composite(sashForm, SWT.NONE);
+			GridLayout treeParentLayout = new GridLayout(2, false);
+			{
+				treeParentLayout.marginWidth = 0;
+				treeParentLayout.marginHeight = 0;
+				treeParent.setLayout(treeParentLayout);
+				serviceOperationsViewer = new TreeViewer(treeParent, SWT.NONE);
+				serviceOperationsViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+				serviceOperationsViewer.setLabelProvider(new ServiceLabelProvider());
+				serviceOperationsViewer.setContentProvider(new ServiceContentProvider());
+				serviceOperationsViewer.addSelectionChangedListener(operationSelectionListener);
+		
+				invokeButton = new Button(treeParent, SWT.PUSH);
+				invokeButton.setText("Invoke!");
+				invokeButton.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
+				invokeButton.addSelectionListener(invokeButtonSelected);
+			}
+			propertySheetPage = new PropertySheetPage();
+			propertySheetPage.createControl(sashForm);		
+	
+			sashForm.setWeights(new int[]{30, 70});
+		}
+	}
+	
+	private SelectionListener invokeButtonSelected = new SelectionAdapter() {
+		public void widgetSelected(SelectionEvent e) {
+			ISelection selection = serviceOperationsViewer.getSelection();
+			if (selection instanceof IStructuredSelection) {
+				Object object = ((IStructuredSelection) selection).getFirstElement();
+				if (object instanceof EObject) {
+					EObject operationObject = (EObject) object;
+					if (EOperationEClassManager.isEOperationObject(operationObject)) {
+						EOperationInvocation operationInvocation = new EOperationInvocation(operationObject);
+						operationInvocation.execute(editingDomainProvider, parentShell);
+						if (operationInvocation.getInvocationResult() instanceof Exception) {
+							//
+						}
 					}
 				}
 			}
-		});
-
-		propertySheetPage = new PropertySheetPage();
-		propertySheetPage.createControl(parent);
-		propertySheetPage.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
-	}
+		}
+	};
 
 	private ISelectionChangedListener operationSelectionListener = new ISelectionChangedListener() {
 		@Override
@@ -206,10 +219,18 @@ public class RuntimeView extends AbstractSelectionView {
 			ISelection selection = event.getSelection();
 			if (selection instanceof IStructuredSelection) {
 				Object object = ((IStructuredSelection) selection).getFirstElement();
-				if (object instanceof EOperation) {
-					operationSelected((EOperation) object);
+				if (object instanceof Service<?>) {
+					serviceSelected((Service<?>) object);
+				} else if (object instanceof EObject) {
+					EObject eObject = (EObject) object;
+					if (EOperationEClassManager.isEOperationObject(eObject)) {
+						operationObjectSelected(eObject);
+						invokeButton.setEnabled(true);
+						return;
+					}
 				}
-			}				
+				invokeButton.setEnabled(false);
+			}
 		}
 	};
 	
@@ -225,8 +246,6 @@ public class RuntimeView extends AbstractSelectionView {
 		propertySheetPage.dispose();
 		super.dispose();
 	}
-
-	private EOperationInvocation currentInvocation;
 
 	protected EObject getSelectedEObject() {
 		return (EObject) getSelection();
@@ -263,39 +282,22 @@ public class RuntimeView extends AbstractSelectionView {
 			engine = getEngine(game);
 		}
 		runGameAction.setEnabled(getGameDef(selection) != null || (game != null && engine == null));
-		engineLabel.setText(engine != null ? engine.getKey() : noEngineLabel);
-		invokeButton.setEnabled(selection instanceof Service<?>);
-		if (currentInvocation == null || selection != currentInvocation.getOperationOwner()) {
-			currentInvocation = new EOperationInvocation(selection);
-//				setInputAndSelectFirst(eOperationSelector, selection);
-			Collection<Service<?>> services = getServices(selection);
-			Collection<EClass> serviceClasses = new ArrayList<EClass>();
-			for (Service<?> service : services) {
-				serviceClasses.add(service.eClass());
-			}
-			setInputAndSelectFirst(serviceOperationsViewer, services, EOperation.class);
+		engineLabel.setText(engine != null ? ("Engine #" + engine.getKey()) : noEngineLabel);
+		Collection<Service<?>> services = getServices(selection);
+		Collection<EClass> serviceClasses = new ArrayList<EClass>();
+		for (Service<?> service : services) {
+			serviceClasses.add(service.eClass());
 		}
+		setInputAndSelectFirst(serviceOperationsViewer, services, EOperation.class);
 		super.updateView();
 	}
 	
-	private EOperationEClassManager operationEClassManager = new EOperationEClassManager();
+	protected void serviceSelected(Service<?> service) {
+		updatePropertySheet(service);
+	}
 	
-	private Map<EOperation, EObject> operationObjects = new HashMap<EOperation, EObject>();
-	
-	protected void operationSelected(EOperation operation) {
-		EObject operationArguments = null;
-		if (currentInvocation != null && operation != null) {
-			EObject operationObject = operationObjects.get(operation);
-			if (operationObject == null) {
-				operationObject = operationEClassManager.getEOperationObject(operation, currentInvocation.getOperationOwner());
-				operationObjects.put(operation, operationObject);
-			} else {
-				operationEClassManager.setEOperationObjectEObject(operationObject, currentInvocation.getOperationOwner());
-			}
-			operationArguments = operationEClassManager.getEOperationObjectArguments(operationObject);
-			currentInvocation.setOperation(operation, operationArguments);
-		}
-		updatePropertySheet(operationArguments);
+	protected void operationObjectSelected(EObject operationObject) {
+		updatePropertySheet(EOperationEClassManager.getEOperationObjectArguments(operationObject));
 	}
 	
 	private Shell parentShell;
@@ -308,5 +310,4 @@ public class RuntimeView extends AbstractSelectionView {
 		StructuredSelection selection = (eObject != null && editingDomainProvider != null ? new StructuredSelection(eObject) : StructuredSelection.EMPTY);
 		propertySheetPage.selectionChanged(null, selection);
 	}
-
 }

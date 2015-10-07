@@ -95,6 +95,29 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.Team} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TeamItemProvider teamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.runtime.Team}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTeamAdapter() {
+		if (teamItemProvider == null) {
+			teamItemProvider = new TeamItemProvider(this);
+		}
+
+		return teamItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.Player} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,6 +309,7 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	 */
 	public void dispose() {
 		if (gameItemProvider != null) gameItemProvider.dispose();
+		if (teamItemProvider != null) teamItemProvider.dispose();
 		if (playerItemProvider != null) playerItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskStateItemProvider != null) taskStateItemProvider.dispose();

@@ -2,11 +2,14 @@ package no.hal.pg.runtime.ui;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
+
+import no.hal.pg.runtime.Service;
 
 public class ServiceLabelProvider extends LabelProvider {
 
@@ -33,10 +36,19 @@ public class ServiceLabelProvider extends LabelProvider {
 	
 	@Override
 	public String getText(Object element) {
-		if (element instanceof EParameter) {
-			return toString((EParameter) element);
-		} else if (element instanceof EOperation) {
+		if (element instanceof EOperation) {
 			return toString((EOperation) element);
+		} else if (element instanceof ETypedElement) {
+			return toString((ETypedElement) element);
+		} else if (element instanceof ENamedElement) {
+			return toString((ENamedElement) element);
+		} else if (element instanceof Service<?>) {
+			return toString(((EObject) element).eClass()) + " -> " + getText(((Service<?>) element).getContext());
+		} else if (element instanceof EObject) {
+			EObject eObject = (EObject) element;
+			if (EOperationEClassManager.isEOperationObject(eObject)) {
+				return toString(EOperationEClassManager.getEOperationObjectEOperation(eObject));
+			}
 		}
 		return super.getText(element);
 	}

@@ -64,6 +64,7 @@ public class TaskItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTaskDefPropertyDescriptor(object);
+			addTeamPropertyDescriptor(object);
 			addPlayersPropertyDescriptor(object);
 			addResultPropertyDescriptor(object);
 		}
@@ -84,6 +85,28 @@ public class TaskItemProvider
 				 getString("_UI_Task_taskDef_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_taskDef_feature", "_UI_Task_type"),
 				 RuntimePackage.Literals.TASK__TASK_DEF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Team feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTeamPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_team_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_team_feature", "_UI_Task_type"),
+				 RuntimePackage.Literals.TASK__TEAM,
 				 true,
 				 false,
 				 true,

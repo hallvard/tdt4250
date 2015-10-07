@@ -6,9 +6,9 @@ package no.hal.pg.runtime.provider;
 import java.util.Collection;
 import java.util.List;
 
-import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
+import no.hal.pg.runtime.Team;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.pg.runtime.Game} object.
+ * This is the item provider adapter for a {@link no.hal.pg.runtime.Team} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GameItemProvider 
+public class TeamItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class GameItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameItemProvider(AdapterFactory adapterFactory) {
+	public TeamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,9 +77,7 @@ public class GameItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RuntimePackage.Literals.GAME__PLAYERS);
-			childrenFeatures.add(RuntimePackage.Literals.GAME__TEAMS);
-			childrenFeatures.add(RuntimePackage.Literals.GAME__TASKS);
+			childrenFeatures.add(RuntimePackage.Literals.TEAM__PLAYERS);
 		}
 		return childrenFeatures;
 	}
@@ -98,14 +96,14 @@ public class GameItemProvider
 	}
 
 	/**
-	 * This returns Game.gif.
+	 * This returns Team.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Game"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Team"));
 	}
 
 	/**
@@ -116,7 +114,7 @@ public class GameItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Game_type");
+		return getString("_UI_Team_type");
 	}
 	
 
@@ -131,10 +129,8 @@ public class GameItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Game.class)) {
-			case RuntimePackage.GAME__PLAYERS:
-			case RuntimePackage.GAME__TEAMS:
-			case RuntimePackage.GAME__TASKS:
+		switch (notification.getFeatureID(Team.class)) {
+			case RuntimePackage.TEAM__PLAYERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,18 +150,8 @@ public class GameItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RuntimePackage.Literals.GAME__PLAYERS,
+				(RuntimePackage.Literals.TEAM__PLAYERS,
 				 RuntimeFactory.eINSTANCE.createPlayer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RuntimePackage.Literals.GAME__TEAMS,
-				 RuntimeFactory.eINSTANCE.createTeam()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RuntimePackage.Literals.GAME__TASKS,
-				 RuntimeFactory.eINSTANCE.createTask()));
 	}
 
 	/**

@@ -10,44 +10,35 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
+import no.hal.pg.runtime.Service;
+
 public class EOperationInvocation extends ChangeCommand {
 
-	private EOperation operation = null;
-	private EObject argumentsInstance = null;
+	private EObject operationObject = null;
 	private Object result = null;
 
-	public EOperationInvocation(EObject operationOwner) {
-		super(operationOwner);
+	public EOperationInvocation(EObject operationObject) {
+		super(operationObject);
+		this.operationObject = operationObject;
 	}
 
 	public void dispose() {
 		super.dispose();
-		operation = null;
-		argumentsInstance = null;
 		result = null;
 	}
 
-	public EObject getOperationOwner() {
-		return (EObject) notifier;
-	}
+//	public EObject getOperationOwner() {
+//		return EOperationEClassManager.getEOperationObjectEObject(operationObject);
+//	}
+//
+//	public void setOperationObject(EObject operationObject) {
+//		this.operationObject = operationObject;
+//	}
 
-	public void setOperation(EOperation operation, EObject argumentsInstance) {
-		this.operation = operation;
-		this.argumentsInstance = argumentsInstance;
-	}
-
-	private EList<Object> argumentList = new BasicEList<Object>();
 
 	@Override
 	protected boolean prepare() {
-		if (!super.prepare() || getOperationOwner() == null || operation == null) {
-			return false;
-		}
-		for (EStructuralFeature property : argumentsInstance.eClass().getEStructuralFeatures()) {
-			Object value = argumentsInstance.eGet(property);
-			argumentList.add(value);
-		}
-		return true;
+		return super.prepare() && operationObject != null;
 	}
 
 	public Object getInvocationResult() {
@@ -56,7 +47,15 @@ public class EOperationInvocation extends ChangeCommand {
 
 	protected void doExecute() {
 		try {
-			result = getOperationOwner().eInvoke(operation, argumentList);
+			EOperation eOperation = EOperationEClassManager.getEOperationObjectEOperation(operationObject);
+			EObject eObject = EOperationEClassManager.getEOperationObjectEObject(operationObject);
+			EList<Object> argumentList = new BasicEList<Object>();
+			EObject argumentsInstance = EOperationEClassManager.getEOperationObjectArguments(operationObject);
+			for (EStructuralFeature property : argumentsInstance.eClass().getEStructuralFeatures()) {
+				Object value = argumentsInstance.eGet(property);
+				argumentList.add(value);
+			}
+			result = eObject.eInvoke(eOperation, argumentList);
 		} catch (Exception e) {
 			result = e;
 		}
@@ -69,7 +68,7 @@ public class EOperationInvocation extends ChangeCommand {
 	// }
 
 	void execute(IEditingDomainProvider editingDomainProvider, Shell shell) {
-		if (!canExecute()) {
+		if (! canExecute()) {
 			return;
 		}
 		if (editingDomainProvider != null) {
