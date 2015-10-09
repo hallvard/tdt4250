@@ -19,6 +19,13 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated quiz -->
+      <extender
+            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
+            class="no.hal.pg.quiz.model.provider.ModelItemProviderAdapterFactory$ModelChildCreationExtender"/>
+   </extension>
+
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated quiz -->
       <category

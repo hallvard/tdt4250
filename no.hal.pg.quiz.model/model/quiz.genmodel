@@ -9,7 +9,7 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>quiz.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="no.hal.pg.quiz" disposableProviderFactory="true"
-      ecorePackage="quiz.ecore#/">
+      childCreationExtenders="true" ecorePackage="quiz.ecore#/">
     <genClasses ecoreClass="quiz.ecore#//QuizTaskDef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference quiz.ecore#//QuizTaskDef/quizParts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//QuizTaskDef/correctNeeded"/>

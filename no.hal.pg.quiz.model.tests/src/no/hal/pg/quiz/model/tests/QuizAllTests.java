@@ -31,7 +31,6 @@ public class QuizAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new QuizAllTests("Quiz Tests");
-		suite.addTest(ModelTests.suite());
 		return suite;
 	}
 
