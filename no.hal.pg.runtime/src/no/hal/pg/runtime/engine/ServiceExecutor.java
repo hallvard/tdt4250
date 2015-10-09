@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
@@ -343,6 +344,11 @@ public class ServiceExecutor implements IServiceExecutor {
 				if (realArg != null) {
 					return realArg;
 				}
+			} else if (parameter.getEType() instanceof EDataType) {
+				Object realArg = EcoreUtil.createFromString((EDataType) parameter.getEType(), (String) arg);
+				if (realArg != null) {
+					return realArg;
+				}				
 			}
 		} else if (arg != null && arg.getClass().isArray()) {
 			for (int i = 0; i < Array.getLength(arg); i++) {
