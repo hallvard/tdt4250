@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:ram="platform:/plugin/no.hal.ra.model/model/ra.ecore" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_h2LTEG2_EeWwEvcmQE0KmA" selectedViews="_pJH8QG2_EeWwEvcmQE0KmA __YWyAG3UEeWqUpsc_do5Ig _Y9vbUG3WEeWqUpsc_do5Ig" version="10.0.0.201505222000">
+  <semanticResources>Department.ra</semanticResources>
+  <semanticResources>workbench.xmi</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_pJH8QG2_EeWwEvcmQE0KmA">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_pKGzsG2_EeWwEvcmQE0KmA" name="Ra Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_pKHawG2_EeWwEvcmQE0KmA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_pKHawW2_EeWwEvcmQE0KmA">
+          <computedStyleDescriptions xmi:type="style:WorkspaceImageDescription" xmi:id="_iUTUUG3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" hideLabelByDefault="true" sizeComputationExpression="aql:60" resizeKind="NSEW" workspacePath="/no.hal.ra.diagram/images/hal.jpg">
+            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </computedStyleDescriptions>
+          <computedStyleDescriptions xmi:type="style:WorkspaceImageDescription" xmi:id="_iUTUUm3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" hideLabelByDefault="true" sizeComputationExpression="aql:60" resizeKind="NSEW" workspacePath="/no.hal.ra.diagram/images/yngveda.jpg">
+            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </computedStyleDescriptions>
+          <computedStyleDescriptions xmi:type="style:WorkspaceImageDescription" xmi:id="_iUT7YW3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" hideLabelByDefault="true" sizeComputationExpression="aql:60" resizeKind="NSEW" workspacePath="/no.hal.ra.diagram/images/jonespi.jpg">
+            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </computedStyleDescriptions>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_pKbj0G2_EeWwEvcmQE0KmA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_pKbj0W2_EeWwEvcmQE0KmA" type="Sirius" element="_pKGzsG2_EeWwEvcmQE0KmA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_pKsCgG2_EeWwEvcmQE0KmA" type="2001" element="_pKHawm2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_pK9IQG2_EeWwEvcmQE0KmA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_pK9IQW2_EeWwEvcmQE0KmA" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_iUb3MG3REeWoi5Ua99_2vg" type="3005" element="_iUTUUW3REeWoi5Ua99_2vg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_iUb3MW3REeWoi5Ua99_2vg" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUb3Mm3REeWoi5Ua99_2vg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_pKsCgW2_EeWwEvcmQE0KmA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pKsCgm2_EeWwEvcmQE0KmA" x="297" y="335" width="88" height="88"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_pLD18G2_EeWwEvcmQE0KmA" type="2001" element="_pKHaxG2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_pLD1822_EeWwEvcmQE0KmA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_pLD19G2_EeWwEvcmQE0KmA" x="-22" y="-16"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_iUb3M23REeWoi5Ua99_2vg" type="3005" element="_iUT7YG3REeWoi5Ua99_2vg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_iUb3NG3REeWoi5Ua99_2vg" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUb3NW3REeWoi5Ua99_2vg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_pLD18W2_EeWwEvcmQE0KmA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pLD18m2_EeWwEvcmQE0KmA" x="54" y="333" width="82" height="92"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_3DOJgG3IEeWf0__HpNmLYw" type="2002" element="_3DLGMG3IEeWf0__HpNmLYw">
+            <children xmi:type="notation:Node" xmi:id="_3DSa8G3IEeWf0__HpNmLYw" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_3DSa8W3IEeWf0__HpNmLYw" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_z0nGMG3NEeWf0__HpNmLYw" type="3009" element="_z0g_kG3NEeWf0__HpNmLYw">
+                <children xmi:type="notation:Node" xmi:id="_z0nGM23NEeWf0__HpNmLYw" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_z0nGNG3NEeWf0__HpNmLYw" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_z0nGN23NEeWf0__HpNmLYw" type="3010" element="_z0g_km3NEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_z0nGOG3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_z0nGOW3NEeWf0__HpNmLYw"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_z0ntQG3NEeWf0__HpNmLYw" type="3010" element="_z0hmoW3NEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_z0ntQW3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_z0ntQm3NEeWf0__HpNmLYw"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_z0nGNW3NEeWf0__HpNmLYw"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_z0nGNm3NEeWf0__HpNmLYw"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_z0nGMW3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0nGMm3NEeWf0__HpNmLYw" x="185" y="21"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_zkZOA23PEeWf0__HpNmLYw" type="3009" element="_zkRSMG3PEeWf0__HpNmLYw">
+                <children xmi:type="notation:Node" xmi:id="_zkZOBm3PEeWf0__HpNmLYw" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_zkZOB23PEeWf0__HpNmLYw" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_zkZOCm3PEeWf0__HpNmLYw" type="3010" element="_zkRSMm3PEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_zkZOC23PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_zkZODG3PEeWf0__HpNmLYw"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_zkZ1EG3PEeWf0__HpNmLYw" type="3010" element="_zkRSNG3PEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_zkZ1EW3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_zkZ1Em3PEeWf0__HpNmLYw"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_zkZOCG3PEeWf0__HpNmLYw"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_zkZOCW3PEeWf0__HpNmLYw"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_zkZOBG3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkZOBW3PEeWf0__HpNmLYw" x="14" y="21"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_3DSa8m3IEeWf0__HpNmLYw"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_3DSa823IEeWf0__HpNmLYw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_3DOJgW3IEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3DOJgm3IEeWf0__HpNmLYw" x="26" y="27" width="355" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_3DTCAG3IEeWf0__HpNmLYw" type="2002" element="_3DLtQG3IEeWf0__HpNmLYw">
+            <children xmi:type="notation:Node" xmi:id="_3DTCA23IEeWf0__HpNmLYw" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_3DTCBG3IEeWf0__HpNmLYw" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_z0ntQ23NEeWf0__HpNmLYw" type="3009" element="_z0hmo23NEeWf0__HpNmLYw">
+                <children xmi:type="notation:Node" xmi:id="_z0ntRm3NEeWf0__HpNmLYw" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_z0ntR23NEeWf0__HpNmLYw" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_z0ntSm3NEeWf0__HpNmLYw" type="3010" element="_z0iNsG3NEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_z0ntS23NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_z0ntTG3NEeWf0__HpNmLYw"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_z0ntTW3NEeWf0__HpNmLYw" type="3010" element="_z0iNsm3NEeWf0__HpNmLYw">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_z0ntTm3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_z0ntT23NEeWf0__HpNmLYw"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_z0ntSG3NEeWf0__HpNmLYw"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_z0ntSW3NEeWf0__HpNmLYw"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_z0ntRG3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0ntRW3NEeWf0__HpNmLYw" x="26" y="30"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_3DTCBW3IEeWf0__HpNmLYw"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_3DTCBm3IEeWf0__HpNmLYw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_3DTCAW3IEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3DTCAm3IEeWf0__HpNmLYw" x="432" y="27" width="259" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_zkXY0G3PEeWf0__HpNmLYw" type="2001" element="_zkNn0m3PEeWf0__HpNmLYw">
+            <children xmi:type="notation:Node" xmi:id="_zkXY023PEeWf0__HpNmLYw" visible="false" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_zkXY1G3PEeWf0__HpNmLYw" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_iUceQG3REeWoi5Ua99_2vg" type="3005" element="_iUT7Ym3REeWoi5Ua99_2vg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_iUceQW3REeWoi5Ua99_2vg" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUceQm3REeWoi5Ua99_2vg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_zkXY0W3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="12"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkXY0m3PEeWf0__HpNmLYw" x="558" y="324" width="91" height="91"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_pKbj0m2_EeWwEvcmQE0KmA"/>
+          <edges xmi:type="notation:Edge" xmi:id="_z0oUUG3NEeWf0__HpNmLYw" type="4001" element="_z0i0wG3NEeWf0__HpNmLYw" source="_z0nGMG3NEeWf0__HpNmLYw" target="_pKsCgG2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_z0oUVG3NEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0oUVW3NEeWf0__HpNmLYw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_z0oUVm3NEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0oUV23NEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_z0oUWG3NEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0oUWW3NEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_z0oUUW3NEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_z0oUUm3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0oUU23NEeWf0__HpNmLYw" points="[-7, 29, -57, -267]$[40, 252, -10, -44]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7YG3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7YW3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_z0o7Ym3NEeWf0__HpNmLYw" type="4001" element="_z0jb0G3NEeWf0__HpNmLYw" source="_z0ntQ23NEeWf0__HpNmLYw" target="_pKsCgG2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_z0o7Zm3NEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0o7Z23NEeWf0__HpNmLYw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_z0o7aG3NEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0o7aW3NEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_z0o7am3NEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z0o7a23NEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_z0o7Y23NEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_z0o7ZG3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0o7ZW3NEeWf0__HpNmLYw" points="[-32, 29, 165, -258]$[-169, 243, 28, -44]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7bG3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7bW3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_zkacIG3PEeWf0__HpNmLYw" type="4001" element="_zkTHYG3PEeWf0__HpNmLYw" source="_zkZOA23PEeWf0__HpNmLYw" target="_pKsCgG2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_zkacJG3PEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkacJW3PEeWf0__HpNmLYw" x="59" y="1"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkbDMG3PEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkbDMW3PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkbDMm3PEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkbDM23PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkacIW3PEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_zkacIm3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkacI23PEeWf0__HpNmLYw" points="[21, 29, -200, -267]$[188, 252, -33, -44]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbDNG3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbDNW3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_zkbDNm3PEeWf0__HpNmLYw" type="4001" element="_zkTucG3PEeWf0__HpNmLYw" source="_zkZOA23PEeWf0__HpNmLYw" target="_pKsCgG2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_zkbqQG3PEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkbqQW3PEeWf0__HpNmLYw" x="22" y="3"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkbqQm3PEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkbqQ23PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkbqRG3PEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkbqRW3PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkbDN23PEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_zkbDOG3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkbDOW3PEeWf0__HpNmLYw" points="[10, 29, -211, -267]$[74, 214, -147, -82]$[177, 271, -44, -25]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbqRm3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbqR23PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_zkbqSG3PEeWf0__HpNmLYw" type="4001" element="_zkTuc23PEeWf0__HpNmLYw" source="_zkZOA23PEeWf0__HpNmLYw" target="_pLD18G2_EeWwEvcmQE0KmA">
+            <children xmi:type="notation:Node" xmi:id="_zkcRUG3PEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkcRUW3PEeWf0__HpNmLYw" x="65" y="34"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkcRUm3PEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkcRU23PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkcRVG3PEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkcRVW3PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkbqSW3PEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_zkbqSm3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkbqS23PEeWf0__HpNmLYw" points="[-3, 29, 22, -267]$[-20, 250, 5, -46]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkcRVm3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkcRV23PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_zkcRWG3PEeWf0__HpNmLYw" type="4001" element="_zkUVgm3PEeWf0__HpNmLYw" source="_z0ntQ23NEeWf0__HpNmLYw" target="_zkXY0G3PEeWf0__HpNmLYw">
+            <children xmi:type="notation:Node" xmi:id="_zkcRXG3PEeWf0__HpNmLYw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkcRXW3PEeWf0__HpNmLYw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkcRXm3PEeWf0__HpNmLYw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkcRX23PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zkc4YG3PEeWf0__HpNmLYw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zkc4YW3PEeWf0__HpNmLYw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkcRWW3PEeWf0__HpNmLYw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_zkcRWm3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkcRW23PEeWf0__HpNmLYw" points="[12, 2, -461, -83]$[38, 205, -435, 120]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkc4Ym3PEeWf0__HpNmLYw" id="(0.6447368421052632,0.9666666666666667)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkc4Y23PEeWf0__HpNmLYw" id="(5.208791208791209,-1.3131860799645882)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_pKHawm2_EeWwEvcmQE0KmA" name="Hallvard Trætteberg" incomingEdges="_z0i0wG3NEeWf0__HpNmLYw _z0jb0G3NEeWf0__HpNmLYw _zkTHYG3PEeWf0__HpNmLYw _zkTucG3PEeWf0__HpNmLYw" width="60" height="60" resizeKind="NSEW">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.0"/>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iUTUUW3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" description="_iUTUUG3REeWoi5Ua99_2vg" hideLabelByDefault="true" workspacePath="/no.hal.ra.diagram/images/hal.jpg"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_pKHaxG2_EeWwEvcmQE0KmA" name="Yngve Dahl" incomingEdges="_zkTuc23PEeWf0__HpNmLYw" width="60" height="60" resizeKind="NSEW">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.1"/>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iUT7YG3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" description="_iUTUUm3REeWoi5Ua99_2vg" hideLabelByDefault="true" workspacePath="/no.hal.ra.diagram/images/yngveda.jpg"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_zkNn0m3PEeWf0__HpNmLYw" name="Jon Espen Ingvaldsen" incomingEdges="_zkUVgm3PEeWf0__HpNmLYw" width="60" height="60" resizeKind="NSEW">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.2"/>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.2"/>
+        <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_zkQEEG3PEeWf0__HpNmLYw"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iUT7Ym3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" description="_iUT7YW3REeWoi5Ua99_2vg" hideLabelByDefault="true" workspacePath="/no.hal.ra.diagram/images/jonespi.jpg"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLGMG3IEeWf0__HpNmLYw">
+        <target xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
+        <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_4aQ_gG3JEeWf0__HpNmLYw" labelSize="12" showIcon="false">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_z0g_kG3NEeWf0__HpNmLYw" name="TDT 4100" outgoingEdges="_z0i0wG3NEeWf0__HpNmLYw">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.0"/>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_z0g_kW3NEeWf0__HpNmLYw" labelSize="12" showIcon="false">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z0g_km3NEeWf0__HpNmLYw" name="teacher 1.0">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_z0hmoG3NEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z0hmoW3NEeWf0__HpNmLYw" name="exerciseResponsible 0.4">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_z0hmom3NEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_zkRSMG3PEeWf0__HpNmLYw" name="TDT4180" outgoingEdges="_zkTHYG3PEeWf0__HpNmLYw _zkTucG3PEeWf0__HpNmLYw _zkTuc23PEeWf0__HpNmLYw">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.1"/>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.1"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_zkRSMW3PEeWf0__HpNmLYw" labelSize="12" showIcon="false">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_zkRSMm3PEeWf0__HpNmLYw" name="teacher 1.0">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zkRSM23PEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_zkRSNG3PEeWf0__HpNmLYw" name="exerciseResponsible 0.4">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zkR5QG3PEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLtQG3IEeWf0__HpNmLYw">
+        <target xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
+        <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_4aRmkG3JEeWf0__HpNmLYw" labelSize="12" showIcon="false">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_z0hmo23NEeWf0__HpNmLYw" name="TDT 4250" outgoingEdges="_z0jb0G3NEeWf0__HpNmLYw _zkUVgm3PEeWf0__HpNmLYw">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.1/@courses.0"/>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.1/@courses.0"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_z0hmpG3NEeWf0__HpNmLYw" labelSize="12" showIcon="false">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z0iNsG3NEeWf0__HpNmLYw" name="teacher 1.0">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.0"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_z0iNsW3NEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z0iNsm3NEeWf0__HpNmLYw" name="exerciseResponsible 0.4">
+            <target xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <semanticElements xmi:type="ram:Role" href="Department.ra#//@roles.3"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_z0iNs23NEeWf0__HpNmLYw" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" color="209,209,209">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']/@subNodeMappings[name='Role%20node']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0i0wG3NEeWf0__HpNmLYw" sourceNode="_z0g_kG3NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z0i0wW3NEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_z0i0wm3NEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0jb0G3NEeWf0__HpNmLYw" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z0jb0W3NEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_z0jb0m3NEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTHYG3PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkTHYW3PEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_zkTHYm3PEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTucG3PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkTucW3PEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_zkTucm3PEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTuc23PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHaxG2_EeWwEvcmQE0KmA">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkUVgG3PEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_zkUVgW3PEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkUVgm3PEeWf0__HpNmLYw" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_zkNn0m3PEeWf0__HpNmLYw">
+        <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+        <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkUVg23PEeWf0__HpNmLYw" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_zkUVhG3PEeWf0__HpNmLYw" labelSize="10" showIcon="false"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_pKHaxm2_EeWwEvcmQE0KmA"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer"/>
+      <target xmi:type="ram:Department" href="Department.ra#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="__YWyAG3UEeWqUpsc_do5Ig">
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_DsKwkG3VEeWqUpsc_do5Ig" name="Ra Course Table" headerColumnWidth="258">
+      <target xmi:type="ram:Department" href="Department.ra#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_DsLXoG3VEeWqUpsc_do5Ig" label="Semester 2015">
+        <target xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
+        <lines xmi:type="table:DLine" xmi:id="_DsLXoW3VEeWqUpsc_do5Ig" label="Course Instance">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.0"/>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXom3VEeWqUpsc_do5Ig" label="Course Allocation 1.0">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXo23VEeWqUpsc_do5Ig" label="Hallvard Trætteberg" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4apIm3WEeWqUpsc_do5Ig" label="1.0" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            </cells>
+          </lines>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.0"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']"/>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_DsLXpG3VEeWqUpsc_do5Ig" label="Course Instance">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.1"/>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXpW3VEeWqUpsc_do5Ig" label="Course Allocation 0.21">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXpm3VEeWqUpsc_do5Ig" label="Hallvard Trætteberg" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4bQMG3WEeWqUpsc_do5Ig" label="0.21" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            </cells>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXp23VEeWqUpsc_do5Ig" label="Course Allocation 0.3">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXqG3VEeWqUpsc_do5Ig" label="Hallvard Trætteberg" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4bQMW3WEeWqUpsc_do5Ig" label="0.3" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            </cells>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXqW3VEeWqUpsc_do5Ig" label="Course Allocation 0.48999999999999994">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXqm3VEeWqUpsc_do5Ig" label="Yngve Dahl" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4bQMm3WEeWqUpsc_do5Ig" label="0.48999999999999994" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            </cells>
+          </lines>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.0/@courses.1"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']"/>
+        </lines>
+        <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_DsLXq23VEeWqUpsc_do5Ig" label="Semester 2015">
+        <target xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
+        <lines xmi:type="table:DLine" xmi:id="_DsLXrG3VEeWqUpsc_do5Ig" label="Course Instance">
+          <target xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.1/@courses.0"/>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXrW3VEeWqUpsc_do5Ig" label="Course Allocation 1.0">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXrm3VEeWqUpsc_do5Ig" label="Hallvard Trætteberg" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4bQM23WEeWqUpsc_do5Ig" label="1.0" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            </cells>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_DsLXr23VEeWqUpsc_do5Ig" label="Course Allocation 0.4">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+            <cells xmi:type="table:DCell" xmi:id="_DsLXsG3VEeWqUpsc_do5Ig" label="Jon Espen Ingvaldsen" column="_DsLXsW3VEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            </cells>
+            <cells xmi:type="table:DCell" xmi:id="_V4bQNG3WEeWqUpsc_do5Ig" label="0.4" column="_V4apIG3WEeWqUpsc_do5Ig">
+              <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+              <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            </cells>
+          </lines>
+          <semanticElements xmi:type="ram:CourseInstance" href="Department.ra#//@semesters.1/@courses.0"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']/@ownedSubLines[name='Course%20Instance%20line']"/>
+        </lines>
+        <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedLineMappings[name='Semester%20line']"/>
+      </lines>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_DsLXsW3VEeWqUpsc_do5Ig" label="Person" cells="_DsLXo23VEeWqUpsc_do5Ig _DsLXpm3VEeWqUpsc_do5Ig _DsLXqG3VEeWqUpsc_do5Ig _DsLXqm3VEeWqUpsc_do5Ig _DsLXrm3VEeWqUpsc_do5Ig _DsLXsG3VEeWqUpsc_do5Ig" width="157" featureName="person">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedColumnMappings[name='Person%20column']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_nF2a8G3VEeWqUpsc_do5Ig" labelSize="12" defaultForegroundStyle="true"/>
+      </columns>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_V4apIG3WEeWqUpsc_do5Ig" label="Factor" cells="_V4apIm3WEeWqUpsc_do5Ig _V4bQMG3WEeWqUpsc_do5Ig _V4bQMW3WEeWqUpsc_do5Ig _V4bQMm3WEeWqUpsc_do5Ig _V4bQM23WEeWqUpsc_do5Ig _V4bQNG3WEeWqUpsc_do5Ig" width="133" featureName="factor">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']/@ownedColumnMappings[name='Factor%20column']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_V4apIW3WEeWqUpsc_do5Ig" labelSize="12" defaultForegroundStyle="true"/>
+      </columns>
+      <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']/@ownedRepresentations[name='Ra%20Course%20Table']"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Course%20Table']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_Y9vbUG3WEeWqUpsc_do5Ig">
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_a3JM8G3WEeWqUpsc_do5Ig" name="Ra Person Table" headerColumnWidth="273">
+      <target xmi:type="ram:Department" href="Department.ra#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_a3JM8W3WEeWqUpsc_do5Ig" label="Person Hallvard Trætteberg">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.0"/>
+        <lines xmi:type="table:DLine" xmi:id="_a3JM8m3WEeWqUpsc_do5Ig" label="Course Allocation 1.0">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM823WEeWqUpsc_do5Ig" label="teacher" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM9G3WEeWqUpsc_do5Ig" label="1.0" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FINcm3YEeWqUpsc_do5Ig" label="v2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_a3JM9W3WEeWqUpsc_do5Ig" label="Course Allocation 1.0">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM9m3WEeWqUpsc_do5Ig" label="teacher" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM923WEeWqUpsc_do5Ig" label="1.0" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FNtAG3YEeWqUpsc_do5Ig" label="h2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_a3JM-G3WEeWqUpsc_do5Ig" label="Course Allocation 0.21">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM-W3WEeWqUpsc_do5Ig" label="lecturer" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM-m3WEeWqUpsc_do5Ig" label="0.21" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FNtAW3YEeWqUpsc_do5Ig" label="v2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_a3JM-23WEeWqUpsc_do5Ig" label="Course Allocation 0.3">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM_G3WEeWqUpsc_do5Ig" label="coordinator" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JM_W3WEeWqUpsc_do5Ig" label="0.3" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FOUEG3YEeWqUpsc_do5Ig" label="v2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.0"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_a3JM_m3WEeWqUpsc_do5Ig" label="Person Yngve Dahl">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.1"/>
+        <lines xmi:type="table:DLine" xmi:id="_a3JM_23WEeWqUpsc_do5Ig" label="Course Allocation 0.48999999999999994">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JNAG3WEeWqUpsc_do5Ig" label="lecturer" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JNAW3WEeWqUpsc_do5Ig" label="0.48999999999999994" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FOUEW3YEeWqUpsc_do5Ig" label="v2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.1"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_a3JNAm3WEeWqUpsc_do5Ig" label="Person Jon Espen Ingvaldsen">
+        <target xmi:type="ram:Person" href="Department.ra#//@employees.2"/>
+        <lines xmi:type="table:DLine" xmi:id="_a3JNA23WEeWqUpsc_do5Ig" label="Course Allocation 0.4">
+          <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+          <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']/@ownedSubLines[name='Course%20Allocation%20line']"/>
+          <cells xmi:type="table:DCell" xmi:id="_a3JNBG3WEeWqUpsc_do5Ig" label="exerciseResponsible" column="_a3JNBm3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_a3JNBW3WEeWqUpsc_do5Ig" label="0.4" column="_a3JNCG3WEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_0FO7IG3YEeWqUpsc_do5Ig" label="h2015" column="_0FINcG3YEeWqUpsc_do5Ig">
+            <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+            <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="ram:Person" href="Department.ra#//@employees.2"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedLineMappings[name='Person%20line']"/>
+      </lines>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_0FINcG3YEeWqUpsc_do5Ig" label="Semester" cells="_0FINcm3YEeWqUpsc_do5Ig _0FNtAG3YEeWqUpsc_do5Ig _0FNtAW3YEeWqUpsc_do5Ig _0FOUEG3YEeWqUpsc_do5Ig _0FOUEW3YEeWqUpsc_do5Ig _0FO7IG3YEeWqUpsc_do5Ig" width="178" featureName="course">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedColumnMappings[name='Course%20Semester%20column']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_0FINcW3YEeWqUpsc_do5Ig" labelSize="12" defaultForegroundStyle="true"/>
+      </columns>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_a3JNBm3WEeWqUpsc_do5Ig" label="Person" cells="_a3JM823WEeWqUpsc_do5Ig _a3JM9m3WEeWqUpsc_do5Ig _a3JM-W3WEeWqUpsc_do5Ig _a3JM_G3WEeWqUpsc_do5Ig _a3JNAG3WEeWqUpsc_do5Ig _a3JNBG3WEeWqUpsc_do5Ig" width="182" featureName="role">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedColumnMappings[name='Role%20column']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_a3JNB23WEeWqUpsc_do5Ig" labelSize="12" defaultForegroundStyle="true"/>
+      </columns>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_a3JNCG3WEeWqUpsc_do5Ig" label="Factor" cells="_a3JM9G3WEeWqUpsc_do5Ig _a3JM923WEeWqUpsc_do5Ig _a3JM-m3WEeWqUpsc_do5Ig _a3JM_W3WEeWqUpsc_do5Ig _a3JNAW3WEeWqUpsc_do5Ig _a3JNBW3WEeWqUpsc_do5Ig" width="133" featureName="factor">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']/@ownedColumnMappings[name='Factor%20column']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_a3JNCW3WEeWqUpsc_do5Ig" labelSize="12" defaultForegroundStyle="true"/>
+      </columns>
+      <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']/@ownedRepresentations[name='Ra%20Person%20Table']"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Person%20Table']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ra -->
+      <package
+            uri="platform:/plugin/no.hal.ra.model/model/ra.ecore"
+            class="no.hal.ra.model.ModelPackage"
+            genModel="model/ra.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ra -->
+      <parser
+            type="ra"
+            class="no.hal.ra.model.util.ModelResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

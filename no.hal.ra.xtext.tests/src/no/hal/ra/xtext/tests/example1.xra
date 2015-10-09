@@ -1,0 +1,41 @@
+department IDI
+
+staff {
+	"Hallvard Trætteberg" (user: "hal" email: "hal@idi.ntnu.no" face: "https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/a017a668-a3dd-326a-a44c-2b5651d931c7")
+	works 1.0
+	"Yngve Dahl" (user: "yngveda" email: "yngve.dahl@sintef.no")
+	works 0.25
+	"Jon Espen Ingvaldsen" (user: "jonespi" email: "jonespi@idi.ntnu.no" face: "https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/3c4418e7-9cb0-39d2-a55b-320bad32faa7")
+	works 0.4
+}
+
+role {
+	teacher 1.0
+	lecturer 0.7
+	coordinator 0.3
+	exerciseResponsible 0.4
+}
+
+courses {
+	TDT 4100 "Object-Oriented Programming" requires teacher, exerciseResponsible
+	TDT 4180 "Human-Computer Interaction" requires teacher, exerciseResponsible
+	TDT 4250 "Advanced Software Design" requires teacher, exerciseResponsible
+}
+
+v 2015 {
+	TDT 4100 {
+		"Hallvard Trætteberg" as teacher
+	}
+	TDT 4180 {
+		"Hallvard Trætteberg" works 0.3 as lecturer
+		"Hallvard Trætteberg" as coordinator
+		"Yngve Dahl" works 0.7 as lecturer
+	}
+}
+
+h 2015 {
+	TDT 4250 {
+		"Hallvard Trætteberg" as teacher
+		"Jon Espen Ingvaldsen" as exerciseResponsible
+	}
+}

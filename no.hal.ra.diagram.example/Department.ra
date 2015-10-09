@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ram:Department
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:ram="platform:/plugin/no.hal.ra.model/model/ra.ecore">
+  <employees
+      name="Hallvard Trætteberg"
+      userName="hal"
+      email="hal@idi.ntnu.no"
+      faceUrl="https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/a017a668-a3dd-326a-a44c-2b5651d931c7"
+      employmentFactor="1.0"
+      allocations="//@semesters.0/@courses.0/@allocations.0 //@semesters.1/@courses.0/@allocations.0 //@semesters.0/@courses.1/@allocations.0 //@semesters.0/@courses.1/@allocations.1"/>
+  <employees
+      name="Yngve Dahl"
+      userName="yngveda"
+      employmentFactor="0.25"
+      allocations="//@semesters.0/@courses.1/@allocations.2"/>
+  <employees
+      name="Jon Espen Ingvaldsen"
+      userName="jonespi"
+      email="jonespi@idi.ntnu.no"
+      faceUrl="https://innsidawls.itea.ntnu.no/user-profile-service/rest/files/3c4418e7-9cb0-39d2-a55b-320bad32faa7"
+      employmentFactor="0.4"
+      allocations="//@semesters.1/@courses.0/@allocations.1"/>
+  <courses name="TDT 4100"
+      fullName="Object-Oriented Programming"
+      requiredRoles="//@roles.0 //@roles.3"/>
+  <courses name="TDT4180"
+      fullName="Human-Computer Interaction"
+      requiredRoles="//@roles.0 //@roles.3"/>
+  <courses name="TDT 4250"
+      fullName="Advanced Software Design"
+      requiredRoles="//@roles.0 //@roles.3"/>
+  <roles name="teacher"
+      factor="1.0"/>
+  <roles name="lecturer"
+      factor="0.7"/>
+  <roles name="coordinator"
+      factor="0.3"/>
+  <roles name="exerciseResponsible"
+      factor="0.4"/>
+  <semesters
+      year="2015"
+      kind="SPRING">
+    <courses
+        course="//@courses.0">
+      <allocations
+          person="//@employees.0"
+          role="//@roles.0"/>
+    </courses>
+    <courses
+        course="//@courses.1">
+      <allocations
+          person="//@employees.0"
+          role="//@roles.1"
+          explicitFactor="0.3"/>
+      <allocations
+          person="//@employees.0"
+          role="//@roles.2"/>
+      <allocations
+          person="//@employees.1"
+          role="//@roles.1"
+          explicitFactor="0.7"/>
+    </courses>
+  </semesters>
+  <semesters
+      year="2015">
+    <courses
+        course="//@courses.2">
+      <allocations
+          person="//@employees.0"
+          role="//@roles.0"/>
+      <allocations
+          person="//@employees.2"
+          role="//@roles.3"/>
+    </courses>
+  </semesters>
+</ram:Department>

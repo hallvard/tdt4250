@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="ra" version="10.0.0.201505222000">
+  <ownedViewpoints name="Diagram" modelFileExtension="ra">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Ra Diagram" initialisation="true" domainClass="model.Department" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Person node" semanticCandidatesExpression="feature:employees" domainClass="model.Person">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" hideLabelByDefault="true" sizeComputationExpression="aql:60" resizeKind="NSEW" workspacePath="/no.hal.ra.diagram/images/person-empty.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Course Allocation Person edge" sourceMapping="//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']" targetMapping="//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']" targetFinderExpression="feature:person" sourceFinderExpression="feature:course" domainClass="model.CourseAllocation" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="['' + self.factor + if self.role.name = null then '' else ' * '  + self.role.name endif /]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Semester container" semanticCandidatesExpression="feature:semesters" domainClass="model.Semester">
+          <subContainerMappings name="Course Instance container" semanticCandidatesExpression="feature:courses" domainClass="model.CourseInstance" childrenPresentation="List">
+            <subNodeMappings name="Role node" semanticCandidatesExpression="aql:self.course.requiredRoles" domainClass="model.Role">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name + ' ' + self.factor" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="aql:self.course.name">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="[if self.kind = model::SemesterKind::AUTUMN then 'h' else 'v' endif + self.year/]">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']/@style" attributeName="workspacePath" value="aql:'/no.hal.ra.diagram/images/' + self.userName + '.jpg'"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Course Table" modelFileExtension="ra">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Ra Course Table" domainClass="model.Department">
+      <ownedLineMappings name="Semester line" domainClass="model.Semester" semanticCandidatesExpression="feature:semesters">
+        <ownedSubLines name="Course Instance line" domainClass="model.CourseInstance" semanticCandidatesExpression="feature:courses">
+          <ownedSubLines name="Course Allocation line" domainClass="model.CourseAllocation" semanticCandidatesExpression="feature:allocations"/>
+        </ownedSubLines>
+      </ownedLineMappings>
+      <ownedColumnMappings name="Person column" headerLabelExpression="Person" featureName="person" labelExpression="aql:self.person.name">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="Factor column" headerLabelExpression="Factor" featureName="factor" labelExpression="aql:'' + self.factor">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Person Table" modelFileExtension="ra">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Ra Person Table" domainClass="model.Department">
+      <ownedLineMappings name="Person line" domainClass="model.Person" semanticCandidatesExpression="feature:employees">
+        <ownedSubLines name="Course Allocation line" domainClass="model.CourseAllocation" semanticCandidatesExpression="feature:allocations"/>
+      </ownedLineMappings>
+      <ownedColumnMappings name="Course Semester column" headerLabelExpression="Semester" featureName="course" labelExpression="[if self.course.semester.kind = model::SemesterKind::AUTUMN then 'h' else 'v' endif + self.course.semester.year/]">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="Role column" headerLabelExpression="Person" featureName="role" labelExpression="aql:self.role.name">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="Factor column" headerLabelExpression="Factor" featureName="factor" labelExpression="aql:'' + self.factor">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
