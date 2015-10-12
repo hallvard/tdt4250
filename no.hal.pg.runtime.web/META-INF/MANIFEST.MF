@@ -7,7 +7,6 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: no.hal.pg.runtime.engine.web
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  no.hal.pg.runtime;bundle-version="0.1.0",
  no.hal.pg.runtime.http;bundle-version="0.1.0"
