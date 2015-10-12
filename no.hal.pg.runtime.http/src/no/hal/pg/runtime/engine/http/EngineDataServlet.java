@@ -175,7 +175,7 @@ public class EngineDataServlet extends HttpServlet {
 		} catch (Exception e) {
 			writer.println(e.getMessage());
 		}
-		writer.close();
+//		writer.close();
 	}
 	
 	/*
