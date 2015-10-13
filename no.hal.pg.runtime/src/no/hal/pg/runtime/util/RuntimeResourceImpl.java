@@ -3,16 +3,16 @@
 package no.hal.pg.runtime.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.emfjson.jackson.resource.JsonResource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see no.hal.pg.runtime.util.RuntimeResourceFactoryImpl
- * @generated NOT
+ * @generated
  */
-public class RuntimeResourceImpl extends JsonResource {
+public class RuntimeResourceImpl extends XMIResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->

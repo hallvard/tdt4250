@@ -118,7 +118,7 @@ public class Engine implements IEngine, ManagedService {
 				game.getPlayers().add(player);
 			}
 		}
-		for (TaskDef taskDef : gameDef.getTasks()) {
+		for (TaskDef taskDef : gameDef.getAllTasks()) {
 			for (ITaskProvider taskProvider : taskProviders) {
 				Task<?, ?> task = taskProvider.getTask(taskDef);
 				if (task != null) {

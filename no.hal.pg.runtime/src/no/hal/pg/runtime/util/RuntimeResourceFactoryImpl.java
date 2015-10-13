@@ -4,16 +4,16 @@ package no.hal.pg.runtime.util;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.emfjson.jackson.resource.JsonResourceFactory;
+import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
  * @see no.hal.pg.runtime.util.RuntimeResourceImpl
- * @generated NOT
+ * @generated
  */
-public class RuntimeResourceFactoryImpl extends JsonResourceFactory {
+public class RuntimeResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->

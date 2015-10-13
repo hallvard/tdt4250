@@ -7,34 +7,38 @@
     editPluginID="no.hal.pg.runtime.ui" usedGenPackages="../../no.hal.pg.model/model/pg.genmodel#//model"
     operationReflection="true" importOrganizing="true">
   <foreignModel>pg-runtime.ecore</foreignModel>
-  <genPackages prefix="Runtime" basePackage="no.hal.pg" resource="Basic" disposableProviderFactory="true"
+  <genPackages prefix="Runtime" basePackage="no.hal.pg" resource="XMI" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
       childCreationExtenders="true" fileExtensions="pg-rt" ecorePackage="pg-runtime.ecore#/">
     <genDataTypes ecoreDataType="pg-runtime.ecore#//Timestamp"/>
     <genClasses ecoreClass="pg-runtime.ecore#//Game">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Game/players"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Game/teams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Game/tasks"/>
       <genOperations ecoreOperation="pg-runtime.ecore#//Game/getTasks">
         <genParameters ecoreParameter="pg-runtime.ecore#//Game/getTasks/stateClass"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pg-runtime.ecore#//Team">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pg-runtime.ecore#//Team/game"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Team/players"/>
     </genClasses>
     <genClasses ecoreClass="pg-runtime.ecore#//Player">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pg-runtime.ecore#//Player/game"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Player/person"/>
     </genClasses>
     <genClasses image="false" ecoreClass="pg-runtime.ecore#//Players">
-      <genOperations ecoreOperation="pg-runtime.ecore#//Players/getPlayers"/>
-    </genClasses>
-    <genClasses ecoreClass="pg-runtime.ecore#//Services">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Services/services"/>
+      <genOperations ecoreOperation="pg-runtime.ecore#//Players/getAllPlayers"/>
     </genClasses>
     <genClasses ecoreClass="pg-runtime.ecore#//Task">
       <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//Task/T"/>
       <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//Task/R"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/taskDef"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/game"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/team"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/players"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/currentState"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Task/pastStates"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute pg-runtime.ecore#//Task/result"/>
       <genOperations ecoreOperation="pg-runtime.ecore#//Task/isStarted"/>
       <genOperations ecoreOperation="pg-runtime.ecore#//Task/isFinished"/>
@@ -42,9 +46,11 @@
       <genOperations ecoreOperation="pg-runtime.ecore#//Task/changeState">
         <genParameters ecoreParameter="pg-runtime.ecore#//Task/changeState/state"/>
       </genOperations>
-      <genOperations ecoreOperation="pg-runtime.ecore#//Task/getCurrentState"/>
       <genOperations ecoreOperation="pg-runtime.ecore#//Task/isInState">
         <genParameters ecoreParameter="pg-runtime.ecore#//Task/isInState/stateClass"/>
+      </genOperations>
+      <genOperations ecoreOperation="pg-runtime.ecore#//Task/finish">
+        <genParameters ecoreParameter="pg-runtime.ecore#//Task/finish/result"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="pg-runtime.ecore#//TaskState">
@@ -57,31 +63,6 @@
       <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//Service/T"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//Service/context"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="pg-runtime.ecore#//TaskService">
-      <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//TaskService/T"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="pg-runtime.ecore#//Ref">
-      <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//Ref/T"/>
-      <genOperations ecoreOperation="pg-runtime.ecore#//Ref/get">
-        <genParameters ecoreParameter="pg-runtime.ecore#//Ref/get/context"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="pg-runtime.ecore#//DirectRef">
-      <genTypeParameters ecoreTypeParameter="pg-runtime.ecore#//DirectRef/T"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-runtime.ecore#//DirectRef/ref"/>
-      <genOperations ecoreOperation="pg-runtime.ecore#//DirectRef/get">
-        <genParameters ecoreParameter="pg-runtime.ecore#//DirectRef/get/context"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="pg-runtime.ecore#//PlayerRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pg-runtime.ecore#//PlayerRef/personId"/>
-    </genClasses>
-    <genClasses ecoreClass="pg-runtime.ecore#//GameService">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pg-runtime.ecore#//GameService/players"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pg-runtime.ecore#//GameService/tasks"/>
-      <genOperations ecoreOperation="pg-runtime.ecore#//GameService/getTasks">
-        <genParameters ecoreParameter="pg-runtime.ecore#//GameService/getTasks/player"/>
-      </genOperations>
-    </genClasses>
+    <genClasses ecoreClass="pg-runtime.ecore#//SelfService"/>
   </genPackages>
 </genmodel:GenModel>

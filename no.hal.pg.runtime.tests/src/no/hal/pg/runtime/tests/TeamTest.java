@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.EList;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
-import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.Team;
