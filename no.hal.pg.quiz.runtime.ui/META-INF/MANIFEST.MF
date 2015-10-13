@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: no.hal.pg.quiz.runtime.provider.QuizruntimeEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.pg.quiz.runtime.presentation,
  no.hal.pg.quiz.runtime.provider,
  no.hal.pg.quiz.runtime.service.presentation,
