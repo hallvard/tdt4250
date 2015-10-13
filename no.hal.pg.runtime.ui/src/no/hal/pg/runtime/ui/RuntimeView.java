@@ -6,10 +6,13 @@ import java.util.Collection;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.action.Action;
@@ -85,14 +88,14 @@ public class RuntimeView extends AbstractSelectionView {
 		engine.init(gameDef);
 		Resource resource = engine.getGame().eResource();
 		engine.start();
-		boolean exists = resource.getResourceSet().getURIConverter().exists(resource.getURI(), null);
-		try {
-			if (! exists) {
-				resource.save(null);
-			}
-		} catch (IOException e) {
-			System.err.println("Exception when saving game: " + e);
-		}
+//		boolean exists = resource.getResourceSet().getURIConverter().exists(resource.getURI(), null);
+//		try {
+//			if (! exists) {
+//				resource.save(null);
+//			}
+//		} catch (IOException e) {
+//			System.err.println("Exception when saving game: " + e);
+//		}
 		addEngine(engine);
 
 		updateView();
@@ -135,16 +138,34 @@ public class RuntimeView extends AbstractSelectionView {
 
 	private IAction runGameAction;
 	
+	private void executeAction(final CommandAction action, final EObject context, Notifier scope) {
+		if (editingDomainProvider != null) {
+			ChangeCommand changeCommand = new ChangeCommand(scope) {
+				@Override
+				protected void doExecute() {
+					action.execute(context);
+				}
+			};
+			CommandStack commandStack = editingDomainProvider.getEditingDomain().getCommandStack();
+			commandStack.execute(changeCommand);
+		} else {
+			action.execute(context);
+		}
+	}
+	
 	@Override
 	protected void createActions() {
-		runGameAction = new Action("Run game") {
-			public void run() {
-				EObject eObject = getSelectedEObject();
-				if (eObject instanceof GameDef) {
-					runGame((GameDef) eObject);
-				} else if (eObject instanceof Game) {
-					resumeGame((Game) eObject);
+		runGameAction = new CommandAction("Run game") {
+			public void execute(EObject context) {
+				if (context instanceof GameDef) {
+					runGame((GameDef) context);
+				} else if (context instanceof Game) {
+					resumeGame((Game) context);
 				}
+			}
+			public void run() {
+				EObject context = getSelectedEObject();
+				executeAction(this, context, context.eResource().getResourceSet());
 			}
 		};
 		super.createActions();
