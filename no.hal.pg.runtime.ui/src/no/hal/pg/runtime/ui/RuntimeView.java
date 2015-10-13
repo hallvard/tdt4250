@@ -1,6 +1,5 @@
 package no.hal.pg.runtime.ui;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Dictionary;
@@ -11,11 +10,9 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -86,8 +83,8 @@ public class RuntimeView extends AbstractSelectionView {
 			return;
 		}
 		engine.init(gameDef);
-		Resource resource = engine.getGame().eResource();
 		engine.start();
+//		Resource resource = engine.getGame().eResource();
 //		boolean exists = resource.getResourceSet().getURIConverter().exists(resource.getURI(), null);
 //		try {
 //			if (! exists) {
