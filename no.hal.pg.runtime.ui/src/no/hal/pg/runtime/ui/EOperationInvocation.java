@@ -10,8 +10,6 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import no.hal.pg.runtime.Service;
-
 public class EOperationInvocation extends ChangeCommand {
 
 	private EObject operationObject = null;
