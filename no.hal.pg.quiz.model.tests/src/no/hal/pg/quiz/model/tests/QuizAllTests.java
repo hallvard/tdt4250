@@ -27,10 +27,11 @@ public class QuizAllTests extends TestSuite {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Test suite() {
 		TestSuite suite = new QuizAllTests("Quiz Tests");
+		suite.addTest(new ModelTests("Model Tests"));
 		return suite;
 	}
 
