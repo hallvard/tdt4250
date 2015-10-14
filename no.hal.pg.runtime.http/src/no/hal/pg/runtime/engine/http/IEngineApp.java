@@ -1,13 +1,14 @@
 package no.hal.pg.runtime.engine.http;
 
-import java.util.Collection;
+import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 
+import org.eclipse.emf.ecore.EObject;
+
 public interface IEngineApp {
+	public boolean isAppFor(EObject eObject);
 	public String getName();
-	public Collection<String> getResourceNames();
-	public String getResourceFormat();
-	public String getAliasFormat();
+	public Map<String, String> getResourceAliasMapping();
 	public HttpServlet getAppServlet();
 }

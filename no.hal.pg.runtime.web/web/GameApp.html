@@ -13,24 +13,37 @@
 <div id="tasklist"></div>
 
 <script src="https://fb.me/react-0.13.3.js"></script>
+
+<script src="AppHelper.js"></script>
+
 <script src="PlayerComponent.js"></script>
 <script src="TaskComponent.js"></script>
 <script src="TaskListComponent.js"></script>
+
 <script type="text/javascript">
 var player = {
-	name: "Hallvard Trætteberg",
-	ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
+	name: "Hallvard Trætteberg"
+//	, ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
 };
 var tasks = [ {
-		num: 0, finished: true, started: true
+		finished: true, started: true
 	}, {
-		num: 1, finished: false, started: true
+		finished: false, started: true
 	}, {
-		num: 2, finished: false, started: false
+		finished: false, started: false
 	},
- ]; 
- React.render(React.createElement(PlayerComponent, player), document.getElementById('player'));
- React.render(React.createElement(TaskListComponent, { tasks: tasks }), document.getElementById('tasklist'));
+ ];
+ 
+var serviceUrl = AppHelper.serviceUrl(window.location.search);
+
+ React.render(React.createElement(PlayerComponent,
+		{ serviceUrl: serviceUrl, player: player }
+ 		), document.getElementById('player')
+ );
+ React.render(React.createElement(TaskListComponent,
+		{ serviceUrl: serviceUrl + '/tasks', tasks: tasks }
+ 		), document.getElementById('tasklist')
+ );
 </script>
 </body>  
 </html>

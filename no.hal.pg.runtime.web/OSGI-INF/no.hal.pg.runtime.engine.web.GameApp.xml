@@ -4,16 +4,11 @@
    <service>
       <provide interface="no.hal.pg.runtime.engine.http.IEngineApp"/>
    </service>
-   <property name="IEngineApp.name" type="String" value="game"/>
+   <property name="IEngineApp.name" type="String" value="GameApp"/>
+   <property name="EngineAppComponent.eClass" type="String" value="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore#Player"/>
    <property name="IEngineApp.displayName" type="String" value="Game app"/>
 
-   <property name="IEngineApp.resourceNames" type="String" value="/web"></property>
-   <property name="IEngineApp.aliasFormat" type="String" value="/web"/>
-
-   <!--
-   <property name="IEngineApp.resourceNames" type="String" value="GameApp.html,GameApp.css,PlayerComponent.js,TaskComponent.js,TaskListComponent.js"></property>
-   <property name="IEngineApp.resourceFormat" type="String" value="/web/%s"/>
-   <property name="IEngineApp.aliasFormat" type="String" value="/web/%s"/>
-   -->
-   <property name="IEngineAppComponent.refreshServiceUriPath" type="String" value="/"/>
+   <property name="EngineAppComponent.main" type="String" value="/web/GameApp.html"></property>
+   <property name="EngineAppComponent.resourceNames" type="String" value="/web"></property>
+   <property name="EngineAppComponent.aliasPathFormat" type="String" value="/web"/>
 </scr:component>

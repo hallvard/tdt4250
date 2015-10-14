@@ -1,16 +1,48 @@
 // React component for Task list
 
+/*
+this.props:
+{
+	serviceUrl: service URL
+	tasks: task list 
+	[]
+}
+this.state:
+{
+	tasks: task list 
+	[]
+}
+ */
 var TaskListComponent = React.createClass({
 	displayName: "Task list component",
 	
+	getInitialState : function() {
+		var comp = this;
+		AppHelper.loadData(this.props.serviceUrl, function(response) {
+			if (! AppHelper.isArray(response)) {
+				response = [ response ];
+			}
+			comp.setState({
+				tasks : response
+			});
+		});
+		return {
+			tasks : this.props.tasks
+		};
+	},
+
   	render: function render() {
-  		var rows = this.props.tasks.map(function(task) {
+  		var num = 0;
+  		console.log("Task count: " + this.state.tasks.length);
+  		var rows = this.state.tasks.map(function(task) {
+  			num = num + 1;
+  			console.log("Creating TaskComponent # " + num);
       		return React.createElement(
-          		"tr", { key: task.num },
+          		"tr", { key: num },
     	    	React.createElement(
     	      		"td", { className: "taskItem" },
     		    	React.createElement(
-    	 	    		TaskComponent, task
+    	 	    		TaskComponent, { serviceUrl: serviceUrl + '/tasks/' + (num - 1), task: task, taskNum: num }
     	 	    	)
     	 		)
           	);
@@ -18,7 +50,7 @@ var TaskListComponent = React.createClass({
     	return React.createElement(
       		"table", { className: "taskList" },
       		React.createElement(
-      			"tr", null,
+      			"tbody", null,
       			rows
       		)
     	);
