@@ -66,7 +66,6 @@ public class QuestionItemProvider
 
 			addKindPropertyDescriptor(object);
 			addQuestionPropertyDescriptor(object);
-			addLastProposalPropertyDescriptor(object);
 			addNumChoicesPropertyDescriptor(object);
 			addQidPropertyDescriptor(object);
 		}
@@ -109,28 +108,6 @@ public class QuestionItemProvider
 				 getString("_UI_Question_question_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Question_question_feature", "_UI_Question_type"),
 				 ServicePackage.Literals.QUESTION__QUESTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Last Proposal feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLastProposalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Question_lastProposal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Question_lastProposal_feature", "_UI_Question_type"),
-				 ServicePackage.Literals.QUESTION__LAST_PROPOSAL,
 				 true,
 				 false,
 				 false,
@@ -254,7 +231,6 @@ public class QuestionItemProvider
 		switch (notification.getFeatureID(Question.class)) {
 			case ServicePackage.QUESTION__KIND:
 			case ServicePackage.QUESTION__QUESTION:
-			case ServicePackage.QUESTION__LAST_PROPOSAL:
 			case ServicePackage.QUESTION__NUM_CHOICES:
 			case ServicePackage.QUESTION__QID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

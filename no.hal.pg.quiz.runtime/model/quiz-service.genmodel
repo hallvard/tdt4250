@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/no.hal.pg.quiz.runtime/src" editDirectory="/no.hal.pg.quiz.runtime.ui/src"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.quiz.runtime/src" editDirectory="/no.hal.pg.quiz.runtime.ui/src"
     editorDirectory="/no.hal.pg.quiz.runtime.ui/src" modelPluginID="no.hal.pg.quiz.runtime"
     modelName="Quiz-service" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
@@ -8,7 +8,12 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>quiz-service.ecore</foreignModel>
   <genPackages prefix="Service" basePackage="no.hal.pg.quiz.runtime" disposableProviderFactory="true"
-      ecorePackage="quiz-service.ecore#/">
+      generateModelWizard="false" ecorePackage="quiz-service.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="quiz-service.ecore#//AnswerKind">
+      <genEnumLiterals ecoreEnumLiteral="quiz-service.ecore#//AnswerKind/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="quiz-service.ecore#//AnswerKind/NUM"/>
+      <genEnumLiterals ecoreEnumLiteral="quiz-service.ecore#//AnswerKind/YESNO"/>
+    </genEnums>
     <genClasses ecoreClass="quiz-service.ecore#//QuizTaskService">
       <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/proposeAnswer">
         <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/proposeAnswer/player"/>
@@ -20,9 +25,32 @@
         <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAnswer/qa"/>
         <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAnswer/proposal"/>
       </genOperations>
+      <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/acceptAllProposals">
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/acceptAllProposals/player"/>
+      </genOperations>
       <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/getQAProposals">
         <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/getQAProposals/player"/>
       </genOperations>
+      <genOperations ecoreOperation="quiz-service.ecore#//QuizTaskService/getPlayerQuestions">
+        <genParameters ecoreParameter="quiz-service.ecore#//QuizTaskService/getPlayerQuestions/player"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="quiz-service.ecore#//QAProposalService">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//QAProposalService/question"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//QAProposalService/proposal"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//QAProposalService/accepted"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//QAProposalService/rejectedCount"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz-service.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Question/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Question/question"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz-service.ecore#//Question/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Question/numChoices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Question/qid"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz-service.ecore#//Answer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Answer/answer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz-service.ecore#//Answer/selected"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

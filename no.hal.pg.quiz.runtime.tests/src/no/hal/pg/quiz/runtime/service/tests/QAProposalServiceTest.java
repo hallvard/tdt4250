@@ -3,14 +3,12 @@
 package no.hal.pg.quiz.runtime.service.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.RuntimeFactory;
 import no.hal.pg.quiz.runtime.service.QAProposalService;
 import no.hal.pg.quiz.runtime.service.ServiceFactory;
 import no.hal.quiz.QA;
-import no.hal.quiz.Question;
 import no.hal.quiz.QuizFactory;
 import no.hal.quiz.StringQuestion;
 
@@ -82,7 +80,7 @@ public class QAProposalServiceTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {

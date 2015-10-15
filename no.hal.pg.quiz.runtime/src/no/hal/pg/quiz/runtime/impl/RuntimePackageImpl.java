@@ -146,7 +146,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTask__ProposeAnswer__QA_String_boolean() {
+	public EOperation getQuizTask__GetQAProposal__QA() {
 		return quizTaskEClass.getEOperations().get(0);
 	}
 
@@ -155,8 +155,17 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTask__GetAcceptedAnswerCount() {
+	public EOperation getQuizTask__ProposeAnswer__QAProposal_String_boolean() {
 		return quizTaskEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getQuizTask__GetAcceptedAnswerCount() {
+		return quizTaskEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -261,7 +270,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		// Create classes and their features
 		quizTaskEClass = createEClass(QUIZ_TASK);
 		createEReference(quizTaskEClass, QUIZ_TASK__PROPOSALS);
-		createEOperation(quizTaskEClass, QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN);
+		createEOperation(quizTaskEClass, QUIZ_TASK___GET_QA_PROPOSAL__QA);
+		createEOperation(quizTaskEClass, QUIZ_TASK___PROPOSE_ANSWER__QAPROPOSAL_STRING_BOOLEAN);
 		createEOperation(quizTaskEClass, QUIZ_TASK___GET_ACCEPTED_ANSWER_COUNT);
 
 		acceptingAnswerStateEClass = createEClass(ACCEPTING_ANSWER_STATE);
@@ -324,8 +334,11 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(quizTaskEClass, QuizTask.class, "QuizTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuizTask_Proposals(), this.getQAProposal(), null, "proposals", null, 0, -1, QuizTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getQuizTask__ProposeAnswer__QA_String_boolean(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getQuizTask__GetQAProposal__QA(), this.getQAProposal(), "getQAProposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theQuizPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getQuizTask__ProposeAnswer__QAProposal_String_boolean(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getQAProposal(), "qaProposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
 

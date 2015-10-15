@@ -96,6 +96,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<QAProposal> getProposals() {
 		if (proposals == null) {
 			proposals = new EObjectContainmentEList<QAProposal>(QAProposal.class, this, RuntimePackage.QUIZ_TASK__PROPOSALS);
@@ -108,25 +109,8 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean proposeAnswer(QA qa, String proposal, boolean accept) {
-		if (! isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState())) {
-			return null;
-		}
-		QAProposal qaProposal = findQAProposal(qa);
-		Boolean accepted = null;
-		if (qaProposal != null) {
-			qaProposal.setProposal(proposal);
-			accepted = (accept ? qa.getA().accept(proposal) : null);
-			qaProposal.setAccepted(accepted);
-			if (Boolean.FALSE.equals(accepted)) {
-				qaProposal.setRejectedCount(qaProposal.getRejectedCount() + 1);
-			}
-		}
-		updateResult();
-		return accepted;
-	}
-
-	private QAProposal findQAProposal(QA qa) {
+	@Override
+	public QAProposal getQAProposal(QA qa) {
 		for (QAProposal qaProposal : getProposals()) {
 			if (qaProposal.getQa() == qa) {
 				return qaProposal;
@@ -134,12 +118,34 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 		}
 		return null;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean proposeAnswer(QAProposal qaProposal, String proposal, boolean accept) {
+		if (! isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState())) {
+			return null;
+		}
+		Boolean accepted = null;
+		qaProposal.setProposal(proposal);
+		accepted = (accept ? qaProposal.getQa().getA().accept(proposal) : null);
+		qaProposal.setAccepted(accepted);
+		if (Boolean.FALSE.equals(accepted)) {
+			qaProposal.setRejectedCount(qaProposal.getRejectedCount() + 1);
+		}
+		updateResult();
+		return accepted;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public int getAcceptedAnswerCount() {
 		int count = 0;
 		for (QAProposal qaProposal : getProposals()) {
@@ -256,8 +262,10 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN:
-				return proposeAnswer((QA)arguments.get(0), (String)arguments.get(1), (Boolean)arguments.get(2));
+			case RuntimePackage.QUIZ_TASK___GET_QA_PROPOSAL__QA:
+				return getQAProposal((QA)arguments.get(0));
+			case RuntimePackage.QUIZ_TASK___PROPOSE_ANSWER__QAPROPOSAL_STRING_BOOLEAN:
+				return proposeAnswer((QAProposal)arguments.get(0), (String)arguments.get(1), (Boolean)arguments.get(2));
 			case RuntimePackage.QUIZ_TASK___GET_ACCEPTED_ANSWER_COUNT:
 				return getAcceptedAnswerCount();
 		}

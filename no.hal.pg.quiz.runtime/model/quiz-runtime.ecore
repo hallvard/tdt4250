@@ -3,8 +3,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore"
     nsPrefix="quiz-runtime">
   <eClassifiers xsi:type="ecore:EClass" name="QuizTask">
-    <eOperations name="proposeAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+    <eOperations name="getQAProposal" eType="#//QAProposal">
       <eParameters name="qa" eType="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//QA"/>
+    </eOperations>
+    <eOperations name="proposeAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eParameters name="qaProposal" eType="#//QAProposal"/>
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>

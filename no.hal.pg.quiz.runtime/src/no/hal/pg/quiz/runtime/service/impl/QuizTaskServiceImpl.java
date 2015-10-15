@@ -129,8 +129,8 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	public Boolean proposeAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
-		checkQAInQAProposals(qa);
-		return getContext().proposeAnswer(qa, proposal, false);
+		QAProposal qaProposals = checkQAInQAProposals(qa);
+		return getContext().proposeAnswer(qaProposals, proposal, false);
 	}
 
 	/**
@@ -142,8 +142,31 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	public Boolean acceptAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
-		checkQAInQAProposals(qa);
-		return getContext().proposeAnswer(qa, proposal, true);
+		QAProposal qaProposals = checkQAInQAProposals(qa);
+		return getContext().proposeAnswer(qaProposals, proposal, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<QAProposal> acceptAllProposals(Player player) {
+		checkAcceptingAnswerState();
+		checkPlayerInTaskPlayers(player);
+		EList<QAProposal> qaProposals = getQAProposals(player);
+		for (QAProposal qaProp : qaProposals) {
+			String proposal = qaProp.getProposal();
+			// only accept actual proposals
+			if (proposal != null) {
+				// only accept proposals that is not yet accepted
+				if (! Boolean.TRUE.equals(qaProp.getAccepted())) {
+					getContext().proposeAnswer(qaProp, proposal, true);
+				}
+			}
+		}
+		return qaProposals;
 	}
 
 	/**
@@ -179,7 +202,6 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 			}
 			Answer answer = qa.getA();
 			q.setKind(getAnswerKind(answer, null));
-			q.setLastProposal(qaProp.getProposal());
 			if (answer instanceof OptionsAnswer) {
 				q.setNumChoices(answer instanceof SingleOptionsAnswer ? 1 : -1);
 				int[] optionNums = no.hal.quiz.util.Util.proposalOptions((OptionsAnswer) answer, qaProp.getProposal());
@@ -289,6 +311,8 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 				return proposeAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
 			case ServicePackage.QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING:
 				return acceptAnswer((Player)arguments.get(0), (QA)arguments.get(1), (String)arguments.get(2));
+			case ServicePackage.QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS__PLAYER:
+				return acceptAllProposals((Player)arguments.get(0));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER:
 				return getQAProposals((Player)arguments.get(0));
 			case ServicePackage.QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER:
@@ -311,11 +335,10 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 		}
 	}
 
-	private void checkQAInQAProposals(QA qa) {
-		for (QAProposal qaProposal : getContext().getProposals()) {
-			if (qaProposal.getQa() == qa) {
-				return;
-			}
+	private QAProposal checkQAInQAProposals(QA qa) {
+		QAProposal qaProp = getContext().getQAProposal(qa);
+		if (qaProp != null) {
+			return qaProp;
 		}
 		throw new IllegalStateException("QA " + qa + " is not a valid QA");
 	}

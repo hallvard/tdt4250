@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getKind <em>Kind</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getQuestion <em>Question</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getOptions <em>Options</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getNumChoices <em>Num Choices</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getQid <em>Qid</em>}</li>
@@ -82,32 +81,6 @@ public interface Question extends EObject {
 	 * @generated
 	 */
 	void setQuestion(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Last Proposal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Last Proposal</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last Proposal</em>' attribute.
-	 * @see #setLastProposal(String)
-	 * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuestion_LastProposal()
-	 * @model
-	 * @generated
-	 */
-	String getLastProposal();
-
-	/**
-	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last Proposal</em>' attribute.
-	 * @see #getLastProposal()
-	 * @generated
-	 */
-	void setLastProposal(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.

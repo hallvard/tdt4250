@@ -159,7 +159,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__GetQAProposals__Player() {
+	public EOperation getQuizTaskService__AcceptAllProposals__Player() {
 		return quizTaskServiceEClass.getEOperations().get(2);
 	}
 
@@ -168,8 +168,17 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__GetPlayerQuestions__Player() {
+	public EOperation getQuizTaskService__GetQAProposals__Player() {
 		return quizTaskServiceEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getQuizTaskService__GetPlayerQuestions__Player() {
+		return quizTaskServiceEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -249,17 +258,8 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuestion_LastProposal() {
-		return (EAttribute)questionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getQuestion_Options() {
-		return (EReference)questionEClass.getEStructuralFeatures().get(3);
+		return (EReference)questionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * @generated
 	 */
 	public EAttribute getQuestion_NumChoices() {
-		return (EAttribute)questionEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * @generated
 	 */
 	public EAttribute getQuestion_Qid() {
-		return (EAttribute)questionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -347,6 +347,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		quizTaskServiceEClass = createEClass(QUIZ_TASK_SERVICE);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS__PLAYER);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER);
 
@@ -359,7 +360,6 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		questionEClass = createEClass(QUESTION);
 		createEAttribute(questionEClass, QUESTION__KIND);
 		createEAttribute(questionEClass, QUESTION__QUESTION);
-		createEAttribute(questionEClass, QUESTION__LAST_PROPOSAL);
 		createEReference(questionEClass, QUESTION__OPTIONS);
 		createEAttribute(questionEClass, QUESTION__NUM_CHOICES);
 		createEAttribute(questionEClass, QUESTION__QID);
@@ -427,6 +427,9 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		addEParameter(op, theQuizPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getQuizTaskService__AcceptAllProposals__Player(), theRuntimePackage.getQAProposal(), "acceptAllProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = initEOperation(getQuizTaskService__GetQAProposals__Player(), theRuntimePackage.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -442,7 +445,6 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestion_Kind(), this.getAnswerKind(), "kind", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuestion_Question(), ecorePackage.getEString(), "question", null, 1, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuestion_LastProposal(), ecorePackage.getEString(), "lastProposal", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuestion_Options(), this.getAnswer(), null, "options", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuestion_NumChoices(), ecorePackage.getEInt(), "numChoices", null, 1, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuestion_Qid(), ecorePackage.getEString(), "qid", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

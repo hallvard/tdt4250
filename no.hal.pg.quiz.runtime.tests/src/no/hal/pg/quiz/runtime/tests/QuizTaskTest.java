@@ -35,7 +35,8 @@ import no.hal.quiz.StringQuestion;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.quiz.QA, java.lang.String, boolean) <em>Propose Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#getQAProposal(no.hal.quiz.QA) <em>Get QA Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.runtime.QAProposal, java.lang.String, boolean) <em>Propose Answer</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.QuizTask#getAcceptedAnswerCount() <em>Get Accepted Answer Count</em>}</li>
  * </ul>
  * </p>
@@ -150,25 +151,28 @@ public class QuizTaskTest extends TestCase {
 		setFixture(null);
 	}
 
-	public void testStart() {
-		QuizTask quizTask = getFixture();
-		assertTrue(quizTask.getTaskDef().getQuizParts().size() >= 1);
-		QuizPart part1 = (QuizPart) quizTask.getTaskDef().getQuizParts().get(0);
-		assertTrue(part1.getQuestions().size() >= 3);
-		quizTask.start();
-		assertEquals(part1.getQuestions().size(), quizTask.getProposals().size());
-		assertTrue(quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
-		assertFalse(quizTask.isFinished());
+	/**
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTask#getQAProposal(no.hal.quiz.QA) <em>Get QA Proposal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.QuizTask#getQAProposal(no.hal.quiz.QA)
+	 * @generated NOT
+	 */
+	public void testGetQAProposal__QA() {
+		QuizTask task = getFixture();
+		for (QAProposal qaProp : task.getProposals()) {
+			assertEquals(qaProp, task.getQAProposal(qaProp.getQa()));
+		}
 	}
 
 	/**
-	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
+	 * Tests the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.runtime.QAProposal, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.model.QA, java.lang.String, boolean)
+	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.runtime.QAProposal, java.lang.String, boolean)
 	 * @generated NOT
 	 */
-	public void testProposeAnswer__QA_String_boolean() {
+	public void testProposeAnswer__QAProposal_String_boolean() {
 		QuizTask quizTask = getFixture();
 		quizTask.start();
 		
@@ -181,15 +185,26 @@ public class QuizTaskTest extends TestCase {
 		checkProposeAnswer(3, "true", true, true, 1, 4, true);
 	}
 
+	public void testStart() {
+		QuizTask quizTask = getFixture();
+		assertTrue(quizTask.getTaskDef().getQuizParts().size() >= 1);
+		QuizPart part1 = (QuizPart) quizTask.getTaskDef().getQuizParts().get(0);
+		assertTrue(part1.getQuestions().size() >= 3);
+		quizTask.start();
+		assertEquals(part1.getQuestions().size(), quizTask.getProposals().size());
+		assertTrue(quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
+		assertFalse(quizTask.isFinished());
+	}
+
 	private void checkProposeAnswer(int qaNum, String proposal, boolean accept, Boolean result, int rejectCount, int count, boolean isFinished) {
 		QuizTask quizTask = getFixture();
 		QAProposal qaProposal = quizTask.getProposals().get(qaNum);
-		assertEquals(result, quizTask.proposeAnswer(qaProposal.getQa(), proposal, accept));
+		assertEquals(result, quizTask.proposeAnswer(qaProposal, proposal, accept));
 		assertEquals(rejectCount, qaProposal.getRejectedCount());
-		checkProposeAnswer(quizTask, qaNum, accept, result, count, isFinished);
+		checkProposeAnswer(quizTask, qaNum, result, count, isFinished);
 	}
 
-	public static void checkProposeAnswer(QuizTask quizTask, int qaNum, boolean accept, Boolean result, int count, boolean isFinished) {
+	public static void checkProposeAnswer(QuizTask quizTask, int qaNum, Boolean result, int count, boolean isFinished) {
 		assertEquals(count, quizTask.getAcceptedAnswerCount());
 		assertEquals(! isFinished, quizTask.isInState(RuntimePackage.eINSTANCE.getAcceptingAnswerState()));
 		assertEquals(isFinished, quizTask.isFinished());

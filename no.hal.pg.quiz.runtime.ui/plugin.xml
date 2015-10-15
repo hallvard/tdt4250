@@ -44,7 +44,6 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-
    <extension point="org.eclipse.ui.editors">
       <!-- @generated quiz-service -->
       <editor

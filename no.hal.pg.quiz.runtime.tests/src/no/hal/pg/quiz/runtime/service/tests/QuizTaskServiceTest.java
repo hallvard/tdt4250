@@ -2,13 +2,11 @@
  */
 package no.hal.pg.quiz.runtime.service.tests;
 
-import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.emfjson.jackson.resource.JsonResource;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
@@ -37,6 +35,7 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * <ul>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Propose Answer</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Accept Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player) <em>Accept All Proposals</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}</li>
  * </ul>
@@ -137,10 +136,10 @@ public class QuizTaskServiceTest extends TestCase {
 
 		Player player = quizTask.getAllPlayers().get(0);
 		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
-		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, null, 0, false);
+		QuizTaskTest.checkProposeAnswer(quizTask, 0, null, 0, false);
 		
 		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(3).getQa(), "true"));
-		QuizTaskTest.checkProposeAnswer(quizTask, 3, true, null, 0, false);
+		QuizTaskTest.checkProposeAnswer(quizTask, 3, null, 0, false);
 	}
 
 	/**
@@ -158,10 +157,35 @@ public class QuizTaskServiceTest extends TestCase {
 		Player player = quizTask.getAllPlayers().get(0);
 
 		assertTrue(service.acceptAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
-		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, true, 1, false);
+		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, 1, false);
 		
 		assertFalse(service.acceptAnswer(player, quizTask.getProposals().get(3).getQa(), "false"));
-		QuizTaskTest.checkProposeAnswer(quizTask, 3, true, false, 1, false);
+		QuizTaskTest.checkProposeAnswer(quizTask, 3, false, 1, false);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player) <em>Accept All Proposals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player)
+	 * @generated NOT
+	 */
+	public void testAcceptAllProposals__Player() {
+		QuizTaskService service = getFixture();
+		QuizTask quizTask = service.getContext();
+		quizTask.start();
+
+		Player player = quizTask.getAllPlayers().get(0);
+		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
+		QuizTaskTest.checkProposeAnswer(quizTask, 0, null, 0, false);
+		
+		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(3).getQa(), "false"));
+		QuizTaskTest.checkProposeAnswer(quizTask, 3, null, 0, false);
+
+		service.acceptAllProposals(player);
+
+		assertTrue(quizTask.getProposals().get(0).getAccepted());
+		assertFalse(quizTask.getProposals().get(3).getAccepted());
 	}
 
 	/**
@@ -200,11 +224,22 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetPlayerQuestions__Player() {
+		Collection<Question> questions = createQuestions();
+//		Resource res = new JsonResource();
+//		res.getContents().addAll(questions);
+//		
+//		try {
+//			res.save(System.out, null);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+	}
+
+	public Collection<Question> createQuestions() {
 		Question q1 = ServiceFactory.eINSTANCE.createQuestion();
 		q1.setKind(AnswerKind.STRING);
 		q1.setNumChoices(1);
 		q1.setQuestion("I hvilken by ligger Stortinget?");
-		q1.setLastProposal("Fredrikstad");
 		
 		Question q2 = ServiceFactory.eINSTANCE.createQuestion();
 		q2.setKind(AnswerKind.YESNO);
@@ -225,22 +260,13 @@ public class QuizTaskServiceTest extends TestCase {
 		q3.setKind(AnswerKind.NUM);
 		q3.setNumChoices(1);
 		q3.setQuestion("Hvor mange haler har ei ku?");
-		q3.setLastProposal("1.2");
 		
 		Question q4 = ServiceFactory.eINSTANCE.createQuestion();
 		q4.setKind(AnswerKind.YESNO);
 		q4.setNumChoices(1);
 		q4.setQuestion("Er tomaten en frukt?");
-		q4.setLastProposal("true");
 		
-		Resource res = new JsonResource();
-		res.getContents().addAll(Arrays.asList(q1, q2, q3));
-		
-		try {
-			res.save(System.out, null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return Arrays.asList(q1, q2, q3);
 	}
 
 } //QuizTaskServiceTest

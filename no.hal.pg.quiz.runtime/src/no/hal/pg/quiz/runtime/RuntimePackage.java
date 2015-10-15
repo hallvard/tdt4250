@@ -212,13 +212,22 @@ public interface RuntimePackage extends EPackage {
 	int QUIZ_TASK___FINISH__OBJECT = no.hal.pg.runtime.RuntimePackage.TASK___FINISH__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Get QA Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK___GET_QA_PROPOSAL__QA = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 0;
+
+	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 0;
+	int QUIZ_TASK___PROPOSE_ANSWER__QAPROPOSAL_STRING_BOOLEAN = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Accepted Answer Count</em>' operation.
@@ -227,7 +236,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK___GET_ACCEPTED_ANSWER_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 1;
+	int QUIZ_TASK___GET_ACCEPTED_ANSWER_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Quiz Task</em>' class.
@@ -236,7 +245,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 2;
+	int QUIZ_TASK_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.quiz.runtime.impl.AcceptingAnswerStateImpl <em>Accepting Answer State</em>}' class.
@@ -406,14 +415,24 @@ public interface RuntimePackage extends EPackage {
 	EReference getQuizTask_Proposals();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.quiz.QA, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#getQAProposal(no.hal.quiz.QA) <em>Get QA Proposal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get QA Proposal</em>' operation.
+	 * @see no.hal.pg.quiz.runtime.QuizTask#getQAProposal(no.hal.quiz.QA)
+	 * @generated
+	 */
+	EOperation getQuizTask__GetQAProposal__QA();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.runtime.QAProposal, java.lang.String, boolean) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Propose Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.quiz.QA, java.lang.String, boolean)
+	 * @see no.hal.pg.quiz.runtime.QuizTask#proposeAnswer(no.hal.pg.quiz.runtime.QAProposal, java.lang.String, boolean)
 	 * @generated
 	 */
-	EOperation getQuizTask__ProposeAnswer__QA_String_boolean();
+	EOperation getQuizTask__ProposeAnswer__QAProposal_String_boolean();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.QuizTask#getAcceptedAnswerCount() <em>Get Accepted Answer Count</em>}' operation.
@@ -553,12 +572,20 @@ public interface RuntimePackage extends EPackage {
 		EReference QUIZ_TASK__PROPOSALS = eINSTANCE.getQuizTask_Proposals();
 
 		/**
+		 * The meta object literal for the '<em><b>Get QA Proposal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ_TASK___GET_QA_PROPOSAL__QA = eINSTANCE.getQuizTask__GetQAProposal__QA();
+
+		/**
 		 * The meta object literal for the '<em><b>Propose Answer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK___PROPOSE_ANSWER__QA_STRING_BOOLEAN = eINSTANCE.getQuizTask__ProposeAnswer__QA_String_boolean();
+		EOperation QUIZ_TASK___PROPOSE_ANSWER__QAPROPOSAL_STRING_BOOLEAN = eINSTANCE.getQuizTask__ProposeAnswer__QAProposal_String_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Accepted Answer Count</b></em>' operation.

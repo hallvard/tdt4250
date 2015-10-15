@@ -47,7 +47,15 @@ public interface QuizTask extends Task<QuizTaskDef, Boolean> {
 	 * @model
 	 * @generated
 	 */
-	Boolean proposeAnswer(QA qa, String proposal, boolean accept);
+	QAProposal getQAProposal(QA qa);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean proposeAnswer(QAProposal qaProposal, String proposal, boolean accept);
 
 	/**
 	 * <!-- begin-user-doc -->

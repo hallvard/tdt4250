@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getQuestion <em>Question</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getLastProposal <em>Last Proposal</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getNumChoices <em>Num Choices</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getQid <em>Qid</em>}</li>
@@ -81,26 +80,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 	 * @ordered
 	 */
 	protected String question = QUESTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastProposal()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LAST_PROPOSAL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastProposal()
-	 * @generated
-	 * @ordered
-	 */
-	protected String lastProposal = LAST_PROPOSAL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
@@ -218,27 +197,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLastProposal() {
-		return lastProposal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLastProposal(String newLastProposal) {
-		String oldLastProposal = lastProposal;
-		lastProposal = newLastProposal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServicePackage.QUESTION__LAST_PROPOSAL, oldLastProposal, lastProposal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Answer> getOptions() {
 		if (options == null) {
 			options = new EObjectContainmentEList<Answer>(Answer.class, this, ServicePackage.QUESTION__OPTIONS);
@@ -314,8 +272,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 				return getKind();
 			case ServicePackage.QUESTION__QUESTION:
 				return getQuestion();
-			case ServicePackage.QUESTION__LAST_PROPOSAL:
-				return getLastProposal();
 			case ServicePackage.QUESTION__OPTIONS:
 				return getOptions();
 			case ServicePackage.QUESTION__NUM_CHOICES:
@@ -340,9 +296,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 				return;
 			case ServicePackage.QUESTION__QUESTION:
 				setQuestion((String)newValue);
-				return;
-			case ServicePackage.QUESTION__LAST_PROPOSAL:
-				setLastProposal((String)newValue);
 				return;
 			case ServicePackage.QUESTION__OPTIONS:
 				getOptions().clear();
@@ -372,9 +325,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 			case ServicePackage.QUESTION__QUESTION:
 				setQuestion(QUESTION_EDEFAULT);
 				return;
-			case ServicePackage.QUESTION__LAST_PROPOSAL:
-				setLastProposal(LAST_PROPOSAL_EDEFAULT);
-				return;
 			case ServicePackage.QUESTION__OPTIONS:
 				getOptions().clear();
 				return;
@@ -400,8 +350,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 				return kind != KIND_EDEFAULT;
 			case ServicePackage.QUESTION__QUESTION:
 				return QUESTION_EDEFAULT == null ? question != null : !QUESTION_EDEFAULT.equals(question);
-			case ServicePackage.QUESTION__LAST_PROPOSAL:
-				return LAST_PROPOSAL_EDEFAULT == null ? lastProposal != null : !LAST_PROPOSAL_EDEFAULT.equals(lastProposal);
 			case ServicePackage.QUESTION__OPTIONS:
 				return options != null && !options.isEmpty();
 			case ServicePackage.QUESTION__NUM_CHOICES:
@@ -426,8 +374,6 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 		result.append(kind);
 		result.append(", question: ");
 		result.append(question);
-		result.append(", lastProposal: ");
-		result.append(lastProposal);
 		result.append(", numChoices: ");
 		result.append(numChoices);
 		result.append(", qid: ");
