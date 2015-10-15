@@ -1,22 +1,24 @@
 {
-  "name": "projectName",
-  "version": "0.0.0",
+  "name": "no.hal.pg.quiz.web",
+  "version": "0.1.0",
   "description": "Blank Project for React.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "EPL",
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "gulp": "^3.8.11",
-    "react": "^0.13.3",
-    "reactify": "^1.1.0",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "react": "^0.13.0",
+    "react-bootstrap": "^0.25.2",
+    "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "gulp": "^3.9.0",
+    "react": "^0.14.0",
     "react-bootstrap": "^0.25.2"
   }
 }

@@ -4,8 +4,9 @@ var source = require('vinyl-source-stream');
 var reactify = require('reactify');
 
 gulp.task('browserify', function () {
-    return browserify('./app/index.jsx', {
+    return browserify('./app/App.jsx', {
         debug: true,
+        s: true,
         transform: [reactify]
     })
         .bundle()

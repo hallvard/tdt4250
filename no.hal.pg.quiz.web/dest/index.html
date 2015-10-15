@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="example"></div>
-<script src="bundle.js"></script>
+<script src="./bundle.js"></script>
 <script type="text/javascript">
 var data = [ {
 	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
@@ -67,12 +67,8 @@ var data = [ {
 		  "kind" : "YESNO",
 		  "question" : "Hvor mange kuer hale?"
 		} ];
-	
 
-	
 React.render(React.createElement(QuizContainer,  { questions: data }), document.getElementById('example'));
-
-
 </script>
 </body>
 </html>

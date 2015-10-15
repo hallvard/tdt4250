@@ -12,67 +12,57 @@
 </head>
 <body>
 <div id="example"></div>
-<script src="bundle.js"></script>
+<script src="./bundle.js"></script>
 <script type="text/javascript">
 var data = [ {
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "STRING",
-	  "question" : "I hvilken by ligger Stortinget?",
-	  "lastProposal" : "Fredrikstad",
-	  "numChoices" : 1
-	}, {
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "STRING",
-	  "question" : "I hvilken by ligger Stortinget?",
 	  "numChoices" : 1,
+	  "question" : "I hvilken by ligger Stortinget?",
+	  "kind" : "STRING",
 	  "options" : [ {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
 	    "answer" : "Trondheim",
-	    "selected" : true
+	    "selected" : false
 	  }, {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-	    "answer" : "Oslo"
+	    "answer" : "Oslo",
+	    "selected" : false
 	  }, {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-	    "answer" : "Fredrikstad"
-	  } ]
-	},
-	 {
-		  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-		  "kind" : "STRING",
-		  "question" : "Hvilke byer har mer enn 100 000 innbyggere?",
-		  "numChoices" : 2,
-		  "options" : [ {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Trondheim",
-		    "selected" : true
-		  }, {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Oslo"
-		  }, {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Fredrikstad"
-		  } ]
-		},
-	
-	
-	{
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "NUM",
-	  "question" : "Hvor mange haler har ei ku?",
-	  "lastProposal" : "1.2",
-	  "numChoices" : 1
+	    "answer" : "Fredrikstad",
+	    "selected" : false
+	  } ],
+	  "qid" : "_parts0_questions0",
+	  "lastProposal" : null
 	}, {
-		  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-		  "kind" : "YESNO",
-		  "question" : "Hvor mange kuer hale?"
-		} ];
-	
+	  "numChoices" : -1,
+	  "question" : "Hvilke byer har mer enn 100 000 innbyggere?",
+	  "kind" : "STRING",
+	  "options" : [ {
+	    "answer" : "Trondheim",
+	    "selected" : false
+	  }, {
+	    "answer" : "Oslo",
+	    "selected" : false
+	  }, {
+	    "answer" : "Fredrikstad",
+	    "selected" : false
+	  } ],
+	  "qid" : "_parts0_questions1",
+	  "lastProposal" : null
+	}, {
+	  "numChoices" : 0,
+	  "question" : "Hvor mange haler har ei ku?",
+	  "kind" : "NUM",
+	  "options" : [ ],
+	  "qid" : "_parts0_questions2",
+	  "lastProposal" : null
+	}, {
+	  "numChoices" : 0,
+	  "question" : "Har kuer hale?",
+	  "kind" : "YESNO",
+	  "options" : [ ],
+	  "qid" : "_parts0_questions3",
+	  "lastProposal" : null
+	} ];
 
-	
 React.render(React.createElement(QuizContainer,  { questions: data }), document.getElementById('example'));
-
-
 </script>
 </body>
 </html>

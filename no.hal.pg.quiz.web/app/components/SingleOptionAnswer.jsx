@@ -1,24 +1,19 @@
 var React = require('react');
 var Input = require('react-bootstrap').Input;
 
-var OptionsAnswer = React.createClass({
-
+var SingleOptionsAnswer = React.createClass({
 
     render: function () {
         return (
-   <div class="container">
-
-   <div class="row">
-    {this.props.options.map(function(option){
-            return (option.selected ? <Input type="radio" name="name" label={option.answer} defaultChecked /> : <Input type="radio" name="name" label={option.answer} />)
-        })
-    }    
-    </div>
-
-
-    </div>
-            );
+   			<div className="container">
+	   			<div className="row">
+    			{this.props.options.map(function(option) {
+            		return (option.selected ? <Input type="radio" name="name" label={option.answer} defaultChecked /> : <Input type="radio" name="name" label={option.answer} />)
+        		})}
+    			</div>
+    		</div>
+        );
     }
 });
 
-module.exports = OptionsAnswer;
+module.exports = SingleOptionsAnswer;
