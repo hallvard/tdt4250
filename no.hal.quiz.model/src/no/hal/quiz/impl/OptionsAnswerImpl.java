@@ -2,7 +2,6 @@
  */
 package no.hal.quiz.impl;
 
-import java.lang.reflect.Array;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,9 +10,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import no.hal.quiz.Option;
 import no.hal.quiz.OptionsAnswer;
 import no.hal.quiz.QuizPackage;
+import no.hal.quiz.util.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +64,7 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Option> getOptions() {
 		if (options == null) {
 			options = new EObjectContainmentEList<Option>(Option.class, this, QuizPackage.OPTIONS_ANSWER__OPTIONS);
@@ -146,50 +148,11 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 	
 	//
 	
-	private int findOptionNum(Object proposal) {
-		int num = 0;
-		for (Option option : options) {
-			if (Boolean.TRUE.equals(option.getOption().accept(proposal))) {
-				return num;
-			}
-			num++;
-		}
-		return -1;
-	}
-	
 	@Override
 	public Boolean accept(Object proposal) {
-		if (proposal instanceof String) {
-			String[] split = ((String) proposal).split(",");
-			proposal = split;
-		}
-		if (proposal instanceof Collection) {
-			proposal = ((Collection<?>) proposal).toArray();
-		}
-		if (! (proposal.getClass().isArray())) {
-			proposal = new Object[]{proposal};
-		}
-		int[] optionNums = new int[Array.getLength(proposal)];
-		for (int i = 0; i < optionNums.length; i++) {
-			Object optionProposal = Array.get(proposal, i);
-			int num = (optionProposal instanceof Integer ? (Integer) optionProposal : findOptionNum(optionProposal));
-			if (num < 0 && optionProposal instanceof String) {
-				try {
-					num = Integer.valueOf((String) optionProposal);
-				} catch (NumberFormatException e) {
-				}
-			}
-			// check if num is legal
-			if (num < 0 || num >= options.size()) {
-				return false;
-			}
-			// check for duplicate
-			for (int j = 0; j < i; j++) {
-				if (optionNums[j] == num) {
-					return false;
-				}
-			}
-			optionNums[i] = num;
+		int[] optionNums = Util.proposalOptions(this, proposal);
+		if (optionNums == null) {
+			return null;
 		}
 		int count = 0;
 		for (Option option : options) {
