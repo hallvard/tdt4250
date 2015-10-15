@@ -1,6 +1,5 @@
 // App Helper object
 
-console.log("Loading AppHelper");
 var AppHelper = {
 	
 	LOGGING_ERROR: 1,
@@ -63,3 +62,4 @@ var AppHelper = {
 		return response;
 	}
 };
+module.exports = AppHelper;

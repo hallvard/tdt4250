@@ -2,11 +2,12 @@ package no.hal.pg.runtime.engine.http;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
@@ -84,10 +85,16 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 		}
 	}
 
+	protected Map<String, Object> getFeatureValues(EObject eObject) {
+		Map<String, Object> featureValues = new HashMap<String, Object>();
+		for (EStructuralFeature feature : eObject.eClass().getEAllStructuralFeatures()) {
+			featureValues.put(feature.getName(), eObject.eGet(feature));
+		}
+		return featureValues;
+	}
 	
 	@Override
 	public void serialize(EObject eObject, JsonGenerator generator, SerializerProvider serializerProvider) throws IOException, JsonGenerationException {
-		Map<String, Object> featureValues = serviceExecutor.executeFeatureServices((EObject) eObject, IServiceExecutor.SERVICE_NAMES_WILDCARD);
 		int count = 0;
 		for (int i = occurStack.size() - 1; i >= 0; i--) {
 			if (occurStack.get(i) == eObject) {
@@ -112,27 +119,14 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 		occurStack.push(eObject);
 		generator.writeStartObject();
 		try {
+			Map<String, Object> featureValues = eObject.eResource() != null
+					? serviceExecutor.executeFeatureServices(eObject, IServiceExecutor.SERVICE_NAMES_WILDCARD)
+					: getFeatureValues(eObject);
 			for (Map.Entry<String, Object> entry : featureValues.entrySet()) {
 				String featureName = entry.getKey();
 				Object value = entry.getValue();
-				if (value instanceof EObject) {
-					EObject eValue = (EObject) value;
-					if (eValue.eResource() != null) {
-						String ref = referenceProvider.getReference(eValue, eObject);
-						if (ref != null) {
-							generator.writeFieldName(featureName);
-							generator.writeString(ref);
-						}
-					} else {
-						generator.writeFieldName(featureName);
-						generator.writeObject(eValue);
-					}
-				} else if (value instanceof EList<?>) {
-					
-				} else {
-					generator.writeFieldName(featureName);
-					generator.writeObject(value);
-				}
+				generator.writeFieldName(featureName);
+				generator.writeObject(value);
 			}
 		} finally {
 			generator.writeEndObject();

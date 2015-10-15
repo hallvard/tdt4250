@@ -20,6 +20,7 @@ import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.quiz.runtime.RuntimePackage;
 import no.hal.pg.quiz.runtime.RuntimePackage;
+import no.hal.pg.quiz.runtime.service.AnswerKind;
 import no.hal.pg.quiz.runtime.service.Question;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
 import no.hal.pg.quiz.runtime.service.QuizTaskService;
@@ -30,7 +31,18 @@ import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.util.Util;
 import no.hal.pg.runtime.util.Util;
+import no.hal.quiz.Answer;
+import no.hal.quiz.BooleanAnswer;
+import no.hal.quiz.NumberAnswer;
+import no.hal.quiz.Option;
+import no.hal.quiz.OptionAnswer;
+import no.hal.quiz.OptionsAnswer;
 import no.hal.quiz.QA;
+import no.hal.quiz.Quiz;
+import no.hal.quiz.SimpleAnswer;
+import no.hal.quiz.SingleOptionsAnswer;
+import no.hal.quiz.StringAnswer;
+import no.hal.quiz.StringQuestion;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +92,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QuizTask getContext() {
 		if (context != null && ((EObject)context).eIsProxy()) {
 			InternalEObject oldContext = (InternalEObject)context;
@@ -106,6 +119,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContext(QuizTask newContext) {
 		QuizTask oldContext = context;
 		context = newContext;
@@ -118,6 +132,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Boolean proposeAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
@@ -130,6 +145,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Boolean acceptAnswer(Player player, QA qa, String proposal) {
 		checkAcceptingAnswerState();
 		checkPlayerInTaskPlayers(player);
@@ -142,6 +158,7 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EList<QAProposal> getQAProposals(Player player) {
 		EList<QAProposal> proposals = new BasicEList<QAProposal>();
 		for (QAProposal proposal : getContext().getProposals()) {
@@ -157,17 +174,57 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EList<Question> getPlayerQuestions(Player player) {
 		Collection<QAProposal> qaProposals = getQAProposals(player);
 		EList<Question> questions = new BasicEList<Question>();
 		for (QAProposal qaProp : qaProposals){
 			Question q = ServiceFactory.eINSTANCE.createQuestion();
-		//	q.setQuestion(qaProp.);
+			QA qa = qaProp.getQa();
+			if (qa.getQ() instanceof StringQuestion) {
+				q.setQuestion(((StringQuestion) qa.getQ()).getQuestion());
+			}
+			Answer answer = qa.getA();
+			q.setKind(getAnswerKind(answer, null));
+			q.setLastProposal(qaProp.getProposal());
+			if (answer instanceof OptionsAnswer) {
+				q.setNumChoices(answer instanceof SingleOptionsAnswer ? 1 : -1);
+				int[] optionNums = no.hal.quiz.util.Util.proposalOptions((OptionsAnswer) answer, qaProp.getProposal());
+				for (Option option : ((OptionsAnswer) answer).getOptions()) {
+					OptionAnswer optionAnswer = option.getOption();
+					q.setKind(getAnswerKind(optionAnswer, q.getKind()));
+					no.hal.pg.quiz.runtime.service.Answer a = ServiceFactory.eINSTANCE.createAnswer();
+					if (optionAnswer instanceof SimpleAnswer<?>) {
+						a.setAnswer(String.valueOf(((SimpleAnswer<?>) optionAnswer).getValue()));
+					}
+					if (optionNums != null) {
+						for (int i = 0; i < optionNums.length; i++) {
+							if (q.getOptions().size() == optionNums[i]) {
+								a.setSelected(true);
+							}
+						}
+					}
+					q.getOptions().add(a);
+				}
+			}
+			q.setQid(no.hal.quiz.util.Util.relativeName(qa, Quiz.class));
+			questions.add(q);
 		}
-		// TODO: implement this method
-		throw new UnsupportedOperationException();
+		return questions;
 	}
 
+	private AnswerKind getAnswerKind(Answer answer, AnswerKind existing) {
+		AnswerKind kind = null;
+		if (answer instanceof StringAnswer) {
+			kind = AnswerKind.STRING;
+		} else if (answer instanceof NumberAnswer) {
+			kind = AnswerKind.NUM;
+		} else if (answer instanceof BooleanAnswer) {
+			kind = AnswerKind.YESNO;
+		}
+		return (kind == existing || existing == null ? kind : null);
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
