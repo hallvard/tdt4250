@@ -71,24 +71,17 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 					httpService.registerResources(appAlias + alias, resourceAlias.getValue(), httpContext);
 				}
 			}
-//			if (engineApp instanceof IEngineAppComponent) {
-//				String refreshServiceUrlPath = ((IEngineAppComponent) engineApp).getRefreshServiceUrlPath();
-//				if (refreshServiceUrlPath == null) {
-//					refreshServiceUrlPath = "/";
-//				}
-//				String appDataAlias = aliasPrefix + "-data/" + engineApp.getName();
-//				ForwardingServlet forwardingServlet = new ForwardingServlet();
-//				String forwardPath = engineAlias + "/data" + refreshServiceUrlPath;
-//				forwardingServlet.setTargetPath(forwardPath);
-//				httpService.registerServlet(appDataAlias, forwardingServlet, null, httpContext);
-//			}
 		}
 	}
 
 	@Override
 	protected void unregisterEngineEndPoints(HttpService httpService, IEngine engine, String engineAlias) {
+		String aliasPrefix = engineAlias + "/app";
+		try {
+			httpService.unregister(aliasPrefix);
+		} catch (Exception e) {
+		}
 		for (IEngineApp engineApp : engineApps) {
-			String aliasPrefix = engineAlias + "/app";
 			String appAlias = aliasPrefix + "/" + engineApp.getName();
 			try {
 				httpService.unregister(appAlias);
@@ -100,10 +93,6 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 				} catch (Exception e) {
 				}
 			}
-//			try {
-//				httpService.unregister(aliasPrefix + "-data/" + engineApp.getName());
-//			} catch (Exception e) {
-//			}
 		}
 	}
 }
