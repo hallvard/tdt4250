@@ -152,7 +152,7 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 	public Boolean accept(Object proposal) {
 		int[] optionNums = Util.proposalOptions(this, proposal);
 		if (optionNums == null) {
-			return null;
+			return false;
 		}
 		int count = 0;
 		for (Option option : options) {

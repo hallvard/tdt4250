@@ -57,12 +57,9 @@ public class Util {
 	public static int[] proposalOptions(OptionsAnswer answer, Object proposal) {
 		if (proposal == null) {
 			return null;
-		}
-		if (proposal instanceof String) {
-			String[] split = ((String) proposal).split(",");
-			proposal = split;
-		}
-		if (proposal instanceof Collection) {
+		} else if (proposal instanceof String) {
+			proposal = ((String) proposal).split(",");
+		} else if (proposal instanceof Collection) {
 			proposal = ((Collection<?>) proposal).toArray();
 		}
 		if (! (proposal.getClass().isArray())) {
@@ -76,6 +73,7 @@ public class Util {
 				try {
 					num = Integer.valueOf((String) optionProposal);
 				} catch (NumberFormatException e) {
+					return null;
 				}
 			}
 			// check if num is legal
