@@ -18,7 +18,11 @@ public class Util {
 			return -1;
 		}
 	}
-	
+
+	public static <T> EList<T> createUmodifiableList(InternalEObject owner, EStructuralFeature feature, EList<T> list) {
+		return new EcoreEList.UnmodifiableEList<T>(owner, feature, list.size(), list.toArray());
+	}
+
 	public static <T> EList<T> createUmodifiableList(InternalEObject owner, EStructuralFeature feature, EList<T>... lists) {
 		Collection<T> all = new ArrayList<T>();
 		for (EList<T> taskList : lists) {
