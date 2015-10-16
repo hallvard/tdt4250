@@ -3,7 +3,7 @@
 /*
 this.props:
 {
-	serviceUrl: the url that returns the current ExampleTask object
+	serviceUrl: the url that returns the current Player object
 	player : the player
 	{
 		name: player name
@@ -23,18 +23,20 @@ var PlayerComponent = React.createClass({
 	
 	getInitialState : function() {
 		var comp = this;
-		AppHelper.loadData(this.props.serviceUrl, function(response) {
+		AppHelper.loadData(this.props.serviceUrl, false, function(response) {
 			comp.setState({
-				name : response.name
+				name : response.name,
+				ids : response.ids
 			});
 		});
 		return {
-			name : this.props.player.name
+			name : this.props.player.name,
+			ids : this.props.player.ids
 		};
 	},
 
   	render: function render() {
-  		var ids = []; // (this.state.ids ? this.state.ids : []);
+  		var ids = (this.state.ids ? this.state.ids : []);
   		var rows = ids.map(function(id) {
   			var url = null;
   			if (emailPattern.test(id)) {
@@ -53,13 +55,16 @@ var PlayerComponent = React.createClass({
     	return React.createElement(
       		"table", { className: "player" },
       		React.createElement(
-    			"tr", null,
-    	    	React.createElement(
-        	      	"td", { className: "playerName" },
-        		    "Name: " + this.state.name
-        	 	)
-      		),
-      		rows
+    			"tbody", null,
+	    			React.createElement(
+	    					"tr", null,
+	    	    	React.createElement(
+	        	      	"td", { className: "playerName" },
+	        		    "Name: " + this.state.name
+	        	 	)
+	    		),
+	    		rows
+      		)
     	);
   	}
 });

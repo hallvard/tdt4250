@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import no.hal.pg.model.util.Util;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Task;
@@ -26,6 +27,7 @@ import no.hal.pg.runtime.service.ServicePackage;
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getContext <em>Context</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getIds <em>Ids</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.PlayerServiceImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -75,6 +77,7 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Player getContext() {
 		if (context != null && ((EObject)context).eIsProxy()) {
 			InternalEObject oldContext = (InternalEObject)context;
@@ -101,6 +104,7 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContext(Player newContext) {
 		Player oldContext = context;
 		context = newContext;
@@ -113,6 +117,7 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		return getContext().getPerson().getName();
 	}
@@ -122,6 +127,17 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
+	public EList<String> getIds() {
+		return Util.<String>createUmodifiableList(this, ServicePackage.eINSTANCE.getPlayerService_Ids(), getContext().getPerson().getIds());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public EList<Task<?, ?>> getTasks() {
 		Game game = getContext().getGame();
 		return GameServiceImpl.getPlayerTasks(getContext(), game.getTasks());
@@ -140,6 +156,8 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 				return basicGetContext();
 			case ServicePackage.PLAYER_SERVICE__NAME:
 				return getName();
+			case ServicePackage.PLAYER_SERVICE__IDS:
+				return getIds();
 			case ServicePackage.PLAYER_SERVICE__TASKS:
 				return getTasks();
 		}
@@ -188,6 +206,8 @@ public class PlayerServiceImpl extends MinimalEObjectImpl.Container implements P
 				return context != null;
 			case ServicePackage.PLAYER_SERVICE__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case ServicePackage.PLAYER_SERVICE__IDS:
+				return !getIds().isEmpty();
 			case ServicePackage.PLAYER_SERVICE__TASKS:
 				return !getTasks().isEmpty();
 		}

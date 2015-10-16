@@ -1,48 +1,37 @@
 <html>
 <head>
-	<title>Task list</title>
+	<title>Game</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" href="GameApp.css">
 </head>
 <body>
 
-<h1>Player info</h1>
-<div id="player"></div>
-<p>
-<h1>Task list</h1>
-<div id="tasklist"></div>
+<div id="game"></div>
 
 <script src="https://fb.me/react-0.13.3.js"></script>
 
 <script src="AppHelper.js"></script>
 
+<script src="GameComponent.js"></script>
 <script src="PlayerComponent.js"></script>
 <script src="TaskComponent.js"></script>
 <script src="TaskListComponent.js"></script>
 
 <script type="text/javascript">
-var player = {
-	name: "Hallvard Trætteberg"
-//	, ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
-};
-var tasks = [ {
-		finished: true, started: true
-	}, {
-		finished: false, started: true
-	}, {
-		finished: false, started: false
-	},
- ];
- 
+var game = {
+		players: [ {
+			name: "Hallvard Trætteberg", ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
+		} ],
+		tasks: [
+		    "???", "???"
+		]
+	};
+
 var serviceUrl = AppHelper.serviceUrl(window.location.search);
 
- React.render(React.createElement(PlayerComponent,
-		{ serviceUrl: serviceUrl, player: player }
- 		), document.getElementById('player')
- );
- React.render(React.createElement(TaskListComponent,
-		{ serviceUrl: serviceUrl + '/tasks', tasks: tasks }
- 		), document.getElementById('tasklist')
+ React.render(React.createElement(GameComponent,
+		{ serviceUrl: AppHelper.serviceUrl(serviceUrl), players: game.players, tasks: game.tasks }
+ 		), document.getElementById('game')
  );
 </script>
 </body>  

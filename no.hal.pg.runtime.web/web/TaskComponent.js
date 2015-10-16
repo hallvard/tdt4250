@@ -18,17 +18,10 @@ var TaskComponent = React.createClass({
 	displayName: "Task component",
 
 	getInitialState: function() {
-//		var comp = this;
-//		AppHelper.loadData(this.props.serviceUrl, function(response) {
-//			comp.setState({
-//				started: response.started,
-//				finished: response.finished 
-//			});
-//		});
-		return {
-			started: this.props.task.started,
-			finished: this.props.task.finished,
-		};
+		var task = this.props.task;
+		var started = typeof task != 'string' && task.started;
+		var finished = typeof task != 'string' && task.finished;
+		return { started : started, finished : finished };
 	},
 
   	render: function render() {

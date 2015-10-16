@@ -232,8 +232,17 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlayerService_Ids() {
+		return (EAttribute)playerServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPlayerService_Tasks() {
-		return (EReference)playerServiceEClass.getEStructuralFeatures().get(1);
+		return (EReference)playerServiceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -279,6 +288,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		playerServiceEClass = createEClass(PLAYER_SERVICE);
 		createEAttribute(playerServiceEClass, PLAYER_SERVICE__NAME);
+		createEAttribute(playerServiceEClass, PLAYER_SERVICE__IDS);
 		createEReference(playerServiceEClass, PLAYER_SERVICE__TASKS);
 	}
 
@@ -359,6 +369,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		initEClass(playerServiceEClass, PlayerService.class, "PlayerService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlayerService_Name(), ecorePackage.getEString(), "name", null, 0, 1, PlayerService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlayerService_Ids(), ecorePackage.getEString(), "ids", null, 0, -1, PlayerService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theRuntimePackage.getTask());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);

@@ -244,13 +244,22 @@ public interface ServicePackage extends EPackage {
 	int PLAYER_SERVICE__NAME = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ids</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_SERVICE__IDS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	int PLAYER_SERVICE__TASKS = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Player Service</em>' class.
@@ -259,7 +268,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	int PLAYER_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Player Service</em>' class.
@@ -411,6 +420,17 @@ public interface ServicePackage extends EPackage {
 	EAttribute getPlayerService_Name();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.pg.runtime.service.PlayerService#getIds <em>Ids</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Ids</em>'.
+	 * @see no.hal.pg.runtime.service.PlayerService#getIds()
+	 * @see #getPlayerService()
+	 * @generated
+	 */
+	EAttribute getPlayerService_Ids();
+
+	/**
 	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.service.PlayerService#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,6 +573,14 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLAYER_SERVICE__NAME = eINSTANCE.getPlayerService_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Ids</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER_SERVICE__IDS = eINSTANCE.getPlayerService_Ids();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.

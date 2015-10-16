@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getName <em>Name</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.PlayerService#getIds <em>Ids</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -40,6 +41,22 @@ public interface PlayerService extends Service<Player> {
 	 * @generated
 	 */
 	String getName();
+
+	/**
+	 * Returns the value of the '<em><b>Ids</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ids</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ids</em>' attribute list.
+	 * @see no.hal.pg.runtime.service.ServicePackage#getPlayerService_Ids()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<String> getIds();
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.

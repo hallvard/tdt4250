@@ -2,8 +2,9 @@
  */
 package no.hal.pg.runtime.service.tests;
 
-import junit.framework.TestCase;
+import java.util.Arrays;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import no.hal.pg.model.ModelFactory;
 import no.hal.pg.model.Person;
@@ -20,6 +21,7 @@ import no.hal.pg.runtime.service.ServiceFactory;
  * The following features are tested:
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getName() <em>Name</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.PlayerService#getIds() <em>Ids</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.PlayerService#getTasks() <em>Tasks</em>}</li>
  * </ul>
  * </p>
@@ -90,6 +92,7 @@ public class PlayerServiceTest extends TestCase {
 		Player player = RuntimeFactory.eINSTANCE.createPlayer();
 		Person person = ModelFactory.eINSTANCE.createPerson();
 		person.setName("hal");
+		person.getIds().addAll(Arrays.asList("hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com"));
 		player.setPerson(person);
 		playerService.setContext(player);
 		return playerService;
@@ -115,6 +118,17 @@ public class PlayerServiceTest extends TestCase {
 	 */
 	public void testGetName() {
 		assertEquals(getFixture().getContext().getPerson().getName(), getFixture().getName());
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.service.PlayerService#getIds() <em>Ids</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.service.PlayerService#getIds()
+	 * @generated NOT
+	 */
+	public void testGetIds() {
+		assertEquals(getFixture().getContext().getPerson().getIds(), getFixture().getIds());
 	}
 
 	/**

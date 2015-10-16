@@ -18,10 +18,7 @@ var TaskListComponent = React.createClass({
 	
 	getInitialState : function() {
 		var comp = this;
-		AppHelper.loadData(this.props.serviceUrl, function(response) {
-			if (! AppHelper.isArray(response)) {
-				response = [ response ];
-			}
+		AppHelper.loadData(this.props.serviceUrl, true, function(response) {
 			comp.setState({
 				tasks : response
 			});
@@ -33,10 +30,10 @@ var TaskListComponent = React.createClass({
 
   	render: function render() {
   		var num = 0;
-  		console.log("Task count: " + this.state.tasks.length);
+  		AppHelper.log("Task count: " + this.state.tasks.length, AppHelper.INFO);
   		var rows = this.state.tasks.map(function(task) {
   			num = num + 1;
-  			console.log("Creating TaskComponent # " + num);
+  			AppHelper.log("Creating TaskComponent # " + num, AppHelper.INFO);
       		return React.createElement(
           		"tr", { key: num },
     	    	React.createElement(

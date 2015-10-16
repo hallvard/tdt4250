@@ -47,7 +47,7 @@ public class DataServletHelper extends HttpServlet {
 
 	protected boolean executePath(String path, Map<String, ? extends Object> parameters) {
 		String[] segments = path.split("\\/");
-		return executeSegments(segments, 1, -1, parameters);
+		return executeSegments(segments, (segments.length > 0 ? 1 : 0), -1, parameters);
 	}
 
 	protected boolean executeSegments(String[] segments, Map<String, ? extends Object> parameters) {
@@ -60,12 +60,14 @@ public class DataServletHelper extends HttpServlet {
 		}
 		for (int i = start; i < end; i++) {
 			String segment = segments[i];
-			try {
-				int num = Integer.valueOf(segment);
-				serviceExecutor.select(num, num + 1);
-			} catch (NumberFormatException e) {
-				if (! serviceExecutor.resolve(segment)) {
-					serviceExecutor.execute(segment, (i == end - 1 ? parameters : null));				
+			if (segment.length() != 0) {
+				try {
+					int num = Integer.valueOf(segment);
+					serviceExecutor.select(num, num + 1);
+				} catch (NumberFormatException e) {
+					if (! serviceExecutor.resolve(segment)) {
+						serviceExecutor.execute(segment, (i == end - 1 ? parameters : null));				
+					}
 				}
 			}
 		}
