@@ -223,6 +223,8 @@ public class QuizTaskServiceImpl extends MinimalEObjectImpl.Container implements
 				}
 			}
 			q.setQid(no.hal.quiz.util.Util.relativeName(qa, Quiz.class));
+			q.setAccepted(qaProp.getAccepted());
+			q.setRejectedCount(qaProp.getRejectedCount());
 			questions.add(q);
 		}
 		return questions;

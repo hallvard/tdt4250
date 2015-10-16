@@ -272,13 +272,40 @@ public interface ServicePackage extends EPackage {
 	int QUESTION__QID = 4;
 
 	/**
+	 * The feature id for the '<em><b>Last Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__LAST_PROPOSAL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Accepted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__ACCEPTED = 6;
+
+	/**
+	 * The feature id for the '<em><b>Rejected Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__REJECTED_COUNT = 7;
+
+	/**
 	 * The number of structural features of the '<em>Question</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION_FEATURE_COUNT = 5;
+	int QUESTION_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Question</em>' class.
@@ -526,6 +553,39 @@ public interface ServicePackage extends EPackage {
 	EAttribute getQuestion_Qid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Proposal</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getLastProposal()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_LastProposal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getAccepted <em>Accepted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Accepted</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getAccepted()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_Accepted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.service.Question#getRejectedCount <em>Rejected Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rejected Count</em>'.
+	 * @see no.hal.pg.quiz.runtime.service.Question#getRejectedCount()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_RejectedCount();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -731,6 +791,30 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUESTION__QID = eINSTANCE.getQuestion_Qid();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Proposal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__LAST_PROPOSAL = eINSTANCE.getQuestion_LastProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Accepted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__ACCEPTED = eINSTANCE.getQuestion_Accepted();
+
+		/**
+		 * The meta object literal for the '<em><b>Rejected Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__REJECTED_COUNT = eINSTANCE.getQuestion_RejectedCount();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.AnswerImpl <em>Answer</em>}' class.

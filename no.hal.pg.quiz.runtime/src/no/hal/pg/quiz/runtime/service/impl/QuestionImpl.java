@@ -36,6 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getNumChoices <em>Num Choices</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getQid <em>Qid</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getLastProposal <em>Last Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getAccepted <em>Accepted</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.impl.QuestionImpl#getRejectedCount <em>Rejected Count</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +133,66 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 	 * @ordered
 	 */
 	protected String qid = QID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProposal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LAST_PROPOSAL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProposal()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lastProposal = LAST_PROPOSAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAccepted() <em>Accepted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccepted()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ACCEPTED_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAccepted() <em>Accepted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccepted()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean accepted = ACCEPTED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRejectedCount() <em>Rejected Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRejectedCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int REJECTED_COUNT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRejectedCount() <em>Rejected Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRejectedCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected int rejectedCount = REJECTED_COUNT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,6 +314,69 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getLastProposal() {
+		return lastProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastProposal(String newLastProposal) {
+		String oldLastProposal = lastProposal;
+		lastProposal = newLastProposal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicePackage.QUESTION__LAST_PROPOSAL, oldLastProposal, lastProposal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getAccepted() {
+		return accepted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccepted(Boolean newAccepted) {
+		Boolean oldAccepted = accepted;
+		accepted = newAccepted;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicePackage.QUESTION__ACCEPTED, oldAccepted, accepted));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getRejectedCount() {
+		return rejectedCount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRejectedCount(int newRejectedCount) {
+		int oldRejectedCount = rejectedCount;
+		rejectedCount = newRejectedCount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicePackage.QUESTION__REJECTED_COUNT, oldRejectedCount, rejectedCount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -278,6 +404,12 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 				return getNumChoices();
 			case ServicePackage.QUESTION__QID:
 				return getQid();
+			case ServicePackage.QUESTION__LAST_PROPOSAL:
+				return getLastProposal();
+			case ServicePackage.QUESTION__ACCEPTED:
+				return getAccepted();
+			case ServicePackage.QUESTION__REJECTED_COUNT:
+				return getRejectedCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,6 +439,15 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 			case ServicePackage.QUESTION__QID:
 				setQid((String)newValue);
 				return;
+			case ServicePackage.QUESTION__LAST_PROPOSAL:
+				setLastProposal((String)newValue);
+				return;
+			case ServicePackage.QUESTION__ACCEPTED:
+				setAccepted((Boolean)newValue);
+				return;
+			case ServicePackage.QUESTION__REJECTED_COUNT:
+				setRejectedCount((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -334,6 +475,15 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 			case ServicePackage.QUESTION__QID:
 				setQid(QID_EDEFAULT);
 				return;
+			case ServicePackage.QUESTION__LAST_PROPOSAL:
+				setLastProposal(LAST_PROPOSAL_EDEFAULT);
+				return;
+			case ServicePackage.QUESTION__ACCEPTED:
+				setAccepted(ACCEPTED_EDEFAULT);
+				return;
+			case ServicePackage.QUESTION__REJECTED_COUNT:
+				setRejectedCount(REJECTED_COUNT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -356,6 +506,12 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 				return numChoices != NUM_CHOICES_EDEFAULT;
 			case ServicePackage.QUESTION__QID:
 				return QID_EDEFAULT == null ? qid != null : !QID_EDEFAULT.equals(qid);
+			case ServicePackage.QUESTION__LAST_PROPOSAL:
+				return LAST_PROPOSAL_EDEFAULT == null ? lastProposal != null : !LAST_PROPOSAL_EDEFAULT.equals(lastProposal);
+			case ServicePackage.QUESTION__ACCEPTED:
+				return ACCEPTED_EDEFAULT == null ? accepted != null : !ACCEPTED_EDEFAULT.equals(accepted);
+			case ServicePackage.QUESTION__REJECTED_COUNT:
+				return rejectedCount != REJECTED_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,6 +534,12 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
 		result.append(numChoices);
 		result.append(", qid: ");
 		result.append(qid);
+		result.append(", lastProposal: ");
+		result.append(lastProposal);
+		result.append(", accepted: ");
+		result.append(accepted);
+		result.append(", rejectedCount: ");
+		result.append(rejectedCount);
 		result.append(')');
 		return result.toString();
 	}

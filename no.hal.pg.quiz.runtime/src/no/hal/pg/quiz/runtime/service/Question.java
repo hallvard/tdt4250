@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getOptions <em>Options</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getNumChoices <em>Num Choices</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getQid <em>Qid</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getAccepted <em>Accepted</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.Question#getRejectedCount <em>Rejected Count</em>}</li>
  * </ul>
  *
  * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuestion()
@@ -149,5 +152,83 @@ public interface Question extends EObject {
 	 * @generated
 	 */
 	void setQid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Last Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Proposal</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Proposal</em>' attribute.
+	 * @see #setLastProposal(String)
+	 * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuestion_LastProposal()
+	 * @model
+	 * @generated
+	 */
+	String getLastProposal();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.service.Question#getLastProposal <em>Last Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Proposal</em>' attribute.
+	 * @see #getLastProposal()
+	 * @generated
+	 */
+	void setLastProposal(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Accepted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Accepted</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Accepted</em>' attribute.
+	 * @see #setAccepted(Boolean)
+	 * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuestion_Accepted()
+	 * @model
+	 * @generated
+	 */
+	Boolean getAccepted();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.service.Question#getAccepted <em>Accepted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Accepted</em>' attribute.
+	 * @see #getAccepted()
+	 * @generated
+	 */
+	void setAccepted(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Rejected Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rejected Count</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rejected Count</em>' attribute.
+	 * @see #setRejectedCount(int)
+	 * @see no.hal.pg.quiz.runtime.service.ServicePackage#getQuestion_RejectedCount()
+	 * @model
+	 * @generated
+	 */
+	int getRejectedCount();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.service.Question#getRejectedCount <em>Rejected Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rejected Count</em>' attribute.
+	 * @see #getRejectedCount()
+	 * @generated
+	 */
+	void setRejectedCount(int value);
 
 } // Question
