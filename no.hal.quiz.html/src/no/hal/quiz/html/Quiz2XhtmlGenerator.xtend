@@ -35,6 +35,7 @@ import org.w3c.xhtml1.HtmlType
 import org.w3c.xhtml1.InputType
 import org.w3c.xhtml1.Xhtml1Factory
 import org.w3c.xhtml1.util.Xhtml1ResourceFactoryImpl
+import no.hal.quiz.util.Util
 
 /**
  * Generates code from your model files on save.
@@ -453,35 +454,9 @@ function check«quizPart.name.toFirstUpper»() {
 	def String name(Answer answer) {
 		val name = name(answer.ancestor(QA))
 		if (answer.ancestor(XmlPIAnswerElement) != null)
-			name + answer.relativeName(QA)
+			name + Util.relativeName(answer, QA)
 		else
 			name
-	}
-
-	def <T> String relativeName(EObject eObject, Class<T> c) {
-		var name = ""
-   		var e = eObject
-		while (e != null) {
-			val child = e;
-			e = e.eContainer
-			var String childName = null
-			val nameFeature = child.eClass.getEStructuralFeature("name")
-			if (nameFeature != null) {
-				childName = child.eGet(nameFeature) as String
-			}
-			if (childName == null) {
-				val feature = child.eContainingFeature
-				if (feature != null && e != null) {
-					childName = feature.name + if (feature.many) (e.eGet(feature) as EList<?>).indexOf(child) else ""
-				}
-			}
-			if (childName != null) {
-				name = "_" + childName + name
-			}
-			if (c.isInstance(child)) {
-				return name
-			}
-   		}
 	}
 		
 	def static <T> T ancestor(EObject eObject, Class<T> c) {

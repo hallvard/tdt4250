@@ -41,12 +41,11 @@ import no.hal.quiz.XmlQuestion;
 import no.hal.quiz.XmlTag;
 import no.hal.quiz.XmlTagElement;
 import no.hal.quiz.html.XhtmlUtil;
+import no.hal.quiz.util.Util;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -973,7 +972,7 @@ public class Quiz2XhtmlGenerator {
       XmlPIAnswerElement _ancestor_1 = Quiz2XhtmlGenerator.<XmlPIAnswerElement>ancestor(answer, XmlPIAnswerElement.class);
       boolean _notEquals = (!Objects.equal(_ancestor_1, null));
       if (_notEquals) {
-        String _relativeName = this.<QA>relativeName(answer, QA.class);
+        String _relativeName = Util.<QA>relativeName(answer, QA.class);
         _xifexpression = (name + _relativeName);
       } else {
         _xifexpression = name;
@@ -981,60 +980,6 @@ public class Quiz2XhtmlGenerator {
       _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
-  }
-  
-  public <T extends Object> String relativeName(final EObject eObject, final Class<T> c) {
-    String name = "";
-    EObject e = eObject;
-    while ((!Objects.equal(e, null))) {
-      {
-        final EObject child = e;
-        EObject _eContainer = e.eContainer();
-        e = _eContainer;
-        String childName = null;
-        EClass _eClass = child.eClass();
-        final EStructuralFeature nameFeature = _eClass.getEStructuralFeature("name");
-        boolean _notEquals = (!Objects.equal(nameFeature, null));
-        if (_notEquals) {
-          Object _eGet = child.eGet(nameFeature);
-          childName = ((String) _eGet);
-        }
-        boolean _equals = Objects.equal(childName, null);
-        if (_equals) {
-          final EStructuralFeature feature = child.eContainingFeature();
-          boolean _and = false;
-          boolean _notEquals_1 = (!Objects.equal(feature, null));
-          if (!_notEquals_1) {
-            _and = false;
-          } else {
-            boolean _notEquals_2 = (!Objects.equal(e, null));
-            _and = _notEquals_2;
-          }
-          if (_and) {
-            String _name = feature.getName();
-            Object _xifexpression = null;
-            boolean _isMany = feature.isMany();
-            if (_isMany) {
-              Object _eGet_1 = e.eGet(feature);
-              _xifexpression = Integer.valueOf(((EList<?>) _eGet_1).indexOf(child));
-            } else {
-              _xifexpression = "";
-            }
-            String _plus = (_name + ((Comparable<?>)_xifexpression));
-            childName = _plus;
-          }
-        }
-        boolean _notEquals_3 = (!Objects.equal(childName, null));
-        if (_notEquals_3) {
-          name = (("_" + childName) + name);
-        }
-        boolean _isInstance = c.isInstance(child);
-        if (_isInstance) {
-          return name;
-        }
-      }
-    }
-    return null;
   }
   
   public static <T extends Object> T ancestor(final EObject eObject, final Class<T> c) {

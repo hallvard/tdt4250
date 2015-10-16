@@ -68,6 +68,9 @@ public class QuestionItemProvider
 			addQuestionPropertyDescriptor(object);
 			addNumChoicesPropertyDescriptor(object);
 			addQidPropertyDescriptor(object);
+			addLastProposalPropertyDescriptor(object);
+			addAcceptedPropertyDescriptor(object);
+			addRejectedCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -161,6 +164,72 @@ public class QuestionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Last Proposal feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastProposalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Question_lastProposal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Question_lastProposal_feature", "_UI_Question_type"),
+				 ServicePackage.Literals.QUESTION__LAST_PROPOSAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Accepted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAcceptedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Question_accepted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Question_accepted_feature", "_UI_Question_type"),
+				 ServicePackage.Literals.QUESTION__ACCEPTED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rejected Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRejectedCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Question_rejectedCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Question_rejectedCount_feature", "_UI_Question_type"),
+				 ServicePackage.Literals.QUESTION__REJECTED_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -233,6 +302,9 @@ public class QuestionItemProvider
 			case ServicePackage.QUESTION__QUESTION:
 			case ServicePackage.QUESTION__NUM_CHOICES:
 			case ServicePackage.QUESTION__QID:
+			case ServicePackage.QUESTION__LAST_PROPOSAL:
+			case ServicePackage.QUESTION__ACCEPTED:
+			case ServicePackage.QUESTION__REJECTED_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ServicePackage.QUESTION__OPTIONS:
