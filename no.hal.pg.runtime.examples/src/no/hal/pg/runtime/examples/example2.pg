@@ -1,0 +1,27 @@
+{
+  "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//UoD",
+  "people" : [ {
+    "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Group",
+    "persons" : [ {
+      "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+      "name" : "Hallvard Trætteberg",
+      "ids" : [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com" ]
+    }, {
+      "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
+      "name" : "Jon Espen Ingvaldsen",
+      "ids" : [ "jonespi@idi.ntnu.no", "jon.espen.ingvaldsen@ntnu.no" ]
+    } ]
+  } ],
+  "games" : [ {
+    "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//GameDef",
+    "participants" : [ {
+      "$ref" : "//@people.0"
+    } ],
+    "tasks" : [ {
+      "eClass" : "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef",
+      "quizParts" : [ {
+        "$ref" : "Quiz1.xquiz#1"
+      } ]
+    } ]
+  } ]
+}
