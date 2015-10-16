@@ -9,12 +9,12 @@ var SingleOptionAnswer = require('./SingleOptionAnswer.jsx');
 var answerSelector = function(qItem){
     if (qItem.options && qItem.options.length > 0 ){
         return (qItem.numChoices == 1 ? <SingleOptionAnswer kind={qItem.kind} options={qItem.options}/> : <MultiOptionAnswer kind={qItem.kind} options={qItem.options}/>);
-    } else if (qItem.kind=='YESNO'){
-        return (<YesNoAnswer />);
-    } else if (qItem.kind=='NUM'){
+    } else if (qItem.kind=='YESNO') {
+        return (<YesNoAnswer/>);
+    } else if (qItem.kind=='NUM') {
         return (<NumberAnswer />);
     }
-    return (<StringAnswer />);
+    return (<StringAnswer/>);
 };
 
 var Question = React.createClass({

@@ -11,7 +11,8 @@
 
 </head>
 <body>
-<div id="example"></div>
+<div id="quiz"></div>
+
 <script src="./bundle.js"></script>
 <script type="text/javascript">
 var data = [ {
@@ -28,8 +29,7 @@ var data = [ {
 	    "answer" : "Fredrikstad",
 	    "selected" : false
 	  } ],
-	  "qid" : "_parts0_questions0",
-	  "lastProposal" : null
+	  "qid" : "_parts0_questions0"
 	}, {
 	  "numChoices" : -1,
 	  "question" : "Hvilke byer har mer enn 100 000 innbyggere?",
@@ -44,25 +44,22 @@ var data = [ {
 	    "answer" : "Fredrikstad",
 	    "selected" : false
 	  } ],
-	  "qid" : "_parts0_questions1",
-	  "lastProposal" : null
+	  "qid" : "_parts0_questions1"
 	}, {
 	  "numChoices" : 0,
 	  "question" : "Hvor mange haler har ei ku?",
 	  "kind" : "NUM",
 	  "options" : [ ],
-	  "qid" : "_parts0_questions2",
-	  "lastProposal" : null
+	  "qid" : "_parts0_questions2"
 	}, {
 	  "numChoices" : 0,
 	  "question" : "Har kuer hale?",
 	  "kind" : "YESNO",
 	  "options" : [ ],
-	  "qid" : "_parts0_questions3",
-	  "lastProposal" : null
+	  "qid" : "_parts0_questions3"
 	} ];
 
-React.render(React.createElement(QuizContainer,  { questions: data }), document.getElementById('example'));
+React.render(React.createElement(QuizContainer,  { questions: data }), document.getElementById('quiz'));
 </script>
 </body>
 </html>
