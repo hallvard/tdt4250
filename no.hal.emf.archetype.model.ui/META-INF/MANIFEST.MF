@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: no.hal.emf.archetype.model.edit;singleton:=true
+Bundle-SymbolicName: no.hal.emf.archetype.model.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: no.hal.emf.archetype.model.provider.ArchetypeEditPlugin$Implementation
