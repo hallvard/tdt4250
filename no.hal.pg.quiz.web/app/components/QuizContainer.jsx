@@ -53,8 +53,10 @@ var AppHelper = require('../AppHelper.js');
 
 var QuizContainer = React.createClass({
 
+    serviceUrl: AppHelper.serviceUrl(window.location.search),
+
     getInitialState: function () {
-		AppHelper.loadData(this.props.serviceUrl + '/getPlayerQuestions?player=' + this.props.player, true, function(response) {
+		AppHelper.loadData(this.serviceUrl + '/getPlayerQuestions?player=' + this.props.player, true, function(response) {
 			comp.setState({
 				questions : response
 			});

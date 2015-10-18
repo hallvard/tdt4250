@@ -15,7 +15,7 @@ gulp.task('browserify', function () {
 });
 
 gulp.task('html', function () {
-    return gulp.src('./assets/**/*.html')
+    return gulp.src(['./assets/**/*.html', './app/AppHelper.js'])
         .pipe(gulp.dest('./dest'));
 });
 
