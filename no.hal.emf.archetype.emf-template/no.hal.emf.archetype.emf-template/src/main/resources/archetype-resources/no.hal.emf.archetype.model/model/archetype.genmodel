@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/no.hal.emf.archetype.model/src" editDirectory="/no.hal.emf.archetype.model.ui/src"
+    editorDirectory="/no.hal.emf.archetype.model.ui/src" modelPluginID="no.hal.emf.archetype.model"
+    modelName="Archetype" editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>archetype.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="no.hal.emf.archetype" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" fileExtensions="archetype" ecorePackage="archetype.ecore#/">
+    <genClasses ecoreClass="archetype.ecore#//UoD"/>
+  </genPackages>
+</genmodel:GenModel>
