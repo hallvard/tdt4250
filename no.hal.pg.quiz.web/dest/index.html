@@ -11,64 +11,13 @@
 
 </head>
 <body>
-<div id="example"></div>
+<div id="quiz"></div>
+
 <script src="./bundle.js"></script>
 <script type="text/javascript">
-var data = [ {
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "STRING",
-	  "question" : "I hvilken by ligger Stortinget?",
-	  "lastProposal" : "Fredrikstad",
-	  "numChoices" : 1
-	}, {
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "STRING",
-	  "question" : "I hvilken by ligger Stortinget?",
-	  "numChoices" : 1,
-	  "options" : [ {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-	    "answer" : "Trondheim",
-	    "selected" : true
-	  }, {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-	    "answer" : "Oslo"
-	  }, {
-	    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-	    "answer" : "Fredrikstad"
-	  } ]
-	},
-	 {
-		  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-		  "kind" : "STRING",
-		  "question" : "Hvilke byer har mer enn 100 000 innbyggere?",
-		  "numChoices" : 2,
-		  "options" : [ {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Trondheim",
-		    "selected" : true
-		  }, {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Oslo"
-		  }, {
-		    "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Answer",
-		    "answer" : "Fredrikstad"
-		  } ]
-		},
-	
-	
-	{
-	  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-	  "kind" : "NUM",
-	  "question" : "Hvor mange haler har ei ku?",
-	  "lastProposal" : "1.2",
-	  "numChoices" : 1
-	}, {
-		  "eClass" : "platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-service.ecore#//Question",
-		  "kind" : "YESNO",
-		  "question" : "Hvor mange kuer hale?"
-		} ];
+var data = [ ];
 
-React.render(React.createElement(QuizContainer,  { questions: data }), document.getElementById('example'));
+React.render(React.createElement(QuizContainer,  { player: "", questions: data }), document.getElementById('quiz'));
 </script>
 </body>
 </html>
