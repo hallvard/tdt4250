@@ -17,7 +17,9 @@
 <script type="text/javascript">
 var data = [ ];
 
-React.render(React.createElement(QuizContainer,  { player: "", questions: data }), document.getElementById('quiz'));
+React.render(React.createElement(QuizContainer,
+		{ serviceUrl : AppHelper.serviceUrl(window.location.search), player: "hal@idi.ntnu.no", questions: data }
+		), document.getElementById('quiz'));
 </script>
 </body>
 </html>

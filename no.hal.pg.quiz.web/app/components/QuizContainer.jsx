@@ -52,40 +52,31 @@ var ButtonInput = require('react-bootstrap').ButtonInput;
 var AppHelper = require('../AppHelper.js');
 
 var QuizContainer = React.createClass({
-    
-     serviceUrl : AppHelper.serviceUrl(window.location.search),
-
 
     getInitialState: function () {
-		var comp = this;
-
-		AppHelper.loadData(this.serviceUrl, true, function(response) {
-			AppHelper.log("Questions retrieved: " + response, AppHelper.LOGGING_INFO);
+		AppHelper.loadData(this.props.serviceUrl + '/getPlayerQuestions?player=' + this.props.player, true, function(response) {
 			comp.setState({
 				questions : response
 			});
 		});
 		return {
-			//Return initial test data set in html
 			questions : this.props.questions
 		};
     },
 
-
-
     render: function () {
     return (
       <div>
-      <form className="col s12">
-      {this.state.questions.map(function(item, idx){
-          return <Question key={idx} data={item} />;
-        })}
-    <div>
-    <ButtonInput type="reset" value="Cancel" />
-    <ButtonInput type="submit" value="Save" />
-    <ButtonInput type="submit" value="Submit" />
-    </div>
-    </form>
+      	<form className="col s12">
+      		{this.state.questions.map(function(item, idx){
+          		return <Question key={item.qid} data={item} />;
+        	})}
+    		<div>
+    			<ButtonInput type="reset" value="Cancel" />
+    			<ButtonInput type="submit" value="Save" />
+    			<ButtonInput type="submit" value="Submit" />
+    		</div>
+    	</form>
     </div>);
   }
 });

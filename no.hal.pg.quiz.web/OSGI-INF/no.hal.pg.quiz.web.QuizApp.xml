@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.quiz.web.QuizApp">
+   <implementation class="no.hal.pg.runtime.engine.http.EngineAppComponent"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.http.IEngineApp"/>
+   </service>
+   <property name="IEngineApp.name" type="String" value="Quiz"/>
+   <property name="IEngineApp.displayName" type="String" value="Quiz app"/>
+
+   <property name="EngineAppComponent.eClass" type="String" value="platform:/plugin/no.hal.pg.quiz.runtime/model/quiz-runtime.ecore#QuizTask"/>
+
+   <property name="EngineAppComponent.resourceNames" type="String" value="/dest"></property>
+   <property name="EngineAppComponent.main" type="String" value="/web/index.html"></property>
+   <property name="EngineAppComponent.aliasPathFormat" type="String" value="/web"/>
+</scr:component>

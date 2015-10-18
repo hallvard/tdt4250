@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Quiz Web App
+Bundle-SymbolicName: no.hal.pg.quiz.web;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ no.hal.pg.runtime;bundle-version="0.1.0",
+ no.hal.pg.quiz.runtime;bundle-version="0.1.0";visibility:=reexport,
+ no.hal.pg.runtime.http;bundle-version="0.1.0"
+Bundle-ActivationPolicy: lazy
+Import-Package: org.emfjson.jackson.resource;version="0.12.0"
+Service-Component: OSGI-INF/no.hal.pg.quiz.web.QuizApp.xml

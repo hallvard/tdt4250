@@ -27,4 +27,3 @@ gulp.task('watch', ['build'], function () {
     gulp.watch(['./app/**/*.jsx', './app/**/*.js'], ['browserify']);
     gulp.watch(['./assets/**/*.html'], ['html']);
 });
-
