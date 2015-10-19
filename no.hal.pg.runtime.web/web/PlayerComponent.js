@@ -44,24 +44,18 @@ var PlayerComponent = React.createClass({
   			} else if (urlPattern.test(id)) {
   				url = id;
   			}
-      		return React.createElement(
-          		"tr", { key: id },
-    	    	React.createElement(
-    	      		"td", { className: "playerId" },
+      		return React.createElement("tr", { key: id },
+    	    	React.createElement("td", { className: "playerId" },
     		    	(url != null ? React.createElement( "a", { href: url }, id ) : id)
     	 		)
           	);
   		});
-    	return React.createElement(
-      		"table", { className: "player" },
-      		React.createElement(
-    			"tbody", null,
-	    			React.createElement(
-	    					"tr", null,
-	    	    	React.createElement(
-	        	      	"td", { className: "playerName" },
-	        		    "Name: " + this.state.name
-	        	 	)
+    	return React.createElement("table", { className: "player" },
+      		React.createElement("tbody", null,
+	    			React.createElement("tr", null,
+		    	    	React.createElement("td", { className: "playerName" },
+		        		    "Name: " + this.state.name
+		        	 	)
 	    		),
 	    		rows
       		)

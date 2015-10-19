@@ -38,25 +38,19 @@ var GameComponent = React.createClass({
   	render: function render() {
   		var serviceUrl = this.props.serviceUrl;
   		var playerComponents = this.state.players.map(function(player) {
-  			var playerProps = { name: player.name, ids: player.ids };
-      		return React.createElement(
-      				PlayerComponent, { serviceUrl: serviceUrl + '/' + player.ids[0], player: playerProps}
+      		return React.createElement(PlayerComponent,
+      				{ serviceUrl: serviceUrl + '/' + player.ids[0],
+      				  player: { name: player.name, ids: player.ids } }
           		)
   		});
-    	return React.createElement(
-      		"div", { className: "game" },
-      		React.createElement(
-    			"div", { className: "playerList" },
-    			React.createElement(
-    					"h2", null, "Players"
-    			),
+    	return React.createElement("div", { className: "game" },
+      		React.createElement("div", { className: "playerList" },
+    			React.createElement("h2", null, "Players"),
     			playerComponents
     		),
-    		React.createElement(
-    				"h2", null, "Tasks"
-    		),
-    		React.createElement(
-    			TaskListComponent, { serviceUrl: this.props.serviceUrl + '/tasks', tasks: []}
+    		React.createElement("h2", null, "Tasks"),
+    		React.createElement(TaskListComponent,
+    				{ serviceUrl: this.props.serviceUrl + '/tasks', tasks: []}
     		)    		
     	);
   	}
