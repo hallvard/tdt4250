@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -51,6 +52,10 @@ public class EngineAppServlet extends HttpServlet {
 
 	protected String getAppLocation(HttpServletRequest req, IEngineApp engineApp) {
 		String servletPath = req.getServletPath(), path = req.getPathInfo();
-		return servletPath + "/" + engineApp.getName() + "?" + servletPath + "/../data" + path;
+		String requestArgs = "serviceUrl=" + servletPath + "/../data" + path;
+		for (Map.Entry<String, String[]> entry : req.getParameterMap().entrySet()) {
+			requestArgs += "&" + entry.getKey() + "=" + entry.getValue()[0];
+		}
+		return servletPath + "/" + engineApp.getName() + "?" + requestArgs;
 	}
 }
