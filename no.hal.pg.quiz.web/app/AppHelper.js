@@ -18,6 +18,35 @@ var AppHelper = {
 		}
 	},
 
+	appProps: function getQueryVariable(props, defaultProp, search) {
+		if (typeof defaultProp != 'string') {
+			defaultProp = 'serviceUrl';
+		}
+		if (typeof search != 'string') {
+			search = window.location.search;
+		}
+		if (search.indexOf("?") === 0) {
+			search = search.substring(1);
+		}
+	    var vars = search.split('&');
+	    for (var i = 0; i < vars.length; i++) {
+	        var pair = vars[i].split('=');
+	        var argName = decodeURIComponent(pair[0]);
+	        if (pair.length == 1) {
+	        	if (vars.length == 1) {
+	        		props[defaultProp] = search;
+	        		break;
+	        	} else {
+	        		props[argName] = true;
+	        	}
+	        } else { 
+	        	var argValue = decodeURIComponent(pair[1]);
+	        	props[argName] = argValue;
+	    	}
+	    }
+	    return props;
+	},
+	
 	serviceUrl: function(serviceUrl) {
 		if (serviceUrl.indexOf("?") === 0) {
 			serviceUrl = serviceUrl.substring(1);
