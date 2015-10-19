@@ -24,20 +24,22 @@ var PlayerComponent = React.createClass({
 	getInitialState : function() {
 		var comp = this;
 		AppHelper.loadData(this.props.serviceUrl, false, function(response) {
-			comp.setState({
-				name : response.name,
-				ids : response.ids
-			});
+			var person = {
+					name : response.name,
+					ids : response.ids
+				};
+			comp.setState(person);
+			comp.props.taskList.setPlayer(person);
 		});
 		return {
-			name : this.props.player.name,
-			ids : this.props.player.ids
+			name : "???", // this.props.player.name,
+			ids : [ "???" ] // this.props.player.ids
 		};
 	},
 
   	render: function render() {
   		var ids = (this.state.ids ? this.state.ids : []);
-  		var rows = ids.map(function(id) {
+  		var idRows = ids.map(function(id) {
   			var url = null;
   			if (emailPattern.test(id)) {
   				url = "mailto:" + id;
@@ -57,7 +59,7 @@ var PlayerComponent = React.createClass({
 		        		    "Name: " + this.state.name
 		        	 	)
 	    		),
-	    		rows
+	    		idRows
       		)
     	);
   	}

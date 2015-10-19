@@ -21,23 +21,17 @@
 <script src="TaskListComponent.js"></script>
 
 <script type="text/javascript">
-var game = {
-	players: [ {
-		name: "Hallvard Trætteberg", ids: [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com", "https://www.facebook.com/hallvard.traetteberg" ]
-	} ],
-	tasks: [
-	    "???", "???"
-	]
-};
+var appProps = AppHelper.appProps({ });
 
-React.render(React.createElement(GameComponent,
-		{ serviceUrl: serviceUrl, player: player }
- 		), document.getElementById('player')
- );
- React.render(React.createElement(TaskListComponent,
-		{ serviceUrl: serviceUrl + '/tasks', tasks: tasks }
- 		), document.getElementById('tasklist')
- );
+var taskList = React.render(React.createElement(TaskListComponent,
+	{ serviceUrl: appProps.serviceUrl + '/tasks', player: appProps.player, tasks: [ ] }
+	), document.getElementById('tasklist')
+);
+
+React.render(React.createElement(PlayerComponent,
+	{ serviceUrl: appProps.serviceUrl, player: player, taskList: taskList }
+	), document.getElementById('player')
+);
 </script>
 </body>  
 </html>

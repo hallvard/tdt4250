@@ -18,6 +18,12 @@ var TaskComponent = React.createClass({
 	displayName: "Task component",
 
 	getInitialState: function() {
+		var comp = this;
+		AppHelper.loadData(this.props.serviceUrl, true, function(response) {
+			comp.setState({
+				tasks : response
+			});
+		});
 		var task = this.props.task;
 		var started = typeof task != 'string' && task.started;
 		var finished = typeof task != 'string' && task.finished;
@@ -33,11 +39,15 @@ var TaskComponent = React.createClass({
   		}
   		var serviceUrl = this.props.serviceUrl; 
   		var taskLink = serviceUrl.replace("/data/", "/app/");
-  		console.log("Task link: " + taskLink + " (" + serviceUrl + ")");
+  		var player = this.props.player;
+  		if (typeof player === 'object') {
+  			taskLink = taskLink + '?player=' + player.ids[0];
+  		}
+		console.log("Task link: " + taskLink + " (" + serviceUrl + ")");
     	return React.createElement(
       		"div", { className: divClass },
       		React.createElement(
-      			"a", { href: serviceUrl.replace("/data/", "/app/") },
+      			"a", { href: taskLink },
       			"Task ", this.props.taskNum
       		)
     	);

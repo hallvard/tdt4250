@@ -27,11 +27,18 @@ var TaskListComponent = React.createClass({
 			tasks : this.props.tasks
 		};
 	},
+	
+	setPlayer: function(player) {
+		this.setState({
+			player : player
+		});
+	},
 
   	render: function render() {
   		var num = 0;
   		AppHelper.log("Task count: " + this.state.tasks.length, AppHelper.INFO);
-  		var serviceUrl = this.props.serviceUrl;
+  		var props = this.props;
+  		var state = this.state;
   		var rows = this.state.tasks.map(function(task) {
   			num = num + 1;
   			AppHelper.log("Creating TaskComponent # " + num, AppHelper.INFO);
@@ -40,7 +47,7 @@ var TaskListComponent = React.createClass({
     	    	React.createElement(
     	      		"td", { className: "taskItem" },
     		    	React.createElement(
-    	 	    		TaskComponent, { serviceUrl: serviceUrl + '/' + (num - 1), task: task, taskNum: num }
+    	 	    		TaskComponent, { serviceUrl: props.serviceUrl + '/' + (num - 1), player: state.player, task: task, taskNum: num }
     	 	    	)
     	 		)
           	);
