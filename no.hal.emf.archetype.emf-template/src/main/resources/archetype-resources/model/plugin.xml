@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 
@@ -9,16 +12,16 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated archetype -->
       <package
-            uri="platform:/plugin/no.hal.emf.archetype.model/model/archetype.ecore"
-            class="no.hal.emf.archetype.model.ModelPackage"
-            genModel="model/archetype.genmodel"/>
+            uri="platform:/plugin/${artifactId}/model/${name}.ecore"
+            class="${package}.model.ModelPackage"
+            genModel="model/${name}.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <!-- @generated archetype -->
       <parser
             type="archetype"
-            class="no.hal.emf.archetype.model.util.ModelResourceFactoryImpl"/>
+            class="${package}.model.util.ModelResourceFactoryImpl"/>
    </extension>
 
 </plugin>

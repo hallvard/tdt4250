@@ -33,6 +33,7 @@
 						<include>pom.xml</include>
 						<include>model/*.ecore</include>
 						<include>model/*.genmodel</include>
+						<include>**/*.java</include>
 						<include>readme.md</include>
 					</includes>
 				</fileSet>
@@ -54,6 +55,7 @@
 						<include>META-INF/MANIFEST.MF</include>
 						<include>plugin.properties</include>
 						<include>pom.xml</include>
+						<include>**/*.java</include>
 						<include>readme.md</include>
 					</includes>
 				</fileSet>
@@ -75,6 +77,7 @@
 						<include>META-INF/MANIFEST.MF</include>
 						<include>plugin.properties</include>
 						<include>pom.xml</include>
+						<include>**/*.java</include>
 						<include>readme.md</include>
 					</includes>
 				</fileSet>
