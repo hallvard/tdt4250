@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see no.hal.gridgame.model.ModelPackage#getGameCommand()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
  * @generated
  */
 public interface GameCommand extends EObject {

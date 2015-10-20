@@ -65,6 +65,7 @@ public class GridItemProvider
 
 			addWidthPropertyDescriptor(object);
 			addHeightPropertyDescriptor(object);
+			addValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class GridItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Values feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Grid_values_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Grid_values_feature", "_UI_Grid_type"),
+				 ModelPackage.Literals.GRID__VALUES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -125,7 +148,7 @@ public class GridItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.GRID__ELEMENTS);
+			childrenFeatures.add(ModelPackage.Literals.GRID__OBJECTS);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +185,7 @@ public class GridItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Grid<?> grid = (Grid<?>)object;
+		Grid<?, ?> grid = (Grid<?, ?>)object;
 		return getString("_UI_Grid_type") + " " + grid.getWidth();
 	}
 	
@@ -181,9 +204,10 @@ public class GridItemProvider
 		switch (notification.getFeatureID(Grid.class)) {
 			case ModelPackage.GRID__WIDTH:
 			case ModelPackage.GRID__HEIGHT:
+			case ModelPackage.GRID__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.GRID__ELEMENTS:
+			case ModelPackage.GRID__OBJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -203,12 +227,12 @@ public class GridItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.GRID__ELEMENTS,
+				(ModelPackage.Literals.GRID__OBJECTS,
 				 ModelFactory.eINSTANCE.createUoD()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.GRID__ELEMENTS,
+				(ModelPackage.Literals.GRID__OBJECTS,
 				 ModelFactory.eINSTANCE.createCompositeCommand()));
 	}
 

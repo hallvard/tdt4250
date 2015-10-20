@@ -162,8 +162,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGrid_Elements() {
-		return (EReference)gridEClass.getEStructuralFeatures().get(2);
+	public EAttribute getGrid_Values() {
+		return (EAttribute)gridEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -171,7 +171,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGrid__GetGridElement__int_int() {
+	public EReference getGrid_Objects() {
+		return (EReference)gridEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGrid__GetGridValue__int_int() {
 		return gridEClass.getEOperations().get(0);
 	}
 
@@ -180,7 +189,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGrid__SetGridElement__int_int_GridElement() {
+	public EOperation getGrid__GetGridObject__int_int() {
 		return gridEClass.getEOperations().get(1);
 	}
 
@@ -189,7 +198,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGrid__CreateGridElement__int_int() {
+	public EOperation getGrid__SetGridValue__int_int_Object() {
 		return gridEClass.getEOperations().get(2);
 	}
 
@@ -198,8 +207,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGrid__MoveGridElement__int_int_int_int_GridElement() {
+	public EOperation getGrid__SetGridObject__int_int_EObject() {
 		return gridEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGrid__CreateGridValue() {
+		return gridEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGrid__CreateGridObject() {
+		return gridEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -370,11 +397,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		gridEClass = createEClass(GRID);
 		createEAttribute(gridEClass, GRID__WIDTH);
 		createEAttribute(gridEClass, GRID__HEIGHT);
-		createEReference(gridEClass, GRID__ELEMENTS);
-		createEOperation(gridEClass, GRID___GET_GRID_ELEMENT__INT_INT);
-		createEOperation(gridEClass, GRID___SET_GRID_ELEMENT__INT_INT_GRIDELEMENT);
-		createEOperation(gridEClass, GRID___CREATE_GRID_ELEMENT);
-		createEOperation(gridEClass, GRID___MOVE_GRID_ELEMENT__INT_INT_INT_INT_GRIDELEMENT);
+		createEAttribute(gridEClass, GRID__VALUES);
+		createEReference(gridEClass, GRID__OBJECTS);
+		createEOperation(gridEClass, GRID___GET_GRID_VALUE__INT_INT);
+		createEOperation(gridEClass, GRID___GET_GRID_OBJECT__INT_INT);
+		createEOperation(gridEClass, GRID___SET_GRID_VALUE__INT_INT_OBJECT);
+		createEOperation(gridEClass, GRID___SET_GRID_OBJECT__INT_INT_EOBJECT);
+		createEOperation(gridEClass, GRID___CREATE_GRID_VALUE);
+		createEOperation(gridEClass, GRID___CREATE_GRID_OBJECT);
 
 		gridGameEClass = createEClass(GRID_GAME);
 		createEReference(gridGameEClass, GRID_GAME__GRID);
@@ -419,16 +449,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
-		ETypeParameter gridEClass_E = addETypeParameter(gridEClass, "E");
-		ETypeParameter gridGameEClass_E = addETypeParameter(gridGameEClass, "E");
+		ETypeParameter gridEClass_V = addETypeParameter(gridEClass, "V");
+		ETypeParameter gridEClass_O = addETypeParameter(gridEClass, "O");
+		ETypeParameter gridGameEClass_V = addETypeParameter(gridGameEClass, "V");
+		ETypeParameter gridGameEClass_O = addETypeParameter(gridGameEClass, "O");
 		ETypeParameter gridGameEClass_C = addETypeParameter(gridGameEClass, "C");
 		ETypeParameter compositeCommandEClass_C = addETypeParameter(compositeCommandEClass, "C");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(ecorePackage.getEObject());
-		gridEClass_E.getEBounds().add(g1);
+		EGenericType g1 = createEGenericType(ecorePackage.getEJavaObject());
+		gridEClass_V.getEBounds().add(g1);
 		g1 = createEGenericType(ecorePackage.getEObject());
-		gridGameEClass_E.getEBounds().add(g1);
+		gridEClass_O.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEJavaObject());
+		gridGameEClass_V.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEObject());
+		gridGameEClass_O.getEBounds().add(g1);
 		g1 = createEGenericType(this.getGameCommand());
 		gridGameEClass_C.getEBounds().add(g1);
 		g1 = createEGenericType(this.getGameCommand());
@@ -443,38 +479,48 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(gridEClass, Grid.class, "Grid", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrid_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGrid_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
-		initEReference(getGrid_Elements(), g1, null, "elements", null, 0, -1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_V);
+		initEAttribute(getGrid_Values(), g1, "values", null, 0, -1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_O);
+		initEReference(getGrid_Objects(), g1, null, "objects", null, 0, -1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getGrid__GetGridElement__int_int(), null, "getGridElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getGrid__GetGridValue__int_int(), null, "getGridValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "x", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
+		g1 = createEGenericType(gridEClass_V);
 		initEOperation(op, g1);
 
-		op = initEOperation(getGrid__SetGridElement__int_int_GridElement(), null, "setGridElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGrid__GetGridObject__int_int(), null, "getGridObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "x", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
-		addEParameter(op, g1, "element", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getGrid__CreateGridElement__int_int(), null, "createGridElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
+		g1 = createEGenericType(gridEClass_O);
 		initEOperation(op, g1);
 
-		op = initEOperation(getGrid__MoveGridElement__int_int_int_int_GridElement(), null, "moveGridElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "x1", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "y1", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "x2", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "y2", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
-		addEParameter(op, g1, "element", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(gridEClass_E);
+		op = initEOperation(getGrid__SetGridValue__int_int_Object(), null, "setGridValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "x", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_V);
+		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGrid__SetGridObject__int_int_EObject(), null, "setGridObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "x", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_O);
+		addEParameter(op, g1, "object", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGrid__CreateGridValue(), null, "createGridValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_V);
+		initEOperation(op, g1);
+
+		op = initEOperation(getGrid__CreateGridObject(), null, "createGridObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(gridEClass_O);
 		initEOperation(op, g1);
 
 		initEClass(gridGameEClass, GridGame.class, "GridGame", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGrid());
-		EGenericType g2 = createEGenericType(gridGameEClass_E);
+		EGenericType g2 = createEGenericType(gridGameEClass_V);
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(gridGameEClass_O);
 		g1.getETypeArguments().add(g2);
 		initEReference(getGridGame_Grid(), g1, null, "grid", null, 0, 1, GridGame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(gridGameEClass_C);
@@ -492,7 +538,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getGridGame__IsFinished(), ecorePackage.getEBoolean(), "isFinished", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(gameCommandEClass, GameCommand.class, "GameCommand", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(gameCommandEClass, GameCommand.class, "GameCommand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getGameCommand__Prepare(), ecorePackage.getEBoolean(), "prepare", 0, 1, IS_UNIQUE, IS_ORDERED);
 

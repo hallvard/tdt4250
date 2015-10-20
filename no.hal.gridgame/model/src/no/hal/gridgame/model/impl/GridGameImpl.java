@@ -36,7 +36,7 @@ import no.hal.gridgame.model.ModelPackage;
  *
  * @generated
  */
-public abstract class GridGameImpl<E extends EObject, C extends GameCommand> extends MinimalEObjectImpl.Container implements GridGame<E, C> {
+public abstract class GridGameImpl<V extends Object, O extends EObject, C extends GameCommand> extends MinimalEObjectImpl.Container implements GridGame<V, O, C> {
 	/**
 	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	 * @generated
 	 * @ordered
 	 */
-	protected Grid<E> grid;
+	protected Grid<V, O> grid;
 
 	/**
 	 * The cached value of the '{@link #getUndoStack() <em>Undo Stack</em>}' containment reference list.
@@ -92,7 +92,7 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	 * @generated
 	 */
 	@Override
-	public Grid<E> getGrid() {
+	public Grid<V, O> getGrid() {
 		return grid;
 	}
 
@@ -101,8 +101,8 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGrid(Grid<E> newGrid, NotificationChain msgs) {
-		Grid<E> oldGrid = grid;
+	public NotificationChain basicSetGrid(Grid<V, O> newGrid, NotificationChain msgs) {
+		Grid<V, O> oldGrid = grid;
 		grid = newGrid;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.GRID_GAME__GRID, oldGrid, newGrid);
@@ -117,7 +117,7 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	 * @generated
 	 */
 	@Override
-	public void setGrid(Grid<E> newGrid) {
+	public void setGrid(Grid<V, O> newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
 			if (grid != null)
@@ -259,7 +259,7 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.GRID_GAME__GRID:
-				setGrid((Grid<E>)newValue);
+				setGrid((Grid<V, O>)newValue);
 				return;
 			case ModelPackage.GRID_GAME__UNDO_STACK:
 				getUndoStack().clear();
@@ -282,7 +282,7 @@ public abstract class GridGameImpl<E extends EObject, C extends GameCommand> ext
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModelPackage.GRID_GAME__GRID:
-				setGrid((Grid<E>)null);
+				setGrid((Grid<V, O>)null);
 				return;
 			case ModelPackage.GRID_GAME__UNDO_STACK:
 				getUndoStack().clear();

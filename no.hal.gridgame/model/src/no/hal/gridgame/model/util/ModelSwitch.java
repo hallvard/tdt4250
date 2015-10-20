@@ -73,13 +73,13 @@ public class ModelSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case ModelPackage.GRID: {
-				Grid<?> grid = (Grid<?>)theEObject;
+				Grid<?, ?> grid = (Grid<?, ?>)theEObject;
 				T result = caseGrid(grid);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.GRID_GAME: {
-				GridGame<?, ?> gridGame = (GridGame<?, ?>)theEObject;
+				GridGame<?, ?, ?> gridGame = (GridGame<?, ?, ?>)theEObject;
 				T result = caseGridGame(gridGame);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,7 +127,7 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <E extends EObject> T caseGrid(Grid<E> object) {
+	public <V extends Object, O extends EObject> T caseGrid(Grid<V, O> object) {
 		return null;
 	}
 
@@ -142,7 +142,7 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <E extends EObject, C extends GameCommand> T caseGridGame(GridGame<E, C> object) {
+	public <V extends Object, O extends EObject, C extends GameCommand> T caseGridGame(GridGame<V, O, C> object) {
 		return null;
 	}
 

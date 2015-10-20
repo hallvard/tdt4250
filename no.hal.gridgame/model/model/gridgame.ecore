@@ -1,180 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="model"
-    nsURI="platform:/plugin/no.hal.gridgame.model/model/gridgame.ecore"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="platform:/plugin/no.hal.gridgame.model/model/gridgame.ecore"
     nsPrefix="gridgame-model">
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="UoD"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Grid"
-      abstract="true">
-    <eTypeParameters
-        name="E">
-      <eBounds
-          eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UoD"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Grid" abstract="true">
+    <eTypeParameters name="V">
+      <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eTypeParameters>
-    <eOperations
-        name="getGridElement">
-      <eGenericType
-          eTypeParameter="#//Grid/E"/>
-      <eParameters
-          name="x"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="y"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eTypeParameters name="O">
+      <eBounds eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eTypeParameters>
+    <eOperations name="getGridValue">
+      <eGenericType eTypeParameter="#//Grid/V"/>
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations
-        name="setGridElement">
-      <eParameters
-          name="x"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="y"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="element">
-        <eGenericType
-            eTypeParameter="#//Grid/E"/>
+    <eOperations name="getGridObject">
+      <eGenericType eTypeParameter="#//Grid/O"/>
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setGridValue">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="value">
+        <eGenericType eTypeParameter="#//Grid/V"/>
       </eParameters>
     </eOperations>
-    <eOperations
-        name="createGridElement">
-      <eGenericType
-          eTypeParameter="#//Grid/E"/>
-    </eOperations>
-    <eOperations
-        name="moveGridElement">
-      <eGenericType
-          eTypeParameter="#//Grid/E"/>
-      <eParameters
-          name="x1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="y1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="x2"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="y2"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters
-          name="element">
-        <eGenericType
-            eTypeParameter="#//Grid/E"/>
+    <eOperations name="setGridObject">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="object">
+        <eGenericType eTypeParameter="#//Grid/O"/>
       </eParameters>
     </eOperations>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="width"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="height"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="elements"
-        upperBound="-1"
+    <eOperations name="createGridValue">
+      <eGenericType eTypeParameter="#//Grid/V"/>
+    </eOperations>
+    <eOperations name="createGridObject">
+      <eGenericType eTypeParameter="#//Grid/O"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1">
+      <eGenericType eTypeParameter="#//Grid/V"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
         containment="true">
-      <eGenericType
-          eTypeParameter="#//Grid/E"/>
+      <eGenericType eTypeParameter="#//Grid/O"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="GridGame"
-      abstract="true">
-    <eTypeParameters
-        name="E">
-      <eBounds
-          eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GridGame" abstract="true">
+    <eTypeParameters name="V">
+      <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eTypeParameters>
-    <eTypeParameters
-        name="C">
-      <eBounds
-          eClassifier="#//GameCommand"/>
+    <eTypeParameters name="O">
+      <eBounds eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eTypeParameters>
-    <eOperations
-        name="perform">
-      <eParameters
-          name="command">
-        <eGenericType
-            eTypeParameter="#//GridGame/C"/>
+    <eTypeParameters name="C">
+      <eBounds eClassifier="#//GameCommand"/>
+    </eTypeParameters>
+    <eOperations name="perform">
+      <eParameters name="command">
+        <eGenericType eTypeParameter="#//GridGame/C"/>
       </eParameters>
     </eOperations>
-    <eOperations
-        name="undo"/>
-    <eOperations
-        name="redo"/>
-    <eOperations
-        name="isFinished"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="grid"
-        containment="true">
-      <eGenericType
-          eClassifier="#//Grid">
-        <eTypeArguments
-            eTypeParameter="#//GridGame/E"/>
+    <eOperations name="undo"/>
+    <eOperations name="redo"/>
+    <eOperations name="isFinished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grid" containment="true">
+      <eGenericType eClassifier="#//Grid">
+        <eTypeArguments eTypeParameter="#//GridGame/V"/>
+        <eTypeArguments eTypeParameter="#//GridGame/O"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="undoStack"
-        upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="undoStack" upperBound="-1"
         containment="true">
-      <eGenericType
-          eTypeParameter="#//GridGame/C"/>
+      <eGenericType eTypeParameter="#//GridGame/C"/>
     </eStructuralFeatures>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="redoStack"
-        upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="redoStack" upperBound="-1"
         containment="true">
-      <eGenericType
-          eTypeParameter="#//GridGame/C"/>
+      <eGenericType eTypeParameter="#//GridGame/C"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="GameCommand"
-      abstract="true"
-      interface="true">
-    <eOperations
-        name="prepare"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations
-        name="perform"/>
-    <eOperations
-        name="undo"/>
-    <eOperations
-        name="redo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GameCommand" abstract="true">
+    <eOperations name="prepare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="perform"/>
+    <eOperations name="undo"/>
+    <eOperations name="redo"/>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="CompositeCommand"
-      eSuperTypes="#//GameCommand">
-    <eTypeParameters
-        name="C">
-      <eBounds
-          eClassifier="#//GameCommand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeCommand" eSuperTypes="#//GameCommand">
+    <eTypeParameters name="C">
+      <eBounds eClassifier="#//GameCommand"/>
     </eTypeParameters>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="commands"
-        upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         containment="true">
-      <eGenericType
-          eTypeParameter="#//CompositeCommand/C"/>
+      <eGenericType eTypeParameter="#//CompositeCommand/C"/>
     </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

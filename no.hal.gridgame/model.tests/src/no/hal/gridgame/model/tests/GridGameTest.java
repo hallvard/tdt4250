@@ -28,7 +28,7 @@ public abstract class GridGameTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GridGame<?, ?> fixture = null;
+	protected GridGame<?, ?, ?> fixture = null;
 
 	/**
 	 * Constructs a new Grid Game test case with the given name.
@@ -46,7 +46,7 @@ public abstract class GridGameTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(GridGame<?, ?> fixture) {
+	protected void setFixture(GridGame<?, ?, ?> fixture) {
 		this.fixture = fixture;
 	}
 
@@ -56,7 +56,7 @@ public abstract class GridGameTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GridGame<?, ?> getFixture() {
+	protected GridGame<?, ?, ?> getFixture() {
 		return fixture;
 	}
 

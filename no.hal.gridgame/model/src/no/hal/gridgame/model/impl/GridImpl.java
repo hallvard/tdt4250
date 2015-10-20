@@ -9,13 +9,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.gridgame.model.Grid;
@@ -31,12 +30,13 @@ import no.hal.gridgame.model.ModelPackage;
  * <ul>
  *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getHeight <em>Height</em>}</li>
- *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getObjects <em>Objects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Container implements Grid<E> {
+public abstract class GridImpl<V extends Object, O extends EObject> extends MinimalEObjectImpl.Container implements Grid<V, O> {
 	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,14 +78,24 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	protected int height = HEIGHT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<E> elements;
+	protected EList<V> values;
+
+	/**
+	 * The cached value of the '{@link #getObjects() <em>Objects</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObjects()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<O> objects;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,11 +168,24 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	@Override
-	public EList<E> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentEList<E>(EObject.class, this, ModelPackage.GRID__ELEMENTS);
+	public EList<V> getValues() {
+		if (values == null) {
+			values = new EDataTypeUniqueEList<V>(Object.class, this, ModelPackage.GRID__VALUES);
 		}
-		return elements;
+		return values;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<O> getObjects() {
+		if (objects == null) {
+			objects = new EObjectContainmentEList<O>(EObject.class, this, ModelPackage.GRID__OBJECTS);
+		}
+		return objects;
 	}
 
 	protected int elementPos(int x, int y) {
@@ -180,11 +203,18 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 		throw new IllegalArgumentException(x + ", " + y + " is an illegal position for a grid size of " + getWidth() + ", " + getHeight());
 	}
 
-	protected E ensureElement(int pos, boolean omitLast) {
-		while (pos >= getElements().size()) {
-			getElements().add(pos == getElements().size() - 1 && omitLast ? null : createGridElement());
+	protected V ensureValue(int pos, boolean omitLast) {
+		while (pos >= getValues().size()) {
+			getValues().add(pos == getValues().size() - 1 && omitLast ? null : createGridValue());
 		}
-		return getElements().get(pos);
+		return getValues().get(pos);
+	}
+
+	protected O ensureObject(int pos, boolean omitLast) {
+		while (pos >= getObjects().size()) {
+			getObjects().add(pos == getObjects().size() - 1 && omitLast ? null : createGridObject());
+		}
+		return getObjects().get(pos);
 	}
 	
 	/**
@@ -193,10 +223,10 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	 * @generated NOT
 	 */
 	@Override
-	public E getGridElement(int x, int y) {
+	public V getGridValue(int x, int y) {
 		checkValidPos(x, y);
 		int pos = elementPos(x, y);
-		return ensureElement(pos, false);
+		return ensureValue(pos, false);
 	}
 
 	/**
@@ -205,11 +235,10 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	 * @generated NOT
 	 */
 	@Override
-	public void setGridElement(int x, int y, E element) {
+	public O getGridObject(int x, int y) {
 		checkValidPos(x, y);
 		int pos = elementPos(x, y);
-		ensureElement(pos, true);
-		getElements().set(pos, element);
+		return ensureObject(pos, false);
 	}
 
 	/**
@@ -218,10 +247,11 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	 * @generated NOT
 	 */
 	@Override
-	public E createGridElement() {
-		EGenericType eClass = eClass().getEGenericSuperTypes().get(0);
-		EGenericType eType = eClass.getETypeArguments().get(0);
-		return (E) EcoreUtil.create((EClass) eType.getEClassifier());
+	public void setGridValue(int x, int y, V element) {
+		checkValidPos(x, y);
+		int pos = elementPos(x, y);
+		ensureValue(pos, true);
+		getValues().set(pos, element);
 	}
 
 	/**
@@ -230,13 +260,33 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	 * @generated NOT
 	 */
 	@Override
-	public E moveGridElement(int x1, int y1, int x2, int y2, E element) {
-		checkValidPos(x1, y1);
-		checkValidPos(x2, y2);
-		E replacedElement = getGridElement(x2, y2);
-		setGridElement(x2, y2, getGridElement(x1, y1));
-		setGridElement(x1, y1, element);
-		return replacedElement;
+	public void setGridObject(int x, int y, O object) {
+		checkValidPos(x, y);
+		int pos = elementPos(x, y);
+		ensureObject(pos, true);
+		getObjects().set(pos, object);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public V createGridValue() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public O createGridObject() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -247,8 +297,8 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.GRID__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case ModelPackage.GRID__OBJECTS:
+				return ((InternalEList<?>)getObjects()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -265,8 +315,10 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 				return getWidth();
 			case ModelPackage.GRID__HEIGHT:
 				return getHeight();
-			case ModelPackage.GRID__ELEMENTS:
-				return getElements();
+			case ModelPackage.GRID__VALUES:
+				return getValues();
+			case ModelPackage.GRID__OBJECTS:
+				return getObjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -286,9 +338,13 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 			case ModelPackage.GRID__HEIGHT:
 				setHeight((Integer)newValue);
 				return;
-			case ModelPackage.GRID__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends E>)newValue);
+			case ModelPackage.GRID__VALUES:
+				getValues().clear();
+				getValues().addAll((Collection<? extends V>)newValue);
+				return;
+			case ModelPackage.GRID__OBJECTS:
+				getObjects().clear();
+				getObjects().addAll((Collection<? extends O>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,8 +364,11 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 			case ModelPackage.GRID__HEIGHT:
 				setHeight(HEIGHT_EDEFAULT);
 				return;
-			case ModelPackage.GRID__ELEMENTS:
-				getElements().clear();
+			case ModelPackage.GRID__VALUES:
+				getValues().clear();
+				return;
+			case ModelPackage.GRID__OBJECTS:
+				getObjects().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -327,8 +386,10 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 				return width != WIDTH_EDEFAULT;
 			case ModelPackage.GRID__HEIGHT:
 				return height != HEIGHT_EDEFAULT;
-			case ModelPackage.GRID__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case ModelPackage.GRID__VALUES:
+				return values != null && !values.isEmpty();
+			case ModelPackage.GRID__OBJECTS:
+				return objects != null && !objects.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -342,15 +403,20 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.GRID___GET_GRID_ELEMENT__INT_INT:
-				return getGridElement((Integer)arguments.get(0), (Integer)arguments.get(1));
-			case ModelPackage.GRID___SET_GRID_ELEMENT__INT_INT_GRIDELEMENT:
-				setGridElement((Integer)arguments.get(0), (Integer)arguments.get(1), (E)arguments.get(2));
+			case ModelPackage.GRID___GET_GRID_VALUE__INT_INT:
+				return getGridValue((Integer)arguments.get(0), (Integer)arguments.get(1));
+			case ModelPackage.GRID___GET_GRID_OBJECT__INT_INT:
+				return getGridObject((Integer)arguments.get(0), (Integer)arguments.get(1));
+			case ModelPackage.GRID___SET_GRID_VALUE__INT_INT_OBJECT:
+				setGridValue((Integer)arguments.get(0), (Integer)arguments.get(1), (V)arguments.get(2));
 				return null;
-			case ModelPackage.GRID___CREATE_GRID_ELEMENT:
-				return createGridElement();
-			case ModelPackage.GRID___MOVE_GRID_ELEMENT__INT_INT_INT_INT_GRIDELEMENT:
-				return moveGridElement((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3), (E)arguments.get(4));
+			case ModelPackage.GRID___SET_GRID_OBJECT__INT_INT_EOBJECT:
+				setGridObject((Integer)arguments.get(0), (Integer)arguments.get(1), (O)arguments.get(2));
+				return null;
+			case ModelPackage.GRID___CREATE_GRID_VALUE:
+				return createGridValue();
+			case ModelPackage.GRID___CREATE_GRID_OBJECT:
+				return createGridObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -369,6 +435,8 @@ public abstract class GridImpl<E extends EObject> extends MinimalEObjectImpl.Con
 		result.append(width);
 		result.append(", height: ");
 		result.append(height);
+		result.append(", values: ");
+		result.append(values);
 		result.append(')');
 		return result.toString();
 	}

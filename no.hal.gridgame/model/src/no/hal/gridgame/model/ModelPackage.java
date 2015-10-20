@@ -115,13 +115,22 @@ public interface ModelPackage extends EPackage {
 	int GRID__HEIGHT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID__ELEMENTS = 2;
+	int GRID__VALUES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID__OBJECTS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Grid</em>' class.
@@ -130,43 +139,61 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_FEATURE_COUNT = 3;
+	int GRID_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Get Grid Element</em>' operation.
+	 * The operation id for the '<em>Get Grid Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID___GET_GRID_ELEMENT__INT_INT = 0;
+	int GRID___GET_GRID_VALUE__INT_INT = 0;
 
 	/**
-	 * The operation id for the '<em>Set Grid Element</em>' operation.
+	 * The operation id for the '<em>Get Grid Object</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID___SET_GRID_ELEMENT__INT_INT_GRIDELEMENT = 1;
+	int GRID___GET_GRID_OBJECT__INT_INT = 1;
 
 	/**
-	 * The operation id for the '<em>Create Grid Element</em>' operation.
+	 * The operation id for the '<em>Set Grid Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID___CREATE_GRID_ELEMENT = 2;
+	int GRID___SET_GRID_VALUE__INT_INT_OBJECT = 2;
 
 	/**
-	 * The operation id for the '<em>Move Grid Element</em>' operation.
+	 * The operation id for the '<em>Set Grid Object</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID___MOVE_GRID_ELEMENT__INT_INT_INT_INT_GRIDELEMENT = 3;
+	int GRID___SET_GRID_OBJECT__INT_INT_EOBJECT = 3;
+
+	/**
+	 * The operation id for the '<em>Create Grid Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID___CREATE_GRID_VALUE = 4;
+
+	/**
+	 * The operation id for the '<em>Create Grid Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID___CREATE_GRID_OBJECT = 5;
 
 	/**
 	 * The number of operations of the '<em>Grid</em>' class.
@@ -175,7 +202,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_OPERATION_COUNT = 4;
+	int GRID_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link no.hal.gridgame.model.impl.GridGameImpl <em>Grid Game</em>}' class.
@@ -269,10 +296,10 @@ public interface ModelPackage extends EPackage {
 	int GRID_GAME_OPERATION_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link no.hal.gridgame.model.GameCommand <em>Game Command</em>}' class.
+	 * The meta object id for the '{@link no.hal.gridgame.model.impl.GameCommandImpl <em>Game Command</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.gridgame.model.GameCommand
+	 * @see no.hal.gridgame.model.impl.GameCommandImpl
 	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGameCommand()
 	 * @generated
 	 */
@@ -450,55 +477,86 @@ public interface ModelPackage extends EPackage {
 	EAttribute getGrid_Height();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.hal.gridgame.model.Grid#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the attribute list '{@link no.hal.gridgame.model.Grid#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see no.hal.gridgame.model.Grid#getElements()
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see no.hal.gridgame.model.Grid#getValues()
 	 * @see #getGrid()
 	 * @generated
 	 */
-	EReference getGrid_Elements();
+	EAttribute getGrid_Values();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridElement(int, int) <em>Get Grid Element</em>}' operation.
+	 * Returns the meta object for the containment reference list '{@link no.hal.gridgame.model.Grid#getObjects <em>Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Grid Element</em>' operation.
-	 * @see no.hal.gridgame.model.Grid#getGridElement(int, int)
+	 * @return the meta object for the containment reference list '<em>Objects</em>'.
+	 * @see no.hal.gridgame.model.Grid#getObjects()
+	 * @see #getGrid()
 	 * @generated
 	 */
-	EOperation getGrid__GetGridElement__int_int();
+	EReference getGrid_Objects();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#setGridElement(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Element</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridValue(int, int) <em>Get Grid Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Grid Element</em>' operation.
-	 * @see no.hal.gridgame.model.Grid#setGridElement(int, int, org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the '<em>Get Grid Value</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#getGridValue(int, int)
 	 * @generated
 	 */
-	EOperation getGrid__SetGridElement__int_int_GridElement();
+	EOperation getGrid__GetGridValue__int_int();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#createGridElement() <em>Create Grid Element</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridObject(int, int) <em>Get Grid Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Grid Element</em>' operation.
-	 * @see no.hal.gridgame.model.Grid#createGridElement()
+	 * @return the meta object for the '<em>Get Grid Object</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#getGridObject(int, int)
 	 * @generated
 	 */
-	EOperation getGrid__CreateGridElement__int_int();
+	EOperation getGrid__GetGridObject__int_int();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#moveGridElement(int, int, int, int, org.eclipse.emf.ecore.EObject) <em>Move Grid Element</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#setGridValue(int, int, java.lang.Object) <em>Set Grid Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Move Grid Element</em>' operation.
-	 * @see no.hal.gridgame.model.Grid#moveGridElement(int, int, int, int, org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the '<em>Set Grid Value</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#setGridValue(int, int, java.lang.Object)
 	 * @generated
 	 */
-	EOperation getGrid__MoveGridElement__int_int_int_int_GridElement();
+	EOperation getGrid__SetGridValue__int_int_Object();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Grid Object</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getGrid__SetGridObject__int_int_EObject();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#createGridValue() <em>Create Grid Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Grid Value</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#createGridValue()
+	 * @generated
+	 */
+	EOperation getGrid__CreateGridValue();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#createGridObject() <em>Create Grid Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Grid Object</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#createGridObject()
+	 * @generated
+	 */
+	EOperation getGrid__CreateGridObject();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.gridgame.model.GridGame <em>Grid Game</em>}'.
@@ -710,40 +768,61 @@ public interface ModelPackage extends EPackage {
 		 */
 		EAttribute GRID__HEIGHT = eINSTANCE.getGrid_Height();
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRID__ELEMENTS = eINSTANCE.getGrid_Elements();
+		EAttribute GRID__VALUES = eINSTANCE.getGrid_Values();
 		/**
-		 * The meta object literal for the '<em><b>Get Grid Element</b></em>' operation.
+		 * The meta object literal for the '<em><b>Objects</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRID___GET_GRID_ELEMENT__INT_INT = eINSTANCE.getGrid__GetGridElement__int_int();
+		EReference GRID__OBJECTS = eINSTANCE.getGrid_Objects();
 		/**
-		 * The meta object literal for the '<em><b>Set Grid Element</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Grid Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRID___SET_GRID_ELEMENT__INT_INT_GRIDELEMENT = eINSTANCE.getGrid__SetGridElement__int_int_GridElement();
+		EOperation GRID___GET_GRID_VALUE__INT_INT = eINSTANCE.getGrid__GetGridValue__int_int();
 		/**
-		 * The meta object literal for the '<em><b>Create Grid Element</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Grid Object</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRID___CREATE_GRID_ELEMENT = eINSTANCE.getGrid__CreateGridElement__int_int();
+		EOperation GRID___GET_GRID_OBJECT__INT_INT = eINSTANCE.getGrid__GetGridObject__int_int();
 		/**
-		 * The meta object literal for the '<em><b>Move Grid Element</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Grid Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRID___MOVE_GRID_ELEMENT__INT_INT_INT_INT_GRIDELEMENT = eINSTANCE.getGrid__MoveGridElement__int_int_int_int_GridElement();
+		EOperation GRID___SET_GRID_VALUE__INT_INT_OBJECT = eINSTANCE.getGrid__SetGridValue__int_int_Object();
+		/**
+		 * The meta object literal for the '<em><b>Set Grid Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID___SET_GRID_OBJECT__INT_INT_EOBJECT = eINSTANCE.getGrid__SetGridObject__int_int_EObject();
+		/**
+		 * The meta object literal for the '<em><b>Create Grid Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID___CREATE_GRID_VALUE = eINSTANCE.getGrid__CreateGridValue();
+		/**
+		 * The meta object literal for the '<em><b>Create Grid Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID___CREATE_GRID_OBJECT = eINSTANCE.getGrid__CreateGridObject();
 		/**
 		 * The meta object literal for the '{@link no.hal.gridgame.model.impl.GridGameImpl <em>Grid Game</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -803,10 +882,10 @@ public interface ModelPackage extends EPackage {
 		 */
 		EOperation GRID_GAME___IS_FINISHED = eINSTANCE.getGridGame__IsFinished();
 		/**
-		 * The meta object literal for the '{@link no.hal.gridgame.model.GameCommand <em>Game Command</em>}' class.
+		 * The meta object literal for the '{@link no.hal.gridgame.model.impl.GameCommandImpl <em>Game Command</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.gridgame.model.GameCommand
+		 * @see no.hal.gridgame.model.impl.GameCommandImpl
 		 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGameCommand()
 		 * @generated
 		 */

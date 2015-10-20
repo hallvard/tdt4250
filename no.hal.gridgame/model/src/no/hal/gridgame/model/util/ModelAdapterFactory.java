@@ -72,11 +72,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createUoDAdapter();
 			}
 			@Override
-			public <E extends EObject> Adapter caseGrid(Grid<E> object) {
+			public <V extends Object, O extends EObject> Adapter caseGrid(Grid<V, O> object) {
 				return createGridAdapter();
 			}
 			@Override
-			public <E extends EObject, C extends GameCommand> Adapter caseGridGame(GridGame<E, C> object) {
+			public <V extends Object, O extends EObject, C extends GameCommand> Adapter caseGridGame(GridGame<V, O, C> object) {
 				return createGridGameAdapter();
 			}
 			@Override

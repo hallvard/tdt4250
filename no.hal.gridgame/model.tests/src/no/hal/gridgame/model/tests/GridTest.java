@@ -12,10 +12,12 @@ import no.hal.gridgame.model.Grid;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.gridgame.model.Grid#getGridElement(int, int) <em>Get Grid Element</em>}</li>
- *   <li>{@link no.hal.gridgame.model.Grid#setGridElement(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Element</em>}</li>
- *   <li>{@link no.hal.gridgame.model.Grid#createGridElement() <em>Create Grid Element</em>}</li>
- *   <li>{@link no.hal.gridgame.model.Grid#moveGridElement(int, int, int, int, org.eclipse.emf.ecore.EObject) <em>Move Grid Element</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getGridValue(int, int) <em>Get Grid Value</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getGridObject(int, int) <em>Get Grid Object</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#setGridValue(int, int, java.lang.Object) <em>Set Grid Value</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Object</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#createGridValue() <em>Create Grid Value</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#createGridObject() <em>Create Grid Object</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -28,7 +30,7 @@ public abstract class GridTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Grid<?> fixture = null;
+	protected Grid<?, ?> fixture = null;
 
 	/**
 	 * Constructs a new Grid test case with the given name.
@@ -46,7 +48,7 @@ public abstract class GridTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Grid<?> fixture) {
+	protected void setFixture(Grid<?, ?> fixture) {
 		this.fixture = fixture;
 	}
 
@@ -56,57 +58,83 @@ public abstract class GridTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Grid<?> getFixture() {
+	protected Grid<?, ?> getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link no.hal.gridgame.model.Grid#getGridElement(int, int) <em>Get Grid Element</em>}' operation.
+	 * Tests the '{@link no.hal.gridgame.model.Grid#getGridValue(int, int) <em>Get Grid Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.gridgame.model.Grid#getGridElement(int, int)
+	 * @see no.hal.gridgame.model.Grid#getGridValue(int, int)
 	 * @generated
 	 */
-	public void testGetGridElement__int_int() {
+	public void testGetGridValue__int_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link no.hal.gridgame.model.Grid#setGridElement(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Element</em>}' operation.
+	 * Tests the '{@link no.hal.gridgame.model.Grid#getGridObject(int, int) <em>Get Grid Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.gridgame.model.Grid#setGridElement(int, int, org.eclipse.emf.ecore.EObject)
+	 * @see no.hal.gridgame.model.Grid#getGridObject(int, int)
 	 * @generated
 	 */
-	public void testSetGridElement__int_int_GridElement() {
+	public void testGetGridObject__int_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link no.hal.gridgame.model.Grid#createGridElement() <em>Create Grid Element</em>}' operation.
+	 * Tests the '{@link no.hal.gridgame.model.Grid#setGridValue(int, int, java.lang.Object) <em>Set Grid Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.gridgame.model.Grid#createGridElement()
+	 * @see no.hal.gridgame.model.Grid#setGridValue(int, int, java.lang.Object)
 	 * @generated
 	 */
-	public void testCreateGridElement__int_int() {
+	public void testSetGridValue__int_int_Object() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link no.hal.gridgame.model.Grid#moveGridElement(int, int, int, int, org.eclipse.emf.ecore.EObject) <em>Move Grid Element</em>}' operation.
+	 * Tests the '{@link no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.gridgame.model.Grid#moveGridElement(int, int, int, int, org.eclipse.emf.ecore.EObject)
+	 * @see no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public void testMoveGridElement__int_int_int_int_GridElement() {
+	public void testSetGridObject__int_int_EObject() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.gridgame.model.Grid#createGridValue() <em>Create Grid Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.Grid#createGridValue()
+	 * @generated
+	 */
+	public void testCreateGridValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.gridgame.model.Grid#createGridObject() <em>Create Grid Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.Grid#createGridObject()
+	 * @generated
+	 */
+	public void testCreateGridObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

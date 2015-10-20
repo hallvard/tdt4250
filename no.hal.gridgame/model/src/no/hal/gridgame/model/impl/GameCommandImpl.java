@@ -4,14 +4,12 @@ package no.hal.gridgame.model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import no.hal.gridgame.model.GameCommand;
 import no.hal.gridgame.model.ModelPackage;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class GameCommandImpl extends MinimalEObjectImpl.Container implements GameCommand {
+public abstract class GameCommandImpl extends MinimalEObjectImpl.Container implements GameCommand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,6 +43,7 @@ public class GameCommandImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean prepare() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -56,6 +55,7 @@ public class GameCommandImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void perform() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -67,6 +67,7 @@ public class GameCommandImpl extends MinimalEObjectImpl.Container implements Gam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void undo() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -76,12 +77,11 @@ public class GameCommandImpl extends MinimalEObjectImpl.Container implements Gam
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public void redo() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		perform();
 	}
 
 	/**

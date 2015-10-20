@@ -2,7 +2,6 @@
  */
 package no.hal.gridgame.model.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Stack;
 
@@ -10,7 +9,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,7 +29,7 @@ import no.hal.gridgame.model.ModelPackage;
  *
  * @generated
  */
-public class CompositeCommandImpl<C extends GameCommand> extends MinimalEObjectImpl.Container implements CompositeCommand<C> {
+public class CompositeCommandImpl<C extends GameCommand> extends GameCommandImpl implements CompositeCommand<C> {
 	/**
 	 * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -233,29 +231,6 @@ public class CompositeCommandImpl<C extends GameCommand> extends MinimalEObjectI
 				return commands != null && !commands.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ModelPackage.COMPOSITE_COMMAND___PREPARE:
-				return prepare();
-			case ModelPackage.COMPOSITE_COMMAND___PERFORM:
-				perform();
-				return null;
-			case ModelPackage.COMPOSITE_COMMAND___UNDO:
-				undo();
-				return null;
-			case ModelPackage.COMPOSITE_COMMAND___REDO:
-				redo();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //CompositeCommandImpl

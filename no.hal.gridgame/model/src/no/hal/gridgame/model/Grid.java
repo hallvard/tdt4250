@@ -16,14 +16,15 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link no.hal.gridgame.model.Grid#getWidth <em>Width</em>}</li>
  *   <li>{@link no.hal.gridgame.model.Grid#getHeight <em>Height</em>}</li>
- *   <li>{@link no.hal.gridgame.model.Grid#getElements <em>Elements</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getValues <em>Values</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getObjects <em>Objects</em>}</li>
  * </ul>
  *
  * @see no.hal.gridgame.model.ModelPackage#getGrid()
- * @model abstract="true"
+ * @model abstract="true" VBounds="org.eclipse.emf.ecore.EJavaObject"
  * @generated
  */
-public interface Grid<E extends EObject> extends EObject {
+public interface Grid<V extends Object, O extends EObject> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,19 +78,34 @@ public interface Grid<E extends EObject> extends EObject {
 	void setHeight(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Elements</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see no.hal.gridgame.model.ModelPackage#getGrid_Elements()
+	 * @return the value of the '<em>Values</em>' attribute list.
+	 * @see no.hal.gridgame.model.ModelPackage#getGrid_Values()
+	 * @model
+	 * @generated
+	 */
+	EList<V> getValues();
+
+	/**
+	 * Returns the value of the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Objects</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Objects</em>' containment reference list.
+	 * @see no.hal.gridgame.model.ModelPackage#getGrid_Objects()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<E> getElements();
+	EList<O> getObjects();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,7 +113,7 @@ public interface Grid<E extends EObject> extends EObject {
 	 * @model
 	 * @generated
 	 */
-	E getGridElement(int x, int y);
+	V getGridValue(int x, int y);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,7 +121,7 @@ public interface Grid<E extends EObject> extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void setGridElement(int x, int y, E element);
+	O getGridObject(int x, int y);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,7 +129,7 @@ public interface Grid<E extends EObject> extends EObject {
 	 * @model
 	 * @generated
 	 */
-	E createGridElement();
+	void setGridValue(int x, int y, V value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +137,22 @@ public interface Grid<E extends EObject> extends EObject {
 	 * @model
 	 * @generated
 	 */
-	E moveGridElement(int x1, int y1, int x2, int y2, E element);
+	void setGridObject(int x, int y, O object);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	V createGridValue();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	O createGridObject();
 
 } // Grid
