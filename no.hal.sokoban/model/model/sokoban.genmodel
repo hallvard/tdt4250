@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.sokoban.model/src" editDirectory="/no.hal.sokoban.model.ui/src"
+    editorDirectory="/no.hal.sokoban.model.ui/src" modelPluginID="no.hal.sokoban.model"
+    modelName="sokoban" editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.sokoban.model.ui" editorPluginID="no.hal.sokoban.model.ui"
+    testsPluginID="no.hal.sokoban.model.tests" usedGenPackages="../../no.hal.gridgame.model/model/gridgame.genmodel#//model"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>sokoban.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="no.hal.sokoban" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" fileExtensions="sok" ecorePackage="sokoban.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sokoban.ecore#//TileKind">
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/EMPTY"/>
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/WALL"/>
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/TARGET"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sokoban.ecore#//ItemKind">
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/NOTHING"/>
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/BOX"/>
+      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/PLAYER"/>
+    </genEnums>
+    <genClasses ecoreClass="sokoban.ecore#//UoD"/>
+    <genClasses ecoreClass="sokoban.ecore#//SokobanGrid"/>
+    <genClasses ecoreClass="sokoban.ecore#//GridElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//GridElement/tile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//GridElement/item"/>
+    </genClasses>
+    <genClasses ecoreClass="sokoban.ecore#//SokobanGame"/>
+    <genClasses ecoreClass="sokoban.ecore#//MoveCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//MoveCommand/push"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="platform:/plugin/no.hal.sokoban.model/model/sokoban.ecore"
+    nsPrefix="sokoban-model">
+  <eClassifiers xsi:type="ecore:EClass" name="UoD"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanGrid">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="playerX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="playerY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.gridgame.model/model/gridgame.ecore#//Grid">
+      <eTypeArguments eClassifier="#//Cell"/>
+      <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Cell" instanceClassName="no.hal.sokoban.util.Cell"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanGame">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.gridgame.model/model/gridgame.ecore#//GridGame">
+      <eTypeArguments eClassifier="#//Cell"/>
+      <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eTypeArguments eClassifier="#//MovePlayerCommand"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MovePlayerCommand" eSuperTypes="../../no.hal.gridgame.model/model/gridgame.ecore#//GameCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grid" eType="#//SokobanGrid"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="push" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Direction" instanceClassName="no.hal.sokoban.util.Direction"/>
+</ecore:EPackage>
