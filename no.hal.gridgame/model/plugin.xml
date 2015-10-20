@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated gridgame -->
+      <package
+            uri="platform:/plugin/no.hal.gridgame.model/model/gridgame.ecore"
+            class="no.hal.gridgame.model.ModelPackage"
+            genModel="model/gridgame.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated gridgame -->
+      <parser
+            type="gg"
+            class="no.hal.gridgame.model.util.ModelResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

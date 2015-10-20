@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/no.hal.gridgame.model/src" editDirectory="/no.hal.gridgame.model.ui/src"
+    editorDirectory="/no.hal.gridgame.model.ui/src"
+    modelPluginID="no.hal.gridgame.model"
+    editPluginID="no.hal.gridgame.model.ui" editorPluginID="no.hal.gridgame.model.ui"
+    testsPluginID="no.hal.gridgame.model.tests"
+    modelName="gridgame" editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>gridgame.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="no.hal.gridgame" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" fileExtensions="gg" ecorePackage="gridgame.ecore#/">
+    <genClasses ecoreClass="gridgame.ecore#//UoD"/>
+  </genPackages>
+</genmodel:GenModel>

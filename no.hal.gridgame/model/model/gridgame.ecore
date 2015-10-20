@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="model"
+    nsURI="platform:/plugin/no.hal.gridgame.model/model/gridgame.ecore"
+    nsPrefix="gridgame-model">
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="UoD"/>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="Grid"
+      abstract="true">
+    <eTypeParameters
+        name="E">
+      <eBounds
+          eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eTypeParameters>
+    <eOperations
+        name="getGridElement">
+      <eGenericType
+          eTypeParameter="#//Grid/E"/>
+      <eParameters
+          name="x"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="y"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations
+        name="setGridElement">
+      <eParameters
+          name="x"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="y"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="element">
+        <eGenericType
+            eTypeParameter="#//Grid/E"/>
+      </eParameters>
+    </eOperations>
+    <eOperations
+        name="createGridElement">
+      <eGenericType
+          eTypeParameter="#//Grid/E"/>
+    </eOperations>
+    <eOperations
+        name="moveGridElement">
+      <eGenericType
+          eTypeParameter="#//Grid/E"/>
+      <eParameters
+          name="x1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="y1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="x2"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="y2"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters
+          name="element">
+        <eGenericType
+            eTypeParameter="#//Grid/E"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="width"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="height"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="elements"
+        upperBound="-1"
+        containment="true">
+      <eGenericType
+          eTypeParameter="#//Grid/E"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="GridGame"
+      abstract="true">
+    <eTypeParameters
+        name="E">
+      <eBounds
+          eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eTypeParameters>
+    <eTypeParameters
+        name="C">
+      <eBounds
+          eClassifier="#//GameCommand"/>
+    </eTypeParameters>
+    <eOperations
+        name="perform">
+      <eParameters
+          name="command">
+        <eGenericType
+            eTypeParameter="#//GridGame/C"/>
+      </eParameters>
+    </eOperations>
+    <eOperations
+        name="undo"/>
+    <eOperations
+        name="redo"/>
+    <eOperations
+        name="isFinished"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="grid"
+        containment="true">
+      <eGenericType
+          eClassifier="#//Grid">
+        <eTypeArguments
+            eTypeParameter="#//GridGame/E"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="undoStack"
+        upperBound="-1"
+        containment="true">
+      <eGenericType
+          eTypeParameter="#//GridGame/C"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="redoStack"
+        upperBound="-1"
+        containment="true">
+      <eGenericType
+          eTypeParameter="#//GridGame/C"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="GameCommand"
+      abstract="true"
+      interface="true">
+    <eOperations
+        name="prepare"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations
+        name="perform"/>
+    <eOperations
+        name="undo"/>
+    <eOperations
+        name="redo"/>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="CompositeCommand"
+      eSuperTypes="#//GameCommand">
+    <eTypeParameters
+        name="C">
+      <eBounds
+          eClassifier="#//GameCommand"/>
+    </eTypeParameters>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="commands"
+        upperBound="-1"
+        containment="true">
+      <eGenericType
+          eTypeParameter="#//CompositeCommand/C"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>
