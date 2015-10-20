@@ -40,7 +40,7 @@ var GameComponent = React.createClass({
   		var playerComponents = this.state.players.map(function(player) {
       		return React.createElement(PlayerComponent,
       				{ serviceUrl: serviceUrl + '/' + player.ids[0],
-      				  player: { name: player.name, ids: player.ids } }
+      				  player: { name: player.name, ids: player.ids }, compact: true }
           		)
   		});
     	return React.createElement("div", { className: "game" },

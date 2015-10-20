@@ -38,7 +38,7 @@ var TaskComponent = React.createClass({
   			divClass = "startedTask";
   		}
   		var serviceUrl = this.props.serviceUrl; 
-  		var taskLink = serviceUrl.replace("/data/", "/app/");
+  		var taskLink = AppHelper.appUrl(serviceUrl);
   		var player = this.props.player;
   		if (typeof player === 'object') {
   			taskLink = taskLink + '?player=' + player.ids[0];

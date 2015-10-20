@@ -39,7 +39,7 @@ var PlayerComponent = React.createClass({
 
   	render: function render() {
   		var ids = (this.state.ids ? this.state.ids : []);
-  		var idRows = ids.map(function(id) {
+  		var idRows = (this.props.compact ? [] : ids.map(function(id) {
   			var url = null;
   			if (emailPattern.test(id)) {
   				url = "mailto:" + id;
@@ -51,12 +51,14 @@ var PlayerComponent = React.createClass({
     		    	(url != null ? React.createElement( "a", { href: url }, id ) : id)
     	 		)
           	);
-  		});
+  		}));
+  		var playerLink = AppHelper.appUrl(this.props.serviceUrl);
     	return React.createElement("table", { className: "player" },
       		React.createElement("tbody", null,
 	    			React.createElement("tr", null,
 		    	    	React.createElement("td", { className: "playerName" },
-		        		    "Name: " + this.state.name
+		        		    "Name: ",
+	    	    			React.createElement( "a", { href: playerLink }, this.state.name )
 		        	 	)
 	    		),
 	    		idRows

@@ -56,6 +56,10 @@ var AppHelper = {
 		}
 		return serviceUrl;
 	},
+
+	appUrl: function(serviceUrl) {
+		return serviceUrl.replace("/data/", "/app/");
+	},
 	
 	loadData : function(theUrl, asArray, callback) {
 		var isAsync = typeof callback === 'function';
