@@ -20,13 +20,13 @@ public class ServiceLabelProvider extends LabelProvider {
 	protected String toString(ETypedElement typedElement) {
 		String item = toString((ENamedElement) typedElement);
 		EClassifier type = typedElement.getEType();
-		return (type != null ? type.getName() : "void") + (typedElement.isMany() ? "*" : "") + " " + item;
+		return (type != null ? type.getName() : "void") + (typedElement.isMany() ? "* " : " ") + item;
 	}
 	protected String toString(EOperation operation) {
 		String item = toString((ETypedElement) operation) + "(";
 		for (EParameter param : operation.getEParameters()) {
 			if (param != operation.getEParameters().get(0)) {
-				item += ",";
+				item += ", ";
 			}
 			item += toString(param);
 		}
