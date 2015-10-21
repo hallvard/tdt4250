@@ -126,6 +126,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public T getTaskDef() {
 		if (taskDef != null && taskDef.eIsProxy()) {
@@ -153,6 +154,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTaskDef(T newTaskDef) {
 		T oldTaskDef = taskDef;
 		taskDef = newTaskDef;
@@ -165,6 +167,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Game getGame() {
 		if (eContainerFeatureID() != RuntimePackage.TASK__GAME) return null;
 		return (Game)eInternalContainer();
@@ -185,6 +188,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGame(Game newGame) {
 		if (newGame != eInternalContainer() || (eContainerFeatureID() != RuntimePackage.TASK__GAME && newGame != null)) {
 			if (EcoreUtil.isAncestor(this, newGame))
@@ -206,6 +210,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Team getTeam() {
 		if (team != null && team.eIsProxy()) {
 			InternalEObject oldTeam = (InternalEObject)team;
@@ -232,6 +237,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTeam(Team newTeam) {
 		Team oldTeam = team;
 		team = newTeam;
@@ -244,6 +250,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Player> getPlayers() {
 		if (players == null) {
 			players = new EObjectResolvingEList<Player>(Player.class, this, RuntimePackage.TASK__PLAYERS);
@@ -256,6 +263,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EList<Player> getAllPlayers() {
 		List<Player> allPlayers = new ArrayList<Player>(getPlayers());
 		if (getTeam() != null) {
@@ -269,6 +277,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TaskState<?> getCurrentState() {
 		return currentState;
 	}
@@ -278,6 +287,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public R getResult() {
 		return result;
@@ -288,6 +298,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResult(R newResult) {
 		R oldResult = result;
 		result = newResult;
@@ -315,6 +326,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCurrentState(TaskState<?> newCurrentState) {
 		if (newCurrentState != currentState) {
 			NotificationChain msgs = null;
@@ -334,6 +346,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TaskState<?>> getPastStates() {
 		if (pastStates == null) {
 			pastStates = new EObjectContainmentEList<TaskState<?>>(TaskState.class, this, RuntimePackage.TASK__PAST_STATES);
@@ -346,6 +359,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isStarted() {
 		return getCurrentState() != null || getResult() != null;
 	}
@@ -355,6 +369,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isFinished() {
 		return getResult() != null;
 	}
@@ -364,8 +379,9 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void start() {
-		throw new UnsupportedOperationException();
+		// default method does nothing, since it often is initialized on the ITaskProvider
 	}
 
 	/**
@@ -373,6 +389,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void changeState(TaskState<?> state) {
 		TaskState<?> oldCurrentState = getCurrentState();
 		if (oldCurrentState != null) {
@@ -390,6 +407,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isInState(EClass stateClass) {
 		TaskState<?> currentState = getCurrentState();
 		return currentState != null && stateClass.isInstance(currentState);
@@ -400,6 +418,7 @@ public class TaskImpl<T extends TaskDef, R> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void finish(R result) {
 		changeState(null);
 		setResult(result);
