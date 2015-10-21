@@ -16,12 +16,31 @@ import no.hal.quiz.QuizPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.quiz.impl.NumberAnswerImpl#getValue <em>Value</em>}</li>
  *   <li>{@link no.hal.quiz.impl.NumberAnswerImpl#getErrorMargin <em>Error Margin</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements NumberAnswer {
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Double VALUE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Double value = VALUE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getErrorMargin() <em>Error Margin</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,14 +82,24 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
 	 * @generated
 	 */
-	@Override
-	public void setValue(Double newValue) {
-		super.setValue(newValue);
+	public Double getValue() {
+		return value;
 	}
-	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Double newValue) {
+		Double oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.NUMBER_ANSWER__VALUE, oldValue, value));
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +129,8 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QuizPackage.NUMBER_ANSWER__VALUE:
+				return getValue();
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				return getErrorMargin();
 		}
@@ -114,6 +145,9 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QuizPackage.NUMBER_ANSWER__VALUE:
+				setValue((Double)newValue);
+				return;
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				setErrorMargin((Double)newValue);
 				return;
@@ -129,6 +163,9 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QuizPackage.NUMBER_ANSWER__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				setErrorMargin(ERROR_MARGIN_EDEFAULT);
 				return;
@@ -144,6 +181,8 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QuizPackage.NUMBER_ANSWER__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				return errorMargin != ERROR_MARGIN_EDEFAULT;
 		}
@@ -160,7 +199,9 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (errorMargin: ");
+		result.append(" (value: ");
+		result.append(value);
+		result.append(", errorMargin: ");
 		result.append(errorMargin);
 		result.append(')');
 		return result.toString();

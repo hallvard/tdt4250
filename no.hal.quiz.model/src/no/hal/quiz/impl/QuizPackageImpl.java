@@ -566,8 +566,8 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSimpleAnswer_Value() {
-		return (EAttribute)simpleAnswerEClass.getEStructuralFeatures().get(0);
+	public EOperation getSimpleAnswer__GetValue() {
+		return simpleAnswerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -584,7 +584,7 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringAnswer_Regexp() {
+	public EAttribute getStringAnswer_Value() {
 		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -593,8 +593,17 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringAnswer_IgnoreCase() {
+	public EAttribute getStringAnswer_Regexp() {
 		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringAnswer_IgnoreCase() {
+		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -611,8 +620,17 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNumberAnswer_ErrorMargin() {
+	public EAttribute getNumberAnswer_Value() {
 		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberAnswer_ErrorMargin() {
+		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -622,6 +640,15 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 */
 	public EClass getBooleanAnswer() {
 		return booleanAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanAnswer_Value() {
+		return (EAttribute)booleanAnswerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -943,16 +970,19 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		optionAnswerEClass = createEClass(OPTION_ANSWER);
 
 		simpleAnswerEClass = createEClass(SIMPLE_ANSWER);
-		createEAttribute(simpleAnswerEClass, SIMPLE_ANSWER__VALUE);
+		createEOperation(simpleAnswerEClass, SIMPLE_ANSWER___GET_VALUE);
 
 		stringAnswerEClass = createEClass(STRING_ANSWER);
+		createEAttribute(stringAnswerEClass, STRING_ANSWER__VALUE);
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__REGEXP);
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__IGNORE_CASE);
 
 		numberAnswerEClass = createEClass(NUMBER_ANSWER);
+		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__VALUE);
 		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__ERROR_MARGIN);
 
 		booleanAnswerEClass = createEClass(BOOLEAN_ANSWER);
+		createEAttribute(booleanAnswerEClass, BOOLEAN_ANSWER__VALUE);
 
 		xmlAnswerEClass = createEClass(XML_ANSWER);
 		createEReference(xmlAnswerEClass, XML_ANSWER__XML);
@@ -1093,17 +1123,22 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		initEClass(optionAnswerEClass, OptionAnswer.class, "OptionAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(simpleAnswerEClass, SimpleAnswer.class, "SimpleAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getSimpleAnswer__GetValue(), null, "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(simpleAnswerEClass_T);
-		initEAttribute(getSimpleAnswer_Value(), g1, "value", null, 0, 1, SimpleAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(op, g1);
 
 		initEClass(stringAnswerEClass, StringAnswer.class, "StringAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringAnswer_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringAnswer_Regexp(), ecorePackage.getEBoolean(), "regexp", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringAnswer_IgnoreCase(), ecorePackage.getEBoolean(), "ignoreCase", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberAnswerEClass, NumberAnswer.class, "NumberAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberAnswer_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNumberAnswer_ErrorMargin(), ecorePackage.getEDouble(), "errorMargin", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanAnswerEClass, BooleanAnswer.class, "BooleanAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanAnswer_Value(), ecorePackage.getEBooleanObject(), "value", null, 0, 1, BooleanAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xmlAnswerEClass, XmlAnswer.class, "XmlAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlAnswer_Xml(), this.getXml(), null, "xml", null, 0, 1, XmlAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

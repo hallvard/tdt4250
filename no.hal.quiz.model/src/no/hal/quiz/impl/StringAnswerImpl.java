@@ -19,6 +19,7 @@ import no.hal.quiz.StringAnswer;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#getValue <em>Value</em>}</li>
  *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#isRegexp <em>Regexp</em>}</li>
  *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
@@ -26,6 +27,26 @@ import no.hal.quiz.StringAnswer;
  * @generated
  */
 public class StringAnswerImpl extends SimpleAnswerImpl<String> implements StringAnswer {
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #isRegexp() <em>Regexp</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,12 +109,23 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setValue(String newValue) {
-		super.setValue(newValue);
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.STRING_ANSWER__VALUE, oldValue, value));
 	}
 
 	/**
@@ -148,6 +180,8 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QuizPackage.STRING_ANSWER__VALUE:
+				return getValue();
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				return isRegexp();
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
@@ -164,6 +198,9 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QuizPackage.STRING_ANSWER__VALUE:
+				setValue((String)newValue);
+				return;
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				setRegexp((Boolean)newValue);
 				return;
@@ -182,6 +219,9 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QuizPackage.STRING_ANSWER__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				setRegexp(REGEXP_EDEFAULT);
 				return;
@@ -200,6 +240,8 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QuizPackage.STRING_ANSWER__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				return regexp != REGEXP_EDEFAULT;
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
@@ -218,7 +260,9 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (regexp: ");
+		result.append(" (value: ");
+		result.append(value);
+		result.append(", regexp: ");
 		result.append(regexp);
 		result.append(", ignoreCase: ");
 		result.append(ignoreCase);

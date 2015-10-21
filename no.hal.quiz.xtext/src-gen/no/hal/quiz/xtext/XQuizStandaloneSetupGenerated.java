@@ -10,8 +10,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import no.hal.quiz.QuizPackage;
-
 /**
  * Generated from StandaloneSetup.xpt!
  */
@@ -37,5 +35,8 @@ public class XQuizStandaloneSetupGenerated implements ISetup {
 		org.eclipse.xtext.resource.IResourceServiceProvider serviceProvider = injector.getInstance(org.eclipse.xtext.resource.IResourceServiceProvider.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xquiz", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("xquiz", serviceProvider);
+		
+
+
 	}
 }

@@ -128,7 +128,7 @@ public class QuizTaskTest extends TestCase {
 	private static <T> SimpleAnswer<T> createSimpleAnswer(EClass eClass, T value) {
 		@SuppressWarnings("unchecked")
 		SimpleAnswer<T> answer = (SimpleAnswer<T>) EcoreUtil.create(eClass);
-		answer.setValue(value);
+		answer.eSet(answer.eClass().getEStructuralFeature("value"), value);
 		return answer;
 	}
 

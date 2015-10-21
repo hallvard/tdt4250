@@ -12,6 +12,7 @@ package no.hal.quiz;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.quiz.NumberAnswer#getValue <em>Value</em>}</li>
  *   <li>{@link no.hal.quiz.NumberAnswer#getErrorMargin <em>Error Margin</em>}</li>
  * </ul>
  *
@@ -20,6 +21,32 @@ package no.hal.quiz;
  * @generated
  */
 public interface NumberAnswer extends SimpleAnswer<Double> {
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(Double)
+	 * @see no.hal.quiz.QuizPackage#getNumberAnswer_Value()
+	 * @model
+	 * @generated
+	 */
+	Double getValue();
+
+	/**
+	 * Sets the value of the '{@link no.hal.quiz.NumberAnswer#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(Double value);
 
 	/**
 	 * Returns the value of the '<em><b>Error Margin</b></em>' attribute.

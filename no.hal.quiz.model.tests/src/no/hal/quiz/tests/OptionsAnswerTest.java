@@ -113,7 +113,7 @@ public class OptionsAnswerTest extends AnswerTest {
 
 	private <T> Option createOption(SimpleAnswer<T> simpleAnswer, T t, boolean correct) {
 		Option option = QuizFactory.eINSTANCE.createOption();
-		simpleAnswer.setValue(t);
+		simpleAnswer.eSet(simpleAnswer.eClass().getEStructuralFeature("value"), t);
 		option.setOption(simpleAnswer);
 		option.setCorrect(correct);
 		return option;

@@ -45,10 +45,33 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
 			addRegexpPropertyDescriptor(object);
 			addIgnoreCasePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StringAnswer_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringAnswer_value_feature", "_UI_StringAnswer_type"),
+				 QuizPackage.Literals.STRING_ANSWER__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -114,8 +137,7 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((StringAnswer)object).getValue();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((StringAnswer)object).getValue();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StringAnswer_type") :
 			getString("_UI_StringAnswer_type") + " " + label;
@@ -134,6 +156,7 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StringAnswer.class)) {
+			case QuizPackage.STRING_ANSWER__VALUE:
 			case QuizPackage.STRING_ANSWER__REGEXP:
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

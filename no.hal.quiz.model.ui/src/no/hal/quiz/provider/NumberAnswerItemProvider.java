@@ -45,9 +45,32 @@ public class NumberAnswerItemProvider extends SimpleAnswerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
 			addErrorMarginPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NumberAnswer_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumberAnswer_value_feature", "_UI_NumberAnswer_type"),
+				 QuizPackage.Literals.NUMBER_ANSWER__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -91,7 +114,7 @@ public class NumberAnswerItemProvider extends SimpleAnswerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((NumberAnswer)object).getValue();
+		Double labelValue = ((NumberAnswer)object).getValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NumberAnswer_type") :
@@ -111,6 +134,7 @@ public class NumberAnswerItemProvider extends SimpleAnswerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NumberAnswer.class)) {
+			case QuizPackage.NUMBER_ANSWER__VALUE:
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

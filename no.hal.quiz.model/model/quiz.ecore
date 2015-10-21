@@ -43,11 +43,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="OptionAnswer" abstract="true" eSuperTypes="#//Answer"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleAnswer" abstract="true" eSuperTypes="#//OptionAnswer">
     <eTypeParameters name="T"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+    <eOperations name="getValue">
       <eGenericType eTypeParameter="#//SimpleAnswer/T"/>
-    </eStructuralFeatures>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
@@ -55,12 +56,14 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMargin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eGenericSuperTypes>

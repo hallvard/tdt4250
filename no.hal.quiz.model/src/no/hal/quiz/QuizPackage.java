@@ -539,22 +539,13 @@ public interface QuizPackage extends EPackage {
 	int SIMPLE_ANSWER = 12;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER__VALUE = OPTION_ANSWER_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Simple Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ANSWER_FEATURE_COUNT = OPTION_ANSWER_FEATURE_COUNT + 1;
+	int SIMPLE_ANSWER_FEATURE_COUNT = OPTION_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -566,13 +557,22 @@ public interface QuizPackage extends EPackage {
 	int SIMPLE_ANSWER___ACCEPT__OBJECT = OPTION_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ANSWER___GET_VALUE = OPTION_ANSWER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Simple Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ANSWER_OPERATION_COUNT = OPTION_ANSWER_OPERATION_COUNT + 0;
+	int SIMPLE_ANSWER_OPERATION_COUNT = OPTION_ANSWER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.StringAnswerImpl <em>String Answer</em>}' class.
@@ -591,7 +591,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER__VALUE = SIMPLE_ANSWER__VALUE;
+	int STRING_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Regexp</b></em>' attribute.
@@ -600,7 +600,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER__REGEXP = SIMPLE_ANSWER_FEATURE_COUNT + 0;
+	int STRING_ANSWER__REGEXP = SIMPLE_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Case</b></em>' attribute.
@@ -609,7 +609,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER__IGNORE_CASE = SIMPLE_ANSWER_FEATURE_COUNT + 1;
+	int STRING_ANSWER__IGNORE_CASE = SIMPLE_ANSWER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>String Answer</em>' class.
@@ -618,7 +618,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 2;
+	int STRING_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -628,6 +628,15 @@ public interface QuizPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
 
 	/**
 	 * The number of operations of the '<em>String Answer</em>' class.
@@ -655,7 +664,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ANSWER__VALUE = SIMPLE_ANSWER__VALUE;
+	int NUMBER_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Error Margin</b></em>' attribute.
@@ -664,7 +673,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ANSWER__ERROR_MARGIN = SIMPLE_ANSWER_FEATURE_COUNT + 0;
+	int NUMBER_ANSWER__ERROR_MARGIN = SIMPLE_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Number Answer</em>' class.
@@ -673,7 +682,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
+	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -683,6 +692,15 @@ public interface QuizPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
 
 	/**
 	 * The number of operations of the '<em>Number Answer</em>' class.
@@ -710,7 +728,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_ANSWER__VALUE = SIMPLE_ANSWER__VALUE;
+	int BOOLEAN_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Answer</em>' class.
@@ -719,7 +737,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 0;
+	int BOOLEAN_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -729,6 +747,15 @@ public interface QuizPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
 
 	/**
 	 * The number of operations of the '<em>Boolean Answer</em>' class.
@@ -1558,15 +1585,14 @@ public interface QuizPackage extends EPackage {
 	EClass getSimpleAnswer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.quiz.SimpleAnswer#getValue <em>Value</em>}'.
+	 * Returns the meta object for the '{@link no.hal.quiz.SimpleAnswer#getValue() <em>Get Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @return the meta object for the '<em>Get Value</em>' operation.
 	 * @see no.hal.quiz.SimpleAnswer#getValue()
-	 * @see #getSimpleAnswer()
 	 * @generated
 	 */
-	EAttribute getSimpleAnswer_Value();
+	EOperation getSimpleAnswer__GetValue();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.StringAnswer <em>String Answer</em>}'.
@@ -1577,6 +1603,17 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStringAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.StringAnswer#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see no.hal.quiz.StringAnswer#getValue()
+	 * @see #getStringAnswer()
+	 * @generated
+	 */
+	EAttribute getStringAnswer_Value();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.quiz.StringAnswer#isRegexp <em>Regexp</em>}'.
@@ -1611,6 +1648,17 @@ public interface QuizPackage extends EPackage {
 	EClass getNumberAnswer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.NumberAnswer#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see no.hal.quiz.NumberAnswer#getValue()
+	 * @see #getNumberAnswer()
+	 * @generated
+	 */
+	EAttribute getNumberAnswer_Value();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.quiz.NumberAnswer#getErrorMargin <em>Error Margin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1630,6 +1678,17 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBooleanAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.BooleanAnswer#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see no.hal.quiz.BooleanAnswer#getValue()
+	 * @see #getBooleanAnswer()
+	 * @generated
+	 */
+	EAttribute getBooleanAnswer_Value();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.XmlAnswer <em>Xml Answer</em>}'.
@@ -2193,12 +2252,12 @@ public interface QuizPackage extends EPackage {
 		EClass SIMPLE_ANSWER = eINSTANCE.getSimpleAnswer();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMPLE_ANSWER__VALUE = eINSTANCE.getSimpleAnswer_Value();
+		EOperation SIMPLE_ANSWER___GET_VALUE = eINSTANCE.getSimpleAnswer__GetValue();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.StringAnswerImpl <em>String Answer</em>}' class.
@@ -2209,6 +2268,14 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STRING_ANSWER = eINSTANCE.getStringAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_ANSWER__VALUE = eINSTANCE.getStringAnswer_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Regexp</b></em>' attribute feature.
@@ -2237,6 +2304,14 @@ public interface QuizPackage extends EPackage {
 		EClass NUMBER_ANSWER = eINSTANCE.getNumberAnswer();
 
 		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_ANSWER__VALUE = eINSTANCE.getNumberAnswer_Value();
+
+		/**
 		 * The meta object literal for the '<em><b>Error Margin</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2253,6 +2328,14 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOLEAN_ANSWER = eINSTANCE.getBooleanAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_ANSWER__VALUE = eINSTANCE.getBooleanAnswer_Value();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.XmlAnswerImpl <em>Xml Answer</em>}' class.
