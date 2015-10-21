@@ -20,7 +20,7 @@ public class ServiceLabelProvider extends LabelProvider {
 	protected String toString(ETypedElement typedElement) {
 		String item = toString((ENamedElement) typedElement);
 		EClassifier type = typedElement.getEType();
-		return (type != null ? type.getName() : "void") + (typedElement.isMany() ? '*' : 0) + " " + item;
+		return (type != null ? type.getName() : "void") + (typedElement.isMany() ? "*" : "") + " " + item;
 	}
 	protected String toString(EOperation operation) {
 		String item = toString((ETypedElement) operation) + "(";
