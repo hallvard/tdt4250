@@ -157,7 +157,7 @@ public class TaskTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetAllPlayers() {
-		Task<?, ?> task = (Task<?, ?>) getFixture();
+		Task<?, ?> task = getFixture();
 
 		List<Player> taskPlayers = Arrays.asList(RuntimeFactory.eINSTANCE.createPlayer(), RuntimeFactory.eINSTANCE.createPlayer());
 		task.getPlayers().addAll(taskPlayers);
@@ -222,8 +222,8 @@ public class TaskTest extends TestCase {
 	public void testStart() {
 		try {
 			getFixture().start();
-			fail();
 		} catch (UnsupportedOperationException e) {
+			fail();
 		}
 	}
 
