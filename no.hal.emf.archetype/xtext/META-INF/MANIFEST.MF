@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: no.hal.emf.archetype.xtext
+Bundle-Vendor: no.hal.emf.archetype
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: no.hal.emf.archetype.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ no.hal.emf.archetype.model
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
