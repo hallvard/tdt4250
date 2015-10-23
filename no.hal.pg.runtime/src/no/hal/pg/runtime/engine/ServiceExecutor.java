@@ -72,7 +72,7 @@ public class ServiceExecutor implements IServiceExecutor {
 	@Reference(
 			cardinality=ReferenceCardinality.MULTIPLE,
 			policy=ReferencePolicy.DYNAMIC,
-			unbind="removeReferenceHandler"
+			unbind="removeReferenceResolver"
 			)
 	public synchronized void addReferenceResolver(IReferenceResolver referenceResolver) {
 		this.referenceResolver.addReferenceResolver(referenceResolver);
