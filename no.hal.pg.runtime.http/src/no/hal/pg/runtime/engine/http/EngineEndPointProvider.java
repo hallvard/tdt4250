@@ -49,7 +49,7 @@ public abstract class EngineEndPointProvider {
 				registerEngineEndPoints(httpService, engine, alias);
 				registeredEngines.add(engine);
 			} catch (Exception e) {
-				System.err.println("Couldn't register engine end points @ " + alias);
+				System.err.println("Couldn't register engine end points @ " + alias + ": " + e);
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public abstract class EngineEndPointProvider {
 				unregisterEngineEndPoints(httpService, engine, alias);
 				registeredEngines.remove(engine);
 			} catch (Exception e) {
-				System.err.println("Couldn't unregister engine end points @ " + alias);
+				System.err.println("Couldn't unregister engine end points @ " + alias + ": " + e);
 			}
 		}
 	}
