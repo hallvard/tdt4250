@@ -37,7 +37,6 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 			policy=ReferencePolicy.DYNAMIC
 			)
 	public synchronized void setServiceExecutor(IServiceExecutor serviceExecutor) {
-		System.out.println("Engine bound to ServiceExecutor");
 		this.serviceExecutor = serviceExecutor;
 	}
 	public synchronized void unsetServiceExecutor(IServiceExecutor serviceExecutor) {

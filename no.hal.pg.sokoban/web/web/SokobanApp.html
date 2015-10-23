@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Sokoban</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="SokobanApp.css">
+</head>
+<body>
+
+<h1>Sokoban</h1>
+<div id="sokoban"></div>
+
+<script src="https://fb.me/react-0.13.3.js"></script>
+<script src="../../GameApp/web/AppHelper.js"></script>
+
+<script src="SokobanGridComponent.js"></script>
+<script type="text/javascript">
+
+var data = {
+	  "values" : [ "#######", "#.@ # #", "#$* $ #", "#   $ #", "# ..  #", "#  *  #", "#######" ],
+	  "x" : 0,
+	  "width" : 7,
+	  "y" : 0,
+	  "height" : 7
+	};
+
+React.render(React.createElement(SokobanGridComponent,
+		AppHelper.appProps({ grid: data })
+		), document.getElementById('sokoban')
+);
+
+</script>
+</body>  
+</html>

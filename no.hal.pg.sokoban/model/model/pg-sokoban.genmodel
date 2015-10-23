@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.sokoban.model/src" editDirectory="/no.hal.pg.sokoban.model.ui/src"
+    editorDirectory="/no.hal.pg.sokoban.model.ui/src" modelPluginID="no.hal.pg.sokoban.model"
+    modelName="pg-sokoban" editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.pg.sokoban.model.ui" editorPluginID="no.hal.pg.sokoban.model.ui"
+    testsPluginID="no.hal.pg.sokoban.model.tests" usedGenPackages="../../no.hal.gridgame.model/model/gridgame.genmodel#//model ../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.sokoban.model/model/sokoban.genmodel#//model"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>pg-sokoban.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="no.hal.pg.sokoban" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" generateModelWizard="false" childCreationExtenders="true"
+      fileExtensions="pg-sok" ecorePackage="pg-sokoban.ecore#/">
+    <genClasses ecoreClass="pg-sokoban.ecore#//SokobanTaskDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-sokoban.ecore#//SokobanTaskDef/levels"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

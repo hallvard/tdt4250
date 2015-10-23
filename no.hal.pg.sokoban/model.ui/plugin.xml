@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated pg-sokoban -->
+      <factory
+            uri="platform:/plugin/no.hal.pg.sokoban.model/model/pg-sokoban.ecore"
+            class="no.hal.pg.sokoban.model.provider.ModelItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated NOT pg-sokoban -->
+      <extender
+            uri="platform:/plugin/no.hal.gridgame.model/model/gridgame.ecore"
+            class="no.hal.pg.sokoban.model.provider.ModelItemProviderAdapterFactory$GgModelChildCreationExtender"/>
+      <!-- @generated NOT pg-sokoban -->
+      <extender
+            uri="platform:/plugin/no.hal.pg.model/model/pg.ecore"
+            class="no.hal.pg.sokoban.model.provider.ModelItemProviderAdapterFactory$PgModelChildCreationExtender"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated pg-sokoban -->
+      <editor
+            id="no.hal.pg.sokoban.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="pg-sok"
+            class="no.hal.pg.sokoban.model.presentation.ModelEditor"
+            contributorClass="no.hal.pg.sokoban.model.presentation.ModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

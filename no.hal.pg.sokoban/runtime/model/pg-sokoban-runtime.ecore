@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.sokoban.runtime/model/pg-sokoban-runtime.ecore"
+    nsPrefix="pg-sokoban-runtime">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="pg-runtime" value="../../no.hal.pg.runtime/model/pg-runtime.ecore#/"/>
+    <details key="sokoban-model" value="../../no.hal.sokoban.model/model/sokoban.ecore#/"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanTask">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sokobanGame" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGame"
+        containment="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Task">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.sokoban.model/model/pg-sokoban.ecore#//SokobanTaskDef"/>
+      <eTypeArguments eClassifier="#//SokobanResult"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moveCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pushCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanService">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sokobanGame" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGame"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="#//SokobanTask"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridRectangleValues" eSuperTypes="../../no.hal.gridgame.model/model/gridgame.ecore#//GridRectangle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanGameService">
+    <eOperations name="movePlayer" eType="ecore:EClass ../../no.hal.gridgame.model/model/gridgame.ecore#//GridChangeDescription">
+      <eParameters name="direction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="movePlayer" eType="#//GridRectangleValues">
+      <eParameters name="direction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="stringFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grid" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGrid"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGame"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SokobanGridService">
+    <eOperations name="getGridValues" eType="#//GridRectangleValues">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="stringFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="getGridValues" eType="#//GridRectangleValues">
+      <eParameters name="stringFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//GridRectangleValues"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGrid"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>

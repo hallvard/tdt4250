@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pg.sokoban.runtime/src" editDirectory="/no.hal.pg.sokoban.runtime.ui/src"
+    editorDirectory="/no.hal.pg.sokoban.runtime.ui/src" modelPluginID="no.hal.pg.sokoban.runtime"
+    modelName="pg-sokoban" editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.pg.sokoban.runtime.ui" editorPluginID="no.hal.pg.sokoban.runtime.ui"
+    testsPluginID="no.hal.pg.sokoban.runtime.tests" usedGenPackages="../../no.hal.gridgame.model/model/gridgame.genmodel#//model ../../no.hal.pg.model/model/pg.genmodel#//model ../../no.hal.pg.runtime/model/pg-runtime.genmodel#//runtime ../../no.hal.sokoban.model/model/sokoban.genmodel#//model ../../no.hal.pg.sokoban.model/model/pg-sokoban.genmodel#//model"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>pg-sokoban-runtime.ecore</foreignModel>
+  <genPackages prefix="Runtime" basePackage="no.hal.pg.sokoban" disposableProviderFactory="true"
+      ecorePackage="pg-sokoban-runtime.ecore#/">
+    <genClasses ecoreClass="pg-sokoban-runtime.ecore#//SokobanTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-sokoban-runtime.ecore#//SokobanTask/sokobanGame"/>
+    </genClasses>
+    <genClasses ecoreClass="pg-sokoban-runtime.ecore#//SokobanResult">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pg-sokoban-runtime.ecore#//SokobanResult/level"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute pg-sokoban-runtime.ecore#//SokobanResult/moveCount"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute pg-sokoban-runtime.ecore#//SokobanResult/pushCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pg-sokoban-runtime.ecore#//SokobanResult/solution"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

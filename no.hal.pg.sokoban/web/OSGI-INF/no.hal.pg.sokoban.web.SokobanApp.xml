@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.sokoban.web.SokobanApp">
+   <implementation class="no.hal.pg.runtime.engine.http.EngineAppComponent"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.http.IEngineApp"/>
+   </service>
+   <property name="IEngineApp.name" type="String" value="SokobanTask"/>
+   <property name="IEngineApp.displayName" type="String" value="Sokoban app"/>
+
+   <property name="EngineAppComponent.eClass" type="String" value="platform:/plugin/no.hal.pg.sokoban.runtime/model/pg-sokoban-runtime.ecore#SokobanTask"/>
+
+   <property name="EngineAppComponent.main" type="String" value="/web/SokobanApp.html"></property>
+   <property name="EngineAppComponent.resourceNames" type="String" value="/web"></property>
+   <property name="EngineAppComponent.aliasPathFormat" type="String" value="/web"/>
+</scr:component>
