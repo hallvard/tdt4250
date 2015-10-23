@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -36,7 +35,7 @@ import no.hal.gridgame.model.ModelPackage;
  *
  * @generated
  */
-public abstract class GridGameImpl<V extends Object, O extends EObject, C extends GameCommand> extends MinimalEObjectImpl.Container implements GridGame<V, O, C> {
+public abstract class GridGameImpl<G extends Grid<?, ?>, C extends GameCommand> extends MinimalEObjectImpl.Container implements GridGame<G, C> {
 	/**
 	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -45,7 +44,7 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	 * @generated
 	 * @ordered
 	 */
-	protected Grid<V, O> grid;
+	protected G grid;
 
 	/**
 	 * The cached value of the '{@link #getUndoStack() <em>Undo Stack</em>}' containment reference list.
@@ -92,7 +91,7 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	 * @generated
 	 */
 	@Override
-	public Grid<V, O> getGrid() {
+	public G getGrid() {
 		return grid;
 	}
 
@@ -101,8 +100,8 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGrid(Grid<V, O> newGrid, NotificationChain msgs) {
-		Grid<V, O> oldGrid = grid;
+	public NotificationChain basicSetGrid(G newGrid, NotificationChain msgs) {
+		G oldGrid = grid;
 		grid = newGrid;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.GRID_GAME__GRID, oldGrid, newGrid);
@@ -116,8 +115,7 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setGrid(Grid<V, O> newGrid) {
+	public void setGrid(G newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
 			if (grid != null)
@@ -259,7 +257,7 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.GRID_GAME__GRID:
-				setGrid((Grid<V, O>)newValue);
+				setGrid((G)newValue);
 				return;
 			case ModelPackage.GRID_GAME__UNDO_STACK:
 				getUndoStack().clear();
@@ -282,7 +280,7 @@ public abstract class GridGameImpl<V extends Object, O extends EObject, C extend
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModelPackage.GRID_GAME__GRID:
-				setGrid((Grid<V, O>)null);
+				setGrid((G)null);
 				return;
 			case ModelPackage.GRID_GAME__UNDO_STACK:
 				getUndoStack().clear();

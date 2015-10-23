@@ -133,13 +133,22 @@ public interface ModelPackage extends EPackage {
 	int GRID__OBJECTS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Grid Listeners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID__GRID_LISTENERS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Grid</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_FEATURE_COUNT = 4;
+	int GRID_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Grid Value</em>' operation.
@@ -196,13 +205,68 @@ public interface ModelPackage extends EPackage {
 	int GRID___CREATE_GRID_OBJECT = 5;
 
 	/**
+	 * The operation id for the '<em>Get Grid Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID___GET_GRID_VALUES__INT_INT_INT_INT = 6;
+
+	/**
+	 * The operation id for the '<em>Get Grid Objects</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID___GET_GRID_OBJECTS__INT_INT_INT_INT = 7;
+
+	/**
 	 * The number of operations of the '<em>Grid</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_OPERATION_COUNT = 6;
+	int GRID_OPERATION_COUNT = 8;
+
+	/**
+	 * The meta object id for the '{@link no.hal.gridgame.model.GridListener <em>Grid Listener</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.GridListener
+	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridListener()
+	 * @generated
+	 */
+	int GRID_LISTENER = 2;
+
+	/**
+	 * The number of structural features of the '<em>Grid Listener</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_LISTENER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Grid Changed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_LISTENER___GRID_CHANGED__GRID_INT_INT_INT_INT = 0;
+
+	/**
+	 * The number of operations of the '<em>Grid Listener</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_LISTENER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.gridgame.model.impl.GridGameImpl <em>Grid Game</em>}' class.
@@ -212,7 +276,7 @@ public interface ModelPackage extends EPackage {
 	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridGame()
 	 * @generated
 	 */
-	int GRID_GAME = 2;
+	int GRID_GAME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Grid</b></em>' containment reference.
@@ -303,7 +367,16 @@ public interface ModelPackage extends EPackage {
 	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGameCommand()
 	 * @generated
 	 */
-	int GAME_COMMAND = 3;
+	int GAME_COMMAND = 4;
+
+	/**
+	 * The feature id for the '<em><b>Changes</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_COMMAND__CHANGES = GRID_LISTENER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Game Command</em>' class.
@@ -312,7 +385,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND_FEATURE_COUNT = 0;
+	int GAME_COMMAND_FEATURE_COUNT = GRID_LISTENER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Grid Changed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_COMMAND___GRID_CHANGED__GRID_INT_INT_INT_INT = GRID_LISTENER___GRID_CHANGED__GRID_INT_INT_INT_INT;
 
 	/**
 	 * The operation id for the '<em>Prepare</em>' operation.
@@ -321,7 +403,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND___PREPARE = 0;
+	int GAME_COMMAND___PREPARE = GRID_LISTENER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform</em>' operation.
@@ -330,7 +412,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND___PERFORM = 1;
+	int GAME_COMMAND___PERFORM = GRID_LISTENER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -339,7 +421,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND___UNDO = 2;
+	int GAME_COMMAND___UNDO = GRID_LISTENER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Redo</em>' operation.
@@ -348,7 +430,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND___REDO = 3;
+	int GAME_COMMAND___REDO = GRID_LISTENER_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Game Command</em>' class.
@@ -357,7 +439,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_COMMAND_OPERATION_COUNT = 4;
+	int GAME_COMMAND_OPERATION_COUNT = GRID_LISTENER_OPERATION_COUNT + 4;
 
 
 	/**
@@ -368,7 +450,16 @@ public interface ModelPackage extends EPackage {
 	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getCompositeCommand()
 	 * @generated
 	 */
-	int COMPOSITE_COMMAND = 4;
+	int COMPOSITE_COMMAND = 5;
+
+	/**
+	 * The feature id for the '<em><b>Changes</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMMAND__CHANGES = GAME_COMMAND__CHANGES;
 
 	/**
 	 * The feature id for the '<em><b>Commands</b></em>' containment reference list.
@@ -387,6 +478,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_COMMAND_FEATURE_COUNT = GAME_COMMAND_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Grid Changed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMMAND___GRID_CHANGED__GRID_INT_INT_INT_INT = GAME_COMMAND___GRID_CHANGED__GRID_INT_INT_INT_INT;
 
 	/**
 	 * The operation id for the '<em>Prepare</em>' operation.
@@ -432,6 +532,207 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_COMMAND_OPERATION_COUNT = GAME_COMMAND_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link no.hal.gridgame.model.impl.GridRectangleImpl <em>Grid Rectangle</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.impl.GridRectangleImpl
+	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridRectangle()
+	 * @generated
+	 */
+	int GRID_RECTANGLE = 7;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE__X = 0;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE__Y = 1;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE__WIDTH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE__HEIGHT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Grid Rectangle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE___SET_VALUES__INT_INT = 0;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE___SET_VALUES__INT_INT_INT_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE___SET_VALUES__GRIDRECTANGLE = 2;
+
+	/**
+	 * The number of operations of the '<em>Grid Rectangle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_RECTANGLE_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link no.hal.gridgame.model.impl.GridChangeDescriptionImpl <em>Grid Change Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.impl.GridChangeDescriptionImpl
+	 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridChangeDescription()
+	 * @generated
+	 */
+	int GRID_CHANGE_DESCRIPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION__X = GRID_RECTANGLE__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION__Y = GRID_RECTANGLE__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION__WIDTH = GRID_RECTANGLE__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION__HEIGHT = GRID_RECTANGLE__HEIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Grid Change Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION_FEATURE_COUNT = GRID_RECTANGLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION___SET_VALUES__INT_INT = GRID_RECTANGLE___SET_VALUES__INT_INT;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION___SET_VALUES__INT_INT_INT_INT = GRID_RECTANGLE___SET_VALUES__INT_INT_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Set Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION___SET_VALUES__GRIDRECTANGLE = GRID_RECTANGLE___SET_VALUES__GRIDRECTANGLE;
+
+	/**
+	 * The operation id for the '<em>Add Change</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION___ADD_CHANGE__INT_INT = GRID_RECTANGLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Add Change</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION___ADD_CHANGE__INT_INT_INT_INT = GRID_RECTANGLE_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Grid Change Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_CHANGE_DESCRIPTION_OPERATION_COUNT = GRID_RECTANGLE_OPERATION_COUNT + 2;
 
 
 	/**
@@ -499,6 +800,17 @@ public interface ModelPackage extends EPackage {
 	EReference getGrid_Objects();
 
 	/**
+	 * Returns the meta object for the reference list '{@link no.hal.gridgame.model.Grid#getGridListeners <em>Grid Listeners</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Grid Listeners</em>'.
+	 * @see no.hal.gridgame.model.Grid#getGridListeners()
+	 * @see #getGrid()
+	 * @generated
+	 */
+	EReference getGrid_GridListeners();
+
+	/**
 	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridValue(int, int) <em>Get Grid Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,6 +869,46 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGrid__CreateGridObject();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridValues(int, int, int, int) <em>Get Grid Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Grid Values</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#getGridValues(int, int, int, int)
+	 * @generated
+	 */
+	EOperation getGrid__GetGridValues__int_int_int_int();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.Grid#getGridObjects(int, int, int, int) <em>Get Grid Objects</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Grid Objects</em>' operation.
+	 * @see no.hal.gridgame.model.Grid#getGridObjects(int, int, int, int)
+	 * @generated
+	 */
+	EOperation getGrid__GetGridObjects__int_int_int_int();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.gridgame.model.GridListener <em>Grid Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Grid Listener</em>'.
+	 * @see no.hal.gridgame.model.GridListener
+	 * @generated
+	 */
+	EClass getGridListener();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int) <em>Grid Changed</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Grid Changed</em>' operation.
+	 * @see no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int)
+	 * @generated
+	 */
+	EOperation getGridListener__GridChanged__Grid_int_int_int_int();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.gridgame.model.GridGame <em>Grid Game</em>}'.
@@ -652,6 +1004,17 @@ public interface ModelPackage extends EPackage {
 	EClass getGameCommand();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link no.hal.gridgame.model.GameCommand#getChanges <em>Changes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Changes</em>'.
+	 * @see no.hal.gridgame.model.GameCommand#getChanges()
+	 * @see #getGameCommand()
+	 * @generated
+	 */
+	EReference getGameCommand_Changes();
+
+	/**
 	 * Returns the meta object for the '{@link no.hal.gridgame.model.GameCommand#prepare() <em>Prepare</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -711,6 +1074,120 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompositeCommand_Commands();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.gridgame.model.GridChangeDescription <em>Grid Change Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Grid Change Description</em>'.
+	 * @see no.hal.gridgame.model.GridChangeDescription
+	 * @generated
+	 */
+	EClass getGridChangeDescription();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridChangeDescription#addChange(int, int) <em>Add Change</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Change</em>' operation.
+	 * @see no.hal.gridgame.model.GridChangeDescription#addChange(int, int)
+	 * @generated
+	 */
+	EOperation getGridChangeDescription__AddChange__int_int();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridChangeDescription#addChange(int, int, int, int) <em>Add Change</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Change</em>' operation.
+	 * @see no.hal.gridgame.model.GridChangeDescription#addChange(int, int, int, int)
+	 * @generated
+	 */
+	EOperation getGridChangeDescription__AddChange__int_int_int_int();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.gridgame.model.GridRectangle <em>Grid Rectangle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Grid Rectangle</em>'.
+	 * @see no.hal.gridgame.model.GridRectangle
+	 * @generated
+	 */
+	EClass getGridRectangle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.gridgame.model.GridRectangle#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see no.hal.gridgame.model.GridRectangle#getX()
+	 * @see #getGridRectangle()
+	 * @generated
+	 */
+	EAttribute getGridRectangle_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.gridgame.model.GridRectangle#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see no.hal.gridgame.model.GridRectangle#getY()
+	 * @see #getGridRectangle()
+	 * @generated
+	 */
+	EAttribute getGridRectangle_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.gridgame.model.GridRectangle#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see no.hal.gridgame.model.GridRectangle#getWidth()
+	 * @see #getGridRectangle()
+	 * @generated
+	 */
+	EAttribute getGridRectangle_Width();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.gridgame.model.GridRectangle#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see no.hal.gridgame.model.GridRectangle#getHeight()
+	 * @see #getGridRectangle()
+	 * @generated
+	 */
+	EAttribute getGridRectangle_Height();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridRectangle#setValues(int, int) <em>Set Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Values</em>' operation.
+	 * @see no.hal.gridgame.model.GridRectangle#setValues(int, int)
+	 * @generated
+	 */
+	EOperation getGridRectangle__SetValues__int_int();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridRectangle#setValues(int, int, int, int) <em>Set Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Values</em>' operation.
+	 * @see no.hal.gridgame.model.GridRectangle#setValues(int, int, int, int)
+	 * @generated
+	 */
+	EOperation getGridRectangle__SetValues__int_int_int_int();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.gridgame.model.GridRectangle#setValues(no.hal.gridgame.model.GridRectangle) <em>Set Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Values</em>' operation.
+	 * @see no.hal.gridgame.model.GridRectangle#setValues(no.hal.gridgame.model.GridRectangle)
+	 * @generated
+	 */
+	EOperation getGridRectangle__SetValues__GridRectangle();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -782,6 +1259,13 @@ public interface ModelPackage extends EPackage {
 		 */
 		EReference GRID__OBJECTS = eINSTANCE.getGrid_Objects();
 		/**
+		 * The meta object literal for the '<em><b>Grid Listeners</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRID__GRID_LISTENERS = eINSTANCE.getGrid_GridListeners();
+		/**
 		 * The meta object literal for the '<em><b>Get Grid Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -823,6 +1307,36 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRID___CREATE_GRID_OBJECT = eINSTANCE.getGrid__CreateGridObject();
+		/**
+		 * The meta object literal for the '<em><b>Get Grid Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID___GET_GRID_VALUES__INT_INT_INT_INT = eINSTANCE.getGrid__GetGridValues__int_int_int_int();
+		/**
+		 * The meta object literal for the '<em><b>Get Grid Objects</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID___GET_GRID_OBJECTS__INT_INT_INT_INT = eINSTANCE.getGrid__GetGridObjects__int_int_int_int();
+		/**
+		 * The meta object literal for the '{@link no.hal.gridgame.model.GridListener <em>Grid Listener</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.gridgame.model.GridListener
+		 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridListener()
+		 * @generated
+		 */
+		EClass GRID_LISTENER = eINSTANCE.getGridListener();
+		/**
+		 * The meta object literal for the '<em><b>Grid Changed</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_LISTENER___GRID_CHANGED__GRID_INT_INT_INT_INT = eINSTANCE.getGridListener__GridChanged__Grid_int_int_int_int();
 		/**
 		 * The meta object literal for the '{@link no.hal.gridgame.model.impl.GridGameImpl <em>Grid Game</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -891,6 +1405,13 @@ public interface ModelPackage extends EPackage {
 		 */
 		EClass GAME_COMMAND = eINSTANCE.getGameCommand();
 		/**
+		 * The meta object literal for the '<em><b>Changes</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME_COMMAND__CHANGES = eINSTANCE.getGameCommand_Changes();
+		/**
 		 * The meta object literal for the '<em><b>Prepare</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -934,6 +1455,87 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPOSITE_COMMAND__COMMANDS = eINSTANCE.getCompositeCommand_Commands();
+		/**
+		 * The meta object literal for the '{@link no.hal.gridgame.model.impl.GridChangeDescriptionImpl <em>Grid Change Description</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.gridgame.model.impl.GridChangeDescriptionImpl
+		 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridChangeDescription()
+		 * @generated
+		 */
+		EClass GRID_CHANGE_DESCRIPTION = eINSTANCE.getGridChangeDescription();
+		/**
+		 * The meta object literal for the '<em><b>Add Change</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_CHANGE_DESCRIPTION___ADD_CHANGE__INT_INT = eINSTANCE.getGridChangeDescription__AddChange__int_int();
+		/**
+		 * The meta object literal for the '<em><b>Add Change</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_CHANGE_DESCRIPTION___ADD_CHANGE__INT_INT_INT_INT = eINSTANCE.getGridChangeDescription__AddChange__int_int_int_int();
+		/**
+		 * The meta object literal for the '{@link no.hal.gridgame.model.impl.GridRectangleImpl <em>Grid Rectangle</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.gridgame.model.impl.GridRectangleImpl
+		 * @see no.hal.gridgame.model.impl.ModelPackageImpl#getGridRectangle()
+		 * @generated
+		 */
+		EClass GRID_RECTANGLE = eINSTANCE.getGridRectangle();
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRID_RECTANGLE__X = eINSTANCE.getGridRectangle_X();
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRID_RECTANGLE__Y = eINSTANCE.getGridRectangle_Y();
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRID_RECTANGLE__WIDTH = eINSTANCE.getGridRectangle_Width();
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRID_RECTANGLE__HEIGHT = eINSTANCE.getGridRectangle_Height();
+		/**
+		 * The meta object literal for the '<em><b>Set Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_RECTANGLE___SET_VALUES__INT_INT = eINSTANCE.getGridRectangle__SetValues__int_int();
+		/**
+		 * The meta object literal for the '<em><b>Set Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_RECTANGLE___SET_VALUES__INT_INT_INT_INT = eINSTANCE.getGridRectangle__SetValues__int_int_int_int();
+		/**
+		 * The meta object literal for the '<em><b>Set Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRID_RECTANGLE___SET_VALUES__GRIDRECTANGLE = eINSTANCE.getGridRectangle__SetValues__GridRectangle();
 
 	}
 

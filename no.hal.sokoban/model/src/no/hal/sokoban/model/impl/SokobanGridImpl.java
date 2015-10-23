@@ -37,7 +37,7 @@ public class SokobanGridImpl extends GridImpl<Cell, EObject> implements SokobanG
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PLAYER_X_EDEFAULT = 0;
+	protected static final int PLAYER_X_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getPlayerX() <em>Player X</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public class SokobanGridImpl extends GridImpl<Cell, EObject> implements SokobanG
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PLAYER_Y_EDEFAULT = 0;
+	protected static final int PLAYER_Y_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getPlayerY() <em>Player Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,9 +92,9 @@ public class SokobanGridImpl extends GridImpl<Cell, EObject> implements SokobanG
 	 * @generated
 	 */
 	@Override
-	public EList<no.hal.sokoban.util.Cell> getValues() {
+	public EList<Cell> getValues() {
 		if (values == null) {
-			values = new EDataTypeUniqueEList<no.hal.sokoban.util.Cell>(no.hal.sokoban.util.Cell.class, this, ModelPackage.SOKOBAN_GRID__VALUES);
+			values = new EDataTypeUniqueEList<Cell>(Cell.class, this, ModelPackage.SOKOBAN_GRID__VALUES);
 		}
 		return values;
 	}
@@ -244,7 +244,7 @@ public class SokobanGridImpl extends GridImpl<Cell, EObject> implements SokobanG
 	
 	@Override
 	public Cell createGridValue() {
-		return new Cell(' ');
+		return Cell.valueOf(' ');
 	}
 
 } //SokobanGridImpl

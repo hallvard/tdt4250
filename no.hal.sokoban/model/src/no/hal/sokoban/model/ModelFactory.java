@@ -58,6 +58,15 @@ public interface ModelFactory extends EFactory {
 	MovePlayerCommand createMovePlayerCommand();
 
 	/**
+	 * Returns a new object of class '<em>Sokoban Level</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sokoban Level</em>'.
+	 * @generated
+	 */
+	SokobanLevel createSokobanLevel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

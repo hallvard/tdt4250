@@ -164,6 +164,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.sokoban.model.SokobanLevel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SokobanLevelItemProvider sokobanLevelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.sokoban.model.SokobanLevel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSokobanLevelAdapter() {
+		if (sokobanLevelItemProvider == null) {
+			sokobanLevelItemProvider = new SokobanLevelItemProvider(this);
+		}
+
+		return sokobanLevelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected String2StringMapEntryItemProvider string2StringMapEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createString2StringMapEntryAdapter() {
+		if (string2StringMapEntryItemProvider == null) {
+			string2StringMapEntryItemProvider = new String2StringMapEntryItemProvider(this);
+		}
+
+		return string2StringMapEntryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +312,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (sokobanGridItemProvider != null) sokobanGridItemProvider.dispose();
 		if (sokobanGameItemProvider != null) sokobanGameItemProvider.dispose();
 		if (movePlayerCommandItemProvider != null) movePlayerCommandItemProvider.dispose();
+		if (sokobanLevelItemProvider != null) sokobanLevelItemProvider.dispose();
+		if (string2StringMapEntryItemProvider != null) string2StringMapEntryItemProvider.dispose();
 	}
 
 }

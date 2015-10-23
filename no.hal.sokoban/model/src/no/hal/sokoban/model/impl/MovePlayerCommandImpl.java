@@ -286,6 +286,9 @@ public class MovePlayerCommandImpl extends GameCommandImpl implements MovePlayer
 	
 	@Override
 	public boolean prepare() {
+		if (grid == null || direction == null) {
+			return false;
+		}
 		int x = grid.getPlayerX(), y = grid.getPlayerY();
 		int dx = direction.dx, dy = direction.dy;
 		Cell forward1 = grid.getGridValue(x + dx, y + dy);
@@ -299,6 +302,7 @@ public class MovePlayerCommandImpl extends GameCommandImpl implements MovePlayer
 
 	@Override
 	public void perform() {
+		startPerform(grid);
 		int x = grid.getPlayerX(), y = grid.getPlayerY();
 		int dx = direction.dx, dy = direction.dy;
 		Cell cell = grid.getGridValue(x, y), forward1 = grid.getGridValue(x + dx, y + dy);
@@ -308,8 +312,9 @@ public class MovePlayerCommandImpl extends GameCommandImpl implements MovePlayer
 		}
 		grid.setGridValue(x + dx, y + dy, Cell.valueOf(forward1, cell));
 		grid.setGridValue(x, y, Cell.valueOf(cell));
+		endPerform(grid);
 	}
-	
+
 	@Override
 	public void undo() {
 		int x = grid.getPlayerX(), y = grid.getPlayerY();

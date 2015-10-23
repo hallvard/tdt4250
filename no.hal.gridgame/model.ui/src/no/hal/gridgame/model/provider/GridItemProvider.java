@@ -66,6 +66,7 @@ public class GridItemProvider
 			addWidthPropertyDescriptor(object);
 			addHeightPropertyDescriptor(object);
 			addValuesPropertyDescriptor(object);
+			addGridListenersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +138,28 @@ public class GridItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Grid Listeners feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGridListenersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Grid_gridListeners_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Grid_gridListeners_feature", "_UI_Grid_type"),
+				 ModelPackage.Literals.GRID__GRID_LISTENERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -164,17 +187,6 @@ public class GridItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Grid.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Grid"));
 	}
 
 	/**
@@ -234,6 +246,16 @@ public class GridItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.GRID__OBJECTS,
 				 ModelFactory.eINSTANCE.createCompositeCommand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.GRID__OBJECTS,
+				 ModelFactory.eINSTANCE.createGridRectangle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.GRID__OBJECTS,
+				 ModelFactory.eINSTANCE.createGridChangeDescription()));
 	}
 
 	/**

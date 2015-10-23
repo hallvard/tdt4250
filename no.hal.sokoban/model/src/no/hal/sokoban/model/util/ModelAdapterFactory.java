@@ -2,9 +2,11 @@
  */
 package no.hal.sokoban.model.util;
 
+import java.util.Map;
 import no.hal.gridgame.model.GameCommand;
 import no.hal.gridgame.model.Grid;
 import no.hal.gridgame.model.GridGame;
+import no.hal.gridgame.model.GridListener;
 import no.hal.sokoban.model.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -87,12 +89,24 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createMovePlayerCommandAdapter();
 			}
 			@Override
+			public Adapter caseSokobanLevel(SokobanLevel object) {
+				return createSokobanLevelAdapter();
+			}
+			@Override
+			public Adapter caseString2StringMapEntry(Map.Entry<String, String> object) {
+				return createString2StringMapEntryAdapter();
+			}
+			@Override
 			public <V extends Object, O extends EObject> Adapter caseGrid(Grid<V, O> object) {
 				return createGridAdapter();
 			}
 			@Override
-			public <V extends Object, O extends EObject, C extends GameCommand> Adapter caseGridGame(GridGame<V, O, C> object) {
+			public <G extends Grid<?, ?>, C extends GameCommand> Adapter caseGridGame(GridGame<G, C> object) {
 				return createGridGameAdapter();
+			}
+			@Override
+			public Adapter caseGridListener(GridListener object) {
+				return createGridListenerAdapter();
 			}
 			@Override
 			public Adapter caseGameCommand(GameCommand object) {
@@ -175,6 +189,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.sokoban.model.SokobanLevel <em>Sokoban Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.sokoban.model.SokobanLevel
+	 * @generated
+	 */
+	public Adapter createSokobanLevelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String2 String Map Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createString2StringMapEntryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.Grid <em>Grid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -199,6 +241,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGridGameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.GridListener <em>Grid Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.gridgame.model.GridListener
+	 * @generated
+	 */
+	public Adapter createGridListenerAdapter() {
 		return null;
 	}
 

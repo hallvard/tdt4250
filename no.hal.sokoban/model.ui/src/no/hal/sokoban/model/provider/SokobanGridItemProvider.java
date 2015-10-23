@@ -175,6 +175,16 @@ public class SokobanGridItemProvider extends GridItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.GRID__OBJECTS,
 				 ModelFactory.eINSTANCE.createMovePlayerCommand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.GRID__OBJECTS,
+				 ModelFactory.eINSTANCE.createSokobanLevel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.GRID__OBJECTS,
+				 ModelFactory.eINSTANCE.create(no.hal.sokoban.model.ModelPackage.Literals.STRING2_STRING_MAP_ENTRY)));
 	}
 
 	/**

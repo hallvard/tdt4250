@@ -2,9 +2,11 @@
  */
 package no.hal.sokoban.model.util;
 
+import java.util.Map;
 import no.hal.gridgame.model.GameCommand;
 import no.hal.gridgame.model.Grid;
 import no.hal.gridgame.model.GridGame;
+import no.hal.gridgame.model.GridListener;
 import no.hal.sokoban.model.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -93,6 +95,19 @@ public class ModelSwitch<T> extends Switch<T> {
 				MovePlayerCommand movePlayerCommand = (MovePlayerCommand)theEObject;
 				T result = caseMovePlayerCommand(movePlayerCommand);
 				if (result == null) result = caseGameCommand(movePlayerCommand);
+				if (result == null) result = caseGridListener(movePlayerCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.SOKOBAN_LEVEL: {
+				SokobanLevel sokobanLevel = (SokobanLevel)theEObject;
+				T result = caseSokobanLevel(sokobanLevel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.STRING2_STRING_MAP_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, String> string2StringMapEntry = (Map.Entry<String, String>)theEObject;
+				T result = caseString2StringMapEntry(string2StringMapEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -161,6 +176,36 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sokoban Level</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sokoban Level</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSokobanLevel(SokobanLevel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String2 String Map Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String2 String Map Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseString2StringMapEntry(Map.Entry<String, String> object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Grid</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -186,7 +231,22 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <V extends Object, O extends EObject, C extends GameCommand> T caseGridGame(GridGame<V, O, C> object) {
+	public <G extends Grid<?, ?>, C extends GameCommand> T caseGridGame(GridGame<G, C> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grid Listener</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grid Listener</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGridListener(GridListener object) {
 		return null;
 	}
 

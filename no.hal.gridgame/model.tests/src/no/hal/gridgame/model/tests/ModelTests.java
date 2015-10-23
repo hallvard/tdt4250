@@ -32,6 +32,8 @@ public class ModelTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ModelTests("model Tests");
 		suite.addTestSuite(CompositeCommandTest.class);
+		suite.addTestSuite(GridChangeDescriptionTest.class);
+		suite.addTestSuite(GridRectangleTest.class);
 		return suite;
 	}
 

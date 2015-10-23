@@ -34,6 +34,7 @@ public class ModelTests extends TestSuite {
 		suite.addTestSuite(SokobanGridTest.class);
 		suite.addTestSuite(SokobanGameTest.class);
 		suite.addTestSuite(MovePlayerCommandTest.class);
+		suite.addTestSuite(SokobanLevelTest.class);
 		return suite;
 	}
 

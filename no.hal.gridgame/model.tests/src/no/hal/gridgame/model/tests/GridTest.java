@@ -18,6 +18,8 @@ import no.hal.gridgame.model.Grid;
  *   <li>{@link no.hal.gridgame.model.Grid#setGridObject(int, int, org.eclipse.emf.ecore.EObject) <em>Set Grid Object</em>}</li>
  *   <li>{@link no.hal.gridgame.model.Grid#createGridValue() <em>Create Grid Value</em>}</li>
  *   <li>{@link no.hal.gridgame.model.Grid#createGridObject() <em>Create Grid Object</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getGridValues(int, int, int, int) <em>Get Grid Values</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getGridObjects(int, int, int, int) <em>Get Grid Objects</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -135,6 +137,32 @@ public abstract class GridTest extends TestCase {
 	 * @generated
 	 */
 	public void testCreateGridObject() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.gridgame.model.Grid#getGridValues(int, int, int, int) <em>Get Grid Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.Grid#getGridValues(int, int, int, int)
+	 * @generated
+	 */
+	public void testGetGridValues__int_int_int_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.gridgame.model.Grid#getGridObjects(int, int, int, int) <em>Get Grid Objects</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.Grid#getGridObjects(int, int, int, int)
+	 * @generated
+	 */
+	public void testGetGridObjects__int_int_int_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

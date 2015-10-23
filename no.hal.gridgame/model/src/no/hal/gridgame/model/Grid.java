@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.hal.gridgame.model.Grid#getHeight <em>Height</em>}</li>
  *   <li>{@link no.hal.gridgame.model.Grid#getValues <em>Values</em>}</li>
  *   <li>{@link no.hal.gridgame.model.Grid#getObjects <em>Objects</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.Grid#getGridListeners <em>Grid Listeners</em>}</li>
  * </ul>
  *
  * @see no.hal.gridgame.model.ModelPackage#getGrid()
@@ -108,6 +109,22 @@ public interface Grid<V extends Object, O extends EObject> extends EObject {
 	EList<O> getObjects();
 
 	/**
+	 * Returns the value of the '<em><b>Grid Listeners</b></em>' reference list.
+	 * The list contents are of type {@link no.hal.gridgame.model.GridListener}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Grid Listeners</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Grid Listeners</em>' reference list.
+	 * @see no.hal.gridgame.model.ModelPackage#getGrid_GridListeners()
+	 * @model
+	 * @generated
+	 */
+	EList<GridListener> getGridListeners();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -154,5 +171,21 @@ public interface Grid<V extends Object, O extends EObject> extends EObject {
 	 * @generated
 	 */
 	O createGridObject();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<V> getGridValues(int x, int y, int width, int height);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<O> getGridObjects(int x, int y, int width, int height);
 
 } // Grid

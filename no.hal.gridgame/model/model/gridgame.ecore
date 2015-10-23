@@ -40,6 +40,20 @@
     <eOperations name="createGridObject">
       <eGenericType eTypeParameter="#//Grid/O"/>
     </eOperations>
+    <eOperations name="getGridValues" upperBound="-1">
+      <eGenericType eTypeParameter="#//Grid/V"/>
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getGridObjects" upperBound="-1">
+      <eGenericType eTypeParameter="#//Grid/O"/>
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1">
@@ -49,13 +63,29 @@
         containment="true">
       <eGenericType eTypeParameter="#//Grid/O"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gridListeners" upperBound="-1"
+        eType="#//GridListener"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridListener" abstract="true" interface="true">
+    <eOperations name="gridChanged">
+      <eParameters name="grid">
+        <eGenericType eClassifier="#//Grid">
+          <eTypeArguments/>
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GridGame" abstract="true">
-    <eTypeParameters name="V">
-      <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eTypeParameters>
-    <eTypeParameters name="O">
-      <eBounds eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eTypeParameters name="G">
+      <eBounds eClassifier="#//Grid">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eBounds>
     </eTypeParameters>
     <eTypeParameters name="C">
       <eBounds eClassifier="#//GameCommand"/>
@@ -69,10 +99,7 @@
     <eOperations name="redo"/>
     <eOperations name="isFinished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="grid" containment="true">
-      <eGenericType eClassifier="#//Grid">
-        <eTypeArguments eTypeParameter="#//GridGame/V"/>
-        <eTypeArguments eTypeParameter="#//GridGame/O"/>
-      </eGenericType>
+      <eGenericType eTypeParameter="#//GridGame/G"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="undoStack" upperBound="-1"
         containment="true">
@@ -83,11 +110,13 @@
       <eGenericType eTypeParameter="#//GridGame/C"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GameCommand" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="GameCommand" abstract="true" eSuperTypes="#//GridListener">
     <eOperations name="prepare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="perform"/>
     <eOperations name="undo"/>
     <eOperations name="redo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changes" eType="#//GridChangeDescription"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeCommand" eSuperTypes="#//GameCommand">
     <eTypeParameters name="C">
@@ -97,5 +126,36 @@
         containment="true">
       <eGenericType eTypeParameter="#//CompositeCommand/C"/>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridChangeDescription" eSuperTypes="#//GridRectangle">
+    <eOperations name="addChange">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="addChange">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridRectangle">
+    <eOperations name="setValues">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setValues">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setValues">
+      <eParameters name="rect" eType="#//GridRectangle"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>

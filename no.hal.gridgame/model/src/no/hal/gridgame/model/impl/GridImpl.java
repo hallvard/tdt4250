@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -15,9 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.gridgame.model.Grid;
+import no.hal.gridgame.model.GridListener;
 import no.hal.gridgame.model.ModelPackage;
 
 /**
@@ -32,6 +35,7 @@ import no.hal.gridgame.model.ModelPackage;
  *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getValues <em>Values</em>}</li>
  *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getObjects <em>Objects</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.impl.GridImpl#getGridListeners <em>Grid Listeners</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +100,16 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 	 * @ordered
 	 */
 	protected EList<O> objects;
+
+	/**
+	 * The cached value of the '{@link #getGridListeners() <em>Grid Listeners</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGridListeners()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GridListener> gridListeners;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +202,19 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 		return objects;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<GridListener> getGridListeners() {
+		if (gridListeners == null) {
+			gridListeners = new EObjectResolvingEList<GridListener>(GridListener.class, this, ModelPackage.GRID__GRID_LISTENERS);
+		}
+		return gridListeners;
+	}
+
 	protected int elementPos(int x, int y) {
 		return y * getWidth() + x;
 	}
@@ -252,6 +279,7 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 		int pos = elementPos(x, y);
 		ensureValue(pos, true);
 		getValues().set(pos, element);
+		fireGridChanged(x, y);
 	}
 
 	/**
@@ -265,15 +293,16 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 		int pos = elementPos(x, y);
 		ensureObject(pos, true);
 		getObjects().set(pos, object);
+		fireGridChanged(x, y);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public V createGridValue() {
-		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -281,12 +310,46 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public O createGridObject() {
-		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	private <T> EList<T> getGridElements(EList<T> elements, int x0, int y0, int width, int height) {
+		EList<T> result = new BasicEList<T>();
+		int uptoY = (height < 0 ? getHeight() + height + 1 : y0 + height);
+		int uptoX = (width < 0 ? getWidth() + width + 1 : x0 + width);
+		for (int y = y0; y < uptoY; y++) {
+			for (int x = x0; x < uptoX; x++) {
+				checkValidPos(x, y);
+				int pos = elementPos(x, y);
+				result.add(elements.get(pos));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<V> getGridValues(int x0, int y0, int width, int height) {
+		return getGridElements(getValues(), x0, y0, width, height);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<O> getGridObjects(int x0, int y0, int width, int height) {
+		return getGridElements(getObjects(), x0, y0, width, height);
 	}
 
 	/**
@@ -319,6 +382,8 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 				return getValues();
 			case ModelPackage.GRID__OBJECTS:
 				return getObjects();
+			case ModelPackage.GRID__GRID_LISTENERS:
+				return getGridListeners();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -346,6 +411,10 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 				getObjects().clear();
 				getObjects().addAll((Collection<? extends O>)newValue);
 				return;
+			case ModelPackage.GRID__GRID_LISTENERS:
+				getGridListeners().clear();
+				getGridListeners().addAll((Collection<? extends GridListener>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -370,6 +439,9 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 			case ModelPackage.GRID__OBJECTS:
 				getObjects().clear();
 				return;
+			case ModelPackage.GRID__GRID_LISTENERS:
+				getGridListeners().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -390,6 +462,8 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 				return values != null && !values.isEmpty();
 			case ModelPackage.GRID__OBJECTS:
 				return objects != null && !objects.isEmpty();
+			case ModelPackage.GRID__GRID_LISTENERS:
+				return gridListeners != null && !gridListeners.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -417,6 +491,10 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 				return createGridValue();
 			case ModelPackage.GRID___CREATE_GRID_OBJECT:
 				return createGridObject();
+			case ModelPackage.GRID___GET_GRID_VALUES__INT_INT_INT_INT:
+				return getGridValues((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
+			case ModelPackage.GRID___GET_GRID_OBJECTS__INT_INT_INT_INT:
+				return getGridObjects((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -439,6 +517,18 @@ public abstract class GridImpl<V extends Object, O extends EObject> extends Mini
 		result.append(values);
 		result.append(')');
 		return result.toString();
+	}
+	
+	//
+	
+	protected void fireGridChanged(int x, int y, int width, int height) {
+		for (GridListener gridListener : gridListeners) {
+			gridListener.gridChanged(this, x, y, width, height);
+		}
+	}
+
+	protected void fireGridChanged(int x, int y) {
+		fireGridChanged(x, y, 1, 1);
 	}
 
 } //GridImpl

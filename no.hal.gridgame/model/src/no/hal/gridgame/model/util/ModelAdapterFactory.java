@@ -76,7 +76,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createGridAdapter();
 			}
 			@Override
-			public <V extends Object, O extends EObject, C extends GameCommand> Adapter caseGridGame(GridGame<V, O, C> object) {
+			public Adapter caseGridListener(GridListener object) {
+				return createGridListenerAdapter();
+			}
+			@Override
+			public <G extends Grid<?, ?>, C extends GameCommand> Adapter caseGridGame(GridGame<G, C> object) {
 				return createGridGameAdapter();
 			}
 			@Override
@@ -86,6 +90,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <C extends GameCommand> Adapter caseCompositeCommand(CompositeCommand<C> object) {
 				return createCompositeCommandAdapter();
+			}
+			@Override
+			public Adapter caseGridChangeDescription(GridChangeDescription object) {
+				return createGridChangeDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseGridRectangle(GridRectangle object) {
+				return createGridRectangleAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -136,6 +148,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.GridListener <em>Grid Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.gridgame.model.GridListener
+	 * @generated
+	 */
+	public Adapter createGridListenerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.GridGame <em>Grid Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -174,6 +200,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompositeCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.GridChangeDescription <em>Grid Change Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.gridgame.model.GridChangeDescription
+	 * @generated
+	 */
+	public Adapter createGridChangeDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.gridgame.model.GridRectangle <em>Grid Rectangle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.gridgame.model.GridRectangle
+	 * @generated
+	 */
+	public Adapter createGridRectangleAdapter() {
 		return null;
 	}
 

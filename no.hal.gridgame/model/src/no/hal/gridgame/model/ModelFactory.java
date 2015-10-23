@@ -40,6 +40,24 @@ public interface ModelFactory extends EFactory {
 	<C extends GameCommand> CompositeCommand<C> createCompositeCommand();
 
 	/**
+	 * Returns a new object of class '<em>Grid Change Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grid Change Description</em>'.
+	 * @generated
+	 */
+	GridChangeDescription createGridChangeDescription();
+
+	/**
+	 * Returns a new object of class '<em>Grid Rectangle</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grid Rectangle</em>'.
+	 * @generated
+	 */
+	GridRectangle createGridRectangle();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

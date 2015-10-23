@@ -2,17 +2,23 @@
  */
 package no.hal.sokoban.model.impl;
 
-import no.hal.sokoban.model.*;
-
-import no.hal.sokoban.util.Direction;
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import no.hal.sokoban.model.ModelFactory;
+import no.hal.sokoban.model.ModelPackage;
+import no.hal.sokoban.model.MovePlayerCommand;
+import no.hal.sokoban.model.SokobanGame;
+import no.hal.sokoban.model.SokobanGrid;
+import no.hal.sokoban.model.SokobanLevel;
+import no.hal.sokoban.model.UoD;
+import no.hal.sokoban.util.Cell;
+import no.hal.sokoban.util.Direction;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +68,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.SOKOBAN_GRID: return createSokobanGrid();
 			case ModelPackage.SOKOBAN_GAME: return createSokobanGame();
 			case ModelPackage.MOVE_PLAYER_COMMAND: return createMovePlayerCommand();
+			case ModelPackage.SOKOBAN_LEVEL: return createSokobanLevel();
+			case ModelPackage.STRING2_STRING_MAP_ENTRY: return (EObject)createString2StringMapEntry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -106,6 +114,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UoD createUoD() {
 		UoDImpl uoD = new UoDImpl();
 		return uoD;
@@ -116,6 +125,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SokobanGrid createSokobanGrid() {
 		SokobanGridImpl sokobanGrid = new SokobanGridImpl();
 		return sokobanGrid;
@@ -126,6 +136,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SokobanGame createSokobanGame() {
 		SokobanGameImpl sokobanGame = new SokobanGameImpl();
 		return sokobanGame;
@@ -136,6 +147,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MovePlayerCommand createMovePlayerCommand() {
 		MovePlayerCommandImpl movePlayerCommand = new MovePlayerCommandImpl();
 		return movePlayerCommand;
@@ -146,8 +158,29 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public no.hal.sokoban.util.Cell createCellFromString(EDataType eDataType, String initialValue) {
-		return (no.hal.sokoban.util.Cell)super.createFromString(eDataType, initialValue);
+	@Override
+	public SokobanLevel createSokobanLevel() {
+		SokobanLevelImpl sokobanLevel = new SokobanLevelImpl();
+		return sokobanLevel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, String> createString2StringMapEntry() {
+		String2StringMapEntryImpl string2StringMapEntry = new String2StringMapEntryImpl();
+		return string2StringMapEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cell createCellFromString(EDataType eDataType, String initialValue) {
+		return (Cell)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -182,6 +215,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelPackage getModelPackage() {
 		return (ModelPackage)getEPackage();
 	}

@@ -2,7 +2,7 @@ package no.hal.sokoban.util;
 
 public class Cell {
 
-	private final String ALT_EMPTY = "-_";
+	private final static String ALT_EMPTY = "-_";
 	
 	private final static char WALL = '#';
 	private final static char EMPTY = ' ';
@@ -18,6 +18,10 @@ public class Cell {
 		this.foreground = foreground;
 	}
 
+	private static Cell valueOf(char background, char foreground) {
+		return new Cell(background, foreground);
+	}
+
 	public static Cell valueOf(Cell background, Cell foreground) {
 		return new Cell(background.background, foreground.foreground);
 	}
@@ -26,28 +30,19 @@ public class Cell {
 		return new Cell(background.background, EMPTY);
 	}
 	
-	public Cell(char c) {
+	public static Cell valueOf(char c) {
 		if (ALT_EMPTY.indexOf(c) >= 0) {
 			c = EMPTY;
 		}
 		if (c == BOX || c == PLAYER) {
-			background = EMPTY;
-			foreground = c;
+			return valueOf(EMPTY, c);
 		} else if (c == BOX_ON_TARGET) {
-			background = TARGET;
-			foreground = BOX;
+			return valueOf(TARGET, BOX);
 		} else if (c == PLAYER_ON_TARGET) {
-			background = TARGET;
-			foreground = PLAYER;
+			return valueOf(TARGET, PLAYER);
 		} else {
-			background = c;
-			foreground = EMPTY;
+			return valueOf(c, EMPTY);
 		}
-	}
-	
-	// used for default cells, i.e. walls
-	public Cell() {
-		this(WALL);
 	}
 	
 	public boolean isOccupied() {
@@ -66,6 +61,18 @@ public class Cell {
 		return foreground == BOX;
 	}
 	
+	public String toName() {
+		switch (toChar()) {
+		case TARGET: 			return "target";
+		case WALL: 				return "wall";
+		case BOX: 				return "box";
+		case BOX_ON_TARGET: 	return "box_on_target";
+		case PLAYER: 			return "player";
+		case PLAYER_ON_TARGET: 	return "player_on_target";
+		}
+		return "empty";
+	}
+
 	public char toChar() {
 		if (foreground == EMPTY) {
 			return background;
@@ -84,7 +91,7 @@ public class Cell {
 	}
 	
 	public static Cell valueOf(String s) {
-		return (s.length() == 1 ? new Cell(s.charAt(0)) : null);
+		return (s.length() == 1 ? valueOf(s.charAt(0)) : null);
 	}
 
 	@Override

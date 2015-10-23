@@ -78,8 +78,14 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.GRID_LISTENER: {
+				GridListener gridListener = (GridListener)theEObject;
+				T result = caseGridListener(gridListener);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.GRID_GAME: {
-				GridGame<?, ?, ?> gridGame = (GridGame<?, ?, ?>)theEObject;
+				GridGame<?, ?> gridGame = (GridGame<?, ?>)theEObject;
 				T result = caseGridGame(gridGame);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -87,6 +93,7 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.GAME_COMMAND: {
 				GameCommand gameCommand = (GameCommand)theEObject;
 				T result = caseGameCommand(gameCommand);
+				if (result == null) result = caseGridListener(gameCommand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +101,20 @@ public class ModelSwitch<T> extends Switch<T> {
 				CompositeCommand<?> compositeCommand = (CompositeCommand<?>)theEObject;
 				T result = caseCompositeCommand(compositeCommand);
 				if (result == null) result = caseGameCommand(compositeCommand);
+				if (result == null) result = caseGridListener(compositeCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.GRID_CHANGE_DESCRIPTION: {
+				GridChangeDescription gridChangeDescription = (GridChangeDescription)theEObject;
+				T result = caseGridChangeDescription(gridChangeDescription);
+				if (result == null) result = caseGridRectangle(gridChangeDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.GRID_RECTANGLE: {
+				GridRectangle gridRectangle = (GridRectangle)theEObject;
+				T result = caseGridRectangle(gridRectangle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +153,21 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grid Listener</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grid Listener</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGridListener(GridListener object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Grid Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -142,7 +178,7 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <V extends Object, O extends EObject, C extends GameCommand> T caseGridGame(GridGame<V, O, C> object) {
+	public <G extends Grid<?, ?>, C extends GameCommand> T caseGridGame(GridGame<G, C> object) {
 		return null;
 	}
 
@@ -173,6 +209,36 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public <C extends GameCommand> T caseCompositeCommand(CompositeCommand<C> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grid Change Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grid Change Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGridChangeDescription(GridChangeDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grid Rectangle</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grid Rectangle</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGridRectangle(GridRectangle object) {
 		return null;
 	}
 

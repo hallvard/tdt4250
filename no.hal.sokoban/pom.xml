@@ -52,13 +52,8 @@
 	</build>
 
 	<modules>
-	<!-- 
-		<module>no.hal.sokoban.model</module>
-		<module>no.hal.sokoban.model.tests</module>
-		<module>no.hal.sokoban.model.ui</module>
-	 -->
-    <module>model</module>
-    <module>model.tests</module>
-    <module>model.ui</module>
-  </modules>
+	    <module>model</module>
+	    <module>model.tests</module>
+	    <module>model.ui</module>
+	</modules>
 </project>

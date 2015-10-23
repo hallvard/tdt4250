@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see no.hal.gridgame.model.ModelPackage#getGridGame()
- * @model abstract="true" VBounds="org.eclipse.emf.ecore.EJavaObject"
+ * @model abstract="true"
  * @generated
  */
-public interface GridGame<V extends Object, O extends EObject, C extends GameCommand> extends EObject {
+public interface GridGame<G extends Grid<?, ?>, C extends GameCommand> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public interface GridGame<V extends Object, O extends EObject, C extends GameCom
 	 * @model containment="true"
 	 * @generated
 	 */
-	Grid<V, O> getGrid();
+	G getGrid();
 
 	/**
 	 * Sets the value of the '{@link no.hal.gridgame.model.GridGame#getGrid <em>Grid</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface GridGame<V extends Object, O extends EObject, C extends GameCom
 	 * @see #getGrid()
 	 * @generated
 	 */
-	void setGrid(Grid<V, O> value);
+	void setGrid(G value);
 
 	/**
 	 * Returns the value of the '<em><b>Undo Stack</b></em>' containment reference list.

@@ -118,6 +118,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.gridgame.model.GridChangeDescription} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GridChangeDescriptionItemProvider gridChangeDescriptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.gridgame.model.GridChangeDescription}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGridChangeDescriptionAdapter() {
+		if (gridChangeDescriptionItemProvider == null) {
+			gridChangeDescriptionItemProvider = new GridChangeDescriptionItemProvider(this);
+		}
+
+		return gridChangeDescriptionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.gridgame.model.GridRectangle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GridRectangleItemProvider gridRectangleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.gridgame.model.GridRectangle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGridRectangleAdapter() {
+		if (gridRectangleItemProvider == null) {
+			gridRectangleItemProvider = new GridRectangleItemProvider(this);
+		}
+
+		return gridRectangleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +264,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
 		if (uoDItemProvider != null) uoDItemProvider.dispose();
 		if (compositeCommandItemProvider != null) compositeCommandItemProvider.dispose();
+		if (gridChangeDescriptionItemProvider != null) gridChangeDescriptionItemProvider.dispose();
+		if (gridRectangleItemProvider != null) gridRectangleItemProvider.dispose();
 	}
 
 }

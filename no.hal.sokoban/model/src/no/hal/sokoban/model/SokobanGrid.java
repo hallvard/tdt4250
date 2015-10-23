@@ -3,6 +3,7 @@
 package no.hal.sokoban.model;
 
 import no.hal.gridgame.model.Grid;
+import no.hal.sokoban.util.Cell;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,10 +23,11 @@ import org.eclipse.emf.ecore.EObject;
  * @model superTypes="no.hal.gridgame.model.Grid<no.hal.sokoban.model.Cell, org.eclipse.emf.ecore.EObject>"
  * @generated
  */
-public interface SokobanGrid extends Grid<no.hal.sokoban.util.Cell, EObject> {
+public interface SokobanGrid extends Grid<Cell, EObject> {
 
 	/**
 	 * Returns the value of the '<em><b>Player X</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Player X</em>' attribute isn't clear,
@@ -35,7 +37,7 @@ public interface SokobanGrid extends Grid<no.hal.sokoban.util.Cell, EObject> {
 	 * @return the value of the '<em>Player X</em>' attribute.
 	 * @see #setPlayerX(int)
 	 * @see no.hal.sokoban.model.ModelPackage#getSokobanGrid_PlayerX()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getPlayerX();
@@ -52,6 +54,7 @@ public interface SokobanGrid extends Grid<no.hal.sokoban.util.Cell, EObject> {
 
 	/**
 	 * Returns the value of the '<em><b>Player Y</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Player Y</em>' attribute isn't clear,
@@ -61,7 +64,7 @@ public interface SokobanGrid extends Grid<no.hal.sokoban.util.Cell, EObject> {
 	 * @return the value of the '<em>Player Y</em>' attribute.
 	 * @see #setPlayerY(int)
 	 * @see no.hal.sokoban.model.ModelPackage#getSokobanGrid_PlayerY()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getPlayerY();

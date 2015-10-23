@@ -16,6 +16,7 @@ import no.hal.gridgame.model.GameCommand;
  *   <li>{@link no.hal.gridgame.model.GameCommand#perform() <em>Perform</em>}</li>
  *   <li>{@link no.hal.gridgame.model.GameCommand#undo() <em>Undo</em>}</li>
  *   <li>{@link no.hal.gridgame.model.GameCommand#redo() <em>Redo</em>}</li>
+ *   <li>{@link no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int) <em>Grid Changed</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -107,6 +108,19 @@ public abstract class GameCommandTest extends TestCase {
 	 * @generated
 	 */
 	public void testRedo() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int) <em>Grid Changed</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int)
+	 * @generated
+	 */
+	public void testGridChanged__Grid_int_int_int_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

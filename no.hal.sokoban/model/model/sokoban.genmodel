@@ -8,27 +8,33 @@
     testsPluginID="no.hal.sokoban.model.tests" usedGenPackages="../../no.hal.gridgame.model/model/gridgame.genmodel#//model"
     operationReflection="true" importOrganizing="true">
   <foreignModel>sokoban.ecore</foreignModel>
-  <genPackages prefix="Model" basePackage="no.hal.sokoban" resource="XMI" disposableProviderFactory="true"
+  <genPackages prefix="Model" basePackage="no.hal.sokoban" resource="Basic" disposableProviderFactory="true"
       multipleEditorPages="false" fileExtensions="sok" ecorePackage="sokoban.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sokoban.ecore#//TileKind">
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/EMPTY"/>
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/WALL"/>
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//TileKind/TARGET"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sokoban.ecore#//ItemKind">
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/NOTHING"/>
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/BOX"/>
-      <genEnumLiterals ecoreEnumLiteral="sokoban.ecore#//ItemKind/PLAYER"/>
-    </genEnums>
-    <genClasses ecoreClass="sokoban.ecore#//UoD"/>
-    <genClasses ecoreClass="sokoban.ecore#//SokobanGrid"/>
-    <genClasses ecoreClass="sokoban.ecore#//GridElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//GridElement/tile"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//GridElement/item"/>
+    <genDataTypes ecoreDataType="sokoban.ecore#//Cell"/>
+    <genDataTypes ecoreDataType="sokoban.ecore#//Direction"/>
+    <genClasses ecoreClass="sokoban.ecore#//UoD">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sokoban.ecore#//UoD/levels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sokoban.ecore#//UoD/game"/>
+    </genClasses>
+    <genClasses ecoreClass="sokoban.ecore#//SokobanGrid">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//SokobanGrid/playerX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//SokobanGrid/playerY"/>
     </genClasses>
     <genClasses ecoreClass="sokoban.ecore#//SokobanGame"/>
-    <genClasses ecoreClass="sokoban.ecore#//MoveCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//MoveCommand/push"/>
+    <genClasses ecoreClass="sokoban.ecore#//MovePlayerCommand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sokoban.ecore#//MovePlayerCommand/grid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//MovePlayerCommand/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//MovePlayerCommand/push"/>
+    </genClasses>
+    <genClasses ecoreClass="sokoban.ecore#//SokobanLevel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//SokobanLevel/lines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sokoban.ecore#//SokobanLevel/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sokoban.ecore#//SokobanLevel/characterMappings"/>
+      <genOperations ecoreOperation="sokoban.ecore#//SokobanLevel/createGrid"/>
+    </genClasses>
+    <genClasses ecoreClass="sokoban.ecore#//String2StringMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//String2StringMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sokoban.ecore#//String2StringMapEntry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

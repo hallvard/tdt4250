@@ -58,6 +58,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.UO_D: return createUoD();
 			case ModelPackage.COMPOSITE_COMMAND: return createCompositeCommand();
+			case ModelPackage.GRID_CHANGE_DESCRIPTION: return createGridChangeDescription();
+			case ModelPackage.GRID_RECTANGLE: return createGridRectangle();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,6 +83,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public <C extends GameCommand> CompositeCommand<C> createCompositeCommand() {
 		CompositeCommandImpl<C> compositeCommand = new CompositeCommandImpl<C>();
 		return compositeCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GridChangeDescription createGridChangeDescription() {
+		GridChangeDescriptionImpl gridChangeDescription = new GridChangeDescriptionImpl();
+		return gridChangeDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GridRectangle createGridRectangle() {
+		GridRectangleImpl gridRectangle = new GridRectangleImpl();
+		return gridRectangle;
 	}
 
 	/**
