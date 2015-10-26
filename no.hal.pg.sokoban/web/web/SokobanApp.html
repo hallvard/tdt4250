@@ -10,7 +10,10 @@
 <div id="sokoban"></div>
 
 <script src="https://fb.me/react-0.13.3.js"></script>
+<script src="file:/Users/hal/java/git/tdt4250/no.hal.pg.runtime.web/web/AppHelper.js"></script>
+<!-- 
 <script src="../../GameApp/web/AppHelper.js"></script>
+ -->
 
 <script src="SokobanGridComponent.js"></script>
 <script type="text/javascript">
@@ -24,7 +27,7 @@ var data = {
 	};
 
 React.render(React.createElement(SokobanGridComponent,
-		AppHelper.appProps({ grid: data })
+		AppHelper.appProps({ grid: data, imageSize: 8 })
 		), document.getElementById('sokoban')
 );
 

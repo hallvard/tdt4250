@@ -70,24 +70,30 @@ var SokobanGridComponent = React.createClass({
 			}
 		}
 		return {
-			grid : {
-				values: names,
-				x: grid.x,
-				y: grid.y,
-				width: grid.width,
-				height: grid.height, 
-			}
+			values: names,
+			x: grid.x,
+			y: grid.y,
+			width: grid.width,
+			height: grid.height, 
 		};
 	},
 	
 	getInitialState : function() {
 		var comp = this;
-		AppHelper.loadData(this.props.serviceUrl + '/sokobanGame/grid/getGridValues?stringFormat=false', false, function(response) {
-			comp.setState({
-				grid : response
-			});
-		});
-		return this.computeGrid(this.props.grid, null, true);
+//		AppHelper.loadData(this.props.serviceUrl + '/sokobanGame/grid/getGridValues?stringFormat=false', false, function(response) {
+//			comp.setState({
+//				grid : response
+//			});
+//		});
+		if (AppHelper.isArray(this.props.grid)) {
+			return {
+				grid : this.props.grid.map(function (grid) { return comp.computeGrid(grid, null, true); })
+			}
+		} else {
+			return {
+				grid : comp.computeGrid(this.props.grid, null, true)
+			}
+		}
 	},
 
 	movePlayer : function(direction) {
@@ -115,28 +121,36 @@ var SokobanGridComponent = React.createClass({
 		}
 		return 'images/' + name + '16x16.png';
 	},
-	
-	render : function render() {
+
+	createGridRows: function (grid) {
 		var rows = [];
-		grid = this.state.grid;
+		var imageSize = (typeof this.props.imageSize === 'number' ? this.props.imageSize : 16);
 		for (rowNum = 0; rowNum < grid.height; rowNum++) {
 			var columns = [] 
 			for (colNum = 0; colNum < grid.width; colNum++) {
 				var value = grid.values[rowNum * grid.width + colNum];
 				var col = React.createElement('td', { key: colNum, className: 'sokobanGridCell' },
-							React.createElement('img', { src: this.name2Image(value) })
+							React.createElement('img', { src: this.name2Image(value), width: imageSize, height: imageSize })
 						);
 				columns.push(col);
 			}
 			var row = React.createElement('tr', { key: rowNum, className: 'sokobanGridRow' }, columns);
 			rows.push(row);
 		}
-		this.state.grid.values.map
+		return rows;
+	},
+	
+	createGridTable: function (grid, num) {
 		var comp = this;
-		return React.createElement("table", { className: 'sokobanGridTable', tabIndex: 0, onKeyDown: function(event) { comp.movePlayer(event);} },
-				React.createElement("tbody", null,
-					rows
+		return React.createElement("table", { key: num, className: 'sokobanGridTable', tabIndex: num, onKeyDown: function(event) { comp.movePlayer(event);} },
+				React.createElement("tbody", null, comp.createGridRows(grid))
 				)
-		);
+	},
+	
+	render : function render() {
+		var num = 0;
+		var comp = this;
+		var grids = AppHelper.asArray(this.state.grid);
+		return React.createElement("div", null, grids.map(function (grid) { return comp.createGridTable(grid, num++); }));
 	}
 });
