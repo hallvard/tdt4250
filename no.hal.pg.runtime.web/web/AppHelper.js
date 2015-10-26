@@ -81,19 +81,27 @@ var AppHelper = {
 	isArray: function(object) {
 		return (Array.isArray && Array.isArray(object));
 	},
+
+	asArray: function(object, asArray) {
+		if (! (typeof asArray === 'boolean')) {
+			asArray = true;
+		}
+		if (asArray != this.isArray(object)) {
+			if (asArray) {
+				object = [object];
+			} else {
+				object = object[0];
+			}
+		}
+		return object;
+	},
 	
 	responseObject: function(responseText, asArray) {
 		var response = responseText;
 		if (typeof response === 'string') {
 			response = JSON.parse(response);
 		}
-		if (asArray != this.isArray(response)) {
-			if (asArray) {
-				response = [response];
-			} else {
-				response = response[0];
-			} 
-		}
+		response = this.asArray(response, asArray);
 		this.log("Response: " + responseText + " -> " + response, this.LOGGING_INFO);
 		return response;
 	}
