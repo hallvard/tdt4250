@@ -12,12 +12,16 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.log.LogService;
 
+@Component
 public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 
 	private String name;
@@ -25,6 +29,10 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 	private Map<String, String> resourceAliasMapping = new HashMap<String, String>();
 //	private String refreshServiceUrlPath;
 	
+	private LogService logger;
+	
+	//
+
 	@Override
 	public String getName() {
 		return name;
@@ -40,6 +48,10 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 	@Activate
 	public void activate(ComponentContext context) throws Exception {
 		bundleContext = context.getBundleContext();
+		ServiceReference<LogService> serviceReference = bundleContext.getServiceReference(LogService.class);
+		if (serviceReference != null) {
+			logger = bundleContext.getService(serviceReference);
+		}
 		configure(context.getProperties());
 	}
 	
@@ -65,6 +77,12 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 	
 	//
 
+	private void log(int level, String message) {
+		if (this.logger != null) {
+			this.logger.log(LogService.LOG_WARNING, "EngineAppComponent " + getName() + ": " + message);
+		}
+	}
+
 	protected void configure(Dictionary<String, ?> properties) {
 		Object nameProperty = properties.get("IEngineApp.name");
 		if (nameProperty != null) {
@@ -75,14 +93,22 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 			String eClassPropertyValue = String.valueOf(eClassProperty);
 			int pos = eClassPropertyValue.indexOf('#');
 			if (pos > 0) {
-				EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage(eClassPropertyValue.substring(0, pos));
+				String ePackageUri = eClassPropertyValue.substring(0, pos);
+				EPackage ePackage = EPackage.Registry.INSTANCE.getEPackage(ePackageUri);
 				if (ePackage != null) {
-					EClassifier eClassfier = ePackage.getEClassifier(eClassPropertyValue.substring(pos + 1));
+					String eClassName = eClassPropertyValue.substring(pos + 1);
+					EClassifier eClassfier = ePackage.getEClassifier(eClassName);
 					if (eClassfier instanceof EClass) {
 						this.eClass = (EClass) eClassfier;
+					} else {
+						log(LogService.LOG_WARNING, "No class named " + eClassName + " in ePackage " + ePackageUri);
 					}
+				} else {
+					log(LogService.LOG_WARNING, "No registered package with nsURI " + ePackageUri);
 				}
 			}
+		} else {
+			log(LogService.LOG_WARNING, "No EngineAppComponent.eClass property");
 		}
 		Object resourcePathFormatProperty = properties.get("EngineAppComponent.resourcePathFormat");
 		Object resourceNamesProperty = properties.get("EngineAppComponent.resourceNames");
