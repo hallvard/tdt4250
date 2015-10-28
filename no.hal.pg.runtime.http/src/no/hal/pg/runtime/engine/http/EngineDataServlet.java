@@ -19,29 +19,45 @@ import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
 import no.hal.pg.runtime.engine.IEngine;
 import no.hal.pg.runtime.engine.IServiceExecutor;
+import no.hal.pg.runtime.engine.ServiceExecutor;
+import no.hal.pg.runtime.util.IllegalSubjectException;
 
 @SuppressWarnings("serial")
 public class EngineDataServlet extends HttpServlet {
 
 	private final IEngine engine;
 	private final ISerializer serializer;
-	
+
 	public EngineDataServlet(IEngine engine, ISerializer serializer) {
 		this.engine = engine;
 		this.serializer = serializer;
+		this.subjectProvider = new AuthHeaderSubjectProvider(engine.getGame());
 	}
+
+	private AuthHeaderSubjectProvider subjectProvider;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IServiceExecutor serviceExecutor = engine.getServiceExecutor();
 		synchronized (serviceExecutor) {
+			subjectProvider.setAuthHeader(req);
+			((ServiceExecutor) serviceExecutor).setSubjectProvider(subjectProvider);
 			serviceExecutor.init(engine.getGame());
 			DataServletHelper helper = new DataServletHelper(serviceExecutor);
-			if (helper.executeSegments(req)) {
-				Object[] result = serviceExecutor.getObjects();
-				writeResult(resp, result);
+			try {
+				if (helper.executeSegments(req)) {
+					Object[] result = serviceExecutor.getObjects();
+					writeResult(resp, result);
+				}
+			} catch (IllegalSubjectException subjectException) {
+				sendAuthenticationRequiredResponse(resp, subjectException.getMessage());
 			}
 		}
+	}
+
+	protected void sendAuthenticationRequiredResponse(HttpServletResponse resp, String message) throws IOException {
+		resp.setHeader("WWW-Authenticate", "Basic realm=\"" + engine.getKey() + "\"");
+		resp.sendError(401, message);
 	}
 
 	@Override
@@ -87,9 +103,9 @@ public class EngineDataServlet extends HttpServlet {
 		} catch (Exception e) {
 			writer.println(e.getMessage());
 		}
-//		writer.close();
+		//		writer.close();
 	}
-	
+
 	/*
 http://localhost:8082/example1.pg-rt/data/getTasks?player=hal@idi.ntnu.no
 http://localhost:8082/example1.pg-rt/data/hal@idi.ntnu.no

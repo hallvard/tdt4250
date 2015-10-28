@@ -10,6 +10,7 @@ import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.SelfService;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.SubjectService;
 import no.hal.pg.runtime.Task;
 import no.hal.pg.runtime.TaskState;
 import no.hal.pg.runtime.Team;
@@ -82,6 +83,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subjectServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -472,6 +480,24 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSubjectService() {
+		return subjectServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectService_Subject() {
+		return (EReference)subjectServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSelfService() {
 		return selfServiceEClass;
 	}
@@ -553,6 +579,9 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__CONTEXT);
 
+		subjectServiceEClass = createEClass(SUBJECT_SERVICE);
+		createEReference(subjectServiceEClass, SUBJECT_SERVICE__SUBJECT);
+
 		selfServiceEClass = createEClass(SELF_SERVICE);
 
 		// Create data types
@@ -590,6 +619,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		ETypeParameter taskEClass_R = addETypeParameter(taskEClass, "R");
 		ETypeParameter taskStateEClass_T = addETypeParameter(taskStateEClass, "T");
 		ETypeParameter serviceEClass_T = addETypeParameter(serviceEClass, "T");
+		ETypeParameter subjectServiceEClass_T = addETypeParameter(subjectServiceEClass, "T");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(theModelPackage.getTaskDef());
@@ -605,6 +635,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		gameEClass.getESuperTypes().add(this.getPlayers());
 		teamEClass.getESuperTypes().add(this.getPlayers());
 		taskEClass.getESuperTypes().add(this.getPlayers());
+		g1 = createEGenericType(this.getService());
+		g2 = createEGenericType(subjectServiceEClass_T);
+		g1.getETypeArguments().add(g2);
+		subjectServiceEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getService());
 		g2 = createEGenericType(ecorePackage.getEObject());
 		g1.getETypeArguments().add(g2);
@@ -691,6 +725,9 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(serviceEClass_T);
 		initEReference(getService_Context(), g1, null, "context", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(subjectServiceEClass, SubjectService.class, "SubjectService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSubjectService_Subject(), theModelPackage.getPerson(), null, "subject", null, 0, 1, SubjectService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(selfServiceEClass, SelfService.class, "SelfService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

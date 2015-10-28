@@ -20,6 +20,7 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.log.LogService;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.Group;
@@ -60,6 +61,7 @@ public class Engine implements IEngine, ManagedService {
 		}		
 	}
 
+	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		configure(properties);
 	}
@@ -101,14 +103,32 @@ public class Engine implements IEngine, ManagedService {
 		this.serviceExecutor = null;
 	}
 
+	@Override
 	public IServiceExecutor getServiceExecutor() {
 		return serviceExecutor;
 	}
 
 	//
 
+	private LogService logger = null;
+	
+	@Reference(
+			cardinality=ReferenceCardinality.OPTIONAL,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetLogService"
+			)
+	public synchronized void setLogService(LogService logService) {
+		this.logger = logService;
+	}
+	public synchronized void unsetLogService(LogService logService) {
+		this.logger = null;
+	}
+
+	//
+
 	private Game game;
 	
+	@Override
 	public void init(GameDef gameDef) {
 		Game game = RuntimeFactory.eINSTANCE.createGame();
 		for (Group group : gameDef.getParticipants()) {
@@ -119,11 +139,16 @@ public class Engine implements IEngine, ManagedService {
 			}
 		}
 		for (TaskDef taskDef : gameDef.getAllTasks()) {
+			int taskCount = 0;
 			for (ITaskProvider taskProvider : taskProviders) {
 				Task<?, ?> task = taskProvider.getTask(taskDef);
 				if (task != null) {
+					taskCount++;
 					game.getTasks().add(task);
 				}
+			}
+			if (taskCount == 0 && this.logger != null) {
+				this.logger.log(LogService.LOG_WARNING, "No task found for " + taskDef);
 			}
 		}
 		setGame(game);
@@ -142,10 +167,12 @@ public class Engine implements IEngine, ManagedService {
 		this.game = game;
 	}
 	
+	@Override
 	public void init(Game game) {
 		setGame(game);
 	}
 
+	@Override
 	public Game getGame() {
 		return game;
 	}
@@ -188,6 +215,7 @@ public class Engine implements IEngine, ManagedService {
 		task.eAdapters().add(stateListener);
 	}
 
+	@Override
 	public void start() {
 		startNextTask();
 	}

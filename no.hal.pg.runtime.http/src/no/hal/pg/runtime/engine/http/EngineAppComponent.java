@@ -79,7 +79,7 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 
 	private void log(int level, String message) {
 		if (this.logger != null) {
-			this.logger.log(LogService.LOG_WARNING, "EngineAppComponent " + getName() + ": " + message);
+			this.logger.log(level, "EngineAppComponent " + getName() + ": " + message);
 		}
 	}
 

@@ -8,10 +8,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import no.hal.pg.model.Person;
 import no.hal.pg.model.TaskDef;
 import no.hal.pg.runtime.Player;
 import no.hal.pg.runtime.Players;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.SubjectService;
 import no.hal.pg.runtime.Task;
 
 public class Util {
@@ -33,6 +35,22 @@ public class Util {
 		return result;
 	}
 
+	public static Player getPlayer(EObject eObject, Person person, boolean includeContainers) {
+		for (Player player : getPlayers(eObject, includeContainers)) {
+			if (player.getPerson() == person) {
+				return player;
+			}
+		}
+		return null;
+	}
+	
+	public static void checkSubject(Person subject, SubjectService<?> service) {
+		Player player = Util.getPlayer((EObject) service.getContext(), subject, false);
+		if (player == null) {
+			throw new IllegalSubjectException(subject, service);
+		}
+	}
+	
 	public static boolean containsPlayer(EObject eObject, Player player, boolean includeContainers) {
 		while (eObject != null) {
 			if (eObject instanceof Players) {

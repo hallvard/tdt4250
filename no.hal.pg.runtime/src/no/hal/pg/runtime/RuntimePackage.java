@@ -517,6 +517,52 @@ public interface RuntimePackage extends EPackage {
 	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.pg.runtime.impl.SubjectServiceImpl <em>Subject Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.impl.SubjectServiceImpl
+	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getSubjectService()
+	 * @generated
+	 */
+	int SUBJECT_SERVICE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_SERVICE__CONTEXT = SERVICE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_SERVICE__SUBJECT = SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Subject Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Subject Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.pg.runtime.impl.SelfServiceImpl <em>Self Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,7 +570,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getSelfService()
 	 * @generated
 	 */
-	int SELF_SERVICE = 7;
+	int SELF_SERVICE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -561,7 +607,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 8;
+	int TIMESTAMP = 9;
 
 
 	/**
@@ -913,6 +959,27 @@ public interface RuntimePackage extends EPackage {
 	EReference getService_Context();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.pg.runtime.SubjectService <em>Subject Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Subject Service</em>'.
+	 * @see no.hal.pg.runtime.SubjectService
+	 * @generated
+	 */
+	EClass getSubjectService();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.pg.runtime.SubjectService#getSubject <em>Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Subject</em>'.
+	 * @see no.hal.pg.runtime.SubjectService#getSubject()
+	 * @see #getSubjectService()
+	 * @generated
+	 */
+	EReference getSubjectService_Subject();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.pg.runtime.SelfService <em>Self Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1233,6 +1300,24 @@ public interface RuntimePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__CONTEXT = eINSTANCE.getService_Context();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.SubjectServiceImpl <em>Subject Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.pg.runtime.impl.SubjectServiceImpl
+		 * @see no.hal.pg.runtime.impl.RuntimePackageImpl#getSubjectService()
+		 * @generated
+		 */
+		EClass SUBJECT_SERVICE = eINSTANCE.getSubjectService();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_SERVICE__SUBJECT = eINSTANCE.getSubjectService_Subject();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.runtime.impl.SelfServiceImpl <em>Self Service</em>}' class.

@@ -21,6 +21,20 @@ import no.hal.pg.runtime.engine.IEngine;
 public class EngineAppEndPointProvider extends EngineEndPointProvider {
 
 	@Reference(
+			cardinality=ReferenceCardinality.MANDATORY,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetHttpService"
+			)	
+	@Override
+	public synchronized void setHttpService(HttpService httpService) {
+		super.setHttpService(httpService);
+	}
+	@Override
+	public synchronized void unsetHttpService(HttpService httpService) {
+		super.unsetHttpService(httpService);
+	}
+
+	@Reference(
 			cardinality=ReferenceCardinality.MULTIPLE,
 			policy=ReferencePolicy.DYNAMIC,
 			unbind="removeEngine"

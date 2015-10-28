@@ -67,6 +67,7 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 			case RuntimePackage.PLAYER: return createPlayer();
 			case RuntimePackage.TASK: return createTask();
 			case RuntimePackage.TASK_STATE: return createTaskState();
+			case RuntimePackage.SUBJECT_SERVICE: return createSubjectService();
 			case RuntimePackage.SELF_SERVICE: return createSelfService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -151,6 +152,16 @@ public class RuntimeFactoryImpl extends EFactoryImpl implements RuntimeFactory {
 	public <T extends Task<?, ?>> TaskState<T> createTaskState() {
 		TaskStateImpl<T> taskState = new TaskStateImpl<T>();
 		return taskState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <T> SubjectService<T> createSubjectService() {
+		SubjectServiceImpl<T> subjectService = new SubjectServiceImpl<T>();
+		return subjectService;
 	}
 
 	/**

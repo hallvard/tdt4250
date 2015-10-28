@@ -24,10 +24,14 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.log.LogService;
 
+import no.hal.pg.model.Person;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.SubjectService;
 import no.hal.pg.runtime.util.CompositeReferenceResolver;
+import no.hal.pg.runtime.util.IllegalSubjectException;
 
 @Component
 public class ServiceExecutor implements IServiceExecutor {
@@ -62,6 +66,9 @@ public class ServiceExecutor implements IServiceExecutor {
 			}
 			servicesMap.put(eObject, services);
 		}
+		if (services.size() == 0 && this.logger != null) {
+			this.logger.log(LogService.LOG_WARNING, "No service found for " + eObject);
+		}
 		return services;
 	}
 
@@ -79,6 +86,22 @@ public class ServiceExecutor implements IServiceExecutor {
 	}
 	public synchronized void removeReferenceResolver(IReferenceResolver referenceHandler) {
 		this.referenceResolver.removeReferenceResolver(referenceResolver);
+	}
+
+	//
+
+	private LogService logger = null;
+	
+	@Reference(
+			cardinality=ReferenceCardinality.OPTIONAL,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetLogService"
+			)
+	public synchronized void setLogService(LogService logService) {
+		this.logger = logService;
+	}
+	public synchronized void unsetLogService(LogService logService) {
+		this.logger = null;
 	}
 
 	//
@@ -106,6 +129,16 @@ public class ServiceExecutor implements IServiceExecutor {
 		return false;
 	}
 
+	private ISubjectProvider subjectProvider = null;
+	
+	public ISubjectProvider getSubjectProvider() {
+		return subjectProvider;
+	}
+	
+	public void setSubjectProvider(ISubjectProvider subjectProvider) {
+		this.subjectProvider = subjectProvider;
+	}
+	
 	@Override
 	public void execute(String serviceName, Map<String, ? extends Object> args) {
 		Collection<Object> results = new ArrayList<Object>();
@@ -114,7 +147,7 @@ public class ServiceExecutor implements IServiceExecutor {
 				ServiceInvocation serviceInvocation = getServiceInvokation((EObject) object, serviceName, args);
 				if (serviceInvocation != null) {
 					try {
-						Object value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
+						Object value = tryInvokeServiceElement(serviceInvocation);
 						if (value instanceof Collection<?>) {
 							results.addAll((Collection<?>) value);
 						} else {
@@ -131,6 +164,27 @@ public class ServiceExecutor implements IServiceExecutor {
 			}
 		}
 		setObjects(results);
+	}
+	
+	protected void setSubject(ServiceInvocation serviceInvocation) {
+		setSubject(serviceInvocation.target, serviceInvocation.serviceName);
+	}
+
+	protected void setSubject(EObject service, String serviceName) {
+		if (service instanceof SubjectService<?>) {
+			if (getSubjectProvider() == null && ((SubjectService<?>) service).getSubject() == null) {
+				throwNoSubjectException(service, serviceName);
+			}
+			Person subject = getSubjectProvider().getSubject();
+			if (getSubjectProvider() == null) {
+				throw new IllegalSubjectException(null, service);
+			}
+			((SubjectService<?>) service).setSubject(subject);
+		}
+	}
+
+	protected void throwNoSubjectException(EObject eObject, String serviceName) {
+		throw new IllegalSubjectException(null, eObject);
 	}
 
 	protected Object throwNoSuchServiceException(Object eObject, String serviceName, Map<String, ? extends Object> args) {
@@ -218,6 +272,9 @@ public class ServiceExecutor implements IServiceExecutor {
 				return new ServiceInvocation(eObject, targetElement.getName(), target, serviceElement, targetElement, args);
 			}
 		}
+		if (this.logger != null) {
+			this.logger.log(LogService.LOG_WARNING, "No " + serviceName + " service found for " + eObject);
+		}
 		return null;
 	}
 
@@ -228,14 +285,14 @@ public class ServiceExecutor implements IServiceExecutor {
 		for (ServiceInvocation serviceInvocation : serviceInvokations) {
 			Object value = null;
 			try {
-				value = tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
+				value = tryInvokeServiceElement(serviceInvocation);
 				if (value instanceof Collection<?>) {
 					value = ((Collection<?>) value).toArray();
-//				} else {
-//					value = new Object[]{value};
 				}
 			} catch (Exception e) {
-				System.out.println("Exception when invoking " + serviceInvocation.targetElement + " on " + serviceInvocation.target + ": " + e);
+				if (this.logger != null) {
+					this.logger.log(LogService.LOG_ERROR, "Exception when invoking " + serviceInvocation.targetElement + " on " + serviceInvocation.target + ": " + e);
+				}
 				value = e;
 			}
 			results.put(serviceInvocation.serviceName, value);
@@ -315,6 +372,11 @@ public class ServiceExecutor implements IServiceExecutor {
 			return feature;
 		}
 		return null;
+	}
+
+	protected Object tryInvokeServiceElement(ServiceInvocation serviceInvocation) throws InvocationTargetException {
+		setSubject(serviceInvocation);
+		return tryInvokeServiceElement(serviceInvocation.target, serviceInvocation.targetElement, serviceInvocation.args);
 	}
 
 	protected Object tryInvokeServiceElement(EObject service, ETypedElement serviceElement, Map<String, ? extends Object> args) throws InvocationTargetException {
