@@ -305,13 +305,22 @@ public interface ModelPackage extends EPackage {
 	int SOKOBAN_GAME__REDO_STACK = no.hal.gridgame.model.ModelPackage.GRID_GAME__REDO_STACK;
 
 	/**
+	 * The feature id for the '<em><b>Level</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOKOBAN_GAME__LEVEL = no.hal.gridgame.model.ModelPackage.GRID_GAME_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sokoban Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOKOBAN_GAME_FEATURE_COUNT = no.hal.gridgame.model.ModelPackage.GRID_GAME_FEATURE_COUNT + 0;
+	int SOKOBAN_GAME_FEATURE_COUNT = no.hal.gridgame.model.ModelPackage.GRID_GAME_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Perform</em>' operation.
@@ -673,6 +682,17 @@ public interface ModelPackage extends EPackage {
 	EClass getSokobanGame();
 
 	/**
+	 * Returns the meta object for the reference '{@link no.hal.sokoban.model.SokobanGame#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Level</em>'.
+	 * @see no.hal.sokoban.model.SokobanGame#getLevel()
+	 * @see #getSokobanGame()
+	 * @generated
+	 */
+	EReference getSokobanGame_Level();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.sokoban.model.MovePlayerCommand <em>Move Player Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -908,6 +928,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOKOBAN_GAME = eINSTANCE.getSokobanGame();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOKOBAN_GAME__LEVEL = eINSTANCE.getSokobanGame_Level();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.sokoban.model.impl.MovePlayerCommandImpl <em>Move Player Command</em>}' class.

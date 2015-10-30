@@ -2,23 +2,20 @@
  */
 package no.hal.pg.sokoban.runtime.impl;
 
-import no.hal.pg.runtime.impl.TaskImpl;
-
-import no.hal.pg.sokoban.model.SokobanTaskDef;
-
-import no.hal.pg.sokoban.runtime.RuntimePackage;
-import no.hal.pg.sokoban.runtime.SokobanResult;
-import no.hal.pg.sokoban.runtime.SokobanTask;
-
-import no.hal.sokoban.model.SokobanGame;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import no.hal.pg.runtime.impl.TaskImpl;
+import no.hal.pg.sokoban.model.SokobanTaskDef;
+import no.hal.pg.sokoban.runtime.RuntimePackage;
+import no.hal.pg.sokoban.runtime.SokobanResult;
+import no.hal.pg.sokoban.runtime.SokobanTask;
+import no.hal.sokoban.model.ModelFactory;
+import no.hal.sokoban.model.SokobanGame;
+import no.hal.sokoban.model.SokobanLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,6 +87,7 @@ public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, SokobanResult> imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SokobanGame getSokobanGame() {
 		return sokobanGame;
 	}
@@ -114,6 +112,7 @@ public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, SokobanResult> imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSokobanGame(SokobanGame newSokobanGame) {
 		if (newSokobanGame != sokobanGame) {
 			NotificationChain msgs = null;
@@ -200,4 +199,14 @@ public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, SokobanResult> imp
 		return super.eIsSet(featureID);
 	}
 
+	//
+	
+	@Override
+	public void start() {
+		SokobanLevel sokobanLevel = getTaskDef().getLevels().iterator().next();
+		SokobanGame game = ModelFactory.eINSTANCE.createSokobanGame();
+		game.setLevel(sokobanLevel);
+		game.setGrid(sokobanLevel.createGrid());
+		setSokobanGame(game);
+	}
 } //SokobanTaskImpl

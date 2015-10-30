@@ -15,8 +15,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.gridgame.model.GridChangeDescription;
 import no.hal.pg.sokoban.runtime.GridRectangleValues;
+import no.hal.pg.sokoban.runtime.RuntimeFactory;
 import no.hal.pg.sokoban.runtime.RuntimePackage;
 import no.hal.pg.sokoban.runtime.SokobanGameService;
+import no.hal.pg.sokoban.runtime.SokobanResult;
+import no.hal.pg.sokoban.runtime.SokobanTask;
 import no.hal.sokoban.model.ModelFactory;
 import no.hal.sokoban.model.MovePlayerCommand;
 import no.hal.sokoban.model.SokobanGame;
@@ -139,6 +142,18 @@ public class SokobanGameServiceImpl extends MinimalEObjectImpl.Container impleme
 		command.setDirection(Direction.valueOf(direction.charAt(0)));
 		command.setGrid(game.getGrid());
 		game.perform(command);
+		if (game.isFinished() && game.eContainer() instanceof SokobanTask) {
+			SokobanResult result = RuntimeFactory.eINSTANCE.createSokobanResult();
+			EList<MovePlayerCommand> commands = game.getUndoStack();
+			StringBuilder builder = new StringBuilder(commands.size());
+			for (MovePlayerCommand moveCommand : commands) {
+				char c = moveCommand.getDirection().c;
+				builder.append(moveCommand.isPush() ? Character.toUpperCase(c) : c);
+			}
+			result.setLevel(game.getLevel());
+			result.setSolution(builder.toString());
+			((SokobanTask) game.eContainer()).finish(result);
+		}
 		return EcoreUtil.copy(command.getChanges());
 	}
 

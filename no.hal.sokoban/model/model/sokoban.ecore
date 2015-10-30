@@ -20,6 +20,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Cell" instanceClassName="no.hal.sokoban.util.Cell"/>
   <eClassifiers xsi:type="ecore:EClass" name="SokobanGame">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//SokobanLevel"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.gridgame.model/model/gridgame.ecore#//GridGame">
       <eTypeArguments eClassifier="#//SokobanGrid"/>
       <eTypeArguments eClassifier="#//MovePlayerCommand"/>

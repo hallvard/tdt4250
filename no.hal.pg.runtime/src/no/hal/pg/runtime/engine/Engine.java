@@ -201,12 +201,17 @@ public class Engine implements IEngine, ManagedService {
 		task.eAdapters().remove(stateListener);
 	}
 
+	private int startCount = -1;
+	
 	protected void startNextTask() {
+		int count = startCount;
 		for (Task<?, ?> task : game.getTasks()) {
+			if (count-- == 0) {
+				break;
+			}
 			if (! task.isStarted()) {
 				taskStarting(task);
 				task.start();
-				break;
 			}
 		}
 	}

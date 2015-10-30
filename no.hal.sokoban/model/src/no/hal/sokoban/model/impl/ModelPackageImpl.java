@@ -220,6 +220,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSokobanGame_Level() {
+		return (EReference)sokobanGameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMovePlayerCommand() {
 		return movePlayerCommandEClass;
 	}
@@ -378,6 +387,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(sokobanGridEClass, SOKOBAN_GRID__PLAYER_Y);
 
 		sokobanGameEClass = createEClass(SOKOBAN_GAME);
+		createEReference(sokobanGameEClass, SOKOBAN_GAME__LEVEL);
 
 		movePlayerCommandEClass = createEClass(MOVE_PLAYER_COMMAND);
 		createEReference(movePlayerCommandEClass, MOVE_PLAYER_COMMAND__GRID);
@@ -454,6 +464,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getSokobanGrid_PlayerY(), ecorePackage.getEInt(), "playerY", "-1", 0, 1, SokobanGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sokobanGameEClass, SokobanGame.class, "SokobanGame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSokobanGame_Level(), this.getSokobanLevel(), null, "level", null, 0, 1, SokobanGame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(movePlayerCommandEClass, MovePlayerCommand.class, "MovePlayerCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMovePlayerCommand_Grid(), this.getSokobanGrid(), null, "grid", null, 0, 1, MovePlayerCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
