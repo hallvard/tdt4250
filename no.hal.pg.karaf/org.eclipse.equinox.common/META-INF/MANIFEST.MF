@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Minimal org.eclipse.equinox.common bundle
+Bundle-SymbolicName: org.eclipse.equinox.common
+Bundle-Version: 3.7.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: no.hal

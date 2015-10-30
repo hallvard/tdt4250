@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pg Karaf console commands
+Bundle-SymbolicName: no.hal.pg.karaf.console
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: no.hal.pg.runtime;bundle-version="0.1.0"
+Service-Component: OSGI-INF/no.hal.pg.karaf.consoleRunGameCommand.xml
+Export-Package: no.hal.pg.karaf.console
