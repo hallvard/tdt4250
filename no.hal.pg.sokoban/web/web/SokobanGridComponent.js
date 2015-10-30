@@ -4,6 +4,7 @@
 this.props:
 {
 	serviceUrl: the url that returns the current SokobanGrid object
+	"elementSize" : 16
 	grid: {
 	  "values" : [ "#######", "#.@ # #", "#$* $ #", "#   $ #", "# ..  #", "#  *  #" ],
 	  "x" : 0,
@@ -15,20 +16,20 @@ this.props:
 this.state:
 {
 	grid: {
-  "values" : [
-  	"wall", "wall", "wall", "wall", "wall", "wall", "wall",
-  	"wall", "target", "player", "empty", "wall", "empty", "wall",
-  	"wall", "box", "box_on_target", "empty", "box", "empty", "wall",
-  	"wall", "empty", "empty", "empty", "box", "empty", "wall",
-  	"wall", "empty", "target", "target", "empty", "empty", "wall",
-  	"wall", "empty", "empty", "box_on_target", "empty", "empty", "wall",
-  	"wall", "wall", "wall", "wall", "wall", "wall", "wall"
-  	],
-  "x" : 0,
-  "width" : 7,
-  "y" : 0,
-  "height" : 7
-}
+	  	"values" : [
+		  	"wall", "wall", "wall", "wall", "wall", "wall", "wall",
+		  	"wall", "target", "player", "empty", "wall", "empty", "wall",
+		  	"wall", "box", "box_on_target", "empty", "box", "empty", "wall",
+		  	"wall", "empty", "empty", "empty", "box", "empty", "wall",
+		  	"wall", "empty", "target", "target", "empty", "empty", "wall",
+		  	"wall", "empty", "empty", "box_on_target", "empty", "empty", "wall",
+		  	"wall", "wall", "wall", "wall", "wall", "wall", "wall"
+	  	],
+		"x" : 0,
+		"width" : 7,
+		"y" : 0,
+		"height" : 7
+	}
 }
 */
 
@@ -80,11 +81,11 @@ var SokobanGridComponent = React.createClass({
 	
 	getInitialState : function() {
 		var comp = this;
-//		AppHelper.loadData(this.props.serviceUrl + '/sokobanGame/grid/getGridValues?stringFormat=false', false, function(response) {
-//			comp.setState({
-//				grid : response
-//			});
-//		});
+		AppHelper.loadData(this.props.serviceUrl + '/sokobanGame/grid/getGridValues?stringFormat=false', false, function(response) {
+			comp.setState({
+				grid : response
+			});
+		});
 		if (AppHelper.isArray(this.props.grid)) {
 			return {
 				grid : this.props.grid.map(function (grid) { return comp.computeGrid(grid, null, true); })
@@ -111,26 +112,19 @@ var SokobanGridComponent = React.createClass({
 		}
 		var comp = this;
 		AppHelper.loadData(this.props.serviceUrl + '/sokobanGame/movePlayer?stringFormat=false&direction=' + direction, false, function(response) {
-			comp.setState(comp.computeGrid(comp.state.grid, response));
+			comp.setState({ grid : comp.computeGrid(comp.state.grid, response) });
 		});
-	},
-
-	name2Image: function(name) {
-		if (name.length == 1) {
-			name = char2Name(name)
-		}
-		return 'images/' + name + '16x16.png';
 	},
 
 	createGridRows: function (grid) {
 		var rows = [];
-		var imageSize = (typeof this.props.imageSize === 'number' ? this.props.imageSize : 16);
+		var elementSize = (typeof this.props.elementSize === 'number' ? this.props.elementSize : 16);
 		for (rowNum = 0; rowNum < grid.height; rowNum++) {
 			var columns = [] 
 			for (colNum = 0; colNum < grid.width; colNum++) {
 				var value = grid.values[rowNum * grid.width + colNum];
 				var col = React.createElement('td', { key: colNum, className: 'sokobanGridCell' },
-							React.createElement('img', { src: this.name2Image(value), width: imageSize, height: imageSize })
+							React.createElement(SokobanGridElementComponent, { value: value, x: colNum, y: rowNum, elementSize: elementSize })
 						);
 				columns.push(col);
 			}

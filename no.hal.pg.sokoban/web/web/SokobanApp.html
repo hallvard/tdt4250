@@ -6,16 +6,31 @@
 </head>
 <body>
 
-<h1>Sokoban</h1>
-<div id="sokoban"></div>
-
 <script src="https://fb.me/react-0.13.3.js"></script>
-<script src="file:/Users/hal/java/git/tdt4250/no.hal.pg.runtime.web/web/AppHelper.js"></script>
 <!-- 
-<script src="../../GameApp/web/AppHelper.js"></script>
+<script src="file:/Users/hal/java/git/tdt4250/no.hal.pg.runtime.web/web/AppHelper.js"></script>
  -->
+<script src="../../GameApp/web/AppHelper.js"></script>
 
 <script src="SokobanGridComponent.js"></script>
+<script src="SokobanGridElementComponent.js"></script>
+<script src="LowMediumHighComponent.js"></script>
+
+<h1>Sokoban</h1>
+
+<table>
+	<tbody>
+		<tr>
+			<td id="vertical"></td>
+			<td id="sokoban"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="horizontal"></td>
+		</tr>
+	</tbody>
+</table>
+
 <script type="text/javascript">
 
 var data = {
@@ -27,10 +42,25 @@ var data = {
 	};
 
 React.render(React.createElement(SokobanGridComponent,
-		AppHelper.appProps({ grid: data, imageSize: 8 })
+		AppHelper.appProps({ grid: data, elementSize: 16 })
 		), document.getElementById('sokoban')
 );
 
+React.render(React.createElement(LowMediumHighComponent,
+		{
+	colors: [ "Grey", "Red", 0.1, 0.2, 0.3, "Orange", 0.4, 0.5, "Yellow", 0.6, 0.7, "LightGreen", 0.8, 0.9 ],
+	elementSize: 14,
+	value: 7,
+	orientation: "vertical"
+} ), document.getElementById('vertical'));
+React.render(React.createElement(LowMediumHighComponent,
+		{
+	colors: [ "Grey", "Red", 0.1, 0.2, 0.3, "Orange", 0.4, 0.5, "Yellow", 0.6, 0.7, "LightGreen", 0.8, 0.9 ],
+	elementSize: 14,
+	value: 7,
+	orientation: "vertical?"
+} ), document.getElementById('horizontal'));
 </script>
-</body>  
+
+</body>
 </html>
