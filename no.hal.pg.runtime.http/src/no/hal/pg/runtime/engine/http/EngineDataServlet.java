@@ -33,17 +33,17 @@ public class EngineDataServlet extends HttpServlet {
 		this.serializer = serializer;
 	}
 
-	private AuthHeaderSubjectProvider subjectProvider;
+	private AuthenticationHandler authenticationHandler;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IServiceExecutor serviceExecutor = engine.getServiceExecutor();
 		synchronized (serviceExecutor) {
-			if (subjectProvider == null) {
-				subjectProvider = new AuthHeaderSubjectProvider(engine.getGame());
+			if (authenticationHandler == null) {
+				authenticationHandler = new HttpAuthenticationHandler();
 			}
-			subjectProvider.setAuthHeader(req);
-			((ServiceExecutor) serviceExecutor).setSubjectProvider(subjectProvider);
+			authenticationHandler.acceptRequest(req, engine.getGame());
+			((ServiceExecutor) serviceExecutor).setSubjectProvider(authenticationHandler);
 			serviceExecutor.init(engine.getGame());
 			DataServletHelper helper = new DataServletHelper(serviceExecutor);
 			try {
@@ -52,14 +52,9 @@ public class EngineDataServlet extends HttpServlet {
 					writeResult(resp, result);
 				}
 			} catch (IllegalSubjectException subjectException) {
-				sendAuthenticationRequiredResponse(resp, subjectException.getMessage());
+				authenticationHandler.forceAuthentication(resp, subjectException.getMessage(), engine.getKey());
 			}
 		}
-	}
-
-	protected void sendAuthenticationRequiredResponse(HttpServletResponse resp, String message) throws IOException {
-		resp.setHeader("WWW-Authenticate", "Basic realm=\"" + engine.getKey() + "\"");
-		resp.sendError(401, message);
 	}
 
 	@Override
@@ -99,6 +94,7 @@ public class EngineDataServlet extends HttpServlet {
 	}
 
 	private void writeResult(HttpServletResponse resp, Object result) throws IOException, JsonGenerationException, JsonMappingException {
+		resp.setContentType("application/json");
 		PrintWriter writer = resp.getWriter();
 		try {
 			serializer.serialize(result, writer);

@@ -1,35 +1,31 @@
 package no.hal.pg.runtime.engine.http;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.emf.ecore.EObject;
 
 import no.hal.pg.model.Person;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.engine.ISubjectProvider;
 import no.hal.pg.runtime.util.Util;
 
-public class AuthHeaderSubjectProvider implements ISubjectProvider {
-
-	private final EObject context;
-	
-	public AuthHeaderSubjectProvider(EObject context) {
-		this.context = context;
-	}
+public class HttpAuthenticationHandler extends AbstractAuthenticationHandler {
 
 	private String authHeader;
 	
-	public void setAuthHeader(HttpServletRequest req) {
-		setAuthHeader(req.getHeader("Authorization"));			
-	}
-	public void setAuthHeader(String authHeader) {
-		this.authHeader = authHeader;
+	public HttpAuthenticationHandler(boolean autoAuthenticate) {
+		super(autoAuthenticate);
 	}
 
+	public HttpAuthenticationHandler() {
+		super(null);
+	}
+	
 	@Override
 	public Person getSubject() {
 		if (authHeader != null) {
@@ -43,16 +39,19 @@ public class AuthHeaderSubjectProvider implements ISubjectProvider {
 				if (credentials != null) {
 					int p = credentials.indexOf(":");
 					if (p >= 0) {
-						String username = credentials.substring(0, p).trim();
-						String password = credentials.substring(p + 1).trim();
-						for (Player player : Util.getPlayers(context, false)) {
-							Person person = player.getPerson();
-							if (isPerson(person, username, password)) {
-								return person;
-							}
-						}
+						return getSubject(credentials.substring(0, p).trim(), credentials.substring(p + 1).trim());
 					}
 				}
+			}
+		}
+		return null;
+	}
+
+	protected Person getSubject(String username, String password) {
+		for (Player player : Util.getPlayers(context, false)) {
+			Person person = player.getPerson();
+			if (isPerson(person, username, password)) {
+				return person;
 			}
 		}
 		return null;
@@ -72,5 +71,17 @@ public class AuthHeaderSubjectProvider implements ISubjectProvider {
 			lastChar = c;
 		}
 		return personPass.equals(password);
+	}
+
+	@Override
+	public void acceptRequest(HttpServletRequest req, EObject context) {
+		this.context = context;
+		this.authHeader = req.getHeader("Authorization");
+	}
+
+	@Override
+	public void forceAuthentication(HttpServletResponse resp, String message, String engineKey) throws IOException {
+		resp.setHeader("WWW-Authenticate", "Basic realm=\"" + engineKey + "\"");
+		resp.sendError(401, message);
 	}
 }
