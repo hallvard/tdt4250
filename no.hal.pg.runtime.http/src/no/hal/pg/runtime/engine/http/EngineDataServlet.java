@@ -31,7 +31,6 @@ public class EngineDataServlet extends HttpServlet {
 	public EngineDataServlet(IEngine engine, ISerializer serializer) {
 		this.engine = engine;
 		this.serializer = serializer;
-		this.subjectProvider = new AuthHeaderSubjectProvider(engine.getGame());
 	}
 
 	private AuthHeaderSubjectProvider subjectProvider;
@@ -40,6 +39,9 @@ public class EngineDataServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IServiceExecutor serviceExecutor = engine.getServiceExecutor();
 		synchronized (serviceExecutor) {
+			if (subjectProvider == null) {
+				subjectProvider = new AuthHeaderSubjectProvider(engine.getGame());
+			}
 			subjectProvider.setAuthHeader(req);
 			((ServiceExecutor) serviceExecutor).setSubjectProvider(subjectProvider);
 			serviceExecutor.init(engine.getGame());
