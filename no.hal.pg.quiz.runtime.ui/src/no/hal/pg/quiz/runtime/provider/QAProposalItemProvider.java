@@ -61,7 +61,8 @@ public class QAProposalItemProvider
 			super.getPropertyDescriptors(object);
 
 			addQaPropertyDescriptor(object);
-			addProposalPropertyDescriptor(object);
+			addLastProposalPropertyDescriptor(object);
+			addAcceptedProposalPropertyDescriptor(object);
 			addAcceptedPropertyDescriptor(object);
 			addRejectedCountPropertyDescriptor(object);
 			addPlayersPropertyDescriptor(object);
@@ -93,19 +94,41 @@ public class QAProposalItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Proposal feature.
+	 * This adds a property descriptor for the Last Proposal feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProposalPropertyDescriptor(Object object) {
+	protected void addLastProposalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_QAProposal_proposal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_QAProposal_proposal_feature", "_UI_QAProposal_type"),
-				 RuntimePackage.Literals.QA_PROPOSAL__PROPOSAL,
+				 getString("_UI_QAProposal_lastProposal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QAProposal_lastProposal_feature", "_UI_QAProposal_type"),
+				 RuntimePackage.Literals.QA_PROPOSAL__LAST_PROPOSAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Accepted Proposal feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAcceptedProposalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_QAProposal_acceptedProposal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QAProposal_acceptedProposal_feature", "_UI_QAProposal_type"),
+				 RuntimePackage.Literals.QA_PROPOSAL__ACCEPTED_PROPOSAL,
 				 true,
 				 false,
 				 false,
@@ -221,7 +244,7 @@ public class QAProposalItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((QAProposal)object).getProposal();
+		String label = ((QAProposal)object).getLastProposal();
 		QA qa = ((QAProposal)object).getQa();
 		label = "#" + (Util.indexOf(qa.eContainer()) + 1) + "-" + (Util.indexOf(qa) + 1) + ": " + label;
 		return label == null || label.length() == 0 ?
@@ -241,7 +264,8 @@ public class QAProposalItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(QAProposal.class)) {
-			case RuntimePackage.QA_PROPOSAL__PROPOSAL:
+			case RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL:
+			case RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL:
 			case RuntimePackage.QA_PROPOSAL__ACCEPTED:
 			case RuntimePackage.QA_PROPOSAL__REJECTED_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

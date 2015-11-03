@@ -4,25 +4,19 @@
     nsPrefix="quiz-service">
   <eClassifiers xsi:type="ecore:EClass" name="QuizTaskService">
     <eOperations name="proposeAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
-      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
       <eParameters name="qa" eType="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//QA"/>
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="acceptAnswer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
-      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
       <eParameters name="qa" eType="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//QA"/>
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="acceptAllProposals" upperBound="-1" eType="ecore:EClass quiz-runtime.ecore#//QAProposal">
-      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
-    </eOperations>
+    <eOperations name="acceptAllProposals" upperBound="-1" eType="#//Question"/>
     <eOperations name="getQAProposals" upperBound="-1" eType="ecore:EClass quiz-runtime.ecore#//QAProposal">
       <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
     </eOperations>
-    <eOperations name="getPlayerQuestions" upperBound="-1" eType="#//Question">
-      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Player"/>
-    </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//Service">
+    <eOperations name="getPlayerQuestions" upperBound="-1" eType="#//Question"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/pg-runtime.ecore#//SubjectService">
       <eTypeArguments eClassifier="ecore:EClass quiz-runtime.ecore#//QuizTask"/>
     </eGenericSuperTypes>
   </eClassifiers>

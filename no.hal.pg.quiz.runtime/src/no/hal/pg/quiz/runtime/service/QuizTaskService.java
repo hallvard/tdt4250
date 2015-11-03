@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import no.hal.pg.quiz.runtime.QAProposal;
 import no.hal.pg.quiz.runtime.QuizTask;
 import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.SubjectService;
 import no.hal.quiz.QA;
 
 /**
@@ -20,14 +20,14 @@ import no.hal.quiz.QA;
  * @model
  * @generated
  */
-public interface QuizTaskService extends Service<QuizTask> {
+public interface QuizTaskService extends SubjectService<QuizTask> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	Boolean proposeAnswer(Player player, QA qa, String proposal);
+	Boolean proposeAnswer(QA qa, String proposal);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public interface QuizTaskService extends Service<QuizTask> {
 	 * @model
 	 * @generated
 	 */
-	Boolean acceptAnswer(Player player, QA qa, String proposal);
+	Boolean acceptAnswer(QA qa, String proposal);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public interface QuizTaskService extends Service<QuizTask> {
 	 * @model
 	 * @generated
 	 */
-	EList<QAProposal> acceptAllProposals(Player player);
+	EList<Question> acceptAllProposals();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -56,9 +56,9 @@ public interface QuizTaskService extends Service<QuizTask> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Question> getPlayerQuestions(Player player);
+	EList<Question> getPlayerQuestions();
 
 } // QuizTaskService

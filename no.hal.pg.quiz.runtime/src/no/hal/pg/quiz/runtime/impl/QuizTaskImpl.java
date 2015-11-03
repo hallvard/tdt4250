@@ -130,8 +130,11 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 			return null;
 		}
 		Boolean accepted = null;
-		qaProposal.setProposal(proposal);
-		accepted = (accept ? qaProposal.getQa().getA().accept(proposal) : null);
+		qaProposal.setLastProposal(proposal);
+		if (accept) {
+			accepted = qaProposal.getQa().getA().accept(proposal);
+			qaProposal.setAcceptedProposal(proposal);
+		}
 		qaProposal.setAccepted(accepted);
 		if (Boolean.FALSE.equals(accepted)) {
 			qaProposal.setRejectedCount(qaProposal.getRejectedCount() + 1);

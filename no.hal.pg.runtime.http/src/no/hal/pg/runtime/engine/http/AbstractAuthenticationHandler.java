@@ -24,7 +24,7 @@ public abstract class AbstractAuthenticationHandler implements AuthenticationHan
 	public Person getSubject() {
 		if (! Boolean.FALSE.equals(autoAuthenticate)) {
 			Collection<Player> players = Util.getPlayers(context, false);
-			if (autoAuthenticate || players.size() == 1) {
+			if (Boolean.TRUE.equals(autoAuthenticate) || players.size() == 1) {
 				for (Player player : players) {
 					return player.getPerson();
 				}

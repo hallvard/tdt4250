@@ -159,7 +159,7 @@ public class QAProposalServiceImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	public String getProposal() {
-		return getContext().getProposal();
+		return getContext().getLastProposal();
 	}
 
 	/**

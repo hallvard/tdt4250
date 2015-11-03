@@ -141,7 +141,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__ProposeAnswer__Player_QA_String() {
+	public EOperation getQuizTaskService__ProposeAnswer__QA_String() {
 		return quizTaskServiceEClass.getEOperations().get(0);
 	}
 
@@ -150,7 +150,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__AcceptAnswer__Player_QA_String() {
+	public EOperation getQuizTaskService__AcceptAnswer__QA_String() {
 		return quizTaskServiceEClass.getEOperations().get(1);
 	}
 
@@ -159,7 +159,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__AcceptAllProposals__Player() {
+	public EOperation getQuizTaskService__AcceptAllProposals() {
 		return quizTaskServiceEClass.getEOperations().get(2);
 	}
 
@@ -177,7 +177,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getQuizTaskService__GetPlayerQuestions__Player() {
+	public EOperation getQuizTaskService__GetPlayerQuestions() {
 		return quizTaskServiceEClass.getEOperations().get(4);
 	}
 
@@ -372,11 +372,11 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 
 		// Create classes and their features
 		quizTaskServiceEClass = createEClass(QUIZ_TASK_SERVICE);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS__PLAYER);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___PROPOSE_ANSWER__QA_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ANSWER__QA_STRING);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS);
 		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER);
-		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER);
+		createEOperation(quizTaskServiceEClass, QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS);
 
 		qaProposalServiceEClass = createEClass(QA_PROPOSAL_SERVICE);
 		createEAttribute(qaProposalServiceEClass, QA_PROPOSAL_SERVICE__QUESTION);
@@ -435,7 +435,7 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(theRuntimePackage_1.getService());
+		EGenericType g1 = createEGenericType(theRuntimePackage_1.getSubjectService());
 		EGenericType g2 = createEGenericType(theRuntimePackage.getQuizTask());
 		g1.getETypeArguments().add(g2);
 		quizTaskServiceEClass.getEGenericSuperTypes().add(g1);
@@ -447,24 +447,20 @@ public class ServicePackageImpl extends EPackageImpl implements ServicePackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(quizTaskServiceEClass, QuizTaskService.class, "QuizTaskService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getQuizTaskService__ProposeAnswer__Player_QA_String(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getQuizTaskService__ProposeAnswer__QA_String(), ecorePackage.getEBooleanObject(), "proposeAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theQuizPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__AcceptAnswer__Player_QA_String(), ecorePackage.getEBooleanObject(), "acceptAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getQuizTaskService__AcceptAnswer__QA_String(), ecorePackage.getEBooleanObject(), "acceptAnswer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theQuizPackage.getQA(), "qa", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__AcceptAllProposals__Player(), theRuntimePackage.getQAProposal(), "acceptAllProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getQuizTaskService__AcceptAllProposals(), this.getQuestion(), "acceptAllProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getQuizTaskService__GetQAProposals__Player(), theRuntimePackage.getQAProposal(), "getQAProposals", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getQuizTaskService__GetPlayerQuestions__Player(), this.getQuestion(), "getPlayerQuestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theRuntimePackage_1.getPlayer(), "player", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getQuizTaskService__GetPlayerQuestions(), this.getQuestion(), "getPlayerQuestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qaProposalServiceEClass, QAProposalService.class, "QAProposalService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQAProposalService_Question(), ecorePackage.getEString(), "question", null, 0, 1, QAProposalService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

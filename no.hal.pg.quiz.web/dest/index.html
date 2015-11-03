@@ -15,10 +15,10 @@
 
 <script src="./bundle.js"></script>
 <script type="text/javascript">
-var data = [ ];
+var data = [];
 
 React.render(React.createElement(QuizContainer,
-		{ serviceUrl : AppHelper.serviceUrl(window.location.search), player: "jonespi", questions: data }
+		AppHelper.appProps({ player: "jonespi", questions: data })
 		), document.getElementById('quiz'));
 </script>
 </body>

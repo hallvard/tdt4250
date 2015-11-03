@@ -6,6 +6,7 @@ import no.hal.pg.quiz.runtime.service.*;
 
 import no.hal.pg.runtime.Service;
 
+import no.hal.pg.runtime.SubjectService;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -71,6 +72,7 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 			case ServicePackage.QUIZ_TASK_SERVICE: {
 				QuizTaskService quizTaskService = (QuizTaskService)theEObject;
 				T1 result = caseQuizTaskService(quizTaskService);
+				if (result == null) result = caseSubjectService(quizTaskService);
 				if (result == null) result = caseService(quizTaskService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -170,6 +172,21 @@ public class ServiceSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseService(Service<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subject Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subject Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseSubjectService(SubjectService<T> object) {
 		return null;
 	}
 

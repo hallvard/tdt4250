@@ -129,7 +129,7 @@ public class QAProposalServiceTest extends TestCase {
 	 * @generated NOT
 	 */
 	public void testGetProposal() {
-		assertEquals(getFixture().getContext().getProposal(), getFixture().getProposal());
+		assertEquals(getFixture().getContext().getLastProposal(), getFixture().getProposal());
 	}
 
 	/**

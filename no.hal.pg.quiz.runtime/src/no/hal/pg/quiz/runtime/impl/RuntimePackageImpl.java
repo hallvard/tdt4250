@@ -200,7 +200,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQAProposal_Proposal() {
+	public EAttribute getQAProposal_LastProposal() {
 		return (EAttribute)qaProposalEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -209,7 +209,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQAProposal_Accepted() {
+	public EAttribute getQAProposal_AcceptedProposal() {
 		return (EAttribute)qaProposalEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -218,7 +218,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQAProposal_RejectedCount() {
+	public EAttribute getQAProposal_Accepted() {
 		return (EAttribute)qaProposalEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -227,8 +227,17 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getQAProposal_RejectedCount() {
+		return (EAttribute)qaProposalEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getQAProposal_Players() {
-		return (EReference)qaProposalEClass.getEStructuralFeatures().get(4);
+		return (EReference)qaProposalEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -237,7 +246,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	public EReference getQAProposal_AnsweredBy() {
-		return (EReference)qaProposalEClass.getEStructuralFeatures().get(5);
+		return (EReference)qaProposalEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -278,7 +287,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		qaProposalEClass = createEClass(QA_PROPOSAL);
 		createEReference(qaProposalEClass, QA_PROPOSAL__QA);
-		createEAttribute(qaProposalEClass, QA_PROPOSAL__PROPOSAL);
+		createEAttribute(qaProposalEClass, QA_PROPOSAL__LAST_PROPOSAL);
+		createEAttribute(qaProposalEClass, QA_PROPOSAL__ACCEPTED_PROPOSAL);
 		createEAttribute(qaProposalEClass, QA_PROPOSAL__ACCEPTED);
 		createEAttribute(qaProposalEClass, QA_PROPOSAL__REJECTED_COUNT);
 		createEReference(qaProposalEClass, QA_PROPOSAL__PLAYERS);
@@ -348,7 +358,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		initEClass(qaProposalEClass, QAProposal.class, "QAProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQAProposal_Qa(), theQuizPackage.getQA(), null, "qa", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQAProposal_Proposal(), ecorePackage.getEString(), "proposal", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQAProposal_LastProposal(), ecorePackage.getEString(), "lastProposal", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQAProposal_AcceptedProposal(), ecorePackage.getEString(), "acceptedProposal", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQAProposal_Accepted(), ecorePackage.getEBooleanObject(), "accepted", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQAProposal_RejectedCount(), ecorePackage.getEInt(), "rejectedCount", null, 0, 1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQAProposal_Players(), theRuntimePackage_1.getPlayer(), null, "players", null, 0, -1, QAProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

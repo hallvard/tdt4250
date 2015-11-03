@@ -18,7 +18,7 @@ var AppHelper = {
 		}
 	},
 
-	appProps: function getQueryVariable(props, defaultProp, search) {
+	appProps: function(props, defaultProp, search) {
 		if (typeof defaultProp != 'string') {
 			defaultProp = 'serviceUrl';
 		}

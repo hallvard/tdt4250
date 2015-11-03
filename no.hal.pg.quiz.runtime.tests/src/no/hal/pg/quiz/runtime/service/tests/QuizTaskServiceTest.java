@@ -33,11 +33,11 @@ import no.hal.pg.runtime.tests.util.TestHelper;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Propose Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Accept Answer</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player) <em>Accept All Proposals</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.quiz.QA, java.lang.String) <em>Propose Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.quiz.QA, java.lang.String) <em>Accept Answer</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals() <em>Accept All Proposals</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions() <em>Get Player Questions</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -129,16 +129,17 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
-	public void testProposeAnswer__Player_QA_String() {
+	public void testProposeAnswer__QA_String() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
 		Player player = quizTask.getAllPlayers().get(0);
-		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
+		service.setSubject(player.getPerson());
+		assertNull(service.proposeAnswer(quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, null, 0, false);
 		
-		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(3).getQa(), "true"));
+		assertNull(service.proposeAnswer(quizTask.getProposals().get(3).getQa(), "true"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 3, null, 0, false);
 	}
 
@@ -149,17 +150,18 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.pg.quiz.model.QA, java.lang.String)
 	 * @generated NOT
 	 */
-	public void testAcceptAnswer__Player_QA_String() {
+	public void testAcceptAnswer__QA_String() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
 		Player player = quizTask.getAllPlayers().get(0);
+		service.setSubject(player.getPerson());
 
-		assertTrue(service.acceptAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
+		assertTrue(service.acceptAnswer(quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, true, 1, false);
 		
-		assertFalse(service.acceptAnswer(player, quizTask.getProposals().get(3).getQa(), "false"));
+		assertFalse(service.acceptAnswer(quizTask.getProposals().get(3).getQa(), "false"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 3, false, 1, false);
 	}
 
@@ -170,19 +172,21 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
-	public void testAcceptAllProposals__Player() {
+	public void testAcceptAllProposals() {
 		QuizTaskService service = getFixture();
 		QuizTask quizTask = service.getContext();
 		quizTask.start();
 
 		Player player = quizTask.getAllPlayers().get(0);
-		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(0).getQa(), "Hallvard"));
+		service.setSubject(player.getPerson());
+
+		assertNull(service.proposeAnswer(quizTask.getProposals().get(0).getQa(), "Hallvard"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 0, null, 0, false);
 		
-		assertNull(service.proposeAnswer(player, quizTask.getProposals().get(3).getQa(), "false"));
+		assertNull(service.proposeAnswer(quizTask.getProposals().get(3).getQa(), "false"));
 		QuizTaskTest.checkProposeAnswer(quizTask, 3, null, 0, false);
 
-		service.acceptAllProposals(player);
+		service.acceptAllProposals();
 
 		assertTrue(quizTask.getProposals().get(0).getAccepted());
 		assertFalse(quizTask.getProposals().get(3).getAccepted());
@@ -223,7 +227,7 @@ public class QuizTaskServiceTest extends TestCase {
 	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player)
 	 * @generated NOT
 	 */
-	public void testGetPlayerQuestions__Player() {
+	public void testGetPlayerQuestions() {
 		Collection<Question> questions = createQuestions();
 //		Resource res = new JsonResource();
 //		res.getContents().addAll(questions);

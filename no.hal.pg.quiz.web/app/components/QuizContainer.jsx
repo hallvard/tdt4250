@@ -53,36 +53,55 @@ var AppHelper = require('../AppHelper.js');
 
 var QuizContainer = React.createClass({
 
-    serviceUrl: AppHelper.serviceUrl(window.location.search),
-
     getInitialState: function () {
-		var comp = this;
-		
-		AppHelper.loadData(this.serviceUrl + '/getPlayerQuestions?player=' + this.props.player, true, function(response) {
-			comp.setState({
-				questions : response
-			});
-		});
+		this.loadQuestions('getPlayerQuestions');
 		return {
 			questions : this.props.questions
 		};
     },
 
+    loadQuestions: function (serviceName) {
+		var comp = this;
+		AppHelper.loadData(this.props.serviceUrl + '/' + serviceName, true, function(response) {
+			comp.setState({
+				questions : response
+			});
+		});
+    },
+
+	submitSimpleAnswer: function (num, proposal) {
+		console.log("Proposing " + proposal);
+		AppHelper.loadData(this.props.serviceUrl + "/proposeAnswer?qa=" + num + "&proposal=" + proposal, false, function(response) {
+			console.log(response);
+		});
+	},
+
+	acceptAllProposals: function () {
+		var comp = this;
+		AppHelper.loadData(this.props.serviceUrl + '/acceptAllProposals', true, function(response) {
+			comp.setState({
+				questions : response
+			});
+		});
+	},
+	
     render: function () {
-    return (
-      <div>
-      	<form className="col s12">
-      		{this.state.questions.map(function(item, idx){
-          		return <Question key={item.qid} data={item} />;
+    	var comp = this;
+	    return (
+	      <div>
+      		{this.state.questions.map(function(item, idx) {
+          		return <Question key={item.qid} num={idx} data={item} qHelper={comp}/>;
         	})}
     		<div>
-    			<ButtonInput type="reset" value="Cancel" />
-    			<ButtonInput type="submit" value="Save" />
-    			<ButtonInput type="submit" value="Submit" />
+    			<ButtonInput value="Check answers"
+	        		onClick={ function() {
+	        			comp.acceptAllProposals();
+	        		}}
+    			/>
     		</div>
-    	</form>
-    </div>);
-  }
+	    </div>
+	    );
+  	}
 });
 
 module.exports = QuizContainer;

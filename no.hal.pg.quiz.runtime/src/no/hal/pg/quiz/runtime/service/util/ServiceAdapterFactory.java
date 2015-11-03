@@ -6,6 +6,7 @@ import no.hal.pg.quiz.runtime.service.*;
 
 import no.hal.pg.runtime.Service;
 
+import no.hal.pg.runtime.SubjectService;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -88,6 +89,10 @@ public class ServiceAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <T> Adapter caseService(Service<T> object) {
 				return createServiceAdapter();
+			}
+			@Override
+			public <T> Adapter caseSubjectService(SubjectService<T> object) {
+				return createSubjectServiceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -176,6 +181,20 @@ public class ServiceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.pg.runtime.SubjectService <em>Subject Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.pg.runtime.SubjectService
+	 * @generated
+	 */
+	public Adapter createSubjectServiceAdapter() {
 		return null;
 	}
 

@@ -28,7 +28,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getQa <em>Qa</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getProposal <em>Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getLastProposal <em>Last Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getAcceptedProposal <em>Accepted Proposal</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getAccepted <em>Accepted</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getRejectedCount <em>Rejected Count</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.impl.QAProposalImpl#getPlayers <em>Players</em>}</li>
@@ -49,24 +50,44 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 	protected QA qa;
 
 	/**
-	 * The default value of the '{@link #getProposal() <em>Proposal</em>}' attribute.
+	 * The default value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProposal()
+	 * @see #getLastProposal()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROPOSAL_EDEFAULT = null;
+	protected static final String LAST_PROPOSAL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getProposal() <em>Proposal</em>}' attribute.
+	 * The cached value of the '{@link #getLastProposal() <em>Last Proposal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProposal()
+	 * @see #getLastProposal()
 	 * @generated
 	 * @ordered
 	 */
-	protected String proposal = PROPOSAL_EDEFAULT;
+	protected String lastProposal = LAST_PROPOSAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAcceptedProposal() <em>Accepted Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAcceptedProposal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ACCEPTED_PROPOSAL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAcceptedProposal() <em>Accepted Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAcceptedProposal()
+	 * @generated
+	 * @ordered
+	 */
+	protected String acceptedProposal = ACCEPTED_PROPOSAL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAccepted() <em>Accepted</em>}' attribute.
@@ -190,8 +211,8 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProposal() {
-		return proposal;
+	public String getLastProposal() {
+		return lastProposal;
 	}
 
 	/**
@@ -199,11 +220,32 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProposal(String newProposal) {
-		String oldProposal = proposal;
-		proposal = newProposal;
+	public void setLastProposal(String newLastProposal) {
+		String oldLastProposal = lastProposal;
+		lastProposal = newLastProposal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.QA_PROPOSAL__PROPOSAL, oldProposal, proposal));
+			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL, oldLastProposal, lastProposal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAcceptedProposal() {
+		return acceptedProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAcceptedProposal(String newAcceptedProposal) {
+		String oldAcceptedProposal = acceptedProposal;
+		acceptedProposal = newAcceptedProposal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL, oldAcceptedProposal, acceptedProposal));
 	}
 
 	/**
@@ -318,8 +360,10 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 			case RuntimePackage.QA_PROPOSAL__QA:
 				if (resolve) return getQa();
 				return basicGetQa();
-			case RuntimePackage.QA_PROPOSAL__PROPOSAL:
-				return getProposal();
+			case RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL:
+				return getLastProposal();
+			case RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL:
+				return getAcceptedProposal();
 			case RuntimePackage.QA_PROPOSAL__ACCEPTED:
 				return getAccepted();
 			case RuntimePackage.QA_PROPOSAL__REJECTED_COUNT:
@@ -345,8 +389,11 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 			case RuntimePackage.QA_PROPOSAL__QA:
 				setQa((QA)newValue);
 				return;
-			case RuntimePackage.QA_PROPOSAL__PROPOSAL:
-				setProposal((String)newValue);
+			case RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL:
+				setLastProposal((String)newValue);
+				return;
+			case RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL:
+				setAcceptedProposal((String)newValue);
 				return;
 			case RuntimePackage.QA_PROPOSAL__ACCEPTED:
 				setAccepted((Boolean)newValue);
@@ -376,8 +423,11 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 			case RuntimePackage.QA_PROPOSAL__QA:
 				setQa((QA)null);
 				return;
-			case RuntimePackage.QA_PROPOSAL__PROPOSAL:
-				setProposal(PROPOSAL_EDEFAULT);
+			case RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL:
+				setLastProposal(LAST_PROPOSAL_EDEFAULT);
+				return;
+			case RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL:
+				setAcceptedProposal(ACCEPTED_PROPOSAL_EDEFAULT);
 				return;
 			case RuntimePackage.QA_PROPOSAL__ACCEPTED:
 				setAccepted(ACCEPTED_EDEFAULT);
@@ -405,8 +455,10 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 		switch (featureID) {
 			case RuntimePackage.QA_PROPOSAL__QA:
 				return qa != null;
-			case RuntimePackage.QA_PROPOSAL__PROPOSAL:
-				return PROPOSAL_EDEFAULT == null ? proposal != null : !PROPOSAL_EDEFAULT.equals(proposal);
+			case RuntimePackage.QA_PROPOSAL__LAST_PROPOSAL:
+				return LAST_PROPOSAL_EDEFAULT == null ? lastProposal != null : !LAST_PROPOSAL_EDEFAULT.equals(lastProposal);
+			case RuntimePackage.QA_PROPOSAL__ACCEPTED_PROPOSAL:
+				return ACCEPTED_PROPOSAL_EDEFAULT == null ? acceptedProposal != null : !ACCEPTED_PROPOSAL_EDEFAULT.equals(acceptedProposal);
 			case RuntimePackage.QA_PROPOSAL__ACCEPTED:
 				return ACCEPTED_EDEFAULT == null ? accepted != null : !ACCEPTED_EDEFAULT.equals(accepted);
 			case RuntimePackage.QA_PROPOSAL__REJECTED_COUNT:
@@ -443,8 +495,10 @@ public class QAProposalImpl extends MinimalEObjectImpl.Container implements QAPr
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (proposal: ");
-		result.append(proposal);
+		result.append(" (lastProposal: ");
+		result.append(lastProposal);
+		result.append(", acceptedProposal: ");
+		result.append(acceptedProposal);
 		result.append(", accepted: ");
 		result.append(accepted);
 		result.append(", rejectedCount: ");

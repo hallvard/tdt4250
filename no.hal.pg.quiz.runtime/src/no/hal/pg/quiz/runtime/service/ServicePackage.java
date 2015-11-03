@@ -77,7 +77,16 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
+	int QUIZ_TASK_SERVICE__CONTEXT = RuntimePackage.SUBJECT_SERVICE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_TASK_SERVICE__SUBJECT = RuntimePackage.SUBJECT_SERVICE__SUBJECT;
 
 	/**
 	 * The number of structural features of the '<em>Quiz Task Service</em>' class.
@@ -86,7 +95,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+	int QUIZ_TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SUBJECT_SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Propose Answer</em>' operation.
@@ -95,7 +104,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = RuntimePackage.SERVICE_OPERATION_COUNT + 0;
+	int QUIZ_TASK_SERVICE___PROPOSE_ANSWER__QA_STRING = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Accept Answer</em>' operation.
@@ -104,7 +113,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = RuntimePackage.SERVICE_OPERATION_COUNT + 1;
+	int QUIZ_TASK_SERVICE___ACCEPT_ANSWER__QA_STRING = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Accept All Proposals</em>' operation.
@@ -113,7 +122,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS__PLAYER = RuntimePackage.SERVICE_OPERATION_COUNT + 2;
+	int QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get QA Proposals</em>' operation.
@@ -122,7 +131,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = RuntimePackage.SERVICE_OPERATION_COUNT + 3;
+	int QUIZ_TASK_SERVICE___GET_QA_PROPOSALS__PLAYER = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Player Questions</em>' operation.
@@ -131,7 +140,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER = RuntimePackage.SERVICE_OPERATION_COUNT + 4;
+	int QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Quiz Task Service</em>' class.
@@ -140,7 +149,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_TASK_SERVICE_OPERATION_COUNT = RuntimePackage.SERVICE_OPERATION_COUNT + 5;
+	int QUIZ_TASK_SERVICE_OPERATION_COUNT = RuntimePackage.SUBJECT_SERVICE_OPERATION_COUNT + 5;
 
 
 	/**
@@ -384,34 +393,34 @@ public interface ServicePackage extends EPackage {
 	EClass getQuizTaskService();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Propose Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.quiz.QA, java.lang.String) <em>Propose Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Propose Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#proposeAnswer(no.hal.quiz.QA, java.lang.String)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__ProposeAnswer__Player_QA_String();
+	EOperation getQuizTaskService__ProposeAnswer__QA_String();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String) <em>Accept Answer</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.quiz.QA, java.lang.String) <em>Accept Answer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Accept Answer</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.pg.runtime.Player, no.hal.quiz.QA, java.lang.String)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAnswer(no.hal.quiz.QA, java.lang.String)
 	 * @generated
 	 */
-	EOperation getQuizTaskService__AcceptAnswer__Player_QA_String();
+	EOperation getQuizTaskService__AcceptAnswer__QA_String();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player) <em>Accept All Proposals</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals() <em>Accept All Proposals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Accept All Proposals</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals(no.hal.pg.runtime.Player)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#acceptAllProposals()
 	 * @generated
 	 */
-	EOperation getQuizTaskService__AcceptAllProposals__Player();
+	EOperation getQuizTaskService__AcceptAllProposals();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getQAProposals(no.hal.pg.runtime.Player) <em>Get QA Proposals</em>}' operation.
@@ -424,14 +433,14 @@ public interface ServicePackage extends EPackage {
 	EOperation getQuizTaskService__GetQAProposals__Player();
 
 	/**
-	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player) <em>Get Player Questions</em>}' operation.
+	 * Returns the meta object for the '{@link no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions() <em>Get Player Questions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Player Questions</em>' operation.
-	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions(no.hal.pg.runtime.Player)
+	 * @see no.hal.pg.quiz.runtime.service.QuizTaskService#getPlayerQuestions()
 	 * @generated
 	 */
-	EOperation getQuizTaskService__GetPlayerQuestions__Player();
+	EOperation getQuizTaskService__GetPlayerQuestions();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.quiz.runtime.service.QAProposalService <em>QA Proposal Service</em>}'.
@@ -666,7 +675,7 @@ public interface ServicePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___PROPOSE_ANSWER__PLAYER_QA_STRING = eINSTANCE.getQuizTaskService__ProposeAnswer__Player_QA_String();
+		EOperation QUIZ_TASK_SERVICE___PROPOSE_ANSWER__QA_STRING = eINSTANCE.getQuizTaskService__ProposeAnswer__QA_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Accept Answer</b></em>' operation.
@@ -674,7 +683,7 @@ public interface ServicePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__PLAYER_QA_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__Player_QA_String();
+		EOperation QUIZ_TASK_SERVICE___ACCEPT_ANSWER__QA_STRING = eINSTANCE.getQuizTaskService__AcceptAnswer__QA_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Accept All Proposals</b></em>' operation.
@@ -682,7 +691,7 @@ public interface ServicePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS__PLAYER = eINSTANCE.getQuizTaskService__AcceptAllProposals__Player();
+		EOperation QUIZ_TASK_SERVICE___ACCEPT_ALL_PROPOSALS = eINSTANCE.getQuizTaskService__AcceptAllProposals();
 
 		/**
 		 * The meta object literal for the '<em><b>Get QA Proposals</b></em>' operation.
@@ -698,7 +707,7 @@ public interface ServicePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS__PLAYER = eINSTANCE.getQuizTaskService__GetPlayerQuestions__Player();
+		EOperation QUIZ_TASK_SERVICE___GET_PLAYER_QUESTIONS = eINSTANCE.getQuizTaskService__GetPlayerQuestions();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.quiz.runtime.service.impl.QAProposalServiceImpl <em>QA Proposal Service</em>}' class.

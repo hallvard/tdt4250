@@ -4,15 +4,23 @@ var Button = require('react-bootstrap').Button;
 var YesNoAnswer = React.createClass({
 
     render: function () {
+    	var num = this.props.num;
+    	var qHelper = this.props.qHelper;
         return (
 			<div className="container">
     			<div className="row">
         			<div className="center-block">
-	    				{/* Indicates a successful or positive action */}
-    					<Button bsStyle="success">Yes</Button>
+    					<Button bsStyle="success"
+			        		onClick={ function() {
+			        			qHelper.submitSimpleAnswer(num, true);
+			        		}}
+    					>Yes</Button>
 						<span></span>
-						{/* Indicates a dangerous or potentially negative action */}
-    					<Button bsStyle="danger">No</Button>
+    					<Button bsStyle="danger"
+			        		onClick={ function() {
+			        			qHelper.submitSimpleAnswer(num, false);
+			        		}}
+    					>No</Button>
 					</div>
     			</div>
     		</div>

@@ -44,7 +44,7 @@ public class HttpAuthenticationHandler extends AbstractAuthenticationHandler {
 				}
 			}
 		}
-		return null;
+		return super.getSubject();
 	}
 
 	protected Person getSubject(String username, String password) {

@@ -322,13 +322,22 @@ public interface RuntimePackage extends EPackage {
 	int QA_PROPOSAL__QA = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
+	 * The feature id for the '<em><b>Last Proposal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__PROPOSAL = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 1;
+	int QA_PROPOSAL__LAST_PROPOSAL = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Accepted Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_PROPOSAL__ACCEPTED_PROPOSAL = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Accepted</b></em>' attribute.
@@ -337,7 +346,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__ACCEPTED = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 2;
+	int QA_PROPOSAL__ACCEPTED = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Rejected Count</b></em>' attribute.
@@ -346,7 +355,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__REJECTED_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 3;
+	int QA_PROPOSAL__REJECTED_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Players</b></em>' reference list.
@@ -355,7 +364,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 4;
+	int QA_PROPOSAL__PLAYERS = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Answered By</b></em>' reference.
@@ -364,7 +373,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL__ANSWERED_BY = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 5;
+	int QA_PROPOSAL__ANSWERED_BY = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>QA Proposal</em>' class.
@@ -373,7 +382,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QA_PROPOSAL_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 6;
+	int QA_PROPOSAL_FEATURE_COUNT = no.hal.pg.runtime.RuntimePackage.PLAYERS_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get All Players</em>' operation.
@@ -476,15 +485,26 @@ public interface RuntimePackage extends EPackage {
 	EReference getQAProposal_Qa();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QAProposal#getProposal <em>Proposal</em>}'.
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QAProposal#getLastProposal <em>Last Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proposal</em>'.
-	 * @see no.hal.pg.quiz.runtime.QAProposal#getProposal()
+	 * @return the meta object for the attribute '<em>Last Proposal</em>'.
+	 * @see no.hal.pg.quiz.runtime.QAProposal#getLastProposal()
 	 * @see #getQAProposal()
 	 * @generated
 	 */
-	EAttribute getQAProposal_Proposal();
+	EAttribute getQAProposal_LastProposal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QAProposal#getAcceptedProposal <em>Accepted Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Accepted Proposal</em>'.
+	 * @see no.hal.pg.quiz.runtime.QAProposal#getAcceptedProposal()
+	 * @see #getQAProposal()
+	 * @generated
+	 */
+	EAttribute getQAProposal_AcceptedProposal();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.pg.quiz.runtime.QAProposal#getAccepted <em>Accepted</em>}'.
@@ -624,12 +644,20 @@ public interface RuntimePackage extends EPackage {
 		EReference QA_PROPOSAL__QA = eINSTANCE.getQAProposal_Qa();
 
 		/**
-		 * The meta object literal for the '<em><b>Proposal</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Last Proposal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute QA_PROPOSAL__PROPOSAL = eINSTANCE.getQAProposal_Proposal();
+		EAttribute QA_PROPOSAL__LAST_PROPOSAL = eINSTANCE.getQAProposal_LastProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Accepted Proposal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QA_PROPOSAL__ACCEPTED_PROPOSAL = eINSTANCE.getQAProposal_AcceptedProposal();
 
 		/**
 		 * The meta object literal for the '<em><b>Accepted</b></em>' attribute feature.

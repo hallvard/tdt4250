@@ -18,7 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getQa <em>Qa</em>}</li>
- *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getProposal <em>Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getLastProposal <em>Last Proposal</em>}</li>
+ *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getAcceptedProposal <em>Accepted Proposal</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getAccepted <em>Accepted</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getRejectedCount <em>Rejected Count</em>}</li>
  *   <li>{@link no.hal.pg.quiz.runtime.QAProposal#getPlayers <em>Players</em>}</li>
@@ -57,30 +58,56 @@ public interface QAProposal extends Players {
 	void setQa(QA value);
 
 	/**
-	 * Returns the value of the '<em><b>Proposal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Last Proposal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Proposal</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proposal</em>' attribute.
-	 * @see #setProposal(String)
-	 * @see no.hal.pg.quiz.runtime.RuntimePackage#getQAProposal_Proposal()
+	 * @return the value of the '<em>Last Proposal</em>' attribute.
+	 * @see #setLastProposal(String)
+	 * @see no.hal.pg.quiz.runtime.RuntimePackage#getQAProposal_LastProposal()
 	 * @model
 	 * @generated
 	 */
-	String getProposal();
+	String getLastProposal();
 
 	/**
-	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.QAProposal#getProposal <em>Proposal</em>}' attribute.
+	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.QAProposal#getLastProposal <em>Last Proposal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Proposal</em>' attribute.
-	 * @see #getProposal()
+	 * @param value the new value of the '<em>Last Proposal</em>' attribute.
+	 * @see #getLastProposal()
 	 * @generated
 	 */
-	void setProposal(String value);
+	void setLastProposal(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Accepted Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Accepted Proposal</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Accepted Proposal</em>' attribute.
+	 * @see #setAcceptedProposal(String)
+	 * @see no.hal.pg.quiz.runtime.RuntimePackage#getQAProposal_AcceptedProposal()
+	 * @model
+	 * @generated
+	 */
+	String getAcceptedProposal();
+
+	/**
+	 * Sets the value of the '{@link no.hal.pg.quiz.runtime.QAProposal#getAcceptedProposal <em>Accepted Proposal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Accepted Proposal</em>' attribute.
+	 * @see #getAcceptedProposal()
+	 * @generated
+	 */
+	void setAcceptedProposal(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Accepted</b></em>' attribute.
