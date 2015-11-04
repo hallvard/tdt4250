@@ -794,6 +794,12 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 			 "SelfService", ""
 		   });	
 		addAnnotation
+		  (getSubjectService_Subject(), 
+		   source, 
+		   new String[] {
+			 "SelfService", ""
+		   });	
+		addAnnotation
 		  (selfServiceEClass, 
 		   source, 
 		   new String[] {

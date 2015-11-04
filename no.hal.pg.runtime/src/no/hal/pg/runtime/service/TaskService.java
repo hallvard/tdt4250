@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.service.TaskService#getTaskClassName <em>Task Class Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isStarted <em>Started</em>}</li>
@@ -30,6 +31,21 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface TaskService extends Service<Task<?, ?>> {
+	/**
+	 * Returns the value of the '<em><b>Task Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Class Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Class Name</em>' attribute.
+	 * @see no.hal.pg.runtime.service.ServicePackage#getTaskService_TaskClassName()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getTaskClassName();
+
 	/**
 	 * Returns the value of the '<em><b>Players</b></em>' reference list.
 	 * The list contents are of type {@link no.hal.pg.runtime.Player}.

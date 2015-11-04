@@ -32,7 +32,7 @@ public interface SubjectService<T> extends Service<T> {
 	 * @return the value of the '<em>Subject</em>' reference.
 	 * @see #setSubject(Person)
 	 * @see no.hal.pg.runtime.RuntimePackage#getSubjectService_Subject()
-	 * @model
+	 * @model annotation="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore SelfService=''"
 	 * @generated
 	 */
 	Person getSubject();

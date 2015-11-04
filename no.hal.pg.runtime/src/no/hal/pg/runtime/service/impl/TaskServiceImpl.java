@@ -2,26 +2,23 @@
  */
 package no.hal.pg.runtime.service.impl;
 
-import no.hal.pg.runtime.Player;
-import no.hal.pg.runtime.Task;
-
-import no.hal.pg.runtime.Team;
-import no.hal.pg.runtime.service.ServicePackage;
-import no.hal.pg.runtime.service.TaskService;
-import no.hal.pg.runtime.util.Util;
-
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.Task;
+import no.hal.pg.runtime.Team;
+import no.hal.pg.runtime.service.ServicePackage;
+import no.hal.pg.runtime.service.TaskService;
+import no.hal.pg.runtime.util.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getTaskClassName <em>Task Class Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getPlayers <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#getTeam <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.impl.TaskServiceImpl#isStarted <em>Started</em>}</li>
@@ -51,6 +49,16 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * @ordered
 	 */
 	protected Task<?, ?> context;
+
+	/**
+	 * The default value of the '{@link #getTaskClassName() <em>Task Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TASK_CLASS_NAME_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isStarted() <em>Started</em>}' attribute.
@@ -106,6 +114,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Task<?, ?> getContext() {
 		if (context != null && ((EObject)context).eIsProxy()) {
 			InternalEObject oldContext = (InternalEObject)context;
@@ -132,6 +141,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContext(Task<?, ?> newContext) {
 		Task<?, ?> oldContext = context;
 		context = newContext;
@@ -144,6 +154,19 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
+	public String getTaskClassName() {
+		Task<?, ?> task = getContext();
+		String className = task.eClass().getName();
+		return className;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public EList<Player> getPlayers() {
 		return ECollections.<Player>unmodifiableEList(new ArrayList<Player>(Util.getPlayers(getContext(), true)));
 	}
@@ -153,6 +176,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Team getTeam() {
 		Team team = basicGetTeam();
 		return team != null && team.eIsProxy() ? (Team)eResolveProxy((InternalEObject)team) : team;
@@ -172,6 +196,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isStarted() {
 		return getContext().isStarted();
 	}
@@ -181,6 +206,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isFinished() {
 		return getContext().isFinished();
 	}
@@ -190,6 +216,7 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Object getResult() {
 		return getContext().getResult();
 	}
@@ -205,6 +232,8 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 			case ServicePackage.TASK_SERVICE__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
+			case ServicePackage.TASK_SERVICE__TASK_CLASS_NAME:
+				return getTaskClassName();
 			case ServicePackage.TASK_SERVICE__PLAYERS:
 				return getPlayers();
 			case ServicePackage.TASK_SERVICE__TEAM:
@@ -260,6 +289,8 @@ public class TaskServiceImpl extends MinimalEObjectImpl.Container implements Tas
 		switch (featureID) {
 			case ServicePackage.TASK_SERVICE__CONTEXT:
 				return context != null;
+			case ServicePackage.TASK_SERVICE__TASK_CLASS_NAME:
+				return TASK_CLASS_NAME_EDEFAULT == null ? getTaskClassName() != null : !TASK_CLASS_NAME_EDEFAULT.equals(getTaskClassName());
 			case ServicePackage.TASK_SERVICE__PLAYERS:
 				return !getPlayers().isEmpty();
 			case ServicePackage.TASK_SERVICE__TEAM:

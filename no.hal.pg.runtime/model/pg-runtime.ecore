@@ -116,7 +116,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubjectService">
     <eTypeParameters name="T"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" eType="ecore:EClass ../../no.hal.pg.model/model/pg.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" eType="ecore:EClass ../../no.hal.pg.model/model/pg.ecore#//Person">
+      <eAnnotations source="platform:/plugin/no.hal.pg.runtime/model/pg-runtime.ecore">
+        <details key="SelfService" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Service">
       <eTypeArguments eTypeParameter="#//SubjectService/T"/>
     </eGenericSuperTypes>

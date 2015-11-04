@@ -152,13 +152,22 @@ public interface ServicePackage extends EPackage {
 	int TASK_SERVICE__CONTEXT = RuntimePackage.SERVICE__CONTEXT;
 
 	/**
+	 * The feature id for the '<em><b>Task Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_SERVICE__TASK_CLASS_NAME = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Players</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__PLAYERS = RuntimePackage.SERVICE_FEATURE_COUNT + 0;
+	int TASK_SERVICE__PLAYERS = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Team</b></em>' reference.
@@ -167,7 +176,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__TEAM = RuntimePackage.SERVICE_FEATURE_COUNT + 1;
+	int TASK_SERVICE__TEAM = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Started</b></em>' attribute.
@@ -176,7 +185,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__STARTED = RuntimePackage.SERVICE_FEATURE_COUNT + 2;
+	int TASK_SERVICE__STARTED = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -185,7 +194,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__FINISHED = RuntimePackage.SERVICE_FEATURE_COUNT + 3;
+	int TASK_SERVICE__FINISHED = RuntimePackage.SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -194,7 +203,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE__RESULT = RuntimePackage.SERVICE_FEATURE_COUNT + 4;
+	int TASK_SERVICE__RESULT = RuntimePackage.SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Task Service</em>' class.
@@ -203,7 +212,7 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 5;
+	int TASK_SERVICE_FEATURE_COUNT = RuntimePackage.SERVICE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Task Service</em>' class.
@@ -342,6 +351,17 @@ public interface ServicePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTaskService();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.pg.runtime.service.TaskService#getTaskClassName <em>Task Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task Class Name</em>'.
+	 * @see no.hal.pg.runtime.service.TaskService#getTaskClassName()
+	 * @see #getTaskService()
+	 * @generated
+	 */
+	EAttribute getTaskService_TaskClassName();
 
 	/**
 	 * Returns the meta object for the reference list '{@link no.hal.pg.runtime.service.TaskService#getPlayers <em>Players</em>}'.
@@ -515,6 +535,14 @@ public interface ServicePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TASK_SERVICE = eINSTANCE.getTaskService();
+
+		/**
+		 * The meta object literal for the '<em><b>Task Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_SERVICE__TASK_CLASS_NAME = eINSTANCE.getTaskService_TaskClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Players</b></em>' reference list feature.

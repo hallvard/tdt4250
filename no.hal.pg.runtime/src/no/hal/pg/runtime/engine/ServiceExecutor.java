@@ -176,8 +176,8 @@ public class ServiceExecutor implements IServiceExecutor {
 				throwNoSubjectException(service, serviceName);
 			}
 			Person subject = getSubjectProvider().getSubject();
-			if (getSubjectProvider() == null) {
-				throw new IllegalSubjectException(null, service);
+			if (subject == null) {
+				throwNoSubjectException(service, null);
 			}
 			((SubjectService<?>) service).setSubject(subject);
 		}
@@ -293,7 +293,7 @@ public class ServiceExecutor implements IServiceExecutor {
 				if (this.logger != null) {
 					this.logger.log(LogService.LOG_ERROR, "Exception when invoking " + serviceInvocation.targetElement + " on " + serviceInvocation.target + ": " + e);
 				}
-				value = e;
+				value = e.getMessage();
 			}
 			results.put(serviceInvocation.serviceName, value);
 		}
