@@ -3,7 +3,6 @@
 package no.hal.pg.runtime.service.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 import no.hal.pg.runtime.RuntimeFactory;
 import no.hal.pg.runtime.Task;
@@ -17,6 +16,7 @@ import no.hal.pg.runtime.service.TaskService;
  * <p>
  * The following features are tested:
  * <ul>
+ *   <li>{@link no.hal.pg.runtime.service.TaskService#getTaskClassName() <em>Task Class Name</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getPlayers() <em>Players</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#getTeam() <em>Team</em>}</li>
  *   <li>{@link no.hal.pg.runtime.service.TaskService#isStarted() <em>Started</em>}</li>
@@ -102,6 +102,17 @@ public class TaskServiceTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.pg.runtime.service.TaskService#getTaskClassName() <em>Task Class Name</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.pg.runtime.service.TaskService#getTaskClassName()
+	 * @generated NOT
+	 */
+	public void testGetTaskClassName() {
+		assertEquals("Task", getFixture().getTaskClassName());
 	}
 
 	/**

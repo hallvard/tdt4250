@@ -187,6 +187,29 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.SubjectService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubjectServiceItemProvider subjectServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.pg.runtime.SubjectService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubjectServiceAdapter() {
+		if (subjectServiceItemProvider == null) {
+			subjectServiceItemProvider = new SubjectServiceItemProvider(this);
+		}
+
+		return subjectServiceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.pg.runtime.SelfService} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,6 +336,7 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 		if (playerItemProvider != null) playerItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskStateItemProvider != null) taskStateItemProvider.dispose();
+		if (subjectServiceItemProvider != null) subjectServiceItemProvider.dispose();
 		if (selfServiceItemProvider != null) selfServiceItemProvider.dispose();
 	}
 

@@ -4,7 +4,6 @@ package no.hal.pg.runtime.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,15 +16,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.component.ComponentFactory;
-import org.osgi.service.component.ComponentInstance;
 
 import no.hal.pg.model.provider.PgEditPlugin;
-import no.hal.pg.runtime.engine.Engine;
-import no.hal.pg.runtime.engine.IEngine;
 import no.hal.pg.runtime.ui.html.HtmlGenerator;
 
 /**
@@ -108,21 +100,6 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 			plugin = this;
 		}
 
-		public IEngine createEngine(Dictionary<String, Object> engineConfig) {
-			BundleContext bundleContext = plugin.getBundle().getBundleContext();
-			Collection<ServiceReference<ComponentFactory>> serviceReferences = null;
-			try {
-				serviceReferences = bundleContext.getServiceReferences(ComponentFactory.class, "(component.factory=" + Engine.FACTORY_ID + ")");
-			} catch (InvalidSyntaxException e) {
-			}
-			if (serviceReferences != null && serviceReferences.size() > 0) {
-				ComponentFactory factory = bundleContext.getService(serviceReferences.iterator().next());
-				ComponentInstance instance = factory.newInstance(engineConfig);
-				return (IEngine) instance.getInstance();
-			}
-			return null;
-		}
-		
 		private Map<EClass, Collection<HtmlGenerator>> htmlGenerators = null;
 		
 		public Collection<HtmlGenerator> getGenerators(EObject eObject) {
@@ -163,7 +140,7 @@ public final class PgruntimeEditPlugin extends EMFPlugin {
 									if (htmlGenerator == null) {
 										htmlGenerator = (HtmlGenerator) element.createExecutableExtension("generatorClass");
 									}
-									Collection<HtmlGenerator> generators = htmlGenerators.get((EClass) eClassifier);
+									Collection<HtmlGenerator> generators = htmlGenerators.get(eClassifier);
 									if (generators == null) {
 										generators = new ArrayList<HtmlGenerator>();
 										htmlGenerators.put((EClass) eClassifier, generators);

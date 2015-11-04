@@ -2,8 +2,6 @@ package no.hal.pg.runtime.ui;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Dictionary;
-import java.util.Hashtable;
 
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Notifier;
@@ -43,13 +41,13 @@ import no.hal.pg.model.ModelPackage;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
+import no.hal.pg.runtime.engine.GameRunner;
 import no.hal.pg.runtime.engine.IEngine;
 import no.hal.pg.runtime.engine.IServiceProvider;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
 
 public class RuntimeView extends AbstractSelectionView {
 
-//	private ComboViewer eOperationSelector;
 	private TreeViewer serviceOperationsViewer;
 	private PropertySheetPage propertySheetPage;
 
@@ -76,50 +74,27 @@ public class RuntimeView extends AbstractSelectionView {
 	protected void addEngine(IEngine engine) {
 		engines.add(engine);
 	}
+
+	private GameRunner gameRunner = new GameRunner();
 	
 	public void runGame(GameDef gameDef) {
-		IEngine engine = createEngine(gameDef.eResource().getURI().lastSegment());
-		if (engine == null) {
-			return;
-		}
-		engine.init(gameDef);
-		engine.start();
-//		Resource resource = engine.getGame().eResource();
-//		boolean exists = resource.getResourceSet().getURIConverter().exists(resource.getURI(), null);
-//		try {
-//			if (! exists) {
-//				resource.save(null);
-//			}
-//		} catch (IOException e) {
-//			System.err.println("Exception when saving game: " + e);
-//		}
-		addEngine(engine);
-
-		updateView();
-	}
-
-	private IEngine createEngine(String key) {
-		Dictionary<String, Object> engineConfig = new Hashtable<String, Object>();
-		engineConfig.put("IEngine.key", key);
-		IEngine engine = PgruntimeEditPlugin.getPlugin().createEngine(engineConfig);
-		if (engine == null) {
+		IEngine engine = gameRunner.runGame(gameDef);
+		if (engine != null) {
+			addEngine(engine);
+			updateView();
+		} else {
 			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "Couldn't create Engine");
-			return null;
 		}
-		return engine;
 	}
 
 	public void resumeGame(Game game) {
 		IEngine engine = getEngine(game);
 		if (engine == null) {
-			engine = createEngine(game.eResource().getURI().lastSegment());
-			if (engine == null) {
-				return;
-			}
-			addEngine(engine);
-			engine.init(game);
+			engine = gameRunner.resumeGame(game);
 		}
-		updateView();
+		if (engine != null) {
+			updateView();
+		}
 	}
 
 	protected Game getGame(EObject eObject) {
@@ -153,6 +128,7 @@ public class RuntimeView extends AbstractSelectionView {
 	@Override
 	protected void createActions() {
 		runGameAction = new CommandAction("Run game") {
+			@Override
 			public void execute(EObject context) {
 				if (context instanceof GameDef) {
 					runGame((GameDef) context);
@@ -160,6 +136,7 @@ public class RuntimeView extends AbstractSelectionView {
 					resumeGame((Game) context);
 				}
 			}
+			@Override
 			public void run() {
 				EObject context = getSelectedEObject();
 				executeAction(this, context, context.eResource().getResourceSet());
@@ -213,6 +190,7 @@ public class RuntimeView extends AbstractSelectionView {
 	}
 	
 	private SelectionListener invokeButtonSelected = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			ISelection selection = serviceOperationsViewer.getSelection();
 			if (selection instanceof IStructuredSelection) {
@@ -258,6 +236,7 @@ public class RuntimeView extends AbstractSelectionView {
 		serviceOperationsViewer.getControl().setFocus();
 	}
 	
+	@Override
 	public void dispose() {
 //		eOperationSelector.getControl().dispose();
 		serviceOperationsViewer.getControl().dispose();
