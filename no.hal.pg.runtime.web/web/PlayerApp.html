@@ -21,17 +21,18 @@
 <script src="TaskListComponent.js"></script>
 
 <script type="text/javascript">
-var appProps = AppHelper.appProps({ });
+var appProps = AppHelper.appProps({});
 
 var taskList = React.render(React.createElement(TaskListComponent,
-	{ serviceUrl: appProps.serviceUrl + '/tasks', player: appProps.player, tasks: [ ] }
+	{ serviceUrl: appProps.serviceUrl + '/tasks', player: appProps.player, tasks: [] }
 	), document.getElementById('tasklist')
 );
 
 React.render(React.createElement(PlayerComponent,
-	{ serviceUrl: appProps.serviceUrl, player: player, taskList: taskList }
+	{ serviceUrl: appProps.serviceUrl, player: appProps.player } // , taskList: taskList }
 	), document.getElementById('player')
 );
+
 </script>
 </body>  
 </html>

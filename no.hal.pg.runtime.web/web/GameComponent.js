@@ -23,7 +23,7 @@ var GameComponent = React.createClass({
 	
 	getInitialState : function() {
 		var comp = this;
-		AppHelper.loadData(this.props.serviceUrl, true, function(response) {
+		AppHelper.loadData(this.props.serviceUrl, false, function(response) {
 			comp.setState({
 				players : response.players,
 				tasks : response.tasks
@@ -39,8 +39,10 @@ var GameComponent = React.createClass({
   		var serviceUrl = this.props.serviceUrl;
   		var playerComponents = this.state.players.map(function(player) {
       		return React.createElement(PlayerComponent,
-      				{ serviceUrl: serviceUrl + '/' + player.ids[0],
-      				  player: { name: player.name, ids: player.ids }, compact: true }
+      				(typeof player === 'string' ? 
+      				  { serviceUrl: serviceUrl + '/' + player, player: player, compact: true } :
+      				  { serviceUrl: serviceUrl + '/' + player.ids[0], player: { name: player.name, ids: player.ids }, compact: true }
+      				)
           		)
   		});
     	return React.createElement("div", { className: "game" },

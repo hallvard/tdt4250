@@ -29,7 +29,7 @@ var PlayerComponent = React.createClass({
 					ids : response.ids
 				};
 			comp.setState(person);
-			comp.props.taskList.setPlayer(person);
+//			comp.props.taskList.setPlayer(person);
 		});
 		return {
 			name : "???", // this.props.player.name,

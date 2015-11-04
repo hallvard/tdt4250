@@ -28,26 +28,24 @@ var TaskListComponent = React.createClass({
 		};
 	},
 	
-	setPlayer: function(player) {
-		this.setState({
-			player : player
-		});
-	},
+//	setPlayer: function(player) {
+//		this.setState({
+//			player : player
+//		});
+//	},
 
   	render: function render() {
-  		var num = 0;
   		AppHelper.log("Task count: " + this.state.tasks.length, AppHelper.INFO);
   		var props = this.props;
   		var state = this.state;
-  		var rows = this.state.tasks.map(function(task) {
-  			num = num + 1;
-  			AppHelper.log("Creating TaskComponent # " + num, AppHelper.INFO);
+  		var rows = this.state.tasks.map(function(task, idx) {
       		return React.createElement(
-          		"tr", { key: num },
+          		"tr", { key: idx },
     	    	React.createElement(
     	      		"td", { className: "taskItem" },
     		    	React.createElement(
-    	 	    		TaskComponent, { serviceUrl: props.serviceUrl + '/' + (num - 1), player: state.player, task: task, taskNum: num }
+    	 	    		TaskComponent, { serviceUrl: props.serviceUrl + '/' + idx, // player: state.player,
+    	 	    							task: task, taskNum: (idx + 1)}
     	 	    	)
     	 		)
           	);
