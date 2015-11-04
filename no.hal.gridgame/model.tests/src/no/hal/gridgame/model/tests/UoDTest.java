@@ -3,9 +3,7 @@
 package no.hal.gridgame.model.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.gridgame.model.ModelFactory;
 import no.hal.gridgame.model.UoD;
 
@@ -73,6 +71,10 @@ public class UoDTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		setFixture(ModelFactory.eINSTANCE.createUoD());
+	}
+	
+	public void testIgnore() {
+		// ignore
 	}
 
 	/**

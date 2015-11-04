@@ -2,11 +2,12 @@
  */
 package no.hal.sokoban.model.tests;
 
+import org.junit.Assert;
+
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.sokoban.model.ModelFactory;
+import no.hal.sokoban.model.SokobanGrid;
 import no.hal.sokoban.model.SokobanLevel;
 
 /**
@@ -97,12 +98,18 @@ public class SokobanLevelTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.sokoban.model.SokobanLevel#createGrid()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testCreateGrid() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		SokobanLevel level = getFixture();
+		level.getLines().add("#@$.");
+		SokobanGrid grid = level.createGrid();
+		Assert.assertEquals(4, grid.getWidth());
+		Assert.assertEquals(1, grid.getHeight());
+		Assert.assertEquals('#', grid.getGridValue(0, 0).toChar());
+		Assert.assertEquals('@', grid.getGridValue(1, 0).toChar());
+		Assert.assertEquals('$', grid.getGridValue(2, 0).toChar());
+		Assert.assertEquals('.', grid.getGridValue(3, 0).toChar());
 	}
 
 } //SokobanLevelTest

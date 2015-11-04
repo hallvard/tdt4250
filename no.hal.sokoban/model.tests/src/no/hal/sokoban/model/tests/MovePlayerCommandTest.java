@@ -3,9 +3,7 @@
 package no.hal.sokoban.model.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.sokoban.model.ModelFactory;
 import no.hal.sokoban.model.MovePlayerCommand;
 
@@ -84,6 +82,12 @@ public class MovePlayerCommandTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	//
+	
+	public void testIgnore() {
+		// ignore
 	}
 
 } //MovePlayerCommandTest

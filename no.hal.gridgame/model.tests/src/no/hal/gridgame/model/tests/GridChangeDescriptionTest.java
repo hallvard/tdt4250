@@ -3,7 +3,6 @@
 package no.hal.gridgame.model.tests;
 
 import junit.textui.TestRunner;
-
 import no.hal.gridgame.model.GridChangeDescription;
 import no.hal.gridgame.model.ModelFactory;
 
@@ -79,12 +78,14 @@ public class GridChangeDescriptionTest extends GridRectangleTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridChangeDescription#addChange(int, int)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testAddChange__int_int() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		GridChangeDescription changeDescription = getFixture();
+		changeDescription.addChange(2, 3);
+		checkGridRectangle(changeDescription, 2, 3, 1, 1);
+		changeDescription.addChange(3, 3);
+		checkGridRectangle(changeDescription, 2, 3, 2, 1);
 	}
 
 	/**
@@ -92,12 +93,14 @@ public class GridChangeDescriptionTest extends GridRectangleTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridChangeDescription#addChange(int, int, int, int)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testAddChange__int_int_int_int() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		GridChangeDescription changeDescription = getFixture();
+		changeDescription.addChange(2, 3, 2, 1);
+		checkGridRectangle(changeDescription, 2, 3, 2, 1);
+		changeDescription.addChange(3, 3, 3, 4);
+		checkGridRectangle(changeDescription, 2, 3, 4, 4);
 	}
 
 } //GridChangeDescriptionTest

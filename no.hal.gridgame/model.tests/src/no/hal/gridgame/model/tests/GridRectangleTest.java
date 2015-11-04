@@ -2,10 +2,10 @@
  */
 package no.hal.gridgame.model.tests;
 
+import org.junit.Assert;
+
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.gridgame.model.GridRectangle;
 import no.hal.gridgame.model.ModelFactory;
 
@@ -94,17 +94,24 @@ public class GridRectangleTest extends TestCase {
 		setFixture(null);
 	}
 
+	public static void checkGridRectangle(GridRectangle gridRectangle, int x, int y, int w, int h) {
+		Assert.assertEquals(x, gridRectangle.getX());
+		Assert.assertEquals(y, gridRectangle.getY());
+		Assert.assertEquals(w, gridRectangle.getWidth());
+		Assert.assertEquals(h, gridRectangle.getHeight());
+	}
+
 	/**
 	 * Tests the '{@link no.hal.gridgame.model.GridRectangle#setValues(int, int) <em>Set Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridRectangle#setValues(int, int)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testSetValues__int_int() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		GridRectangle gridRectangle = getFixture();
+		gridRectangle.setValues(4, 5);
+		checkGridRectangle(gridRectangle, 4, 5, 0, 0);
 	}
 
 	/**
@@ -112,12 +119,12 @@ public class GridRectangleTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridRectangle#setValues(int, int, int, int)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testSetValues__int_int_int_int() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		GridRectangle gridRectangle = getFixture();
+		gridRectangle.setValues(4, 5, 3, 1);
+		checkGridRectangle(gridRectangle, 4, 5, 3, 1);
 	}
 
 	/**
@@ -125,12 +132,14 @@ public class GridRectangleTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridRectangle#setValues(no.hal.gridgame.model.GridRectangle)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testSetValues__GridRectangle() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		GridRectangle gridRectangle1 = ModelFactory.eINSTANCE.createGridRectangle();
+		gridRectangle1.setValues(4, 5, 3, 1);
+		GridRectangle gridRectangle2 = getFixture();
+		gridRectangle2.setValues(gridRectangle1);
+		checkGridRectangle(gridRectangle2, 4, 5, 3, 1);
 	}
 
 } //GridRectangleTest

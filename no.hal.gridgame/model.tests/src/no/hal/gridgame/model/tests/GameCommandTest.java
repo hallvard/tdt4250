@@ -66,12 +66,11 @@ public abstract class GameCommandTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GameCommand#prepare()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testPrepare() {
-		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+//		fail();
 	}
 
 	/**
@@ -79,12 +78,11 @@ public abstract class GameCommandTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GameCommand#perform()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testPerform() {
-		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+//		fail();
 	}
 
 	/**
@@ -92,12 +90,11 @@ public abstract class GameCommandTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GameCommand#undo()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testUndo() {
-		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+//		fail();
 	}
 
 	/**
@@ -105,12 +102,11 @@ public abstract class GameCommandTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GameCommand#redo()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testRedo() {
-		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+//		fail();
 	}
 
 	/**
@@ -118,12 +114,11 @@ public abstract class GameCommandTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.gridgame.model.GridListener#gridChanged(no.hal.gridgame.model.Grid, int, int, int, int)
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testGridChanged__Grid_int_int_int_int() {
-		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+//		fail();
 	}
 
 } //GameCommandTest
