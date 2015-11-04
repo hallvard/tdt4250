@@ -147,6 +147,7 @@ public class QuizTaskServiceImpl extends SubjectServiceImpl<QuizTask> implements
 	@Override
 	public EList<Question> getPlayerQuestions() {
 		Player player = Util.getPlayer(getContext(), getSubject(), false);
+		checkPlayerInTaskPlayers(player);
 		Collection<QAProposal> qaProposals = getQAProposals(player);
 		EList<Question> questions = new BasicEList<Question>();
 		for (QAProposal qaProp : qaProposals) {
