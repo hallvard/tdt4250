@@ -119,7 +119,7 @@ public class SokobanGameServiceTest extends TestCase {
 	 * @see no.hal.pg.sokoban.runtime.SokobanGameService#movePlayer(java.lang.String)
 	 * @generated
 	 */
-	public void testMovePlayer__char() {
+	public void testMovePlayer__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -132,7 +132,7 @@ public class SokobanGameServiceTest extends TestCase {
 	 * @see no.hal.pg.sokoban.runtime.SokobanGameService#movePlayer(java.lang.String, java.lang.Boolean)
 	 * @generated
 	 */
-	public void testMovePlayer__char_Boolean() {
+	public void testMovePlayer__String_Boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -79,10 +79,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 				return createSokobanTaskAdapter();
 			}
 			@Override
-			public Adapter caseSokobanResult(SokobanResult object) {
-				return createSokobanResultAdapter();
-			}
-			@Override
 			public Adapter caseSokobanService(SokobanService object) {
 				return createSokobanServiceAdapter();
 			}
@@ -145,20 +141,6 @@ public class RuntimeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSokobanTaskAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.pg.sokoban.runtime.SokobanResult <em>Sokoban Result</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult
-	 * @generated
-	 */
-	public Adapter createSokobanResultAdapter() {
 		return null;
 	}
 

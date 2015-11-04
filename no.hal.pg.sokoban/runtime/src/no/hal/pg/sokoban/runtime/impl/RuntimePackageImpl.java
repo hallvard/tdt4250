@@ -9,12 +9,12 @@ import no.hal.pg.sokoban.runtime.RuntimeFactory;
 import no.hal.pg.sokoban.runtime.RuntimePackage;
 import no.hal.pg.sokoban.runtime.SokobanGameService;
 import no.hal.pg.sokoban.runtime.SokobanGridService;
-import no.hal.pg.sokoban.runtime.SokobanResult;
 import no.hal.pg.sokoban.runtime.SokobanService;
 import no.hal.pg.sokoban.runtime.SokobanTask;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -35,13 +35,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass sokobanTaskEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sokobanResultEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,6 +63,13 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * @generated
 	 */
 	private EClass sokobanGridServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType sokobanResultEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -159,44 +159,8 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSokobanResult() {
-		return sokobanResultEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSokobanResult_Level() {
-		return (EReference)sokobanResultEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSokobanResult_MoveCount() {
-		return (EAttribute)sokobanResultEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSokobanResult_PushCount() {
-		return (EAttribute)sokobanResultEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSokobanResult_Solution() {
-		return (EAttribute)sokobanResultEClass.getEStructuralFeatures().get(3);
+	public EDataType getSokobanResult() {
+		return sokobanResultEDataType;
 	}
 
 	/**
@@ -258,7 +222,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSokobanGameService__MovePlayer__char() {
+	public EOperation getSokobanGameService__MovePlayer__String() {
 		return sokobanGameServiceEClass.getEOperations().get(0);
 	}
 
@@ -267,7 +231,7 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSokobanGameService__MovePlayer__char_Boolean() {
+	public EOperation getSokobanGameService__MovePlayer__String_Boolean() {
 		return sokobanGameServiceEClass.getEOperations().get(1);
 	}
 
@@ -338,12 +302,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		sokobanTaskEClass = createEClass(SOKOBAN_TASK);
 		createEReference(sokobanTaskEClass, SOKOBAN_TASK__SOKOBAN_GAME);
 
-		sokobanResultEClass = createEClass(SOKOBAN_RESULT);
-		createEReference(sokobanResultEClass, SOKOBAN_RESULT__LEVEL);
-		createEAttribute(sokobanResultEClass, SOKOBAN_RESULT__MOVE_COUNT);
-		createEAttribute(sokobanResultEClass, SOKOBAN_RESULT__PUSH_COUNT);
-		createEAttribute(sokobanResultEClass, SOKOBAN_RESULT__SOLUTION);
-
 		sokobanServiceEClass = createEClass(SOKOBAN_SERVICE);
 		createEReference(sokobanServiceEClass, SOKOBAN_SERVICE__SOKOBAN_GAME);
 
@@ -352,13 +310,16 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		sokobanGameServiceEClass = createEClass(SOKOBAN_GAME_SERVICE);
 		createEReference(sokobanGameServiceEClass, SOKOBAN_GAME_SERVICE__GRID);
-		createEOperation(sokobanGameServiceEClass, SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR);
-		createEOperation(sokobanGameServiceEClass, SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR_BOOLEAN);
+		createEOperation(sokobanGameServiceEClass, SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING);
+		createEOperation(sokobanGameServiceEClass, SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING_BOOLEAN);
 
 		sokobanGridServiceEClass = createEClass(SOKOBAN_GRID_SERVICE);
 		createEReference(sokobanGridServiceEClass, SOKOBAN_GRID_SERVICE__VALUES);
 		createEOperation(sokobanGridServiceEClass, SOKOBAN_GRID_SERVICE___GET_GRID_VALUES__INT_INT_INT_INT_BOOLEAN);
 		createEOperation(sokobanGridServiceEClass, SOKOBAN_GRID_SERVICE___GET_GRID_VALUES__BOOLEAN);
+
+		// Create data types
+		sokobanResultEDataType = createEDataType(SOKOBAN_RESULT);
 	}
 
 	/**
@@ -419,12 +380,6 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(sokobanTaskEClass, SokobanTask.class, "SokobanTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSokobanTask_SokobanGame(), theModelPackage_1.getSokobanGame(), null, "sokobanGame", null, 0, 1, SokobanTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sokobanResultEClass, SokobanResult.class, "SokobanResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSokobanResult_Level(), theModelPackage_1.getSokobanLevel(), null, "level", null, 0, 1, SokobanResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSokobanResult_MoveCount(), ecorePackage.getEInt(), "moveCount", null, 0, 1, SokobanResult.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSokobanResult_PushCount(), ecorePackage.getEInt(), "pushCount", null, 0, 1, SokobanResult.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSokobanResult_Solution(), ecorePackage.getEString(), "solution", null, 0, 1, SokobanResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(sokobanServiceEClass, SokobanService.class, "SokobanService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSokobanService_SokobanGame(), theModelPackage_1.getSokobanGame(), null, "sokobanGame", null, 0, 1, SokobanService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -434,10 +389,10 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 		initEClass(sokobanGameServiceEClass, SokobanGameService.class, "SokobanGameService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSokobanGameService_Grid(), theModelPackage_1.getSokobanGrid(), null, "grid", null, 0, 1, SokobanGameService.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getSokobanGameService__MovePlayer__char(), theModelPackage_2.getGridChangeDescription(), "movePlayer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getSokobanGameService__MovePlayer__String(), theModelPackage_2.getGridChangeDescription(), "movePlayer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "direction", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSokobanGameService__MovePlayer__char_Boolean(), this.getGridRectangleValues(), "movePlayer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSokobanGameService__MovePlayer__String_Boolean(), this.getGridRectangleValues(), "movePlayer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "direction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "stringFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -453,6 +408,9 @@ public class RuntimePackageImpl extends EPackageImpl implements RuntimePackage {
 
 		op = initEOperation(getSokobanGridService__GetGridValues__Boolean(), this.getGridRectangleValues(), "getGridValues", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "stringFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(sokobanResultEDataType, no.hal.pg.sokoban.runtime.util.SokobanResult.class, "SokobanResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

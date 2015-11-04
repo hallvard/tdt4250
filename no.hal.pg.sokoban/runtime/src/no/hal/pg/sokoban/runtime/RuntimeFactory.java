@@ -31,15 +31,6 @@ public interface RuntimeFactory extends EFactory {
 	SokobanTask createSokobanTask();
 
 	/**
-	 * Returns a new object of class '<em>Sokoban Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sokoban Result</em>'.
-	 * @generated
-	 */
-	SokobanResult createSokobanResult();
-
-	/**
 	 * Returns a new object of class '<em>Sokoban Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

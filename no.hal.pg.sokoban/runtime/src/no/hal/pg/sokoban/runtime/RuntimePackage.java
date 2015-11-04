@@ -5,6 +5,7 @@ package no.hal.pg.sokoban.runtime;
 import no.hal.gridgame.model.ModelPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -223,69 +224,14 @@ public interface RuntimePackage extends EPackage {
 	int SOKOBAN_TASK_OPERATION_COUNT = no.hal.pg.runtime.RuntimePackage.TASK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.pg.sokoban.runtime.impl.SokobanResultImpl <em>Sokoban Result</em>}' class.
+	 * The meta object id for the '<em>Sokoban Result</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.pg.sokoban.runtime.impl.SokobanResultImpl
+	 * @see no.hal.pg.sokoban.runtime.util.SokobanResult
 	 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getSokobanResult()
 	 * @generated
 	 */
-	int SOKOBAN_RESULT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT__LEVEL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Move Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT__MOVE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Push Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT__PUSH_COUNT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Solution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT__SOLUTION = 3;
-
-	/**
-	 * The number of structural features of the '<em>Sokoban Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Sokoban Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOKOBAN_RESULT_OPERATION_COUNT = 0;
-
+	int SOKOBAN_RESULT = 5;
 
 	/**
 	 * The meta object id for the '{@link no.hal.pg.sokoban.runtime.impl.SokobanServiceImpl <em>Sokoban Service</em>}' class.
@@ -295,7 +241,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getSokobanService()
 	 * @generated
 	 */
-	int SOKOBAN_SERVICE = 2;
+	int SOKOBAN_SERVICE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -342,7 +288,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getGridRectangleValues()
 	 * @generated
 	 */
-	int GRID_RECTANGLE_VALUES = 3;
+	int GRID_RECTANGLE_VALUES = 2;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -443,7 +389,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getSokobanGameService()
 	 * @generated
 	 */
-	int SOKOBAN_GAME_SERVICE = 4;
+	int SOKOBAN_GAME_SERVICE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -479,7 +425,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 0;
+	int SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Move Player</em>' operation.
@@ -488,7 +434,7 @@ public interface RuntimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR_BOOLEAN = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 1;
+	int SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING_BOOLEAN = no.hal.pg.runtime.RuntimePackage.SERVICE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Sokoban Game Service</em>' class.
@@ -507,7 +453,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getSokobanGridService()
 	 * @generated
 	 */
-	int SOKOBAN_GRID_SERVICE = 5;
+	int SOKOBAN_GRID_SERVICE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -586,58 +532,15 @@ public interface RuntimePackage extends EPackage {
 	EReference getSokobanTask_SokobanGame();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.pg.sokoban.runtime.SokobanResult <em>Sokoban Result</em>}'.
+	 * Returns the meta object for data type '{@link no.hal.pg.sokoban.runtime.util.SokobanResult <em>Sokoban Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sokoban Result</em>'.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult
+	 * @return the meta object for data type '<em>Sokoban Result</em>'.
+	 * @see no.hal.pg.sokoban.runtime.util.SokobanResult
+	 * @model instanceClass="no.hal.pg.sokoban.runtime.util.SokobanResult"
 	 * @generated
 	 */
-	EClass getSokobanResult();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.hal.pg.sokoban.runtime.SokobanResult#getLevel <em>Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Level</em>'.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult#getLevel()
-	 * @see #getSokobanResult()
-	 * @generated
-	 */
-	EReference getSokobanResult_Level();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.sokoban.runtime.SokobanResult#getMoveCount <em>Move Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Move Count</em>'.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult#getMoveCount()
-	 * @see #getSokobanResult()
-	 * @generated
-	 */
-	EAttribute getSokobanResult_MoveCount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.sokoban.runtime.SokobanResult#getPushCount <em>Push Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Push Count</em>'.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult#getPushCount()
-	 * @see #getSokobanResult()
-	 * @generated
-	 */
-	EAttribute getSokobanResult_PushCount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.pg.sokoban.runtime.SokobanResult#getSolution <em>Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Solution</em>'.
-	 * @see no.hal.pg.sokoban.runtime.SokobanResult#getSolution()
-	 * @see #getSokobanResult()
-	 * @generated
-	 */
-	EAttribute getSokobanResult_Solution();
+	EDataType getSokobanResult();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.sokoban.runtime.SokobanService <em>Sokoban Service</em>}'.
@@ -710,7 +613,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.SokobanGameService#movePlayer(java.lang.String)
 	 * @generated
 	 */
-	EOperation getSokobanGameService__MovePlayer__char();
+	EOperation getSokobanGameService__MovePlayer__String();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.pg.sokoban.runtime.SokobanGameService#movePlayer(java.lang.String, java.lang.Boolean) <em>Move Player</em>}' operation.
@@ -720,7 +623,7 @@ public interface RuntimePackage extends EPackage {
 	 * @see no.hal.pg.sokoban.runtime.SokobanGameService#movePlayer(java.lang.String, java.lang.Boolean)
 	 * @generated
 	 */
-	EOperation getSokobanGameService__MovePlayer__char_Boolean();
+	EOperation getSokobanGameService__MovePlayer__String_Boolean();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.pg.sokoban.runtime.SokobanGridService <em>Sokoban Grid Service</em>}'.
@@ -805,46 +708,14 @@ public interface RuntimePackage extends EPackage {
 		EReference SOKOBAN_TASK__SOKOBAN_GAME = eINSTANCE.getSokobanTask_SokobanGame();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.pg.sokoban.runtime.impl.SokobanResultImpl <em>Sokoban Result</em>}' class.
+		 * The meta object literal for the '<em>Sokoban Result</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.pg.sokoban.runtime.impl.SokobanResultImpl
+		 * @see no.hal.pg.sokoban.runtime.util.SokobanResult
 		 * @see no.hal.pg.sokoban.runtime.impl.RuntimePackageImpl#getSokobanResult()
 		 * @generated
 		 */
-		EClass SOKOBAN_RESULT = eINSTANCE.getSokobanResult();
-
-		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOKOBAN_RESULT__LEVEL = eINSTANCE.getSokobanResult_Level();
-
-		/**
-		 * The meta object literal for the '<em><b>Move Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOKOBAN_RESULT__MOVE_COUNT = eINSTANCE.getSokobanResult_MoveCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Push Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOKOBAN_RESULT__PUSH_COUNT = eINSTANCE.getSokobanResult_PushCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Solution</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOKOBAN_RESULT__SOLUTION = eINSTANCE.getSokobanResult_Solution();
+		EDataType SOKOBAN_RESULT = eINSTANCE.getSokobanResult();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.sokoban.runtime.impl.SokobanServiceImpl <em>Sokoban Service</em>}' class.
@@ -906,7 +777,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR = eINSTANCE.getSokobanGameService__MovePlayer__char();
+		EOperation SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING = eINSTANCE.getSokobanGameService__MovePlayer__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Move Player</b></em>' operation.
@@ -914,7 +785,7 @@ public interface RuntimePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR_BOOLEAN = eINSTANCE.getSokobanGameService__MovePlayer__char_Boolean();
+		EOperation SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING_BOOLEAN = eINSTANCE.getSokobanGameService__MovePlayer__String_Boolean();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.pg.sokoban.runtime.impl.SokobanGridServiceImpl <em>Sokoban Grid Service</em>}' class.

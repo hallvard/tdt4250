@@ -6,6 +6,7 @@ import no.hal.pg.runtime.Task;
 
 import no.hal.pg.sokoban.model.SokobanTaskDef;
 
+import no.hal.pg.sokoban.runtime.util.SokobanResult;
 import no.hal.sokoban.model.SokobanGame;
 
 /**
@@ -21,7 +22,7 @@ import no.hal.sokoban.model.SokobanGame;
  * </ul>
  *
  * @see no.hal.pg.sokoban.runtime.RuntimePackage#getSokobanTask()
- * @model
+ * @model superTypes="no.hal.pg.runtime.Task<no.hal.pg.sokoban.model.SokobanTaskDef, no.hal.pg.sokoban.runtime.SokobanResult>"
  * @generated
  */
 public interface SokobanTask extends Task<SokobanTaskDef, SokobanResult> {

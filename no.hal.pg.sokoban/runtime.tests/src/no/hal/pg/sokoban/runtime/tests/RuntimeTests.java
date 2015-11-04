@@ -32,7 +32,6 @@ public class RuntimeTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new RuntimeTests("runtime Tests");
 		suite.addTestSuite(SokobanTaskTest.class);
-		suite.addTestSuite(SokobanResultTest.class);
 		suite.addTestSuite(SokobanServiceTest.class);
 		suite.addTestSuite(GridRectangleValuesTest.class);
 		suite.addTestSuite(SokobanGameServiceTest.class);

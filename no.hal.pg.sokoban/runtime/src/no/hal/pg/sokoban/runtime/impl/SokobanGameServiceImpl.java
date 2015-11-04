@@ -15,11 +15,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.gridgame.model.GridChangeDescription;
 import no.hal.pg.sokoban.runtime.GridRectangleValues;
-import no.hal.pg.sokoban.runtime.RuntimeFactory;
 import no.hal.pg.sokoban.runtime.RuntimePackage;
 import no.hal.pg.sokoban.runtime.SokobanGameService;
-import no.hal.pg.sokoban.runtime.SokobanResult;
 import no.hal.pg.sokoban.runtime.SokobanTask;
+import no.hal.pg.sokoban.runtime.util.SokobanResult;
 import no.hal.sokoban.model.ModelFactory;
 import no.hal.sokoban.model.MovePlayerCommand;
 import no.hal.sokoban.model.SokobanGame;
@@ -143,15 +142,13 @@ public class SokobanGameServiceImpl extends MinimalEObjectImpl.Container impleme
 		command.setGrid(game.getGrid());
 		game.perform(command);
 		if (game.isFinished() && game.eContainer() instanceof SokobanTask) {
-			SokobanResult result = RuntimeFactory.eINSTANCE.createSokobanResult();
 			EList<MovePlayerCommand> commands = game.getUndoStack();
 			StringBuilder builder = new StringBuilder(commands.size());
 			for (MovePlayerCommand moveCommand : commands) {
 				char c = moveCommand.getDirection().c;
 				builder.append(moveCommand.isPush() ? Character.toUpperCase(c) : c);
 			}
-			result.setLevel(game.getLevel());
-			result.setSolution(builder.toString());
+			SokobanResult result = SokobanResult.valueOf(builder.toString());
 			((SokobanTask) game.eContainer()).finish(result);
 		}
 		return EcoreUtil.copy(command.getChanges());
@@ -241,9 +238,9 @@ public class SokobanGameServiceImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RuntimePackage.SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR:
+			case RuntimePackage.SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING:
 				return movePlayer((String)arguments.get(0));
-			case RuntimePackage.SOKOBAN_GAME_SERVICE___MOVE_PLAYER__CHAR_BOOLEAN:
+			case RuntimePackage.SOKOBAN_GAME_SERVICE___MOVE_PLAYER__STRING_BOOLEAN:
 				return movePlayer((String)arguments.get(0), (Boolean)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);

@@ -3,9 +3,7 @@
 package no.hal.pg.sokoban.model.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.pg.sokoban.model.ModelFactory;
 import no.hal.pg.sokoban.model.SokobanTaskDef;
 
@@ -84,6 +82,12 @@ public class SokobanTaskDefTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	//
+	
+	public void testIgnore() {
+		// ignore
 	}
 
 } //SokobanTaskDefTest

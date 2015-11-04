@@ -14,6 +14,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  no.hal.gridgame.model;visibility:=reexport,
+ org.emfjson.jackson;bundle-version="0.12.0",
  no.hal.pg.model;visibility:=reexport,
  no.hal.sokoban.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy

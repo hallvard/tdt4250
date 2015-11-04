@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import no.hal.pg.runtime.impl.TaskImpl;
 import no.hal.pg.sokoban.model.SokobanTaskDef;
 import no.hal.pg.sokoban.runtime.RuntimePackage;
-import no.hal.pg.sokoban.runtime.SokobanResult;
 import no.hal.pg.sokoban.runtime.SokobanTask;
 import no.hal.sokoban.model.ModelFactory;
 import no.hal.sokoban.model.SokobanGame;
@@ -30,7 +29,7 @@ import no.hal.sokoban.model.SokobanLevel;
  *
  * @generated
  */
-public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, SokobanResult> implements SokobanTask {
+public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, no.hal.pg.sokoban.runtime.util.SokobanResult> implements SokobanTask {
 	/**
 	 * The cached value of the '{@link #getSokobanGame() <em>Sokoban Game</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -78,7 +77,7 @@ public class SokobanTaskImpl extends TaskImpl<SokobanTaskDef, SokobanResult> imp
 	 * @generated
 	 */
 	@Override
-	public void setResult(SokobanResult newResult) {
+	public void setResult(no.hal.pg.sokoban.runtime.util.SokobanResult newResult) {
 		super.setResult(newResult);
 	}
 

@@ -14,14 +14,7 @@
       <eTypeArguments eClassifier="#//SokobanResult"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SokobanResult">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moveCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pushCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SokobanResult" instanceClassName="no.hal.pg.sokoban.runtime.util.SokobanResult"/>
   <eClassifiers xsi:type="ecore:EClass" name="SokobanService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sokobanGame" eType="ecore:EClass ../../no.hal.sokoban.model/model/sokoban.ecore#//SokobanGame"
         changeable="false" volatile="true" transient="true" derived="true"/>

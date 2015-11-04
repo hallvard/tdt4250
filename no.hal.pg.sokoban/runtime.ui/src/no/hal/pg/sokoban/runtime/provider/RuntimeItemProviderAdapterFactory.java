@@ -95,29 +95,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.pg.sokoban.runtime.SokobanResult} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SokobanResultItemProvider sokobanResultItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.pg.sokoban.runtime.SokobanResult}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSokobanResultAdapter() {
-		if (sokobanResultItemProvider == null) {
-			sokobanResultItemProvider = new SokobanResultItemProvider(this);
-		}
-
-		return sokobanResultItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.pg.sokoban.runtime.SokobanService} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,7 +286,6 @@ public class RuntimeItemProviderAdapterFactory extends RuntimeAdapterFactory imp
 	 */
 	public void dispose() {
 		if (sokobanTaskItemProvider != null) sokobanTaskItemProvider.dispose();
-		if (sokobanResultItemProvider != null) sokobanResultItemProvider.dispose();
 		if (sokobanServiceItemProvider != null) sokobanServiceItemProvider.dispose();
 		if (gridRectangleValuesItemProvider != null) gridRectangleValuesItemProvider.dispose();
 		if (sokobanGameServiceItemProvider != null) sokobanGameServiceItemProvider.dispose();
