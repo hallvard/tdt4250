@@ -2,7 +2,6 @@ package no.hal.pg.runtime.engine.http;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Base64;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import no.hal.pg.model.Person;
 import no.hal.pg.runtime.Player;
+import no.hal.pg.runtime.engine.http.util.Base64;
 import no.hal.pg.runtime.util.Util;
 
 public class HttpAuthenticationHandler extends AbstractAuthenticationHandler {
@@ -25,26 +25,27 @@ public class HttpAuthenticationHandler extends AbstractAuthenticationHandler {
 	public HttpAuthenticationHandler() {
 		super(null);
 	}
-	
+
 	@Override
 	public Person getSubject() {
+		Person subject = null;
 		if (authHeader != null) {
 			StringTokenizer st = new StringTokenizer(authHeader);
 			if (st.hasMoreTokens() && st.nextToken().equalsIgnoreCase("Basic")) {
 				String credentials = null;
 				try {
-					credentials = new String(Base64.getDecoder().decode(st.nextToken()), "UTF-8");
+					credentials = new String(Base64.decode(st.nextToken().toCharArray()), "UTF-8");
 				} catch (UnsupportedEncodingException e) {
 				}
 				if (credentials != null) {
 					int p = credentials.indexOf(":");
 					if (p >= 0) {
-						return getSubject(credentials.substring(0, p).trim(), credentials.substring(p + 1).trim());
+						subject = getSubject(credentials.substring(0, p).trim(), credentials.substring(p + 1).trim());
 					}
 				}
 			}
 		}
-		return super.getSubject();
+		return (subject != null ? subject : super.getSubject());
 	}
 
 	protected Person getSubject(String username, String password) {
