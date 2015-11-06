@@ -3,11 +3,6 @@
    <feature name="ds.dependencies.feature" version="0.1.0-SNAPSHOT" install="auto">
       <bundle>mvn:org.apache.felix/org.osgi.compendium/1.4.0</bundle>
       <bundle>mvn:org.apache.felix/org.apache.felix.scr/2.0.2</bundle>
-      <!-- 
-      <bundle>mvn:org.apache.felix/org.apache.felix.scr/1.8.2</bundle>
-      <bundle>mvn:org.apache.felix/org.apache.felix.scr/1.6.2</bundle>
-      <bundle>mvn:org.apache.karaf.scr/scr/4.0.0</bundle>
-       -->
    </feature>
    <feature name="http.dependencies.feature" version="0.1.0-SNAPSHOT" install="auto">
       <bundle>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>

@@ -11,5 +11,8 @@
             <module>../no.hal.pg.parent</module>	
             <module>../no.hal.quiz.parent</module>
             <module>../no.hal.pg.quiz.parent</module>
+            <module>../no.hal.gridgame</module>
+            <module>../no.hal.sokoban</module>
+            <module>../no.hal.pg.sokoban</module>
 	</modules>
 </project>
