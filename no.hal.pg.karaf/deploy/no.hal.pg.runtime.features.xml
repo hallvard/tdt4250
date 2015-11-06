@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="no.hal.pg.runtime.features" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+	<!-- Core -->
+	<feature name="no.hal.pg.core.feature" version="0.1.0-SNAPSHOT"
+		install="auto">
+		<bundle>mvn:no.hal.pg/no.hal.pg.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.runtime/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.runtime.http/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.runtime.web/0.1.0-SNAPSHOT</bundle>
+	</feature>
+
+	<!-- Quiz -->
+	<feature name="no.hal.pg.quiz.feature" version="0.1.0-SNAPSHOT"
+		install="auto">
+		<bundle>mvn:no.hal.quiz/no.hal.quiz.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.quiz/no.hal.quiz.xtext/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.quiz.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.quiz.runtime/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.quiz.web/0.1.0-SNAPSHOT</bundle>
+	</feature>
+
+	<!-- ExampleTask -->
+	<feature name="no.hal.pg.exampletask.feature" version="0.1.0-SNAPSHOT"
+		install="auto">
+		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.runtime/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.web/0.1.0-SNAPSHOT</bundle>
+	</feature>
+
+	<!-- Sokoban -->
+	<feature name="no.hal.pg.sokoban.feature" version="0.1.0-SNAPSHOT"
+		install="auto">
+		<bundle>mvn:no.hal.gridgame/no.hal.gridgame.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.gridgame/no.hal.sokoban.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.sokoban.model/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.sokoban.runtime/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg/no.hal.pg.sokoban.web/0.1.0-SNAPSHOT</bundle>
+	</feature>
+</features>

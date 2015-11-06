@@ -70,7 +70,9 @@
 	<modules>
 		<module>deploy</module>
 		<module>console</module>
-		<module>org.eclipse.equinox.common</module>
+		
+		<module>eclipsefeature</module>
+		<module>eclipseupdatesite</module>
 	</modules>  
 	<groupId>no.hal.pg.karaf</groupId>
 	<version>0.1.0-SNAPSHOT</version>

@@ -11,7 +11,7 @@ Export-Package: no.hal.sokoban.model,
  no.hal.sokoban.model.impl,
  no.hal.sokoban.model.util,
  no.hal.sokoban.util
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  no.hal.gridgame.model;visibility:=reexport

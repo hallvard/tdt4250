@@ -3,9 +3,7 @@
 package no.hal.pg.sokoban.runtime.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import no.hal.pg.sokoban.runtime.RuntimeFactory;
 import no.hal.pg.sokoban.runtime.SokobanTask;
 
@@ -86,4 +84,9 @@ public class SokobanTaskTest extends TestCase {
 		setFixture(null);
 	}
 
+	//
+	
+	public void testIgnore() {
+		// ignore
+	}
 } //SokobanTaskTest

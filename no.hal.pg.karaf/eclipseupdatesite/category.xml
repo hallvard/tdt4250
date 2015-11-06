@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.pg.karaf.eclipsefeature_0.1.0.qualifier.jar" id="no.hal.pg.karaf.eclipsefeature" version="0.1.0.qualifier">
+      <category name="no.hal.pg.karaf.category"/>
+   </feature>
+   <category-def name="no.hal.pg.karaf.category" label="Pg karaf"/>
+</site>
