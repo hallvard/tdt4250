@@ -1,6 +1,13 @@
 quiz
 
-"I hvilken by ligger Stortinget?" () "Trondheim" (x) "Oslo" () "Fredrikstad"
-"Hvilke byer har mer enn 100 000 innbyggere?" [x] "Trondheim" [x] "Oslo" [] "Fredrikstad"
-"Hvor mange haler har ei ku?" 1
-"Har kuer hale?" yes
+"I hvilken by ligger Stortinget?"
+() "Trondheim" (x) "Oslo" () "Fredrikstad"
+
+"Hvilke byer har mer enn 100 000 innbyggere?"
+[x] "Trondheim" [x] "Oslo" [] "Fredrikstad"
+
+"Hvor mange haler har ei ku?"
+1
+
+"Har kuer hale?"
+yes

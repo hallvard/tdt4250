@@ -25,6 +25,11 @@
       "quizParts" : [ {
         "$ref" : "Quiz1.xquiz#1"
       } ]
+    }, {
+      "eClass" : "platform:/plugin/no.hal.pg.sokoban.model/model/pg-sokoban.ecore#//SokobanTaskDef",
+      "levels" : [ {
+        "$ref" : "sample1.sok#//@levels.0"
+      } ]
     } ]
   } ]
 }
