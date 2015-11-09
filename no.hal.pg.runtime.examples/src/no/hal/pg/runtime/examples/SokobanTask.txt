@@ -1,4 +1,4 @@
-movePlayer?stringFormat=false&direction=d
-movePlayer?stringFormat=false&direction=d
-movePlayer?stringFormat=false&direction=l
-movePlayer?stringFormat=false&direction=u
+sokobanGame/movePlayer?stringFormat=false&direction=d
+sokobanGame/movePlayer?stringFormat=false&direction=d
+sokobanGame/movePlayer?stringFormat=false&direction=l
+sokobanGame/movePlayer?stringFormat=false&direction=u
