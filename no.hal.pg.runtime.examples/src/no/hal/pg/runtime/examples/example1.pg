@@ -6,16 +6,14 @@
       "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
       "name" : "Hallvard Trætteberg",
       "ids" : [ "hal@idi.ntnu.no", "hallvard.traetteberg@gmail.com" ]
-    }, {
-      "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//Person",
-      "name" : "Jon Espen Ingvaldsen",
-      "ids" : [ "jonespi@idi.ntnu.no", "jon.espen.ingvaldsen@ntnu.no" ]
     } ]
   } ],
   "games" : [ {
     "eClass" : "platform:/plugin/no.hal.pg.model/model/pg.ecore#//GameDef",
     "taskRefs" : [ {
       "$ref" : "Exampletask1.xampletask#/"
+    }, {
+      "$ref" : "SokobanTaskDef.pg-sok#/"
     } ],
     "participants" : [ {
       "$ref" : "//@people.0"
@@ -24,11 +22,6 @@
       "eClass" : "platform:/plugin/no.hal.pg.quiz.model/model/quiz.ecore#//QuizTaskDef",
       "quizParts" : [ {
         "$ref" : "Quiz1.xquiz#1"
-      } ]
-    }, {
-      "eClass" : "platform:/plugin/no.hal.pg.sokoban.model/model/pg-sokoban.ecore#//SokobanTaskDef",
-      "levels" : [ {
-        "$ref" : "sample1.sok#//@levels.0"
       } ]
     } ]
   } ]

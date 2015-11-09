@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pg-sokoban-model:SokobanTaskDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pg-sokoban-model="platform:/plugin/no.hal.pg.sokoban.model/model/pg-sokoban.ecore">
+  <levels href="minimal.sok#//@levels.0"/>
+</pg-sokoban-model:SokobanTaskDef>
