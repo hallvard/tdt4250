@@ -1,0 +1,7 @@
+getPlayerQuestions
+proposeAnswer?qa=0&proposal=1
+proposeAnswer?qa=1&proposal=0
+proposeAnswer?qa=1&proposal=0,1
+proposeAnswer?qa=2&proposal=1
+proposeAnswer?qa=3&proposal=true
+acceptAllProposals
