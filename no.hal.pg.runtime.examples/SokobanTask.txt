@@ -1,0 +1,4 @@
+movePlayer?stringFormat=false&direction=d
+movePlayer?stringFormat=false&direction=d
+movePlayer?stringFormat=false&direction=l
+movePlayer?stringFormat=false&direction=u
