@@ -6,4 +6,5 @@
    </service>
    <reference bind="setServiceExecutor" cardinality="1..1" interface="no.hal.pg.runtime.engine.IServiceExecutor" name="ServiceExecutor" policy="dynamic" unbind="unsetServiceExecutor"/>
    <reference bind="addReferenceProvider" cardinality="0..n" interface="no.hal.pg.runtime.engine.IReferenceProvider" name="ReferenceProvider" policy="dynamic" unbind="removeReferenceProvider"/>
+   <reference bind="setLogger" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService" policy="static"/>
 </scr:component>

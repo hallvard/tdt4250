@@ -12,6 +12,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.log.LogService;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -61,6 +62,22 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 
 	//
 	
+	private LogService logger;
+	
+	@Reference(
+			cardinality=ReferenceCardinality.OPTIONAL,
+			policy=ReferencePolicy.DYNAMIC,
+			unbind="unsetLogger"
+			)
+	public synchronized void setLogger(LogService logger) {
+		this.logger = logger;
+	}
+	public synchronized void unsetLogger(LogService logger) {
+		this.logger = null;
+	}
+
+	//
+	
 	private ObjectMapper objectMapper;
 	
 	public JsonSerializer() {
@@ -106,7 +123,14 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 		}
 		if (occurStack.size() > 0 && eObject.eResource() != null) {
 			for (int i = occurStack.size() - 1; i >= 0; i--) {
-				String ref = referenceProvider.getReference(eObject, occurStack.get(i));
+				String ref = null;
+				try {
+					ref = referenceProvider.getReference(eObject, occurStack.get(i));
+				} catch (Exception e) {
+					if (logger != null) {
+						logger.log(LogService.LOG_ERROR, "Exception when providing reference for " + eObject, e);
+					}
+				}
 				if (ref != null) {
 					generator.writeString(ref);
 					return;
@@ -126,6 +150,10 @@ public class JsonSerializer extends StdSerializer<EObject> implements ISerialize
 				Object value = entry.getValue();
 				generator.writeFieldName(featureName);
 				generator.writeObject(value);
+			}
+		} catch (RuntimeException e) {
+			if (logger != null) {
+				logger.log(LogService.LOG_ERROR, "Exception when serializing " + eObject, e);
 			}
 		} finally {
 			generator.writeEndObject();
