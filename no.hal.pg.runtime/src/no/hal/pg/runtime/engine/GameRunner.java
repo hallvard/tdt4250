@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,6 +22,7 @@ import org.osgi.service.component.ComponentInstance;
 
 import no.hal.pg.model.GameDef;
 import no.hal.pg.model.ModelPackage;
+import no.hal.pg.model.UoD;
 import no.hal.pg.model.util.ModelResourceFactoryImpl;
 import no.hal.pg.runtime.Game;
 
@@ -57,7 +59,14 @@ public class GameRunner {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		initResourceSet(resourceSet);
 		Resource resource = resourceSet.getResource(uri, true);
-		GameDef gameDef = (GameDef) EcoreUtil.getObjectByType(resource.getContents(), ModelPackage.eINSTANCE.getGameDef());
+		EList<EObject> contents = resource.getContents();
+		GameDef gameDef = (GameDef) EcoreUtil.getObjectByType(contents, ModelPackage.eINSTANCE.getGameDef());
+		if (gameDef == null) {
+			UoD uod = (UoD) EcoreUtil.getObjectByType(contents, ModelPackage.eINSTANCE.getUoD());
+			if (uod != null) {
+				gameDef = (GameDef) EcoreUtil.getObjectByType(uod.getGames(), ModelPackage.eINSTANCE.getGameDef());
+			}
+		}
 		return gameDef;
 	}
 

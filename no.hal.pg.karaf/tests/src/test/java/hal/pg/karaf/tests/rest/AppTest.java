@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class AppTest {
 
-	private String engineUrl = "http://localhost:8082/example1.pg/data";
+	private String engineUrl = "http://localhost:8080/example1.pg/data";
 	private String tasksUrl = engineUrl + "/tasks";
 
 	private void testTaskCount(int n) {

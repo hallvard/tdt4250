@@ -38,11 +38,6 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 		return name;
 	}
 	
-	@Override
-	public boolean isAppFor(EObject eObject) {
-		return (eClass != null && eClass.isInstance(eObject));
-	}
-
 	private BundleContext bundleContext;
 
 	@Activate
@@ -83,13 +78,11 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 		}
 	}
 
-	protected void configure(Dictionary<String, ?> properties) {
-		Object nameProperty = properties.get("IEngineApp.name");
-		if (nameProperty != null) {
-			name = String.valueOf(nameProperty);
-		}
-		Object eClassProperty = properties.get("EngineAppComponent.eClass");
-		if (eClassProperty != null) {
+	private Object eClassProperty;
+
+	@Override
+	public boolean isAppFor(EObject eObject) {
+		if (eClass == null && eClassProperty != null) {
 			String eClassPropertyValue = String.valueOf(eClassProperty);
 			int pos = eClassPropertyValue.indexOf('#');
 			if (pos > 0) {
@@ -110,6 +103,16 @@ public class EngineAppComponent implements IEngineAppComponent, ManagedService {
 		} else {
 			log(LogService.LOG_WARNING, "No EngineAppComponent.eClass property");
 		}
+		return (eClass != null && eClass.isInstance(eObject));
+	}
+	
+	protected void configure(Dictionary<String, ?> properties) {
+		Object nameProperty = properties.get("IEngineApp.name");
+		if (nameProperty != null) {
+			name = String.valueOf(nameProperty);
+		}
+		// delay looking up the ePackage and eClass, so it as time to be registered
+		this.eClassProperty = properties.get("EngineAppComponent.eClass");
 		Object resourcePathFormatProperty = properties.get("EngineAppComponent.resourcePathFormat");
 		Object resourceNamesProperty = properties.get("EngineAppComponent.resourceNames");
 		Object aliasPathFormatProperty = properties.get("EngineAppComponent.aliasPathFormat");

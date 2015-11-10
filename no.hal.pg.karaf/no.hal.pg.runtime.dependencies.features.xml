@@ -9,13 +9,7 @@
       <bundle>mvn:org.apache.felix/org.apache.felix.http.api/2.3.2</bundle>
       <bundle>mvn:org.apache.felix/org.apache.felix.http.jetty/2.3.2</bundle>
    </feature>
-<!--  
-   <feature name="xtext.dependencies.feature" version="0.1.0-SNAPSHOT" install="auto">
-      <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
-      <bundle>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/plugins/javax.inject_1.0.0.v20091030.jar</bundle>
-      <bundle>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar</bundle>
-      <bundle>mvn:org.eclipse.osgi/org.eclipse.osgi/3.7.1</bundle>
-      <bundle>mvn:org.eclipse.equinox/org.eclipse.equinox.common/3.6.0</bundle>
+   <feature name="plugin.xml.feature" version="0.1.0-SNAPSHOT" install="auto">
+      <bundle>mvn:no.hal.pg.karaf/no.hal.pg.karaf.emf/0.1.0-SNAPSHOT</bundle>
    </feature>
-  -->
 </features>

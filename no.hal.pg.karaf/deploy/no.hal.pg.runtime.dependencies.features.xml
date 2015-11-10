@@ -13,4 +13,7 @@
       <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
       <bundle>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar</bundle>
    </feature>
+   <feature name="plugin.xml.feature" version="0.1.0-SNAPSHOT" install="auto">
+      <bundle>mvn:no.hal.pg.karaf/no.hal.pg.karaf.emf/0.1.0-SNAPSHOT</bundle>
+   </feature>
 </features>

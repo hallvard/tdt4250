@@ -24,6 +24,7 @@
 		install="auto">
 		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.model/0.1.0-SNAPSHOT</bundle>
 		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.runtime/0.1.0-SNAPSHOT</bundle>
+		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.xtext/0.1.0-SNAPSHOT</bundle>
 		<bundle>mvn:no.hal.pg.exampletask/no.hal.pg.exampletask.web/0.1.0-SNAPSHOT</bundle>
 	</feature>
 

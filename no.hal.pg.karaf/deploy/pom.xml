@@ -14,6 +14,18 @@
 	<dependencies>
 		<dependency>
 			<groupId>no.hal.pg.karaf</groupId>
+			<artifactId>no.hal.pg.karaf.emf</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+			<type>eclipse-feature</type>
+		</dependency>
+		<dependency>
+			<groupId>no.hal.pg.karaf</groupId>
+			<artifactId>no.hal.pg.karaf.console</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+			<type>eclipse-feature</type>
+		</dependency>
+		<dependency>
+			<groupId>no.hal.pg.karaf</groupId>
 			<artifactId>no.hal.pg.karaf.eclipsefeature</artifactId>
 			<version>0.1.0-SNAPSHOT</version>
 			<type>eclipse-feature</type>
@@ -88,6 +100,15 @@
 										<include>*.jar</include>
 									</includes>
 								</resource>
+								<!-- 
+								<resource>
+									<directory>../emf/target</directory>
+									<filtering>false</filtering>
+									<includes>
+										<include>*.jar</include>
+									</includes>
+								</resource>
+								 -->
 								<resource>
 									<directory>../console/target</directory>
 									<filtering>false</filtering>
