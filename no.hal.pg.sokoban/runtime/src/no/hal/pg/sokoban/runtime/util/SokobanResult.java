@@ -1,10 +1,17 @@
 package no.hal.pg.sokoban.runtime.util;
 
+import java.io.Serializable;
+
 import no.hal.sokoban.util.Direction;
 
-public class SokobanResult {
+public class SokobanResult implements Serializable {
 
-	public final String moves;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3284051246266653320L;
+
+	private final String moves;
 
 	private SokobanResult(String moves) {
 		this.moves = moves;
@@ -25,6 +32,10 @@ public class SokobanResult {
 		return countMoves(true, true);
 	}
 
+	public String getMoves() {
+		return moves;
+	}
+	
 	public int getMoveCount() {
 		return countMoves(true, false);
 	}
