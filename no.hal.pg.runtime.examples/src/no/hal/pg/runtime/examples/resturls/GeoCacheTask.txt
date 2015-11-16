@@ -1,0 +1,22 @@
+#service urs and arguments to use. All urls have had the /data/tasks/# truncated off
+
+/getLocations
+/getLocations/0/hints
+/validateLocation?location=Drivhuset
+/getChallenge?location=Drivhuset
+#should get a response of false -- this is the wrong answer!
+/answerChallenge?answer=false&location=Drivhuset
+#correct answer
+/answerChallenge?answer=true&location=Drivhuset
+
+#Electric Building (story question)
+/validateLocation?location=Electric building
+/getChallenge?location=Electric building
+/answerChallenge?answer=mystory&location=Electric building
+
+#UI Instructions
+#Click a button for the location. A pin will drop
+#Click the pin to display a hint and the qr code
+#For now, click the QR code to display the question and answer form (in the future of the course, this will be qr scanning at location)
+#Submit your anwer
+#Icon by the location turns green for correct, false for incorrect (only for yes/no questions).

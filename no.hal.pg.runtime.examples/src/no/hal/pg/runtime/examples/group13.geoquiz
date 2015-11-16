@@ -1,0 +1,26 @@
+GeoQuiz
+
+question "Find a Kafé at Gløshaugen."
+	max 100 points reduce by 25
+	circ around (63.417988, 10.401447) radius 30 meters comment "SiT Kafé Elektro"
+	circ around (63.416781, 10.404539) radius 30 meters comment "SiT Kafé Hangaren"
+	circ around (63.415405, 10.404777) radius 30 meters comment "Realfagbygget"
+	circ around (63.415850, 10.406889) radius 30 meters comment "Realfagbygget"
+	circ around (63.418448, 10.440390) radius 30 meters comment "Kolbjørn Heljes vei"
+	
+question "Find the book shop at Gløshaugen."
+	complete "You can by books and office supplies at Akademika"
+    max 100 points reduce by 25
+    circ around (63.416901, 10.404907) radius 30 meters
+    
+picture "https://upload.wikimedia.org/wikipedia/commons/f/fb/NTNU_Trondheim_Mainbuilding.jpg"
+	complete "This is the beautiful main building of Gløshaugen."
+    max 100 points reduce by 25
+//    rect around (63.419447, 10.401973) width 130 meters height 50 meters rotated by 20 degrees
+    circ around (63.419447, 10.401973) radius 30 meters
+   
+question "Find a bus stop with 'Gløshaugen' in its name"
+    max 100 points reduce by 25
+	circ around (63.418242, 10.406089) radius 30 meters comment "G. North stops"
+	circ around (63.416715, 10.407455) radius 30 meters comment "G. South from the city"
+	circ around (63.416289, 10.409192) radius 30 meters comment "G. South to the city"

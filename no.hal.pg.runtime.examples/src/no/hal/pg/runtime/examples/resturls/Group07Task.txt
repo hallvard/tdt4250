@@ -1,0 +1,12 @@
+# Get questions:
+getQuestions
+
+# Get score threshold needed:
+getScoreNeeded
+
+# Answer questions:
+proposeAnswer?proposal=Incubus&questionIndex=0
+proposeAnswer?proposal=Idyll&questionIndex=1
+proposeAnswer?proposal=Tupac&questionIndex=2
+proposeAnswer?proposal=Min Dag&questionIndex=3
+proposeAnswer?proposal=Trondheimsnatt&questionIndex=3

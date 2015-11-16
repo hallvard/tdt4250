@@ -1,0 +1,8 @@
+proposeAnswer?latitude=0&longitude=0
+proposeAnswer?latitude=63.4195&longitude=10.4019
+proposeAnswer?latitude=63.4159&longitude=10.4061
+proposeAnswer?latitude=63.4195&longitude=10.4019
+
+proposeAnswer?latitude=63.416901&longitude=10.404907
+proposeAnswer?latitude=63.419447&longitude=10.401973
+proposeAnswer?latitude=63.416715&longitude=10.407455

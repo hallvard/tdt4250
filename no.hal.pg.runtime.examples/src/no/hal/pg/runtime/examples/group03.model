@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geotaggingModel:GeoCacheTaskDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geotaggingModel="platform:/plugin/no.group3.geotagging.model/model/group3.ecore">
+  <locations name="Electric building" latitude="63.418377" longitude="10.40202">
+    <hints description="It's directly north of the IT building"/>
+    <hints description="To the west of Stripa"/>
+    <cacheItems xsi:type="geotaggingModel:QrCode" code="some code">
+      <challenges xsi:type="geotaggingModel:StoryRequest" message="Hey, write some stuff"/>
+    </cacheItems>
+  </locations>
+  <locations name="Drivhuset" latitude="63.41651" longitude="10.403205">
+    <hints description="Room inside the IT building"/>
+    <cacheItems xsi:type="geotaggingModel:QrCode" code="some other code">
+      <challenges xsi:type="geotaggingModel:Question" question="Is this room usually crowded?" correctAnswer="true"/>
+      <challenges xsi:type="geotaggingModel:Question" question="Is this room only used by IT people?" correctAnswer="true"/>
+    </cacheItems>
+  </locations>
+</geotaggingModel:GeoCacheTaskDef>

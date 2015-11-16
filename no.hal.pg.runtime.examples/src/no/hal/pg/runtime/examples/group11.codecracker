@@ -1,0 +1,26 @@
+CodeCracker
+
+question "Almost all buildings and locations at NTNU has this, though Dragvoll lacks it, but is not missing it."
+	hint "It is fairly common, but how do you look for it now that it is lost?"
+	100 penalty 20
+	answer "E"
+	
+question "80 + 99 = 5, 40 + 1 = 1, 77 + 5554 = 0, 99 + 10 = ?"
+	hint "Math won't help you here, but thinking like a child might."
+	50 penalty 10
+	answer "5"
+
+question "A pin consists of each number 0 - 4 once. 0 is next to 3, and is not in the middle. 2 is not the second digit, and the sum of 2's neighbors is 4. 4 has one neighbor, but it is not 1."
+	hint "No hints for this one!"
+	50 penalty 10
+	answer "40321"
+
+question "Gsn ufrzgbfq bu gsn dnac QGQZ eau ifzqmnm."
+	hint "You can probably guess some of the words, right?"
+	100 penalty 10
+	answer "1910"
+	
+question "lavvpmwhwbweutebteftkbwewguwutzxbmnwgku"
+	hint "For this one you need the keyword, which is a place with courses in both ends."
+	200 penalty 10
+	answer "Hangaren"

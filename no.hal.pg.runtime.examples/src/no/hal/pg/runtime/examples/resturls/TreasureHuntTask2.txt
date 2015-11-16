@@ -1,0 +1,10 @@
+getHint
+getHint
+getHint
+proposeAnswer?lat=63.411234&lng=10.401234
+getHint
+getHint
+proposeAnswer?lat=63.417123&lng=10.403123
+getHint
+getHint
+proposeAnswer?lat=63.412345&lng=10.412345

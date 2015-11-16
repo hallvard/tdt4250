@@ -1,0 +1,35 @@
+Group07TaskDef 
+{
+	numberOfQuestions 4
+	scoreNeeded 5000
+	listOfQuestions {
+		Question
+		{
+			questionText "What's the name of this artist?"
+			alternatives {"Spice Girls", "Red Hot Chili Peppers", "Aerosmith"}
+			correctAnswer "Incubus"
+			url "https://p.scdn.co/mp3-preview/a836b722111c6a84aad9a707b033dab875356208"
+		},
+		Question
+		{
+			questionText "What's the name of this song?"
+			alternatives {"Idyll", "Tidløs", "Wake Me Up"}
+			correctAnswer "Take On Me"
+			url "https://p.scdn.co/mp3-preview/0f980d0fac59f77123d0272b78bce97f1374d9e9"
+		},
+		Question
+		{
+			questionText "What's the name of this artist?"
+			alternatives {"Avicii", "Åge Aleksandersen", "A-ha"}
+			correctAnswer "Tupac"
+			url "https://p.scdn.co/mp3-preview/e886dbee80468bd245585a5a62269a671d1d2fcc"
+		},
+		Question
+		{
+			questionText "Whats's the name of this song?"
+			alternatives {"Fire Pils Og En Pizza", "Min Dag", "Changes"}
+			correctAnswer "Trondheimsnatt"
+			url "https://p.scdn.co/mp3-preview/a1e93dd3322f65e626237039bcdd001faa6fe803"
+		}
+	}
+}

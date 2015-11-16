@@ -1,0 +1,20 @@
+#URLs for rest calls
+#http://localhost:8082/game.pg/
+
+#location fail
+proposeLocation?local=222.222,111.111
+#location success
+proposeLocation?local=63.222,11.111
+
+#quiz fail
+proposeaAnswer?answer=false
+#quiz success
+proposeaAnswer?answer=true
+
+#finished and result is set when the quiz is success
+
+#NOTE
+#for the app, there are a lot of buttons that might seem redundant, but we were unable to fix it by the delivery
+#it starts at location, when clicking im here you get your location, then you need to verify that it is correct.
+#if it is, then a button shows, that can take you to the quiz screen
+#in the quiz you can click the get question to see the question, then answer with true or false.

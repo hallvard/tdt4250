@@ -1,0 +1,9 @@
+getQuestionLocation
+playerInRangeOf?longitude=10.4033682&latitude=63.4163594
+getQuestion?number=0
+getOption?numberAnswer=0&numberOption=0
+getOption?numberAnswer=0&numberOption=1
+getOption?numberAnswer=0&numberOption=2
+getOption?numberAnswer=0&numberOption=3
+proposeAnswer?proposal=Britney+Spears&questionNumber=0
+result?answeredQuestions=5

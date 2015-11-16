@@ -1,0 +1,11 @@
+CrosswordQuiz {
+	qFields
+	{
+		1#"NIDAROS"#"Historical name of Trondheim",
+		2#"NIDELVA"#"The river running through Trondheim",
+		1#"BERGEN"#"Norway's second most populus city",
+		0#"AMSTERDAM"#"Capital of the Netherlands",
+		1#"OLAV"#"First name of the founder of Trondheim"		
+}
+				
+}

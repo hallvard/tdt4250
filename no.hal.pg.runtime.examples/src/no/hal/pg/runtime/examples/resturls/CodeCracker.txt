@@ -1,0 +1,9 @@
+getCurrentQuestion
+getHint
+getLevelPoints
+proposeAnswer?proposal=E
+proposeAnswer?proposal=5
+proposeAnswer?proposal=40321
+proposeAnswer?proposal=1910
+getPlayerPoints
+proposeAnswer?proposal=Hangaren

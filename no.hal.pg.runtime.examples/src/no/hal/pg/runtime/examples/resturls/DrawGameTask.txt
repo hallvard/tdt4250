@@ -1,0 +1,14 @@
+/getRandomShape?difficultyLevel=0
+/checkQr?qrCode=COORD001&pointIndex=0&shapeId=0
+/checkQr?qrCode=COORD002&pointIndex=1&shapeId=0
+/checkQr?qrCode=COORD003&pointIndex=2&shapeId=0
+/checkQr?qrCode=COORD004&pointIndex=3&shapeId=0
+/checkQr?qrCode=COORD005&pointIndex=4&shapeId=0
+/checkQr?qrCode=COORD006&pointIndex=5&shapeId=0
+/checkQr?qrCode=COORD007&pointIndex=6&shapeId=0
+/checkQr?qrCode=COORD008&pointIndex=7&shapeId=0
+/checkQr?qrCode=COORD009&pointIndex=8&shapeId=0
+/checkQr?qrCode=COORD010&pointIndex=9&shapeId=0
+/checkQr?qrCode=COORD011&pointIndex=10&shapeId=0
+/checkQr?qrCode=COORD012&pointIndex=11&shapeId=0
+/guessWord?shapeId=0&word=pacman

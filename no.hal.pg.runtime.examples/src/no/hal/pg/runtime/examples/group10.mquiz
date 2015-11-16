@@ -1,0 +1,41 @@
+Music Quiz
+'The ultimate and interactive Music Quiz'
+CorrectNeeded: 5
+
+Location:
+question: 'Find this building and go there!'
+location: 10.402078, 63.419430
+image: '/locations/mainbuilding.jpg'
+range: 6000.0
+
+Question:
+question: 'What is the artists name?'
+link: '/songs/BritneySpears _IWannaGo.mp3'
+Question:
+question: 'What is the song title?' 
+link: '/songs/DestinysChild_Survivor.mp3'
+Question:
+question: 'What is the name of the band'
+link: '/songs/Eiffel65_Blue.mp3'
+Question:
+question: 'What is the name of the song?' 
+link: '/songs/NSync_ByeByeBye.mp3'
+Question:
+question: 'What is the name of the frontfigure of this band?' 
+link: '/songs/OutKast_HeyYa.mp3'
+
+Answer:
+options: 'Britney Spears','Christina Aguilera','Cher','Selena Gomez'
+solution: 'Britney Spears'
+Answer:
+options: 'Around the World','Survival Experience','Survivor','I am a survivor'
+solution: 'Survivor'
+Answer:
+options: 'Eiffel68','Eiffel65','Eiffel75','Eiffel78'
+solution: 'Eiffel65'
+Answer:
+options: 'Bye','Bye Bye','Bye Bye Bye','Bye Bye Bye Bye'
+solution: 'Bye Bye Bye'
+Answer:
+options: 'Killer Mike','Goodie Mob','Sleepy Brown','Andre 3000'
+solution: 'Andre 3000'

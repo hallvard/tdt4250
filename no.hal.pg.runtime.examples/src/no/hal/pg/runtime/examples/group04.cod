@@ -1,0 +1,71 @@
+OtagGameDef otag {
+	provides url
+
+
+	persons { Group { persons { Person "Bob" { ids { "op@kval.no" } } } }}
+
+
+	party { CharacterParty partyC { members { Character "Neo" { level 1 age 23 race Human class Warrior experience 1 health 100 person "Bob" }}}}
+
+	questDefs { QuestDef "Quest 1: Seek out Olav" {
+			 provides ""
+			 description "It was a cold winter morning in the year of 963. The mist was covering the landscape like a thick blanket. On this day, the great Olav Tryggvason would be born - son of Trygve Olavsson and a future king, who would lead Norway to great prosperity and help Christianize the region.
+<br /><br />
+As king of Norway, Olav successfully united many regions of Norway. But there was an old man he never managed to persuade…
+<br /><br />
+In a small village in the southern parts of Nidaros, Sem Sæland IX was the ruler. In the 115th building of this village, lived his master wizard known as Hal. Everyone was afraid of Hal, as it was said he possessed dark powers.
+<br /><br />
+Not even the great Olav Tryggvason was able to persuade Hal to join his cause, as each time Olav went to his village, he mysteriously awoke in his fortress the day after.
+<br /><br />
+In the year of 1000, Olav and his entire army was wiped out by a tremendous force in the battle of Svolder, and no one lived to tell the tale!
+<br /><br />
+As you open your phone on this very day, you receive a message from beyond: “You are in grave danger, fellow traveller! Meet me in the center of Nidaros Square as quickly as possible! I’ll be standing on top of a giant pole. HURRY!”"
+			 party partyC
+			 location Location { name "The Torg" lat 63.430585 long 10.395043}
+
+			 },
+
+			 QuestDef "Quest 2: Find Olav's remains" {
+			 provides ""
+			 description "As you approach the Nidaros Square, a glowing white silhouette approaches you: “Come closer, traveller! There isn’t much time! I was killed more than a millennium ago, and I fear now that the same enemy will awaken once more, and devour the entire world. You need to find my old sword, it is buried with my corpse in the catacombs beneath the Dome of Nidaros.”
+<br />
+“Go now! Quickly! Before it’s too late!”, he yells as he suddenly disappears"
+			 party partyC
+			 location Location { name "Domen" lat 63.426924 long 10.395457}
+			 },
+
+			 QuestDef "Quest 3: Find the sword" {
+			 provides ""
+			 description "As you approach the Dome of Nidaros, you hear a voice coming from one of the statues situated above the main entrance of the cathedral. “You made it! Now, you need to find my sword to defeat the great evil. I hear that nowadays, you get arrested for breaking into cathedrals, so I have reached out from beyond my grave and hidden the sword in the big tree south of Nidarosdomen."
+			 party partyC
+			 location Location { name "Domen" lat 63.426632 long 10.396984}
+			 },
+			 QuestDef "Quest 4: Fight for your life!" {
+			 provides ""
+			 description "As you reach out to grab the sword, you notice a dragon symbol on the hilt. You pick up the sword, and suddenly the skies turns black as a skeleton army rises from their graves. The leader skeleton, Jespen, charges towards you with his sword and shield drawn."
+			 party partyC
+			 location Location { name "Battle" lat 0.0 long 0.0}
+			 enemies EnemyParty enemyParty { members { Enemy "Skeleton Army" { damage 10 health 2500 } }}
+			 },
+			  QuestDef "Quest 5: Stop Hal" {
+			 provides ""
+			 description "The skeleton leader drops a note, stating that the old wizard has woken up, and is controlling his army from The hill of Gløs. Now that you have Olav’s sword, you might be able to defeat him! He resides in the same place as he did in the old days! You hastily race towards NTNU in the hope of saving mankind."
+			 party partyC
+			 location Location { name "IT bygget" lat 63.416847 long 10.403880}
+			 },
+			 QuestDef "Quest 6: Kill Hal the Nidhogg!" {
+			 provides ""
+			 description "As you approach ITbygget, you hear a trembling roar in the distance, and faintly spot a creature roaming the skies above you. When you look up, the creature races towards you, and you suddenly realise - it’s the Nidhogg!
+			 <br /><br />
+			 His evil voice pierces the sky, as he yells: You stand upon the hallowed ground of Hal the master wizard! I am death incarnate, and when I am finished with you, I will devour the world! Muhaha!
+			 <br /><br />
+			 As Hal dives down towards you, the sword given to you by Olav starts glowing, and you hastily draw the sword! Fight for your life! Fight for humanity!"
+			 party partyC
+			 location Location { name "Battle" lat 0.0 long 0.0}
+			 enemies EnemyParty enemyParty { members { Enemy "Níðhöggr" { damage 20 health 10000 } }}
+			 }
+
+	}
+
+
+}

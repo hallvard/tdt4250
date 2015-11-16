@@ -1,0 +1,32 @@
+attemptsAllowed 5 
+coordinates [
+	indoor {qrId "COORD001" description "Elektro rommet" latitude 63.418617 longitude 10.401449 buildingName "Gammel elektro" roomName "E230" floor 3 }
+	outdoor { qrId "COORD002" description "Blaa hus ved veikanten" latitude 63.418644 longitude 10.402639 locationHint "ved vannkranen" }
+	outdoor { qrId "COORD003" description "En veldig stor stein" latitude 63.418980 longitude 10.401469 locationHint "Under steien" }
+	indoor {qrId "COORD004" description "Grupperom" latitude 63.419124 longitude 10.402210 buildingName "Gammel fysikk" roomName "E230" floor 2 }
+	indoor {qrId "COORD005" description "Arkitekt biblioteket" latitude 63.419134 longitude 10.402843 buildingName "Sentralbygg 2" roomName "C302" floor 2 }
+	indoor {qrId "COORD006" description "Sit kantine" latitude 63.419004 longitude 10.403368 buildingName "Sentralbygg 2" roomName "Kantine" floor 2 }
+	indoor {qrId "COORD007" description "Kantinen ved Sit kiosken" latitude 63.418803 longitude 10.403615 buildingName "Sentralbygg 2" roomName "E230" floor 2 }
+	indoor {qrId "COORD008" description "Stor forelesningsrom" latitude 63.418577 longitude 10.403604 buildingName "Gammel elektro" roomName "E230" floor 2 }
+	outdoor { qrId "COORD009" description "Gul hus ved veikantent" latitude 63.418390 longitude 10.403368 locationHint "Paa badet" }
+	outdoor { qrId "COORD010" description "Liten hus ved veikantent" latitude 63.418222 longitude 10.402864 locationHint "I stua" }
+	indoor {qrId "COORD011" description "Langs den lange gangen" latitude 63.418252 longitude 10.402101 buildingName "Gammel elektro" roomName "E230" floor 2 }
+	indoor {qrId "COORD012" description "Ved gutte doen" latitude 63.418533 longitude 10.401916 buildingName "Gammel elektro" roomName "E230" floor 2 }
+]
+
+shapes [
+	shape "Pacman" difficulty 1 range 1 coordinates {
+		COORD001 
+		COORD002 
+		COORD003 
+		COORD004 
+		COORD005 
+		COORD006 
+		COORD007 
+		COORD008 
+		COORD009 
+		COORD010 
+		COORD011 
+		COORD012
+	}
+]

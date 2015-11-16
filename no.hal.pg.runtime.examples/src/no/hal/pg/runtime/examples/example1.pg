@@ -14,6 +14,44 @@
       "$ref" : "Exampletask1.xampletask#/"
     }, {
       "$ref" : "SokobanTaskDef.pg-sok#/"
+    }, {
+      "$ref" : "group02.XAssoc#/"
+    }, {
+      "$ref" : "group03.model#/"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.0"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.1"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.2"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.3"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.4"
+    }, {
+      "$ref" : "group04.cod#//@questDefs.5"
+    }, {
+      "$ref" : "group05.XDGame#/"
+    }, {
+      "$ref" : "group06.cqdsl#/"
+    }, {
+      "$ref" : "group07.mydsl#/"
+    }, {
+      "$ref" : "group08.yahtzee#/"
+    }, {
+      "$ref" : "group09.xMove#/"
+    }, {
+      "$ref" : "group10.mquiz#/"
+    }, {
+      "$ref" : "group11.codecracker#/"
+    }, {
+      "$ref" : "group13.geoquiz#/"
+    }, {
+      "$ref" : "group14a.dsl#/"
+    }, {
+      "$ref" : "group14b.dsl#/"
+    }, {
+      "$ref" : "group16.group16#/"
     } ],
     "participants" : [ {
       "$ref" : "//@people.0"

@@ -1,0 +1,13 @@
+getRowBoxAnswer?selectedRowBox=0-0
+getRowBoxAnswer?selectedRowBox=0-1
+proposeColumnBoxAnswer?selectedColumnBox=0&proposedColumnBoxAnswer=Trondheim
+getRowBoxAnswer?selectedRowBox=1-0
+getRowBoxAnswer?selectedRowBox=1-1
+proposeColumnBoxAnswer?selectedColumnBox=1&proposedColumnBoxAnswer=God
+getRowBoxAnswer?selectedRowBox=1-2
+proposeColumnBoxAnswer?selectedColumnBox=1&proposedColumnBoxAnswer=Viking
+proposeFinalBoxAnswer?proposedFinalBoxAnswer=Mistake
+getRowBoxAnswer?selectedRowBox=2-0
+getRowBoxAnswer?selectedRowBox=3-0
+proposeColumnBoxAnswer?selectedColumnBox=3&proposedColumnBoxAnswer=Skiing
+proposeFinalBoxAnswer?proposedFinalBoxAnswer=Norway

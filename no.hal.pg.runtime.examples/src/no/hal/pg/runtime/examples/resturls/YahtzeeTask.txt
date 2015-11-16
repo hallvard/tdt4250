@@ -1,0 +1,2 @@
+rollDice?selected=
+chooseRow?row=pair

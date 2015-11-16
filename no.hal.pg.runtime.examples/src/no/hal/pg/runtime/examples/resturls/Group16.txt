@@ -1,0 +1,5 @@
+initialValues?length=10.3256&latitude=25.14589
+hint?actualLength=856.589645&actualLatitude=52.14759
+hint?actualLength=10.504204&actualLatitude=63.317662
+checkAnswer?actualLength=10.504204&actualLatitude=63.317662
+checkAnswer?actualLength=10.404204&actualLatitude=63.417662
