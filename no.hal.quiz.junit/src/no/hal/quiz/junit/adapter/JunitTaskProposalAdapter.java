@@ -79,7 +79,7 @@ public class JunitTaskProposalAdapter extends TaskProgressProposalAdapter<TaskPr
 		}
 		
 		private void updateProposal() {
-			view.getDisplay().asyncExec(this);
+			getView().getDisplay().asyncExec(this);
 		}
 
 		@Override

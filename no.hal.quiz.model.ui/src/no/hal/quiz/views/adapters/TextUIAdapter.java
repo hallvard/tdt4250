@@ -21,9 +21,10 @@ public abstract class TextUIAdapter<E extends EObject> extends EObjectUIAdapterI
 
 	@Override
 	public Text initView(Composite parent) {
-		this.view = new Text(parent, SWT.NONE);
+		Text view = new Text(parent, SWT.NONE);
 		view.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		view.addModifyListener(this);
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -37,8 +38,8 @@ public abstract class TextUIAdapter<E extends EObject> extends EObjectUIAdapterI
 	@Override
 	public void updateView() {
 		String value = getModelString();
-		if (! view.getText().equals(value)) {
-			view.setText(value);
+		if (! getView().getText().equals(value)) {
+			getView().setText(value);
 		}
 	}
 
@@ -52,7 +53,7 @@ public abstract class TextUIAdapter<E extends EObject> extends EObjectUIAdapterI
 	
 	@Override
 	public void updateModel() {
-		String s = view.getText();
+		String s = getView().getText();
 		Object viewValue = getViewValue(s);
 		if (! viewEqualsModel(viewValue)) {
 			setModel(viewValue);
@@ -66,23 +67,23 @@ public abstract class TextUIAdapter<E extends EObject> extends EObjectUIAdapterI
 	@Override
 	public void modifyText(ModifyEvent e) {
 		if (defaultColor == null) {
-			defaultColor = view.getBackground();
+			defaultColor = getView().getBackground();
 		}
 		if (validateView()) {
 			updateModel();
-			view.setBackground(defaultColor);
+			getView().setBackground(defaultColor);
 		} else {
-			view.setBackground(view.getDisplay().getSystemColor(SWT.COLOR_RED));
+			getView().setBackground(getView().getDisplay().getSystemColor(SWT.COLOR_RED));
 		}
 	}
 
 	protected abstract boolean validateViewValue(Object viewValue);
 
 	protected boolean validateView() {
-		if (format != null && (! view.getText().matches(format))) {
+		if (format != null && (! getView().getText().matches(format))) {
 			return false;
 		}
-		if (! validateViewValue(getViewValue(view.getText()))) {
+		if (! validateViewValue(getViewValue(getView().getText()))) {
 			return false;
 		}
 		return true;

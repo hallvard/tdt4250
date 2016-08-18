@@ -40,7 +40,7 @@ public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer
 		}
 
 		protected void updateProposal() {
-			view.getDisplay().asyncExec(this);
+			getView().getDisplay().asyncExec(this);
 		}
 
 		@Override

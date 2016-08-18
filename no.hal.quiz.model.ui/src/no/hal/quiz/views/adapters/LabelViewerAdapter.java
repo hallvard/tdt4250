@@ -16,8 +16,9 @@ public abstract class LabelViewerAdapter<E extends EObject> extends EObjectViewe
 
 	@Override
 	public Label initView(Composite parent) {
-		this.view = new Label(parent, SWT.NONE);
+		Label view = new Label(parent, SWT.NONE);
 		view.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -32,8 +33,8 @@ public abstract class LabelViewerAdapter<E extends EObject> extends EObjectViewe
 	@Override
 	public void updateView() {
 		String value = getModelString();
-		if (! view.getText().equals(value)) {
-			view.setText(value);
+		if (! getView().getText().equals(value)) {
+			getView().setText(value);
 		}
 	}
 }

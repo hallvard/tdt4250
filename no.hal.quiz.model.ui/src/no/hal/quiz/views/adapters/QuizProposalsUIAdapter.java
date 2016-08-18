@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapterImpl;
+import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
 import no.hal.quiz.QuizPartProposals;
 import no.hal.quiz.QuizProposals;
 
@@ -19,12 +20,12 @@ public class QuizProposalsUIAdapter extends EObjectUIAdapterImpl<QuizProposals, 
 	
 	@Override
 	public Composite initView(Composite parent) {
-		this.view = new Composite(parent, SWT.NONE);
+		Composite view = new Composite(parent, SWT.NONE);
 		view.setLayout(new GridLayout(1, false));
 		for (QuizPartProposals partProposals : getQuizProposals().getProposals()) {
 			getAdapterHelper().initView(partProposals, EObjectUIAdapter.class, view);
 		}
-		view.addDisposeListener(this);
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -39,10 +40,7 @@ public class QuizProposalsUIAdapter extends EObjectUIAdapterImpl<QuizProposals, 
 
 	@Override
 	public void updateView() {
-//		for (QuizPartProposals partProposals : getQuizProposals().getProposals()) {
-//			getAdapterHelper().updateView(partProposals, EObjectUIAdapter.class);
-//		}
-		getAdapterHelper().updateView(getQuizProposals().getProposals(), EObjectUIAdapter.class);
+		getAdapterHelper().updateView(getQuizProposals().getProposals(), (Class<? extends EObjectViewerAdapter<?, ?>>) EObjectUIAdapter.class);
 	}
 
 	@Override

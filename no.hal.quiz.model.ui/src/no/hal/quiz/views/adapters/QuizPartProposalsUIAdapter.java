@@ -23,7 +23,7 @@ public class QuizPartProposalsUIAdapter extends EObjectUIAdapterImpl<QuizPartPro
 	
 	@Override
 	public Group initView(Composite parent) {
-		this.view = new Group(parent, SWT.NONE);
+		Group view = new Group(parent, SWT.NONE);
 		view.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		view.setLayout(new GridLayout(1, false));
 		if (getPartProposals().getQuizPart() != null && getPartProposals().getQuizPart().getTitle() != null) {
@@ -35,7 +35,7 @@ public class QuizPartProposalsUIAdapter extends EObjectUIAdapterImpl<QuizPartPro
 				adapterHelper.initView(proposal, EObjectUIAdapter.class, view);
 			}
 		}
-		view.addDisposeListener(this);
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -50,7 +50,7 @@ public class QuizPartProposalsUIAdapter extends EObjectUIAdapterImpl<QuizPartPro
 
 	@Override
 	public void updateView() {
-		getAdapterHelper().updateView(getPartProposals().getProposals(), EObjectUIAdapter.class);
+		getAdapterHelper().updateView(getPartProposals().getProposals(), (Class<? extends EObjectViewerAdapter<?, ?>>) EObjectUIAdapter.class);
 	}
 
 	@Override

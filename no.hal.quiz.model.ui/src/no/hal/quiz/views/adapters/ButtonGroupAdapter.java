@@ -32,7 +32,7 @@ public abstract class ButtonGroupAdapter<P extends Proposal<?>> extends EObjectU
 	
 	@Override
 	public Composite initView(Composite parent) {
-		this.view = new Composite(parent, SWT.NONE);
+		Composite view = new Composite(parent, SWT.NONE);
 		view.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		view.setLayout(new GridLayout(2, true));
 		int buttonStyle = (isSingleSelection() ? SWT.RADIO : SWT.CHECK);
@@ -40,6 +40,7 @@ public abstract class ButtonGroupAdapter<P extends Proposal<?>> extends EObjectU
 			Button button = createButton(labels.get(i), view, buttonStyle);
 			button.addSelectionListener(this);
 		}
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -60,7 +61,7 @@ public abstract class ButtonGroupAdapter<P extends Proposal<?>> extends EObjectU
 	
 	@Override
 	public void updateView() {
-		updateView(getAnswerValue(), view.getChildren());
+		updateView(getAnswerValue(), getView().getChildren());
 	}
 
 	protected void updateView(Object value, Control... buttons) {
@@ -92,7 +93,7 @@ public abstract class ButtonGroupAdapter<P extends Proposal<?>> extends EObjectU
 
 	@Override
 	public void updateModel() {
-		updateModel(view.getChildren());
+		updateModel(getView().getChildren());
 	}
 
 	protected abstract void setAnswerValue(Object value);

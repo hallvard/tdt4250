@@ -22,14 +22,14 @@ public abstract class ProgressBarUIAdapter<P extends TaskProposal<?>> extends EO
 		ProgressBar progressBar = new ProgressBar(parent, SWT.HORIZONTAL);
 		progressBar.setMinimum(0);
 		progressBar.setMaximum(maxValue);
-		this.view = progressBar;
+		setView(progressBar);
 		updateView();
-		return view;
+		return progressBar;
 	}
 
 	@Override
 	public void updateView() {
-		view.setSelection((int) (getProposal().getCompletion() * maxValue));
+		getView().setSelection((int) (getProposal().getCompletion() * maxValue));
 	}
 	
 	@Override
@@ -53,6 +53,6 @@ public abstract class ProgressBarUIAdapter<P extends TaskProposal<?>> extends EO
 	}
 	@Override
 	public void mouseDoubleClick(MouseEvent e) {
-		updateModel(((double) e.x) / view.getSize().x);
+		updateModel(((double) e.x) / getView().getSize().x);
 	}
 }

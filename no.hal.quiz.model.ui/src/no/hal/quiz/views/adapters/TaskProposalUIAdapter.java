@@ -91,7 +91,7 @@ public class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjectUIAdapte
 		};
 		defaultColor = createColor(0, 0, 0, parent);
 //		createColors(levels, parent);
-		this.view = new Composite(parent, SWT.NONE);
+		Composite view = new Composite(parent, SWT.NONE);
 		view.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		view.setLayout(new GridLayout(levels.length, true));
 		for (int i = 0; i < levels.length; i++) {
@@ -104,7 +104,7 @@ public class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjectUIAdapte
 				control.addMouseListener(this);
 			}
 		}
-		view.addDisposeListener(this);
+		setView(view);
 		updateView();
 		return view;
 	}
@@ -129,7 +129,7 @@ public class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjectUIAdapte
 	public void updateView() {
 		double completion = getProposal().getCompletion();
 		int controlNum = 0;
-		Control[] controls = view.getChildren();
+		Control[] controls = getView().getChildren();
 		for (int i = 0; i < controls.length; i++) {
 			Control control = controls[i];
 			if (isCompletionControl(control)) {
@@ -159,7 +159,7 @@ public class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjectUIAdapte
 	
 	protected void updateModel(Object source) {
 		int controlNum = 0;
-		Control[] controls = view.getChildren();
+		Control[] controls = getView().getChildren();
 		for (int i = 0; i < controls.length; i++) {
 			Control control = controls[i];
 			if (isCompletionControl(control)) {
