@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="junit" nsURI="platform:/plugin/no.hal.quiz.junit/model/quiz-junit.ecore"
+    nsPrefix="junit">
+  <eClassifiers xsi:type="ecore:EClass" name="JunitTestAnswer" eSuperTypes="../../no.hal.quiz.model/model/quiz.ecore#//TaskAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testRunName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodNames" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JunitTestProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.quiz.model/model/quiz.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//JunitTestAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>

@@ -9,6 +9,13 @@ import no.hal.quiz.AbstractQA;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Abstract QA</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link no.hal.quiz.AbstractQA#getA() <em>Get A</em>}</li>
+ *   <li>{@link no.hal.quiz.AbstractQA#getQ() <em>Get Q</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class AbstractQATest extends TestCase {
@@ -49,6 +56,32 @@ public abstract class AbstractQATest extends TestCase {
 	 */
 	protected AbstractQA getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link no.hal.quiz.AbstractQA#getA() <em>Get A</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.AbstractQA#getA()
+	 * @generated
+	 */
+	public void testGetA() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.quiz.AbstractQA#getQ() <em>Get Q</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.AbstractQA#getQ()
+	 * @generated
+	 */
+	public void testGetQ() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //AbstractQATest

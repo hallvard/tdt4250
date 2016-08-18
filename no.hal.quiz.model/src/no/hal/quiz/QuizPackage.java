@@ -4,6 +4,7 @@ package no.hal.quiz;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -104,13 +105,77 @@ public interface QuizPackage extends EPackage {
 	int QUIZ_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Create Proposals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ___CREATE_PROPOSALS = 0;
+
+	/**
 	 * The number of operations of the '<em>Quiz</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUIZ_OPERATION_COUNT = 0;
+	int QUIZ_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.QuizProposalsImpl <em>Proposals</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.QuizProposalsImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizProposals()
+	 * @generated
+	 */
+	int QUIZ_PROPOSALS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Quiz</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PROPOSALS__QUIZ = 0;
+
+	/**
+	 * The feature id for the '<em><b>Proposals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PROPOSALS__PROPOSALS = 1;
+
+	/**
+	 * The feature id for the '<em><b>All Proposals</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PROPOSALS__ALL_PROPOSALS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Proposals</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PROPOSALS_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Proposals</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PROPOSALS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.AbstractQuizPartImpl <em>Abstract Quiz Part</em>}' class.
@@ -120,7 +185,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getAbstractQuizPart()
 	 * @generated
 	 */
-	int ABSTRACT_QUIZ_PART = 1;
+	int ABSTRACT_QUIZ_PART = 2;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Quiz Part</em>' class.
@@ -132,13 +197,86 @@ public interface QuizPackage extends EPackage {
 	int ABSTRACT_QUIZ_PART_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Questions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_QUIZ_PART___GET_QUESTIONS = 0;
+
+	/**
+	 * The operation id for the '<em>Get Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_QUIZ_PART___GET_TITLE = 1;
+
+	/**
+	 * The operation id for the '<em>Create Proposals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_QUIZ_PART___CREATE_PROPOSALS = 2;
+
+	/**
 	 * The number of operations of the '<em>Abstract Quiz Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_QUIZ_PART_OPERATION_COUNT = 0;
+	int ABSTRACT_QUIZ_PART_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.QuizPartProposalsImpl <em>Part Proposals</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.QuizPartProposalsImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizPartProposals()
+	 * @generated
+	 */
+	int QUIZ_PART_PROPOSALS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Proposals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_PROPOSALS__PROPOSALS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Quiz Part</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_PROPOSALS__QUIZ_PART = 1;
+
+	/**
+	 * The number of structural features of the '<em>Part Proposals</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_PROPOSALS_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Part Proposals</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_PROPOSALS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.QuizPartRefImpl <em>Part Ref</em>}' class.
@@ -148,7 +286,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizPartRef()
 	 * @generated
 	 */
-	int QUIZ_PART_REF = 2;
+	int QUIZ_PART_REF = 4;
 
 	/**
 	 * The feature id for the '<em><b>Part Ref</b></em>' reference.
@@ -169,6 +307,33 @@ public interface QuizPackage extends EPackage {
 	int QUIZ_PART_REF_FEATURE_COUNT = ABSTRACT_QUIZ_PART_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Questions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_REF___GET_QUESTIONS = ABSTRACT_QUIZ_PART___GET_QUESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_REF___GET_TITLE = ABSTRACT_QUIZ_PART___GET_TITLE;
+
+	/**
+	 * The operation id for the '<em>Create Proposals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART_REF___CREATE_PROPOSALS = ABSTRACT_QUIZ_PART___CREATE_PROPOSALS;
+
+	/**
 	 * The number of operations of the '<em>Part Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +350,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizPart()
 	 * @generated
 	 */
-	int QUIZ_PART = 3;
+	int QUIZ_PART = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -224,6 +389,33 @@ public interface QuizPackage extends EPackage {
 	int QUIZ_PART_FEATURE_COUNT = ABSTRACT_QUIZ_PART_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Questions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART___GET_QUESTIONS = ABSTRACT_QUIZ_PART___GET_QUESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART___GET_TITLE = ABSTRACT_QUIZ_PART___GET_TITLE;
+
+	/**
+	 * The operation id for the '<em>Create Proposals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUIZ_PART___CREATE_PROPOSALS = ABSTRACT_QUIZ_PART___CREATE_PROPOSALS;
+
+	/**
 	 * The number of operations of the '<em>Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,7 +432,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getAbstractQA()
 	 * @generated
 	 */
-	int ABSTRACT_QA = 4;
+	int ABSTRACT_QA = 6;
 
 	/**
 	 * The number of structural features of the '<em>Abstract QA</em>' class.
@@ -252,13 +444,31 @@ public interface QuizPackage extends EPackage {
 	int ABSTRACT_QA_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Get A</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_QA___GET_A = 0;
+
+	/**
+	 * The operation id for the '<em>Get Q</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_QA___GET_Q = 1;
+
+	/**
 	 * The number of operations of the '<em>Abstract QA</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_QA_OPERATION_COUNT = 0;
+	int ABSTRACT_QA_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.QARefImpl <em>QA Ref</em>}' class.
@@ -268,7 +478,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getQARef()
 	 * @generated
 	 */
-	int QA_REF = 5;
+	int QA_REF = 7;
 
 	/**
 	 * The feature id for the '<em><b>Qa Ref</b></em>' reference.
@@ -289,6 +499,24 @@ public interface QuizPackage extends EPackage {
 	int QA_REF_FEATURE_COUNT = ABSTRACT_QA_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get A</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_REF___GET_A = ABSTRACT_QA___GET_A;
+
+	/**
+	 * The operation id for the '<em>Get Q</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA_REF___GET_Q = ABSTRACT_QA___GET_Q;
+
+	/**
 	 * The number of operations of the '<em>QA Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,7 +533,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getQA()
 	 * @generated
 	 */
-	int QA = 6;
+	int QA = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -344,6 +572,24 @@ public interface QuizPackage extends EPackage {
 	int QA_FEATURE_COUNT = ABSTRACT_QA_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get A</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA___GET_A = ABSTRACT_QA___GET_A;
+
+	/**
+	 * The operation id for the '<em>Get Q</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QA___GET_Q = ABSTRACT_QA___GET_Q;
+
+	/**
 	 * The number of operations of the '<em>QA</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,7 +606,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 7;
+	int QUESTION = 9;
 
 	/**
 	 * The number of structural features of the '<em>Question</em>' class.
@@ -388,7 +634,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getStringQuestion()
 	 * @generated
 	 */
-	int STRING_QUESTION = 8;
+	int STRING_QUESTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' attribute.
@@ -418,6 +664,198 @@ public interface QuizPackage extends EPackage {
 	int STRING_QUESTION_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.StyledStringImpl <em>Styled String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.StyledStringImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getStyledString()
+	 * @generated
+	 */
+	int STYLED_STRING = 12;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.StyledStringQuestionImpl <em>Styled String Question</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.StyledStringQuestionImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getStyledStringQuestion()
+	 * @generated
+	 */
+	int STYLED_STRING_QUESTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Styled Strings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING_QUESTION__STYLED_STRINGS = QUESTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Styled String Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING_QUESTION_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Styled String Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING_QUESTION_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Char Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING__CHAR_STYLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Effective Char Style</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING__EFFECTIVE_CHAR_STYLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING__PREFIX = 2;
+
+	/**
+	 * The feature id for the '<em><b>Styled String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING__STYLED_STRING = 3;
+
+	/**
+	 * The feature id for the '<em><b>Suffix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING__SUFFIX = 4;
+
+	/**
+	 * The number of structural features of the '<em>Styled String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Styled String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_STRING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.CharStyleImpl <em>Char Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.CharStyleImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getCharStyle()
+	 * @generated
+	 */
+	int CHAR_STYLE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Italic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__ITALIC = 0;
+
+	/**
+	 * The feature id for the '<em><b>Bold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__BOLD = 1;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__SIZE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Family</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__FAMILY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__FOREGROUND = 4;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE__BACKGROUND = 5;
+
+	/**
+	 * The number of structural features of the '<em>Char Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Char Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAR_STYLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.XmlQuestionImpl <em>Xml Question</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,7 +863,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlQuestion()
 	 * @generated
 	 */
-	int XML_QUESTION = 9;
+	int XML_QUESTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
@@ -462,7 +900,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getAnswer()
 	 * @generated
 	 */
-	int ANSWER = 10;
+	int ANSWER = 15;
 
 	/**
 	 * The number of structural features of the '<em>Answer</em>' class.
@@ -483,13 +921,104 @@ public interface QuizPackage extends EPackage {
 	int ANSWER___ACCEPT__OBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER___VALIDATE__OBJECT = 1;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER___CREATE_PROPOSAL = 2;
+
+	/**
 	 * The number of operations of the '<em>Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANSWER_OPERATION_COUNT = 1;
+	int ANSWER_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.ProposalImpl <em>Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.ProposalImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getProposal()
+	 * @generated
+	 */
+	int PROPOSAL = 16;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL__QUESTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL__ANSWER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL___GET_PROPOSAL = 0;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL___ACCEPT = 1;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL___VALIDATE = 2;
+
+	/**
+	 * The number of operations of the '<em>Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPOSAL_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.OptionAnswerImpl <em>Option Answer</em>}' class.
@@ -499,7 +1028,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getOptionAnswer()
 	 * @generated
 	 */
-	int OPTION_ANSWER = 11;
+	int OPTION_ANSWER = 17;
 
 	/**
 	 * The number of structural features of the '<em>Option Answer</em>' class.
@@ -520,6 +1049,24 @@ public interface QuizPackage extends EPackage {
 	int OPTION_ANSWER___ACCEPT__OBJECT = ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_ANSWER___VALIDATE__OBJECT = ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The number of operations of the '<em>Option Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -536,7 +1083,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getSimpleAnswer()
 	 * @generated
 	 */
-	int SIMPLE_ANSWER = 12;
+	int SIMPLE_ANSWER = 18;
 
 	/**
 	 * The number of structural features of the '<em>Simple Answer</em>' class.
@@ -557,6 +1104,24 @@ public interface QuizPackage extends EPackage {
 	int SIMPLE_ANSWER___ACCEPT__OBJECT = OPTION_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ANSWER___VALIDATE__OBJECT = OPTION_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ANSWER___CREATE_PROPOSAL = OPTION_ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,6 +1140,88 @@ public interface QuizPackage extends EPackage {
 	int SIMPLE_ANSWER_OPERATION_COUNT = OPTION_ANSWER_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.SimpleProposalImpl <em>Simple Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.SimpleProposalImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getSimpleProposal()
+	 * @generated
+	 */
+	int SIMPLE_PROPOSAL = 19;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL__QUESTION = PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL__ANSWER = PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL__PROPOSAL = PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Simple Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL_FEATURE_COUNT = PROPOSAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL___GET_PROPOSAL = PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL___ACCEPT = PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
+
+	/**
+	 * The number of operations of the '<em>Simple Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.StringAnswerImpl <em>String Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,7 +1229,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getStringAnswer()
 	 * @generated
 	 */
-	int STRING_ANSWER = 13;
+	int STRING_ANSWER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -594,13 +1241,22 @@ public interface QuizPackage extends EPackage {
 	int STRING_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ANSWER__FORMAT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Regexp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER__REGEXP = SIMPLE_ANSWER_FEATURE_COUNT + 1;
+	int STRING_ANSWER__REGEXP = SIMPLE_ANSWER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Case</b></em>' attribute.
@@ -609,7 +1265,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER__IGNORE_CASE = SIMPLE_ANSWER_FEATURE_COUNT + 2;
+	int STRING_ANSWER__IGNORE_CASE = SIMPLE_ANSWER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>String Answer</em>' class.
@@ -618,7 +1274,7 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 3;
+	int STRING_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -628,6 +1284,24 @@ public interface QuizPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -655,7 +1329,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getNumberAnswer()
 	 * @generated
 	 */
-	int NUMBER_ANSWER = 14;
+	int NUMBER_ANSWER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -676,13 +1350,22 @@ public interface QuizPackage extends EPackage {
 	int NUMBER_ANSWER__ERROR_MARGIN = SIMPLE_ANSWER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ANSWER__RANGE = SIMPLE_ANSWER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Number Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 2;
+	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -692,6 +1375,24 @@ public interface QuizPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -712,6 +1413,61 @@ public interface QuizPackage extends EPackage {
 	int NUMBER_ANSWER_OPERATION_COUNT = SIMPLE_ANSWER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.NumberRangeImpl <em>Number Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.NumberRangeImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getNumberRange()
+	 * @generated
+	 */
+	int NUMBER_RANGE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_RANGE__MIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_RANGE__MAX = 1;
+
+	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_RANGE__STEP = 2;
+
+	/**
+	 * The number of structural features of the '<em>Number Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_RANGE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Number Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_RANGE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.BooleanAnswerImpl <em>Boolean Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -719,7 +1475,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getBooleanAnswer()
 	 * @generated
 	 */
-	int BOOLEAN_ANSWER = 15;
+	int BOOLEAN_ANSWER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -749,6 +1505,24 @@ public interface QuizPackage extends EPackage {
 	int BOOLEAN_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -774,7 +1548,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlAnswer()
 	 * @generated
 	 */
-	int XML_ANSWER = 16;
+	int XML_ANSWER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
@@ -804,6 +1578,24 @@ public interface QuizPackage extends EPackage {
 	int XML_ANSWER___ACCEPT__OBJECT = OPTION_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ANSWER___VALIDATE__OBJECT = OPTION_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ANSWER___CREATE_PROPOSAL = OPTION_ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The number of operations of the '<em>Xml Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -820,7 +1612,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getOptionsAnswer()
 	 * @generated
 	 */
-	int OPTIONS_ANSWER = 17;
+	int OPTIONS_ANSWER = 25;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -850,6 +1642,24 @@ public interface QuizPackage extends EPackage {
 	int OPTIONS_ANSWER___ACCEPT__OBJECT = ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_ANSWER___VALIDATE__OBJECT = ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The number of operations of the '<em>Options Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -859,6 +1669,88 @@ public interface QuizPackage extends EPackage {
 	int OPTIONS_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.OptionsProposalImpl <em>Options Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.OptionsProposalImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getOptionsProposal()
+	 * @generated
+	 */
+	int OPTIONS_PROPOSAL = 26;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL__QUESTION = PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL__ANSWER = PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Indices</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL__INDICES = PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Options Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL_FEATURE_COUNT = PROPOSAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL___GET_PROPOSAL = PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL___ACCEPT = PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
+
+	/**
+	 * The number of operations of the '<em>Options Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONS_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.quiz.impl.OptionImpl <em>Option</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -866,7 +1758,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getOption()
 	 * @generated
 	 */
-	int OPTION = 18;
+	int OPTION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Correct</b></em>' attribute.
@@ -912,7 +1804,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getSingleOptionsAnswer()
 	 * @generated
 	 */
-	int SINGLE_OPTIONS_ANSWER = 19;
+	int SINGLE_OPTIONS_ANSWER = 28;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -942,6 +1834,24 @@ public interface QuizPackage extends EPackage {
 	int SINGLE_OPTIONS_ANSWER___ACCEPT__OBJECT = OPTIONS_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_OPTIONS_ANSWER___VALIDATE__OBJECT = OPTIONS_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_OPTIONS_ANSWER___CREATE_PROPOSAL = OPTIONS_ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The number of operations of the '<em>Single Options Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,7 +1868,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getManyOptionsAnswer()
 	 * @generated
 	 */
-	int MANY_OPTIONS_ANSWER = 20;
+	int MANY_OPTIONS_ANSWER = 29;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -988,6 +1898,24 @@ public interface QuizPackage extends EPackage {
 	int MANY_OPTIONS_ANSWER___ACCEPT__OBJECT = OPTIONS_ANSWER___ACCEPT__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_OPTIONS_ANSWER___VALIDATE__OBJECT = OPTIONS_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_OPTIONS_ANSWER___CREATE_PROPOSAL = OPTIONS_ANSWER___CREATE_PROPOSAL;
+
+	/**
 	 * The number of operations of the '<em>Many Options Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1004,7 +1932,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXml()
 	 * @generated
 	 */
-	int XML = 21;
+	int XML = 30;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -1041,7 +1969,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlContents()
 	 * @generated
 	 */
-	int XML_CONTENTS = 22;
+	int XML_CONTENTS = 31;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -1087,7 +2015,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlElement()
 	 * @generated
 	 */
-	int XML_ELEMENT = 23;
+	int XML_ELEMENT = 32;
 
 	/**
 	 * The number of structural features of the '<em>Xml Element</em>' class.
@@ -1115,7 +2043,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlPIAnswerElement()
 	 * @generated
 	 */
-	int XML_PI_ANSWER_ELEMENT = 24;
+	int XML_PI_ANSWER_ELEMENT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Answer</b></em>' containment reference.
@@ -1152,7 +2080,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlTagElement()
 	 * @generated
 	 */
-	int XML_TAG_ELEMENT = 25;
+	int XML_TAG_ELEMENT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Start Tag</b></em>' containment reference.
@@ -1216,7 +2144,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlTag()
 	 * @generated
 	 */
-	int XML_TAG = 26;
+	int XML_TAG = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1262,7 +2190,7 @@ public interface QuizPackage extends EPackage {
 	 * @see no.hal.quiz.impl.QuizPackageImpl#getXmlAttribute()
 	 * @generated
 	 */
-	int XML_ATTRIBUTE = 27;
+	int XML_ATTRIBUTE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1300,6 +2228,189 @@ public interface QuizPackage extends EPackage {
 	 */
 	int XML_ATTRIBUTE_OPERATION_COUNT = 0;
 
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.TaskAnswerImpl <em>Task Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.TaskAnswerImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getTaskAnswer()
+	 * @generated
+	 */
+	int TASK_ANSWER = 37;
+
+	/**
+	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER__REQUIRED_COUNT = ANSWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Task Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER_FEATURE_COUNT = ANSWER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER___ACCEPT__OBJECT = ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER___VALIDATE__OBJECT = ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The number of operations of the '<em>Task Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.quiz.impl.TaskProposalImpl <em>Task Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.impl.TaskProposalImpl
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getTaskProposal()
+	 * @generated
+	 */
+	int TASK_PROPOSAL = 38;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__QUESTION = PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__ANSWER = PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__COMPLETION = PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Proof</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__PROOF = PROPOSAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__ATTEMPT_COUNT = PROPOSAL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL__PERFORMED_COUNT = PROPOSAL_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Task Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL_FEATURE_COUNT = PROPOSAL_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL___GET_PROPOSAL = PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL___ACCEPT = PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
+
+	/**
+	 * The number of operations of the '<em>Task Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '<em>RGB</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.util.RGB
+	 * @see no.hal.quiz.impl.QuizPackageImpl#getRGB()
+	 * @generated
+	 */
+	int RGB = 39;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.Quiz <em>Quiz</em>}'.
@@ -1345,6 +2456,59 @@ public interface QuizPackage extends EPackage {
 	EReference getQuiz_Parts();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Quiz#createProposals() <em>Create Proposals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Proposals</em>' operation.
+	 * @see no.hal.quiz.Quiz#createProposals()
+	 * @generated
+	 */
+	EOperation getQuiz__CreateProposals();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.QuizProposals <em>Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proposals</em>'.
+	 * @see no.hal.quiz.QuizProposals
+	 * @generated
+	 */
+	EClass getQuizProposals();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.quiz.QuizProposals#getQuiz <em>Quiz</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Quiz</em>'.
+	 * @see no.hal.quiz.QuizProposals#getQuiz()
+	 * @see #getQuizProposals()
+	 * @generated
+	 */
+	EReference getQuizProposals_Quiz();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.quiz.QuizProposals#getProposals <em>Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Proposals</em>'.
+	 * @see no.hal.quiz.QuizProposals#getProposals()
+	 * @see #getQuizProposals()
+	 * @generated
+	 */
+	EReference getQuizProposals_Proposals();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.hal.quiz.QuizProposals#getAllProposals <em>All Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>All Proposals</em>'.
+	 * @see no.hal.quiz.QuizProposals#getAllProposals()
+	 * @see #getQuizProposals()
+	 * @generated
+	 */
+	EReference getQuizProposals_AllProposals();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.AbstractQuizPart <em>Abstract Quiz Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1353,6 +2517,68 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractQuizPart();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.AbstractQuizPart#getQuestions() <em>Get Questions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Questions</em>' operation.
+	 * @see no.hal.quiz.AbstractQuizPart#getQuestions()
+	 * @generated
+	 */
+	EOperation getAbstractQuizPart__GetQuestions();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.AbstractQuizPart#getTitle() <em>Get Title</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Title</em>' operation.
+	 * @see no.hal.quiz.AbstractQuizPart#getTitle()
+	 * @generated
+	 */
+	EOperation getAbstractQuizPart__GetTitle();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.AbstractQuizPart#createProposals() <em>Create Proposals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Proposals</em>' operation.
+	 * @see no.hal.quiz.AbstractQuizPart#createProposals()
+	 * @generated
+	 */
+	EOperation getAbstractQuizPart__CreateProposals();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.QuizPartProposals <em>Part Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Part Proposals</em>'.
+	 * @see no.hal.quiz.QuizPartProposals
+	 * @generated
+	 */
+	EClass getQuizPartProposals();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.quiz.QuizPartProposals#getProposals <em>Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Proposals</em>'.
+	 * @see no.hal.quiz.QuizPartProposals#getProposals()
+	 * @see #getQuizPartProposals()
+	 * @generated
+	 */
+	EReference getQuizPartProposals_Proposals();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.quiz.QuizPartProposals#getQuizPart <em>Quiz Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Quiz Part</em>'.
+	 * @see no.hal.quiz.QuizPartProposals#getQuizPart()
+	 * @see #getQuizPartProposals()
+	 * @generated
+	 */
+	EReference getQuizPartProposals_QuizPart();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.QuizPartRef <em>Part Ref</em>}'.
@@ -1427,6 +2653,26 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractQA();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.AbstractQA#getA() <em>Get A</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get A</em>' operation.
+	 * @see no.hal.quiz.AbstractQA#getA()
+	 * @generated
+	 */
+	EOperation getAbstractQA__GetA();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.AbstractQA#getQ() <em>Get Q</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Q</em>' operation.
+	 * @see no.hal.quiz.AbstractQA#getQ()
+	 * @generated
+	 */
+	EOperation getAbstractQA__GetQ();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.QARef <em>QA Ref</em>}'.
@@ -1524,6 +2770,168 @@ public interface QuizPackage extends EPackage {
 	EAttribute getStringQuestion_Question();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.StyledStringQuestion <em>Styled String Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Styled String Question</em>'.
+	 * @see no.hal.quiz.StyledStringQuestion
+	 * @generated
+	 */
+	EClass getStyledStringQuestion();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.quiz.StyledStringQuestion#getStyledStrings <em>Styled Strings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Styled Strings</em>'.
+	 * @see no.hal.quiz.StyledStringQuestion#getStyledStrings()
+	 * @see #getStyledStringQuestion()
+	 * @generated
+	 */
+	EReference getStyledStringQuestion_StyledStrings();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.StyledString <em>Styled String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Styled String</em>'.
+	 * @see no.hal.quiz.StyledString
+	 * @generated
+	 */
+	EClass getStyledString();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link no.hal.quiz.StyledString#getCharStyle <em>Char Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Char Style</em>'.
+	 * @see no.hal.quiz.StyledString#getCharStyle()
+	 * @see #getStyledString()
+	 * @generated
+	 */
+	EReference getStyledString_CharStyle();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.quiz.StyledString#getEffectiveCharStyle <em>Effective Char Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Effective Char Style</em>'.
+	 * @see no.hal.quiz.StyledString#getEffectiveCharStyle()
+	 * @see #getStyledString()
+	 * @generated
+	 */
+	EReference getStyledString_EffectiveCharStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.StyledString#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see no.hal.quiz.StyledString#getPrefix()
+	 * @see #getStyledString()
+	 * @generated
+	 */
+	EAttribute getStyledString_Prefix();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link no.hal.quiz.StyledString#getStyledString <em>Styled String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Styled String</em>'.
+	 * @see no.hal.quiz.StyledString#getStyledString()
+	 * @see #getStyledString()
+	 * @generated
+	 */
+	EReference getStyledString_StyledString();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.StyledString#getSuffix <em>Suffix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Suffix</em>'.
+	 * @see no.hal.quiz.StyledString#getSuffix()
+	 * @see #getStyledString()
+	 * @generated
+	 */
+	EAttribute getStyledString_Suffix();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.CharStyle <em>Char Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Char Style</em>'.
+	 * @see no.hal.quiz.CharStyle
+	 * @generated
+	 */
+	EClass getCharStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getItalic <em>Italic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Italic</em>'.
+	 * @see no.hal.quiz.CharStyle#getItalic()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Italic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getBold <em>Bold</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bold</em>'.
+	 * @see no.hal.quiz.CharStyle#getBold()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Bold();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see no.hal.quiz.CharStyle#getSize()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getFamily <em>Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Family</em>'.
+	 * @see no.hal.quiz.CharStyle#getFamily()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Family();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getForeground <em>Foreground</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Foreground</em>'.
+	 * @see no.hal.quiz.CharStyle#getForeground()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Foreground();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.CharStyle#getBackground <em>Background</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Background</em>'.
+	 * @see no.hal.quiz.CharStyle#getBackground()
+	 * @see #getCharStyle()
+	 * @generated
+	 */
+	EAttribute getCharStyle_Background();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.XmlQuestion <em>Xml Question</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1565,6 +2973,88 @@ public interface QuizPackage extends EPackage {
 	EOperation getAnswer__Accept__Object();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Answer#validate(java.lang.Object) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see no.hal.quiz.Answer#validate(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getAnswer__Validate__Object();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Answer#createProposal() <em>Create Proposal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Proposal</em>' operation.
+	 * @see no.hal.quiz.Answer#createProposal()
+	 * @generated
+	 */
+	EOperation getAnswer__CreateProposal();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.Proposal <em>Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proposal</em>'.
+	 * @see no.hal.quiz.Proposal
+	 * @generated
+	 */
+	EClass getProposal();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.quiz.Proposal#getQuestion <em>Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Question</em>'.
+	 * @see no.hal.quiz.Proposal#getQuestion()
+	 * @see #getProposal()
+	 * @generated
+	 */
+	EReference getProposal_Question();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.quiz.Proposal#getAnswer <em>Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Answer</em>'.
+	 * @see no.hal.quiz.Proposal#getAnswer()
+	 * @see #getProposal()
+	 * @generated
+	 */
+	EReference getProposal_Answer();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Proposal#getProposal() <em>Get Proposal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Proposal</em>' operation.
+	 * @see no.hal.quiz.Proposal#getProposal()
+	 * @generated
+	 */
+	EOperation getProposal__GetProposal();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Proposal#accept() <em>Accept</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept</em>' operation.
+	 * @see no.hal.quiz.Proposal#accept()
+	 * @generated
+	 */
+	EOperation getProposal__Accept();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.quiz.Proposal#validate() <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see no.hal.quiz.Proposal#validate()
+	 * @generated
+	 */
+	EOperation getProposal__Validate();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.OptionAnswer <em>Option Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1595,6 +3085,27 @@ public interface QuizPackage extends EPackage {
 	EOperation getSimpleAnswer__GetValue();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.SimpleProposal <em>Simple Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Proposal</em>'.
+	 * @see no.hal.quiz.SimpleProposal
+	 * @generated
+	 */
+	EClass getSimpleProposal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.SimpleProposal#getProposal <em>Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proposal</em>'.
+	 * @see no.hal.quiz.SimpleProposal#getProposal()
+	 * @see #getSimpleProposal()
+	 * @generated
+	 */
+	EAttribute getSimpleProposal_Proposal();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.StringAnswer <em>String Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1614,6 +3125,17 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringAnswer_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.StringAnswer#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see no.hal.quiz.StringAnswer#getFormat()
+	 * @see #getStringAnswer()
+	 * @generated
+	 */
+	EAttribute getStringAnswer_Format();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.quiz.StringAnswer#isRegexp <em>Regexp</em>}'.
@@ -1668,6 +3190,60 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNumberAnswer_ErrorMargin();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link no.hal.quiz.NumberAnswer#getRange <em>Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Range</em>'.
+	 * @see no.hal.quiz.NumberAnswer#getRange()
+	 * @see #getNumberAnswer()
+	 * @generated
+	 */
+	EReference getNumberAnswer_Range();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.NumberRange <em>Number Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Range</em>'.
+	 * @see no.hal.quiz.NumberRange
+	 * @generated
+	 */
+	EClass getNumberRange();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.NumberRange#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see no.hal.quiz.NumberRange#getMin()
+	 * @see #getNumberRange()
+	 * @generated
+	 */
+	EAttribute getNumberRange_Min();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.NumberRange#getMax <em>Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see no.hal.quiz.NumberRange#getMax()
+	 * @see #getNumberRange()
+	 * @generated
+	 */
+	EAttribute getNumberRange_Max();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.NumberRange#getStep <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Step</em>'.
+	 * @see no.hal.quiz.NumberRange#getStep()
+	 * @see #getNumberRange()
+	 * @generated
+	 */
+	EAttribute getNumberRange_Step();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.BooleanAnswer <em>Boolean Answer</em>}'.
@@ -1731,6 +3307,27 @@ public interface QuizPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOptionsAnswer_Options();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.OptionsProposal <em>Options Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Options Proposal</em>'.
+	 * @see no.hal.quiz.OptionsProposal
+	 * @generated
+	 */
+	EClass getOptionsProposal();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.quiz.OptionsProposal#getIndices <em>Indices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Indices</em>'.
+	 * @see no.hal.quiz.OptionsProposal#getIndices()
+	 * @see #getOptionsProposal()
+	 * @generated
+	 */
+	EAttribute getOptionsProposal_Indices();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.quiz.Option <em>Option</em>}'.
@@ -1987,6 +3584,92 @@ public interface QuizPackage extends EPackage {
 	EAttribute getXmlAttribute_Value();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.TaskAnswer <em>Task Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Answer</em>'.
+	 * @see no.hal.quiz.TaskAnswer
+	 * @generated
+	 */
+	EClass getTaskAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.TaskAnswer#getRequiredCount <em>Required Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required Count</em>'.
+	 * @see no.hal.quiz.TaskAnswer#getRequiredCount()
+	 * @see #getTaskAnswer()
+	 * @generated
+	 */
+	EAttribute getTaskAnswer_RequiredCount();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.quiz.TaskProposal <em>Task Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Proposal</em>'.
+	 * @see no.hal.quiz.TaskProposal
+	 * @generated
+	 */
+	EClass getTaskProposal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.TaskProposal#getCompletion <em>Completion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Completion</em>'.
+	 * @see no.hal.quiz.TaskProposal#getCompletion()
+	 * @see #getTaskProposal()
+	 * @generated
+	 */
+	EAttribute getTaskProposal_Completion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.TaskProposal#getProof <em>Proof</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proof</em>'.
+	 * @see no.hal.quiz.TaskProposal#getProof()
+	 * @see #getTaskProposal()
+	 * @generated
+	 */
+	EAttribute getTaskProposal_Proof();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.TaskProposal#getAttemptCount <em>Attempt Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attempt Count</em>'.
+	 * @see no.hal.quiz.TaskProposal#getAttemptCount()
+	 * @see #getTaskProposal()
+	 * @generated
+	 */
+	EAttribute getTaskProposal_AttemptCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.quiz.TaskProposal#getPerformedCount <em>Performed Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Performed Count</em>'.
+	 * @see no.hal.quiz.TaskProposal#getPerformedCount()
+	 * @see #getTaskProposal()
+	 * @generated
+	 */
+	EAttribute getTaskProposal_PerformedCount();
+
+	/**
+	 * Returns the meta object for data type '{@link no.hal.quiz.util.RGB <em>RGB</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>RGB</em>'.
+	 * @see no.hal.quiz.util.RGB
+	 * @model instanceClass="no.hal.quiz.util.RGB"
+	 * @generated
+	 */
+	EDataType getRGB();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2044,6 +3727,48 @@ public interface QuizPackage extends EPackage {
 		EReference QUIZ__PARTS = eINSTANCE.getQuiz_Parts();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Proposals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUIZ___CREATE_PROPOSALS = eINSTANCE.getQuiz__CreateProposals();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.QuizProposalsImpl <em>Proposals</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.QuizProposalsImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizProposals()
+		 * @generated
+		 */
+		EClass QUIZ_PROPOSALS = eINSTANCE.getQuizProposals();
+
+		/**
+		 * The meta object literal for the '<em><b>Quiz</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUIZ_PROPOSALS__QUIZ = eINSTANCE.getQuizProposals_Quiz();
+
+		/**
+		 * The meta object literal for the '<em><b>Proposals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUIZ_PROPOSALS__PROPOSALS = eINSTANCE.getQuizProposals_Proposals();
+
+		/**
+		 * The meta object literal for the '<em><b>All Proposals</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUIZ_PROPOSALS__ALL_PROPOSALS = eINSTANCE.getQuizProposals_AllProposals();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.AbstractQuizPartImpl <em>Abstract Quiz Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2052,6 +3777,56 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_QUIZ_PART = eINSTANCE.getAbstractQuizPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Questions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_QUIZ_PART___GET_QUESTIONS = eINSTANCE.getAbstractQuizPart__GetQuestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Title</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_QUIZ_PART___GET_TITLE = eINSTANCE.getAbstractQuizPart__GetTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Proposals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_QUIZ_PART___CREATE_PROPOSALS = eINSTANCE.getAbstractQuizPart__CreateProposals();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.QuizPartProposalsImpl <em>Part Proposals</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.QuizPartProposalsImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getQuizPartProposals()
+		 * @generated
+		 */
+		EClass QUIZ_PART_PROPOSALS = eINSTANCE.getQuizPartProposals();
+
+		/**
+		 * The meta object literal for the '<em><b>Proposals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUIZ_PART_PROPOSALS__PROPOSALS = eINSTANCE.getQuizPartProposals_Proposals();
+
+		/**
+		 * The meta object literal for the '<em><b>Quiz Part</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUIZ_PART_PROPOSALS__QUIZ_PART = eINSTANCE.getQuizPartProposals_QuizPart();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.QuizPartRefImpl <em>Part Ref</em>}' class.
@@ -2114,6 +3889,22 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_QA = eINSTANCE.getAbstractQA();
+
+		/**
+		 * The meta object literal for the '<em><b>Get A</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_QA___GET_A = eINSTANCE.getAbstractQA__GetA();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Q</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_QA___GET_Q = eINSTANCE.getAbstractQA__GetQ();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.QARefImpl <em>QA Ref</em>}' class.
@@ -2196,6 +3987,132 @@ public interface QuizPackage extends EPackage {
 		EAttribute STRING_QUESTION__QUESTION = eINSTANCE.getStringQuestion_Question();
 
 		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.StyledStringQuestionImpl <em>Styled String Question</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.StyledStringQuestionImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getStyledStringQuestion()
+		 * @generated
+		 */
+		EClass STYLED_STRING_QUESTION = eINSTANCE.getStyledStringQuestion();
+
+		/**
+		 * The meta object literal for the '<em><b>Styled Strings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STYLED_STRING_QUESTION__STYLED_STRINGS = eINSTANCE.getStyledStringQuestion_StyledStrings();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.StyledStringImpl <em>Styled String</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.StyledStringImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getStyledString()
+		 * @generated
+		 */
+		EClass STYLED_STRING = eINSTANCE.getStyledString();
+
+		/**
+		 * The meta object literal for the '<em><b>Char Style</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STYLED_STRING__CHAR_STYLE = eINSTANCE.getStyledString_CharStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Effective Char Style</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STYLED_STRING__EFFECTIVE_CHAR_STYLE = eINSTANCE.getStyledString_EffectiveCharStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLED_STRING__PREFIX = eINSTANCE.getStyledString_Prefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Styled String</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STYLED_STRING__STYLED_STRING = eINSTANCE.getStyledString_StyledString();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLED_STRING__SUFFIX = eINSTANCE.getStyledString_Suffix();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.CharStyleImpl <em>Char Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.CharStyleImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getCharStyle()
+		 * @generated
+		 */
+		EClass CHAR_STYLE = eINSTANCE.getCharStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Italic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__ITALIC = eINSTANCE.getCharStyle_Italic();
+
+		/**
+		 * The meta object literal for the '<em><b>Bold</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__BOLD = eINSTANCE.getCharStyle_Bold();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__SIZE = eINSTANCE.getCharStyle_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__FAMILY = eINSTANCE.getCharStyle_Family();
+
+		/**
+		 * The meta object literal for the '<em><b>Foreground</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__FOREGROUND = eINSTANCE.getCharStyle_Foreground();
+
+		/**
+		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHAR_STYLE__BACKGROUND = eINSTANCE.getCharStyle_Background();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.XmlQuestionImpl <em>Xml Question</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2232,6 +4149,72 @@ public interface QuizPackage extends EPackage {
 		EOperation ANSWER___ACCEPT__OBJECT = eINSTANCE.getAnswer__Accept__Object();
 
 		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANSWER___VALIDATE__OBJECT = eINSTANCE.getAnswer__Validate__Object();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Proposal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANSWER___CREATE_PROPOSAL = eINSTANCE.getAnswer__CreateProposal();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.ProposalImpl <em>Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.ProposalImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getProposal()
+		 * @generated
+		 */
+		EClass PROPOSAL = eINSTANCE.getProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Question</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPOSAL__QUESTION = eINSTANCE.getProposal_Question();
+
+		/**
+		 * The meta object literal for the '<em><b>Answer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPOSAL__ANSWER = eINSTANCE.getProposal_Answer();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Proposal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPOSAL___GET_PROPOSAL = eINSTANCE.getProposal__GetProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPOSAL___ACCEPT = eINSTANCE.getProposal__Accept();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPOSAL___VALIDATE = eINSTANCE.getProposal__Validate();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.OptionAnswerImpl <em>Option Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2260,6 +4243,24 @@ public interface QuizPackage extends EPackage {
 		EOperation SIMPLE_ANSWER___GET_VALUE = eINSTANCE.getSimpleAnswer__GetValue();
 
 		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.SimpleProposalImpl <em>Simple Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.SimpleProposalImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getSimpleProposal()
+		 * @generated
+		 */
+		EClass SIMPLE_PROPOSAL = eINSTANCE.getSimpleProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Proposal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SIMPLE_PROPOSAL__PROPOSAL = eINSTANCE.getSimpleProposal_Proposal();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.StringAnswerImpl <em>String Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2276,6 +4277,14 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_ANSWER__VALUE = eINSTANCE.getStringAnswer_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_ANSWER__FORMAT = eINSTANCE.getStringAnswer_Format();
 
 		/**
 		 * The meta object literal for the '<em><b>Regexp</b></em>' attribute feature.
@@ -2318,6 +4327,48 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NUMBER_ANSWER__ERROR_MARGIN = eINSTANCE.getNumberAnswer_ErrorMargin();
+
+		/**
+		 * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_ANSWER__RANGE = eINSTANCE.getNumberAnswer_Range();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.NumberRangeImpl <em>Number Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.NumberRangeImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getNumberRange()
+		 * @generated
+		 */
+		EClass NUMBER_RANGE = eINSTANCE.getNumberRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_RANGE__MIN = eINSTANCE.getNumberRange_Min();
+
+		/**
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_RANGE__MAX = eINSTANCE.getNumberRange_Max();
+
+		/**
+		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_RANGE__STEP = eINSTANCE.getNumberRange_Step();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.BooleanAnswerImpl <em>Boolean Answer</em>}' class.
@@ -2372,6 +4423,24 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPTIONS_ANSWER__OPTIONS = eINSTANCE.getOptionsAnswer_Options();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.OptionsProposalImpl <em>Options Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.OptionsProposalImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getOptionsProposal()
+		 * @generated
+		 */
+		EClass OPTIONS_PROPOSAL = eINSTANCE.getOptionsProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Indices</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPTIONS_PROPOSAL__INDICES = eINSTANCE.getOptionsProposal_Indices();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.quiz.impl.OptionImpl <em>Option</em>}' class.
@@ -2584,6 +4653,76 @@ public interface QuizPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_ATTRIBUTE__VALUE = eINSTANCE.getXmlAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.TaskAnswerImpl <em>Task Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.TaskAnswerImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getTaskAnswer()
+		 * @generated
+		 */
+		EClass TASK_ANSWER = eINSTANCE.getTaskAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_ANSWER__REQUIRED_COUNT = eINSTANCE.getTaskAnswer_RequiredCount();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.quiz.impl.TaskProposalImpl <em>Task Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.impl.TaskProposalImpl
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getTaskProposal()
+		 * @generated
+		 */
+		EClass TASK_PROPOSAL = eINSTANCE.getTaskProposal();
+
+		/**
+		 * The meta object literal for the '<em><b>Completion</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_PROPOSAL__COMPLETION = eINSTANCE.getTaskProposal_Completion();
+
+		/**
+		 * The meta object literal for the '<em><b>Proof</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_PROPOSAL__PROOF = eINSTANCE.getTaskProposal_Proof();
+
+		/**
+		 * The meta object literal for the '<em><b>Attempt Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_PROPOSAL__ATTEMPT_COUNT = eINSTANCE.getTaskProposal_AttemptCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Performed Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_PROPOSAL__PERFORMED_COUNT = eINSTANCE.getTaskProposal_PerformedCount();
+
+		/**
+		 * The meta object literal for the '<em>RGB</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.quiz.util.RGB
+		 * @see no.hal.quiz.impl.QuizPackageImpl#getRGB()
+		 * @generated
+		 */
+		EDataType RGB = eINSTANCE.getRGB();
 
 	}
 

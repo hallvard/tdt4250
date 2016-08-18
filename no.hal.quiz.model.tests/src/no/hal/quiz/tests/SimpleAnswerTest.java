@@ -48,5 +48,4 @@ public abstract class SimpleAnswerTest extends OptionAnswerTest {
 	 */
 	public void testGetValue() {
 	}
-
 } //SimpleAnswerTest

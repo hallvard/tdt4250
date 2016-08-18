@@ -88,8 +88,12 @@ public class QuizValidator extends EObjectValidator {
 		switch (classifierID) {
 			case QuizPackage.QUIZ:
 				return validateQuiz((Quiz)value, diagnostics, context);
+			case QuizPackage.QUIZ_PROPOSALS:
+				return validateQuizProposals((QuizProposals)value, diagnostics, context);
 			case QuizPackage.ABSTRACT_QUIZ_PART:
 				return validateAbstractQuizPart((AbstractQuizPart)value, diagnostics, context);
+			case QuizPackage.QUIZ_PART_PROPOSALS:
+				return validateQuizPartProposals((QuizPartProposals)value, diagnostics, context);
 			case QuizPackage.QUIZ_PART_REF:
 				return validateQuizPartRef((QuizPartRef)value, diagnostics, context);
 			case QuizPackage.QUIZ_PART:
@@ -104,24 +108,38 @@ public class QuizValidator extends EObjectValidator {
 				return validateQuestion((Question)value, diagnostics, context);
 			case QuizPackage.STRING_QUESTION:
 				return validateStringQuestion((StringQuestion)value, diagnostics, context);
+			case QuizPackage.STYLED_STRING_QUESTION:
+				return validateStyledStringQuestion((StyledStringQuestion)value, diagnostics, context);
+			case QuizPackage.STYLED_STRING:
+				return validateStyledString((StyledString)value, diagnostics, context);
+			case QuizPackage.CHAR_STYLE:
+				return validateCharStyle((CharStyle)value, diagnostics, context);
 			case QuizPackage.XML_QUESTION:
 				return validateXmlQuestion((XmlQuestion)value, diagnostics, context);
 			case QuizPackage.ANSWER:
 				return validateAnswer((Answer)value, diagnostics, context);
+			case QuizPackage.PROPOSAL:
+				return validateProposal((Proposal<?>)value, diagnostics, context);
 			case QuizPackage.OPTION_ANSWER:
 				return validateOptionAnswer((OptionAnswer)value, diagnostics, context);
 			case QuizPackage.SIMPLE_ANSWER:
 				return validateSimpleAnswer((SimpleAnswer<?>)value, diagnostics, context);
+			case QuizPackage.SIMPLE_PROPOSAL:
+				return validateSimpleProposal((SimpleProposal<?>)value, diagnostics, context);
 			case QuizPackage.STRING_ANSWER:
 				return validateStringAnswer((StringAnswer)value, diagnostics, context);
 			case QuizPackage.NUMBER_ANSWER:
 				return validateNumberAnswer((NumberAnswer)value, diagnostics, context);
+			case QuizPackage.NUMBER_RANGE:
+				return validateNumberRange((NumberRange)value, diagnostics, context);
 			case QuizPackage.BOOLEAN_ANSWER:
 				return validateBooleanAnswer((BooleanAnswer)value, diagnostics, context);
 			case QuizPackage.XML_ANSWER:
 				return validateXmlAnswer((XmlAnswer)value, diagnostics, context);
 			case QuizPackage.OPTIONS_ANSWER:
 				return validateOptionsAnswer((OptionsAnswer)value, diagnostics, context);
+			case QuizPackage.OPTIONS_PROPOSAL:
+				return validateOptionsProposal((OptionsProposal)value, diagnostics, context);
 			case QuizPackage.OPTION:
 				return validateOption((Option)value, diagnostics, context);
 			case QuizPackage.SINGLE_OPTIONS_ANSWER:
@@ -142,6 +160,12 @@ public class QuizValidator extends EObjectValidator {
 				return validateXmlTag((XmlTag)value, diagnostics, context);
 			case QuizPackage.XML_ATTRIBUTE:
 				return validateXmlAttribute((XmlAttribute)value, diagnostics, context);
+			case QuizPackage.TASK_ANSWER:
+				return validateTaskAnswer((TaskAnswer)value, diagnostics, context);
+			case QuizPackage.TASK_PROPOSAL:
+				return validateTaskProposal((TaskProposal<?>)value, diagnostics, context);
+			case QuizPackage.RGB:
+				return validateRGB((RGB)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -161,8 +185,26 @@ public class QuizValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateQuizProposals(QuizProposals quizProposals, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(quizProposals, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateAbstractQuizPart(AbstractQuizPart abstractQuizPart, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractQuizPart, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateQuizPartProposals(QuizPartProposals quizPartProposals, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(quizPartProposals, diagnostics, context);
 	}
 
 	/**
@@ -233,6 +275,33 @@ public class QuizValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStyledStringQuestion(StyledStringQuestion styledStringQuestion, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(styledStringQuestion, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStyledString(StyledString styledString, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(styledString, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCharStyle(CharStyle charStyle, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(charStyle, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateXmlQuestion(XmlQuestion xmlQuestion, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(xmlQuestion, diagnostics, context);
 	}
@@ -244,6 +313,15 @@ public class QuizValidator extends EObjectValidator {
 	 */
 	public boolean validateAnswer(Answer answer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(answer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProposal(Proposal<?> proposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(proposal, diagnostics, context);
 	}
 
 	/**
@@ -269,6 +347,15 @@ public class QuizValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateSimpleProposal(SimpleProposal<?> simpleProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(simpleProposal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateStringAnswer(StringAnswer stringAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(stringAnswer, diagnostics, context);
 	}
@@ -280,6 +367,15 @@ public class QuizValidator extends EObjectValidator {
 	 */
 	public boolean validateNumberAnswer(NumberAnswer numberAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(numberAnswer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNumberRange(NumberRange numberRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(numberRange, diagnostics, context);
 	}
 
 	/**
@@ -307,6 +403,15 @@ public class QuizValidator extends EObjectValidator {
 	 */
 	public boolean validateOptionsAnswer(OptionsAnswer optionsAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(optionsAnswer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOptionsProposal(OptionsProposal optionsProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(optionsProposal, diagnostics, context);
 	}
 
 	/**
@@ -510,6 +615,33 @@ public class QuizValidator extends EObjectValidator {
 	 */
 	public boolean validateXmlAttribute(XmlAttribute xmlAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(xmlAttribute, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTaskAnswer(TaskAnswer taskAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(taskAnswer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTaskProposal(TaskProposal<?> taskProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(taskProposal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRGB(RGB rgb, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

@@ -72,9 +72,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QuizPackage.QUIZ_PROPOSALS: {
+				QuizProposals quizProposals = (QuizProposals)theEObject;
+				T1 result = caseQuizProposals(quizProposals);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QuizPackage.ABSTRACT_QUIZ_PART: {
 				AbstractQuizPart abstractQuizPart = (AbstractQuizPart)theEObject;
 				T1 result = caseAbstractQuizPart(abstractQuizPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.QUIZ_PART_PROPOSALS: {
+				QuizPartProposals quizPartProposals = (QuizPartProposals)theEObject;
+				T1 result = caseQuizPartProposals(quizPartProposals);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -125,6 +137,25 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QuizPackage.STYLED_STRING_QUESTION: {
+				StyledStringQuestion styledStringQuestion = (StyledStringQuestion)theEObject;
+				T1 result = caseStyledStringQuestion(styledStringQuestion);
+				if (result == null) result = caseQuestion(styledStringQuestion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.STYLED_STRING: {
+				StyledString styledString = (StyledString)theEObject;
+				T1 result = caseStyledString(styledString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.CHAR_STYLE: {
+				CharStyle charStyle = (CharStyle)theEObject;
+				T1 result = caseCharStyle(charStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QuizPackage.XML_QUESTION: {
 				XmlQuestion xmlQuestion = (XmlQuestion)theEObject;
 				T1 result = caseXmlQuestion(xmlQuestion);
@@ -135,6 +166,12 @@ public class QuizSwitch<T1> extends Switch<T1> {
 			case QuizPackage.ANSWER: {
 				Answer answer = (Answer)theEObject;
 				T1 result = caseAnswer(answer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.PROPOSAL: {
+				Proposal<?> proposal = (Proposal<?>)theEObject;
+				T1 result = caseProposal(proposal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -153,6 +190,13 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QuizPackage.SIMPLE_PROPOSAL: {
+				SimpleProposal<?> simpleProposal = (SimpleProposal<?>)theEObject;
+				T1 result = caseSimpleProposal(simpleProposal);
+				if (result == null) result = caseProposal(simpleProposal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QuizPackage.STRING_ANSWER: {
 				StringAnswer stringAnswer = (StringAnswer)theEObject;
 				T1 result = caseStringAnswer(stringAnswer);
@@ -168,6 +212,12 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseSimpleAnswer(numberAnswer);
 				if (result == null) result = caseOptionAnswer(numberAnswer);
 				if (result == null) result = caseAnswer(numberAnswer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.NUMBER_RANGE: {
+				NumberRange numberRange = (NumberRange)theEObject;
+				T1 result = caseNumberRange(numberRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -192,6 +242,13 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				OptionsAnswer optionsAnswer = (OptionsAnswer)theEObject;
 				T1 result = caseOptionsAnswer(optionsAnswer);
 				if (result == null) result = caseAnswer(optionsAnswer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.OPTIONS_PROPOSAL: {
+				OptionsProposal optionsProposal = (OptionsProposal)theEObject;
+				T1 result = caseOptionsProposal(optionsProposal);
+				if (result == null) result = caseProposal(optionsProposal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -261,6 +318,20 @@ public class QuizSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QuizPackage.TASK_ANSWER: {
+				TaskAnswer taskAnswer = (TaskAnswer)theEObject;
+				T1 result = caseTaskAnswer(taskAnswer);
+				if (result == null) result = caseAnswer(taskAnswer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QuizPackage.TASK_PROPOSAL: {
+				TaskProposal<?> taskProposal = (TaskProposal<?>)theEObject;
+				T1 result = caseTaskProposal(taskProposal);
+				if (result == null) result = caseProposal(taskProposal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -281,6 +352,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proposals</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proposals</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseQuizProposals(QuizProposals object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Quiz Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -292,6 +378,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAbstractQuizPart(AbstractQuizPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Part Proposals</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Part Proposals</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseQuizPartProposals(QuizPartProposals object) {
 		return null;
 	}
 
@@ -401,6 +502,51 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Styled String Question</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Styled String Question</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStyledStringQuestion(StyledStringQuestion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Styled String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Styled String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStyledString(StyledString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Char Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Char Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseCharStyle(CharStyle object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Xml Question</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -427,6 +573,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAnswer(Answer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <A extends Answer> T1 caseProposal(Proposal<A> object) {
 		return null;
 	}
 
@@ -461,6 +622,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <A extends SimpleAnswer<?>> T1 caseSimpleProposal(SimpleProposal<A> object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>String Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -487,6 +663,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseNumberAnswer(NumberAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Range</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNumberRange(NumberRange object) {
 		return null;
 	}
 
@@ -532,6 +723,21 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseOptionsAnswer(OptionsAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Options Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Options Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseOptionsProposal(OptionsProposal object) {
 		return null;
 	}
 
@@ -682,6 +888,36 @@ public class QuizSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseXmlAttribute(XmlAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTaskAnswer(TaskAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends TaskAnswer> T1 caseTaskProposal(TaskProposal<T> object) {
 		return null;
 	}
 

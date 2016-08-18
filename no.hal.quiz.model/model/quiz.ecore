@@ -3,12 +3,37 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="quiz" nsURI="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
     nsPrefix="quiz">
   <eClassifiers xsi:type="ecore:EClass" name="Quiz">
+    <eOperations name="createProposals" eType="#//QuizProposals"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
         eType="#//AbstractQuizPart" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractQuizPart" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuizProposals">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quiz" eType="#//Quiz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proposals" upperBound="-1"
+        eType="#//QuizPartProposals" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allProposals" upperBound="-1"
+        volatile="true" transient="true" derived="true">
+      <eGenericType eClassifier="#//Proposal">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractQuizPart" abstract="true">
+    <eOperations name="getQuestions" upperBound="-1" eType="#//AbstractQA"/>
+    <eOperations name="getTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="createProposals" eType="#//QuizPartProposals"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuizPartProposals">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proposals" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="#//Proposal">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quizPart" eType="#//QuizPart"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuizPartRef" eSuperTypes="#//AbstractQuizPart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="partRef" eType="#//QuizPart"/>
   </eClassifiers>
@@ -18,7 +43,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="questions" upperBound="-1"
         eType="#//AbstractQA" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractQA" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractQA" abstract="true">
+    <eOperations name="getA" eType="#//Answer"/>
+    <eOperations name="getQ" eType="#//Question"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QARef" eSuperTypes="#//AbstractQA">
     <eStructuralFeatures xsi:type="ecore:EReference" name="qaRef" eType="#//QA"/>
   </eClassifiers>
@@ -32,13 +60,56 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringQuestion" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="question" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyledStringQuestion" eSuperTypes="#//Question">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styledStrings" upperBound="-1"
+        eType="#//StyledString" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyledString">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="charStyle" eType="#//CharStyle"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveCharStyle" eType="#//CharStyle"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styledString" eType="#//StyledString"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CharStyle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="#//RGB"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="#//RGB"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RGB" instanceClassName="no.hal.quiz.util.RGB"/>
   <eClassifiers xsi:type="ecore:EClass" name="XmlQuestion" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EReference" name="xml" eType="#//Xml" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Answer" abstract="true">
-    <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+    <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
+    <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="createProposal">
+      <eGenericType eClassifier="#//Proposal">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Proposal">
+    <eTypeParameters name="A">
+      <eBounds eClassifier="#//Answer"/>
+    </eTypeParameters>
+    <eOperations name="getProposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="question" eType="#//Question"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="answer">
+      <eGenericType eTypeParameter="#//Proposal/A"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OptionAnswer" abstract="true" eSuperTypes="#//Answer"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleAnswer" abstract="true" eSuperTypes="#//OptionAnswer">
@@ -47,8 +118,20 @@
       <eGenericType eTypeParameter="#//SimpleAnswer/T"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleProposal">
+    <eTypeParameters name="A">
+      <eBounds eClassifier="#//SimpleAnswer">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="#//Proposal">
+      <eTypeArguments eTypeParameter="#//SimpleProposal/A"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
@@ -58,9 +141,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="NumberAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMargin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//NumberRange"
+        containment="true"/>
     <eGenericSuperTypes eClassifier="#//SimpleAnswer">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberRange">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
@@ -74,6 +164,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="OptionsAnswer" eSuperTypes="#//Answer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
         eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OptionsProposal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indices" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="#//Proposal">
+      <eTypeArguments eClassifier="#//OptionsAnswer"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="correct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -126,5 +223,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="XmlAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskAnswer" eSuperTypes="#//Answer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProposal">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//TaskAnswer"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attemptCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="performedCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="#//Proposal">
+      <eTypeArguments eTypeParameter="#//TaskProposal/T"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

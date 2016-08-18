@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz-junit -->
+      <package
+            uri="platform:/plugin/no.hal.quiz.junit/model/quiz-junit.ecore"
+            class="no.hal.quiz.junit.JunitPackage"
+            genModel="model/quiz-junit.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.quiz.junit/model/quiz-junit.ecore"
+            class="no.hal.quiz.junit.adapter.JunitUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+</plugin>

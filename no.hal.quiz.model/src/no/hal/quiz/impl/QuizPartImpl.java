@@ -14,8 +14,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.quiz.AbstractQA;
+import no.hal.quiz.Proposal;
+import no.hal.quiz.QuizFactory;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.QuizPart;
+import no.hal.quiz.QuizPartProposals;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +110,7 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -116,6 +120,7 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -128,6 +133,7 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -137,6 +143,7 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -149,6 +156,7 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AbstractQA> getQuestions() {
 		if (questions == null) {
 			questions = new EObjectContainmentEList<AbstractQA>(AbstractQA.class, this, QuizPackage.QUIZ_PART__QUESTIONS);
@@ -266,6 +274,22 @@ public class QuizPartImpl extends AbstractQuizPartImpl implements QuizPart {
 		result.append(title);
 		result.append(')');
 		return result.toString();
+	}
+	
+	//
+	
+	@Override
+	public QuizPartProposals createProposals() {
+		QuizPartProposals partProposals = QuizFactory.eINSTANCE.createQuizPartProposals();
+		QuizPart quizPart = this;
+		partProposals.setQuizPart(quizPart);
+		EList<AbstractQA> questions = quizPart.getQuestions();
+		for (AbstractQA aQA : questions) {
+			Proposal<?> proposal = aQA.getA().createProposal();
+			proposal.setQuestion(aQA.getQ());
+			partProposals.getProposals().add(proposal);
+		}
+		return partProposals;
 	}
 
 } //QuizPartImpl

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import no.hal.quiz.Answer;
+import no.hal.quiz.Proposal;
 import no.hal.quiz.QuizPackage;
 
 /**
@@ -41,11 +42,42 @@ public abstract class AnswerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public Boolean accept(Object proposal) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+	@Override
+	public Double accept(Object proposal) {
+		String errorMessage = validate(proposal);
+		if (errorMessage != null) {
+			return null;
+		}
+		throw new UnsupportedOperationException();
+	}
+
+	protected Double accept(boolean result) {
+		return (result ? 1.0 : 0.0);
+	}
+
+	protected Double accept(Boolean result) {
+		return (result != null ? accept(result) : null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String validate(Object proposal) {
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Proposal<?> createProposal() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -59,6 +91,10 @@ public abstract class AnswerImpl extends MinimalEObjectImpl.Container implements
 		switch (operationID) {
 			case QuizPackage.ANSWER___ACCEPT__OBJECT:
 				return accept(arguments.get(0));
+			case QuizPackage.ANSWER___VALIDATE__OBJECT:
+				return validate(arguments.get(0));
+			case QuizPackage.ANSWER___CREATE_PROPOSAL:
+				return createProposal();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

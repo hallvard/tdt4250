@@ -2,6 +2,7 @@
  */
 package no.hal.quiz.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,7 +17,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.quiz.AbstractQuizPart;
 import no.hal.quiz.Quiz;
+import no.hal.quiz.QuizFactory;
 import no.hal.quiz.QuizPackage;
+import no.hal.quiz.QuizProposals;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,6 +111,7 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -117,6 +121,7 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -129,6 +134,7 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -138,6 +144,7 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -150,11 +157,27 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AbstractQuizPart> getParts() {
 		if (parts == null) {
 			parts = new EObjectContainmentEList<AbstractQuizPart>(AbstractQuizPart.class, this, QuizPackage.QUIZ__PARTS);
 		}
 		return parts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public QuizProposals createProposals() {
+		QuizProposals quizProposal = QuizFactory.eINSTANCE.createQuizProposals();
+		quizProposal.setQuiz(this);
+		for (AbstractQuizPart quizPart : getParts()) {
+			quizProposal.getProposals().add(quizPart.createProposals());
+		}
+		return quizProposal;
 	}
 
 	/**
@@ -249,6 +272,20 @@ public class QuizImpl extends MinimalEObjectImpl.Container implements Quiz {
 				return parts != null && !parts.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case QuizPackage.QUIZ___CREATE_PROPOSALS:
+				return createProposals();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

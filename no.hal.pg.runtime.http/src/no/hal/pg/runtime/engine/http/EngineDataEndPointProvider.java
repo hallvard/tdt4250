@@ -44,6 +44,7 @@ public class EngineDataEndPointProvider extends EngineEndPointProvider {
 
 	//
 
+	@Override
 	@Reference(
 			cardinality=ReferenceCardinality.MANDATORY,
 			policy=ReferencePolicy.DYNAMIC,
@@ -52,17 +53,13 @@ public class EngineDataEndPointProvider extends EngineEndPointProvider {
 	public synchronized void setHttpService(HttpService httpService) {
 		super.setHttpService(httpService);
 	}
+	@Override
 	public synchronized void unsetHttpService(HttpService httpService) {
 		super.unsetHttpService(httpService);
 	}
 
 	@Override
-	protected void registerEngineEndPoints(HttpService httpService, IEngine engine, String engineAlias) throws ServletException, NamespaceException {
-		getHttpService().registerServlet(engineAlias + "/data", new EngineDataServlet(engine, serializer), null, null);
-	}
-
-	@Override
-	protected void unregisterEngineEndPoints(HttpService httpService, IEngine engine, String engineAlias) {
-		getHttpService().unregister(engineAlias + "/data");
+	protected void registerEngineEndPoints(IEngine engine, String engineAlias) throws ServletException, NamespaceException {
+		registerEngineServlet(engine, engineAlias + "/data", new EngineDataServlet(engine, serializer));
 	}
 }

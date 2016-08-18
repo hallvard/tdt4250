@@ -93,4 +93,12 @@ public interface Quiz extends EObject {
 	 */
 	EList<AbstractQuizPart> getParts();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	QuizProposals createProposals();
+
 } // Quiz

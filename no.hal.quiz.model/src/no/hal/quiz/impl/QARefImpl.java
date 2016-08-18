@@ -6,8 +6,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import no.hal.quiz.Answer;
 import no.hal.quiz.QA;
 import no.hal.quiz.QARef;
+import no.hal.quiz.Question;
 import no.hal.quiz.QuizPackage;
 
 /**
@@ -58,6 +61,7 @@ public class QARefImpl extends AbstractQAImpl implements QARef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QA getQaRef() {
 		if (qaRef != null && qaRef.eIsProxy()) {
 			InternalEObject oldQaRef = (InternalEObject)qaRef;
@@ -84,6 +88,7 @@ public class QARefImpl extends AbstractQAImpl implements QARef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setQaRef(QA newQaRef) {
 		QA oldQaRef = qaRef;
 		qaRef = newQaRef;
@@ -148,6 +153,18 @@ public class QARefImpl extends AbstractQAImpl implements QARef {
 				return qaRef != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	//
+	
+	@Override
+	public Question getQ() {
+		return getQaRef().getQ();
+	}
+	
+	@Override
+	public Answer getA() {
+		return getQaRef().getA();
 	}
 
 } //QARefImpl

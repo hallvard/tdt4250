@@ -3,9 +3,13 @@
 package no.hal.quiz.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.quiz.NumberAnswer;
+import no.hal.quiz.NumberRange;
 import no.hal.quiz.QuizPackage;
 
 /**
@@ -18,6 +22,7 @@ import no.hal.quiz.QuizPackage;
  * <ul>
  *   <li>{@link no.hal.quiz.impl.NumberAnswerImpl#getValue <em>Value</em>}</li>
  *   <li>{@link no.hal.quiz.impl.NumberAnswerImpl#getErrorMargin <em>Error Margin</em>}</li>
+ *   <li>{@link no.hal.quiz.impl.NumberAnswerImpl#getRange <em>Range</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +66,16 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	protected double errorMargin = ERROR_MARGIN_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getRange() <em>Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRange()
+	 * @generated
+	 * @ordered
+	 */
+	protected NumberRange range;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -84,6 +99,7 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getValue() {
 		return value;
 	}
@@ -93,6 +109,7 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(Double newValue) {
 		Double oldValue = value;
 		value = newValue;
@@ -105,6 +122,7 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getErrorMargin() {
 		return errorMargin;
 	}
@@ -114,11 +132,71 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setErrorMargin(double newErrorMargin) {
 		double oldErrorMargin = errorMargin;
 		errorMargin = newErrorMargin;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.NUMBER_ANSWER__ERROR_MARGIN, oldErrorMargin, errorMargin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberRange getRange() {
+		return range;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRange(NumberRange newRange, NotificationChain msgs) {
+		NumberRange oldRange = range;
+		range = newRange;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QuizPackage.NUMBER_ANSWER__RANGE, oldRange, newRange);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRange(NumberRange newRange) {
+		if (newRange != range) {
+			NotificationChain msgs = null;
+			if (range != null)
+				msgs = ((InternalEObject)range).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QuizPackage.NUMBER_ANSWER__RANGE, null, msgs);
+			if (newRange != null)
+				msgs = ((InternalEObject)newRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QuizPackage.NUMBER_ANSWER__RANGE, null, msgs);
+			msgs = basicSetRange(newRange, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.NUMBER_ANSWER__RANGE, newRange, newRange));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QuizPackage.NUMBER_ANSWER__RANGE:
+				return basicSetRange(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -133,6 +211,8 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 				return getValue();
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				return getErrorMargin();
+			case QuizPackage.NUMBER_ANSWER__RANGE:
+				return getRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +230,9 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 				return;
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				setErrorMargin((Double)newValue);
+				return;
+			case QuizPackage.NUMBER_ANSWER__RANGE:
+				setRange((NumberRange)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,6 +252,9 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				setErrorMargin(ERROR_MARGIN_EDEFAULT);
 				return;
+			case QuizPackage.NUMBER_ANSWER__RANGE:
+				setRange((NumberRange)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -185,6 +271,8 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case QuizPackage.NUMBER_ANSWER__ERROR_MARGIN:
 				return errorMargin != ERROR_MARGIN_EDEFAULT;
+			case QuizPackage.NUMBER_ANSWER__RANGE:
+				return range != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,13 +298,36 @@ public class NumberAnswerImpl extends SimpleAnswerImpl<Double> implements Number
 	//
 	
 	@Override
-	public Boolean accept(Object proposal) {
+	public String validate(Object proposal) {
 		try {
 			double proposalValue = Double.valueOf(proposal.toString());
-			return (proposalValue >= value - errorMargin && proposalValue <= value + errorMargin);
+			if (range != null) {
+				if (range.getMin() != null && proposalValue < range.getMin()) {
+					return "The value must be >= " + range.getMin();
+				}
+				if (range.getMax() != null && proposalValue > range.getMax()) {
+					return "The value must be <= " + range.getMax();
+				}
+				if (range.getStep() != null && range.getMin() != null) {
+					double factor = (proposalValue - range.getMin()) / range.getStep();
+					if (Math.round(factor) != factor) {
+						return "The value must be a step value, i.e. " + range.getMin() + " + " + range.getStep() + " * n";
+					}
+				}
+			}
 		} catch (NumberFormatException e) {
-			return false;
+			return "The value must be a valid number";
 		}
+		return null;
+	}
+	
+	@Override
+	public Double accept(Object proposal) {
+		if (validate(proposal) != null) {
+			return null;
+		}
+		double proposalValue = Double.valueOf(proposal.toString());
+		return accept(proposalValue >= value - errorMargin && proposalValue <= value + errorMargin);
 	}
 
 } //NumberAnswerImpl

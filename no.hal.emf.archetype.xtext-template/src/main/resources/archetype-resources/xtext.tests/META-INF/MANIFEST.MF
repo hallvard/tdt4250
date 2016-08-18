@@ -1,0 +1,25 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ${rootArtifactId}.${artifactId}
+Bundle-Vendor: ${groupId}
+Bundle-Version: ${version}.qualifier
+Bundle-SymbolicName: ${rootArtifactId}.${artifactId}; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ${rootArtifactId}.xtext,
+ ${rootArtifactId}.xtext.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.ui.workbench;resolution:=optional
+Import-Package: org.apache.log4j,
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0",
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0",
+ org.hamcrest.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

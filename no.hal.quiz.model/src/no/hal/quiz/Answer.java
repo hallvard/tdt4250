@@ -22,5 +22,21 @@ public interface Answer extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Boolean accept(Object proposal);
+	Double accept(Object proposal);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String validate(Object proposal);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Proposal<?> createProposal();
 } // Answer

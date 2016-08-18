@@ -64,6 +64,7 @@ public class XmlAnswerImpl extends OptionAnswerImpl implements XmlAnswer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Xml getXml() {
 		return xml;
 	}
@@ -88,6 +89,7 @@ public class XmlAnswerImpl extends OptionAnswerImpl implements XmlAnswer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setXml(Xml newXml) {
 		if (newXml != xml) {
 			NotificationChain msgs = null;
@@ -177,20 +179,50 @@ public class XmlAnswerImpl extends OptionAnswerImpl implements XmlAnswer {
 	//
 
 	@Override
-	public Boolean accept(Object proposal) {
+	public String validate(Object proposal) {
+//		TreeIterator<EObject> iterator = eAllContents();
+//		while (iterator.hasNext()) {
+//			EObject next = iterator.next();
+//			if (next instanceof Option) {
+//				Option option = (Option) next;
+//				if (option.isCorrect() && option.isCorrect()) {
+//					String message = option.getOption().validate(proposal);
+//					if (message != null) {
+//						return message;
+//					}
+//				}
+//				iterator.prune();
+//			} else if (next instanceof Answer) {
+//				String message = ((Answer) next).validate(proposal);
+//				if (message != null) {
+//					return message;
+//				}
+//			}
+//		}
+		return null;
+	}
+
+	@Override
+	public Double accept(Object proposal) {
 		TreeIterator<EObject> iterator = eAllContents();
 		while (iterator.hasNext()) {
 			EObject next = iterator.next();
 			if (next instanceof Option) {
 				Option option = (Option) next;
-				if (option.isCorrect() && option.isCorrect() && option.getOption().accept(proposal)) {
-					return true;
+				if (option.isCorrect() && option.isCorrect()) {
+					Double result = option.getOption().accept(proposal);
+					if (result > 0.0) {
+						return result;
+					}
 				}
 				iterator.prune();
-			} else if (next instanceof Answer && ((Answer) next).accept(proposal)) {
-				return true;
+			} else if (next instanceof Answer) {
+				Double result = ((Answer) next).accept(proposal);
+				if (result != null && result > 0.0) {
+					return result;
+				}
 			}
 		}
-		return false;
+		return accept(false);
 	}
 } //XmlAnswerImpl

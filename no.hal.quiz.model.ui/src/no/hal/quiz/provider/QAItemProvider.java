@@ -174,6 +174,11 @@ public class QAItemProvider extends AbstractQAItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(QuizPackage.Literals.QA__Q,
+				 QuizFactory.eINSTANCE.createStyledStringQuestion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QuizPackage.Literals.QA__Q,
 				 QuizFactory.eINSTANCE.createXmlQuestion()));
 
 		newChildDescriptors.add
@@ -210,6 +215,11 @@ public class QAItemProvider extends AbstractQAItemProvider {
 			(createChildParameter
 				(QuizPackage.Literals.QA__A,
 				 QuizFactory.eINSTANCE.createManyOptionsAnswer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QuizPackage.Literals.QA__A,
+				 QuizFactory.eINSTANCE.createTaskAnswer()));
 	}
 
 }

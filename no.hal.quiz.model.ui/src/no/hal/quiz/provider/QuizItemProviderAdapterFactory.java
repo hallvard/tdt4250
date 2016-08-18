@@ -5,12 +5,9 @@ package no.hal.quiz.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import no.hal.quiz.util.QuizAdapterFactory;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -22,6 +19,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import no.hal.quiz.util.QuizAdapterFactory;
+import no.hal.quiz.views.adapters.ProposalUIAdapter;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -61,7 +61,7 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public QuizItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,8 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		// added
+		supportedTypes.add(ProposalUIAdapter.class);
 	}
 
 	/**
@@ -92,6 +94,52 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		}
 
 		return quizItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.QuizProposals} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuizProposalsItemProvider quizProposalsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.QuizProposals}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuizProposalsAdapter() {
+		if (quizProposalsItemProvider == null) {
+			quizProposalsItemProvider = new QuizProposalsItemProvider(this);
+		}
+
+		return quizProposalsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.QuizPartProposals} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuizPartProposalsItemProvider quizPartProposalsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.QuizPartProposals}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuizPartProposalsAdapter() {
+		if (quizPartProposalsItemProvider == null) {
+			quizPartProposalsItemProvider = new QuizPartProposalsItemProvider(this);
+		}
+
+		return quizPartProposalsItemProvider;
 	}
 
 	/**
@@ -210,6 +258,75 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.StyledStringQuestion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StyledStringQuestionItemProvider styledStringQuestionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.StyledStringQuestion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStyledStringQuestionAdapter() {
+		if (styledStringQuestionItemProvider == null) {
+			styledStringQuestionItemProvider = new StyledStringQuestionItemProvider(this);
+		}
+
+		return styledStringQuestionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.StyledString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StyledStringItemProvider styledStringItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.StyledString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStyledStringAdapter() {
+		if (styledStringItemProvider == null) {
+			styledStringItemProvider = new StyledStringItemProvider(this);
+		}
+
+		return styledStringItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.CharStyle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CharStyleItemProvider charStyleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.CharStyle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCharStyleAdapter() {
+		if (charStyleItemProvider == null) {
+			charStyleItemProvider = new CharStyleItemProvider(this);
+		}
+
+		return charStyleItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.quiz.XmlQuestion} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +347,52 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		}
 
 		return xmlQuestionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.Proposal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProposalItemProvider proposalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.Proposal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProposalAdapter() {
+		if (proposalItemProvider == null) {
+			proposalItemProvider = new ProposalItemProvider(this);
+		}
+
+		return proposalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.SimpleProposal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleProposalItemProvider simpleProposalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.SimpleProposal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleProposalAdapter() {
+		if (simpleProposalItemProvider == null) {
+			simpleProposalItemProvider = new SimpleProposalItemProvider(this);
+		}
+
+		return simpleProposalItemProvider;
 	}
 
 	/**
@@ -276,6 +439,29 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		}
 
 		return numberAnswerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.NumberRange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberRangeItemProvider numberRangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.NumberRange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberRangeAdapter() {
+		if (numberRangeItemProvider == null) {
+			numberRangeItemProvider = new NumberRangeItemProvider(this);
+		}
+
+		return numberRangeItemProvider;
 	}
 
 	/**
@@ -345,6 +531,29 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		}
 
 		return optionsAnswerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.OptionsProposal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OptionsProposalItemProvider optionsProposalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.OptionsProposal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOptionsProposalAdapter() {
+		if (optionsProposalItemProvider == null) {
+			optionsProposalItemProvider = new OptionsProposalItemProvider(this);
+		}
+
+		return optionsProposalItemProvider;
 	}
 
 	/**
@@ -555,11 +764,58 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.TaskAnswer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskAnswerItemProvider taskAnswerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.TaskAnswer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskAnswerAdapter() {
+		if (taskAnswerItemProvider == null) {
+			taskAnswerItemProvider = new TaskAnswerItemProvider(this);
+		}
+
+		return taskAnswerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.quiz.TaskProposal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskProposalItemProvider taskProposalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.quiz.TaskProposal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskProposalAdapter() {
+		if (taskProposalItemProvider == null) {
+			taskProposalItemProvider = new TaskProposalItemProvider(this);
+		}
+
+		return taskProposalItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -570,6 +826,7 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -618,6 +875,7 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -628,6 +886,7 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -638,6 +897,7 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -652,19 +912,29 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (quizItemProvider != null) quizItemProvider.dispose();
+		if (quizProposalsItemProvider != null) quizProposalsItemProvider.dispose();
+		if (quizPartProposalsItemProvider != null) quizPartProposalsItemProvider.dispose();
 		if (quizPartRefItemProvider != null) quizPartRefItemProvider.dispose();
 		if (quizPartItemProvider != null) quizPartItemProvider.dispose();
 		if (qaRefItemProvider != null) qaRefItemProvider.dispose();
 		if (qaItemProvider != null) qaItemProvider.dispose();
 		if (stringQuestionItemProvider != null) stringQuestionItemProvider.dispose();
+		if (styledStringQuestionItemProvider != null) styledStringQuestionItemProvider.dispose();
+		if (styledStringItemProvider != null) styledStringItemProvider.dispose();
+		if (charStyleItemProvider != null) charStyleItemProvider.dispose();
 		if (xmlQuestionItemProvider != null) xmlQuestionItemProvider.dispose();
+		if (proposalItemProvider != null) proposalItemProvider.dispose();
+		if (simpleProposalItemProvider != null) simpleProposalItemProvider.dispose();
 		if (stringAnswerItemProvider != null) stringAnswerItemProvider.dispose();
 		if (numberAnswerItemProvider != null) numberAnswerItemProvider.dispose();
+		if (numberRangeItemProvider != null) numberRangeItemProvider.dispose();
 		if (booleanAnswerItemProvider != null) booleanAnswerItemProvider.dispose();
 		if (xmlAnswerItemProvider != null) xmlAnswerItemProvider.dispose();
 		if (optionsAnswerItemProvider != null) optionsAnswerItemProvider.dispose();
+		if (optionsProposalItemProvider != null) optionsProposalItemProvider.dispose();
 		if (optionItemProvider != null) optionItemProvider.dispose();
 		if (singleOptionsAnswerItemProvider != null) singleOptionsAnswerItemProvider.dispose();
 		if (manyOptionsAnswerItemProvider != null) manyOptionsAnswerItemProvider.dispose();
@@ -674,6 +944,8 @@ public class QuizItemProviderAdapterFactory extends QuizAdapterFactory implement
 		if (xmlTagElementItemProvider != null) xmlTagElementItemProvider.dispose();
 		if (xmlTagItemProvider != null) xmlTagItemProvider.dispose();
 		if (xmlAttributeItemProvider != null) xmlAttributeItemProvider.dispose();
+		if (taskAnswerItemProvider != null) taskAnswerItemProvider.dispose();
+		if (taskProposalItemProvider != null) taskProposalItemProvider.dispose();
 	}
 
 }

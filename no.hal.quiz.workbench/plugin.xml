@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.quiz.workbench/model/quiz-workbench.ecore"
+            class="no.hal.quiz.workbench.adapter.WorkbenchUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz-workbench -->
+      <package
+            uri="platform:/plugin/no.hal.quiz.workbench/model/quiz-workbench.ecore"
+            class="no.hal.quiz.workbench.WorkbenchPackage"
+            genModel="model/quiz-workbench.genmodel"/>
+   </extension>
+
+</plugin>

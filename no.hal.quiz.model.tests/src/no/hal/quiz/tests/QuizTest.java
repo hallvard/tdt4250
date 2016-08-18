@@ -11,6 +11,12 @@ import no.hal.quiz.QuizFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Quiz</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link no.hal.quiz.Quiz#createProposals() <em>Create Proposals</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class QuizTest extends TestCase {
@@ -82,6 +88,19 @@ public class QuizTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.quiz.Quiz#createProposals() <em>Create Proposals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.Quiz#createProposals()
+	 * @generated
+	 */
+	public void testCreateProposals() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //QuizTest

@@ -63,15 +63,16 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 	}
 	
 	@Override
-	protected void registerEngineEndPoints(final HttpService httpService, IEngine engine, String engineAlias) throws ServletException, NamespaceException {
+	protected void registerEngineEndPoints(IEngine engine, String engineAlias) throws ServletException, NamespaceException {
+		registerEngineServlet(engine, engineAlias, new EngineServlet(engine, getEngineAliases(engine)));
 		String aliasPrefix = engineAlias + "/app";
-		httpService.registerServlet(aliasPrefix, new EngineAppServlet(engine, engineApps.toArray(new IEngineApp[engineApps.size()])), null, null);
+		registerEngineServlet(engine, aliasPrefix, new EngineAppServlet(engine, engineApps.toArray(new IEngineApp[engineApps.size()])));
 		for (final IEngineApp engineApp : engineApps) {
-			HttpContext httpContext = new EngineAppHttpContext(engineApp, httpService.createDefaultHttpContext());
+			HttpContext httpContext = new EngineAppHttpContext(engineApp, getHttpService().createDefaultHttpContext());
 			HttpServlet servlet = engineApp.getAppServlet();
 			String appAlias = aliasPrefix + "/" + engineApp.getName();
 			if (servlet != null) {
-				httpService.registerServlet(appAlias, servlet, null, httpContext);
+				registerEngineServlet(engine, appAlias, servlet, null, httpContext);
 			}
 			for (Map.Entry<String, String> resourceAlias : engineApp.getResourceAliasMapping().entrySet()) {
 				String alias = resourceAlias.getKey();
@@ -80,31 +81,10 @@ public class EngineAppEndPointProvider extends EngineEndPointProvider {
 					String forwardPath = resourceAlias.getValue();
 					forwardingServlet.setTargetPath(appAlias + forwardPath);
 					forwardingServlet.setRedirect(true);
-					httpService.registerServlet(appAlias, forwardingServlet, null, httpContext);
+					registerEngineServlet(engine, appAlias, forwardingServlet, null, httpContext);
 				} else {
-					httpService.registerResources(appAlias + alias, resourceAlias.getValue(), httpContext);
-				}
-			}
-		}
-	}
-
-	@Override
-	protected void unregisterEngineEndPoints(HttpService httpService, IEngine engine, String engineAlias) {
-		String aliasPrefix = engineAlias + "/app";
-		try {
-			httpService.unregister(aliasPrefix);
-		} catch (Exception e) {
-		}
-		for (IEngineApp engineApp : engineApps) {
-			String appAlias = aliasPrefix + "/" + engineApp.getName();
-			try {
-				httpService.unregister(appAlias);
-			} catch (Exception e) {
-			}
-			for (Map.Entry<String, String> resourceAlias : engineApp.getResourceAliasMapping().entrySet()) {
-				try {
-					httpService.unregister(resourceAlias.getKey());
-				} catch (Exception e) {
+					getHttpService().registerResources(appAlias + alias, resourceAlias.getValue(), httpContext);
+					registerEngineAlias(engine, appAlias + alias);
 				}
 			}
 		}

@@ -31,6 +31,24 @@ public interface QuizFactory extends EFactory {
 	Quiz createQuiz();
 
 	/**
+	 * Returns a new object of class '<em>Proposals</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proposals</em>'.
+	 * @generated
+	 */
+	QuizProposals createQuizProposals();
+
+	/**
+	 * Returns a new object of class '<em>Part Proposals</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Part Proposals</em>'.
+	 * @generated
+	 */
+	QuizPartProposals createQuizPartProposals();
+
+	/**
 	 * Returns a new object of class '<em>Part Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +94,33 @@ public interface QuizFactory extends EFactory {
 	StringQuestion createStringQuestion();
 
 	/**
+	 * Returns a new object of class '<em>Styled String Question</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Styled String Question</em>'.
+	 * @generated
+	 */
+	StyledStringQuestion createStyledStringQuestion();
+
+	/**
+	 * Returns a new object of class '<em>Styled String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Styled String</em>'.
+	 * @generated
+	 */
+	StyledString createStyledString();
+
+	/**
+	 * Returns a new object of class '<em>Char Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Char Style</em>'.
+	 * @generated
+	 */
+	CharStyle createCharStyle();
+
+	/**
 	 * Returns a new object of class '<em>Xml Question</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +128,24 @@ public interface QuizFactory extends EFactory {
 	 * @generated
 	 */
 	XmlQuestion createXmlQuestion();
+
+	/**
+	 * Returns a new object of class '<em>Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proposal</em>'.
+	 * @generated
+	 */
+	<A extends Answer> Proposal<A> createProposal();
+
+	/**
+	 * Returns a new object of class '<em>Simple Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Proposal</em>'.
+	 * @generated
+	 */
+	<A extends SimpleAnswer<?>> SimpleProposal<A> createSimpleProposal();
 
 	/**
 	 * Returns a new object of class '<em>String Answer</em>'.
@@ -101,6 +164,15 @@ public interface QuizFactory extends EFactory {
 	 * @generated
 	 */
 	NumberAnswer createNumberAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Number Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Range</em>'.
+	 * @generated
+	 */
+	NumberRange createNumberRange();
 
 	/**
 	 * Returns a new object of class '<em>Boolean Answer</em>'.
@@ -128,6 +200,15 @@ public interface QuizFactory extends EFactory {
 	 * @generated
 	 */
 	OptionsAnswer createOptionsAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Options Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Options Proposal</em>'.
+	 * @generated
+	 */
+	OptionsProposal createOptionsProposal();
 
 	/**
 	 * Returns a new object of class '<em>Option</em>'.
@@ -209,6 +290,24 @@ public interface QuizFactory extends EFactory {
 	 * @generated
 	 */
 	XmlAttribute createXmlAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Task Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Answer</em>'.
+	 * @generated
+	 */
+	TaskAnswer createTaskAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Task Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Proposal</em>'.
+	 * @generated
+	 */
+	<T extends TaskAnswer> TaskProposal<T> createTaskProposal();
 
 	/**
 	 * Returns the package supported by this factory.

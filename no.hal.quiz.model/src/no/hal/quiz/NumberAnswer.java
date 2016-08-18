@@ -14,6 +14,7 @@ package no.hal.quiz;
  * <ul>
  *   <li>{@link no.hal.quiz.NumberAnswer#getValue <em>Value</em>}</li>
  *   <li>{@link no.hal.quiz.NumberAnswer#getErrorMargin <em>Error Margin</em>}</li>
+ *   <li>{@link no.hal.quiz.NumberAnswer#getRange <em>Range</em>}</li>
  * </ul>
  *
  * @see no.hal.quiz.QuizPackage#getNumberAnswer()
@@ -73,4 +74,30 @@ public interface NumberAnswer extends SimpleAnswer<Double> {
 	 * @generated
 	 */
 	void setErrorMargin(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Range</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Range</em>' containment reference.
+	 * @see #setRange(NumberRange)
+	 * @see no.hal.quiz.QuizPackage#getNumberAnswer_Range()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NumberRange getRange();
+
+	/**
+	 * Sets the value of the '{@link no.hal.quiz.NumberAnswer#getRange <em>Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Range</em>' containment reference.
+	 * @see #getRange()
+	 * @generated
+	 */
+	void setRange(NumberRange value);
 } // NumberAnswer

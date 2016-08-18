@@ -72,8 +72,16 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 				return createQuizAdapter();
 			}
 			@Override
+			public Adapter caseQuizProposals(QuizProposals object) {
+				return createQuizProposalsAdapter();
+			}
+			@Override
 			public Adapter caseAbstractQuizPart(AbstractQuizPart object) {
 				return createAbstractQuizPartAdapter();
+			}
+			@Override
+			public Adapter caseQuizPartProposals(QuizPartProposals object) {
+				return createQuizPartProposalsAdapter();
 			}
 			@Override
 			public Adapter caseQuizPartRef(QuizPartRef object) {
@@ -104,12 +112,28 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 				return createStringQuestionAdapter();
 			}
 			@Override
+			public Adapter caseStyledStringQuestion(StyledStringQuestion object) {
+				return createStyledStringQuestionAdapter();
+			}
+			@Override
+			public Adapter caseStyledString(StyledString object) {
+				return createStyledStringAdapter();
+			}
+			@Override
+			public Adapter caseCharStyle(CharStyle object) {
+				return createCharStyleAdapter();
+			}
+			@Override
 			public Adapter caseXmlQuestion(XmlQuestion object) {
 				return createXmlQuestionAdapter();
 			}
 			@Override
 			public Adapter caseAnswer(Answer object) {
 				return createAnswerAdapter();
+			}
+			@Override
+			public <A extends Answer> Adapter caseProposal(Proposal<A> object) {
+				return createProposalAdapter();
 			}
 			@Override
 			public Adapter caseOptionAnswer(OptionAnswer object) {
@@ -120,12 +144,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 				return createSimpleAnswerAdapter();
 			}
 			@Override
+			public <A extends SimpleAnswer<?>> Adapter caseSimpleProposal(SimpleProposal<A> object) {
+				return createSimpleProposalAdapter();
+			}
+			@Override
 			public Adapter caseStringAnswer(StringAnswer object) {
 				return createStringAnswerAdapter();
 			}
 			@Override
 			public Adapter caseNumberAnswer(NumberAnswer object) {
 				return createNumberAnswerAdapter();
+			}
+			@Override
+			public Adapter caseNumberRange(NumberRange object) {
+				return createNumberRangeAdapter();
 			}
 			@Override
 			public Adapter caseBooleanAnswer(BooleanAnswer object) {
@@ -138,6 +170,10 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOptionsAnswer(OptionsAnswer object) {
 				return createOptionsAnswerAdapter();
+			}
+			@Override
+			public Adapter caseOptionsProposal(OptionsProposal object) {
+				return createOptionsProposalAdapter();
 			}
 			@Override
 			public Adapter caseOption(Option object) {
@@ -180,6 +216,14 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 				return createXmlAttributeAdapter();
 			}
 			@Override
+			public Adapter caseTaskAnswer(TaskAnswer object) {
+				return createTaskAnswerAdapter();
+			}
+			@Override
+			public <T extends TaskAnswer> Adapter caseTaskProposal(TaskProposal<T> object) {
+				return createTaskProposalAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -214,6 +258,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.QuizProposals <em>Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.QuizProposals
+	 * @generated
+	 */
+	public Adapter createQuizProposalsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.quiz.AbstractQuizPart <em>Abstract Quiz Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -224,6 +282,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractQuizPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.QuizPartProposals <em>Part Proposals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.QuizPartProposals
+	 * @generated
+	 */
+	public Adapter createQuizPartProposalsAdapter() {
 		return null;
 	}
 
@@ -326,6 +398,48 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.StyledStringQuestion <em>Styled String Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.StyledStringQuestion
+	 * @generated
+	 */
+	public Adapter createStyledStringQuestionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.StyledString <em>Styled String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.StyledString
+	 * @generated
+	 */
+	public Adapter createStyledStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.CharStyle <em>Char Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.CharStyle
+	 * @generated
+	 */
+	public Adapter createCharStyleAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.quiz.XmlQuestion <em>Xml Question</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -350,6 +464,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.Proposal <em>Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.Proposal
+	 * @generated
+	 */
+	public Adapter createProposalAdapter() {
 		return null;
 	}
 
@@ -382,6 +510,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.SimpleProposal <em>Simple Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.SimpleProposal
+	 * @generated
+	 */
+	public Adapter createSimpleProposalAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.quiz.StringAnswer <em>String Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -406,6 +548,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNumberAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.NumberRange <em>Number Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.NumberRange
+	 * @generated
+	 */
+	public Adapter createNumberRangeAdapter() {
 		return null;
 	}
 
@@ -448,6 +604,20 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOptionsAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.OptionsProposal <em>Options Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.OptionsProposal
+	 * @generated
+	 */
+	public Adapter createOptionsProposalAdapter() {
 		return null;
 	}
 
@@ -588,6 +758,34 @@ public class QuizAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXmlAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.TaskAnswer <em>Task Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.TaskAnswer
+	 * @generated
+	 */
+	public Adapter createTaskAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.quiz.TaskProposal <em>Task Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.quiz.TaskProposal
+	 * @generated
+	 */
+	public Adapter createTaskProposalAdapter() {
 		return null;
 	}
 

@@ -4,6 +4,8 @@ package no.hal.quiz.tests;
 
 import java.util.Arrays;
 
+import org.junit.Assert;
+
 import junit.textui.TestRunner;
 import no.hal.quiz.Option;
 import no.hal.quiz.OptionsAnswer;
@@ -72,6 +74,19 @@ public class OptionsAnswerTest extends AnswerTest {
 
 	//
 
+	@Override
+	public void testValidate__Object() {
+		OptionsAnswer optionsAnswer = getFixture();
+		optionsAnswer.getOptions().addAll(Arrays.asList(
+				createOption(QuizFactory.eINSTANCE.createStringAnswer(), "Hallvard", true),
+				createOption(QuizFactory.eINSTANCE.createNumberAnswer(), 2.0d, false)
+				));
+		Assert.assertNull(optionsAnswer.validate(new int[]{0, 1}));
+		Assert.assertNotNull(optionsAnswer.validate(new int[]{-1, 1}));
+		Assert.assertNotNull(optionsAnswer.validate(new int[]{1, 3}));
+		Assert.assertNotNull(optionsAnswer.validate(new int[]{1, 1}));
+	}
+	
 	@Override
 	public void testAccept__Object() {
 		OptionsAnswer optionsAnswer = getFixture();

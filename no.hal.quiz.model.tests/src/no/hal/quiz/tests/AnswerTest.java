@@ -13,6 +13,8 @@ import no.hal.quiz.Answer;
  * The following operations are tested:
  * <ul>
  *   <li>{@link no.hal.quiz.Answer#accept(java.lang.Object) <em>Accept</em>}</li>
+ *   <li>{@link no.hal.quiz.Answer#validate(java.lang.Object) <em>Validate</em>}</li>
+ *   <li>{@link no.hal.quiz.Answer#createProposal() <em>Create Proposal</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -68,6 +70,41 @@ public abstract class AnswerTest extends TestCase {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.quiz.Answer#validate(java.lang.Object) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.Answer#validate(java.lang.Object)
+	 * @generated
+	 */
+	public void testValidate__Object() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link no.hal.quiz.Answer#createProposal() <em>Create Proposal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.quiz.Answer#createProposal()
+	 * @generated
+	 */
+	public void testCreateProposal() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	//
+	
+	static void assertTrue(double value) {
+		assertEquals(1.0, value);
+	}
+	static void assertFalse(double value) {
+		assertEquals(0.0, value);
 	}
 
 } //AnswerTest

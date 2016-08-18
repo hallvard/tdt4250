@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 
@@ -41,8 +42,8 @@ import no.hal.pg.model.ModelPackage;
 import no.hal.pg.runtime.Game;
 import no.hal.pg.runtime.RuntimePackage;
 import no.hal.pg.runtime.Service;
-import no.hal.pg.runtime.engine.GameRunner;
 import no.hal.pg.runtime.engine.IEngine;
+import no.hal.pg.runtime.engine.IGameRunner;
 import no.hal.pg.runtime.engine.IServiceProvider;
 import no.hal.pg.runtime.provider.PgruntimeEditPlugin;
 
@@ -75,22 +76,45 @@ public class RuntimeView extends AbstractSelectionView {
 		engines.add(engine);
 	}
 
-	private GameRunner gameRunner = new GameRunner();
+	private IGameRunner getGameRunner() {
+		BundleContext bundleContext = FrameworkUtil.getBundle(getClass()).getBundleContext();
+		try {
+			Collection<ServiceReference<IGameRunner>> serviceReferences = bundleContext.getServiceReferences(IGameRunner.class, null);
+			if (serviceReferences != null && serviceReferences.size() > 0) {
+				return bundleContext.getService(serviceReferences.iterator().next());
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return null;
+	}
 	
 	public void runGame(GameDef gameDef) {
-		IEngine engine = gameRunner.runGame(gameDef);
+		Exception ex = null;
+		IEngine engine = null;
+		try {
+			engine = getGameRunner().runGame(gameDef, null);
+		} catch (Exception e) {
+			ex = e;
+		}
 		if (engine != null) {
 			addEngine(engine);
 			updateView();
-		} else {
-			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", "Couldn't create Engine");
+		}
+		if (engine == null) {
+			String message = "Couldn't create Engine";
+			if (ex != null) {
+				message += ": " + ex;
+			}
+			MessageDialog.openError(engineLabel.getShell(), "Engine creation error", message);
 		}
 	}
 
 	public void resumeGame(Game game) {
-		IEngine engine = getEngine(game);
-		if (engine == null) {
-			engine = gameRunner.resumeGame(game);
+		IEngine engine = null;
+		IGameRunner gameRunner = getGameRunner();
+		if (gameRunner != null) {
+			engine = gameRunner.resumeGame(game, null);
 		}
 		if (engine != null) {
 			updateView();

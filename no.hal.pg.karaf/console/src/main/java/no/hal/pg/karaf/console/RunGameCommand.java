@@ -3,10 +3,9 @@ package no.hal.pg.karaf.console;
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;
 import org.apache.karaf.shell.api.action.Command;
+import org.apache.karaf.shell.api.action.lifecycle.Reference;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
-import org.eclipse.emf.common.util.URI;
 
-import no.hal.pg.model.GameDef;
 import no.hal.pg.runtime.engine.GameRunner;
 
 @Command(scope="pg", name="run-game", description="Run game")
@@ -23,6 +22,8 @@ public class RunGameCommand implements Action {
 		multiValued=false
 	)
     String uri = null;
+	
+	@Reference(optional=false)
 	private GameRunner gameRunner;
 	
 	@Override
@@ -31,8 +32,7 @@ public class RunGameCommand implements Action {
 			gameRunner = new GameRunner();
 		}
 		try {
-			GameDef game = gameRunner.loadGame(URI.createURI(uri));
-			gameRunner.runGame(game);
+			gameRunner.run(uri, null);
 		} catch (Exception e) {
 			System.err.println("Exception when running run-game: " + e);
 			e.printStackTrace(System.err);

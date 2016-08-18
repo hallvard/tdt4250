@@ -2,12 +2,12 @@
  */
 package no.hal.quiz.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.quiz.BooleanAnswer;
 import no.hal.quiz.QuizPackage;
-import org.eclipse.emf.common.notify.Notification;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +66,7 @@ public class BooleanAnswerImpl extends SimpleAnswerImpl<Boolean> implements Bool
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getValue() {
 		return value;
 	}
@@ -75,6 +76,7 @@ public class BooleanAnswerImpl extends SimpleAnswerImpl<Boolean> implements Bool
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(Boolean newValue) {
 		Boolean oldValue = value;
 		value = newValue;
@@ -157,11 +159,21 @@ public class BooleanAnswerImpl extends SimpleAnswerImpl<Boolean> implements Bool
 	}
 
 	//
+	
+	@Override
+	public String validate(Object proposal) {
+		try {
+			Boolean.valueOf(String.valueOf(proposal));
+			return null;
+		} catch (IllegalArgumentException e) {
+			return "The value is not a valid Boolean, either true or false";
+		}
+	}
 
 	@Override
-	public Boolean accept(Object proposal) {
+	public Double accept(Object proposal) {
 		String s = proposal.toString();
-		return s.equalsIgnoreCase(Boolean.valueOf(Boolean.TRUE.equals(getValue())).toString());
+		return accept(s.equalsIgnoreCase(Boolean.valueOf(Boolean.TRUE.equals(getValue())).toString()));
 	}
 
 } //BooleanAnswerImpl

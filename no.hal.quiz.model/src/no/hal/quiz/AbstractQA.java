@@ -15,4 +15,20 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface AbstractQA extends EObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Answer getA();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Question getQ();
 } // AbstractQA

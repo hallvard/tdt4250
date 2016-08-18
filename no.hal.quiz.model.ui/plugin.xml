@@ -19,6 +19,21 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            class="no.hal.quiz.views.adapters.QuizViewerAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectViewerAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+            class="no.hal.quiz.views.adapters.QuizUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated quiz -->
       <category
@@ -45,6 +60,43 @@
             class="no.hal.quiz.presentation.QuizEditor"
             contributorClass="no.hal.quiz.presentation.QuizActionBarContributor">
       </editor>
+   </extension>
+  
+   <extension point="org.eclipse.ui.views">
+	     <view id="no.hal.quiz.views.QuizView"
+	     	name="Quiz view"
+	     	allowMultiple="false"
+	     	class="no.hal.quiz.views.QuizView">
+	     </view>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+		<command id="no.hal.quiz.ui.commands.OpenQuizView"
+            name="Open Quiz View">
+    	</command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.quiz.views.OpenQuizViewCommandHandler"
+            commandId="no.hal.quiz.ui.commands.OpenQuizView">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+   </extension>
+
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu id="no.hal.quiz.ui.commands" label="Quiz">
+	        <command id="no.hal.quiz.ui.commands.OpenQuizView" commandId="no.hal.quiz.ui.commands.OpenQuizView"/>
+         </menu>
+      </menuContribution>
    </extension>
 
 </plugin>

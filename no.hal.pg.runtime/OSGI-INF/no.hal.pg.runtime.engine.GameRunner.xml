@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.hal.pg.runtime.engine.GameRunner"
+	immediate="true">
+   <implementation class="no.hal.pg.runtime.engine.GameRunner"/>
+   <service>
+      <provide interface="no.hal.pg.runtime.engine.IGameRunner"/>
+      <provide interface="org.osgi.service.cm.ManagedServiceFactory"/>
+   </service>
+   <reference policy="dynamic" bind="setLogger" cardinality="0..1" interface="org.osgi.service.log.LogService" name="LogService" unbind="unsetLogger"/>
+	<property name="service.pid" type="String" value="no.hal.pg.runtime.engine.GameRunner"/>
+   <property name="osgi.command.scope" type="String" value="pg"/>
+   <property name="osgi.command.function" type="String">
+   	run
+   </property>
+</scr:component>

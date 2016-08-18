@@ -2,6 +2,8 @@
  */
 package no.hal.quiz.tests;
 
+import org.junit.Assert;
+
 import junit.textui.TestRunner;
 import no.hal.quiz.BooleanAnswer;
 import no.hal.quiz.QuizFactory;
@@ -67,6 +69,13 @@ public class BooleanAnswerTest extends SimpleAnswerTest {
 	}
 	
 	//
+
+	@Override
+	public void testValidate__Object() {
+		BooleanAnswer booleanAnswer = getFixture();
+		Assert.assertNull(booleanAnswer.validate("true"));
+		Assert.assertNull(booleanAnswer.validate("false"));
+	}
 	
 	@Override
 	public void testAccept__Object() {

@@ -3,11 +3,15 @@
 package no.hal.quiz.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import no.hal.quiz.AbstractQA;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.QuizPart;
+import no.hal.quiz.QuizPartProposals;
 import no.hal.quiz.QuizPartRef;
 
 /**
@@ -58,6 +62,7 @@ public class QuizPartRefImpl extends AbstractQuizPartImpl implements QuizPartRef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QuizPart getPartRef() {
 		if (partRef != null && partRef.eIsProxy()) {
 			InternalEObject oldPartRef = (InternalEObject)partRef;
@@ -84,6 +89,7 @@ public class QuizPartRefImpl extends AbstractQuizPartImpl implements QuizPartRef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPartRef(QuizPart newPartRef) {
 		QuizPart oldPartRef = partRef;
 		partRef = newPartRef;
@@ -149,5 +155,24 @@ public class QuizPartRefImpl extends AbstractQuizPartImpl implements QuizPartRef
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	//
+	
+	@Override
+	public EList<AbstractQA> getQuestions() {
+		return getPartRef().getQuestions();
+	}
 
+	@Override
+	public String getTitle() {
+		return getPartRef().getTitle();
+	}
+	
+	//
+	
+	@Override
+	public QuizPartProposals createProposals() {
+		return getPartRef().createProposals();
+	}
+	
 } //QuizPartRefImpl

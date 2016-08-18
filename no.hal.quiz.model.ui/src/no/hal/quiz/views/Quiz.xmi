@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz:Quiz xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:quiz="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+    xsi:schemaLocation="platform:/plugin/no.hal.quiz.model/model/quiz.ecore quiz.ecore">
+  <parts xsi:type="quiz:QuizPart"
+      name=""
+      title="Part 1">
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="What is the capitol of Norway?"/>
+      <a xsi:type="quiz:StringAnswer"
+          value="Oslo"/>
+    </questions>
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="Is Norway the capitol of Sweden?"/>
+      <a xsi:type="quiz:BooleanAnswer"
+          value="false"/>
+    </questions>
+  </parts>
+  <parts xsi:type="quiz:QuizPart"
+      title="Part 2">
+    <questions
+        xsi:type="quiz:QA"
+        name="">
+      <q xsi:type="quiz:StringQuestion"
+          question="What is two plus two?"/>
+      <a xsi:type="quiz:NumberAnswer"
+          value="4.0"/>
+    </questions>
+    <questions
+        xsi:type="quiz:QA"
+        name="">
+      <q xsi:type="quiz:StringQuestion"
+          question="What is two times two?"/>
+      <a xsi:type="quiz:SingleOptionsAnswer">
+        <options
+            correct="true">
+          <option
+              xsi:type="quiz:NumberAnswer"
+              value="4.0"/>
+        </options>
+        <options>
+          <option
+              xsi:type="quiz:StringAnswer"
+              value="five"/>
+        </options>
+        <options>
+          <option
+              xsi:type="quiz:NumberAnswer"
+              value="6.0"/>
+        </options>
+      </a>
+    </questions>
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="For which values of x is x^2 - 3x + 2 equal to 0?"/>
+      <a xsi:type="quiz:ManyOptionsAnswer">
+        <options>
+          <option
+              xsi:type="quiz:StringAnswer"
+              value="zero"/>
+        </options>
+        <options
+            correct="true">
+          <option
+              xsi:type="quiz:NumberAnswer"
+              value="1.0"/>
+        </options>
+        <options
+            correct="true">
+          <option
+              xsi:type="quiz:StringAnswer"
+              value="two"/>
+        </options>
+        <options>
+          <option
+              xsi:type="quiz:NumberAnswer"
+              value="3.0"/>
+        </options>
+      </a>
+    </questions>
+  </parts>
+  <parts xsi:type="quiz:QuizPart"
+      name=""
+      title="Part 3">
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="Completion"/>
+      <a xsi:type="quiz:TaskAnswer"/>
+    </questions>
+  </parts>
+</quiz:Quiz>

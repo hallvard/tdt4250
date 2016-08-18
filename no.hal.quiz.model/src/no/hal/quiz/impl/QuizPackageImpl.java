@@ -6,22 +6,33 @@ import no.hal.quiz.AbstractQA;
 import no.hal.quiz.AbstractQuizPart;
 import no.hal.quiz.Answer;
 import no.hal.quiz.BooleanAnswer;
+import no.hal.quiz.CharStyle;
 import no.hal.quiz.ManyOptionsAnswer;
 import no.hal.quiz.NumberAnswer;
+import no.hal.quiz.NumberRange;
 import no.hal.quiz.Option;
 import no.hal.quiz.OptionAnswer;
 import no.hal.quiz.OptionsAnswer;
+import no.hal.quiz.OptionsProposal;
+import no.hal.quiz.Proposal;
 import no.hal.quiz.QARef;
 import no.hal.quiz.Question;
 import no.hal.quiz.Quiz;
 import no.hal.quiz.QuizFactory;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.QuizPart;
+import no.hal.quiz.QuizPartProposals;
 import no.hal.quiz.QuizPartRef;
+import no.hal.quiz.QuizProposals;
 import no.hal.quiz.SimpleAnswer;
+import no.hal.quiz.SimpleProposal;
 import no.hal.quiz.SingleOptionsAnswer;
 import no.hal.quiz.StringAnswer;
 import no.hal.quiz.StringQuestion;
+import no.hal.quiz.StyledString;
+import no.hal.quiz.StyledStringQuestion;
+import no.hal.quiz.TaskAnswer;
+import no.hal.quiz.TaskProposal;
 import no.hal.quiz.Xml;
 import no.hal.quiz.XmlAnswer;
 import no.hal.quiz.XmlAttribute;
@@ -36,6 +47,7 @@ import no.hal.quiz.util.QuizValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -64,7 +76,21 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass quizProposalsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass abstractQuizPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass quizPartProposalsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,6 +146,27 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass styledStringQuestionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styledStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass charStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass xmlQuestionEClass = null;
 
 	/**
@@ -128,6 +175,13 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * @generated
 	 */
 	private EClass answerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proposalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +202,13 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass simpleProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass stringAnswerEClass = null;
 
 	/**
@@ -156,6 +217,13 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * @generated
 	 */
 	private EClass numberAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberRangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,6 +245,13 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * @generated
 	 */
 	private EClass optionsAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass optionsProposalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +322,27 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * @generated
 	 */
 	private EClass xmlAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType rgbEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -359,8 +455,107 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getQuiz__CreateProposals() {
+		return quizEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQuizProposals() {
+		return quizProposalsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuizProposals_Quiz() {
+		return (EReference)quizProposalsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuizProposals_Proposals() {
+		return (EReference)quizProposalsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuizProposals_AllProposals() {
+		return (EReference)quizProposalsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbstractQuizPart() {
 		return abstractQuizPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractQuizPart__GetQuestions() {
+		return abstractQuizPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractQuizPart__GetTitle() {
+		return abstractQuizPartEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractQuizPart__CreateProposals() {
+		return abstractQuizPartEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQuizPartProposals() {
+		return quizPartProposalsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuizPartProposals_Proposals() {
+		return (EReference)quizPartProposalsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuizPartProposals_QuizPart() {
+		return (EReference)quizPartProposalsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -424,6 +619,24 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 */
 	public EClass getAbstractQA() {
 		return abstractQAEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractQA__GetA() {
+		return abstractQAEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractQA__GetQ() {
+		return abstractQAEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -512,6 +725,141 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStyledStringQuestion() {
+		return styledStringQuestionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStyledStringQuestion_StyledStrings() {
+		return (EReference)styledStringQuestionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStyledString() {
+		return styledStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStyledString_CharStyle() {
+		return (EReference)styledStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStyledString_EffectiveCharStyle() {
+		return (EReference)styledStringEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyledString_Prefix() {
+		return (EAttribute)styledStringEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStyledString_StyledString() {
+		return (EReference)styledStringEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStyledString_Suffix() {
+		return (EAttribute)styledStringEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCharStyle() {
+		return charStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Italic() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Bold() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Size() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Family() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Foreground() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharStyle_Background() {
+		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getXmlQuestion() {
 		return xmlQuestionEClass;
 	}
@@ -548,6 +896,78 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAnswer__Validate__Object() {
+		return answerEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnswer__CreateProposal() {
+		return answerEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProposal() {
+		return proposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProposal_Question() {
+		return (EReference)proposalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProposal_Answer() {
+		return (EReference)proposalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProposal__GetProposal() {
+		return proposalEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProposal__Accept() {
+		return proposalEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProposal__Validate() {
+		return proposalEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOptionAnswer() {
 		return optionAnswerEClass;
 	}
@@ -575,6 +995,24 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSimpleProposal() {
+		return simpleProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimpleProposal_Proposal() {
+		return (EAttribute)simpleProposalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStringAnswer() {
 		return stringAnswerEClass;
 	}
@@ -593,7 +1031,7 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringAnswer_Regexp() {
+	public EAttribute getStringAnswer_Format() {
 		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -602,8 +1040,17 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringAnswer_IgnoreCase() {
+	public EAttribute getStringAnswer_Regexp() {
 		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringAnswer_IgnoreCase() {
+		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -631,6 +1078,51 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 */
 	public EAttribute getNumberAnswer_ErrorMargin() {
 		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNumberAnswer_Range() {
+		return (EReference)numberAnswerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumberRange() {
+		return numberRangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberRange_Min() {
+		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberRange_Max() {
+		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberRange_Step() {
+		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -685,6 +1177,24 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 */
 	public EReference getOptionsAnswer_Options() {
 		return (EReference)optionsAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOptionsProposal() {
+		return optionsProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOptionsProposal_Indices() {
+		return (EAttribute)optionsProposalEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -908,6 +1418,78 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTaskAnswer() {
+		return taskAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskAnswer_RequiredCount() {
+		return (EAttribute)taskAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskProposal() {
+		return taskProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskProposal_Completion() {
+		return (EAttribute)taskProposalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskProposal_Proof() {
+		return (EAttribute)taskProposalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskProposal_AttemptCount() {
+		return (EAttribute)taskProposalEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskProposal_PerformedCount() {
+		return (EAttribute)taskProposalEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getRGB() {
+		return rgbEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QuizFactory getQuizFactory() {
 		return (QuizFactory)getEFactoryInstance();
 	}
@@ -935,8 +1517,21 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		createEAttribute(quizEClass, QUIZ__NAME);
 		createEAttribute(quizEClass, QUIZ__TITLE);
 		createEReference(quizEClass, QUIZ__PARTS);
+		createEOperation(quizEClass, QUIZ___CREATE_PROPOSALS);
+
+		quizProposalsEClass = createEClass(QUIZ_PROPOSALS);
+		createEReference(quizProposalsEClass, QUIZ_PROPOSALS__QUIZ);
+		createEReference(quizProposalsEClass, QUIZ_PROPOSALS__PROPOSALS);
+		createEReference(quizProposalsEClass, QUIZ_PROPOSALS__ALL_PROPOSALS);
 
 		abstractQuizPartEClass = createEClass(ABSTRACT_QUIZ_PART);
+		createEOperation(abstractQuizPartEClass, ABSTRACT_QUIZ_PART___GET_QUESTIONS);
+		createEOperation(abstractQuizPartEClass, ABSTRACT_QUIZ_PART___GET_TITLE);
+		createEOperation(abstractQuizPartEClass, ABSTRACT_QUIZ_PART___CREATE_PROPOSALS);
+
+		quizPartProposalsEClass = createEClass(QUIZ_PART_PROPOSALS);
+		createEReference(quizPartProposalsEClass, QUIZ_PART_PROPOSALS__PROPOSALS);
+		createEReference(quizPartProposalsEClass, QUIZ_PART_PROPOSALS__QUIZ_PART);
 
 		quizPartRefEClass = createEClass(QUIZ_PART_REF);
 		createEReference(quizPartRefEClass, QUIZ_PART_REF__PART_REF);
@@ -947,6 +1542,8 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		createEReference(quizPartEClass, QUIZ_PART__QUESTIONS);
 
 		abstractQAEClass = createEClass(ABSTRACT_QA);
+		createEOperation(abstractQAEClass, ABSTRACT_QA___GET_A);
+		createEOperation(abstractQAEClass, ABSTRACT_QA___GET_Q);
 
 		qaRefEClass = createEClass(QA_REF);
 		createEReference(qaRefEClass, QA_REF__QA_REF);
@@ -961,25 +1558,62 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		stringQuestionEClass = createEClass(STRING_QUESTION);
 		createEAttribute(stringQuestionEClass, STRING_QUESTION__QUESTION);
 
+		styledStringQuestionEClass = createEClass(STYLED_STRING_QUESTION);
+		createEReference(styledStringQuestionEClass, STYLED_STRING_QUESTION__STYLED_STRINGS);
+
+		styledStringEClass = createEClass(STYLED_STRING);
+		createEReference(styledStringEClass, STYLED_STRING__CHAR_STYLE);
+		createEReference(styledStringEClass, STYLED_STRING__EFFECTIVE_CHAR_STYLE);
+		createEAttribute(styledStringEClass, STYLED_STRING__PREFIX);
+		createEReference(styledStringEClass, STYLED_STRING__STYLED_STRING);
+		createEAttribute(styledStringEClass, STYLED_STRING__SUFFIX);
+
+		charStyleEClass = createEClass(CHAR_STYLE);
+		createEAttribute(charStyleEClass, CHAR_STYLE__ITALIC);
+		createEAttribute(charStyleEClass, CHAR_STYLE__BOLD);
+		createEAttribute(charStyleEClass, CHAR_STYLE__SIZE);
+		createEAttribute(charStyleEClass, CHAR_STYLE__FAMILY);
+		createEAttribute(charStyleEClass, CHAR_STYLE__FOREGROUND);
+		createEAttribute(charStyleEClass, CHAR_STYLE__BACKGROUND);
+
 		xmlQuestionEClass = createEClass(XML_QUESTION);
 		createEReference(xmlQuestionEClass, XML_QUESTION__XML);
 
 		answerEClass = createEClass(ANSWER);
 		createEOperation(answerEClass, ANSWER___ACCEPT__OBJECT);
+		createEOperation(answerEClass, ANSWER___VALIDATE__OBJECT);
+		createEOperation(answerEClass, ANSWER___CREATE_PROPOSAL);
+
+		proposalEClass = createEClass(PROPOSAL);
+		createEReference(proposalEClass, PROPOSAL__QUESTION);
+		createEReference(proposalEClass, PROPOSAL__ANSWER);
+		createEOperation(proposalEClass, PROPOSAL___GET_PROPOSAL);
+		createEOperation(proposalEClass, PROPOSAL___ACCEPT);
+		createEOperation(proposalEClass, PROPOSAL___VALIDATE);
 
 		optionAnswerEClass = createEClass(OPTION_ANSWER);
 
 		simpleAnswerEClass = createEClass(SIMPLE_ANSWER);
 		createEOperation(simpleAnswerEClass, SIMPLE_ANSWER___GET_VALUE);
 
+		simpleProposalEClass = createEClass(SIMPLE_PROPOSAL);
+		createEAttribute(simpleProposalEClass, SIMPLE_PROPOSAL__PROPOSAL);
+
 		stringAnswerEClass = createEClass(STRING_ANSWER);
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__VALUE);
+		createEAttribute(stringAnswerEClass, STRING_ANSWER__FORMAT);
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__REGEXP);
 		createEAttribute(stringAnswerEClass, STRING_ANSWER__IGNORE_CASE);
 
 		numberAnswerEClass = createEClass(NUMBER_ANSWER);
 		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__VALUE);
 		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__ERROR_MARGIN);
+		createEReference(numberAnswerEClass, NUMBER_ANSWER__RANGE);
+
+		numberRangeEClass = createEClass(NUMBER_RANGE);
+		createEAttribute(numberRangeEClass, NUMBER_RANGE__MIN);
+		createEAttribute(numberRangeEClass, NUMBER_RANGE__MAX);
+		createEAttribute(numberRangeEClass, NUMBER_RANGE__STEP);
 
 		booleanAnswerEClass = createEClass(BOOLEAN_ANSWER);
 		createEAttribute(booleanAnswerEClass, BOOLEAN_ANSWER__VALUE);
@@ -989,6 +1623,9 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 
 		optionsAnswerEClass = createEClass(OPTIONS_ANSWER);
 		createEReference(optionsAnswerEClass, OPTIONS_ANSWER__OPTIONS);
+
+		optionsProposalEClass = createEClass(OPTIONS_PROPOSAL);
+		createEAttribute(optionsProposalEClass, OPTIONS_PROPOSAL__INDICES);
 
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__CORRECT);
@@ -1023,6 +1660,18 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		xmlAttributeEClass = createEClass(XML_ATTRIBUTE);
 		createEAttribute(xmlAttributeEClass, XML_ATTRIBUTE__NAME);
 		createEAttribute(xmlAttributeEClass, XML_ATTRIBUTE__VALUE);
+
+		taskAnswerEClass = createEClass(TASK_ANSWER);
+		createEAttribute(taskAnswerEClass, TASK_ANSWER__REQUIRED_COUNT);
+
+		taskProposalEClass = createEClass(TASK_PROPOSAL);
+		createEAttribute(taskProposalEClass, TASK_PROPOSAL__COMPLETION);
+		createEAttribute(taskProposalEClass, TASK_PROPOSAL__PROOF);
+		createEAttribute(taskProposalEClass, TASK_PROPOSAL__ATTEMPT_COUNT);
+		createEAttribute(taskProposalEClass, TASK_PROPOSAL__PERFORMED_COUNT);
+
+		// Create data types
+		rgbEDataType = createEDataType(RGB);
 	}
 
 	/**
@@ -1049,9 +1698,20 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		ETypeParameter proposalEClass_A = addETypeParameter(proposalEClass, "A");
 		ETypeParameter simpleAnswerEClass_T = addETypeParameter(simpleAnswerEClass, "T");
+		ETypeParameter simpleProposalEClass_A = addETypeParameter(simpleProposalEClass, "A");
+		ETypeParameter taskProposalEClass_T = addETypeParameter(taskProposalEClass, "T");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getAnswer());
+		proposalEClass_A.getEBounds().add(g1);
+		g1 = createEGenericType(this.getSimpleAnswer());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		simpleProposalEClass_A.getEBounds().add(g1);
+		g1 = createEGenericType(this.getTaskAnswer());
+		taskProposalEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		quizPartRefEClass.getESuperTypes().add(this.getAbstractQuizPart());
@@ -1059,11 +1719,16 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		qaRefEClass.getESuperTypes().add(this.getAbstractQA());
 		qaEClass.getESuperTypes().add(this.getAbstractQA());
 		stringQuestionEClass.getESuperTypes().add(this.getQuestion());
+		styledStringQuestionEClass.getESuperTypes().add(this.getQuestion());
 		xmlQuestionEClass.getESuperTypes().add(this.getQuestion());
 		optionAnswerEClass.getESuperTypes().add(this.getAnswer());
 		simpleAnswerEClass.getESuperTypes().add(this.getOptionAnswer());
-		EGenericType g1 = createEGenericType(this.getSimpleAnswer());
-		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType(simpleProposalEClass_A);
+		g1.getETypeArguments().add(g2);
+		simpleProposalEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSimpleAnswer());
+		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		stringAnswerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSimpleAnswer());
@@ -1076,10 +1741,19 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		booleanAnswerEClass.getEGenericSuperTypes().add(g1);
 		xmlAnswerEClass.getESuperTypes().add(this.getOptionAnswer());
 		optionsAnswerEClass.getESuperTypes().add(this.getAnswer());
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType(this.getOptionsAnswer());
+		g1.getETypeArguments().add(g2);
+		optionsProposalEClass.getEGenericSuperTypes().add(g1);
 		singleOptionsAnswerEClass.getESuperTypes().add(this.getOptionsAnswer());
 		manyOptionsAnswerEClass.getESuperTypes().add(this.getOptionsAnswer());
 		xmlPIAnswerElementEClass.getESuperTypes().add(this.getXmlElement());
 		xmlTagElementEClass.getESuperTypes().add(this.getXmlElement());
+		taskAnswerEClass.getESuperTypes().add(this.getAnswer());
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType(taskProposalEClass_T);
+		g1.getETypeArguments().add(g2);
+		taskProposalEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(quizEClass, Quiz.class, "Quiz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1087,7 +1761,30 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		initEAttribute(getQuiz_Title(), ecorePackage.getEString(), "title", null, 0, 1, Quiz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuiz_Parts(), this.getAbstractQuizPart(), null, "parts", null, 0, -1, Quiz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getQuiz__CreateProposals(), this.getQuizProposals(), "createProposals", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(quizProposalsEClass, QuizProposals.class, "QuizProposals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQuizProposals_Quiz(), this.getQuiz(), null, "quiz", null, 0, 1, QuizProposals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuizProposals_Proposals(), this.getQuizPartProposals(), null, "proposals", null, 0, -1, QuizProposals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getQuizProposals_AllProposals(), g1, null, "allProposals", null, 0, -1, QuizProposals.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
 		initEClass(abstractQuizPartEClass, AbstractQuizPart.class, "AbstractQuizPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getAbstractQuizPart__GetQuestions(), this.getAbstractQA(), "getQuestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAbstractQuizPart__GetTitle(), ecorePackage.getEString(), "getTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAbstractQuizPart__CreateProposals(), this.getQuizPartProposals(), "createProposals", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(quizPartProposalsEClass, QuizPartProposals.class, "QuizPartProposals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getQuizPartProposals_Proposals(), g1, null, "proposals", null, 0, -1, QuizPartProposals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuizPartProposals_QuizPart(), this.getQuizPart(), null, "quizPart", null, 0, 1, QuizPartProposals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(quizPartRefEClass, QuizPartRef.class, "QuizPartRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuizPartRef_PartRef(), this.getQuizPart(), null, "partRef", null, 0, 1, QuizPartRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1098,6 +1795,10 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		initEReference(getQuizPart_Questions(), this.getAbstractQA(), null, "questions", null, 0, -1, QuizPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractQAEClass, AbstractQA.class, "AbstractQA", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getAbstractQA__GetA(), this.getAnswer(), "getA", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAbstractQA__GetQ(), this.getQuestion(), "getQ", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qaRefEClass, QARef.class, "QARef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQARef_QaRef(), this.getQA(), null, "qaRef", null, 0, 1, QARef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1112,13 +1813,51 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		initEClass(stringQuestionEClass, StringQuestion.class, "StringQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringQuestion_Question(), ecorePackage.getEString(), "question", null, 0, 1, StringQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(styledStringQuestionEClass, StyledStringQuestion.class, "StyledStringQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStyledStringQuestion_StyledStrings(), this.getStyledString(), null, "styledStrings", null, 0, -1, StyledStringQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(styledStringEClass, StyledString.class, "StyledString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStyledString_CharStyle(), this.getCharStyle(), null, "charStyle", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStyledString_EffectiveCharStyle(), this.getCharStyle(), null, "effectiveCharStyle", null, 0, 1, StyledString.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyledString_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStyledString_StyledString(), this.getStyledString(), null, "styledString", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStyledString_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(charStyleEClass, CharStyle.class, "CharStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCharStyle_Italic(), ecorePackage.getEBooleanObject(), "italic", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharStyle_Bold(), ecorePackage.getEBooleanObject(), "bold", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharStyle_Size(), ecorePackage.getEFloat(), "size", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharStyle_Family(), ecorePackage.getEString(), "family", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharStyle_Foreground(), this.getRGB(), "foreground", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharStyle_Background(), this.getRGB(), "background", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(xmlQuestionEClass, XmlQuestion.class, "XmlQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlQuestion_Xml(), this.getXml(), null, "xml", null, 0, 1, XmlQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerEClass, Answer.class, "Answer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getAnswer__Accept__Object(), ecorePackage.getEBooleanObject(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getAnswer__Accept__Object(), ecorePackage.getEDoubleObject(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnswer__Validate__Object(), ecorePackage.getEString(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "proposal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnswer__CreateProposal(), null, "createProposal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getProposal());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		initEClass(proposalEClass, Proposal.class, "Proposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProposal_Question(), this.getQuestion(), null, "question", null, 0, 1, Proposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(proposalEClass_A);
+		initEReference(getProposal_Answer(), g1, null, "answer", null, 0, 1, Proposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getProposal__GetProposal(), ecorePackage.getEJavaObject(), "getProposal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getProposal__Accept(), ecorePackage.getEDoubleObject(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getProposal__Validate(), ecorePackage.getEString(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(optionAnswerEClass, OptionAnswer.class, "OptionAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1128,14 +1867,24 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		g1 = createEGenericType(simpleAnswerEClass_T);
 		initEOperation(op, g1);
 
+		initEClass(simpleProposalEClass, SimpleProposal.class, "SimpleProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSimpleProposal_Proposal(), ecorePackage.getEJavaObject(), "proposal", null, 0, 1, SimpleProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(stringAnswerEClass, StringAnswer.class, "StringAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringAnswer_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStringAnswer_Format(), ecorePackage.getEString(), "format", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringAnswer_Regexp(), ecorePackage.getEBoolean(), "regexp", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringAnswer_IgnoreCase(), ecorePackage.getEBoolean(), "ignoreCase", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberAnswerEClass, NumberAnswer.class, "NumberAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberAnswer_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNumberAnswer_ErrorMargin(), ecorePackage.getEDouble(), "errorMargin", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberAnswer_Range(), this.getNumberRange(), null, "range", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberRangeEClass, NumberRange.class, "NumberRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberRange_Min(), ecorePackage.getEDoubleObject(), "min", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumberRange_Max(), ecorePackage.getEDoubleObject(), "max", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumberRange_Step(), ecorePackage.getEDoubleObject(), "step", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanAnswerEClass, BooleanAnswer.class, "BooleanAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanAnswer_Value(), ecorePackage.getEBooleanObject(), "value", null, 0, 1, BooleanAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1145,6 +1894,9 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 
 		initEClass(optionsAnswerEClass, OptionsAnswer.class, "OptionsAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOptionsAnswer_Options(), this.getOption(), null, "options", null, 0, -1, OptionsAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(optionsProposalEClass, OptionsProposal.class, "OptionsProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOptionsProposal_Indices(), ecorePackage.getEInt(), "indices", null, 0, -1, OptionsProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOption_Correct(), ecorePackage.getEBoolean(), "correct", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1182,6 +1934,18 @@ public class QuizPackageImpl extends EPackageImpl implements QuizPackage {
 		initEClass(xmlAttributeEClass, XmlAttribute.class, "XmlAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, XmlAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskAnswerEClass, TaskAnswer.class, "TaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskAnswer_RequiredCount(), ecorePackage.getEInt(), "requiredCount", null, 0, 1, TaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskProposalEClass, TaskProposal.class, "TaskProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskProposal_Completion(), ecorePackage.getEDouble(), "completion", "-1", 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskProposal_Proof(), ecorePackage.getEString(), "proof", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskProposal_AttemptCount(), ecorePackage.getEInt(), "attemptCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskProposal_PerformedCount(), ecorePackage.getEInt(), "performedCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(rgbEDataType, no.hal.quiz.util.RGB.class, "RGB", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

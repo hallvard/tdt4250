@@ -45,11 +45,15 @@ class ParserTest {
  		return qa.a
  	}
 	
+	def assertTrue(double value) {
+		Assert.assertEquals(1.0, value, 0.0)
+	}
+	
 	def <T> SimpleAnswer<T> checkSimpleAnswer(Answer a, T value, T correct) {
 	   	Assert.assertTrue(a instanceof SimpleAnswer<?>)
 	   	val sa = a as SimpleAnswer<T>
 	   	Assert.assertEquals(value, (a as SimpleAnswer<T>).value)
-	   	Assert.assertTrue(sa.accept(correct ?: value))
+	   	assertTrue(sa.accept(correct ?: value))
 	   	sa
  	}
 
@@ -139,15 +143,15 @@ class ParserTest {
  		for (Option option : answer.options) {
  			val pair = answers.get(pos)
  			Assert.assertEquals(pair.value, option.correct)
-			Assert.assertTrue(option.option.accept(pair.key))
+			assertTrue(option.option.accept(pair.key))
 			if (option.correct) {
 				correctOptionNums.add(pos)
 				correctOptions.add(pair.key)
 			}
  			pos++
  		}
-		Assert.assertTrue(answer.accept(correctOptionNums))
-		Assert.assertTrue(answer.accept(correctOptions))
+		assertTrue(answer.accept(correctOptionNums))
+		assertTrue(answer.accept(correctOptions))
  		answer
  	}
 

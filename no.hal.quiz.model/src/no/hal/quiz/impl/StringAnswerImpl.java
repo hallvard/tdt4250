@@ -20,6 +20,7 @@ import no.hal.quiz.StringAnswer;
  * </p>
  * <ul>
  *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#isRegexp <em>Regexp</em>}</li>
  *   <li>{@link no.hal.quiz.impl.StringAnswerImpl#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
@@ -46,6 +47,26 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FORMAT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected String format = FORMAT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRegexp() <em>Regexp</em>}' attribute.
@@ -111,6 +132,7 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -133,6 +155,31 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getFormat() {
+		return format;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setFormat(String newFormat) {
+		String oldFormat = format;
+		format = newFormat;
+		invalidateFormatPattern();
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.STRING_ANSWER__FORMAT, oldFormat, format));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isRegexp() {
 		return regexp;
 	}
@@ -142,10 +189,11 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setRegexp(boolean newRegexp) {
 		boolean oldRegexp = regexp;
 		regexp = newRegexp;
-		invalidatePattern();
+		invalidateValuePattern();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.STRING_ANSWER__REGEXP, oldRegexp, regexp));
 	}
@@ -155,6 +203,7 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIgnoreCase() {
 		return ignoreCase;
 	}
@@ -164,10 +213,11 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setIgnoreCase(boolean newIgnoreCase) {
 		boolean oldIgnoreCase = ignoreCase;
 		ignoreCase = newIgnoreCase;
-		invalidatePattern();
+		invalidateValuePattern();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QuizPackage.STRING_ANSWER__IGNORE_CASE, oldIgnoreCase, ignoreCase));
 	}
@@ -182,6 +232,8 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 		switch (featureID) {
 			case QuizPackage.STRING_ANSWER__VALUE:
 				return getValue();
+			case QuizPackage.STRING_ANSWER__FORMAT:
+				return getFormat();
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				return isRegexp();
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
@@ -200,6 +252,9 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 		switch (featureID) {
 			case QuizPackage.STRING_ANSWER__VALUE:
 				setValue((String)newValue);
+				return;
+			case QuizPackage.STRING_ANSWER__FORMAT:
+				setFormat((String)newValue);
 				return;
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				setRegexp((Boolean)newValue);
@@ -222,6 +277,9 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 			case QuizPackage.STRING_ANSWER__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case QuizPackage.STRING_ANSWER__FORMAT:
+				setFormat(FORMAT_EDEFAULT);
+				return;
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				setRegexp(REGEXP_EDEFAULT);
 				return;
@@ -242,6 +300,8 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 		switch (featureID) {
 			case QuizPackage.STRING_ANSWER__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case QuizPackage.STRING_ANSWER__FORMAT:
+				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
 			case QuizPackage.STRING_ANSWER__REGEXP:
 				return regexp != REGEXP_EDEFAULT;
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
@@ -262,6 +322,8 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", format: ");
+		result.append(format);
 		result.append(", regexp: ");
 		result.append(regexp);
 		result.append(", ignoreCase: ");
@@ -272,24 +334,35 @@ public class StringAnswerImpl extends SimpleAnswerImpl<String> implements String
 	
 	//
 
-	private Pattern pattern = null; 
+	private Pattern valuePattern = null, formatPattern = null; 
 	
-	
-	private void invalidatePattern() {
-		pattern = null;
+	private void invalidateValuePattern() {
+		valuePattern = null;
+	}
+
+	private void invalidateFormatPattern() {
+		formatPattern = null;
 	}
 
 	@Override
-	public Boolean accept(Object proposal) {
+	public Double accept(Object proposal) {
 		String s = proposal.toString();
+		if (format != null) {
+			if (formatPattern == null) {
+				formatPattern = Pattern.compile(format);
+			}
+			if (! formatPattern.matcher(s).matches()) {
+				return null;
+			}
+		}
 		if (isRegexp()) {
 			String regex = getValue();
-			if (pattern == null) {
-				pattern = Pattern.compile(regex, isIgnoreCase() ? (Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE) : 0);
+			if (valuePattern == null) {
+				valuePattern = Pattern.compile(regex, isIgnoreCase() ? (Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE) : 0);
 			}
-			return pattern.matcher(s).matches();
+			return accept(valuePattern.matcher(s).matches());
 		} else if (isIgnoreCase()) {
-			return getValue().equalsIgnoreCase(s);
+			return accept(getValue().equalsIgnoreCase(s));
 		}
 		return super.accept(s);
 	}

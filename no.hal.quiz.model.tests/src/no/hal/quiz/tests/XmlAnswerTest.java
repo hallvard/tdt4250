@@ -54,29 +54,15 @@ public class XmlAnswerTest extends OptionAnswerTest {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(QuizFactory.eINSTANCE.createXmlAnswer());
+		setFixture(createXmlAnswer());
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
-	
-	//
-	
-	@Override
-	public void testAccept__Object() {
-		XmlAnswer xmlAnswer = getFixture();
+	private XmlAnswer createXmlAnswer() {
+		XmlAnswer xmlAnswer = QuizFactory.eINSTANCE.createXmlAnswer();
 		Xml xml = QuizFactory.eINSTANCE.createXml();
 		XmlTagElement xmlTag1 = QuizFactory.eINSTANCE.createXmlTagElement();
 
@@ -103,6 +89,31 @@ public class XmlAnswerTest extends OptionAnswerTest {
 
 		xml.setElement(xmlTag1);
 		xmlAnswer.setXml(xml);
+		
+		return xmlAnswer;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+	
+	//
+	
+	@Override
+	public void testValidate__Object() {
+		// TODO
+	}
+	
+	@Override
+	public void testAccept__Object() {
+		XmlAnswer xmlAnswer = getFixture();
 
 		assertTrue(xmlAnswer.accept("Hallvard"));
 		assertFalse(xmlAnswer.accept("hallvard"));

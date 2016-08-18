@@ -46,6 +46,7 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addFormatPropertyDescriptor(object);
 			addRegexpPropertyDescriptor(object);
 			addIgnoreCasePropertyDescriptor(object);
 		}
@@ -66,6 +67,28 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 				 getString("_UI_StringAnswer_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StringAnswer_value_feature", "_UI_StringAnswer_type"),
 				 QuizPackage.Literals.STRING_ANSWER__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Format feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StringAnswer_format_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringAnswer_format_feature", "_UI_StringAnswer_type"),
+				 QuizPackage.Literals.STRING_ANSWER__FORMAT,
 				 true,
 				 false,
 				 false,
@@ -157,6 +180,7 @@ public class StringAnswerItemProvider extends SimpleAnswerItemProvider {
 
 		switch (notification.getFeatureID(StringAnswer.class)) {
 			case QuizPackage.STRING_ANSWER__VALUE:
+			case QuizPackage.STRING_ANSWER__FORMAT:
 			case QuizPackage.STRING_ANSWER__REGEXP:
 			case QuizPackage.STRING_ANSWER__IGNORE_CASE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

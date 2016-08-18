@@ -2,6 +2,8 @@
  */
 package no.hal.quiz.tests;
 
+import org.junit.Assert;
+
 import junit.textui.TestRunner;
 import no.hal.quiz.NumberAnswer;
 import no.hal.quiz.QuizFactory;
@@ -67,6 +69,14 @@ public class NumberAnswerTest extends SimpleAnswerTest {
 	}
 	
 	//
+	
+	@Override
+	public void testValidate__Object() {
+		NumberAnswer numberAnswer = getFixture();
+		Assert.assertNull(numberAnswer.validate("1"));
+		Assert.assertNull(numberAnswer.validate("1.0"));
+		Assert.assertNotNull(numberAnswer.validate("true"));
+	}
 	
 	@Override
 	public void testAccept__Object() {

@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import no.hal.quiz.Option;
 import no.hal.quiz.OptionsAnswer;
+import no.hal.quiz.OptionsProposal;
+import no.hal.quiz.Proposal;
+import no.hal.quiz.QuizFactory;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.util.Util;
 
@@ -149,10 +152,16 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 	//
 	
 	@Override
-	public Boolean accept(Object proposal) {
+	public String validate(Object proposal) {
+		int[] optionNums = Util.proposalOptions(this, proposal);
+		return (optionNums != null ? null : "Illegal options format");
+	}
+
+	@Override
+	public Double accept(Object proposal) {
 		int[] optionNums = Util.proposalOptions(this, proposal);
 		if (optionNums == null) {
-			return false;
+			return accept(false);
 		}
 		int count = 0;
 		for (Option option : options) {
@@ -161,13 +170,21 @@ public class OptionsAnswerImpl extends AnswerImpl implements OptionsAnswer {
 			}
 		}
 		if (count != optionNums.length) {
-			return false;
+			return accept(false);
 		}
 		for (int i = 0; i < optionNums.length; i++) {
 			if (! getOptions().get(optionNums[i]).isCorrect()) {
-				return false;
+				return accept(false);
 			}
 		}
-		return true;
+		return accept(true);
 	}
+
+	@Override
+	public Proposal<?> createProposal() {
+		OptionsProposal proposal = QuizFactory.eINSTANCE.createOptionsProposal();
+		proposal.setAnswer(this);
+		return proposal;
+	}
+
 } //OptionsAnswerImpl

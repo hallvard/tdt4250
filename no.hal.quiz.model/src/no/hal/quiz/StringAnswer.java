@@ -13,6 +13,7 @@ package no.hal.quiz;
  * </p>
  * <ul>
  *   <li>{@link no.hal.quiz.StringAnswer#getValue <em>Value</em>}</li>
+ *   <li>{@link no.hal.quiz.StringAnswer#getFormat <em>Format</em>}</li>
  *   <li>{@link no.hal.quiz.StringAnswer#isRegexp <em>Regexp</em>}</li>
  *   <li>{@link no.hal.quiz.StringAnswer#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
@@ -47,6 +48,32 @@ public interface StringAnswer extends SimpleAnswer<String> {
 	 * @generated
 	 */
 	void setValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Format</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see #setFormat(String)
+	 * @see no.hal.quiz.QuizPackage#getStringAnswer_Format()
+	 * @model
+	 * @generated
+	 */
+	String getFormat();
+
+	/**
+	 * Sets the value of the '{@link no.hal.quiz.StringAnswer#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see #getFormat()
+	 * @generated
+	 */
+	void setFormat(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Regexp</b></em>' attribute.

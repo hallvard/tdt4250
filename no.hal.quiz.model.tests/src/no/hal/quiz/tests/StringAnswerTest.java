@@ -3,8 +3,8 @@
 package no.hal.quiz.tests;
 
 import junit.textui.TestRunner;
-import no.hal.quiz.StringAnswer;
 import no.hal.quiz.QuizFactory;
+import no.hal.quiz.StringAnswer;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,6 +67,10 @@ public class StringAnswerTest extends SimpleAnswerTest {
 	}
 	
 	//
+	
+	@Override
+	public void testValidate__Object() {
+	}
 	
 	@Override
 	public void testAccept__Object() {

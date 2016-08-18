@@ -3,10 +3,15 @@
 package no.hal.quiz.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+
+import no.hal.quiz.Proposal;
+import no.hal.quiz.QuizFactory;
 import no.hal.quiz.QuizPackage;
 import no.hal.quiz.SimpleAnswer;
+import no.hal.quiz.SimpleProposal;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,11 +43,10 @@ public abstract class SimpleAnswerImpl<T> extends OptionAnswerImpl implements Si
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public T getValue() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -63,8 +67,15 @@ public abstract class SimpleAnswerImpl<T> extends OptionAnswerImpl implements Si
 	//
 	
 	@Override
-	public Boolean accept(Object proposal) {
-		return getValue().equals(proposal);
+	public Double accept(Object proposal) {
+		return accept(getValue().equals(proposal));
+	}
+
+	@Override
+	public Proposal<?> createProposal() {
+		SimpleProposal<SimpleAnswer<?>> proposal = QuizFactory.eINSTANCE.createSimpleProposal();
+		proposal.setAnswer(this);
+		return proposal;
 	}
 
 } //SimpleAnswerImpl
