@@ -31,7 +31,7 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUb3Mm3REeWoi5Ua99_2vg"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_pKsCgW2_EeWwEvcmQE0KmA" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pKsCgm2_EeWwEvcmQE0KmA" x="297" y="335" width="88" height="88"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pKsCgm2_EeWwEvcmQE0KmA" x="291" y="360" width="88" height="88"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_pLD18G2_EeWwEvcmQE0KmA" type="2001" element="_pKHaxG2_EeWwEvcmQE0KmA">
             <children xmi:type="notation:Node" xmi:id="_pLD1822_EeWwEvcmQE0KmA" type="5002">
@@ -137,7 +137,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_z0oUUW3NEeWf0__HpNmLYw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_z0oUUm3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0oUU23NEeWf0__HpNmLYw" points="[-7, 29, -57, -267]$[40, 252, -10, -44]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0oUU23NEeWf0__HpNmLYw" points="[3, 29, -41, -292]$[37, 277, -7, -44]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7YG3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7YW3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
           </edges>
@@ -153,7 +153,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_z0o7Y23NEeWf0__HpNmLYw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_z0o7ZG3NEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0o7ZW3NEeWf0__HpNmLYw" points="[-32, 29, 165, -258]$[-169, 243, 28, -44]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0o7ZW3NEeWf0__HpNmLYw" points="[-18, 29, 185, -283]$[-175, 268, 28, -44]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7bG3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z0o7bW3NEeWf0__HpNmLYw" id="(0.5,0.5)"/>
           </edges>
@@ -169,7 +169,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkacIW3PEeWf0__HpNmLYw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_zkacIm3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkacI23PEeWf0__HpNmLYw" points="[21, 29, -200, -267]$[188, 252, -33, -44]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkacI23PEeWf0__HpNmLYw" points="[18, 29, -197, -292]$[185, 277, -30, -44]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbDNG3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbDNW3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
           </edges>
@@ -185,7 +185,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_zkbDN23PEeWf0__HpNmLYw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_zkbDOG3PEeWf0__HpNmLYw" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkbDOW3PEeWf0__HpNmLYw" points="[10, 29, -211, -267]$[74, 214, -147, -82]$[177, 271, -44, -25]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zkbDOW3PEeWf0__HpNmLYw" points="[10, 29, -205, -292]$[74, 214, -141, -107]$[171, 287, -44, -34]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbqRm3PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zkbqR23PEeWf0__HpNmLYw" id="(0.5,0.5)"/>
           </edges>
@@ -251,7 +251,7 @@
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iUT7Ym3REeWoi5Ua99_2vg" labelSize="12" showIcon="false" description="_iUT7YW3REeWoi5Ua99_2vg" hideLabelByDefault="true" workspacePath="/no.hal.ra.diagram/images/jonespi.jpg"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLGMG3IEeWf0__HpNmLYw">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLGMG3IEeWf0__HpNmLYw" name="v2015">
         <target xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
         <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -316,7 +316,7 @@
           </ownedElements>
         </ownedDiagramElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLtQG3IEeWf0__HpNmLYw">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3DLtQG3IEeWf0__HpNmLYw" name="h2015">
         <target xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
         <semanticElements xmi:type="ram:Semester" href="Department.ra#//@semesters.1"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -351,7 +351,7 @@
           </ownedElements>
         </ownedDiagramElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0i0wG3NEeWf0__HpNmLYw" sourceNode="_z0g_kG3NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0i0wG3NEeWf0__HpNmLYw" name="1.0 * teacher" sourceNode="_z0g_kG3NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.0/@allocations.0"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z0i0wW3NEeWf0__HpNmLYw" size="2">
@@ -360,7 +360,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0jb0G3NEeWf0__HpNmLYw" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z0jb0G3NEeWf0__HpNmLYw" name="1.0 * teacher" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.0"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z0jb0W3NEeWf0__HpNmLYw" size="2">
@@ -369,7 +369,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTHYG3PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTHYG3PEeWf0__HpNmLYw" name="0.21 * lecturer" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.0"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkTHYW3PEeWf0__HpNmLYw" size="2">
@@ -378,7 +378,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTucG3PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTucG3PEeWf0__HpNmLYw" name="0.3 * coordinator" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHawm2_EeWwEvcmQE0KmA">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.1"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkTucW3PEeWf0__HpNmLYw" size="2">
@@ -387,7 +387,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTuc23PEeWf0__HpNmLYw" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHaxG2_EeWwEvcmQE0KmA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkTuc23PEeWf0__HpNmLYw" name="0.48999999999999994 * lecturer" sourceNode="_zkRSMG3PEeWf0__HpNmLYw" targetNode="_pKHaxG2_EeWwEvcmQE0KmA">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.0/@courses.1/@allocations.2"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkUVgG3PEeWf0__HpNmLYw" size="2">
@@ -396,7 +396,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/no.hal.ra.diagram/description/ra.odesign#//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@edgeMappings[name='Course%20Allocation%20Person%20edge']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkUVgm3PEeWf0__HpNmLYw" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_zkNn0m3PEeWf0__HpNmLYw">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zkUVgm3PEeWf0__HpNmLYw" name="0.4 * exerciseResponsible" sourceNode="_z0hmo23NEeWf0__HpNmLYw" targetNode="_zkNn0m3PEeWf0__HpNmLYw">
         <target xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
         <semanticElements xmi:type="ram:CourseAllocation" href="Department.ra#//@semesters.1/@courses.0/@allocations.1"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zkUVg23PEeWf0__HpNmLYw" size="2">

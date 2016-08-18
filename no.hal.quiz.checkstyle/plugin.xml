@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.quiz.junit/model/quiz-junit.ecore"
+            class="no.hal.quiz.checkstyle.adapter.CheckstyleUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz-checkstyle -->
+      <package
+            uri="platform:/plugin/no.hal.quiz.checkstyle/model/quiz-checkstyle.ecore"
+            class="no.hal.quiz.checkstyle.CheckstylePackage"
+            genModel="model/quiz-checkstyle.genmodel"/>
+   </extension>
+
+</plugin>

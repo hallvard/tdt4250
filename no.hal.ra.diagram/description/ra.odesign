@@ -10,7 +10,7 @@
           </style>
         </nodeMappings>
         <edgeMappings name="Course Allocation Person edge" sourceMapping="//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@containerMappings[name='Semester%20container']/@subContainerMappings[name='Course%20Instance%20container']" targetMapping="//@ownedViewpoints[name='Diagram']/@ownedRepresentations[name='Ra%20Diagram']/@defaultLayer/@nodeMappings[name='Person%20node']" targetFinderExpression="feature:person" sourceFinderExpression="feature:course" domainClass="model.CourseAllocation" useDomainElement="true">
-          <style sizeComputationExpression="2">
+          <style lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="['' + self.factor + if self.role.name = null then '' else ' * '  + self.role.name endif /]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
