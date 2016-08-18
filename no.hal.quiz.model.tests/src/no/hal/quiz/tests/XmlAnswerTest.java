@@ -108,7 +108,6 @@ public class XmlAnswerTest extends OptionAnswerTest {
 	
 	@Override
 	public void testValidate__Object() {
-		// TODO
 	}
 	
 	@Override
@@ -119,6 +118,10 @@ public class XmlAnswerTest extends OptionAnswerTest {
 		assertFalse(xmlAnswer.accept("hallvard"));
 		assertTrue(xmlAnswer.accept(2.0d));
 		assertFalse(xmlAnswer.accept(1));
+	}
+
+	@Override
+	public void testCreateProposal() {
 	}
 
 } //XmlAnswerTest

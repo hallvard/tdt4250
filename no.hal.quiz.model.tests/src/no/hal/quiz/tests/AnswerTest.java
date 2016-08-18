@@ -4,6 +4,7 @@ package no.hal.quiz.tests;
 
 import junit.framework.TestCase;
 import no.hal.quiz.Answer;
+import no.hal.quiz.Proposal;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,12 +91,11 @@ public abstract class AnswerTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.quiz.Answer#createProposal()
-	 * @generated
+	 * @generated NOT
 	 */
 	public void testCreateProposal() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		Proposal<?> proposal = getFixture().createProposal();
+		assertSame(getFixture(), proposal.getAnswer());
 	}
 
 	//
