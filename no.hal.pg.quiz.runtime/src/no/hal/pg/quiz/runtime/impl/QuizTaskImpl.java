@@ -132,7 +132,7 @@ public class QuizTaskImpl extends TaskImpl<QuizTaskDef, Boolean> implements Quiz
 		Boolean accepted = null;
 		qaProposal.setLastProposal(proposal);
 		if (accept) {
-			accepted = qaProposal.getQa().getA().accept(proposal);
+			accepted = qaProposal.getQa().getA().accept(proposal) == 1.0;
 			qaProposal.setAcceptedProposal(proposal);
 		}
 		qaProposal.setAccepted(accepted);
