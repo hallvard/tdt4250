@@ -9,7 +9,7 @@
 
 	<properties>
 		<maven-version>3.3</maven-version>
-		<tycho-version>0.23.1</tycho-version>
+		<tycho-version>0.24.0</tycho-version>
 		<xtend-version>2.8.3</xtend-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -76,6 +76,7 @@
 		<module>../no.hal.quiz.xtext</module>
 		<module>../no.hal.quiz.xtext.tests</module>
 		<module>../no.hal.quiz.xtext.ui</module>
+		<module>../../jexercise/no.hal.emf.ui.utils</module>
 		<module>../no.hal.quiz.model.ui</module>
 		<module>../org.w3c.xhtml1</module>
 		<module>../no.hal.quiz.html</module>
