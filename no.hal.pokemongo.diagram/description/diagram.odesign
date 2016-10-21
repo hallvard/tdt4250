@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="11.0.0.201601261200">
+  <ownedViewpoints name="pokemonDiagramViewpoint" label="Pokemon Diagram Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Pokemon Diagram" label="Pokemon Diagram" domainClass="pokemongo.PokemonWorld" enablePopupBars="true">
+      <metamodel href="platform:/plugin/no.hal.pokemongo.model/model/pokemongo.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="pokemonnode" semanticCandidatesExpression="feature:pokemons" domainClass="pokemongo.Pokemon">
+          <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:self.name + ' ' + self.cp + '/' + self.hp" labelPosition="node" resizeKind="NSEW" shape="ring">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings sourceMapping="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']" targetMapping="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@subNodeMappings[name='speciesnode']" targetFinderExpression="feature:species">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="evolvesToEdge" label="EvolvesTo edge" sourceMapping="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']" targetMapping="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']" targetFinderExpression="feature:evolvesTo">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Type Container" semanticCandidatesExpression="feature:types" domainClass="pokemongo.PokemonType">
+          <subNodeMappings name="speciesnode" semanticCandidatesExpression="feature:species" domainClass="pokemongo.PokemonSpecies">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" shape="ring">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Creation" label="Creation">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create EvolvesToEdge" edgeMappings="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="evolvesTo" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Pokemon creation" label="Pokemon creation" nodeMappings="//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pokemongo.Pokemon" referenceName="pokemons"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

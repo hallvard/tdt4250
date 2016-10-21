@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:pokemongo="platform:/plugin/no.hal.pokemongo.model/model/pokemongo.ecore" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_i65wQGrHEeaO3u4jved2IQ" selectedViews="_kw0JAGrHEeaO3u4jved2IQ" version="11.0.0.201604141600">
+  <semanticResources>models/PokemonWorld1.xmi</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_kw0JAGrHEeaO3u4jved2IQ">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']"/>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_nFMmcGrHEeaO3u4jved2IQ" name="new Pokemon Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_nFMmcWrHEeaO3u4jved2IQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_nFMmcmrHEeaO3u4jved2IQ"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_nFNNgGrHEeaO3u4jved2IQ" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_nFNNgWrHEeaO3u4jved2IQ" type="Sirius" element="_nFMmcGrHEeaO3u4jved2IQ" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_OQswEGrdEeaO3u4jved2IQ" type="2002" element="_OQq64GrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_OQswE2rdEeaO3u4jved2IQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_OQswFGrdEeaO3u4jved2IQ" type="7001">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OQswFWrdEeaO3u4jved2IQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OQswFmrdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OQswEWrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OQswEmrdEeaO3u4jved2IQ" width="75"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OQswF2rdEeaO3u4jved2IQ" type="2002" element="_OQrh8GrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_OQswGmrdEeaO3u4jved2IQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_OQswG2rdEeaO3u4jved2IQ" type="7001">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OQswHGrdEeaO3u4jved2IQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OQswHWrdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OQswGGrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OQswGWrdEeaO3u4jved2IQ" x="198" width="77"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OQswHmrdEeaO3u4jved2IQ" type="2002" element="_OQrh8WrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_OQtXIGrdEeaO3u4jved2IQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_OQtXIWrdEeaO3u4jved2IQ" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_fhT8QGrdEeaO3u4jved2IQ" type="3007" element="_fhSHEGrdEeaO3u4jved2IQ">
+                <children xmi:type="notation:Node" xmi:id="_fhT8Q2rdEeaO3u4jved2IQ" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_fhT8RGrdEeaO3u4jved2IQ" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_lktCEGrdEeaO3u4jved2IQ" type="3004" element="_lksbAGrdEeaO3u4jved2IQ">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_lktCEWrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lktCEmrdEeaO3u4jved2IQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_fhT8QWrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fhT8QmrdEeaO3u4jved2IQ" x="40" y="48" width="37" height="37"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OQtXImrdEeaO3u4jved2IQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OQtXI2rdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OQswH2rdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OQswIGrdEeaO3u4jved2IQ" x="117" y="99" width="138" height="138"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u7J0EGrdEeaO3u4jved2IQ" type="2001" element="_u7HX0GrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_u7KbIGrdEeaO3u4jved2IQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u7KbIWrdEeaO3u4jved2IQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zIfXMGrdEeaO3u4jved2IQ" type="3004" element="_zIc68GrdEeaO3u4jved2IQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_zIf-QGrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIf-QWrdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_u7J0EWrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u7J0EmrdEeaO3u4jved2IQ" x="153" y="315" width="37" height="37"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u7KbImrdEeaO3u4jved2IQ" type="2001" element="_u7HX0WrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_u7KbJWrdEeaO3u4jved2IQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u7KbJmrdEeaO3u4jved2IQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zIf-QmrdEeaO3u4jved2IQ" type="3004" element="_zIdiAGrdEeaO3u4jved2IQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_zIf-Q2rdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIf-RGrdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_u7KbI2rdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u7KbJGrdEeaO3u4jved2IQ" x="279" y="298" width="37" height="36"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u7KbJ2rdEeaO3u4jved2IQ" type="2001" element="_u7HX0mrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_u7LCMGrdEeaO3u4jved2IQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u7LCMWrdEeaO3u4jved2IQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zIf-RWrdEeaO3u4jved2IQ" type="3004" element="_zIdiAWrdEeaO3u4jved2IQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_zIf-RmrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIf-R2rdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_u7KbKGrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u7KbKWrdEeaO3u4jved2IQ" x="441" y="180" width="37" height="37"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u7LCMmrdEeaO3u4jved2IQ" type="2001" element="_u7HX02rdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_u7LCNWrdEeaO3u4jved2IQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u7LCNmrdEeaO3u4jved2IQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zIf-SGrdEeaO3u4jved2IQ" type="3004" element="_zIdiAmrdEeaO3u4jved2IQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_zIf-SWrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIf-SmrdEeaO3u4jved2IQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_u7LCM2rdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u7LCNGrdEeaO3u4jved2IQ" x="405" y="261" width="37" height="38"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_4veDAJdtEeaBtbNTcv2keg" type="2001" element="_4vYjcJdtEeaBtbNTcv2keg">
+            <children xmi:type="notation:Node" xmi:id="_4veqEJdtEeaBtbNTcv2keg" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_4veqEZdtEeaBtbNTcv2keg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_4vf4MJdtEeaBtbNTcv2keg" type="3004" element="_4vYjcZdtEeaBtbNTcv2keg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_4vf4MZdtEeaBtbNTcv2keg" fontName=".Helvetica Neue DeskInterface"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4vf4MpdtEeaBtbNTcv2keg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_4veDAZdtEeaBtbNTcv2keg" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4veDApdtEeaBtbNTcv2keg" x="369" y="360" width="64" height="64"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_nFNNgmrHEeaO3u4jved2IQ"/>
+          <edges xmi:type="notation:Edge" xmi:id="_9W99YGrdEeaO3u4jved2IQ" type="4001" element="_9W8IMGrdEeaO3u4jved2IQ" source="_u7J0EGrdEeaO3u4jved2IQ" target="_fhT8QGrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_9W99ZGrdEeaO3u4jved2IQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W99ZWrdEeaO3u4jved2IQ" x="4" y="8"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W99ZmrdEeaO3u4jved2IQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W99Z2rdEeaO3u4jved2IQ" x="1" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W99aGrdEeaO3u4jved2IQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W99aWrdEeaO3u4jved2IQ" x="-2" y="-11"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_9W99YWrdEeaO3u4jved2IQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_9W99YmrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9W99Y2rdEeaO3u4jved2IQ" points="[1, -7, -16, 147]$[14, -135, -3, 19]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kcGrdEeaO3u4jved2IQ" id="(0.2702702702702703,0.2702702702702703)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kcWrdEeaO3u4jved2IQ" id="(0.4864864864864865,0.4864864864864865)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_9W-kcmrdEeaO3u4jved2IQ" type="4001" element="_9W8IM2rdEeaO3u4jved2IQ" source="_u7KbImrdEeaO3u4jved2IQ" target="_fhT8QGrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_9W-kdmrdEeaO3u4jved2IQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-kd2rdEeaO3u4jved2IQ" x="-3" y="7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W-keGrdEeaO3u4jved2IQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-keWrdEeaO3u4jved2IQ" x="10" y="-7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W-kemrdEeaO3u4jved2IQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-ke2rdEeaO3u4jved2IQ" x="9" y="-9"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_9W-kc2rdEeaO3u4jved2IQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_9W-kdGrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9W-kdWrdEeaO3u4jved2IQ" points="[-8, -7, 110, 130]$[-102, -118, 16, 19]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kfGrdEeaO3u4jved2IQ" id="(0.5135135135135135,0.2777777777777778)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kfWrdEeaO3u4jved2IQ" id="(0.4864864864864865,0.4864864864864865)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_9W-kfmrdEeaO3u4jved2IQ" type="4001" element="_9W8vQGrdEeaO3u4jved2IQ" source="_u7KbJ2rdEeaO3u4jved2IQ" target="_fhT8QGrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_9W-kgmrdEeaO3u4jved2IQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-kg2rdEeaO3u4jved2IQ" x="1" y="-9"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W-khGrdEeaO3u4jved2IQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-khWrdEeaO3u4jved2IQ" x="-1" y="12"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9W-khmrdEeaO3u4jved2IQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9W-kh2rdEeaO3u4jved2IQ" y="11"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_9W-kf2rdEeaO3u4jved2IQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_9W-kgGrdEeaO3u4jved2IQ" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9W-kgWrdEeaO3u4jved2IQ" points="[-17, -2, 262, 25]$[-260, -26, 19, 1]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kiGrdEeaO3u4jved2IQ" id="(0.4864864864864865,0.4864864864864865)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9W-kiWrdEeaO3u4jved2IQ" id="(0.4864864864864865,0.4864864864864865)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_cc2M0JdrEeaBtbNTcv2keg" type="4001" element="_ccvfIJdrEeaBtbNTcv2keg" source="_u7J0EGrdEeaO3u4jved2IQ" target="_u7KbImrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_cc7sYJdrEeaBtbNTcv2keg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cc7sYZdrEeaBtbNTcv2keg" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_cc8TcJdrEeaBtbNTcv2keg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cc8TcZdrEeaBtbNTcv2keg" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_cc86gJdrEeaBtbNTcv2keg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cc86gZdrEeaBtbNTcv2keg" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_cc2M0ZdrEeaBtbNTcv2keg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_cc2M0pdrEeaBtbNTcv2keg" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cc2M05drEeaBtbNTcv2keg" points="[153, 315, 153, 315]$[279, 298, 279, 298]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cc_WwJdrEeaBtbNTcv2keg" id="(0.4864864864864865,0.4864864864864865)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cc_WwZdrEeaBtbNTcv2keg" id="(0.4864864864864865,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_ymzREJdsEeaBtbNTcv2keg" type="4001" element="_ymtxgJdsEeaBtbNTcv2keg" source="_u7KbImrdEeaO3u4jved2IQ" target="_u7KbJ2rdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_ymzRFJdsEeaBtbNTcv2keg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ymzRFZdsEeaBtbNTcv2keg" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ymz4IJdsEeaBtbNTcv2keg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ymz4IZdsEeaBtbNTcv2keg" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ymz4IpdsEeaBtbNTcv2keg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ymz4I5dsEeaBtbNTcv2keg" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_ymzREZdsEeaBtbNTcv2keg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_ymzREpdsEeaBtbNTcv2keg" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ymzRE5dsEeaBtbNTcv2keg" points="[0, 0, -125, 107]$[125, -107, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ymz4JJdsEeaBtbNTcv2keg" id="(1.0,0.2222222222222222)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ymz4JZdsEeaBtbNTcv2keg" id="(0.0,0.5135135135135135)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_7othAJdtEeaBtbNTcv2keg" type="4001" element="_7op2oJdtEeaBtbNTcv2keg" source="_4veDAJdtEeaBtbNTcv2keg" target="_u7LCMmrdEeaO3u4jved2IQ">
+            <children xmi:type="notation:Node" xmi:id="_7othBJdtEeaBtbNTcv2keg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7othBZdtEeaBtbNTcv2keg" x="3" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7othBpdtEeaBtbNTcv2keg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7othB5dtEeaBtbNTcv2keg" x="-2" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7othCJdtEeaBtbNTcv2keg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7othCZdtEeaBtbNTcv2keg" x="-4" y="9"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_7othAZdtEeaBtbNTcv2keg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_7othApdtEeaBtbNTcv2keg" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7othA5dtEeaBtbNTcv2keg" points="[0, 0, -15, 66]$[15, -67, 0, -1]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7othCpdtEeaBtbNTcv2keg" id="(0.625,0.078125)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7othC5dtEeaBtbNTcv2keg" id="(0.5135135135135135,1.0)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_OQq64GrdEeaO3u4jved2IQ" name="water">
+        <target xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.0"/>
+        <semanticElements xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_UjDe8GrdEeaO3u4jved2IQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_OQrh8GrdEeaO3u4jved2IQ" name="fire">
+        <target xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.1"/>
+        <semanticElements xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_UjEGAGrdEeaO3u4jved2IQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_OQrh8WrdEeaO3u4jved2IQ" name="air">
+        <target xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.2"/>
+        <semanticElements xmi:type="pokemongo:PokemonType" href="models/PokemonWorld1.xmi#//@types.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_UjEGAWrdEeaO3u4jved2IQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_fhSHEGrdEeaO3u4jved2IQ" name="Bird" incomingEdges="_9W8IMGrdEeaO3u4jved2IQ _9W8IM2rdEeaO3u4jved2IQ _9W8vQGrdEeaO3u4jved2IQ" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="pokemongo:PokemonSpecies" href="models/PokemonWorld1.xmi#//@types.2/@species.0"/>
+          <semanticElements xmi:type="pokemongo:PokemonSpecies" href="models/PokemonWorld1.xmi#//@types.2/@species.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_lksbAGrdEeaO3u4jved2IQ" showIcon="false" labelPosition="node" shape="ring" color="114,159,207">
+            <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@subNodeMappings[name='speciesnode']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@containerMappings[name='Type%20Container']/@subNodeMappings[name='speciesnode']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_u7HX0GrdEeaO3u4jved2IQ" name="Pidgey 0/0" outgoingEdges="_9W8IMGrdEeaO3u4jved2IQ _ccvfIJdrEeaBtbNTcv2keg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.0"/>
+        <semanticElements xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zIc68GrdEeaO3u4jved2IQ" showIcon="false" labelPosition="node" shape="ring" color="138,226,52">
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_u7HX0WrdEeaO3u4jved2IQ" name="Pidgeotto 0/0" outgoingEdges="_9W8IM2rdEeaO3u4jved2IQ _ymtxgJdsEeaBtbNTcv2keg" incomingEdges="_ccvfIJdrEeaBtbNTcv2keg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.1"/>
+        <semanticElements xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zIdiAGrdEeaO3u4jved2IQ" showIcon="false" labelPosition="node" shape="ring" color="138,226,52">
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_u7HX0mrdEeaO3u4jved2IQ" name="Pidgeot 0/0" outgoingEdges="_9W8vQGrdEeaO3u4jved2IQ" incomingEdges="_ymtxgJdsEeaBtbNTcv2keg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.2"/>
+        <semanticElements xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zIdiAWrdEeaO3u4jved2IQ" showIcon="false" labelPosition="node" shape="ring" color="138,226,52">
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_u7HX02rdEeaO3u4jved2IQ" name="Hallvard 0/0" incomingEdges="_7op2oJdtEeaBtbNTcv2keg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.3"/>
+        <semanticElements xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.3"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zIdiAmrdEeaO3u4jved2IQ" showIcon="false" labelPosition="node" shape="ring" color="138,226,52">
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_4vYjcJdtEeaBtbNTcv2keg" name="Robin 0/0" outgoingEdges="_7op2oJdtEeaBtbNTcv2keg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.4"/>
+        <semanticElements xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.4"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_4vYjcZdtEeaBtbNTcv2keg" showIcon="false" labelPosition="node" shape="ring" color="138,226,52">
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@nodeMappings[name='pokemonnode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9W8IMGrdEeaO3u4jved2IQ" sourceNode="_u7HX0GrdEeaO3u4jved2IQ" targetNode="_fhSHEGrdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9W8IMWrdEeaO3u4jved2IQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9W8IMmrdEeaO3u4jved2IQ"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9W8IM2rdEeaO3u4jved2IQ" sourceNode="_u7HX0WrdEeaO3u4jved2IQ" targetNode="_fhSHEGrdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9W8INGrdEeaO3u4jved2IQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9W8INWrdEeaO3u4jved2IQ"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9W8vQGrdEeaO3u4jved2IQ" sourceNode="_u7HX0mrdEeaO3u4jved2IQ" targetNode="_fhSHEGrdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.2"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9W8vQWrdEeaO3u4jved2IQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9W8vQmrdEeaO3u4jved2IQ"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ccvfIJdrEeaBtbNTcv2keg" sourceNode="_u7HX0GrdEeaO3u4jved2IQ" targetNode="_u7HX0WrdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ccwGMJdrEeaBtbNTcv2keg" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ccwGMZdrEeaBtbNTcv2keg"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ymtxgJdsEeaBtbNTcv2keg" sourceNode="_u7HX0WrdEeaO3u4jved2IQ" targetNode="_u7HX0mrdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ymtxgZdsEeaBtbNTcv2keg" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ymtxgpdsEeaBtbNTcv2keg"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7op2oJdtEeaBtbNTcv2keg" sourceNode="_4vYjcJdtEeaBtbNTcv2keg" targetNode="_u7HX02rdEeaO3u4jved2IQ">
+        <target xmi:type="pokemongo:Pokemon" href="models/PokemonWorld1.xmi#//@pokemons.4"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7op2oZdtEeaBtbNTcv2keg" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7op2opdtEeaBtbNTcv2keg"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer/@edgeMappings[name='evolvesToEdge']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_nFMmc2rHEeaO3u4jved2IQ"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/no.hal.pokemongo.diagram/description/diagram.odesign#//@ownedViewpoints[name='pokemonDiagramViewpoint']/@ownedRepresentations[name='Pokemon%20Diagram']/@defaultLayer"/>
+      <target xmi:type="pokemongo:PokemonWorld" href="models/PokemonWorld1.xmi#/"/>
+    </ownedRepresentations>
+  </ownedViews>
+</viewpoint:DAnalysis>

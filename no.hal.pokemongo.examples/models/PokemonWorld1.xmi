@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pokemongo:PokemonWorld xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pokemongo="platform:/plugin/no.hal.pokemongo.model/model/pokemongo.ecore">
+  <types name="water"/>
+  <types name="fire"/>
+  <types name="air">
+    <species name="Bird"/>
+  </types>
+  <pokemons species="//@types.2/@species.0" evolvesTo="//@pokemons.1" name="Pidgey"/>
+  <pokemons species="//@types.2/@species.0" evolvesTo="//@pokemons.2" name="Pidgeotto"/>
+  <pokemons species="//@types.2/@species.0" name="Pidgeot"/>
+  <pokemons name="Hallvard"/>
+  <pokemons evolvesTo="//@pokemons.3" name="Robin"/>
+</pokemongo:PokemonWorld>

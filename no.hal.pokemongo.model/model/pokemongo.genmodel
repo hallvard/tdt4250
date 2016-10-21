@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.pokemongo.model/src" modelPluginID="no.hal.pokemongo.model"
+    modelName="Pokemongo" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>pokemongo.ecore</foreignModel>
+  <genPackages prefix="Pokemongo" basePackage="no.hal" disposableProviderFactory="true"
+      ecorePackage="pokemongo.ecore#/">
+    <genClasses ecoreClass="pokemongo.ecore#//PokemonType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pokemongo.ecore#//PokemonType/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//PokemonType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="pokemongo.ecore#//PokemonSpecies">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pokemongo.ecore#//PokemonSpecies/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//PokemonSpecies/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//PokemonSpecies/imageUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//PokemonSpecies/cp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//PokemonSpecies/hp"/>
+    </genClasses>
+    <genClasses ecoreClass="pokemongo.ecore#//Pokemon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pokemongo.ecore#//Pokemon/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//Pokemon/cp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pokemongo.ecore#//Pokemon/hp"/>
+    </genClasses>
+    <genClasses ecoreClass="pokemongo.ecore#//PokemonWorld">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pokemongo.ecore#//PokemonWorld/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pokemongo.ecore#//PokemonWorld/pokemons"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

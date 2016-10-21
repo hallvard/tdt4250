@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: no.hal.pokemongo.diagram
+Bundle-SymbolicName: no.hal.pokemongo.diagram;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: no.hal.pokemongo.diagram.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.sirius,
+ org.eclipse.sirius.common.acceleo.aql,
+ no.hal.pokemongo.model;bundle-version="0.1.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
