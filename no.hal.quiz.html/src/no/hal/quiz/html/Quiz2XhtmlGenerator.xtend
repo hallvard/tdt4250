@@ -27,7 +27,6 @@ import no.hal.quiz.XmlContents
 import no.hal.quiz.XmlPIAnswerElement
 import no.hal.quiz.XmlQuestion
 import no.hal.quiz.XmlTagElement
-import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.xmi.XMLResource
@@ -37,38 +36,41 @@ import org.w3c.xhtml1.Xhtml1Factory
 import org.w3c.xhtml1.util.Xhtml1ResourceFactoryImpl
 import no.hal.quiz.util.Util
 
-/**
- * Generates code from your model files on save.
- * 
- * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
- */
+
 class Quiz2XhtmlGenerator {
 
-	private Xhtml1ResourceFactoryImpl xhtml1ResourceFactoryImpl = new Xhtml1ResourceFactoryImpl
+	Xhtml1ResourceFactoryImpl xhtml1ResourceFactoryImpl = new Xhtml1ResourceFactoryImpl
 
-	def String generateQuizHtmlString(Quiz quiz) {
+	def String generateHtml(Quiz quiz) {
 		val encoding = "UTF-8"
-		val html = generateQuizHtmlType(quiz);
+		val html = generateHtmlType(quiz);
 //			val root = XMLNamespaceFactory.eINSTANCE.createXMLNamespaceDocumentRoot += html
-		val fileName = (if (quiz.name != null) quiz.name.replace('.', '/') else "quiz")+ '.html'
+		val fileName = (if (quiz.name !== null) quiz.name.replace('.', '/') else "quiz")+ '.html'
 		val resource = xhtml1ResourceFactoryImpl.createResource(URI.createFileURI(fileName)) as XMLResource
 		resource.getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING, encoding);
 		resource.contents += html
 		val outputStream = new ByteArrayOutputStream(4096)
 		resource.save(outputStream, null)
 		val originalOutput = outputStream.toString(encoding)
-		val cleanedOutput = originalOutput
-			.replace("<xhtml:", "<")
-			.replace("</xhtml:", "</")
-			.replace("<html_._type xmlns:xhtml=", "<html xmlns=")
-		cleanedOutput
+		originalOutput.cleanHtml
 	}
+
+	def cleanHtml(String html) {	
+		html
+			.replace("xhtml:", "")
+			.replace("html_._type", "html")
+			.replace("xmlns:xhtml=", "xmlns=")
+			.replace("&lt;", "<")
+			.replace("&gt;", ">")
+			.replace("&amp;", "&")
+			.replace("&quot;", "'")
+	}
+
+	extension Xhtml1Factory xhtml1Factory = Xhtml1Factory.eINSTANCE
 	
-	extension private Xhtml1Factory xhtml1Factory = Xhtml1Factory.eINSTANCE
+	extension XhtmlUtil xhtmlUtil = new XhtmlUtil
 	
-	extension private XhtmlUtil xhtmlUtil = new XhtmlUtil
-	
-	def HtmlType generateQuizHtmlType(Quiz quiz) {
+	def HtmlType generateHtmlType(Quiz quiz) {
 		val html = createHtmlType => [
 			head = createHeadType => [
 				title = createTitleType => [
@@ -158,7 +160,7 @@ function validatedInput(result) {
 			],
 			createDivType,
 			createDivType += createButtonType => [
-				onclick = '''check«quizPart.name.toFirstUpper»()'>'''
+				onclick = '''check«quizPart.name.toFirstUpper»()'''
 				it += '''Check «quizPart.title»'''
 			]
 		]
@@ -247,12 +249,12 @@ function check«quizPart.name.toFirstUpper»() {
 		owner += createInputType1 => [
 			it.type = inputType
 			it.name = name
-			if (value != null) {
+			if (value !== null) {
 				it.value = value
 			}
 			it.id = id
 		]
-		if (value != null) {
+		if (value !== null) {
 			owner += createLabelType => [
 				it.^for = id
 				it += value
@@ -286,7 +288,7 @@ function check«quizPart.name.toFirstUpper»() {
 		for (attribute : xml.startTag.attributes) {
 			tag += attribute.name -> attribute.value
 		}
-		if (xml.endTag != null) {
+		if (xml.endTag !== null) {
 			tag += xml.pre.substring(1, xml.pre.length - 1)
 			for (content : xml.contents) {
 				content.generateXml(piAnswerHandler)
@@ -297,7 +299,7 @@ function check«quizPart.name.toFirstUpper»() {
 	}
 
 	def dispatch EObject generateXml(XmlContents xml, (XmlPIAnswerElement) => EObject piAnswerHandler) {
-		if (xml.element != null) {
+		if (xml.element !== null) {
 			val tag = xml.element.generateXml(piAnswerHandler)
 			tag
 		}
@@ -453,7 +455,7 @@ function check«quizPart.name.toFirstUpper»() {
 
 	def String name(Answer answer) {
 		val name = name(answer.ancestor(QA))
-		if (answer.ancestor(XmlPIAnswerElement) != null)
+		if (answer.ancestor(XmlPIAnswerElement) !== null)
 			name + Util.relativeName(answer, QA)
 		else
 			name
@@ -461,7 +463,7 @@ function check«quizPart.name.toFirstUpper»() {
 		
 	def static <T> T ancestor(EObject eObject, Class<T> c) {
    		var e = eObject
-		while (e != null) {
+		while (e !== null) {
 			if (c.isInstance(e)) {
 				return e as T
 			}

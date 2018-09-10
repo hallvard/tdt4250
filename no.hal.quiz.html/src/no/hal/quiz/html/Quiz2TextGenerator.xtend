@@ -25,16 +25,10 @@ import no.hal.quiz.XmlContents
 import no.hal.quiz.XmlPIAnswerElement
 import no.hal.quiz.XmlQuestion
 import no.hal.quiz.XmlTagElement
-import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import no.hal.quiz.AbstractQuizPart
 import no.hal.quiz.util.Util
 
-/**
- * Generates code from your model files on save.
- * 
- * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
- */
 class Quiz2TextGenerator {
 
 	def String generateHtml(Quiz quiz) {
@@ -243,7 +237,7 @@ function check«quizPart.name.toFirstUpper»() {
 		for (attribute : xml.startTag.attributes) {
 			stringBuilder << ' ' << attribute.name << ' "' + attribute.value << '"'
 		}
-		if (xml.endTag != null) {
+		if (xml.endTag !== null) {
 			stringBuilder << '>' << xml.pre.substring(1, xml.pre.length - 1)
 			for (content : xml.contents) {
 				content.generateXml(stringBuilder, piAnswerHandler)
@@ -256,7 +250,7 @@ function check«quizPart.name.toFirstUpper»() {
 	}
 
 	def dispatch void generateXml(XmlContents xml, StringBuilder stringBuilder, (XmlPIAnswerElement, StringBuilder) => void piAnswerHandler) {
-		if (xml.element != null) {
+		if (xml.element !== null) {
 			xml.element.generateXml(stringBuilder, piAnswerHandler)
 			stringBuilder << xml.post.substring(1, xml.post.length - 1)
 		}
@@ -288,7 +282,7 @@ function check«quizPart.name.toFirstUpper»() {
 	def void generateOptionsElement(OptionsAnswer answer, StringBuilder stringBuilder, String outerTag, String innerTag, String innerAttr, String... extraOptions) {
 		val name = name(answer)
 		stringBuilder << '''	<div id="«name»">''' << '\n'
-		if (outerTag != null) {
+		if (outerTag !== null) {
 			stringBuilder << '''	<«outerTag»>''' << '\n'
 		}
 		for (option : extraOptions) {
@@ -299,7 +293,7 @@ function check«quizPart.name.toFirstUpper»() {
 			generate(option, stringBuilder)
 			stringBuilder << '''	</«innerTag»>''' << '<br/>\n'
 		}
-		if (outerTag != null) {
+		if (outerTag !== null) {
 			stringBuilder << '''	</«outerTag»>''' << '\n'
 		}
 		stringBuilder << '''	</div>'''
@@ -407,7 +401,7 @@ function check«quizPart.name.toFirstUpper»() {
 
 	def String name(Answer answer) {
 		val name = name(answer.ancestor(QA))
-		if (answer.ancestor(XmlPIAnswerElement) != null)
+		if (answer.ancestor(XmlPIAnswerElement) !== null)
 			name + Util.relativeName(answer, QA)
 		else
 			name
@@ -415,7 +409,7 @@ function check«quizPart.name.toFirstUpper»() {
 		
 	def static <T> T ancestor(EObject eObject, Class<T> c) {
    		var e = eObject
-		while (e != null) {
+		while (e !== null) {
 			if (c.isInstance(e)) {
 				return e as T
 			}

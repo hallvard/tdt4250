@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz:Quiz xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:quiz="platform:/plugin/no.hal.quiz.model/model/quiz.ecore"
+    xsi:schemaLocation="platform:/plugin/no.hal.quiz.model/model/quiz.ecore ../../../../../../no.hal.quiz.model/model/quiz.ecore">
+  <parts xsi:type="quiz:QuizPart"
+      title="The one and only part">
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="What is the course code for this semester's best course?"/>
+      <a xsi:type="quiz:StringAnswer"
+          value="TDT4250"/>
+    </questions>
+    <questions
+        xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion"
+          question="Do you like this course?"/>
+      <a xsi:type="quiz:SingleOptionsAnswer">
+        <options
+            correct="true">
+          <option
+              xsi:type="quiz:StringAnswer"
+              value="Yes"/>
+        </options>
+        <options>
+          <option
+              xsi:type="quiz:StringAnswer"
+              value="No"/>
+        </options>
+      </a>
+    </questions>
+  </parts>
+</quiz:Quiz>

@@ -27,7 +27,7 @@ class XhtmlUtil {
 
 	def create(String tagName) {
 		val tag = tag(tagName)
-		if (tag != null) {
+		if (tag !== null) {
 			create(tag)
 		}
 	}
@@ -38,7 +38,7 @@ class XhtmlUtil {
 
 	def operator_add(EObject eObject, Pair<String, String> attr) {
 		val feature = attr(eObject, attr.key)
-		if (feature != null) {
+		if (feature !== null) {
 			val featureType = feature.EType as EDataType
 			val value = featureType.EPackage.EFactoryInstance.createFromString(featureType, attr.value)
 			if (feature.many) {
@@ -59,7 +59,7 @@ class XhtmlUtil {
 
 	def operator_add(EObject featureMapOwner, EObject eObject) {
 		val featureMap = featureMap(featureMapOwner)
-		if (featureMap != null) {
+		if (featureMap !== null) {
 			for (feature : featureMapOwner.eClass.EAllStructuralFeatures) {
 				if (feature.EType.isInstance(eObject)) {
 					featureMap.add(feature, eObject)
@@ -79,19 +79,20 @@ class XhtmlUtil {
 	}
 
 	def operator_add(FeatureMap featureMap, CharSequence text) {
-		if (featureMap != null) {
-			FeatureMapUtil.addText(featureMap, if (text != null) text.toString else "")
+		if (featureMap !== null) {
+			FeatureMapUtil.addText(featureMap, if (text !== null) text.toString else "")
 		}
 		featureMap
 	}
 
 	def operator_add(EObject featureMapOwner, CharSequence text) {
 		val featureMap = featureMap(featureMapOwner)
-		if (featureMap != null) {
+		if (featureMap !== null) {
 			featureMap += text
 		}
 		featureMapOwner
 	}
+
 //	def operator_add(Block block, EObject eObject) {
 //		add(block, block.group, eObject)
 //	}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title></title>
+  </head>
+  <body>
+    <hr/>
+    <h2>The one and only part</h2>
+    <form>
+      <div><div>What is the course code for this semester's best course?</div><div><input id="null__q_0" name="null__q_0" type="text"/></div><div>Do you like this course?</div><div id="null__q_1"><input id="null__q_1" name="null__q_1" type="radio" value="Yes"/><label for="null__q_1">Yes</label><br/><input id="null__q_1" name="null__q_1" type="radio" value="No"/><label for="null__q_1">No</label><br/></div></div>
+    </form>
+    <div/>
+    <div><button onclick="check()">Check The one and only part</button></div>
+    <script type="text/javascript">function isArray(o) {
+	return o.length !== undefined;
+}
+
+function getInputElement(name) {
+	return document.getElementById(name);
+}
+
+function hasModifier(s, mod) {
+	return s.indexOf(mod) >= 0;
+}
+
+function checkInputEquals(input, prop, value, modifiers) {
+	if (typeof input === 'string') {
+		input = getInputElement(input);
+	}
+	var inputValue = input[prop];
+	if (hasModifier(modifiers, '_')) {
+		inputValue = inputValue.toLowerCase();
+	}
+	var matches = (inputValue == value);
+	if (hasModifier(modifiers, '~')) {
+		var regexpObject = new RegExp(value, '');
+		matches = regexpObject.test(inputValue);
+	}
+	return [input, matches];
+}
+
+function validatedInput(result) {
+	var input = result[0];
+	if (isArray(input)) {
+		for (var i = 0; i < result.length; i++) {
+			validatedInput(result[i]);
+		}
+		return;
+	}
+	var valid = true;
+	for (var i = 1; i < result.length; i++) {
+		if (! result[i]) {
+			valid = false;
+		}
+	}
+	var color = 'YellowGreen';
+	if (! valid) {
+		color = 'Red';
+	}
+	input.style.backgroundColor = color;
+}
+function check() {
+	validatedInput(checkNull__q_0());
+	validatedInput(checkNull__q_1());
+}
+function checkNull__q_0() {
+	return checkInputEquals('null__q_0', 'value', 'TDT4250', '');
+}
+function checkNull__q_1() {
+	var input = getInputElement('null__q_1');
+	var inputs = input.getElementsByTagName('input')
+	return [input, inputs[0].checked === true, inputs[1].checked === false];
+}
+</script>
+  </body>
+</html>
+
