@@ -5,6 +5,9 @@ package no.hal.quiz.html
 
 import com.google.common.collect.Iterators
 import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.PrintStream
+import java.util.Arrays
 import no.hal.quiz.AbstractQA
 import no.hal.quiz.Answer
 import no.hal.quiz.BooleanAnswer
@@ -15,6 +18,7 @@ import no.hal.quiz.OptionsAnswer
 import no.hal.quiz.QA
 import no.hal.quiz.QARef
 import no.hal.quiz.Quiz
+import no.hal.quiz.QuizPackage
 import no.hal.quiz.QuizPart
 import no.hal.quiz.QuizPartRef
 import no.hal.quiz.SimpleAnswer
@@ -27,15 +31,16 @@ import no.hal.quiz.XmlContents
 import no.hal.quiz.XmlPIAnswerElement
 import no.hal.quiz.XmlQuestion
 import no.hal.quiz.XmlTagElement
+import no.hal.quiz.util.QuizResourceFactoryImpl
+import no.hal.quiz.util.Util
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.XMLResource
 import org.w3c.xhtml1.HtmlType
 import org.w3c.xhtml1.InputType
 import org.w3c.xhtml1.Xhtml1Factory
 import org.w3c.xhtml1.util.Xhtml1ResourceFactoryImpl
-import no.hal.quiz.util.Util
-
 
 class Quiz2XhtmlGenerator {
 
@@ -471,4 +476,41 @@ function check«quizPart.name.toFirstUpper»() {
    		}
    		null
    	}
+
+	//
+   	
+	def static void main(String[] args) throws IOException {
+		val argsAsList = Arrays.asList(args)
+		val quiz = if (argsAsList.size > 0) getQuiz(argsAsList.get(0)) else getSampleQuiz();
+		val html = new Quiz2XhtmlGenerator().generateHtml(quiz);
+		if (args.length > 1) {
+			val target = URI.createURI(argsAsList.get(1));
+			val ps = new PrintStream(quiz.eResource().getResourceSet().getURIConverter().createOutputStream(target))
+			ps.print(html);
+		} else {
+			System.out.println(html);
+		}
+	}
+
+	def static Quiz getQuiz(String uriString) throws IOException {
+		val resSet = new ResourceSetImpl();
+		resSet.getPackageRegistry().put(QuizPackage.eNS_URI, QuizPackage.eINSTANCE);
+		resSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("quiz", new QuizResourceFactoryImpl());
+		val resource = resSet.getResource(URI.createURI(uriString), true);
+		for (EObject eObject : resource.getContents()) {
+			if (eObject instanceof Quiz) {
+				return eObject as Quiz;
+			}
+		}
+		return null;
+	}
+
+	def static Quiz getSampleQuiz() {
+		try {
+			return getQuiz(Quiz2XhtmlGeneratorMain.getResource("SampleQuiz.quiz").toString());
+		} catch (IOException e) {
+			System.err.println(e);
+			return null;
+		}
+	}
 }

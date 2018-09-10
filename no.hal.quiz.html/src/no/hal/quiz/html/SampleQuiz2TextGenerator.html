@@ -1,20 +1,18 @@
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8"/>
-</head>
-<body><hr/><h2>The one and only part</h2>
-<form id='null'>
-	<p>What is the course code for this semester's best course?</p>
-	<input type='text' id='null__q_0' name='null__q_0'/>
-	<p>Do you like this course?</p>
-	<div id="null__q_1">
-	<input type='radio' name='null__q_1'>Yes	</input><br/>
-	<input type='radio' name='null__q_1'>No	</input><br/>
-	</div></form>
-<p/><button onclick='check()'>Check The one and only part</button>
-<script type="text/javascript">
-function isArray(o) {
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title></title>
+  </head>
+  <body>
+    <hr/>
+    <h2>The one and only part</h2>
+    <form>
+      <div><div>What is the course code for this semester's best course?</div><div><input id="null__q_0" name="null__q_0" type="text"/></div><div>Do you like this course?</div><div id="null__q_1"><input id="null__q_1" name="null__q_1" type="radio" value="Yes"/><label for="null__q_1">Yes</label><br/><input id="null__q_1" name="null__q_1" type="radio" value="No"/><label for="null__q_1">No</label><br/></div></div>
+    </form>
+    <div/>
+    <div><button onclick="check()">Check The one and only part</button></div>
+    <script type="text/javascript">function isArray(o) {
 	return o.length !== undefined;
 }
 
@@ -36,7 +34,7 @@ function checkInputEquals(input, prop, value, modifiers) {
 	}
 	var matches = (inputValue == value);
 	if (hasModifier(modifiers, '~')) {
-		var regexpObject = new RegExp(value, "");
+		var regexpObject = new RegExp(value, '');
 		matches = regexpObject.test(inputValue);
 	}
 	return [input, matches];
@@ -56,9 +54,9 @@ function validatedInput(result) {
 			valid = false;
 		}
 	}
-	var color = "YellowGreen";
+	var color = 'YellowGreen';
 	if (! valid) {
-		color = "Red";
+		color = 'Red';
 	}
 	input.style.backgroundColor = color;
 }
@@ -71,8 +69,10 @@ function checkNull__q_0() {
 }
 function checkNull__q_1() {
 	var input = getInputElement('null__q_1');
-	var inputs = input.getElementsByTagName("input")
+	var inputs = input.getElementsByTagName('input')
 	return [input, inputs[0].checked === true, inputs[1].checked === false];
 }
 </script>
-</body></html>
+  </body>
+</html>
+

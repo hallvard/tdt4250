@@ -28,6 +28,10 @@ import no.hal.quiz.XmlTagElement
 import org.eclipse.emf.ecore.EObject
 import no.hal.quiz.AbstractQuizPart
 import no.hal.quiz.util.Util
+import java.io.PrintStream
+import org.eclipse.emf.common.util.URI
+import java.io.IOException
+import java.util.Arrays
 
 class Quiz2TextGenerator {
 
@@ -418,4 +422,18 @@ function check«quizPart.name.toFirstUpper»() {
    		null
    	}
 
+	//
+	
+	def static void main(String[] args) throws IOException {
+		val argsAsList = Arrays.asList(args)
+		val quiz = if (argsAsList.size > 0) Quiz2XhtmlGenerator.getQuiz(argsAsList.get(0)) else Quiz2XhtmlGenerator.getSampleQuiz();
+		val html = new Quiz2XhtmlGenerator().generateHtml(quiz);
+		if (args.length > 1) {
+			val target = URI.createURI(argsAsList.get(1));
+			val ps = new PrintStream(quiz.eResource().getResourceSet().getURIConverter().createOutputStream(target))
+			ps.print(html);
+		} else {
+			System.out.println(html);
+		}
+	}
 }
